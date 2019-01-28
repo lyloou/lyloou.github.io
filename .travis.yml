@@ -13,6 +13,7 @@ before_install:
   -in ./.travis/id_rsa.enc -out id_rsa -d
 - git config --global user.name "lyloou"
 - git config --global user.email "lyloou@qq.com"
+- git remote set-url origin git@github.com:lyloou/lyloou.github.io.git
 - curl -o- -L https://yarnpkg.com/install.sh | bash
 - export PATH=$HOME/.yarn/bin:$PATH
 - npm install -g hexo-cli
