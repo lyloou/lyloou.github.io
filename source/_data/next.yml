@@ -443,7 +443,7 @@ related_posts:
 # Dependencies: https://github.com/hexojs/hexo-deployer-git
 post_edit:
   enable: true
-  url: https://github.com/lyloou/lyloou.github.io/tree/source/ # Link for view source.
+  url: https://github.com/lyloou/lyloou.github.io/edit/source/ # Link for view source.
   #url: https://github.com/user-name/repo-name/edit/branch-name/subdirectory-name # Link for fork & edit.
 
 
