@@ -36,25 +36,24 @@ The command "./run_d.sh" exited with 126.
 ```
 
 ### Permission denied (publickey)
-Q: fatal: Could not read from remote repository.
-Please make sure you have the correct access rights
+Q:
+> fatal: Could not read from remote repository. 
+> Please make sure you have the correct access rights
 
 A:
 > If you want to push via ssh then travis needs to have access to the private part of the ssh key you generated. What you want to do is use the travis cli gem to encrypt the private key, add it to your repo and during the deploy stage decrypt it again and use it. Here's a [step-by-step](https://github.com/dwyl/learn-travis/blob/master/encrypted-ssh-keys-deployment.md)
 
 为了能将travis构建后的文件推送到github，需要：
-生成ssh密钥
-在github设置中配置
-对密钥加密
 ```sh
+＃ 以下操作匀在客户端
 sudo apt install ruby
 sudo apt install ruby-dev
 sudo gem install travis
 
-# 1. 在客户端机生成ssh密钥
+# 1. 生成ssh密钥
 ssh-keygen -C "lyloou@qq.com" -t rsa -b 2048 -f ~/.ssh/hexo 
 # 2. 將公鑰內容貼到Github上項目的 「Settings -> Deploy keys -> Add deploy key」
-# 3. 登录travis并生成 ~/.travis/config.yml 文件
+# 3. 登录travis（会自动生成 ~/.travis/config.yml 文件）
 travis login --auto
 # 4. 在你的项目中运行以下命令，加密刚才生成的私钥，生成 hexo.enc 文件。（注意提示内容，不要反密钥给提交到仓库了）
 travis encrypt-file ~/.ssh/hexo --add
@@ -67,21 +66,12 @@ travis encrypt-file ~/.ssh/hexo --add
 - 將解密命令自動寫入到本地項目的 .travis.yml 裏
 ```
 
-接着配置 `ssh client`，在项目根目录下添加文件`ssh_config`：
-```sh
-Host github.com
-  User git
-  StrictHostKeyChecking no
-  IdentityFile ~/.ssh/id_rsa
-  IdentitiesOnly yes
-```
-
-`ssh client`的配置也可通过 ssh_agent 的方式配置：
+接着通过 ssh_agent 的方式配置`ssh client`：
 ```yml
 before_install:
   - openssl aes-256-cbc -K $encrypted_f9a8a4d68f34_key -iv $encrypted_f9a8a4d68f34_iv
     -in wiki.enc -out ~/.ssh/id_rsa -d
-  - chmod 600 ~/.ssh/id_rsa # 這兩行使用ssh-agent
+  - chmod 600 ~/.ssh/id_rsa
   - eval $(ssh-agent)
   - ssh-add ~/.ssh/id_rsa
 ```
