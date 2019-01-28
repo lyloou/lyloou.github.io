@@ -12,3 +12,4 @@ public/
 build.gradle
 local.properties
 .gradle
+package-lock.json
