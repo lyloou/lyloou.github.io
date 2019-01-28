@@ -10,7 +10,11 @@ cache:
   - node_modules
 before_install:
 - openssl aes-256-cbc -K $encrypted_a685f241ac15_key -iv $encrypted_a685f241ac15_iv
-  -in hexo.enc -out ~\/.ssh/hexo -d
+  -in hexo.enc -out ~\/.ssh/id_rsa -d
+- chmod 600 ~/.ssh/id_rsa
+- eval $(ssh-agent)
+- ssh-add ~/.ssh/id_rsa
+- cp .travis/ssh_config ~/.ssh/config
 - git config --global user.name "lyloou"
 - git config --global user.email "lyloou@qq.com"
 - git remote set-url origin git@github.com:lyloou/lyloou.github.io.git
