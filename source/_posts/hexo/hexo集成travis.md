@@ -6,7 +6,7 @@ tags:
 ---
 
 ## 自动化前VS后
-- 没有travis的流程
+### 没有travis的流程
 每次写完文章后，要手动运行以下命令部署
 ```sh
 hexo clean --config source/_data/next.yml &&
@@ -14,7 +14,7 @@ hexo g --config source/_data/next.yml &&
 hexo d --config source/_data/next.yml
 ```
 
-- 基于travis的自动部署流程
+### 基于travis的自动部署流程
 有了travis，写好文章后，只需推送代码到GitHub仓库。其他的部署操作都由travis自动完成：
 1. 提交并推送代码到GitHub；
 2. Travis Ci 监听到 GitHub 仓库发生变化，开始依据 `.travis.yml` 脚本构建项目；
@@ -74,6 +74,53 @@ Host github.com
   StrictHostKeyChecking no
   IdentityFile ~/.ssh/id_rsa
   IdentitiesOnly yes
+```
+
+`ssh client`的配置也可通过 ssh_agent 的方式配置：
+```yml
+before_install:
+  - openssl aes-256-cbc -K $encrypted_f9a8a4d68f34_key -iv $encrypted_f9a8a4d68f34_iv
+    -in wiki.enc -out ~/.ssh/id_rsa -d
+  - chmod 600 ~/.ssh/id_rsa # 這兩行使用ssh-agent
+  - eval $(ssh-agent)
+  - ssh-add ~/.ssh/id_rsa
+```
+
+```yml
+language: node_js
+node_js: stable
+branches:
+  only:
+    - source
+cache:
+  apt: true
+  yarn: true
+  directories:
+    - node_modules
+before_install:
+  - openssl aes-256-cbc -K $encrypted_a685f241ac15_key -iv $encrypted_a685f241ac15_iv
+    -in hexo.enc -out ~/.ssh/id_rsa -d
+  - chmod 600 ~/.ssh/id_rsa
+  - eval $(ssh-agent)
+  - ssh-add ~/.ssh/id_rsa
+  - cp ssh_config ~/.ssh/config
+  - export TZ='Asia/Shanghai'
+  - git config --global user.name "$USER_NAME"
+  - git config --global user.email "$USER_EMAIL"
+  - curl -o- -L https://yarnpkg.com/install.sh | bash
+  - export PATH=$HOME/.yarn/bin:$PATH
+  - npm install -g hexo-cli
+  - chmod +x ./run_d.sh
+install:
+  - yarn
+script:
+  - ./run_d.sh
+after_success:
+  - echo "oked!"
+env:
+  global:
+    - USER_NAME: lyloou
+    - USER_EMAIL: lyloou@qq.com
 ```
 ## 其他
 在GitHub的`Readme.md`中显示构建结果
