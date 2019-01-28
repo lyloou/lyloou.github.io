@@ -2,32 +2,34 @@ language: node_js
 node_js: stable
 branches:
   only:
-  - source
+    - source
 cache:
   apt: true
   yarn: true
   directories:
-  - node_modules
+    - node_modules
 before_install:
-- openssl aes-256-cbc -K $encrypted_a685f241ac15_key -iv $encrypted_a685f241ac15_iv
-  -in hexo.enc -out ~/.ssh/id_rsa -d
-- chmod 600 ~/.ssh/id_rsa
-- eval $(ssh-agent)
-- ssh-add ~/.ssh/id_rsa
-- cp ssh_config ~/.ssh/config
-- git config --global user.name "lyloou"
-- git config --global user.email "lyloou@qq.com"
-- git remote set-url origin git@github.com:lyloou/lyloou.github.io.git
-- curl -o- -L https://yarnpkg.com/install.sh | bash
-- export PATH=$HOME/.yarn/bin:$PATH
-- npm install -g hexo-cli
-- chmod +x ./run_d.sh
+  - openssl aes-256-cbc -K $encrypted_a685f241ac15_key -iv $encrypted_a685f241ac15_iv
+    -in hexo.enc -out ~/.ssh/id_rsa -d
+  - chmod 600 ~/.ssh/id_rsa
+  - eval $(ssh-agent)
+  - ssh-add ~/.ssh/id_rsa
+  - cp ssh_config ~/.ssh/config
+  - git config --global user.name "$USER_NAME"
+  - git config --global user.email "$USER_EMAIL"
+  - git remote set-url origin $GH_REF
+  - curl -o- -L https://yarnpkg.com/install.sh | bash
+  - export PATH=$HOME/.yarn/bin:$PATH
+  - npm install -g hexo-cli
+  - chmod +x ./run_d.sh
 install:
-- yarn
+  - yarn
 script:
-- "./run_d.sh"
+  - ./run_d.sh
 after_success:
-- echo "oked!"
+  - echo "oked!"
 env:
   global:
-  - GH_REF: github.com/lyloou/lyloou.github.io.git
+    - GH_REF: git@github.com:lyloou/lyloou.github.io.git
+    - USER_NAME: lyloou
+    - USER_EMAIL: lyloou@qq.com
