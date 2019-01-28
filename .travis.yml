@@ -9,8 +9,8 @@ cache:
   directories:
   - node_modules
 before_install:
-- openssl aes-256-cbc -K $encrypted_9494c29a96ee_key -iv $encrypted_9494c29a96ee_iv
-  -in ./.travis/id_rsa.enc -out id_rsa -d
+- openssl aes-256-cbc -K $encrypted_a685f241ac15_key -iv $encrypted_a685f241ac15_iv
+  -in hexo.enc -out ~\/.ssh/hexo -d
 - git config --global user.name "lyloou"
 - git config --global user.email "lyloou@qq.com"
 - git remote set-url origin git@github.com:lyloou/lyloou.github.io.git
@@ -27,7 +27,7 @@ after_success:
 - git init
 - git add .
 - git commit -m "Travis CI Auto Builder"
-- git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master
+- git push --force --quiet master:master
 env:
   global:
   - GH_REF: github.com/lyloou/lyloou.github.io.git
