@@ -27,11 +27,7 @@ install:
 script:
 - "./run_d.sh"
 after_success:
-- cd ./public
-- git init
-- git add .
-- git commit -m "Travis CI Auto Builder"
-- git push --force --quiet master:master
+- echo "oked!"
 env:
   global:
   - GH_REF: github.com/lyloou/lyloou.github.io.git
