@@ -10,7 +10,7 @@ cache:
   - node_modules
 before_install:
 - openssl aes-256-cbc -K $encrypted_9494c29a96ee_key -iv $encrypted_9494c29a96ee_iv
-  -in id_rsa.enc -out id_rsa -d
+  -in ./travis/id_rsa.enc -out id_rsa -d
 - git config --global user.name "lyloou"
 - git config --global user.email "lyloou@qq.com"
 - curl -o- -L https://yarnpkg.com/install.sh | bash
