@@ -1,3 +1,31 @@
+language: node_js # 设置语言
+node_js: stable # 设置相应版本
 branches:
   only:
-    - source
+    - source #只监测hexo分支，hexo是我的分支的名称，可根据自己情况设置
+cache:
+  apt: true
+  yarn: true
+  directories:
+    - node_modules    
+# tarvis生命周期执行顺序详见官网文档
+before_install:
+  - git config --global user.name "lyloou"
+  - git config --global user.email "lyloou@qq.com"
+  # 由于使用了yarn，所以需要下载，如不用yarn这两行可以删除
+  - curl -o- -L https://yarnpkg.com/install.sh | bash
+  - export PATH=$HOME/.yarn/bin:$PATH
+  - npm install -g hexo-cli    
+install:
+  - yarn # 不用yarn的话这里改成 npm i 即可
+script:
+  - ./run_d.sh
+after_success:
+  - cd ./public
+  - git init
+  - git add .
+  - git commit -m "Travis CI Auto Builder"
+  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:master # GH_TOKEN是在Travis中配置token的名称
+env:
+  global:
+    - GH_REF: github.com/lyloou/lyloou.github.io.git #设置GH_REF，注意更改yourname
