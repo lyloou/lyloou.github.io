@@ -18,7 +18,6 @@ before_install:
   - export TZ='Asia/Shanghai'
   - git config --global user.name "$USER_NAME"
   - git config --global user.email "$USER_EMAIL"
-  - git remote set-url origin $GH_REF
   - curl -o- -L https://yarnpkg.com/install.sh | bash
   - export PATH=$HOME/.yarn/bin:$PATH
   - npm install -g hexo-cli
@@ -31,6 +30,5 @@ after_success:
   - echo "oked!"
 env:
   global:
-    - GH_REF: git@github.com:lyloou/lyloou.github.io.git
     - USER_NAME: lyloou
     - USER_EMAIL: lyloou@qq.com
