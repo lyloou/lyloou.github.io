@@ -1,5 +1,5 @@
 ---
-title: Hexo集成travis
+title: Hexo集成travis2
 date: 2019-01-28 14:13:14
 tags:
 - hexo
