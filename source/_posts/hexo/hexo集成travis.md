@@ -65,6 +65,8 @@ travis encrypt-file ~/.ssh/hexo --add
 - 相应的解密k/v值以环境变量方式存在Travis CI上, 见Travis CI上项目的「More options -> Settings -> Environment Variables」
 - 将解密命令自动写入到本地项目的 .travis.yml 里
 ```
+加密之后的`hexo.enc`文件，只有 travis 能解密使用。
+因为在login的时候，将解密的密钥存放到`Environment Variables`中了，拿不到这个就无法解密还原了。
 
 接着通过 ssh_agent 的方式配置`ssh client`：
 ```yml
