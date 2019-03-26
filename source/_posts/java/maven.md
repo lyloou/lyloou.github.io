@@ -86,3 +86,14 @@ maven中三种classpath
 3.runtime：在测试和运行时有效
 4.test:只在测试时有效
 5.system:在编译和测试时有效，与本机系统关联，可移植性差 
+
+## multiple conflict
+[maven 2 - SLF4J: Class path contains multiple SLF4J bindings - Stack Overflow](https://stackoverflow.com/questions/14024756/slf4j-class-path-contains-multiple-slf4j-bindings)
+```xml
+<exclusions>
+    <exclusion>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-log4j12</artifactId>
+    </exclusion>
+</exclusions> 
+```
