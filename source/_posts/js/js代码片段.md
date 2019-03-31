@@ -271,3 +271,41 @@ arr2Obj = function(array) {
 String newStr = "a b c".replaceAll(" ","");
 ```
 - [JS控制文本框：输入银行卡号，4位自动加上空格分隔 - 别在熬夜了！ - CSDN博客](https://blog.csdn.net/happy_jijiawei/article/details/22850839)
+
+## 正则摘取文字
+```javascript
+// var input = "'Warehouse','Local Release','Local Release DA'";
+var input = '【丝路亚心】250gX4<font color="red">核桃仁</font> 原味生<font color="red">核桃核桃仁</font> 新疆特产, <font color="red">123445</font>bcdef';
+var regex = /<font[^>]+?>(.*?)<\/font>/g;
+
+var matches, output = [];
+while (matches = regex.exec(input)) {
+    output.push(matches[1]);
+}
+console.log(matches)
+console.log(output)
+
+function  replaceText (text) {
+  return text.replace(/<font[^>]*>/g, '').replace(/<\/font>/g, '')
+}
+
+var newStr = replaceText(input)
+console.log(newStr)
+
+var arr = [];
+for(let i in output){
+    let val = output[i];
+    console.log(val)
+    let index = newStr.indexOf(val)
+    arr.push({type:'normal', value: newStr.substring(0, index)})
+    arr.push({type:'highlight', value: val})
+    newStr = newStr.substring(index+val.length)
+}
+
+if(newStr){
+    arr.push({type:'normal', value: newStr})
+}
+
+console.log(arr)
+// [{"type":"normal","value":"【丝路亚心】250gX4"},{"type":"highlight","value":"核桃仁"},{"type":"normal","value":" 原味生"},{"type":"highlight","value":"核桃核桃仁"},{"type":"normal","value":" 新疆特产, "},{"type":"highlight","value":"123445"},{"type":"normal","value":"bcdef"}]
+```
