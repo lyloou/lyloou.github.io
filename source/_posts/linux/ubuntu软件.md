@@ -9,6 +9,11 @@ tags:
 - ubuntu
 ---
 
+## gvim
+```sh
+sudo apt update
+sudo apt install vim-gnome
+```
 
 ## synpase（快速启动）
 ```sh

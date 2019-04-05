@@ -63,4 +63,23 @@ sudo docker run -p 49161:8080 -d lyloou/centos-node-hello:latest
 # https://askubuntu.com/questions/505506/how-to-get-bash-or-ssh-into-a-running-container-in-background-mode
 sudo docker exec -it f3b /bin/bash 
 ```
+## 数据持久化
+如果需要数据持久化，可以使用数据卷机制。
+```sh
+docker run -p 8080:8080 -p 50000:50000 -v /your/home:/var/jenkins_home jenkins
+```
 
+## docker-compose
+### install and run
+```sh
+pip install docker-compose
+
+# create file docker-compose.yml
+# run
+docker-compose up
+```
+### uninstall and remove
+```sh
+# Stop and remove containers, networks, images, and volumes
+docker-compose down
+```
