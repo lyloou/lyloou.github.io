@@ -21,7 +21,7 @@ $ git config user.email
 针对http协议的也可以不用总是输入用户名密码那么麻烦，如：`https://github.com/lyloou/hexo.git`，
 可以通过设置`credential.help`来保存。
 ```
-git config credential.helper store
+git config --global credential.helper store
 ```
 
 ## 网络配置：
