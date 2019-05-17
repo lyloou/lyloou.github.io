@@ -97,3 +97,24 @@ maven中三种classpath
     </exclusion>
 </exclusions> 
 ```
+
+## [Generate source code jar for Maven based project – Mkyong.com](https://www.mkyong.com/maven/generate-source-code-jar-for-maven-based-project/)
+```xml
+  <build>
+	  <plugins>
+	    <plugin>
+		<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-source-plugin</artifactId>
+		<executions>
+			<execution>
+				<id>attach-sources</id>
+				<goals>
+					<goal>jar</goal>
+				</goals>
+			</execution>
+		</executions>
+	   </plugin>
+	 </plugins>
+  </build>
+
+```

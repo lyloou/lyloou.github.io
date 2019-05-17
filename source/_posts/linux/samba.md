@@ -43,10 +43,15 @@ chmod 777 /home/user/w/smbshare
 
 ## add user
 ```sh
-sudo smbpasswd -a user
+sudo smbpasswd -a $USER
 ```
 
 ## restart
 ```sh
 sudo service smbd restart
+```
+
+## uninstall
+```
+sudo apt remove --purge samba samba-common
 ```

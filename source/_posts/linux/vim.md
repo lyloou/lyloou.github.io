@@ -8,6 +8,9 @@ tags:
 - vim
 ---
 
+## [How to change visudo editor from nano to vim?](https://askubuntu.com/questions/539243/how-to-change-visudo-editor-from-nano-to-vim)
+`sudo update-alternatives --config editor`
+
 ## Vim-Plug
 https://github.com/junegunn/vim-plug
 ```
