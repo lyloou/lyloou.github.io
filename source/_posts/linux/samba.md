@@ -21,6 +21,7 @@ sudo apt-get install samba
 sudo vim /etc/samba/smb.conf
 ```
 
+添加在后面
 ```ini
 [smbshare]
     comment = samba home directory 
@@ -55,3 +56,7 @@ sudo service smbd restart
 ```
 sudo apt remove --purge samba samba-common
 ```
+
+## reinstall
+sudo apt remove --purge samba samba-common
+sudo apt install samba

@@ -8,8 +8,12 @@ tags:
 - editor
 ---
 
+## [command line - How to change visudo editor from nano to vim? - Ask Ubuntu](https://askubuntu.com/questions/539243/how-to-change-visudo-editor-from-nano-to-vim/539265)
+```sh
+sudo update-alternatives --config editor
+```
 	
-Ubuntu修改locale问题解决-Cannot set language to "zh_CN.utf-8"
+## Ubuntu修改locale问题解决-Cannot set language to "zh_CN.utf-8"
 ```sh
 sudo dpkg-reconfigure locales
 ```

@@ -28,6 +28,28 @@ newgrp - docker
 注意:最后一步是必须的，否则因为 groups 命令获取到的是缓存的组信息，刚添加的组信息未能生效，所以 docker images 执行时同样有错。
 ｀｀｀
 
+## 加速器
+https://www.daocloud.io
+config docker preference(registry-mirrors) : 
+for ubuntu
+> curl -sSL https://get.daocloud.io/daotools/set_mirror.sh | sh -s http://6cde3c02.m.daocloud.io
+> sudo systemctl restart docker.servic
+
+## 示例
+```sh
+docker run hello-world
+
+docker run -it alpine sh
+
+docker images
+
+docker run -d -p 80:80 nginx
+docker ps
+docker kill __id__
+
+docker run -d -p 9200:9200 elasticsearch
+docker logs __id__
+```
 
 ## [Docker中文教程_Docker开发中文手册[PDF]下载-极客学院Wiki](http://wiki.jikexueyuan.com/project/docker/)
 
