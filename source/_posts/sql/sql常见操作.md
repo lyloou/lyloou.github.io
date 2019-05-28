@@ -63,3 +63,12 @@ SET @title = NULL;
 INSERT INTO goods (goods_id,title) VALUES (9934,IFNULL(@title,'')) ON DUPLICATE KEY UPDATE title=IF(VALUES(title)='',title,VALUES(title));
 SELECT * FROM goods WHERE goods_id  =9934;
 ```
+
+## 和0做比较避免出现负值
+https://bbs.csdn.net/topics/392371054
+```sql
+-- 和0做比较避免出现负值
+update products set stocks=greatest(stocks-10,0) where product_id=55635
+
+UPDATE goods AS g SET stock = greatest((SELECT SUM(stocks) FROM products AS p WHERE p.`goods_id` = g.`goods_id`), 0) WHERE  goods_id=1234
+```
