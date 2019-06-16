@@ -28,3 +28,46 @@ kill -9 $(lsof -i:端口号 -t)
 ```sh
 kill [']netstat -nlp | grep :3306 | awk '{print $7}' | awk -F"/" '{ print $1 }'[']
 ```
+
+## 根据启动的应用名称来杀死进程
+**获取所有该应用名称的进程**
+`ps -aux | grep user-0.0.1.jar `
+```
+lilou     2676  0.0  0.0  21536   980 pts/18   S+   09:49   0:00 grep --color=auto --exclude-dir=.bzr --exclude-dir=CVS --exclude-dir=.git --exclude-dir=.hg --exclude-dir=.svn user-0.0.1.jar
+lilou     4353  0.0  2.0 8230288 339332 pts/21 Sl+  5月28   0:43 java -jar user-0.0.1.jar
+```
+**排除含有grep的行**
+`ps -aux | grep user-0.0.1.jar | grep -v grep`
+```
+lilou     4353  0.0  2.0 8230288 339332 pts/21 Sl+  5月28   0:43 java -jar user-0.0.1.jar
+```
+**获取进程号**
+`ps -aux | grep user-0.0.1.jar | grep -v grep | cut -c 9-15`
+```
+  4353
+```
+**使用kill命令杀死进程**
+`ps -aux | grep user-0.0.1.jar | grep -v grep | cut -c 9-15 | xargs kill -15`
+```
+该进程已经被杀死
+```
+
+## java项目启动和停止脚本
+```
+➜ cat env.sh
+NAME="user-0.0.1.jar"
+➜ cat start.sh
+. ./env.sh
+nohup java -Duser.timezone=GMT+08 -Xmx1G -Xms1G -jar $NAME > /dev/null &
+➜ cat stop.sh
+. ./env.sh
+ps -aux | grep $NAME | grep -v grep | cut -c 9-15 | xargs kill -15
+➜ cat restart.sh
+./stop.sh
+sleep 8
+./start.sh
+➜ 
+```
+
+ps -aux | grep python | grep 9090 | cut -c 9-15 | xargs kill -15
+cd /www/smbshare && python -m SimpleHTTPServer 9090 > /dev/null 2>&1 &
