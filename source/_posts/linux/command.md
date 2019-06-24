@@ -136,3 +136,34 @@ history | awk '{print $2}' | sort | uniq -c | sort -k1,1nr | head -10
 ```
 https://coolshell.cn/articles/8619.html
 http://blog.51cto.com/huanglianfeng/1381267
+
+
+## [bash - How to use arguments from previous command? - Stack Overflow](https://stackoverflow.com/questions/4009412/how-to-use-arguments-from-previous-command)
+```sh
+$ echo a b c d e 
+a b c d e
+$ echo !^
+echo a
+a
+
+$ echo a b c d e 
+a b c d e
+$ echo !:1
+echo a
+a
+```
+
+```sh
+!^      first argument
+!$      last argument
+!*      all arguments
+!:2     second argument
+
+!:2-3   second to third arguments
+!:2-$   second to last arguments
+!:2*    second to last arguments
+!:2-    second to next to last arguments
+
+!:0     the command
+!!      repeat the previous line
+```

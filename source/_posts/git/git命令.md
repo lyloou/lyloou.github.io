@@ -188,11 +188,11 @@ $ git clean --help
 ## [delete all tags](https://stackoverflow.com/questions/19542301/delete-all-tags-from-a-git-repository)
 To delete remote tags (before deleting local tags) simply do:
 ```
-git tag -l | xargs -n 1 git push --delete origin
+git tag -l | grep v2 -v | xargs -n 1 git push --delete origin
 ```
 and then delete the local copies:
 ```
-git tag | xargs git tag -d
+git tag -l | grep v2 -v | xargs git tag -d
 ```
 
 ## [How do you rename a Git tag?](https://stackoverflow.com/questions/1028649/how-do-you-rename-a-git-tag)
