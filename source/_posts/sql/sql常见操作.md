@@ -72,3 +72,24 @@ update products set stocks=greatest(stocks-10,0) where product_id=55635
 
 UPDATE goods AS g SET stock = greatest((SELECT SUM(stocks) FROM products AS p WHERE p.`goods_id` = g.`goods_id`), 0) WHERE  goods_id=1234
 ```
+
+## 没有时插入或存在时忽略
+```sql
+INSERT IGNORE INTO task_link (user_id, task_id) VALUES (20021413, 50000)
+```
+
+## duplicate entry for key
+```sql
+SELECT GROUP_CONCAT(id),user_id,task_id,count(1) as cnt FROM task_link group by user_id,task_id having cnt > 1;
+delete from task_link where id in (100,137,131,138,136,125,124);
+```
+
+## 依据两个字段来更新或插入表的其他字段
+1. 要先为这两个字段添加一个组合的唯一索引；
+  ![](https://github.com/lyloou/img/raw/develop/z/20190708173423.png)
+
+2. 使用语句来更新或插入
+  ```sql
+  insert into task_bonus_user (user_id,task_id,task_bonus_id) values (?,?,?)
+               on duplicate key update task_bonus_id = values(task_bonus_id)
+  ```

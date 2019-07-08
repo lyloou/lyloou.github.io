@@ -167,3 +167,7 @@ a
 !:0     the command
 !!      repeat the previous line
 ```
+
+## kill
+- [Linux kill -9 和 kill -15 的区别 - 妖老山黑 - 博客园](https://www.cnblogs.com/liuhouhou/p/5400540.html)
+- [大家在kill -9前不会尝试kill -15么？ - 知乎](https://www.zhihu.com/question/23747655)

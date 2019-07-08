@@ -71,3 +71,11 @@ sleep 8
 
 ps -aux | grep python | grep 9090 | cut -c 9-15 | xargs kill -15
 cd /www/smbshare && python -m SimpleHTTPServer 9090 > /dev/null 2>&1 &
+
+## 根据端口来kill进程
+```sh
+#!/bin/sh
+cd $(dirname $0)
+lsof -i :21001 |grep "\(LISTEN\)"|awk -F ' ' '{print "kill -15 " $2}'|sh
+```
+具体参考： `man lsof`
