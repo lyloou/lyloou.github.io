@@ -4,14 +4,16 @@ date: 2017-07-24 09:49:34
 toc: true
 comments: true
 tags:
-- tool
+  - tool
+  - linux
 ---
 
-# 《鸟哥的Linux私房菜》读书笔记
+# 《鸟哥的 Linux 私房菜》读书笔记
+
 > 逆序记录
 
-
 | 使用 crontab 时需要注意： --p502
+
 - 资源分配不均；
 - 取消不要的输出选项；
 - 安全的检验；
@@ -24,9 +26,9 @@ tags:
 但是 /etc/crontab 可是一个“纯文本文件”，可以用 root 身份来编辑这个文件。--p500
 
 | `crontab -l` 显示 crontab 的工作内容 --p500
-  `crontab -r` 移除全部的 crontab 的工作内容
+`crontab -r` 移除全部的 crontab 的工作内容
 
-| crontab 的限制同 at命令，主要通过两个文件（cron.allow、cron.deny） --p498
+| crontab 的限制同 at 命令，主要通过两个文件（cron.allow、cron.deny） --p498
 
 | 循环执行的例行性工作调度（crontab） --p498
 
@@ -39,16 +41,19 @@ tags:
 利用 `/etc/at.allow` 与 `/etc/at.deny` 这两个文件来进行 at 的使用限制。 --p495
 
 | 设置 atd 开机启动： --p495
+
 ```sh
 chkconfig atd on
 ```
 
 | 手动启动 atd： --p494
+
 ```sh
 /etc/init.d/atd restart
 ```
 
 | Linux 上常见的例行性工作 --p493
+
 - 进行日志文件的轮替
 - 日志文件分析 logwatch 的任务
 - 新建 locate 的数据库
@@ -59,19 +64,21 @@ chkconfig atd on
 
 | Linux 工作调度的种类：at， cron --p494
 工作调度的方式：
+
 - 一种是例行性的，就是每隔一定的周期要来办的事项；
 - 一种是突发性的，就是这次做完了以后就没有的那一种；
 
-## 第16章
+## 第 16 章
 
 | LVM 相关命令汇整与 LVM 的关闭： --p488
 
-| LVM另一个重要功能：系统快照。
+| LVM 另一个重要功能：系统快照。
 快照就是将当时的系统信息记录下来，就好像照相机记录一般。
 将来若有任何数据改动了，则原始数据会被移到快照区，没有被改动的区域则由快照区
 与文件系统共享。 --p483
 
-| LVM 实作流程(LV放大容量和LV缩小容量)：
+| LVM 实作流程(LV 放大容量和 LV 缩小容量)：
+
 - PV 阶段
 - VG 阶段
 - LV 阶段
@@ -79,43 +86,47 @@ chkconfig atd on
 
 | 如果要强调性能与备份，那么就直接使用 RAID 即可，不需要使用 LVM 。 --p475
 
-| 数据写入LV的机制：分为线性模式（默认推荐的）和交错模式。 --p475
+| 数据写入 LV 的机制：分为线性模式（默认推荐的）和交错模式。 --p475
 
 | 之所以称“卷”，是因为可以讲文件系统像卷一样伸长或缩短之故吧。--p473
 
 | LVM(Logical Volume Manager) 逻辑卷管理器： --p473
-LVM的重点在于可以弹性调整文件系统的容量！（即不需要重新分区、格式化）
+LVM 的重点在于可以弹性调整文件系统的容量！（即不需要重新分区、格式化）
 
 | RAID 的功能设置：开机自启、自动挂载、关闭软件 RAID。 --p466
 
 | 磁盘阵列可以通过硬件和软件的方式来构建。 --p466
+
 - 硬件的方式是使用磁盘阵列卡，好的很贵。
-- 通过软件的方式（会占用较多的系统资源，例如CPU的运算和I/O总线资源。）使用 mdadm 命令来构建
-磁盘阵列。
+- 通过软件的方式（会占用较多的系统资源，例如 CPU 的运算和 I/O 总线资源。）使用 mdadm 命令来构建
+  磁盘阵列。
 
 | 磁盘阵列（RAID），即容错廉价磁盘阵列。RAID 可以通过一些技术（软件或硬件）将多个较小的磁盘整合
 成为一个较大的磁盘设备；而这个较大的磁盘功能可不只是存储而已，它还具有数据保护的功能。 --p463
 基于等级的不同，有不同的功能:
+
 - RAID-0：性能最佳。（注意：由于数据是依序放置到各个磁盘分区。因此 RAID-0 只要有任何一块
-磁盘的区块被损毁，在 RAID 上面的所有数据都会丢失而无法读取。）
+  磁盘的区块被损毁，在 RAID 上面的所有数据都会丢失而无法读取。）
 - RAID-1: 完整备份。这种模式也是需要相同的磁盘容量的，最好是一模一样的磁盘。如果是不同容量
-的磁盘组成 RAID-1 时，那么总容量将以最小的那一块磁盘为主。
-- RAID 0+1，RAID 1+0：整合上面两个的优点，性能上拥有 RAID 0 的优点、安全上拥有 RAID 1的备份
-功能（但是也有RAID 1 的缺点，总容量会少一半用来备份）。
+  的磁盘组成 RAID-1 时，那么总容量将以最小的那一块磁盘为主。
+- RAID 0+1，RAID 1+0：整合上面两个的优点，性能上拥有 RAID 0 的优点、安全上拥有 RAID 1 的备份
+  功能（但是也有 RAID 1 的缺点，总容量会少一半用来备份）。
 - RAID 5：性能与数据备份的均衡考虑。
-- Spare Disk：预备磁盘的功能。所谓的　spare disk 就是一块或多块没有包含在原本磁盘阵列等级中的磁盘，
-这块磁盘平时并不会被磁盘阵列所使用，当磁盘整列有任何磁盘损毁时，则这块　spare disk 会被主动拉进
-磁盘阵列中，并将坏掉的那块磁盘移除磁盘整列，然后立即重建数据系统。如此，你的系统则可以拥抱安康。
+- Spare Disk：预备磁盘的功能。所谓的　 spare disk 就是一块或多块没有包含在原本磁盘阵列等级中的磁盘，
+  这块磁盘平时并不会被磁盘阵列所使用，当磁盘整列有任何磁盘损毁时，则这块　 spare disk 会被主动拉进
+  磁盘阵列中，并将坏掉的那块磁盘移除磁盘整列，然后立即重建数据系统。如此，你的系统则可以拥抱安康。
 - 磁盘阵列的优点体现在：数据安全与可靠、读写性能的加强，容量的扩增。（尤其是数据的可靠性和完整性更是
-　RAID 的考虑重点）　--p466
+  　 RAID 的考虑重点）　--p466
 
 | Education is :
+
 > Education is what, when, and why to do things.
 > Training is how to do it. Most your courses have been Training.
 > I am trying to talk about the Education part.
 > --Richard W. Hamming (http://mat.uc.pt/~zhang/teaching.html)
 
-| api使用步骤：(this is how)
+| api 使用步骤：(this is how)
+
 - 调用的命令；（知道自己要干啥）
 - 设置参数；（知道自己干啥时要选择那些配置）
 - 整串执行；（开始 do it. ）
@@ -123,20 +134,21 @@ LVM的重点在于可以弹性调整文件系统的容量！（即不需要重�
 | warnquota: 对超过限额者发出警告信； --p460
 
 | quota 的报表主要有两种模式：
-一种是针对每个个人或用户组的quota 命令，
+一种是针对每个个人或用户组的 quota 命令，
 一个是针对整个文件系统的 repquota 命令；
 
 | 坐而言不如起而行。 --p454
 
-| Quota的使用限制： --p452
+| Quota 的使用限制： --p452
+
 - 仅能针对整个文件系统；
 - 内核必须支持 Quota；
 
 | 开始看不懂了，心里发毛了。
-> 底下的幾篇文章是學習 Linux 的基礎文件，這些文件是基礎中的基礎，如果您能將其中的文件都看完並且消化過，那麼未來在管理 Linux主機以及架設網站方面，就能夠達到『事半功倍』的成效，請不要忽略這部份了！否則，再怎麼討論都是枉然的啦！因為Linux的資料非常的多，每份資料彼此的相關性都很強，要單獨的一項一項講解並不容易， 所以底下的文件該怎麼看呢？建議先按照順序將內容大致瀏覽過一次，看不懂的地方也可以先略過不要緊。 全部看完之後，再從頭開始『仔細』的實際操作過一遍，那應該就能夠進入Linux的世界囉～
-> 另外，每篇文章底下的日期，指的是重大改版日期而非最新日期，每篇文章的最新日期請以該篇文章最下方的工作日誌為主的喔！
-  http://linux.vbird.org/linux_basic/
 
+> 底下的幾篇文章是學習 Linux 的基礎文件，這些文件是基礎中的基礎，如果您能將其中的文件都看完並且消化過，那麼未來在管理 Linux 主機以及架設網站方面，就能夠達到『事半功倍』的成效，請不要忽略這部份了！否則，再怎麼討論都是枉然的啦！因為 Linux 的資料非常的多，每份資料彼此的相關性都很強，要單獨的一項一項講解並不容易， 所以底下的文件該怎麼看呢？建議先按照順序將內容大致瀏覽過一次，看不懂的地方也可以先略過不要緊。 全部看完之後，再從頭開始『仔細』的實際操作過一遍，那應該就能夠進入 Linux 的世界囉～
+> 另外，每篇文章底下的日期，指的是重大改版日期而非最新日期，每篇文章的最新日期請以該篇文章最下方的工作日誌為主的喔！
+> http://linux.vbird.org/linux_basic/
 
 | Quota(磁盘配额), 就字面上的意思来看，就是有多少“限额”的意思。如果是用在零用钱上面，就是类似
 “有多少零用钱一个月”的意思。在 Linux 系统中，由于是多用户、多任务的环境，所以会有多用户
@@ -149,7 +161,6 @@ LVM的重点在于可以弹性调整文件系统的容量！（即不需要重�
 
 | chpasswd 常用于批量新建账号：`echo "dmtsai:abcdef" | chpasswd -m`
 
-
 | 一般来说，如果你正常使用 useradd 增加用户，使用 pwconv 并不会有任何的操作，因为
 `/etc/passwd` 与 `/etc/shadow` 并不会有以上两点问题（两个文件不对应）。不过，
 如果手动设置账号，这个 pwconv 就很重要了。--p444
@@ -161,36 +172,36 @@ LVM的重点在于可以弹性调整文件系统的容量！（即不需要重�
 | 通过广播的方式发送消息： wall "I will shutdown my linux server..." --p442
 
 | 不接收任何消息： mesg n
-  接收消息： mesg y
+接收消息： mesg y
 
 | 为什么 root 无法以 telnet 直接登录系统，但是却能够使用 ssh 直接登录？
 telnet 会引用 login 的 PAM 模块，而 login 的验证会有 /etc/securetty 的限制。
 由于远程连接属于 pts/n (n 为数字)的动态终端机接口设备名称，并么有写入到 /etc/securetty,
 因此 root 无法以 telnet 登录远程主机。而 ssh 使用的是 /etc/pam.d/sshd 这个模块，
-这个模块的验证阶段没有加入 pam_securetty， 因此就没有 /etc/securetty的限制！
+这个模块的验证阶段没有加入 pam_securetty， 因此就没有 /etc/securetty 的限制！
 故可以从远程直接联机到服务器。
 
 | login 的 PAM 验证机制流程：
+
 1. 验证阶段；
 2. 授权阶段；
 3. 密码阶段；
 4. 会议阶段；
 
-
 | 我们以 passwd 这个命令调用 PAM。 当你执行 passwd 后这个程序调用 PAM 的流程是： --p435
+
 1. 用户开始执行 /usr/bin/passwd 这支程序，并输入密码；
 2. passwd 调用 PAM 模块进行验证；
 3. PAM 模块会到 /etc/pam.d/ 中找寻与程序（passwd）同名的配置文件。
 4. 依据 /etc/pam.d/passwd 内的配置，引用相关的 PAM 模块逐步进行验证分析；
-6. passwd 这支程序会依据 PAM 回传的结果决定下一个操作（重新输入新密码或者通过验证）
+5. passwd 这支程序会依据 PAM 回传的结果决定下一个操作（重新输入新密码或者通过验证）
 
 | PAM（Pluggable Authentication Modules, 嵌入式模块）,
 为解决账号密码可能不同步的验证问题。 --p434
 
-
 | 可以通过给不需要登录的账户设置无法登录的合法 shell 来达到目的。 --p434
 
-| 两次执行 sudo 在5分钟之内，那么再次执行 sudo 时就不需要再次输入密码了。 --p433
+| 两次执行 sudo 在 5 分钟之内，那么再次执行 sudo 时就不需要再次输入密码了。 --p433
 
 | 默认 root 可以切换任何身份且进行任何命令。--p431
 
@@ -203,6 +214,7 @@ telnet 会引用 login 的 PAM 模块，而 login 的验证会有 /etc/securetty
 --p429
 
 | 只执行一个只有 root 才能进行的命令，且执行完毕就恢复原本的身份。--p429
+
 ```sh
 su - -c "head -n 3 /etc/shadow"
 ```
@@ -215,45 +227,51 @@ su - -c "head -n 3 /etc/shadow"
 | 以`su -` 命令来切换，代表使用 login-shell 的变量文件读取方式来登录系统。 --p428
 
 | 让一般用户转变为 root 身份。 --p428
+
 - 以 “su -” 直接将身份变成 root。（需要密码）
-- 以 “sudo命令” 执行 root 的命令串。
+- 以 “sudo 命令” 执行 root 的命令串。
 
 | 针对新创建的文件，设置默认的 acl; --p426
+
 ```sh
 setfacl -m d:u:myuser1:rx /srv/projecta # 这样在 projecta目录中新创建的文件，就默认有 rx 权限了。
 ```
 
 | 针对某个用户具体设置权限： --p424
+
 ```sh
 setfacl -m u:vbird1:rx test.txt # 对于文件 test.txt，给用户 vbird1 设置权限 rx
 setfacl -m g:mygroup1:rx test.txt # 同上，设置用户组权限
 ```
 
-| acl的设置：getfacl, setfacl  --p424
+| acl 的设置：getfacl, setfacl --p424
 
 | ACL (Access Control List), 提供传统的 owner、 group、 others 的 read、
 write、 execute 权限之外的具体权限设置； --p423
 
 | 用户组的新增与删除： --p420
+
 - groupadd: 添加用户组
 - groupmod: 修改用户组（例如用户组 id, 用户组名）
 - groupdel: 删除用户组
 - 用户组管理员：让某个用户组具有一个管理员，可以来管理哪些账号可以加入/移出用户组；
-  * 新建一个用户组管理员： gpasswd groupname
+  - 新建一个用户组管理员： gpasswd groupname
 
 | 是不是断了网就没法进行下去，其实也看是什么事情啦！
 
 | 一般身份用户常用的账号数据更改与查询命令： --p417
+
 - figure: 查询用户信息（大部分来源于 /etc/passwd 中的内容）
 - chsh: change shell
 - id: 查询某人或自己的相关 UID/GID 等的信息；
 
-| 用户修改与删除: usermod  userdel --p416
+| 用户修改与删除: usermod userdel --p416
 
 | 对于 root 用户，唉～要帮一般账号新设密码需要使用 `passwd 账号` 的格式，使用 `passwd`
 表示修改自己的密码。--p414
 
 | 使用 useradd 来创建 Linux 上的账号时至少会参考： --p413
+
 ```
 /etc/default/useradd
 /etc/login.defs
@@ -261,6 +279,7 @@ write、 execute 权限之外的具体权限设置； --p423
 ```
 
 | 在通过 useradd 来创建用户时，默认设置： --p411
+
 ```sh
 useradd -D
 ```
@@ -268,6 +287,7 @@ useradd -D
 | 系统账号默认都不会主动创建主文件夹(可以通过参数 `-m` 强制添加)； --p410
 
 | 添加用户: --p410
+
 ```sh
 useradd vlou
 passwd vlou
@@ -275,10 +295,12 @@ grep vlou /etc/passwd /etc/shadow /etc/group /home/vlou # 查看创建后的属�
 ```
 
 | 加入用户组： --p408
+
 - 通过 root ，让其通过 usermod 命令；
 - 通过 用户组管理员，让其通过 gpasswd 命令；
 
 | 有效用户组： --p408
+
 - 也就是使用`groups`命令得到的第一个用户组；
 - 通过 `newgrp` 可以切换有效用户组；（首先必须要成为这个用户组的成员才可以执行）,
   另外，执行了 `newgrp` 相当于启用了新的 shell, 可以 exit 退出。
@@ -293,8 +315,8 @@ grep vlou /etc/passwd /etc/shadow /etc/group /home/vlou # 查看创建后的属�
 | 一个用户可以有多个用户组，那么用户在作业的时候，到底以哪个用户组为标准？ --p407
 这个涉及到有效用户组（effective group） 和 初始用户组 （initial group）
 
+| 忘记 root 密码： --p406
 
-| 忘记 root 密码：  --p406
 - 在用户维护模式下修改；
 - 以 Live CD 开机后挂载根目录去修改 /etc/shadow
 
@@ -302,6 +324,7 @@ grep vlou /etc/passwd /etc/shadow /etc/group /home/vlou # 查看创建后的属�
 (利用 root 身份 使用 passwd 命令) --p406
 
 | shadow 文件结构: --p403
+
 ```sh
 lou@Lou:~$ sudo head -n 4 /etc/shadow
 root:$6$ExVgN6IF$GzxieFmtydKzA6pCaIjd1k/wIhQmfqSDNQ6vrnCXZ4UkpgAQ5mdCu3Y4DS2DsnBkku4IzwW2HV4CxB2.I1.Oz.:17215:0:99999:7:::
@@ -309,6 +332,7 @@ daemon:*:16911:0:99999:7:::
 bin:*:16911:0:99999:7:::
 sys:*:16911:0:99999:7:::
 ```
+
 1. 账号名称
 2. 密码
 3. 最近更动密码的日期
@@ -320,6 +344,7 @@ sys:*:16911:0:99999:7:::
 9. 保留
 
 | passwd 的文件结构： --p403
+
 ```sh
 lou@Lou:~$ head -n 4 /etc/passwd
 root:x:0:0:root:/root:/bin/bash
@@ -327,6 +352,7 @@ daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
 bin:x:2:2:bin:/bin:/usr/sbin/nologin
 sys:x:3:3:sys:/dev:/usr/sbin/nologin
 ```
+
 1. 账号名称
 2. 密码
 3. UID
@@ -337,11 +363,12 @@ sys:x:3:3:sys:/dev:/usr/sbin/nologin
 
 | 计算机认识 0 与 1, 人们认识账号；文件属性中的所有者实际上存储的是数字。 --p401
 
-## 第14章 Linux 账号管理与 ACL 权限设置
+## 第 14 章 Linux 账号管理与 ACL 权限设置
 
 | 睡不着觉：20170407, 起来看看。
 
-| shell script 的追踪与调试：  --p397
+| shell script 的追踪与调试： --p397
+
 ```sh
 sh [-nvx] scripts.sh
 -n: 不要执行 script, 仅查询语法的问题；
@@ -350,29 +377,32 @@ sh [-nvx] scripts.sh
 ```
 
 | 运行程序时出现错误：通过以下方案解决。
-- [syntax error: Bad for loop variable解决办法(ubuntu)](https://my.oschina.net/zphj1987/blog/77884)
+
+- [syntax error: Bad for loop variable 解决办法(ubuntu)](https://my.oschina.net/zphj1987/blog/77884)
 - [DashAsBinSh](https://wiki.ubuntu.com/DashAsBinSh)
-> 错误为Syntax error: Bad for loop variable
-解决办法：sudo dpkg-reconfigure dash
-在选择项中选No
-从 ubuntu 6.10 开始，ubuntu 就将先前默认的bash shell 更换成了dash shell；其表现为 /bin/sh 链接倒了/bin/dash而不是传统的/bin/bash。
-ubuntu edgy是第一个将dash作为默认shell来发行的版本，这似乎是受了debian的影响。wiki 里面有官方的解释，https://wiki.ubuntu.com/DashAsBinSh，主要原因是dash更小，运行更快，还与POSIX兼容。
-但 目前存在的问题是，由于shell的更换，致使很多脚本出错，毕竟现在的很多脚本不是100%POSIX兼容。
-在wiki里面也说到，如 何将默认的shell改回bash，方法就是
-在终端执行 sudo dpkg-reconfigure dash
-然后选 择 no
+  > 错误为 Syntax error: Bad for loop variable
+  > 解决办法：sudo dpkg-reconfigure dash
+  > 在选择项中选 No
+  > 从 ubuntu 6.10 开始，ubuntu 就将先前默认的 bash shell 更换成了 dash shell；其表现为 /bin/sh 链接倒了/bin/dash 而不是传统的/bin/bash。
+  > ubuntu edgy 是第一个将 dash 作为默认 shell 来发行的版本，这似乎是受了 debian 的影响。wiki 里面有官方的解释，https://wiki.ubuntu.com/DashAsBinSh，主要原因是dash更小，运行更快，还与POSIX兼容。
+  > 但 目前存在的问题是，由于 shell 的更换，致使很多脚本出错，毕竟现在的很多脚本不是 100%POSIX 兼容。
+  > 在 wiki 里面也说到，如 何将默认的 shell 改回 bash，方法就是
+  > 在终端执行 sudo dpkg-reconfigure dash
+  > 然后选 择 no
 
 | 在 for 循环中如何表示一段连续的范围：
+
 ```sh
 for sitenu in $(seq 1 100)
 do
   #statements
-done  
+done
 ```
 
 | while 条件成立时执行条件；util 条件成立时退出条件； --p394
 
 | 直到型（util）: 满足条件，就终止循环；
+
 ```sh
 until [[ condition ]]; do
   #statements
@@ -380,25 +410,27 @@ done
 ```
 
 | 当型(while)：满足条件时，就进行循环；
+
 ```sh
 while [condition]
 do
   程序段落
-done  
+done
 ```
 
+| 循环 --p393
 
-| 循环  --p393
 - 不断地执行某个程序段落；
 - 直到用户设置的条件达成为止；
 
 | 利用 `function` 来重用轮子
-在shell script 当中的 function 的设置一定要在程序的最前面，这样才能够在执行时被找到
+在 shell script 当中的 function 的设置一定要在程序的最前面，这样才能够在执行时被找到
 可用的程序段。
 function 不但可以简化程序代码，而且可以做成类似“模块”的玩意儿。--p392
 
 | 条件判断语句：
-**if**  --p386
+**if** --p386
+
 ```sh
 if [条件判断式1]; then
   # 条件1成立时的逻辑
@@ -409,7 +441,8 @@ else
 fi
 ```
 
-**case**  --p390
+**case** --p390
+
 ```sh
 case $变量名称 in
   "第1个变量的内容")
@@ -427,19 +460,21 @@ case $变量名称 in
 (左移)
 
 | 在脚本文件中的较特殊的变量： --p384
+
 - `$#`: 代表后接的参数“个数”;
-- `$@`: 代表"$1" 、"$2" 、"$3"之意思，每个变量是独立的
+- `$@`: 代表"$1" 、"$2" 、"\$3"之意思，每个变量是独立的
 - `$*`: 代表"$1c$2c$3c$4"，其中 c 为分割字符，默认为空格键。
 
-| 在脚本文件中可以使用默认变量（$0, $1, $2）  --p384
+| 在脚本文件中可以使用默认变量（$0, $1, \$2） --p384
 
-| 中括号比较常用在调剂判断式 if...then..fi的情况中。--p383
+| 中括号比较常用在调剂判断式 if...then..fi 的情况中。--p383
 
 | 也可以使用`[]`来测试，注意括号两边需要有空格。 --p382
 
 | 利用 `test`命令的测试功能 --p380
-各参数参考p380；
+各参数参考 p380；
 eg.
+
 - `-e` 表示文件名是否存在；
 - `-f` 该文件名是否存在且为文件（file）;
 - `-d` 该文件名是否存在且为目录（directory）;
@@ -452,9 +487,10 @@ eg. `source sh03.sh`
 例如： `echo $ (( 13 % 3))`
 
 | 脚本文件中的`exit 0`: --p376
-表示离开 script 并且回传一个0给系统。（可以通过`echo $?` 来查看上一个命令的运行结果）
+表示离开 script 并且回传一个 0 给系统。（可以通过`echo $?` 来查看上一个命令的运行结果）
 
 | 程序内容的说明(要养成这种好习惯)： --p376
+
 - 功能；
 - 版本信息；
 - 作者与联络方式；
@@ -471,11 +507,12 @@ eg. `source sh03.sh`
 | 可以利用 sh 的参数，如 -n 及 -x 来检查与追踪脚本文件的语法是否正确。 --p375
 
 | 可以使用`sh shell.sh`来执行脚本文件：表示我想要直接以 bash 的功能来执行 shell.sh
-  这个文件。 --p375
+这个文件。 --p375
 
 | 名在 shell script 的编写中还需要用到下面的注意事项：
+
 1. 命令的执行是从上而下、从左而右地分析与执行；
-2. 命令的执行就如同第5章内提到的：命令、参数间的多个空白都会被忽略掉；
+2. 命令的执行就如同第 5 章内提到的：命令、参数间的多个空白都会被忽略掉；
 3. 空白行也将被忽略掉，并且[tab] 按键所得的空白同样视为空格键；
 4. 如果读到一个 Enter 符号 （CR）, 就尝试开始执行该行（或该串）命令；
 5. 至于如果一行的内容太多，则可以使用 `"\[Enter]"`来扩展至下一行；
@@ -484,7 +521,8 @@ eg. `source sh03.sh`
 | shell script 用在系统管理上面是很好的一项工具，但是用在处理大量数值运算上，就不够好了，因为
 shell script 的速度较慢，且使用的 CPU 资源较多，造成主机资源的分配不良。 --p374
 
-| 为什么学习 shell script   --p373
+| 为什么学习 shell script --p373
+
 - 自动化管理重要依据；
 - 追踪管理系统的重要工作；
 - 简单入侵检测系统；
@@ -494,18 +532,19 @@ shell script 的速度较慢，且使用的 CPU 资源较多，造成主机资�
 
 | shell script 是针对 shell 所写的“脚本”!
 
-### 第13章 学习 shell script
-
+### 第 13 章 学习 shell script
 
 | 用 diff 可以用来制作补丁文件，然后通过 `patch` 来更新或还原文件。 --p368
 
 | diff 和 cmp 的区别： --p367
+
 - diff: 以行为单位;
 - cmp： 以字节为单位；
 
 | cmp 也用来比较两个文件，利用“字节”单位去比较。还可以用来比较非纯文本文件；--p367
 
 | diff 还可以来比较两个目录：
+
 ```sh
 diff /etc/rc3.d/ /etc/rc5.d
 ```
@@ -524,6 +563,7 @@ diff 通常是用在同一文件的新旧版本区别上。 --p367
 | 扩展型正则表达式可以通过组功能 “|” 来进行一次查找。 --p361
 
 | `sed` 的查找和替换类似于 `vi` --p359
+
 ```sh
 sed 's/要被替换的字符串/新的字符串/g'
 ```
@@ -534,16 +574,18 @@ sed 's/要被替换的字符串/新的字符串/g'
 而且还可以将数据进行替换、删除、新增、选取特定行等的功能。 --p357
 
 | 限定字符重复数:`{}` --p355
-  两个o： `'o\{2\}'`
-  两个o以上： `'o\{2,\}'`
-  两-五个o： `'o\{2,5\}'`
+两个 o： `'o\{2\}'`
+两个 o 以上： `'o\{2,\}'`
+两-五个 o： `'o\{2,5\}'`
 
 | 去掉空白行和去掉以`#`开头的行：
+
 ```sh
 grep '^$' -v regular_express.txt | grep -v '^#' -n
 ```
 
 | 找到空白行： --p354
+
 ```sh
 grep '^$' -n regular_express.txt
 ```
@@ -551,27 +593,31 @@ grep '^$' -n regular_express.txt
 | 特殊字符若在正则表达式中有特殊含义，需要用转义字符`\`来加以修饰。 --p353
 
 | 不想要开头是英文字母： --p353
+
 ```
 grep -n '^[^a-zA-Z]' regular_express.txt
 ```
 
 | 以`.`结尾的那一行的表示：`\.$` --p353
 
-| 注意  --p353
+| 注意 --p353
 `[^a-z]` 和`^[a-z]`这两个是不一样的意思；
 在`[]`内表示“反向选择”,
 在`[]`外表示“定位在行首”。
 
 | 下面的例子是一样的：
+
 ```sh
 grep -n '[[:digit:]]' regular_express.txt
 grep -n '[0-9]' regular_express.txt
 ```
 
 | 练习：
+
 ```sh
 grep -n 't[ea]st' regular_express.txt
 ```
+
 注意：`[]`里面不论有几个字符，它都只代表某“一个”字符。
 所以匹配了 tast 和 test。--p352
 
@@ -582,6 +628,7 @@ grep -n 't[ea]st' regular_express.txt
 正则表达式是一种字符串处理的表示方式。
 
 | 正则表达式的广泛用途
+
 - 系统管理员管理主机;
 - 邮件服务器；
 
@@ -589,7 +636,7 @@ grep -n 't[ea]st' regular_express.txt
 正则表达式通过一些特殊符号的辅助，可以让用户轻易达到查找、删除、替换某特定字符串的处理
 程序。 --p347
 
-## 第12章 正则表达式与文件格式化处理
+## 第 12 章 正则表达式与文件格式化处理
 
 | 管道命令的重点是它仅会处理 standard output, 对于 standard error output 会予以忽略。
 管道命令必须要能够接受来自前一个命令的数据称为 standard input 继续处理才行。 --p344
@@ -603,19 +650,22 @@ grep -n 't[ea]st' regular_express.txt
 是设备（例如打印机之类的） --p328
 
 | source ： 读取环境变量文件的命令；
+
 - 利用 source 或小数点（.）都可以将配置文件的内容读进目前的 shell 环境中。--p324
-(用来动态更新环境变量)
+  (用来动态更新环境变量)
 
 | login shell 和 non-login shell 读取的配置文件数据是不一样的。 --p322
 
 | 基本上，命令运行的顺序： --p320
+
 - 以相对/绝对路径执行命令，例如 "/bin/ls" 或 "./ls";
 - 由 alias 找到该命令莱执行;
 - 由 bash 内置的命令来执行；
-- 通过 $PATH 这个变量的顺序找到的第一个命令来执行；
+- 通过 \$PATH 这个变量的顺序找到的第一个命令来执行；
 
 | alias 设置别名为什么要用单引号？
 单引号、双引号、不用引号其实都可以，但是有些是有空格的，就需要用单引号或双引号：
+
 ```sh
 alias lm='ls -al | more'
 alias h=history
@@ -626,12 +676,13 @@ alias h=history
 至于变量则需要使用类似 `echo` 命令才能调用变量的内容。
 
 | 添加别名： `alias vi='vim'`
-  删除别名： `unalias vi`
+删除别名： `unalias vi`
 
 | 注意： alias 的定义规则与变量定义规则几乎相同，所以你只要在 alias 后面加上你的{"别名"='命令参数...'}.
 eg. `alias lm='ls -l | more'` --p317
 
-|  `read` 想要跟用户对谈？用这个命令就对了。 --p310
+| `read` 想要跟用户对谈？用这个命令就对了。 --p310
+
 ```sh
 read -p "Please keyin your name:" -t 30 named
 ```
@@ -640,6 +691,7 @@ read -p "Please keyin your name:" -t 30 named
 但是其他的自定义变量内容就不会存在于子进程中。 --p309
 
 | 可以将父进程的自定义变量变成环境变量，就可以让该变量值继续存在于子进程。--p308
+
 ```sh
 export 变量名称
 ```
@@ -651,17 +703,19 @@ export 变量名称
 上安装 x86_64 的 Linux 操作系统。
 
 | `?` 上一个命令的回传码。 --p307
+
 ```sh
 echo $?
 ```
 
-| `$` 符号本身也是一个变量。这个代表的是目前这个 Shell 的线程代号，即是所谓的PID。
-想要知道外贸的 shell 的 PID， 用 "echo $$" 即可，出现的数字就是你的PID号码。
+| `$` 符号本身也是一个变量。这个代表的是目前这个 Shell 的线程代号，即是所谓的 PID。
+想要知道外贸的 shell 的 PID， 用 "echo \$\$" 即可，出现的数字就是你的 PID 号码。
 （另外通过`bash` 命令来新建子进程，通过 `exit` 来推出子进程。） --p306
 
 | 基本上，在 Linux 默认的情况下，使用{大写的字母}来设置的变量一般为系统内定需要的变量。--p306
 
 | 自定义一个范围的随机数生成变量：
+
 ```sh
 declare -i number=$RANDOM*10/32768;
 echo $number
@@ -670,6 +724,7 @@ echo $number
 | 使用 `$(uname -r)` 来代替 `\``;因为反单引号容易打错或看错。 --p304
 
 | 给常用的目录设置变量： --p304
+
 ```sh
 # 1. 进入到一个很长的目录中;
 cd /lib/modules/$(uname -r)/kernel
@@ -683,16 +738,17 @@ cd $work
 在一串命令中，在 （\`）之内的命令将会被先执行，而其执行出来的结果将作为外部的输入信息。
 --p303
 
-| 使用了单引号的时候，$name 将失去原有的变量内容，仅为一般字符的显示类型而已。 --p303
+| 使用了单引号的时候，\$name 将失去原有的变量内容，仅为一般字符的显示类型而已。 --p303
 
 | 在变量的设置当中，单引号与双引号的用途有何不同？
 答：单引号与双引号的最大不同在于双引号仍然可以保有变量的内容，
 但单引号内仅能是一般字符，而不会有特殊符号。 --p303
 
-|  在一般情况下，父进程的自定义变量是无法在子进程内使用的。
+| 在一般情况下，父进程的自定义变量是无法在子进程内使用的。
 但是通过 export 将变量变成环境变量后，就能够在子进程下面应用了。 --p302
 
-| bash　优点　－－p297
+| bash 　优点　－－p297
+
 - 命令记忆能力；
 - 命令与文件不全功能；
 - 命令别名（alias）；
@@ -700,20 +756,21 @@ cd $work
 - 程序脚本；
 - 通配符；
 
-| 为何学习　shell？ --p295
-－　相对于图形界面的软件， distributions 各家的 bash　是一样的;
+| 为何学习　 shell？ --p295
+－　相对于图形界面的软件， distributions 各家的 bash 　是一样的;
 －　远程管理，命令行界面快速，稳定；
 －　系统管理的利器；
 
 | 一般用户只能通过 shell 来跟内核通信，以让内核达到我们所想要达到的工作。 --p294
 
 | bash
+
 - 变量的设置和使用；
 - bash 操作环境的搭建；
 - 数据流重定向的功能；
 - 管道命令；
 
-## 第11章 认识和学习bash
+## 第 11 章 认识和学习 bash
 
 | 格式转换：
 `iconv -f big5 -t utf8 vi.big5 -o vi.utf8`
@@ -728,6 +785,7 @@ cd $work
 窗口间。
 
 | 多文件编辑 --p286
+
 ```sh
 vim hosts /etc/hosts
 ```
@@ -743,23 +801,26 @@ vim hosts /etc/hosts
 
 | 在 vi 里面，[TAB] 键所得到的结果与空格符所得到的结果是不一样的，特别强调一下。 --p277
 
-| 3种模式：  --p276
+| 3 种模式： --p276
+
 - 一般模式；
 - 编辑模式；
 - 命令行模式；
 
-| vim 支持的一些功能  --p276
+| vim 支持的一些功能 --p276
+
 - 正则表达式的查找架构；
 - 多文件编辑；
 - 块复制；
 
-| 为何要学vim --p275
+| 为何要学 vim --p275
+
 - 所有的 UNIX Like 系统都会内置 vi 文本编辑器，其他的文本编辑器不一定会存在。
 - 很多软件的编辑借口都会主动调用 vi；
 - vim 具有程序编辑的能力，可以主动以字体颜色辨别语法的正确性，方便程序设计；
 - 程序简单，编辑速度相当快速；
 
-## 第10章 vim程序编辑器
+## 第 10 章 vim 程序编辑器
 
 | 光盘刻录工具： cdrecord --p267
 
@@ -769,21 +830,22 @@ vim hosts /etc/hosts
 
 | `dump`,除了能针对整个文件系统备份之外，也能够仅针对目录来备份。 --p259
 
-| 打包的时候，忽略某些文件： tar -jcv -f /root/system.tar.bz2 --exclude=/root/etc*
+| 打包的时候，忽略某些文件： tar -jcv -f /root/system.tar.bz2 --exclude=/root/etc\*
 --p257
 
 | 仅解开单一文件的做法： tar -jxv -f /root/etc.tar.bz2 etc/shadow --p256
 
 | 其实最简单地使用 tar 就只要记忆下面的方式即可： --p254
+
 - 压缩： tar -jcv -f filename.tar.bzz2 要被压缩的文件或目录名称；
 - 查询： tar -jtv -f filename.tar.bzz2
 - 解压缩： tar -jxv -f filename.tar.bz2 -C 欲解压缩的目录；
-注意：-c、-t、-x 不可同事出现在一串命令行中。
+  注意：-c、-t、-x 不可同事出现在一串命令行中。
 
 | 打包与压缩是不同的概念： --p254
+
 - 打包：将多个文件和目录包成一个大文件；（例如：tar）
 - 压缩：缩小文件体积；(例如： compress, gzip, bzip2)
-
 
 | `bzip2`的压缩比相对于 `gzip` 更好，用法同 `gzip`; --p253
 使用 `bzcat`可以在不用解压缩的情况下，读取文本文件的内容。
@@ -791,16 +853,16 @@ vim hosts /etc/hosts
 | 通过 `zcat` 可以读取文本压缩文件的内容。--p252
 
 | 压缩： `gzip [-cdtv#] 文件名`
+
 - `-c` 输出到屏幕上，可以用来重定向输出到制定文件;
 - `-d` 解压缩； （默认会删除掉原有的`gz`文件，同样可以组合`-c`参数而不删除 `gz` 文件）
-- `-#` 压缩等级，用户可以自己指定压缩等级，-1最快，压缩比差；-9最慢，压缩比最好；
+- `-#` 压缩等级，用户可以自己指定压缩等级，-1 最快，压缩比差；-9 最慢，压缩比最好；
   默认是 -6
 
-
-| compress 已经很少用了， gzip可以说是应用最广的压缩命令了。
+| compress 已经很少用了， gzip 可以说是应用最广的压缩命令了。
 目前 gzip 可以解开 compress、zip、与 gzip 等软件所压缩的文件。--p252
 
-| 文件扩展名的存在是为了便于人类小小的大脑的识别的。（虽然linux文件的属性基本上和文件名
+| 文件扩展名的存在是为了便于人类小小的大脑的识别的。（虽然 linux 文件的属性基本上和文件名
 没有绝对的关系） --p250
 
 | 压缩技术：一些聪明的计算机工程师利用复杂的计算方式，讲没有使用到的空间“丢”出来，以让
@@ -808,25 +870,27 @@ vim hosts /etc/hosts
 
 | 计算机上最小的计量单位是 `bit`, 另外：1byte = 8bit
 
-## 第9章: 文件与文件系统的压缩与打包
+## 第 9 章: 文件与文件系统的压缩与打包
 
 | 常见的支持文件系统： --p209
+
 - 传统文件系统： ext2;
 - 日志文件系统： ext3/NTFS;
 - 网络文件系统： NFS
 
 | 除非你有使用到大于 2TB 以上的磁盘，否则请使用 `fdisk` 这个程序来进行分区。 --p244
 
-| 可以使用 `parted` 来处理高于2TB的分区情况。 --p243
+| 可以使用 `parted` 来处理高于 2TB 的分区情况。 --p243
 
 | 使用`du -sb /etc`命令来查看目录所占用的所有空间。 --p243
 
 | 使用`ls -l`去查询某个目录下的数据时，第一行都会出现一个`total`字样，
 其实那就是该目录下的所有数据所占用的实际 block 数量 xblock 大小的值。--p243
 
-| swap的使用场合主要是在服务器上面，个人的桌面计算机一般用不到。--p241
+| swap 的使用场合主要是在服务器上面，个人的桌面计算机一般用不到。--p241
 
-| 构建swap分区 --p240
+| 构建 swap 分区 --p240
+
 - 使用物理分区：fdisk
 - 使用文件块：dd
 
@@ -834,7 +898,7 @@ vim hosts /etc/hosts
 
 | 按照制定的参数格式设置到`/etc/fstab`文件中，即实现开机挂载。
 注意：需要检查写入到`/etc/fstab`的语法有没有错误，这个很重要，因为文件如果写错了，
-则你的Linux很可能将无法顺利开机完成！--p236
+则你的 Linux 很可能将无法顺利开机完成！--p236
 
 | 挂载点是什么？一定是目录。 --p235
 
@@ -842,22 +906,26 @@ vim hosts /etc/hosts
 `/etc/fstab (file system table)`就是将我们利用 mount 命令进行挂载时，
 将所有的参数写入到这个文件中就可以了。
 
-| 使用`hdparm` 在sata上做测试：
+| 使用`hdparm` 在 sata 上做测试：
+
 ```sh
 hdparm -Tt /dev/sda
 hdparm -Tt /dev/sdb
 ```
 
-| 可以通过Label的方式进行挂载： --p231
+| 可以通过 Label 的方式进行挂载： --p231
+
 ```sh
 mount -L "vbird_logical" /mnt/ccc
 ```
 
-| e.g., 挂载一个iso文件到`/mnt/ccc`
+| e.g., 挂载一个 iso 文件到`/mnt/ccc`
+
 ```sh
 mount xxxx.iso /mnt/ccc
 ```
-一般这种iso文件都是只读形式的，因此可能会有下面这种提示：
+
+一般这种 iso 文件都是只读形式的，因此可能会有下面这种提示：
 `mount: /dev/loop0 is write-protected, mounting read-only`
 镜像文件不刻录就挂载使用。
 
@@ -872,60 +940,66 @@ mount xxxx.iso /mnt/ccc
 
 | 磁盘分区完成后，进行格式化操作：`mkfs`
 
-| fdisk 没有办法处理大于2TB以上的磁盘分区。（可以使用parted这个命令） --p223
+| fdisk 没有办法处理大于 2TB 以上的磁盘分区。（可以使用 parted 这个命令） --p223
 
 | fdisk
 需要以管理员身份运行
+
 ```sh
 fdisk /dev/sda
 fdisk /dev/sdb # 注意不需要带具体数值
 ```
 
 | 要制作连接文件必须要使用`ln`这个命令；--p215
+
 ```sh
 ln [-sf] 源文件 目标文件
 ```
 
-| `symbolic link`符号连接；（类似于windows上的快捷方式）
+| `symbolic link`符号连接；（类似于 windows 上的快捷方式）
 
-| hard link连接有限制：
+| hard link 连接有限制：
+
 - 不能跨文件系统；
 - 不能连接到目录；
 
 | 注意硬链接和软连接的区别；--p213
 
-| 整个filesystem其实都是VFS（Virtual Filesystem Switch）进行管理；
+| 整个 filesystem 其实都是 VFS（Virtual Filesystem Switch）进行管理；
 
-| 根目录的上一级就是他自己。 `ls -ild / /. /..`，通过这个命令发现`inode`都是2；
+| 根目录的上一级就是他自己。 `ls -ild / /. /..`，通过这个命令发现`inode`都是 2；
 
-| Ext2文件系统 --p197
+| Ext2 文件系统 --p197
 
-## 第8章
+## 第 8 章
 
-| 通过find来按时间属性查找：
+| 通过 find 来按时间属性查找：
+
 - mtime
 - ctime
 - atime
 
-| 更新locate数据库：
+| 更新 locate 数据库：
 `updatedb`
 
 | 按文件名查找：
+
 - `whereis`
 - `locate`
 
 | 查找`commond`的路径:
 `which -a ifconfig`
 
-| root用户身份的umask权限默认是：022
-  一般用户身份的umask权限默认是：002 --p183
+| root 用户身份的 umask 权限默认是：022
+一般用户身份的 umask 权限默认是：002 --p183
 
-| 设置umask: `umask 002`
-- 具体运算规则，是默认的权限减去umask数值。
+| 设置 umask: `umask 002`
+
+- 具体运算规则，是默认的权限减去 umask 数值。
 
 | 新建文件的默认权限：-rw-rw-rw-
-  新建文件夹的默认权限：drwxrwxrwx
-注意：具体的生成结果还得依赖于umask的值(拿掉umask的那一部分)。
+新建文件夹的默认权限：drwxrwxrwx
+注意：具体的生成结果还得依赖于 umask 的值(拿掉 umask 的那一部分)。
 
 | `ll; ls`:
 `;`分号表示连续命令的执行；
@@ -936,8 +1010,8 @@ ln [-sf] 源文件 目标文件
 可以指定时间，使用`-d`参数。
 还可以用来创建空文件。
 
-| tail命令：显示文件后面几行
-`-f`参数表示，持续检测文件的内容(实时性)。按ctrl-c停止检测。
+| tail 命令：显示文件后面几行
+`-f`参数表示，持续检测文件的内容(实时性)。按 ctrl-c 停止检测。
 
 | man 命令就是通过调用 less 来显示说明文件的内容的。
 
@@ -950,21 +1024,24 @@ ln [-sf] 源文件 目标文件
 
 | `rm`命令
 删除文件/目录
+
 - `-r` 遍历删除参数。（慎用）
 
 | 你是要站在巨人的肩膀上瞭望的。
 
 | `mv`命令
 用途：
+
 - 移动文件/文件夹；
 - 用来重命名；
 
 | `cp`命令
 用途：
+
 - 复制文件；
-加上参数`-a` 讲文件的所有特性一起复制过来。（包括属性/权限）
-这个功能常用来备份文件。
-注意：复制给别人的文件要注意到文件的权限（否则别人无法修订）。
-要复制连接文件的属性，就得使用 -d 的参数了。
+  加上参数`-a` 讲文件的所有特性一起复制过来。（包括属性/权限）
+  这个功能常用来备份文件。
+  注意：复制给别人的文件要注意到文件的权限（否则别人无法修订）。
+  要复制连接文件的属性，就得使用 -d 的参数了。
 
 - 创建链接（快捷方式）

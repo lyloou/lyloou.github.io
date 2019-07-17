@@ -121,6 +121,10 @@ env:
 [build-info](https://travis-ci.org/userName/repoName.svg)
 ```
 
+## QA
+Q: travis-ci node-sass: Command failed.
+A: https://github.com/travis-ci/travis-ci/issues/9561
+
 ## 参考资料
 - [使用 Travis 自动部署 Hexo 到 Github 与 自己的服务器 - 我的儿子叫酸奶 - SegmentFault 思否](https://segmentfault.com/a/1190000009054888)
 - [Simiki基于Github Pages配合Travis CI做持续集成 - 扫文资讯](https://hk.saowen.com/a/8edd77efe1c7f306f67e7c71e764ad76184d9ff3675d6dcfc9913d913be24cbd)
