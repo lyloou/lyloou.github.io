@@ -6,6 +6,10 @@ comments: true
 tags:
 - java
 ---
+## 多模块开发
+- [Maven构建简单的多模块项目 - CN.programmer.Luxh - 博客园](https://www.cnblogs.com/luxh/p/3506750.html)
+- [基于Maven 分模块开发实践 - 郭恩洲的个人页面 - OSCHINA](https://my.oschina.net/guoenzhou/blog/395851)
+- [Maven最佳实践：划分模块 - Maven中文 - ITeye博客](https://juvenshun.iteye.com/blog/305865)
 
 ## nexus
 ### nexus2

@@ -345,9 +345,6 @@ $ sudo apt -f install
 2. install: dpkg -i wqy-zenhei-0.9.45.deb
 
 
-## supervisor
-- [Supervisor安装与配置（Linux/Unix进程管理工具） - CSDN博客](https://blog.csdn.net/xyang81/article/details/51555473)
-
 ## [sleep](https://medium.com/@jerilkuriakose/keyboard-shortcuts-for-custom-terminal-commands-in-ubuntu-17-10-aeb902f71869)
 ```sh
 #!/bin/bash

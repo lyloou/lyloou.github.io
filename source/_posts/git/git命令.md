@@ -215,6 +215,16 @@ git rm --cached mylogfile.log
 git rm --cached -r mydirectory
 ```
 
+
+## [git delete remotes: remote refs do not exist - Stack Overflow](https://stackoverflow.com/questions/32147093/git-delete-remotes-remote-refs-do-not-exist)
+```sh
+# You may need to prune your local "cache" of remote branches first. Try running:
+git fetch -p origin
+# or
+git fetch --prune origin
+```
+
+
 ## 参考链接
 - 《GitHub入门与实践》
 - [10组最常用Git命令](http://mp.weixin.qq.com/s?__biz=MzA4MjU5NTY0NA==&mid=401074259&idx=1&sn=6e69ce5338eb5d9212953068165c1cd0&mpshare=1&scene=23&srcid=1122laeBDuW58x2VncUQ44xs)

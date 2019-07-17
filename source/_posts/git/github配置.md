@@ -20,3 +20,7 @@ $ ssh-keygen -t rsa -C "lyloou@qq.com"
 ```
 ssh -T git@github.com
 ```
+
+## 
+- [GitHub限制上传单个大于100M的大文件 - 霍莉雪特 - 博客园](https://www.cnblogs.com/guxin/p/github-cannot-push-files-larger-than-100mb.html)
+- [突破github的100M单个大文件上传限制 - Johnny的专栏 - CSDN博客](https://blog.csdn.net/tyro_java/article/details/53440666)

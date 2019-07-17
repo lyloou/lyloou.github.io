@@ -22,6 +22,12 @@ $ssh-copy-id user@host
 cat ~/.ssh/id_rsa.pub | ssh user@123.45.56.78 "mkdir -p ~/.ssh && cat >>  ~/.ssh/authorized_keys"
 https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys--2
 ```
+- [Add Public SSH Key to Remote Server in a Single Command](https://www.howtogeek.com/168147/add-public-ssh-key-to-remote-server-in-a-single-command/)
+
+## [bash - How can I ssh directly to a particular directory? - Stack Overflow](https://stackoverflow.com/questions/626533/how-can-i-ssh-directly-to-a-particular-directory)
+```sh
+ssh -t xxx.xxx.xxx.xxx "cd /directory_wanted; bash"
+```
 
 ## [How to enter ssh password using bash? ](https://stackoverflow.com/questions/16928004/how-to-enter-ssh-password-using-bash)
 
