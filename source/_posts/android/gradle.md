@@ -15,6 +15,9 @@ tags:
 - [配置构建  |  Android Developers](https://developer.android.com/studio/build/)
 - [从命令行构建您的应用  |  Android Developers](https://developer.android.com/studio/build/building-cmdline)
 
+## (Plugin version) VS (Required Gradle version)
+[Android Gradle plugin release notes  |  Android Developers](https://developer.android.com/studio/releases/gradle-plugin)
+
 
 ## 了解在构建生命周期的各个阶段所花费的时间
 通过 `--profile` 来生成报告

@@ -50,6 +50,8 @@ sudo mount -a
 http://mirros.aliyun.com/ubuntu
 ```
 
+## pm2
+
 # 权限管理
 
 - 修改文件的所有者和所属组：
