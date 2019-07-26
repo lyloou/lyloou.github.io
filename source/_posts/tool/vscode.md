@@ -60,6 +60,7 @@ tags:
   "workbench.iconTheme": "vscode-icons",
   "editor.accessibilitySupport": "off",
   "files.eol": "\n",
+  "window.enableMenuBarMnemonics": false,
   "[markdown]": {
     "editor.quickSuggestions": true
   },
