@@ -4,11 +4,12 @@ date: 2017.02.24 10:13
 toc: true
 comments: true
 tags:
-- tool
-- idea
+  - tool
+  - idea
 ---
 
 ## 插件
+
 - CamelCase: CamelCase, camelCase, snake_case and SNAKE_CASE
 - Past Images into Markdown
 - .ignore
@@ -23,7 +24,25 @@ tags:
 - https://www.hollischuang.com/archives/3220
 
 ## THEME
+
 http://ethanschoonover.com/solarized
+
+## 取消折叠代码
+
+Settings | Editor | General | Code Folding
+
+- [editor - Intellij IDEA 2018.1 - Disable simple comment folding - Stack Overflow](https://stackoverflow.com/questions/49132093/intellij-idea-2018-1-disable-simple-comment-folding)
+
+## set author and date
+
+Settings -> Editor -> File and code templates -> Includes -> File Header
+
+```java
+/**
+ * @author ${USER}
+ * @date ${YEAR}/${MONTH}/${DAY}
+ */
+```
 
 ## 配置
 
@@ -158,3 +177,5 @@ http://ethanschoonover.com/solarized
   <action id="hg4idea.QPushAction" />
 </keymap>
 ```
+
+## [IntelliJ IDEA: change open with (associated application) preference - Stack Overflow](https://stackoverflow.com/questions/44699658/intellij-idea-change-open-with-associated-application-preference)
