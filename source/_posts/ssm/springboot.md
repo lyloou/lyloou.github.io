@@ -50,3 +50,17 @@ Devtools can also be configured to only refresh the browser whenever a static re
 spring.devtools.remote.restart.enabled=false
 ```
 
+## 配置
+```sh
+   _____                                             
+  /  _  \__  _  __ ____   __________   _____   ____  
+ /  /_\  \ \/ \/ // __ \ /  ___/  _ \ /     \_/ __ \ 
+/    |    \     /\  ___/ \___ (  <_> )  Y Y  \  ___/ 
+\____|__  /\/\_/  \___  >____  >____/|__|_|  /\___  >
+        \/            \/     \/            \/     \/
+
+// spring banner
+// file name: src/main/resources/banner.txt
+// design by http://patorjk.com/software/taag
+// [18-SpringBoot——核心-基本配置 - https://github.com/Wang-Jun-Chao - CSDN博客](https://blog.csdn.net/DERRANTCM/article/details/77284924)
+```
