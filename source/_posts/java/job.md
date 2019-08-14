@@ -4,18 +4,19 @@ date: 2019-04-10 10:12:28
 toc: true
 comments: true
 tags:
-- java
+  - java
 ---
 
-## [QuartZ Cron表达式 - sunjie - 博客园](https://www.cnblogs.com/sunjie9606/archive/2012/03/15/2397626.html)
+## [QuartZ Cron 表达式 - sunjie - 博客园](https://www.cnblogs.com/sunjie9606/archive/2012/03/15/2397626.html)
+
 CronTrigger
 
-CronTriggers往往比SimpleTrigger更有用，如果您需要基于日历的概念，而非SimpleTrigger完全指定的时间间隔，复发的发射工作的时间表。
-CronTrigger，你可以指定触发的时间表如“每星期五中午”，或“每个工作日9:30时”，甚至“每5分钟一班9:00和10:00逢星期一上午，星期三星期五“。
-即便如此，SimpleTrigger一样，CronTrigger拥有的startTime指定的时间表时生效，指定的时间表时，应停止（可选）结束时间。
+CronTriggers 往往比 SimpleTrigger 更有用，如果您需要基于日历的概念，而非 SimpleTrigger 完全指定的时间间隔，复发的发射工作的时间表。
+CronTrigger，你可以指定触发的时间表如“每星期五中午”，或“每个工作日 9:30 时”，甚至“每 5 分钟一班 9:00 和 10:00 逢星期一上午，星期三星期五“。
+即便如此，SimpleTrigger 一样，CronTrigger 拥有的 startTime 指定的时间表时生效，指定的时间表时，应停止（可选）结束时间。
 Cron Expressions
 
-cron的表达式被用来配置CronTrigger实例。 cron的表达式是字符串，实际上是由七子表达式，描述个别细节的时间表。这些子表达式是分开的空白，代表：
+cron 的表达式被用来配置 CronTrigger 实例。 cron 的表达式是字符串，实际上是由七子表达式，描述个别细节的时间表。这些子表达式是分开的空白，代表：
 
     1.        Seconds
     2.        Minutes
@@ -25,11 +26,11 @@ cron的表达式被用来配置CronTrigger实例。 cron的表达式是字符串
     6.        Day-of-Week
     7.        Year (可选字段)
 
-例  "0 0 12 ? * WED" 在每星期三下午12:00 执行,
+例 "0 0 12 ? \* WED" 在每星期三下午 12:00 执行,
 
 个别子表达式可以包含范围, 例如，在前面的例子里("WED")可以替换成 "MON-FRI", "MON, WED, FRI"甚至"MON-WED,SAT".
 
-“*” 代表整个时间段.
+“\*” 代表整个时间段.
 
 每一个字段都有一套可以指定有效值，如
 
@@ -55,20 +56,17 @@ cron的表达式被用来配置CronTrigger实例。 cron的表达式是字符串
 
     ““#”：是用来指定“的”每月第n个工作日,例 在每周（day-of-week）这个字段中内容为"6#3" or "FRI#3" 则表示“每月第三个星期五”
 
- 
+1）Cron 表达式的格式：秒 分 时 日 月 周 年(可选)。
 
-1）Cron表达式的格式：秒 分 时 日 月 周 年(可选)。
-
-    字段名                 允许的值                        允许的特殊字符  
-    秒                         0-59                               , - * /  
-    分                         0-59                               , - * /  
-    小时                     0-23                               , - * /  
-    日                         1-31                               , - * ? / L W C  
-    月                         1-12 or JAN-DEC                , - * /  
-    周几                     1-7 or SUN-SAT                    , - * ? / L C #  
-    年 (可选字段)             empty, 1970-2099                  , - * /
-
-
+| 字段名        | 允许的值         | 允许的特殊字符   |
+| ------------- | ---------------- | ---------------- |
+| 秒            | 0-59             | , - \* /         |
+| 分            | 0-59             | , - \* /         |
+| 小时          | 0-23             | , - \* /         |
+| 日            | 1-31             | , - \* ? / L W C |
+| 月            | 1-12 or JAN-DEC  | , - \* /         |
+| 周几          | 1-7 or SUN-SAT   | , - \* ? / L C # |
+| 年 (可选字段) | empty, 1970-2099 | , - \* /         |
 
     “?”字符：表示不确定的值
 
@@ -84,11 +82,7 @@ cron的表达式被用来配置CronTrigger实例。 cron的表达式是字符串
 
     “#”字符：表示该月第几个周X。6#3表示该月第3个周五
 
-
-
-
-
-2）Cron表达式范例：
+2）Cron 表达式范例：
 
     每隔5秒执行一次：*/5 * * * * ?
 

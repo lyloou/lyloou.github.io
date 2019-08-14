@@ -129,6 +129,11 @@ maven 中三种 classpath
 
 ```
 
+```sh
+# 查看 goal 和 phase 的默认绑定
+mvn help:describe -Dplugin=org.apache.maven.plugins:maven-source-plugin:2.1.1 -Ddetail
+```
+
 ## 打包的时候，resource 中的文件没有打包进去
 
 ```sh
