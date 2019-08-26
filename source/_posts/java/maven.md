@@ -13,7 +13,7 @@ tags:
 - [基于 Maven 分模块开发实践 - 郭恩洲的个人页面 - OSCHINA](https://my.oschina.net/guoenzhou/blog/395851)
 - [Maven 最佳实践：划分模块 - Maven 中文 - ITeye 博客](https://juvenshun.iteye.com/blog/305865)
 
-## nexus
+## nexus 安装
 
 ### nexus2
 
@@ -25,6 +25,16 @@ https://help.sonatype.com/repomanager2/installing-and-running/running
 学习建议：mvn 这个东西，就是难者不会，会者不难。基本上按照这样一个路线就问题不大，基本使用 => 了解继承/聚合 => 了解 jar 包冲突机制，并解决冲突 =>了解 mvn 的 3 个默认声明周期 ，生命周期的各个阶段 phase ，各个阶段的目标 goal => mvn 的插件开发 => Nexus 私服搭建及其使用。大致这样一个过程下来，就能非常熟悉 mvn，如果在稍微看看 mvn 的源码，大致看一看，基本上可以说是精通 mvn 了。
 
 ### nexus3
+
+https://help.sonatype.com/repomanager3/download/download-archives---repository-manager-3
+
+```sh
+docker volume create --name nexus-data
+docker run -d -p 8081:8081 --name nexus -v nexus-data:/nexus-data sonatype/nexus3
+
+docker volume inspect nexus-data
+# see admin password in nexus-data/admin.password
+```
 
 https://www.cnblogs.com/EasonJim/p/6858333.html
 
@@ -141,3 +151,7 @@ mvn resources:resources
 ```
 
 [Apache Maven Resources Plugin – Filtering](https://maven.apache.org/plugins/maven-resources-plugin/examples/filter.html)
+
+## 参考资料
+
+https://github.com/lyloou/account/
