@@ -15,6 +15,8 @@ tags:
 - 移动到定义处：F12 （或者：win+alt+left click）
 - 找到所有的引用：Shift+F12
 
+## [Snippets in Visual Studio Code](https://code.visualstudio.com/docs/editor/userdefinedsnippets)
+
 ## 配置编辑器的显示语言（菜单、控制台等）
 
 1. Ctrl+Shift+P
@@ -64,6 +66,7 @@ tags:
   "[markdown]": {
     "editor.quickSuggestions": true
   },
+  "editor.tabCompletion": "on",
   "vetur.format.defaultFormatter": {
     "html": "prettier",
     "css": "prettier",
@@ -216,4 +219,37 @@ tags:
     "command": "workbench.action.nextEditor"
   }
 ]
+```
+
+## Snippets
+
+```json
+{
+  // Place your snippets for markdown here. Each snippet is defined under a snippet name and has a prefix, body and
+  // description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+  // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the
+  // same ids are connected.
+  // Example:
+  "Add hexo header": {
+    "prefix": "head",
+    "body": [
+      "---",
+      "title: ${1:undefined}",
+      "date: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND",
+      "toc: true",
+      "comments: true",
+      "tags:",
+      "  - ${2:undefined}",
+      "---"
+    ],
+    "description": "Add hexo header"
+  },
+  "Add hexo image url": {
+    "prefix": "img",
+    "body": [
+      "![${1:this is an image}](https://github.com/lyloou/img/raw/develop/z/${2:$CURRENT_YEAR$CURRENT_MONTH$CURRENT_DATE$CURRENT_HOUR$CURRENT_MINUTE$CURRENT_SECOND.png})"
+    ],
+    "description": "Add hexo image url"
+  }
+}
 ```
