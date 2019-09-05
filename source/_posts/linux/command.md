@@ -171,3 +171,12 @@ a
 ## kill
 - [Linux kill -9 和 kill -15 的区别 - 妖老山黑 - 博客园](https://www.cnblogs.com/liuhouhou/p/5400540.html)
 - [大家在kill -9前不会尝试kill -15么？ - 知乎](https://www.zhihu.com/question/23747655)
+
+## grep
+查看包含部分文字的上下文
+```sh
+# -E, --extended-regexp     PATTERN is an extended regular expression
+# -i, --ignore-case         ignore case distinctions
+-C, --context=NUM         print NUM lines of output context
+grep -E -i -C 10 "((exception) | (error))"
+```

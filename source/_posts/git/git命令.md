@@ -46,6 +46,11 @@ tags:
   git reset --hard HEAD~
   ```
 
+How can I undo those commits from the local repository? 
+https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git
+```sh
+git reset HEAD~
+```
 
 ## 远程仓库
 - 移除远程仓库： `git remote remove origin`
