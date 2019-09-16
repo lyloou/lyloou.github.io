@@ -102,7 +102,7 @@ textView.setText(Html.fromHtml(HTML_STR));
     //设置TextView可点击
     tokenTv.setMovementMethod(LinkMovementMethod.getInstance());
     ```
-
+### [Android 开发，你遇上 Emoji 头疼吗？ - 掘金](https://juejin.im/post/5a45b38451882512d823076a)
 
 ## ImageView
 ### 交叉使用mipmap和drawable
