@@ -53,3 +53,7 @@ npm config get registry
 then npm will look at the dependencies that are listed in that file and
 download the latest versions satisfying semver rules for all of those.
 https://docs.npmjs.com/getting-started/using-a-package.json
+
+## 修改`npm install -g` 的安装目录
+查看： `npm root -g`
+修改：在配置文件中 `.npmrc` 中添加，`prefix = "D:\\c\\nodejs\\node_modules\\npm"`

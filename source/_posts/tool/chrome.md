@@ -39,3 +39,9 @@ tags:
 - Focus in console: Ctrl + `
 - 清空屏幕: `Ctrl + L`
 - 清除已经声明的变量：`console.clear();`
+
+## 调试
+
+进入调试模式： F12
+
+JS 调试： 可以在 `Snippets` 里编写 Javascript 脚本，运行（Ctrl+Enter），和打断点调试

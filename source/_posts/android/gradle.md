@@ -43,6 +43,7 @@ configurations.all {
 }
 ```
 
+<<<<<<< HEAD
 ## proxy
 
 java -DsocksProxyHost=10.1.1.2 -DsocksProxyPort=8877 -Djava.net.socks.username=alibaba -Djava.net.socks.password=secret
@@ -68,3 +69,88 @@ Windows 系统默认下载到：C:\Users\(用户名)\.gradle\caches\modules-2\fi
 C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-compiler-embeddable\1.2.71\b394ac31590bff78aea6619b8dc0e2c0958aa599
 
 还有一种方式：使用 `everything` 软件来搜索关键字，找到对应目录；
+=======
+## 多渠道打包
+
+![](https://github.com/lyloou/img/raw/develop/z/20190829145438.png)
+
+- [Android build.gradle importing flavors from another file - Stack Overflow](https://stackoverflow.com/questions/31538924/android-build-gradle-importing-flavors-from-another-file)
+  The build flavors could be defined in a separate file (`build_flavors.gradle`) like this:
+
+```groovy
+android {
+    productFlavors {
+        flavorA {
+            // ...
+        }
+        flavorB {
+            // ...
+        }
+    }
+}
+```
+
+and then imported into `build.gradle`:
+
+```groovy
+apply plugin: 'com.android.application'
+apply from: './build_flavors.gradle'
+
+android {
+    // the rest of your android configuration
+}
+```
+
+- [gradle - Include library with flavor android - Stack Overflow](https://stackoverflow.com/questions/49815655/include-library-with-flavor-android)
+
+```groovy
+android {
+    ...
+    //flavorDimensions is mandatory with flavors. Use the same name on your 2 files to avoid other conflicts.
+    flavorDimensions "dim"
+    productFlavors {
+        nocustomer{
+            dimension "dim"
+
+            // App and library's flavor have the same name.
+            // MatchingFallbacks can be omitted
+            matchingFallbacks = ["nocustomer"]
+        }
+        customerNb{
+            dimension "dim"
+
+            // Here the app and library's flavor are different
+            // Matching fallbacks will select the library's flavor 'customer001'
+            matchingFallbacks = ["customer001"]
+        }
+    }
+    ...
+}
+dependencies {
+    implementation project(':zblelib')
+}
+```
+
+- 《Gradle 权威指南》 dimension
+
+多个 dimension 的前后关系是有优先级顺序的，越靠前的优先级越高：
+![](https://github.com/lyloou/img/raw/develop/z/20190830135419.png)
+![](https://github.com/lyloou/img/raw/develop/z/20190830135528.png)
+
+## 查找冲突的版本号技巧
+
+```sh
+./gradlew lib1:dependencies | grep -C 3 com.android.support:appcompat-v7:27.1.1
+./gradlew app:dependencies | grep -C 3 com.android.support:appcompat-v7:27.1.1
+```
+
+通过上面的方式，可以看到哪个依赖使用了不同的版本号，接着就可以排除方法：
+
+```groovy
+implementation ("org.kie.modules:com-google-code-gson:6.5.0.Final"){
+    exclude group: 'com.google.code.gson', module: 'gson'
+}
+// 使用自己版本的,其中在 gradle.properties中声明 GSON_VERSION=2.8.5
+implementation "com.google.code.gson:gson:$GSON_VERSION"
+```
+>>>>>>> 75ce2b45ad080aeaf919f35ffb1afa47ad0b6cac

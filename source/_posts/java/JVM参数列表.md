@@ -7,6 +7,8 @@ tags:
   - java
 ---
 
+## [How to Set JVM Proxy Setting Without Touching the Code](http://www.glomelurus.com/2009/09/how-to-set-jvm-proxy-setting-without.html)
+
 ## `-X` 参数
 
 On the basis of how we specify JVM option it can be divided into two parts, JVM Options which starts with –X and those which starts with -XX:
