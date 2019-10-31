@@ -7,6 +7,12 @@ tags:
   - java
 ---
 
+## 一键生成
+
+```sh
+mvn archetype:generate -DgroupId=com.lyloou.app -DartifactId=algs4 -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+```
+
 ## 多模块开发
 
 - [Maven 构建简单的多模块项目 - CN.programmer.Luxh - 博客园](https://www.cnblogs.com/luxh/p/3506750.html)

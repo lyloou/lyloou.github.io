@@ -25,3 +25,6 @@ tags:
 ## config
 
 - [How to stop Jenkins log from becoming huge? - Stack Overflow](https://stackoverflow.com/questions/31719756/how-to-stop-jenkins-log-from-becoming-huge)
+
+## remove
+/var/log/jenkins/jenkins.log
