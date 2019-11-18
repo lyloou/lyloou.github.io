@@ -10,16 +10,20 @@ tags:
 
 ## 插件
 
+- GitToolBox
 - CamelCase: CamelCase, camelCase, snake_case and SNAKE_CASE
 - Past Images into Markdown
 - .ignore
 - GsonFormat
 - Markdown support
 - GO
-- lombok plugin
+- Lombok plugin
 - Mybatis plugin
 - AceJump
 - Key promoter X
+- Alibaba Java Coding Guidelines
+- Database navigator
+- Rainbow Brackets 
 
 - https://www.hollischuang.com/archives/3220
 
