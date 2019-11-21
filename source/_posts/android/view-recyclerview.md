@@ -95,20 +95,28 @@ getDataListFromNet(++page, dataList->{
 ## GridLayoutManager 均分两列的装饰器 ItemDecoration
 
 ```java
-@Override
-public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
-    int position = parent.getChildLayoutPosition(view);
-    if (position == 0 || position == 1) {
-        outRect.top = offset;
+public class DoubleItemOffsetDecoration extends RecyclerView.ItemDecoration {
+    private int offset;
+
+    public DoubleItemOffsetDecoration(int offset) {
+        this.offset = offset;
     }
 
-    outRect.bottom = offset;
-    if (position % 2 == 1) {
-        outRect.left = offset / 2;
-        outRect.right = offset;
-    } else {
-        outRect.left = offset;
-        outRect.right = offset / 2;
+    @Override
+    public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+        int position = parent.getChildLayoutPosition(view);
+        if (position == 0 || position == 1) {
+            outRect.top = offset;
+        }
+
+        outRect.bottom = offset;
+        if (position % 2 == 1) {
+            outRect.left = offset / 2;
+            outRect.right = offset;
+        } else {
+            outRect.left = offset;
+            outRect.right = offset / 2;
+        }
     }
 }
 ```
