@@ -37,13 +37,8 @@ man df
 df -ah
 
 df -T -h
-```
-
-4:55 How to see if a Linux service is running?
-
-```sh
-service udev status
-systemctl status udev
+# ?????
+du -sh * | grep G
 ```
 
 6:33 How to check the size of a directory in Linux?
@@ -51,6 +46,13 @@ systemctl status udev
 ```sh
 man du
 du -sh directory_name/
+```
+
+4:55 How to see if a Linux service is running?
+
+```sh
+service udev status
+systemctl status udev
 ```
 
 7:02 How to check for open ports in Linux?

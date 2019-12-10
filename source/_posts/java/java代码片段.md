@@ -4,7 +4,8 @@ date: 2016/11/02 15:53
 toc: true
 comments: true
 tags:
-- android
+  - android
+  - java
 ---
 
 ```java
@@ -55,10 +56,8 @@ public class Main {
 }
 ```
 
-
-
-
 ## 定时功能
+
 ```java
 ScheduledExecutorService service = Executors.newScheduledThreadPool(1);
 service.schedule(new Runnable() {
@@ -71,11 +70,14 @@ service.schedule(new Runnable() {
 ```
 
 ## 多线程调试
+
 一次只打一个断点。
 
 ## 获取服务器时间
-原理：通过获取链接的Header信息来获取时间。
+
+原理：通过获取链接的 Header 信息来获取时间。
 注意：网络请求需要在多线程中执行
+
 ```java
 URL url = new URL("http://lyloou.com");
 URLConnection uc = url.openConnection();// 获取连接对象
@@ -87,22 +89,26 @@ System.out.println(formatWebTime);
 ```
 
 ## 添加顺序的注释
-> 参考资料:深入探索Android热修复技术原理7.3Q.pdf p107
+
+> 参考资料:深入探索 Android 热修复技术原理 7.3Q.pdf p107
 
 // %% Part 1. 创建了新对象；  
 // %% Part 2. 找到旧对象的引用；  
-// %% Part 3. 用新对象赋值给旧对象的引用；  
-
+// %% Part 3. 用新对象赋值给旧对象的引用；
 
 ## 对象转换成字符串
+
 在不确定对象是否为空时，通过`String.valueOf(object)`的方法，  
 而不是直接调用：`object.toString();`方法
 
 ## 封装
+
 `当类似的代码多次出现的时候，就可以考虑将其封装起来。`
 
 ## 日期、时间格式的转换
+
 >
+
 - [GankBeautyResultToItemsMapper.java](https://github.com/lyloou/RxJavaSamples/blob/master/app/src/main/java/com/rengwuxian/rxjavasamples/util/GankBeautyResultToItemsMapper.java)
 
 ```java
@@ -119,11 +125,13 @@ try {
 ```
 
 ## 打印出好看的`list`
+
 ```java
 System.out.println(Arrays.toString(list.toArray()));
 ```
 
 ## HashMap 用来缓存对象
+
 ```java
 private static final Map<String, Object> objectsCache = new HashMap<>();
 
