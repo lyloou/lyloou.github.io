@@ -101,7 +101,7 @@ public RadioButton getCircleRadioButton(int color) {
 
 抛出问题：
 实现如图的效果和功能，当选中时后面有一个对勾，当非选中时没有对勾，点击「发送」的时候给所有选中的 item 发送消息。
-![让Selector中的图片居右对齐](https://github.com/lyloou/hexo/blob/master/source/images/20160530/drawable_01.jpg?raw=true)
+![让Selector中的图片居右对齐](https://github.com/lyloou/img/raw/develop/z/20191211143106.jpg)
 
 复杂的做法是：
 通过自定义一个实体类，每个对象都有一个名称属性和一个表示是否是选中状态属性；

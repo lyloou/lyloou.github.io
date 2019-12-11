@@ -239,7 +239,7 @@ ListView 中不可见的元素，其对应的 view 为 null。这是容易理解
 
 ### 效果图
 
-![DatePicker](https://github.com/lyloou/hexo/blob/master/source/images/20160706/date_picker.jpg?raw=true)
+![DatePicker](https://github.com/lyloou/img/raw/develop/z/date_picker.jpg)
 
 ### 代码
 
