@@ -71,3 +71,8 @@ SELECT * FROM `money_histories_201905` WHERE user_id = 20022253
 union all
 SELECT * FROM `money_histories_201906` WHERE user_id = 20022253
 ```
+
+- [学会数据库读写分离、分表分库——用Mycat，这一篇就够了！ - IT米粉 - 博客园](https://www.cnblogs.com/joylee/p/7513038.html)
+- [| MYCAT官方网站—开源分布式数据库中间件](http://www.mycat.io/)
+http://www.mycat.io/document/Mycat_V1.6.0.pdf
+
