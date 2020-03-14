@@ -1,3 +1,3 @@
-hexo clean --config source/_data/next.yml &&
-hexo g --config source/_data/next.yml &&
-hexo s --config source/_data/next.yml
+hexo clean --config _config.yml &&
+hexo g --config _config.yml &&
+hexo s --config _config.yml
