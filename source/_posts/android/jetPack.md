@@ -147,3 +147,41 @@ E/TTAG: from LoginFragment, the liveData changed: LoginInfo(account=login, pwd=l
 [即学即用 Android Jetpack - Room - 简书](https://www.jianshu.com/p/815c7db24b6d)
 
 [Android Room 框架学习 - 简书](https://www.jianshu.com/p/3e358eb9ac43)
+
+## Paging
+
+#### 问题： Jetpack Paging 闪烁
+
+描述： 一点点的不相关的修改都会导致列表刷新，源码如下
+
+```kotlin
+companion object {
+    val DIFF_CALLBACK = object : DiffUtil.ItemCallback<DbFlowDay>() {
+        override fun areItemsTheSame(oldItem: DbFlowDay, newItem: DbFlowDay): Boolean {
+            return oldItem === newItem
+        }
+        override fun areContentsTheSame(oldItem: DbFlowDay, newItem: DbFlowDay): Boolean {
+            return oldItem.day == newItem.day
+        }
+    }
+}
+```
+
+解决，如下源码：
+
+```kotlin
+companion object {
+    val DIFF_CALLBACK = object : DiffUtil.ItemCallback<DbFlowDay>() {
+        override fun areItemsTheSame(oldItem: DbFlowDay, newItem: DbFlowDay): Boolean {
+            return oldItem.id == newItem.id // ！！！ 这里，比较id，而不是对象
+        }
+        override fun areContentsTheSame(oldItem: DbFlowDay, newItem: DbFlowDay): Boolean {
+            return oldItem.day == newItem.day
+        }
+    }
+}
+```
+
+## databinding recyclerView
+
+[DataBinding 在 RecyclerView 中的使用 - 简书](https://www.jianshu.com/p/379a8f5347de)
