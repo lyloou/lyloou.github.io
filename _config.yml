@@ -7,11 +7,11 @@ title: 木子楼
 subtitle:
 description: /* Better than last best */
 author: lyloou
-language: 
-- zh-CN
-- zh-HK
-- zh-TW
-- en
+language:
+  - zh-CN
+  - zh-HK
+  - zh-TW
+  - en
 timezone:
 
 # URL
@@ -42,7 +42,7 @@ titlecase: false # Transform title into titlecase
 external_link:
   enable: true # Open external links in new tab
   field: site # Apply to the whole site
-  exclude: ''
+  exclude: ""
 filename_case: 0
 render_drafts: false
 post_asset_folder: false
@@ -52,7 +52,7 @@ highlight:
   enable: true
   line_number: true
   auto_detect: false
-  tab_replace: ''
+  tab_replace: ""
   wrap: true
   hljs: false
 
@@ -61,7 +61,7 @@ highlight:
 # per_page: Posts displayed per page. (0 = disable pagination)
 # order_by: Posts order. (Order by date descending by default)
 index_generator:
-  path: ''
+  path: ""
   per_page: 10
   order_by: -date
 
@@ -101,7 +101,6 @@ ignore:
 theme: hexo-next
 # theme: landscape
 
-
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
@@ -111,7 +110,7 @@ deploy:
   message: Site updated： {{ now('YYYY-MM-DD HH:mm:ss') }}
 
 theme_config:
-    # ---------------------------------------------------------------
+  # ---------------------------------------------------------------
   # Theme Core Configuration Settings
   # See: https://theme-next.org/docs/theme-settings/
   # ---------------------------------------------------------------
@@ -145,7 +144,6 @@ theme_config:
     #variable: source/_data/variables.styl
     #mixin: source/_data/mixins.styl
     #style: source/_data/styles.styl
-
 
   # ---------------------------------------------------------------
   # Site Information Settings
@@ -205,7 +203,6 @@ theme_config:
     post: false
     language:
 
-
   # ---------------------------------------------------------------
   # Scheme Settings
   # ---------------------------------------------------------------
@@ -218,7 +215,6 @@ theme_config:
 
   # Dark Mode
   darkmode: true
-
 
   # ---------------------------------------------------------------
   # Menu Settings
@@ -236,14 +232,13 @@ theme_config:
     #  categories: /categories/ || th
     archives: /archives/ || archive
     #schedule: /schedule/ || calendar
-    sitemap: /sitemap.xml || sitemap
+    #sitemap: /sitemap.xml || sitemap
     #commonweal: /404/ || heartbeat
 
   # Enable / Disable menu icons / item badges.
   menu_settings:
     icons: true
     badges: false
-
 
   # ---------------------------------------------------------------
   # Sidebar Settings
@@ -307,7 +302,6 @@ theme_config:
     icons_only: false
     transition: false
 
-
   # Blog rolls
   links_settings:
     icon: link
@@ -339,7 +333,6 @@ theme_config:
     #service: tidio
     icon: comment # Icon name in Font Awesome, set false to disable icon.
     text: Chat # Button text, change it as you wish.
-
 
   # ---------------------------------------------------------------
   # Post Settings
@@ -391,8 +384,8 @@ theme_config:
   follow_me:
     #Twitter: https://twitter.com/username || twitter
     #Telegram: https://t.me/channel_name || telegram
-    WeChat: /images/wechat_channel.jpg || wechat
-    RSS: /atom.xml || rss
+    # WeChat: /images/wechat_channel.jpg || wechat
+    # RSS: /atom.xml || rss
 
   # Related popular posts
   # Dependencies: https://github.com/tea3/hexo-related-popular-posts
@@ -417,7 +410,6 @@ theme_config:
   # Show previous post and next post in post footer if exists
   # Available values: left | right | false
   post_navigation: left
-
 
   # ---------------------------------------------------------------
   # Custom Page Settings
@@ -445,7 +437,6 @@ theme_config:
     singleEvents: true
     maxResults: 250
 
-
   # ---------------------------------------------------------------
   # Misc Theme Settings
   # ---------------------------------------------------------------
@@ -469,12 +460,12 @@ theme_config:
     # Code Highlight theme
     # Available values: normal | night | night eighties | night blue | night bright | solarized | solarized dark | galactic
     # See: https://github.com/chriskempson/tomorrow-theme
-    highlight_theme: normal
+    highlight_theme: solarized
     # Add copy button on codeblock
     copy_button:
-      enable: false
+      enable: true
       # Show text copy result.
-      show_result: false
+      show_result: true
       # Available values: default | flat | mac
       style:
 
@@ -504,10 +495,9 @@ theme_config:
 
   # `Follow me on GitHub` banner in the top-right corner.
   github_banner:
-    enable: true
+    enable: false
     permalink: https://github.com/lyloou
     title: Follow me on GitHub
-
 
   # ---------------------------------------------------------------
   # Font Settings
@@ -561,7 +551,6 @@ theme_config:
       external: true
       family:
 
-
   # ---------------------------------------------------------------
   # SEO Settings
   # ---------------------------------------------------------------
@@ -594,7 +583,6 @@ theme_config:
 
   # Enable baidu push so that the blog will push the url to baidu automatically which is very helpful for SEO.
   baidu_push: false
-
 
   # ---------------------------------------------------------------
   # Third Party Plugins & Services Settings
@@ -668,7 +656,6 @@ theme_config:
     # For more flexibility you can add some patterns (RegExp, Function, or Array) to ignores.
     # See: https://github.com/GoogleChromeLabs/quicklink#custom-ignore-patterns
     ignores:
-
 
   # ---------------------------------------------------------------
   # Comments Settings
@@ -760,7 +747,6 @@ theme_config:
     # Available values: en | es-ES | fr | ru | zh-CN | zh-TW
     language:
 
-
   # ---------------------------------------------------------------
   # Post Widgets & Content Sharing Services
   # See: https://theme-next.org/docs/third-party-services/post-widgets
@@ -770,13 +756,12 @@ theme_config:
   # To get your ID visit https://widgetpack.com
   rating:
     enable: false
-    id:     # <app_id>
-    color:  fc6423
+    id: # <app_id>
+    color: fc6423
 
   # AddThis Share. See: https://www.addthis.com
   # Go to https://www.addthis.com/dashboard to customize your tools.
   add_this_id:
-
 
   # ---------------------------------------------------------------
   # Statistics and Analytics
@@ -804,7 +789,7 @@ theme_config:
   # AppID and AppKey are recommended to be the same as valine's for counter compatibility.
   # Do not enable both `valine.visitor` and `leancloud_visitors`.
   leancloud_visitors:
-    enable: true
+    enable: false
     app_id: wWwDpv8mBYayCLfsGufpfrsB-gzGzoHsz # <your app id>
     app_key: MbWJz8Ht6EwlvUeP3msrOPTq # <your app key>
     # Required for apps from CN region
@@ -826,14 +811,13 @@ theme_config:
   # Show Views / Visitors of the website / page with busuanzi.
   # Get more information on http://ibruce.info/2015/04/04/busuanzi
   busuanzi_count:
-    enable: false
+    enable: true
     total_visitors: true
     total_visitors_icon: user
     total_views: true
     total_views_icon: eye
     post_views: true
     post_views_icon: eye
-
 
   # ---------------------------------------------------------------
   # Search Services
@@ -843,7 +827,7 @@ theme_config:
   # Algolia Search
   # For more information: https://www.algolia.com
   algolia_search:
-    enable: false
+    enable: true
     hits:
       per_page: 10
     labels:
@@ -868,7 +852,6 @@ theme_config:
   # Swiftype Search API Key
   swiftype_key:
 
-
   # ---------------------------------------------------------------
   # Chat Services
   # See: https://theme-next.org/docs/third-party-services/chat-services
@@ -890,7 +873,6 @@ theme_config:
     enable: false
     key: # Public Key, get it from dashboard. See: https://www.tidiochat.com/panel/settings/developer
 
-
   # ---------------------------------------------------------------
   # Tags Settings
   # See: https://theme-next.org/docs/tag-plugins/
@@ -904,7 +886,7 @@ theme_config:
     #  - flat      flat callout style with background, like on Mozilla or StackOverflow.
     #  - disabled  disable all CSS styles import of note tag.
     style: simple
-    icons: false
+    icons: true
     # Offset lighter of background in % for modern and flat styles (modern: -12 | 12; flat: -18 | 6).
     # Offset also applied to label tag variables. This option can work with disabled note tag.
     light_bg_offset: 0
@@ -912,7 +894,7 @@ theme_config:
   # Tabs tag
   tabs:
     transition:
-      tabs: false
+      tabs: true
       labels: true
 
   # PDF tag
@@ -926,10 +908,9 @@ theme_config:
 
   # Mermaid tag
   mermaid:
-    enable: false
+    enable: true
     # Available themes: default | dark | forest | neutral
     theme: forest
-
 
   # ---------------------------------------------------------------
   # Animation Settings
@@ -981,7 +962,6 @@ theme_config:
     size: 300 # The width of the ribbon
     alpha: 0.6 # The transparency of the ribbon
     zIndex: -1 # The display level of the ribbon
-
 
   #! ---------------------------------------------------------------
   #! DO NOT EDIT THE FOLLOWING SETTINGS
