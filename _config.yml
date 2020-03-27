@@ -217,7 +217,7 @@ theme_config:
   #scheme: Gemini
 
   # Dark Mode
-  darkmode: false
+  darkmode: true
 
 
   # ---------------------------------------------------------------
@@ -279,7 +279,7 @@ theme_config:
     # Replace the default image and set the url here.
     url: /images/avatar.png #/images/avatar.gif
     # If true, the avatar will be dispalyed in circle.
-    rounded: false
+    rounded: true
     # If true, the avatar will be rotated with the cursor.
     rotated: false
 
@@ -292,8 +292,8 @@ theme_config:
   # Value before `||` delimiter is the target permalink, value after `||` delimiter is the name of Font Awesome icon.
   social:
     GitHub: https://github.com/lyloou || github
-    #E-Mail: mailto:yourname@gmail.com || envelope
-    #Weibo: https://weibo.com/yourname || weibo
+    E-Mail: mailto:lyloou6@gmail.com || envelope
+    Weibo: https://weibo.com/lyloou || weibo
     #Google: https://plus.google.com/yourname || google
     #Twitter: https://twitter.com/yourname || twitter
     #FB Page: https://www.facebook.com/yourname || facebook
@@ -391,13 +391,13 @@ theme_config:
   follow_me:
     #Twitter: https://twitter.com/username || twitter
     #Telegram: https://t.me/channel_name || telegram
-    #WeChat: /images/wechat_channel.jpg || wechat
-    #RSS: /atom.xml || rss
+    WeChat: /images/wechat_channel.jpg || wechat
+    RSS: /atom.xml || rss
 
   # Related popular posts
   # Dependencies: https://github.com/tea3/hexo-related-popular-posts
   related_posts:
-    enable: false
+    enable: true
     title: # Custom header, leave empty to use the default one
     display_in_home: false
     params:
@@ -818,7 +818,7 @@ theme_config:
   # Visit https://console.firebase.google.com/u/0/ to get apiKey and projectId.
   # Visit https://firebase.google.com/docs/firestore/ to get more information about firestore.
   firestore:
-    enable: true
+    enable: false
     collection: articles # Required, a string collection name to access firestore database
     apiKey: AIzaSyDMoSoiXNnJt-PMgM_v31rHQuXxkfP7na8 # Required
     projectId: lyloou-counter # Required
@@ -826,7 +826,7 @@ theme_config:
   # Show Views / Visitors of the website / page with busuanzi.
   # Get more information on http://ibruce.info/2015/04/04/busuanzi
   busuanzi_count:
-    enable: true
+    enable: false
     total_visitors: true
     total_visitors_icon: user
     total_views: true
