@@ -158,6 +158,7 @@ mvn resources:resources
 
 [Apache Maven Resources Plugin – Filtering](https://maven.apache.org/plugins/maven-resources-plugin/examples/filter.html)
 
-## 参考资料
+## 其他镜像
 
-https://github.com/lyloou/account/
+- [最快的 maven repository--阿里镜像仓库-云栖社区-阿里云](https://yq.aliyun.com/articles/78124)
+- [阿里云帮助中心-阿里云，领先的云计算服务提供商](https://help.aliyun.com/document_detail/102512.html?spm=a2c4e.11153940.0.0.213c7bdebk30HM)

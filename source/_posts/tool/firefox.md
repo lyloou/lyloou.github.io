@@ -31,3 +31,15 @@ tags:
   > Drag scrollbar with your middle mouse button anywhere on the page. Supports also "grab and drag" style and Momentum.
 - Vimiue
   > The Hacker's Browser. Vimium provides keyboard shortcuts for navigation and control in the spirit of Vim.
+
+## firefox 设置每次访问时检查缓存
+
+1. 在 firefox 的地址栏上输入 about:config 回车
+2. 找到 browser.cache.check_doc_frequency 选项，双击将
+3. 改成 1 保存即可。
+
+选项每个值都是什么含义的。请看下面的解释：
+0: Once per session 每个进程一次 每次启动 Firefox 时检查
+1: Each time 【开发人员强烈建议开这个】每次访问此页时检查
+2: Never
+3: When appropriate/automatically
