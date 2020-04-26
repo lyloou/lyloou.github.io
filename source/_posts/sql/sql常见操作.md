@@ -7,6 +7,21 @@ tags:
   - sql
 ---
 
+## 拼接字符串
+
+```sql
+select concat();
+# CONCAT_WS，表示 CONCAT With Separator
+```
+
+[mysql 中 concat 和 group_concat()的用法 - zhming - 博客园](https://www.cnblogs.com/zhming26/p/6382995.html)
+
+## 查询某个字段的值出现多于 1 次的
+
+```sql
+SELECT id,flow_id, COUNT(flow_id) FROM orders GROUP BY flow_id HAVING count(flow_id)>1;
+```
+
 ## 是否为空
 
 ```sql
