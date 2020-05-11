@@ -26,4 +26,16 @@ On the basis of how we specify JVM option it can be divided into two parts, JVM 
 
 ## `-D`参数
 
-参数 `-D` 是 Java 自带的，基功能是通过命令行设置一个 Java 系统属性。
+参数 `-D` 是 Java 自带的，其功能是通过命令行设置一个 Java 系统属性。
+
+## 常用参数
+
+-Xms2G
+-Xmx2G
+-XX:NewRatio=4
+-XX:SurvivorRatio=8
+-XX:UseParNewGC
+-XX:UseParallelOldGC
+-XX:UseConcMarkSweepGC
+-XX:+PrintGC
+-XX:+PrintGCDetails
