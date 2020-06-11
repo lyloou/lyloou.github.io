@@ -5,7 +5,7 @@ The tides advance; the tides recede. Winter goes and summer comes. summer wanes 
 
 Today I will be master of my emotions.
 
-It is one of nature's tricks, little understood, that each day I awaken with moods that have changed from yesterday. Yesterday's joy wilI become today's sadness; yet today's sadness will grow into tomorrow's joy. Inside me is a wheel, constantly turning from sadness to joy, from exultation to depression, from happiness to melancholy. Like the flowers, today's full bloom of joy will fade and wither into despondency, yet I will remember that as today's dead flower carries the seed of tomorrow's bloom so, too, does today's sadness carry the seed of tomorrow's joy.
+It is one of nature's tricks, little understood, that each day I awaken with moods that have changed from yesterday. Yesterday's joy will become today's sadness; yet today's sadness will grow into tomorrow's joy. Inside me is a wheel, constantly turning from sadness to joy, from exultation to depression, from happiness to melancholy. Like the flowers, today's full bloom of joy will fade and wither into despondency, yet I will remember that as today's dead flower carries the seed of tomorrow's bloom so, too, does today's sadness carry the seed of tomorrow's joy.
 
 Today I will be master of my emotions.
 
