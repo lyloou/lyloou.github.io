@@ -18,6 +18,159 @@ tags:
 - [Mybatis-Plus 雪花 id 的使用以及解析机器 ID 和数据标识 ID\_摩羯座 de 杰杰陆的博客-CSDN 博客](https://blog.csdn.net/weixin_38657051/article/details/94713695?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.nonecase)
 - https://github.com/lyloou/spring-boot-web/
 
+#### 根据不同业务配置成多个生成器
+
+```java
+package com.lyloou.demo.config;
+
+import com.lyloou.common.util.SnowflakeIdWorker;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class SnowflakeConfig {
+
+    @Value("${snowflake.workerId}")
+    private Long workerId;
+
+    public enum Type {
+        ORDER("ORD", 0),
+        REFUND("REF", 1),
+        RETURN("RET", 2);
+
+        private String prefix;
+        private long datacenterId;
+
+        Type(String prefix, long datacenterId) {
+            this.prefix = prefix;
+            this.datacenterId = datacenterId;
+        }
+
+        public String getPrefix() {
+            return prefix;
+        }
+    }
+
+    @Bean
+    SnowflakeIdWorker orderWorker() {
+        return new SnowflakeIdWorker(workerId, Type.ORDER.datacenterId);
+    }
+
+    @Bean
+    SnowflakeIdWorker refundWorker() {
+        return new SnowflakeIdWorker(workerId, Type.REFUND.datacenterId);
+
+    }
+
+    @Bean
+    SnowflakeIdWorker returnWorker() {
+        return new SnowflakeIdWorker(workerId, Type.RETURN.datacenterId);
+
+    }
+}
+
+```
+
+#### 生成器的生成逻辑
+
+依据类型来生成（如，订单流水 ID、退款流水 ID、退货流水 ID）
+这里，将 dataCenterId 当做类型来使用（还可以再拆分下，适用不同场景）；
+
+```java
+package com.lyloou.demo.util;
+
+import com.lyloou.common.exception.CommonException;
+import com.lyloou.common.util.SnowflakeIdWorker;
+import com.lyloou.demo.config.SnowflakeConfig;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
+public class SnowflakeIdGenerator {
+    @Autowired
+    SnowflakeIdWorker orderWorker;
+    @Autowired
+    SnowflakeIdWorker refundWorker;
+    @Autowired
+    SnowflakeIdWorker returnWorker;
+
+    public String genId(SnowflakeConfig.Type type) {
+        return type.getPrefix() + getId(type);
+    }
+
+    private long getId(SnowflakeConfig.Type type) {
+        switch (type) {
+            case ORDER:
+                return orderWorker.nextId();
+            case REFUND:
+                return refundWorker.nextId();
+            case RETURN:
+                return returnWorker.nextId();
+            default:
+                throw new CommonException("无效的类型");
+        }
+    }
+}
+
+```
+
+#### 配置 workerId
+
+```yml
+# application.yml
+snowflake:
+  workerId: 1
+```
+
+或者配置成启动参数： -Dsnowflake.workerId=3
+
+#### 测试
+
+```java
+// 测试
+package com.lyloou.demo;
+
+import cn.hutool.core.util.RandomUtil;
+import com.lyloou.demo.config.SnowflakeConfig;
+import com.lyloou.demo.util.SnowflakeIdGenerator;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+
+@RunWith(SpringRunner.class)
+@SpringBootTest
+public class ConfigTest {
+
+    @Autowired
+    SnowflakeIdGenerator generator;
+
+    @Test
+    public void testSnowflake() {
+        for (int i = 0; i < 1000; i++) {
+            System.out.println(generator.genId(SnowflakeConfig.Type.values()[RandomUtil.randomInt(0, 3)]));
+        }
+    }
+}
+/**
+REF722513947651084288
+ORD722513947650953217
+ORD722513947650953218
+RET722513947651215361
+REF722513947651084289
+ORD722513947650953219
+REF722513947651084290
+RET722513947651215362
+ORD722513947650953220
+REF722513947651084291
+ORD722513947650953221
+RET722513947651215363
+REF722513947651084292
+*/
+```
+
 #### 雪花算法实现
 
 ```java
@@ -238,155 +391,4 @@ public class SnowflakeIdWorker {
         System.out.println(idWorker.parseInfo(nextId + ""));
     }
 }
-```
-
-```java
-package com.lyloou.demo.config;
-
-import com.lyloou.common.util.SnowflakeIdWorker;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-
-@Configuration
-public class SnowflakeConfig {
-
-    @Value("${snowflake.workerId}")
-    private Long workerId;
-
-    public enum Type {
-        ORDER("ORD", 0),
-        REFUND("REF", 1),
-        RETURN("RET", 2);
-
-        private String prefix;
-        private long datacenterId;
-
-        Type(String prefix, long datacenterId) {
-            this.prefix = prefix;
-            this.datacenterId = datacenterId;
-        }
-
-        public String getPrefix() {
-            return prefix;
-        }
-    }
-
-    @Bean
-    SnowflakeIdWorker orderWorker() {
-        return new SnowflakeIdWorker(workerId, Type.ORDER.datacenterId);
-    }
-
-    @Bean
-    SnowflakeIdWorker refundWorker() {
-        return new SnowflakeIdWorker(workerId, Type.REFUND.datacenterId);
-
-    }
-
-    @Bean
-    SnowflakeIdWorker returnWorker() {
-        return new SnowflakeIdWorker(workerId, Type.RETURN.datacenterId);
-
-    }
-}
-
-```
-
-#### 根据不同业务封装成多个生成器
-
-依据类型来生成（如，订单流水 ID、退款流水 ID、退货流水 ID）
-这里，将 dataCenterId 当做类型来使用（还可以再拆分下，适用不同场景）；
-
-```java
-package com.lyloou.demo.util;
-
-import com.lyloou.common.exception.CommonException;
-import com.lyloou.common.util.SnowflakeIdWorker;
-import com.lyloou.demo.config.SnowflakeConfig;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
-@Component
-public class SnowflakeIdGenerator {
-    @Autowired
-    SnowflakeIdWorker orderWorker;
-    @Autowired
-    SnowflakeIdWorker refundWorker;
-    @Autowired
-    SnowflakeIdWorker returnWorker;
-
-    public String genId(SnowflakeConfig.Type type) {
-        return type.getPrefix() + getId(type);
-    }
-
-    private long getId(SnowflakeConfig.Type type) {
-        switch (type) {
-            case ORDER:
-                return orderWorker.nextId();
-            case REFUND:
-                return refundWorker.nextId();
-            case RETURN:
-                return returnWorker.nextId();
-            default:
-                throw new CommonException("无效的类型");
-        }
-    }
-}
-
-```
-
-#### 配置 workerId
-
-```yml
-# application.yml
-snowflake:
-  workerId: 1
-```
-
-或者配置成启动参数： -Dsnowflake.workerId=3
-
-#### 测试
-
-```java
-// 测试
-package com.lyloou.demo;
-
-import cn.hutool.core.util.RandomUtil;
-import com.lyloou.demo.config.SnowflakeConfig;
-import com.lyloou.demo.util.SnowflakeIdGenerator;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
-
-@RunWith(SpringRunner.class)
-@SpringBootTest
-public class ConfigTest {
-
-    @Autowired
-    SnowflakeIdGenerator generator;
-
-    @Test
-    public void testSnowflake() {
-        for (int i = 0; i < 1000; i++) {
-            System.out.println(generator.genId(SnowflakeConfig.Type.values()[RandomUtil.randomInt(0, 3)]));
-        }
-    }
-}
-/**
-REF722513947651084288
-ORD722513947650953217
-ORD722513947650953218
-RET722513947651215361
-REF722513947651084289
-ORD722513947650953219
-REF722513947651084290
-RET722513947651215362
-ORD722513947650953220
-REF722513947651084291
-ORD722513947650953221
-RET722513947651215363
-REF722513947651084292
-*/
 ```
