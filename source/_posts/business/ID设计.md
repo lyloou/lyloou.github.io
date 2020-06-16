@@ -343,7 +343,7 @@ snowflake:
   workerId: 1
 ```
 
-或者配置成启动参数： -Dsnowflake.workId=3
+或者配置成启动参数： -Dsnowflake.workerId=3
 
 #### 测试
 
