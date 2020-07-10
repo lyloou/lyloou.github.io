@@ -112,3 +112,8 @@ server
 }
 
 ```
+
+[Nginx -- proxy_pass 配置 - Bigberg - 博客园](https://www.cnblogs.com/bigberg/p/7651197.html)
+
+> url 后带 / （则不会加上 location 中的匹配路径）
+> url 中不带 / （则会加上 location 中的匹配路径）

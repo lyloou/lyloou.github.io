@@ -7,6 +7,29 @@ tags:
   - java
 ---
 
+## Guide to installing 3rd party JARs
+
+http://maven.apache.org/guides/mini/guide-3rd-party-jars-local.html
+
+## pom.xml 文件 中 dependency 标记的 scope 属性解释：
+
+compile，缺省值，适用于所有阶段，会随着项目一起发布。
+provided，类似 compile，期望 JDK、容器或使用者会提供这个依赖。如 servlet.jar。
+runtime，只在运行时使用，如 JDBC 驱动，适用运行和测试阶段。
+test，只在测试时使用，用于编译和运行测试代码。不会随项目发布。
+system，类似 provided，需要显式提供包含依赖的 jar，Maven 不会在 Repository 中查找它。
+
+```xml
+<!-- 如：system -->
+  <dependency>
+      <groupId>com.aqmd</groupId>
+      <artifactId>aqmd-netty</artifactId>
+      <version>2.0.1</version>
+      <scope>system</scope>
+      <systemPath>${project.basedir}/lib/aqmd-netty-2.0.1.jar</systemPath>
+  </dependency>
+```
+
 ## 一键生成
 
 ```sh
@@ -36,7 +59,7 @@ https://help.sonatype.com/repomanager3/download/download-archives---repository-m
 
 ```sh
 docker volume create --name nexus-data
-docker run -d -p 8081:8081 --name nexus -v nexus-data:/nexus-data sonatype/nexus3
+docker run -d -p 8081:8081 --name nexus3 -v nexus-data:/nexus-data sonatype/nexus3
 
 docker volume inspect nexus-data
 # see admin password in nexus-data/admin.password
