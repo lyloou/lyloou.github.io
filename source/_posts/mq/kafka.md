@@ -24,7 +24,7 @@ www.jasongj.com/2015/01/02/Kafka 深度解析/
 kafka-consumer-groups --bootstrap-server master:9092 --list --new-consumer  
 ```
 
-![image-20200730112144234](kafka.assets/image-20200730112144234.png)
+![image-20200730112144234](./kafka.assets/image-20200730112144234.png)
 
 计算消息的消息堆积情况
 
@@ -32,7 +32,7 @@ kafka-consumer-groups --bootstrap-server master:9092 --list --new-consumer
 kafka-consumer-groups --bootstrap-server master:9092 --describe --group  test_kafka_game_x_g1
 ```
 
-![image-20200730112307195](kafka.assets/image-20200730112307195.png)
+![image-20200730112307195](./kafka.assets/image-20200730112307195.png)
 
 说明：
 
