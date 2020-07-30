@@ -117,3 +117,5 @@ server
 
 > url 后带 / （则不会加上 location 中的匹配路径）
 > url 中不带 / （则会加上 location 中的匹配路径）
+
+## [nginx 在一个服务器上配置两个项目，并通过两个不同的域名访问 - 半马 - 博客园](https://www.cnblogs.com/banma/p/9069858.html)
