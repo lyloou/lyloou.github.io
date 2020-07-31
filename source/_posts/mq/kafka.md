@@ -29,8 +29,6 @@ kafka-consumer-groups --bootstrap-server master:9092 --list --new-consumer
 kafka-consumer-groups --bootstrap-server master:9092 --describe --group  test_kafka_game_x_g1
 ```
 
-![image-20200730112307195](./kafka.assets/image-20200730112307195.png)
-
 说明：
 
 > LogEndOffset 下一条将要被加入到日志的消息的位移

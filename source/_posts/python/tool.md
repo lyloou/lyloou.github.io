@@ -4,10 +4,16 @@ date: 2019-01-26 10:30:13
 toc: true
 comments: true
 tags:
-- python
+  - python
 ---
 
-## HTTP服务
-```python
+## HTTP 服务
+
+```sh
 python -m SimpleHTTPServer 8080
+```
+
+```sh
+# alias.sh
+www='python -m SimpleHTTPServer 8000'
 ```
