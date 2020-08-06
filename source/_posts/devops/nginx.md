@@ -119,3 +119,22 @@ server
 > url 中不带 / （则会加上 location 中的匹配路径）
 
 ## [nginx 在一个服务器上配置两个项目，并通过两个不同的域名访问 - 半马 - 博客园](https://www.cnblogs.com/banma/p/9069858.html)
+
+## nginx 搭建文件服务器
+- [用nginx一分钟实现文件服务器 - 简书](https://www.jianshu.com/p/d9f886a9666a)
+- [NGINX as a file server](https://www.yanxurui.cc/posts/server/2017-03-21-NGINX-as-a-file-server/)
+
+```conf
+server {
+  listen 80; 
+  server_name file.lyloou.com; # 自己PC的ip或者服务器的域名 charset utf-8; # 避免中文乱码 
+  root /home/xx/share; # 存放文件的目录 
+  location / { 
+    # download
+    autoindex on;               # enable directory listing output
+    autoindex_exact_size off;   # output file sizes rounded to kilobytes, megabytes, and gigabytes
+    autoindex_localtime on;     # output local times in the directory
+  }
+}
+
+```

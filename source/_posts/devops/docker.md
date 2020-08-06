@@ -149,7 +149,7 @@ docker inspect --format='{{.Name}} - {{range .NetworkSettings.Networks}}{{.IPAdd
 /nexus3 - 172.17.0.2
 ```
 
-## 网络
+## 网络管理
 [Docker 错误集合_挂件-CSDN博客_error: pool overlaps with other one on this addres](https://blog.csdn.net/benpaodelulu_guajian/article/details/90546129)
 查看docker网卡
 ```
