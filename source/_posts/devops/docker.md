@@ -150,18 +150,30 @@ docker inspect --format='{{.Name}} - {{range .NetworkSettings.Networks}}{{.IPAdd
 ```
 
 ## 网络管理
-[Docker 错误集合_挂件-CSDN博客_error: pool overlaps with other one on this addres](https://blog.csdn.net/benpaodelulu_guajian/article/details/90546129)
-查看docker网卡
+
+[Docker 错误集合\_挂件-CSDN 博客\_error: pool overlaps with other one on this addres](https://blog.csdn.net/benpaodelulu_guajian/article/details/90546129)
+查看 docker 网卡
+
 ```
 docker network ls
 ```
 
-查看docker网卡的相关详细信息  确认是自己创建的ip段 然后在删除相应的网卡
+查看 docker 网卡的相关详细信息 确认是自己创建的 ip 段 然后在删除相应的网卡
+
 ```
 docker network inspect ${containerid}
 ```
 
-删除docker网卡
+删除 docker 网卡
+
 ```
 docker network rm ${containerid}
+```
+
+## 清除日志
+
+https://stackoverflow.com/a/43570083
+
+```sh
+truncate -s 0 /var/lib/docker/containers/*/*-json.log
 ```

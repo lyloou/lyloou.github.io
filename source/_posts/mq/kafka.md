@@ -20,6 +20,7 @@ www.jasongj.com/2015/01/02/Kafka 深度解析/
 
 ```
 kafka-consumer-groups --bootstrap-server master:9092 --list --new-consumer
+kafka-consumer-groups.sh --bootstrap-server ce-kafka:9092 --list
 ```
 
 计算消息的消息堆积情况
@@ -27,7 +28,10 @@ kafka-consumer-groups --bootstrap-server master:9092 --list --new-consumer
 
 ```
 kafka-consumer-groups --bootstrap-server master:9092 --describe --group  test_kafka_game_x_g1
+kafka-consumer-groups.sh --bootstrap-server ce-kafka:9092 --describe --group  default-group
 ```
+
+./kafka-configs.sh --zookeeper ce-zookeeper:2181 --entity-type topics --entity-name __consumer_offsets --describe
 
 说明：
 

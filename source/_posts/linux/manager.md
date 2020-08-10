@@ -17,6 +17,25 @@ tags:
 
 # 磁盘管理
 
+## 空间
+
+```sh
+df -a #  显示目前在Linux系统上的文件系统的磁盘使用情况统计
+du -sh * # 显示当前目录或文件所占用的磁盘空间. -s表示总计，-h是以K，M，G为单位，提高信息的可读性
+```
+
+```sh
+/var/log/journal/
+journalctl --vacuum-size=10M
+journalctl --disk-usage
+# https://blog.csdn.net/ithomer/article/details/89530790
+```
+
+```sh
+# 查看某个目录的文件大小并排序（单位为MB）
+du -hm --max-depth=1 /var/ | sort -n
+```
+
 ## [自动挂载 E 盘](https://askubuntu.com/questions/46588/how-to-automount-ntfs-partitions)
 
 - `vi /etc/fstab` & add below line
