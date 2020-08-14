@@ -121,15 +121,16 @@ server
 ## [nginx 在一个服务器上配置两个项目，并通过两个不同的域名访问 - 半马 - 博客园](https://www.cnblogs.com/banma/p/9069858.html)
 
 ## nginx 搭建文件服务器
-- [用nginx一分钟实现文件服务器 - 简书](https://www.jianshu.com/p/d9f886a9666a)
+
+- [用 nginx 一分钟实现文件服务器 - 简书](https://www.jianshu.com/p/d9f886a9666a)
 - [NGINX as a file server](https://www.yanxurui.cc/posts/server/2017-03-21-NGINX-as-a-file-server/)
 
 ```conf
 server {
-  listen 80; 
-  server_name file.lyloou.com; # 自己PC的ip或者服务器的域名 charset utf-8; # 避免中文乱码 
-  root /home/xx/share; # 存放文件的目录 
-  location / { 
+  listen 80;
+  server_name file.lyloou.com; # 自己PC的ip或者服务器的域名 charset utf-8; # 避免中文乱码
+  root /home/xx/share; # 存放文件的目录
+  location / {
     # download
     autoindex on;               # enable directory listing output
     autoindex_exact_size off;   # output file sizes rounded to kilobytes, megabytes, and gigabytes
@@ -138,3 +139,10 @@ server {
 }
 
 ```
+
+## [如何为 nginx 配置 https(免费证书) - 主啊~ - 博客园](https://www.cnblogs.com/immense/p/11402157.html)
+
+注意
+
+- 如果用了 docker 要暴露 443 端口
+- 如果用了服务商服务器，要在安全组中配置 443 入方向

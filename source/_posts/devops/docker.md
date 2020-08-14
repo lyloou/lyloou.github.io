@@ -177,3 +177,11 @@ https://stackoverflow.com/a/43570083
 ```sh
 truncate -s 0 /var/lib/docker/containers/*/*-json.log
 ```
+
+## 查看日志
+
+https://blog.csdn.net/jiangyu1013/article/details/96147534
+
+## 搭建私有仓库
+
+https://yeasy.gitbook.io/docker_practice/repository/registry

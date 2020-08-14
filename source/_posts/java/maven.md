@@ -214,9 +214,10 @@ mvn install -pl A -am -Pprod
 mvn package -pl A -am -Pprod
 ```
 
-
 ## maven 加速
-[将maven源改为国内阿里云镜像 - 知乎](https://zhuanlan.zhihu.com/p/71998219)
+
+[将 maven 源改为国内阿里云镜像 - 知乎](https://zhuanlan.zhihu.com/p/71998219)
+
 ```xml
 <!--  -->
 <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
@@ -252,7 +253,7 @@ mvn package -pl A -am -Pprod
   <proxies/>
   <activeProfiles/>
   <profiles>
-    <profile>  
+    <profile>
         <repositories>
            <repository>
                 <id>aliyunmaven</id>
@@ -274,8 +275,10 @@ mvn package -pl A -am -Pprod
                 <id>aliyunmavenApache</id>
                 <url>https://maven.aliyun.com/repository/apache-snapshots</url>
             </repository>
-        </repositories>             
+        </repositories>
      </profile>
   </profiles>
 </settings>
 ```
+
+## maven 多模块打包共享 lib ，分离配置文件
