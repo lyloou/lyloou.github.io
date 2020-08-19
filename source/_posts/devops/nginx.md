@@ -113,10 +113,15 @@ server
 
 ```
 
-[Nginx -- proxy_pass 配置 - Bigberg - 博客园](https://www.cnblogs.com/bigberg/p/7651197.html)
+## [Nginx -- proxy_pass 配置 - Bigberg - 博客园](https://www.cnblogs.com/bigberg/p/7651197.html)
 
-> url 后带 / （则不会加上 location 中的匹配路径）
-> url 中不带 / （则会加上 location 中的匹配路径）
+
+在 proxy_pass 中的代理 url 后加上/，代理转发的 url 中就不会带上 location 中匹配路径；
+![](/images/article/nginx_2020-08-19-18-50-37.png)
+我们访问 http://my.yemao.com/proxy/index.html，其实是访问到了 http://test.yemao.com/index.html
+
+> 在 proxy_pass 中的代理 url 后带 / （则不会加上 location 中的匹配路径）
+> 在 proxy_pass 中的代理 url 中不带 / （则会加上 location 中的匹配路径）
 
 ## [nginx 在一个服务器上配置两个项目，并通过两个不同的域名访问 - 半马 - 博客园](https://www.cnblogs.com/banma/p/9069858.html)
 
