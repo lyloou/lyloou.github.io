@@ -281,4 +281,12 @@ mvn package -pl A -am -Pprod
 </settings>
 ```
 
+## 查看包依赖情况，从什么时候引入的
+
+[通过 IntelliJ IDEA 和 Maven 命令查看某个 jar 包是怎么引入的 - 小墨的童鞋 - 博客园](https://www.cnblogs.com/wormday/p/8186109.html)
+
+```
+mvn dependency:tree -Dverbose -Dincludes=org.yaml:snakeyaml
+```
+
 ## maven 多模块打包共享 lib ，分离配置文件

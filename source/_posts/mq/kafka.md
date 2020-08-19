@@ -26,12 +26,10 @@ kafka-consumer-groups.sh --bootstrap-server ce-kafka:9092 --list
 计算消息的消息堆积情况
 ![](/images/article/kafka_2020-07-30-12-51-47.png)
 
-```
+```sh
 kafka-consumer-groups --bootstrap-server master:9092 --describe --group  test_kafka_game_x_g1
 kafka-consumer-groups.sh --bootstrap-server ce-kafka:9092 --describe --group  default-group
 ```
-
-./kafka-configs.sh --zookeeper ce-zookeeper:2181 --entity-type topics --entity-name __consumer_offsets --describe
 
 说明：
 
@@ -40,3 +38,18 @@ kafka-consumer-groups.sh --bootstrap-server ce-kafka:9092 --describe --group  de
 > LAG 消息堆积量
 >
 > 消息堆积量：消息中间件服务端中所留存的消息与消费掉的消息之间的差值即为消息堆积量也称之为消费滞后量
+
+## [kafka 清理数据日志 - Adrian·Ding - 博客园](https://www.cnblogs.com/ding2016/p/9294544.html)
+
+```ini
+log.dirs=/data/kafka-logslog.cleaner.enable=true
+log.cleanup.policy = delete　　　　// delete|compact
+log.retention.hours=168
+log.segment.bytes=1073741824
+log.retention.check.interval.ms=300000
+```
+
+```sh
+kafka-configs.sh --zookeeper ce-zookeeper:2181 --entity-type topics --entity-name __consumer_offsets --describe
+kafka-configs.sh --zookeeper ce-zookeeper:2181 --entity-type topics --entity-name __consumer_offsets --alter --delete-config cleanup.policy
+```

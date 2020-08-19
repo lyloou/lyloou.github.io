@@ -146,3 +146,52 @@ server {
 
 - 如果用了 docker 要暴露 443 端口
 - 如果用了服务商服务器，要在安全组中配置 443 入方向
+
+## nginx 设置 websocket 连接
+
+```
+  location /market {
+    index index.html;
+    client_max_body_size    5m;
+    proxy_pass http://172.21.90.214:6001;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection "upgrade";
+    proxy_set_header X-Real-IP $remote_addr;
+  }
+```
+
+## 无法访问静态资源
+
+- [nginx 找不到静态（css,js,html）文件 404 报错，root 的解析\_lwgkzl 的博客-CSDN 博客\_nginx 找不到静态文件](https://blog.csdn.net/lwgkzl/article/details/81278985)
+- [解决 nginx 部署后 css、js、图片等样式不加载的问题\_qq_27184497 的博客-CSDN 博客\_nginx 无法加载 js 与 css](https://blog.csdn.net/qq_27184497/article/details/82292399)
+
+```ini
+server{
+        listen 80;
+        location / {
+                proxy_pass http://xd-project;
+
+        }
+        # 添加下面部分
+        location ~ .* {
+                proxy_pass http://xd-project;
+                proxy_set_header Host $http_host;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        }
+
+}
+```
+
+或者使用下面部分：
+
+```ini
+location ~.*(js|css|png|gif|jpg|mp3|ogg)$ {
+    root /home/kzl/data/app/;
+}
+```
+
+> 这个 location 说明如果你要访问 js,css,png...结尾的文件，你需要在你的访问路径前加上 root。
+> 这个 root 实际上就是替换了网页上的 http:10.10.10.10:5000。如果加了这个 location，那么网页在访问 http:10.10.10.10:5000/static/css/morris.css.这个路径的时候，因为文件结尾是 css 匹配到了这个 location,然后网页就会访问

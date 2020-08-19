@@ -185,3 +185,18 @@ https://blog.csdn.net/jiangyu1013/article/details/96147534
 ## 搭建私有仓库
 
 https://yeasy.gitbook.io/docker_practice/repository/registry
+
+## 停止
+
+docker stop \$(docker ps -aq)
+
+## docker-compose
+
+```sh
+docker-compose ps
+docker-compose up -d
+docker-compose down
+docker-compose down -v
+docker-compose start ce-kafka
+docker-compose exec ce-kafka bash
+```
