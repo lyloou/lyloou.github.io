@@ -115,7 +115,6 @@ server
 
 ## [Nginx -- proxy_pass 配置 - Bigberg - 博客园](https://www.cnblogs.com/bigberg/p/7651197.html)
 
-
 在 proxy_pass 中的代理 url 后加上/，代理转发的 url 中就不会带上 location 中匹配路径；
 ![](/images/article/nginx_2020-08-19-18-50-37.png)
 我们访问 http://my.yemao.com/proxy/index.html，其实是访问到了 http://test.yemao.com/index.html
@@ -200,3 +199,9 @@ location ~.*(js|css|png|gif|jpg|mp3|ogg)$ {
 
 > 这个 location 说明如果你要访问 js,css,png...结尾的文件，你需要在你的访问路径前加上 root。
 > 这个 root 实际上就是替换了网页上的 http:10.10.10.10:5000。如果加了这个 location，那么网页在访问 http:10.10.10.10:5000/static/css/morris.css.这个路径的时候，因为文件结尾是 css 匹配到了这个 location,然后网页就会访问
+
+## 替代方案：Caddy
+
+- https://caddyserver.com/
+
+- [Using Caddy instead of Nginx, the whole station upgrades https, and the configuration is simpler.](https://programmer.help/blogs/5d1a87803e2e9.html)
