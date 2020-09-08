@@ -181,6 +181,27 @@ truncate -s 0 /var/lib/docker/containers/*/*-json.log
 ## 查看日志
 
 https://blog.csdn.net/jiangyu1013/article/details/96147534
+```sh
+docker logs -f -t --since="2017-05-31" --tail=10 edu_web_1
+docker logs --tail 1 26b12d17fefc
+docker logs -t 26b12d17fefc
+
+docker logs [OPTIONS] CONTAINER
+ 
+Options:
+ 
+--details 显示更多的信息
+ 
+-f, --follow 实时输出日志，最后一行为当前时间戳的日志
+ 
+--since string 输出日志开始日期，即只输出指定日期之后的日志。
+ 
+--tail string 显示最后多少行日志， 默认是all
+            （如： -tail=10 : 查看最后的 10 行日志。）
+ 
+-t, --timestamps 显示时间戳
+ 
+```
 
 ## 搭建私有仓库
 
