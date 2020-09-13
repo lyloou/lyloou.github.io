@@ -4,23 +4,33 @@ date: 2018/09/17 17:29
 toc: true
 comments: true
 tags:
-- sql
+  - sql
 ---
 
-## mybatis自动生成工具
+## mybatisplus
+
+https://github.com/lyloou/spring-master/tree/master/spring-mybatisplus
+
+- 自动生成，包括 Controller、Mapper、Entity、Service、Mapper.xml
+
+## mybatis 自动生成工具
+
 - 下载`mybatis-generator-core-1.3.7.jar`
+
 ```sh
 https://github.com/mybatis/generator/releases
 https://github.com/mybatis/generator/releases/download/mybatis-generator-1.3.7/mybatis-generator-core-1.3.7.zip
 ```
 
 - 下载`postgresql-42.2.2.jar`
+
 ```sh
 https://jdbc.postgresql.org/download.html
 https://jdbc.postgresql.org/download/postgresql-42.2.2.jar
 ```
 
 - 配置`generatorConfig.xml`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE generatorConfiguration
@@ -32,29 +42,29 @@ https://jdbc.postgresql.org/download/postgresql-42.2.2.jar
             location="D:/c/mybatis/mybatis-generator-core-1.3.7/lib/postgresql-42.2.2.jar"/>
 
     <context id="MysqlContext" targetRuntime="MyBatis3Simple">
-        <!-- 生成的pojo，将implements Serializable-->    
-        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"></plugin>    
+        <!-- 生成的pojo，将implements Serializable-->
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"></plugin>
 
         <jdbcConnection driverClass="org.postgresql.Driver"
                         connectionURL="jdbc:postgresql://192.168.1.123:5432/users?currentSchema=hello&amp;tcpKeepAlive=true"
                         userId="hello" password="hello"/>
 
-        <!--      
-        默认false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer    
-            true，把JDBC DECIMAL 和 NUMERIC 类型解析为java.math.BigDecimal      
-        -->    
-        <javaTypeResolver>    
-            <property name="forceBigDecimals" value="false" />    
-        </javaTypeResolver>    
-    
+        <!--
+        默认false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer
+            true，把JDBC DECIMAL 和 NUMERIC 类型解析为java.math.BigDecimal
+        -->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
         <javaModelGenerator targetPackage="com.example.model.original"
                             targetProject="./src/main/java">
-            <property name="enableSubPackages" value="true"/>                            
-            <!-- 从数据库返回的值被清理前后的空格  -->    
+            <property name="enableSubPackages" value="true"/>
+            <!-- 从数据库返回的值被清理前后的空格  -->
             <property name="trimStrings" value="true" />
         </javaModelGenerator>
 
-        <javaClientGenerator type="ANNOTATEDMAPPER" 
+        <javaClientGenerator type="ANNOTATEDMAPPER"
                              targetPackage="com.example.repository.mapper"
                              targetProject="./src/main/java"  >
             <property name="rootInterface" value="com.example.repository.mark.IMarkMapper"/>
@@ -76,25 +86,30 @@ https://jdbc.postgresql.org/download/postgresql-42.2.2.jar
 
 </generatorConfiguration>
 ```
-- 配置`generatorConfig.bat `
+
+- 配置`generatorConfig.bat`
+
 ```bat
 @echo off
 java -jar mybatis-generator-core-1.3.2.jar -configfile generatorConfig.xml
 pause
 ```
 
-参考资料： 
-- [官网generator](https://github.com/mybatis/generator)
-- [mybatis自动生成工具-MBG](https://blog.csdn.net/zxh_2581285470/article/details/51915228)
+参考资料：
+
+- [官网 generator](https://github.com/mybatis/generator)
+- [mybatis 自动生成工具-MBG](https://blog.csdn.net/zxh_2581285470/article/details/51915228)
+
 ```sh
 # mysql使用的是不同的连接库
 mysql-connector-java-5.1.37.jar
 ```
 
-- [Mybatis最入门---代码自动生成（generatorConfig.xml配置） - 越来越好ing的博客 - CSDN博客](https://blog.csdn.net/weixin_42476601/article/details/81479362)
+- [Mybatis 最入门---代码自动生成（generatorConfig.xml 配置） - 越来越好 ing 的博客 - CSDN 博客](https://blog.csdn.net/weixin_42476601/article/details/81479362)
 
-## 根据数据库表生成对应实体类（Lombok的注解实现）
-记得IDEA安装好插件：Lombok Plugin
+## 根据数据库表生成对应实体类（Lombok 的注解实现）
+
+记得 IDEA 安装好插件：Lombok Plugin
 
 文件`pom.xml`
 
@@ -143,9 +158,10 @@ mysql-connector-java-5.1.37.jar
                     </dependency>
                 </dependencies>
             </plugin>
-        </plugins>    
+        </plugins>
     </build>
 ```
+
 文件`src/main/resources/mybatis/generatorConfig.xml`
 
 ```xml
@@ -201,6 +217,7 @@ mysql-connector-java-5.1.37.jar
 </generatorConfiguration>
 
 ```
+
 如下图所示点击生成 entity
 ![点击生成 entity](https://github.com/lyloou/img/raw/develop/z/20190624151033.png)
 

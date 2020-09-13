@@ -4,8 +4,7 @@ date: 2018/11/10 17:29
 toc: true
 comments: true
 tags:
-  - sql
-  - mysql
+  - redis
 ---
 
 ## install
