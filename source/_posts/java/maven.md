@@ -289,4 +289,15 @@ mvn package -pl A -am -Pprod
 mvn dependency:tree -Dverbose -Dincludes=org.yaml:snakeyaml
 ```
 
-## maven 多模块打包共享 lib ，分离配置文件
+## 打包时跳过测试
+
+注意用的是 package 命令 而不是 war 命令
+
+```
+mvn clean package -Dmaven.test.skip=true
+```
+
+## maven 多模块
+
+- [三分钟把 spring boot 打成 war 包部署到 tomcat 中 - 掘金](https://juejin.im/post/5cd15ed2e51d453b5854b881)
+- 打包共享 lib ，分离配置文件

@@ -200,3 +200,9 @@ docker-compose down -v
 docker-compose start ce-kafka
 docker-compose exec ce-kafka bash
 ```
+
+## 宿主机与容器之前的复制
+
+容器到宿主机：`docker cp container_name:/opt/abc.txt /tmp/`
+宿主机到容器：`docker cp /tmp/abc.txt container_name:/opt/`
+不论容器是否启动，都可以执行上面的命令

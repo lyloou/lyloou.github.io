@@ -30,5 +30,6 @@
   "pasteImage.namePrefix": "${currentFileNameWithoutExt}_",
   "pasteImage.basePath": "${projectRoot}/source",
   "pasteImage.forceUnixStyleSeparator": true,
-  "pasteImage.prefix": "/"
+  "pasteImage.prefix": "/",
+  "python.formatting.provider": "yapf"
 }

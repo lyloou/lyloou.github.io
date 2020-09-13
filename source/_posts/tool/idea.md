@@ -24,6 +24,7 @@ tags:
 - Alibaba Java Coding Guidelines
 - Database navigator
 - Rainbow Brackets 
+- Free mybatis plugin
 
 - https://www.hollischuang.com/archives/3220
 
