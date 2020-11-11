@@ -30,8 +30,8 @@ git config --global credential.helper store
 ## 同时同步多个远程分支
 
 ```sh
-git config –add remote.all.url  http://domain1.com/repo.git
-git config –add remote.all.url  http://domain2.com/repo.git
+git config -–add remote.all.url  http://domain1.com/repo.git
+git config -–add remote.all.url  http://domain2.com/repo.git
 
 git push all master
 git push all develop
