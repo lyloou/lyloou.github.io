@@ -123,3 +123,11 @@ delete from task_link where id in (100,137,131,138,136,125,124);
 insert into task_bonus_user (user_id,task_id,task_bonus_id) values (?,?,?)
              on duplicate key update task_bonus_id = values(task_bonus_id)
 ```
+
+## 去除小数点和后面的 0
+
+[MySQL 去掉字符串前后或中间的某一字符串\_strggle_bin 的博客-CSDN 博客\_mysql 去掉前两个字符](https://blog.csdn.net/strggle_bin/article/details/78135071)
+
+```
+UPDATE cc_brief_video_author SET user_id = TRIM(TRAILING '.0' from user_id)
+```
