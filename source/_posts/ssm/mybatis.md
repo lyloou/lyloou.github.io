@@ -61,3 +61,22 @@ public class Flow {
 
 答案：因为解决的时候用到的是 `flow.isDisabled` 属性，因为传递的是 `flow.is_disabled` 所以不行
 ```
+
+## 按照输入 id 顺序来返回数据
+
+```xml
+<select id="queryOrderedAuthorByauthorIds" resultMap="BaseResultMap">
+  select * from video_author a
+  where a.user_id in
+    <foreach collection="authorIds" item="item" index="index" separator="," open="(" close=")">
+      #{item}
+    </foreach>
+  and a.user_status=0
+  -- 按照输入的顺序来返回排序
+  order by field(a.user_id,
+    <foreach collection="authorIds" item="item" index="index" separator=",">
+      #{item}
+    </foreach>
+  )
+</select>
+```

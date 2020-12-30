@@ -131,3 +131,15 @@ insert into task_bonus_user (user_id,task_id,task_bonus_id) values (?,?,?)
 ```
 UPDATE cc_brief_video_author SET user_id = TRIM(TRAILING '.0' from user_id)
 ```
+
+## 删除重复的关键词
+
+```sql
+DELETE from cc_brief_keyword_v2 WHERE id not in (
+	SELECT min(id) FROM cc_brief_keyword_v2 GROUP BY keyword HAVING count(keyword) > 1
+)
+and
+keyword in (
+ SELECT keyword FROM cc_brief_keyword_v2 GROUP BY keyword HAVING count(keyword) > 1
+)
+```

@@ -297,6 +297,17 @@ mvn dependency:tree -Dverbose -Dincludes=org.yaml:snakeyaml
 mvn clean package -Dmaven.test.skip=true
 ```
 
+## idea 中调用 compile, package 时跳过测试
+
+```xml
+<properties>
+    <java.version>8</java.version>
+    <org.mapstruct.version>1.4.1.Final</org.mapstruct.version>
+    <!-- maven时跳过测试 -->
+    <maven.test.skip>true</maven.test.skip>
+</properties>
+```
+
 ## maven 多模块
 
 - [三分钟把 spring boot 打成 war 包部署到 tomcat 中 - 掘金](https://juejin.im/post/5cd15ed2e51d453b5854b881)

@@ -15,3 +15,6 @@ tags:
 curl -X POST -H "Accept-Language:zh-CN" -H 'x-auth-token:09ef4702-578e-408b-91b2-a40393dfc996' -F 'symbol=BTC/USDT' -F 'price=76.00000' -F 'amount=1002' -F 'direction=BUY' -F 'type=LIMIT_PRICE' http://192.168.1.22:8091/exchange/order/add
 ```
 
+```sh
+curl -X GET --data '{"album_id": "4510261846343990"}' -H "Content-Type:application/json"  http://localhost:6004/media/output/materiellist
+```

@@ -11,7 +11,7 @@
   "window.openFoldersInNewWindow": "on",
   "files.autoSave": "afterDelay",
   "files.autoSaveDelay": 2000,
-  "window.zoomLevel": 1,
+  "window.zoomLevel": 0,
   "editor.minimap.enabled": false,
   "workbench.editor.enablePreview": false,
   // 控制编辑器是否在滚动时使用动画
