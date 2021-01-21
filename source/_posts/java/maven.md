@@ -312,3 +312,16 @@ mvn clean package -Dmaven.test.skip=true
 
 - [三分钟把 spring boot 打成 war 包部署到 tomcat 中 - 掘金](https://juejin.im/post/5cd15ed2e51d453b5854b881)
 - 打包共享 lib ，分离配置文件
+
+## 模块太多，编译指定模块
+
+```sh
+#!/bin/bash
+# 编译指定module
+# [continuous integration - Skip a submodule during a Maven build - Stack Overflow](https://stackoverflow.com/questions/8304110/skip-a-submodule-during-a-maven-build)
+
+mvn -pl \
+:marketing-api-tv-topic-pk,\
+:marketing-api-phone-topic-pk\
+  clean install -Dmaven.skip.test=true
+```
