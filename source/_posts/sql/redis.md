@@ -21,6 +21,18 @@ sudo apt install redis-server
 > You should probably alter the redis.conf file to force it to use IPv4 if it supports that mode only and then maybe you could run it without IPv6.
 > [apt - Cannot install redis server - Unix & Linux Stack Exchange](https://unix.stackexchange.com/questions/351668/cannot-install-redis-server) > https://unix.stackexchange.com/a/501785
 
+**单机安装**
+
+```sh
+wget -v http://download.redis.io/releases/redis-5.0.5.tar.gz
+apt install build-essential tcl
+mkdir /var/redis-standalone
+make install PREFIX=/var/redis-standalone MALLOC=libc
+cp ./redis.conf /var/redis-standalone
+cd /var/redis-standalone
+./bin/redis-server ./redis.conf
+```
+
 ## 参考资料
 
 - [Redis-主从复制与 Sentinel - 简书](https://www.jianshu.com/p/88636a819802)
