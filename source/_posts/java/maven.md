@@ -325,3 +325,87 @@ mvn -pl \
 :marketing-api-phone-topic-pk\
   clean install -Dmaven.skip.test=true
 ```
+
+## [Maven 如何为不同的环境打包 —— 开发、测试和产品环境 - 作业部落 Cmd Markdown 编辑阅读器](https://www.zybuluo.com/haokuixi/note/25985)
+
+```xml
+<profile>
+    <id>dev</id>
+    <activation>
+        <activeByDefault>true</activeByDefault>
+    </activation>
+    <properties>
+        <runtime.env>src/main/env/dev</runtime.env>
+        <final.name>webapp</final.name>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>com.eightqiu</groupId>
+            <artifactId>CodeCmns</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+</profile>
+<profile>
+    <id>qa</id>
+    <properties>
+        <runtime.env>src/main/env/qa</runtime.env>
+        <final.name>webapp_${buildNumber}</final.name>
+    </properties>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>buildnumber-maven-plugin</artifactId>
+                <version>1.1</version>
+                <executions>
+                    <execution>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>create</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <format>{0,date,yyyyMMdd}</format>
+                    <items>
+                        <item>timestamp</item>
+                    </items>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.8.1</version>
+            </plugin>
+        </plugins>
+    </reporting>
+    <dependencies>
+        <dependency>
+            <groupId>com.eightqiu</groupId>
+            <artifactId>CodeCmns</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+</profile>
+<profile>
+    <id>prod</id>
+    <properties>
+        <runtime.env>src/main/env/prod</runtime.env>
+        <final.name>webapp</final.name>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>com.eightqiu</groupId>
+            <artifactId>CodeCmns</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+</profile>
+```
