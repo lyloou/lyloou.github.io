@@ -704,9 +704,9 @@ theme_config:
 
   # Changyan
   changyan:
-    enable: false
-    appid:
-    appkey:
+    enable: true
+    appid: cyvjJARVJ
+    appkey: prod_1bfa2cd0dbbcdbacb811df9de2941c1e
     #post_meta_order: 0
 
   # Valine
