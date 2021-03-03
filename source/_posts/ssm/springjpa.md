@@ -13,7 +13,7 @@ tags:
 [ddl-auto](https://links.jianshu.com/go?to=https%3A%2F%2Fblog.csdn.net%2FYoungLee16%2Farticle%2Fdetails%2F88990763)
 自己手动测试下呗
 
-![img](https:////upload-images.jianshu.io/upload_images/4165335-be4de4bd296bbde2.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200/format/webp)
+![img](http://cdn.lyloou.com/img/4165335-be4de4bd296bbde2.png)
 
 ddl-auto 可取的值
 
