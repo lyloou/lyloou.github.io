@@ -4,14 +4,16 @@ date: 2018-07-26 17:16:15
 toc: true
 comments: true
 tags:
-- linux
-- tool
+  - linux
+  - tool
 ---
+
+## install on Ubuntu
 
 ```sh
 # Steps to build and install tmux from source on Ubuntu.
 # Takes < 25 seconds on EC2 env [even on a low-end config instance].
-VERSION=2.7
+VERSION=2.8
 sudo apt-get -y remove tmux
 sudo apt-get -y install wget tar libevent-dev libncurses-dev
 wget https://github.com/tmux/tmux/releases/download/${VERSION}/tmux-${VERSION}.tar.gz
@@ -29,7 +31,44 @@ sudo mv tmux-${VERSION} /usr/local/src
 tmux -V
 ```
 
-- [Tmux 快捷键 & 速查表](https://gist.github.com/ryerh/14b7c24dfd623ef8edc7)
+## install on centos
+
+```sh
+# [Install tmux 2.8 on centos 7](https://gist.github.com/pokev25/4b9516d32f4021d945a140df09bf1fde)
+# Install tmux 2.8 on Centos
+VERSION=2.8
+
+# install deps
+yum install gcc kernel-devel make ncurses-devel
+
+# DOWNLOAD SOURCES FOR LIBEVENT AND MAKE AND INSTALL
+curl -LOk https://github.com/libevent/libevent/releases/download/release-2.1.8-stable/libevent-2.1.8-stable.tar.gz
+tar -xf libevent-2.1.8-stable.tar.gz
+cd libevent-2.1.8-stable
+./configure --prefix=/usr/local
+make
+make install
+
+# DOWNLOAD SOURCES FOR TMUX AND MAKE AND INSTALL
+
+curl -LOk https://github.com/tmux/tmux/releases/download/${VERSION}/tmux-${VERSION}.tar.gz
+tar -xf tmux-${VERSION}.tar.gz
+rm -f tmux-${VERSION}.tar.gz
+cd tmux-${VERSION}
+LDFLAGS="-L/usr/local/lib -Wl,-rpath=/usr/local/lib" ./configure --prefix=/usr/local
+make
+make install
+cd -
+sudo rm -rf /usr/local/src/tmux-*
+sudo mv tmux-${VERSION} /usr/local/src
+
+# pkill tmux
+# close your terminal window (flushes cached tmux executable)
+# open new shell and check tmux version
+tmux -V
+```
+
+## [Tmux 快捷键 & 速查表](https://gist.github.com/ryerh/14b7c24dfd623ef8edc7)
 
 ```conf
 bind r source-file ~/.tmux.conf \; display-message "Config reloaded"
@@ -59,4 +98,4 @@ set-option -g default-shell /bin/zsh
 ```
 
 - [How do I rename a session in tmux? - Super User](https://superuser.com/questions/428016/how-do-i-rename-a-session-in-tmux)
-`Ctrl` + `B`, `$`
+  `Ctrl` + `B`, `$`

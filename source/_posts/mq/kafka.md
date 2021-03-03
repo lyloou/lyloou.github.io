@@ -53,3 +53,23 @@ log.retention.check.interval.ms=300000
 kafka-configs.sh --zookeeper ce-zookeeper:2181 --entity-type topics --entity-name __consumer_offsets --describe
 kafka-configs.sh --zookeeper ce-zookeeper:2181 --entity-type topics --entity-name __consumer_offsets --alter --delete-config cleanup.policy
 ```
+
+## 命令行操作
+
+```sh
+# 创建名称为 topic_1 的主题
+kafka-topics.sh --zookeeper nodek.com:2181/myKafka --create --topic topic_1 --partitions 1 --replication-factor 1
+
+# 显示消费组
+kafka-consumer-groups.sh --bootstrap-server nodek.com:9092 --list
+kafka-consumer-groups.sh --new-consumer --bootstrap-server nodek.com:9092 --list
+
+# 描述消费组（可以查看 offset, client_id, partition等）
+kafka-consumer-groups.sh --bootstrap-server nodek.com:9092 --describe --group  consumer_demo1
+
+# 生产消息
+kafka-console-producer.sh --topic topic_1 --broker-list nodek.com:9092
+
+# 消费消息（指定消费组为 console-consumer-83559）
+kafka-console-consumer.sh --bootstrap-server nodek.com:9092 --topic topic_1 --group console-consumer-83559
+```
