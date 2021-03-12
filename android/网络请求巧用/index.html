@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="zh-CN,zh-HK,zh-TW,en,default">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"lyloou.github.io","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"right","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="用到的库 Retrofit RxJava2  1234567891011def rxandroidVersion &#x3D; &#39;2.0.1&#39;implementation &quot;io.reactivex.rxjava2:rxandroid:$rxandroidVersion&quot;def retrofitVersion &#x3D; &#39;2.8.0&#39;implementation &quot;com.squareup.retrofit2:r">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网络请求巧用">
+<meta property="og:url" content="https://lyloou.github.io/android/%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E5%B7%A7%E7%94%A8/index.html">
+<meta property="og:site_name" content="阿楼">
+<meta property="og:description" content="用到的库 Retrofit RxJava2  1234567891011def rxandroidVersion &#x3D; &#39;2.0.1&#39;implementation &quot;io.reactivex.rxjava2:rxandroid:$rxandroidVersion&quot;def retrofitVersion &#x3D; &#39;2.8.0&#39;implementation &quot;com.squareup.retrofit2:r">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-03-26T08:09:18.000Z">
+<meta property="article:modified_time" content="2021-03-12T04:04:27.265Z">
+<meta property="article:author" content="lyloou">
+<meta property="article:tag" content="android">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://lyloou.github.io/android/%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E5%B7%A7%E7%94%A8/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>网络请求巧用 | 阿楼</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-80542932-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-80542932-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">阿楼</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/android/%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E5%B7%A7%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阿楼">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          网络请求巧用<a href="https://github.com/lyloou/lyloou.github.io/edit/source/source/_posts/android/%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E5%B7%A7%E7%94%A8.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-26 16:09:18" itemprop="dateCreated datePublished" datetime="2020-03-26T16:09:18+08:00">2020-03-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-03-12 12:04:27" itemprop="dateModified" datetime="2021-03-12T12:04:27+08:00">2021-03-12</time>
+              </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Changyan：</span>
+    
+    
+      <a title="changyan" href="/android/%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E5%B7%A7%E7%94%A8/#SOHUCS" itemprop="discussionUrl">
+        <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="android/网络请求巧用/" itemprop="commentCount"></span>
+      </a>
+    
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="用到的库"><a href="#用到的库" class="headerlink" title="用到的库"></a>用到的库</h2><ul>
+<li>Retrofit</li>
+<li>RxJava2</li>
+</ul>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">def rxandroidVersion = <span class="string">'2.0.1'</span></span><br><span class="line">implementation <span class="string">"io.reactivex.rxjava2:rxandroid:<span class="variable">$rxandroidVersion</span>"</span></span><br><span class="line">def retrofitVersion = <span class="string">'2.8.0'</span></span><br><span class="line">implementation <span class="string">"com.squareup.retrofit2:retrofit:<span class="variable">$retrofitVersion</span>"</span></span><br><span class="line">implementation <span class="string">"com.squareup.retrofit2:adapter-rxjava2:<span class="variable">$retrofitVersion</span>"</span></span><br><span class="line">implementation <span class="string">"com.squareup.retrofit2:converter-gson:<span class="variable">$retrofitVersion</span>"</span></span><br><span class="line">implementation <span class="string">'com.google.code.gson:gson:2.8.5'</span></span><br><span class="line"></span><br><span class="line">implementation <span class="string">'androidx.core:core-ktx:1.2.0'</span></span><br><span class="line">implementation <span class="string">'androidx.lifecycle:lifecycle-extensions:2.2.0'</span></span><br><span class="line">implementation <span class="string">'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="服务器统一返回格式"><a href="#服务器统一返回格式" class="headerlink" title="服务器统一返回格式"></a>服务器统一返回格式</h2><p>当 <code>error_code</code> 不为 <code>0</code> 时，就不用解析 <code>data</code>（其值为 <code>null</code>），根据相应的错误码提示给用户；</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"err_code"</span>: <span class="number">1101</span>,</span><br><span class="line">  <span class="attr">"err_msg"</span>: <span class="string">"参数name不能为空"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当 <code>error_code</code> 为 <code>0</code> 时，就可以解析 <code>data</code>，这个返回值通过实体类或列表来映射得到。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"err_code"</span>: <span class="number">0</span>,</span><br><span class="line">  <span class="attr">"err_msg"</span>: <span class="string">"ok"</span>,</span><br><span class="line">  <span class="attr">"data"</span>: &#123;</span><br><span class="line">    <span class="attr">"id"</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="attr">"name"</span>: <span class="string">"lyloou"</span>,</span><br><span class="line">    <span class="attr">"email"</span>: <span class="string">"lyloou@qq.com"</span>,</span><br><span class="line">    <span class="attr">"personal_signature"</span>: <span class="string">"多么美好的太阳"</span>,</span><br><span class="line">    <span class="attr">"gmt_create"</span>: <span class="string">"2020-01-16T09:38:18.000+0000"</span>,</span><br><span class="line">    <span class="attr">"gmt_modified"</span>: <span class="string">"2020-03-14T11:27:58.000+0000"</span>,</span><br><span class="line">    <span class="attr">"is_disabled"</span>: <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="定义返回类"><a href="#定义返回类" class="headerlink" title="定义返回类"></a>定义返回类</h2><p>通过 CResult 来接收返回的数据，<code>data</code> 的通过泛型来映射成对应实体类（用泛型的好处，是不用为每一个返回都建立一个类）；</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// https://medium.com/@stustirling/responses-errors-with-retrofit-2-rxjava2-6d55eafecf5a</span></span><br><span class="line"><span class="keyword">data</span> <span class="class"><span class="keyword">class</span> <span class="title">CResult</span>&lt;<span class="type">T</span>&gt;</span>(<span class="keyword">var</span> err_code: <span class="built_in">Int</span>, <span class="keyword">var</span> err_msg: String, <span class="keyword">var</span> <span class="keyword">data</span>: T?)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Retrofit-简单封装"><a href="#Retrofit-简单封装" class="headerlink" title="Retrofit 简单封装"></a>Retrofit 简单封装</h2><blockquote>
+<p>具体用法参考：<a href="https://square.github.io/retrofit/" target="_blank" rel="noopener">Retrofit 官网</a></p>
+</blockquote>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Network.kt</span></span><br><span class="line"><span class="keyword">val</span> gson: Gson = GsonBuilder()</span><br><span class="line">    .setDateFormat(<span class="string">"yyyy-MM-dd HH:mm:ss"</span>)</span><br><span class="line">    .setLenient()</span><br><span class="line">    .create()</span><br><span class="line"><span class="function"><span class="keyword">fun</span> Any.<span class="title">toJsonString</span><span class="params">()</span></span>: String &#123;</span><br><span class="line">    <span class="keyword">return</span> gson.toJson(<span class="keyword">this</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">object</span> Network &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">var</span> headerPairs: (() -&gt; List&lt;Pair&lt;String, String&gt;&gt;)? = <span class="literal">null</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">val</span> builder = Retrofit.Builder()</span><br><span class="line">        .addConverterFactory(GsonConverterFactory.create(gson))</span><br><span class="line">        .addCallAdapterFactory(RxJava2CallAdapterFactory.create());</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">withHeader</span><span class="params">(pairList: (() -&gt; <span class="type">List</span>&lt;<span class="type">Pair</span>&lt;<span class="type">String</span>, <span class="type">String</span>&gt;&gt;))</span></span>: Network &#123;</span><br><span class="line">        <span class="keyword">this</span>.headerPairs = pairList</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="type">&lt;T&gt;</span> <span class="title">get</span><span class="params">(baseUrl: <span class="type">String</span>, clazz: <span class="type">Class</span>&lt;<span class="type">T</span>&gt;)</span></span>: T &#123;</span><br><span class="line">        <span class="keyword">val</span> okHttpBuilder = OkHttpClient.Builder()</span><br><span class="line">        headerPairs?.invoke()?.let &#123;</span><br><span class="line">            okHttpBuilder.addInterceptor(interceptor(it))</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> builder.baseUrl(baseUrl)</span><br><span class="line">            .client(okHttpBuilder.build())</span><br><span class="line">            .build().create(clazz)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 如果是需要授权才能获取信息，统一用这个。</span></span><br><span class="line">    <span class="comment">// 把用户信息和授权信息通过 header 的方式发到服务器</span></span><br><span class="line">    <span class="comment">// [Retrofit — Add Custom Request Header](https://futurestud.io/tutorials/retrofit-add-custom-request-header)</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">auth</span><span class="params">(userPassword: <span class="type">UserPassword</span>?)</span></span>: List&lt;Pair&lt;String, String&gt;&gt; &#123;</span><br><span class="line">        userPassword?.let &#123;</span><br><span class="line">            <span class="keyword">return</span> listOf(</span><br><span class="line">                <span class="string">"Content-Type"</span> to <span class="string">"application/json"</span>,</span><br><span class="line">                <span class="string">"Authorization"</span> to it.password,</span><br><span class="line">                <span class="string">"UserId"</span> to it.userId.toString()</span><br><span class="line">            )</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> emptyList()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">interceptor</span><span class="params">(headers: <span class="type">List</span>&lt;<span class="type">Pair</span>&lt;<span class="type">String</span>, String&gt;&gt;)</span></span>: (Interceptor.Chain) -&gt; Response &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        <span class="keyword">val</span> newBuilder = it.request().newBuilder()</span><br><span class="line">        headers.forEach &#123; header -&gt;</span><br><span class="line">            newBuilder.addHeader(header.first, header.second)</span><br><span class="line">        &#125;</span><br><span class="line">        it.proceed(newBuilder.build())</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="type">&lt;T&gt;</span> Observable<span class="type">&lt;T&gt;</span>.<span class="title">defaultScheduler</span><span class="params">()</span></span>: Observable&lt;T&gt; &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.subscribeOn(Schedulers.io())</span><br><span class="line">        .unsubscribeOn(Schedulers.io())</span><br><span class="line">        .observeOn(AndroidSchedulers.mainThread())</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="准备用户的类和-retrofit-接口"><a href="#准备用户的类和-retrofit-接口" class="headerlink" title="准备用户的类和 retrofit 接口"></a>准备用户的类和 retrofit 接口</h2><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// user.kt</span></span><br><span class="line"><span class="keyword">data</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span></span>(</span><br><span class="line">    <span class="keyword">val</span> id: <span class="built_in">Long</span>,</span><br><span class="line">    <span class="keyword">val</span> name: String,</span><br><span class="line">    <span class="keyword">val</span> email: String,</span><br><span class="line">    <span class="meta">@SerializedName(<span class="meta-string">"personal_signature"</span>)</span></span><br><span class="line">    <span class="keyword">val</span> personalSignature: String,</span><br><span class="line">    <span class="meta">@SerializedName(<span class="meta-string">"gmt_create"</span>)</span></span><br><span class="line">    <span class="keyword">val</span> gmtCreate: Date</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">data</span> <span class="class"><span class="keyword">class</span> <span class="title">UserPassword</span></span>(</span><br><span class="line">    <span class="keyword">val</span> userId: <span class="built_in">Long</span>,</span><br><span class="line">    <span class="keyword">val</span> name: String,</span><br><span class="line">    <span class="keyword">val</span> password: String</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">enum</span> <span class="class"><span class="keyword">class</span> <span class="title">Url</span></span>(<span class="keyword">val</span> url: String) : Str &#123;</span><br><span class="line">    UserApi(<span class="string">"http://127.0.0.1:8888/api/v1/user/"</span>),</span><br><span class="line">    ;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> Network.<span class="title">userApi</span><span class="params">()</span></span>: UserApi &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">get</span>(Url.UserApi.url, UserApi::<span class="class"><span class="keyword">class</span>.<span class="title">java</span>)</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建带授权的 userApi</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> Network.<span class="title">userWithAuthApi</span><span class="params">(userPassword: <span class="type">UserPassword</span>? = UserPasswordHelper.getUserPassword()</span></span>): UserApi &#123;</span><br><span class="line">    <span class="keyword">return</span> withHeader &#123; auth(userPassword) &#125;</span><br><span class="line">        .<span class="keyword">get</span>(Url.UserApi.url, UserApi::<span class="class"><span class="keyword">class</span>.<span class="title">java</span>);</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用方法-1-，基于-Observable"><a href="#使用方法-1-，基于-Observable" class="headerlink" title="使用方法 1 ，基于 Observable"></a>使用方法 1 ，基于 Observable</h2><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">UserApi</span> </span>&#123;</span><br><span class="line">    <span class="meta">@POST(<span class="meta-string">"login"</span>)</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">login</span><span class="params">(<span class="meta">@Query(<span class="meta-string">"name"</span>)</span> name: <span class="type">String</span>, <span class="meta">@Query(<span class="meta-string">"password"</span>)</span> password: <span class="type">String</span>)</span></span>: Observable&lt;CResult&lt;User?&gt;&gt;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@POST(<span class="meta-string">"update"</span>)</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">update</span><span class="params">(<span class="meta">@Body</span> user: <span class="type">User</span>)</span></span>: Observable&lt;CResult&lt;String?&gt;&gt;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 用户登录</span></span><br><span class="line">Network.userApi()</span><br><span class="line">    .login(name, encodedPassword)</span><br><span class="line">    .defaultScheduler()</span><br><span class="line">    .subscribe(&#123;</span><br><span class="line">        <span class="keyword">if</span> (it.err_code == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="comment">// save user info to localStorage</span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            toast(<span class="string">"错误代码:<span class="subst">$&#123;it.err_code&#125;</span>，错误信息：<span class="subst">$&#123;it.err_msg&#125;</span>"</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;, &#123;</span><br><span class="line">        toast(<span class="string">"网络异常：<span class="subst">$&#123;it.message&#125;</span>"</span>)</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 更新用户</span></span><br><span class="line">Network.userApi()</span><br><span class="line">    .update(user)</span><br><span class="line">    .defaultScheduler()</span><br><span class="line">    .subscribe(&#123;</span><br><span class="line">        <span class="keyword">if</span> (it.err_code == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="comment">// doSuccess</span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// do error</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;, &#123;</span><br><span class="line">        toast(<span class="string">"网络异常：<span class="subst">$&#123;it.message&#125;</span>"</span>)</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用方法-2，基于-kotlin-的-coroutine"><a href="#使用方法-2，基于-kotlin-的-coroutine" class="headerlink" title="使用方法 2，基于 kotlin 的 coroutine"></a>使用方法 2，基于 kotlin 的 coroutine</h2><p>首先给 ViewModel 添加一个 apiForCResult 扩展</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="type">&lt;T&gt;</span> ViewModel.<span class="title">apiForCResult</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">    block: <span class="type">suspend</span> <span class="type">CoroutineScope</span>.() -&gt; <span class="type">CResult</span>&lt;<span class="type">T</span>?&gt;,</span></span></span><br><span class="line"><span class="function"><span class="params">    okFun: (<span class="type">T</span>?) -&gt; <span class="type">Unit</span> = &#123;&#125;,</span></span></span><br><span class="line"><span class="function"><span class="params">    failFun: (<span class="type">String</span>) -&gt; <span class="type">Unit</span> = &#123;&#125;</span></span></span><br><span class="line"><span class="function"><span class="params">)</span></span> &#123;</span><br><span class="line">    viewModelScope.launch &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">val</span> result = withContext(Dispatchers.IO, block)</span><br><span class="line">            <span class="keyword">if</span> (result.err_code == <span class="number">0</span>) &#123;</span><br><span class="line">                okFun(result.<span class="keyword">data</span>)</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                failFun(result.err_msg)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (e: Exception) &#123;</span><br><span class="line">            failFun(<span class="string">"<span class="subst">$&#123;e.message&#125;</span>"</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">UserApi</span> </span>&#123;</span><br><span class="line">    <span class="meta">@POST(<span class="meta-string">"login"</span>)</span></span><br><span class="line">    <span class="keyword">suspend</span> <span class="function"><span class="keyword">fun</span> <span class="title">login</span><span class="params">(<span class="meta">@Query(<span class="meta-string">"name"</span>)</span> name: <span class="type">String</span>, <span class="meta">@Query(<span class="meta-string">"password"</span>)</span> password: <span class="type">String</span>)</span></span>: CResult&lt;User?&gt;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@POST(<span class="meta-string">"update"</span>)</span></span><br><span class="line">    <span class="keyword">suspend</span> <span class="function"><span class="keyword">fun</span> <span class="title">update</span><span class="params">(<span class="meta">@Body</span> user: <span class="type">User</span>)</span></span>: CResult&lt;String?&gt;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在 viewModel 中</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LoginViewModel</span> : <span class="type">ViewModel</span></span>() &#123;</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">login</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">        name: <span class="type">String</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">        password: <span class="type">String</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">        okFun: (<span class="type">User</span>?) -&gt; <span class="type">Unit</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">        failFun: (<span class="type">String</span>) -&gt; <span class="type">Unit</span></span></span></span><br><span class="line"><span class="function"><span class="params">    )</span></span> &#123;</span><br><span class="line">        apiForCResult(</span><br><span class="line">            &#123; Network.userApi().login(name, password) &#125;,</span><br><span class="line">            okFun,</span><br><span class="line">            failFun</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">update</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">        user: <span class="type">User</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">        okFun: (<span class="type">String</span>?) -&gt; <span class="type">Unit</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">        failFun: (<span class="type">String</span>) -&gt; <span class="type">Unit</span></span></span></span><br><span class="line"><span class="function"><span class="params">    )</span></span> &#123;</span><br><span class="line">        apiForCResult(</span><br><span class="line">            &#123; Network.userWithAuthApi().update(user) &#125;,</span><br><span class="line">            okFun,</span><br><span class="line">            failFun</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserActivity</span></span>&#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onOptionsItemSelected</span><span class="params">(item: <span class="type">MenuItem</span>)</span></span>: <span class="built_in">Boolean</span> &#123;</span><br><span class="line">        <span class="keyword">when</span> (item.itemId) &#123;</span><br><span class="line">            R.id.login -&gt; &#123;</span><br><span class="line">                viewModel.login(name, password, ::doSuccess, ::toast)</span><br><span class="line">            &#125;</span><br><span class="line">            R.id.updaete -&gt; &#123;</span><br><span class="line">                viewModel.update(</span><br><span class="line">                    user,</span><br><span class="line">                    &#123;toast(<span class="string">"更新成功"</span>)&#125;,</span><br><span class="line">                    &#123;toast(it)&#125;</span><br><span class="line">                )</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">super</span>.onOptionsItemSelected(item)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 在 activity 中</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>结合使用 kotlin 的扩展功能，可以简化许多冗余的代码。</p>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/android/Android和JavaScript交互/" rel="bookmark">Android和JavaScript交互</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/android/ApplicationContext中弹出对话框/" rel="bookmark">Android中app响应浏览器链接</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/android/IME输入法/" rel="bookmark">IME输入法</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/android/SQLite封装/" rel="bookmark">SQLite封装</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/android/SharedPreference封装/" rel="bookmark">SharedPreference封装</a></div>
+    </li>
+  </ul>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/android/" rel="tag"># android</a>
+          </div>
+
+        
+  <div class="post-widgets">
+    <div class="wp_rating">
+      <div id="wpac-rating"></div>
+    </div>
+  </div>
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/java/%E8%AE%A2%E5%8D%95%E5%8F%B7%E7%94%9F%E6%88%90%E5%99%A8/" rel="prev" title="订单号生成器">
+      <i class="fa fa-chevron-left"></i> 订单号生成器
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/java/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E7%BB%9F%E4%B8%80%E8%BF%94%E5%9B%9E%E6%A0%BC%E5%BC%8F/" rel="next" title="服务端统一返回格式">
+      服务端统一返回格式 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="SOHUCS"></div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#用到的库"><span class="nav-number">1.</span> <span class="nav-text">用到的库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#服务器统一返回格式"><span class="nav-number">2.</span> <span class="nav-text">服务器统一返回格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定义返回类"><span class="nav-number">3.</span> <span class="nav-text">定义返回类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Retrofit-简单封装"><span class="nav-number">4.</span> <span class="nav-text">Retrofit 简单封装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#准备用户的类和-retrofit-接口"><span class="nav-number">5.</span> <span class="nav-text">准备用户的类和 retrofit 接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用方法-1-，基于-Observable"><span class="nav-number">6.</span> <span class="nav-text">使用方法 1 ，基于 Observable</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用方法-2，基于-kotlin-的-coroutine"><span class="nav-number">7.</span> <span class="nav-text">使用方法 2，基于 kotlin 的 coroutine</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">8.</span> <span class="nav-text">总结</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="lyloou"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">lyloou</p>
+  <div class="site-description" itemprop="description">/* Better than last best */</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">267</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/lyloou" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;lyloou" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:lyloou6@gmail.com" title="E-Mail → mailto:lyloou6@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/lyloou" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;lyloou" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><a href="http://www.beian.miit.gov.cn/" rel="noopener" target="_blank">粤ICP备18151128号 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lyloou</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+  <script>
+  if (CONFIG.page.isPost) {
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id    : 29444,
+      el    : 'wpac-rating',
+      color : 'fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  }
+  </script>
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+
+  <script>
+  NexT.utils.loadComments(document.querySelector('#SOHUCS'), () => {
+    var appid = 'cyvjJARVJ';
+    var conf = 'prod_1bfa2cd0dbbcdbacb811df9de2941c1e';
+    var width = window.innerWidth || document.documentElement.clientWidth;
+    if (width < 960) {
+      window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>');
+    } else {
+      var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})});
+    }
+  });
+  </script>
+  <script src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js"></script>
+
+</body>
+</html>

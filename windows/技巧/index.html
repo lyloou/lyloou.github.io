@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="zh-CN,zh-HK,zh-TW,en,default">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"lyloou.github.io","root":"/","scheme":"Muse","version":"7.7.2","exturl":false,"sidebar":{"position":"right","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="如何复制 Windows 单文件夹里的 200 万个小文件？而且电脑不卡（Robocopy） - 小众软件Robocopy语法 robocopy   [[ …]] [] 例如，若要将名为 yearly-report 的文件从 c:\reports 复制到文件共享 \ \ marketing\videos ，同时启用多线程以实现更高性能的 (使用 &#x2F;mt 参数) 并且在 (与 &#x2F;z 参数) 中断的情">
+<meta property="og:type" content="article">
+<meta property="og:title" content="windows系统使用技巧">
+<meta property="og:url" content="https://lyloou.github.io/windows/%E6%8A%80%E5%B7%A7/index.html">
+<meta property="og:site_name" content="阿楼">
+<meta property="og:description" content="如何复制 Windows 单文件夹里的 200 万个小文件？而且电脑不卡（Robocopy） - 小众软件Robocopy语法 robocopy   [[ …]] [] 例如，若要将名为 yearly-report 的文件从 c:\reports 复制到文件共享 \ \ marketing\videos ，同时启用多线程以实现更高性能的 (使用 &#x2F;mt 参数) 并且在 (与 &#x2F;z 参数) 中断的情">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2017-07-22T12:48:32.000Z">
+<meta property="article:modified_time" content="2021-03-12T04:04:27.345Z">
+<meta property="article:author" content="lyloou">
+<meta property="article:tag" content="windows">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://lyloou.github.io/windows/%E6%8A%80%E5%B7%A7/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>windows系统使用技巧 | 阿楼</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-80542932-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-80542932-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">阿楼</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/windows/%E6%8A%80%E5%B7%A7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阿楼">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          windows系统使用技巧<a href="https://github.com/lyloou/lyloou.github.io/edit/source/source/_posts/windows/%E6%8A%80%E5%B7%A7.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-07-22 20:48:32" itemprop="dateCreated datePublished" datetime="2017-07-22T20:48:32+08:00">2017-07-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-03-12 12:04:27" itemprop="dateModified" datetime="2021-03-12T12:04:27+08:00">2021-03-12</time>
+              </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Changyan：</span>
+    
+    
+      <a title="changyan" href="/windows/%E6%8A%80%E5%B7%A7/#SOHUCS" itemprop="discussionUrl">
+        <span id="changyan_count_unit" class="post-comments-count hc-comment-count" data-xid="windows/技巧/" itemprop="commentCount"></span>
+      </a>
+    
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="如何复制-Windows-单文件夹里的-200-万个小文件？而且电脑不卡（Robocopy）-小众软件"><a href="#如何复制-Windows-单文件夹里的-200-万个小文件？而且电脑不卡（Robocopy）-小众软件" class="headerlink" title="如何复制 Windows 单文件夹里的 200 万个小文件？而且电脑不卡（Robocopy） - 小众软件"></a><a href="https://www.appinn.com/windows-robocopy/" target="_blank" rel="noopener">如何复制 Windows 单文件夹里的 200 万个小文件？而且电脑不卡（Robocopy） - 小众软件</a></h2><p>Robocopy<br>语法 robocopy <source> <destination> [<file>[ …]] [<options>]</options></file></destination></p>
+<p>例如，若要将名为 yearly-report 的文件从 c:\reports 复制到文件共享 \ \ marketing\videos ，同时启用多线程以实现更高性能的 (使用 /mt 参数) 并且在 (与 /z 参数) 中断的情况下重启传输的功能，请键入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">robocopy c:\reports &#39;\\marketing\videos&#39; yearly-report.mov &#x2F;mt &#x2F;z</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://docs.microsoft.com/zh-cn/windows-server/administration/windows-commands/robocopy" target="_blank" rel="noopener">robocopy | Microsoft Docs</a></p>
+<h2 id="Create-Windows-service-from-executable-Stack-Overflow"><a href="#Create-Windows-service-from-executable-Stack-Overflow" class="headerlink" title="Create Windows service from executable - Stack Overflow"></a><a href="https://stackoverflow.com/questions/3582108/create-windows-service-from-executable" target="_blank" rel="noopener">Create Windows service from executable - Stack Overflow</a></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sc.exe create &lt;new_service_name&gt; binPath&#x3D; &quot;&lt;path_to_the_service_executable&gt;&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="新建以-开头的文件"><a href="#新建以-开头的文件" class="headerlink" title="新建以.开头的文件"></a>新建以<code>.</code>开头的文件</h2><p>例如：<code>.gitignore</code></p>
+<ol>
+<li>右键新建文本文件</li>
+<li>重命名：<code>.gitignore.</code>， 没错最后面需要那个<code>.</code>，否则无法保存</li>
+<li>回车保存。</li>
+</ol>
+<h2 id="远程控制设备"><a href="#远程控制设备" class="headerlink" title="远程控制设备"></a>远程控制设备</h2><p>运行命令：<code>mstsc</code></p>
+<ul>
+<li><a href="http://www.ittribalwo.com/article/2600.html" target="_blank" rel="noopener">mstsc 命令远程控制桌面使用方法及设置讲解</a></li>
+</ul>
+<h2 id="解决路由冲突"><a href="#解决路由冲突" class="headerlink" title="解决路由冲突"></a>解决路由冲突</h2><ul>
+<li><code>ipconfig /release</code> 释放端口</li>
+<li><code>ipconfig /renew</code> 重新连接</li>
+</ul>
+<h2 id="Does-Windows-have-the-ln-s-or-equivalent"><a href="#Does-Windows-have-the-ln-s-or-equivalent" class="headerlink" title="Does Windows have the ln -s or equivalent?"></a><a href="https://superuser.com/questions/182553/does-windows-have-the-ln-s-or-equivalent" target="_blank" rel="noopener">Does Windows have the ln -s or equivalent?</a></h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// To create a symbolic link named MyDocs from the root directory to the \Users\User1\Documents directory, <span class="built_in">type</span>:</span><br><span class="line">mklink /d MyDocs D:/t</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Q: mklink 你没有足够的权限执行此操作。</span><br><span class="line">A: 以管理员的身份运行`cmd.exe`, https://answers.microsoft.com/zh-hans/windows/forum/windows_10-files-winpc/win10/8df12869-96f4-4cd1-a914-355e908a6015</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># e.g.</span></span><br><span class="line"><span class="built_in">cd</span> /d %USERPROFILE%</span><br><span class="line"></span><br><span class="line"><span class="comment"># dir</span></span><br><span class="line">mklink /d <span class="string">".IntelliJIdea2019.2"</span> <span class="string">"D:/d/.IntelliJIdea2018.1"</span></span><br><span class="line">mklink /d <span class="string">".AndroidStudio3.5"</span> <span class="string">"D:/d/.AndroidStudio3.5"</span></span><br><span class="line">mklink /d <span class="string">".gradle"</span> <span class="string">"D:/d/.gradle"</span></span><br><span class="line">mklink /d <span class="string">".m2"</span> <span class="string">"D:/d/.m2"</span>;</span><br><span class="line">mklink /d <span class="string">".ssh"</span> <span class="string">"D:/d/.ssh"</span>;</span><br><span class="line">mklink /d <span class="string">".vim"</span> <span class="string">"D:/d/.vim"</span>;</span><br><span class="line">mklink /d <span class="string">".vscode"</span> <span class="string">"D:/d/.vscode"</span></span><br><span class="line">mklink /d <span class="string">"Navicat"</span> <span class="string">"D:/d/Navicat"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># file</span></span><br><span class="line">mklink <span class="string">".gitconfig"</span> <span class="string">"D:/d/.gitconfig"</span></span><br><span class="line">mklink <span class="string">".minttyrc"</span> <span class="string">"D:/d/.minttyrc"</span></span><br><span class="line">mklink <span class="string">".npmrc"</span> <span class="string">"D:/d/.npmrc"</span></span><br><span class="line">mklink <span class="string">".bashrc"</span> <span class="string">"D:/d/.bashrc"</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="如何删除-WINDOWS-BT（临时-windows-安装文件）"><a href="#如何删除-WINDOWS-BT（临时-windows-安装文件）" class="headerlink" title="如何删除$WINDOWS.~BT（临时 windows 安装文件）"></a><a href="https://jingyan.baidu.com/article/f0e83a25a691ae22e59101c1.html" target="_blank" rel="noopener">如何删除$WINDOWS.~BT（临时 windows 安装文件）</a></h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- C盘右键属性</span><br><span class="line">- 选择“常规”---“磁盘清理”</span><br><span class="line">- 在“磁盘清理”对话框里找到并点击“清理系统文件”</span><br><span class="line">- 程序对系统进行清理文件扫描，稍微耐心等待片刻。</span><br><span class="line">- 找到“临时Windows安装文件”，并打勾，在描述中可以看到这些文件是安装过程中留下的，可以安全删除</span><br><span class="line">- 点击确定，耐心等待清理完成即可</span><br></pre></td></tr></table></figure>
+
+<p>如果上面方法不行，进入 pe 直接删除。</p>
+<h2 id="关闭系统更新——Windows-10-1803-如何彻底禁用自动更新"><a href="#关闭系统更新——Windows-10-1803-如何彻底禁用自动更新" class="headerlink" title="关闭系统更新——Windows 10 1803 如何彻底禁用自动更新"></a>关闭系统更新——<a href="http://www.mmxf.net/archives/1479.html" target="_blank" rel="noopener">Windows 10 1803 如何彻底禁用自动更新</a></h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">打开注册表编辑器，找到下面的键值：</span><br><span class="line"></span><br><span class="line">HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\UsoSvc</span><br><span class="line"></span><br><span class="line">找到“Start”，将值修改为4</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/windows/step/" rel="bookmark">windows重装后完善步骤</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/windows/环境变量/" rel="bookmark">windows环境变量</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/windows/系统优化/" rel="bookmark">【windows】系统优化</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/windows/系统安装/" rel="bookmark">windows系统安装</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/windows/软件/" rel="bookmark">windows软件</a></div>
+    </li>
+  </ul>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/windows/" rel="tag"># windows</a>
+          </div>
+
+        
+  <div class="post-widgets">
+    <div class="wp_rating">
+      <div id="wpac-rating"></div>
+    </div>
+  </div>
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/windows/%E8%BD%AF%E4%BB%B6/" rel="prev" title="windows软件">
+      <i class="fa fa-chevron-left"></i> windows软件
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/tool/virtualbox/" rel="next" title="virtualbox定制">
+      virtualbox定制 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="SOHUCS"></div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#如何复制-Windows-单文件夹里的-200-万个小文件？而且电脑不卡（Robocopy）-小众软件"><span class="nav-number">1.</span> <span class="nav-text">如何复制 Windows 单文件夹里的 200 万个小文件？而且电脑不卡（Robocopy） - 小众软件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Create-Windows-service-from-executable-Stack-Overflow"><span class="nav-number">2.</span> <span class="nav-text">Create Windows service from executable - Stack Overflow</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新建以-开头的文件"><span class="nav-number">3.</span> <span class="nav-text">新建以.开头的文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#远程控制设备"><span class="nav-number">4.</span> <span class="nav-text">远程控制设备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决路由冲突"><span class="nav-number">5.</span> <span class="nav-text">解决路由冲突</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Does-Windows-have-the-ln-s-or-equivalent"><span class="nav-number">6.</span> <span class="nav-text">Does Windows have the ln -s or equivalent?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何删除-WINDOWS-BT（临时-windows-安装文件）"><span class="nav-number">7.</span> <span class="nav-text">如何删除$WINDOWS.~BT（临时 windows 安装文件）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关闭系统更新——Windows-10-1803-如何彻底禁用自动更新"><span class="nav-number">8.</span> <span class="nav-text">关闭系统更新——Windows 10 1803 如何彻底禁用自动更新</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="lyloou"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">lyloou</p>
+  <div class="site-description" itemprop="description">/* Better than last best */</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">267</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/lyloou" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;lyloou" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:lyloou6@gmail.com" title="E-Mail → mailto:lyloou6@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/lyloou" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;lyloou" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><a href="http://www.beian.miit.gov.cn/" rel="noopener" target="_blank">粤ICP备18151128号 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lyloou</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+  <script>
+  if (CONFIG.page.isPost) {
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id    : 29444,
+      el    : 'wpac-rating',
+      color : 'fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  }
+  </script>
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+
+  <script>
+  NexT.utils.loadComments(document.querySelector('#SOHUCS'), () => {
+    var appid = 'cyvjJARVJ';
+    var conf = 'prod_1bfa2cd0dbbcdbacb811df9de2941c1e';
+    var width = window.innerWidth || document.documentElement.clientWidth;
+    if (width < 960) {
+      window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>');
+    } else {
+      var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})});
+    }
+  });
+  </script>
+  <script src="https://assets.changyan.sohu.com/upload/plugins/plugins.count.js"></script>
+
+</body>
+</html>
