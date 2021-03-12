@@ -27,4 +27,12 @@ netstat -an|awk '/tcp/ {print \$6}'|sort|uniq -c
 
 ## 查看一下你最常用的 10 个命令
 
+```sh
 cat .bash_history | sort | uniq -c | sort -rn | head -n 10
+```
+
+## 查看端口号占用情况
+
+```sh
+ss -nelp | grep 8080
+```
