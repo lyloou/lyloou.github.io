@@ -97,3 +97,182 @@ spring.devtools.remote.restart.enabled=false
 参照[spring.profiles.active=@profiles.active@的含义 - 毛会懂 - 博客园](https://www.cnblogs.com/maohuidong/p/11507362.html)
 在动态配置环境的过程中，如果用了 2（新建项目时自动生成的） 而没有用 1，就会导致报一个错误
 @profiles.active@ IllegalStateException: Failed to load property source from spring.profile.active
+
+## 参数验证
+
+```java
+// controller
+@RestController
+@Api(tags = "[管理后台]-[放映厅]-片单管理API")
+@RequestMapping("/playlist")
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
+@Validated
+public class PlaylistController extends BaseController {
+    // ...
+    @ApiOperation(value = "列出片单", notes = "根据参数列出符合要求的片单")
+    @GetMapping("list")
+    public ResultMsg<PageInfo<PlaylistCo>> listPlaylist(@Valid PlaylistListQry qry) {
+        return renderSuccessData(playlistAdminService.listPlaylistByPage(qry));
+    }
+}
+
+// PlaylistListQry.java
+@EqualsAndHashCode(callSuper = true)
+@Data
+@ApiModel(value = "列出片单列表参数实体")
+public class PlaylistListQry extends CommonCommand {
+
+    @ApiModelProperty(value = "放映状态")
+    private Integer playStatus;
+
+    @NotNull(message = "页码不能为空") @Min(value = 1, message = "页码要大于0")
+    Integer pageNo;
+
+    @NotNull(message = "每页大小不能为空") @Min(value = 1, message = "每页大小要大于0")
+    Integer pageSize;
+}
+
+// 错误统一处理
+@ControllerAdvice
+@Order(value = Ordered.HIGHEST_PRECEDENCE)
+@Slf4j
+public class GlobalExceptionHandler {
+    @ExceptionHandler(ValidationException.class)
+    @ResponseBody
+    public ResponseVO handle(ValidationException exception) {
+        String message = null;
+        if (exception instanceof ConstraintViolationException) {
+            ConstraintViolationException exs = (ConstraintViolationException) exception;
+
+            Set<ConstraintViolation<?>> violations = exs.getConstraintViolations();
+            for (ConstraintViolation<?> item : violations) {
+                //打印验证不通过的信息
+                message = item.getMessage();
+                break;
+            }
+        }
+        return ResponseVO.buildIllegalMsg(message);
+
+    }
+}
+```
+
+## 分页处理
+
+```java
+// controller
+  @ApiOperation(value = "列出片单", notes = "根据参数列出符合要求的片单")
+  @GetMapping("list")
+  public ResultMsg<PageInfo<PlaylistCo>> listPlaylist(@Valid PlaylistListQry qry) {
+    return renderSuccessData(playlistAdminService.listPlaylistByPage(qry));
+  }
+// serviceImpl
+    @Override
+    public PageInfo<PlaylistCo> listPlaylistByPage(PlaylistListQry qry) {
+        List<PlaylistCo> playlistCoList = new ArrayList<>();
+        // https://pagehelper.github.io/docs/howtouse/
+        // https://github.com/pagehelper/Mybatis-PageHelper/blob/master/wikis/en/HowToUse.md
+        // com.github.pagehelper.PageHelper
+        PageHelper.startPage(qry.getPageNo(), qry.getPageSize());
+        // 根据状态获取片单
+        final List<PlaylistEntity> playlistEntityList = playlistService.lambdaQuery()
+                .eq(qry.getPlayStatus() != null, PlaylistEntity::getPlayStatus, qry.getPlayStatus())
+                .eq(PlaylistEntity::getDeleted, DeleteType.NOT_DELETE.getCode())
+                .eq(PlaylistEntity::getCheckStatus, CheckStatusType.APPROVED.getCode())
+                .list();
+
+        if (playlistEntityList.isEmpty()) {
+            return PageHelpUtils.getPageInfoFromView(playlistEntityList, playlistCoList);
+        }
+        // 转换片单实体
+        playlistCoList = playlistEntityList.stream().map(playlistConvertor::toCo).collect(Collectors.toList());
+        return PageHelpUtils.getPageInfoFromView(playlistEntityList, playlistCoList);
+    }
+// [Mybatis3.4.x技术内幕（二十）：PageHelper分页插件源码及原理剖析 - 祖大俊的个人页面 - OSCHINA - 中文开源技术交流社区](https://my.oschina.net/zudajun/blog/745232)    
+// PageHelpUtils.java
+public class PageHelpUtils {
+    /**
+     * 转换数据list为带分页格式
+     *
+     * @param dataList 数据list
+     * @return pageinfo格式的数据list
+     */
+    public static <T> PageInfo<T> getPageInfo(List<T> dataList) {
+        return new PageInfo<T>(dataList);
+    }
+
+    /**
+     * 转换数据list为带分页格式，并替换数据为viewlist
+     *
+     * @param sourceDataList 数据库对应list
+     * @param viewList       展现层list
+     * @return 带分页格式的展现层list
+     */
+    @SuppressWarnings("all")
+    public static <T> PageInfo<T> getPageInfoFromView(List sourceDataList, List<T> viewList) {
+        PageInfo pageInfo = new PageInfo(sourceDataList);
+        pageInfo.setList(viewList);
+        return pageInfo;
+    }
+}
+```
+
+**效果**
+
+```json
+{
+  "code": "00000",
+  "msg": "success",
+  "data": {
+    "total": 12,
+    "list": [
+      {
+        "id": 2,
+        "roomId": 1,
+        "playlistName": "片单2",
+        "playStatus": 1,
+        "memo": "备注"
+      },
+      {
+        "id": 3,
+        "roomId": 1,
+        "playlistName": "片单3",
+        "playStatus": 1,
+        "memo": "备注"
+      },
+      {
+        "id": 4,
+        "roomId": 1,
+        "playlistName": "片单4",
+        "playTime": "2021-03-18 17:53:38",
+        "playStatus": 1,
+        "checkStatus": 1,
+        "checkTime": "2021-03-25 16:18:56"
+      },
+      {
+        "id": 5,
+        "roomId": 1,
+        "playlistName": "片单5",
+        "playStatus": 1,
+        "memo": "备注"
+      }
+    ],
+    "pageNum": 1,
+    "pageSize": 4,
+    "size": 4,
+    "startRow": 1,
+    "endRow": 4,
+    "pages": 3,
+    "prePage": 0,
+    "nextPage": 2,
+    "isFirstPage": true,
+    "isLastPage": false,
+    "hasPreviousPage": false,
+    "hasNextPage": true,
+    "navigatePages": 8,
+    "navigatepageNums": [1, 2, 3],
+    "navigateFirstPage": 1,
+    "navigateLastPage": 3
+  }
+}
+```

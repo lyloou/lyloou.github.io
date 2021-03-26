@@ -409,3 +409,11 @@ mvn -pl \
     </dependencies>
 </profile>
 ```
+
+## 上传到 公网 maven repository
+
+https://maven.apache.org/repository/guide-central-repository-upload.html
+https://central.sonatype.org/pages/ossrh-guide.html
+https://central.sonatype.org/pages/apache-maven.html
+
+[发布构件到 Maven 中央仓库 - 在风中的个人空间 - OSCHINA - 中文开源技术交流社区](https://my.oschina.net/vFfYcnn42VKa/blog/1524409)

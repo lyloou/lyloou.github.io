@@ -80,3 +80,72 @@ public class Flow {
   )
 </select>
 ```
+
+## 自动填充字段
+
+```java
+// Person.java
+@Data
+@Accessors(chain = true)
+public class Person  implements Serializable {
+    private static final long serialVersionUID = 1L;
+
+    @TableId(type = IdType.AUTO)
+    @ApiModelProperty(value = "实体ID")
+    private Integer id;
+
+    @ApiModelProperty(value = "创建时间")
+    @TableField(fill = FieldFill.INSERT)
+    private Date createdTime;
+
+    @ApiModelProperty(value = "更新时间")
+    @TableField(fill = FieldFill.INSERT_UPDATE)
+    private Date updatedTime;
+
+    @ApiModelProperty(value = "创建人")
+    @TableField(value = "creator", fill = FieldFill.INSERT)
+    private String creator;
+
+    @ApiModelProperty(value = "修改人")
+    @TableField(value = "modifier", fill = FieldFill.INSERT_UPDATE)
+    private String modifier;
+}
+
+// MybatisObjectHandler.java
+// [自动填充功能 | MyBatis-Plus](https://baomidou.com/guide/auto-fill-metainfo.html)
+@Component
+public class MybatisObjectHandler implements MetaObjectHandler {
+    @Override
+    public void insertFill(MetaObject metaObject) {
+        Integer userId = AuthenticationService.getUserId();
+        if (userId != null) {
+            Stream.of("createdBy", "updatedBy", "modifier", "creator")
+                    .forEach(s -> setFieldValIfNull(s, userId.toString(), metaObject));
+        }
+
+        Stream.of("createdTime", "updatedTime")
+                .forEach(s -> setFieldValIfNull(s, new Date(), metaObject));
+    }
+
+    private void setFieldValIfNull(String field, Object fieldVal, MetaObject metaObject) {
+        final Object value = getFieldValByName(field, metaObject);
+        if (value != null) {
+            setFieldValByName(field, fieldVal, metaObject);
+        }
+    }
+
+    @Override
+    public void updateFill(MetaObject metaObject) {
+        //更新时 需要填充字段
+        Stream.of("updatedTime")
+                .forEach(s -> setFieldValIfNull(s, new Date(), metaObject));
+        setFieldValByName("updatedTime", new Date(), metaObject);
+        Integer userId = AuthenticationService.getUserId();
+        if (userId != null) {
+            //更新时填充的字段
+            Stream.of("updatedBy", "modifier")
+                    .forEach(s -> setFieldValIfNull(s, userId.toString(), metaObject));
+        }
+    }
+}
+```
