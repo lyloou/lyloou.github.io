@@ -188,7 +188,7 @@ public class GlobalExceptionHandler {
         playlistCoList = playlistEntityList.stream().map(playlistConvertor::toCo).collect(Collectors.toList());
         return PageHelpUtils.getPageInfoFromView(playlistEntityList, playlistCoList);
     }
-// [Mybatis3.4.x技术内幕（二十）：PageHelper分页插件源码及原理剖析 - 祖大俊的个人页面 - OSCHINA - 中文开源技术交流社区](https://my.oschina.net/zudajun/blog/745232)    
+// [Mybatis3.4.x技术内幕（二十）：PageHelper分页插件源码及原理剖析 - 祖大俊的个人页面 - OSCHINA - 中文开源技术交流社区](https://my.oschina.net/zudajun/blog/745232)
 // PageHelpUtils.java
 public class PageHelpUtils {
     /**
@@ -275,4 +275,15 @@ public class PageHelpUtils {
     "navigateLastPage": 3
   }
 }
+```
+
+## 数据转换
+
+[RestTemplate 交换，未为带下划线的字段映射值 - Javaer101](https://www.javaer101.com/article/2490162.html)
+
+使用 `@JsonProperty` 注解
+
+```java
+@JsonProperty("Test_Id")
+private String Test_Id; // prefer rename to testId
 ```

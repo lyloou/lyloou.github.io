@@ -52,7 +52,7 @@ Q:
 
 A:
 
-> If you want to push via ssh then travis needs to have access to the private part of the ssh key you generated. What you want to do is use the travis cli gem to encrypt the private key, add it to your repo and during the deploy stage decrypt it again and use it. Here's a [step-by-step](https://github.com/dwyl/learn-travis/blob/master/encrypted-ssh-keys-deployment.md)
+> If you want to push via ssh then travis needs to have access to the private part of the ssh key you generated. What you want to do is use the travis cli gem to encrypt the private key, add it to your repo and during the deploy stage decrypt it again and use it. Here's a [step-by-step](https://github.com/lyloou/learn-travis/blob/master/encrypted-ssh-keys-deployment.md)
 
 为了能将 travis 构建后的文件推送到 github，需要：
 
