@@ -1,3 +1,12 @@
+---
+title: ubuntu相关
+date: 2021-03-17 19:27:02
+toc: true
+comments: true
+tags:
+  - linux
+---
+
 # Ubuntu 更换阿里云软件源
 
 ## 1. 备份
