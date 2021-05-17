@@ -154,3 +154,11 @@ public Object getOut(String key, Object default) {
   }
 }
 ```
+
+## 根据 class 将 object 对象转换成 class 的对象
+
+```java
+MyClass mobj = MyClass.class.cast(obj);
+// or
+Object newObj = Class.forName(classname).cast(obj);
+```
