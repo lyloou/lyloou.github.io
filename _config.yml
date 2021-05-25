@@ -38,7 +38,7 @@ skip_render:
 # Writing
 new_post_name: :title.md # File name of new posts
 default_layout: post
-titlecase: false # Transform title into titlecase
+titlecase: true # Transform title into titlecase
 external_link:
   enable: true # Open external links in new tab
   field: site # Apply to the whole site
@@ -51,10 +51,10 @@ future: true
 highlight:
   enable: true
   line_number: true
-  auto_detect: false
+  auto_detect: true
   tab_replace: ""
   wrap: true
-  hljs: false
+  hljs: true
 
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
@@ -168,7 +168,7 @@ theme_config:
     icon:
       # Icon name in Font Awesome. See: https://fontawesome.com/v4.7.0/icons/
       # `heart` is recommended with animation in red (#ff0000).
-      name: lyloou
+      name: user
       # If you want to animate the icon, set it to true.
       animated: false
       # Change the color of icon, using Hex Code.
