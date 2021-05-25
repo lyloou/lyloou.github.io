@@ -12,7 +12,7 @@ language:
   - zh-HK
   - zh-TW
   - en
-timezone: Asia/Shanghai
+timezone: 
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
@@ -228,11 +228,11 @@ theme_config:
     home: / || home
     about: /about/ || user
     tags: /tags/ || tags
-    categories: /categories/ || th
     archives: /archives/ || archive
-    schedule: /schedule/ || calendar
-    sitemap: /sitemap.xml || sitemap
-    commonweal: /404/ || heartbeat
+    # categories: /categories/ || th
+    # schedule: /schedule/ || calendar
+    # sitemap: /sitemap.xml || sitemap
+    # commonweal: /404/ || heartbeat
 
   # Enable / Disable menu icons / item badges.
   menu_settings:
@@ -736,7 +736,7 @@ theme_config:
   gitalk:
     enable: true
     github_id: lyloou # GitHub repo owner
-    repo: https://github.com/lyloou/lyloou.github.io # Repository name to store issues
+    repo: git@github.com:lyloou/lyloou.github.io.git # Repository name to store issues
     client_id: 5776a56ec2a831d83dfc # GitHub Application Client ID
     client_secret: 9dd4fdd607d831f375f6d8b2e1efb5afef185784 # GitHub Application Client Secret
     admin_user: lyloou # GitHub repo owner and collaborators, only these guys can initialize gitHub issues
