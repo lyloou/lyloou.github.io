@@ -12,7 +12,7 @@ language:
   - zh-HK
   - zh-TW
   - en
-timezone: 
+timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
@@ -158,7 +158,7 @@ theme_config:
     #ms_browserconfig: /images/browserconfig.xml
 
   # Show multilingual switcher in footer.
-  language_switcher: true
+  language_switcher: false
 
   footer:
     # Specify the date when the site was setup. If not defined, current year will be used.
@@ -237,7 +237,7 @@ theme_config:
   # Enable / Disable menu icons / item badges.
   menu_settings:
     icons: true
-    badges: false
+    badges: true
 
   # ---------------------------------------------------------------
   # Sidebar Settings
@@ -453,7 +453,7 @@ theme_config:
   android_chrome_color: "#222"
 
   # Custom Logo (Do not support scheme Mist)
-  custom_logo: /images/avatar.png #/uploads/custom-logo.jpg
+  custom_logo: /favicon.ico #/uploads/custom-logo.jpg
 
   codeblock:
     # Code Highlight theme
@@ -666,7 +666,7 @@ theme_config:
     # Available values: tabs | buttons
     style: tabs
     # Choose a comment system to be displayed by default.
-    # Available values: changyan | disqus | disqusjs | gitalk | livere | valine
+    # Available values: changyan | disqus | disqusjs | 2 | livere | valine
     active:
     # Setting `true` means remembering the comment system selected by the visitor.
     storage: true
@@ -736,7 +736,7 @@ theme_config:
   gitalk:
     enable: true
     github_id: lyloou # GitHub repo owner
-    repo: git@github.com:lyloou/lyloou.github.io.git # Repository name to store issues
+    repo: lyloou.github.io # Repository name to store issues
     client_id: 5776a56ec2a831d83dfc # GitHub Application Client ID
     client_secret: 9dd4fdd607d831f375f6d8b2e1efb5afef185784 # GitHub Application Client Secret
     admin_user: lyloou # GitHub repo owner and collaborators, only these guys can initialize gitHub issues
@@ -744,7 +744,7 @@ theme_config:
     # Gitalk's display language depends on user's browser or system environment
     # If you want everyone visiting your site to see a uniform language, you can set a force language value
     # Available values: en | es-ES | fr | ru | zh-CN | zh-TW
-    language: zh-CN
+    language:
 
   # ---------------------------------------------------------------
   # Post Widgets & Content Sharing Services
