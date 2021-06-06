@@ -23,7 +23,7 @@ tags:
 - Key promoter X
 - Alibaba Java Coding Guidelines
 - Database navigator
-- Rainbow Brackets 
+- Rainbow Brackets
 - Free mybatis plugin
 
 - https://www.hollischuang.com/archives/3220
@@ -184,3 +184,20 @@ Settings -> Editor -> File and code templates -> Includes -> File Header
 ```
 
 ## [IntelliJ IDEA: change open with (associated application) preference - Stack Overflow](https://stackoverflow.com/questions/44699658/intellij-idea-change-open-with-associated-application-preference)
+
+## java doc 不自动格式化
+
+```java
+/**
+// @formatter:off
+  {
+    "a":"b"
+  }
+// @formatter:on
+*/
+public void name() {
+
+}
+```
+
+- [intellij idea - How to disable code formatting for some part of the code using comments? - Stack Overflow](https://stackoverflow.com/questions/3375307/how-to-disable-code-formatting-for-some-part-of-the-code-using-comments)
