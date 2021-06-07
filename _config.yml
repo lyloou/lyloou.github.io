@@ -233,6 +233,7 @@ theme_config:
     # schedule: /schedule/ || calendar
     # sitemap: /sitemap.xml || sitemap
     # commonweal: /404/ || heartbeat
+    search: http://lyloou.com/search/search-in-google/ || search
 
   # Enable / Disable menu icons / item badges.
   menu_settings:
