@@ -28,6 +28,15 @@ mysql -u root -p goods < goods_db_structure.sql
 mysql -u root -p goods < goods_db_data.sql
 ```
 
+[Mysql 通过 cmd 命令导入 sql 文件\_gaochen519 的博客-CSDN 博客](https://blog.csdn.net/gaochen519/article/details/51504319)
+
+```bash
+mysql -uroot -p
+show database;
+use mydb;
+source /root/mydb.sql;
+```
+
 ## show
 
 [mysql show columns 等 show 的用法 - yufenfei - ITeye 博客](https://www.iteye.com/blog/yufenfei-1743967)

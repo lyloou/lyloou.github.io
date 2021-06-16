@@ -146,3 +146,9 @@ ACecf161561956b8bfe76e247a4e93c1cc
 ## todo_2021_06_02
 
 sentinel
+
+topic 聚合管理 topic 把上一个结果，交给下一个命令执行
+
+秒杀设计
+
+- [x] 基于 rocketmq
