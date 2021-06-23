@@ -207,10 +207,10 @@ theme_config:
   # ---------------------------------------------------------------
 
   # Schemes
-  scheme: Muse
-  #scheme: Mist
+  # scheme: Muse
+  # scheme: Mist
   #scheme: Pisces
-  #scheme: Gemini
+  scheme: Gemini
 
   # Dark Mode
   darkmode: false
