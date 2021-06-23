@@ -1,3 +1,3 @@
-![build-info](https://travis-ci.org/lyloou/lyloou.github.io.svg)
+![build-info](https://www.travis-ci.com/lyloou/lyloou.github.io.svg?branch=source)
 
 `coding here.`
