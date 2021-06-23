@@ -213,7 +213,7 @@ theme_config:
   #scheme: Gemini
 
   # Dark Mode
-  darkmode: true
+  darkmode: false
 
   # ---------------------------------------------------------------
   # Menu Settings
@@ -236,7 +236,7 @@ theme_config:
 
   # Enable / Disable menu icons / item badges.
   menu_settings:
-    icons: false
+    icons: true
     badges: false
 
   # ---------------------------------------------------------------
