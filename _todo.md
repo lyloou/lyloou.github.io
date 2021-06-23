@@ -38,6 +38,13 @@ https://github.com/threerocks/studyFiles
 - [pig: 基于 Spring Boot 2.5、 Spring Cloud 2020 & Alibaba、 OAuth2 的微服务 RBAC 权限管理系统。 🔝 🔝 记得上边点个 star 关注更新](https://gitee.com/log4j/pig)
 - [Kuboard*Kubernetes 教程\_K8S 安装*管理界面](https://kuboard.cn/)
 
+- `Avue` 一款基于 vue 可配置化的神奇框架：[gitee.com/smallweigit/avue](https://gitee.com/smallweigit/avue)
+- `pig` 宇宙最强微服务（架构师必备）：[gitee.com/log4j/pig](https://gitee.com/log4j/pig)
+- `SpringBlade` 完整的线上解决方案（企业开发必备）：[gitee.com/smallc/SpringBlade](https://gitee.com/smallc/SpringBlade)
+- `IJPay` 支付 SDK 让支付触手可及：[gitee.com/javen205/IJPay](https://gitee.com/javen205/IJPay)
+- `JustAuth` 史上最全的整合第三方登录的开源库: [zhangyd-c/JustAuth](https://github.com/zhangyd-c/JustAuth)
+- `spring-boot-demo` 深度学习并实战 spring boot 的项目: [xkcoding/spring-boot-demo](https://github.com/xkcoding/spring-boot-demo)
+
 ### 1. 好好地完成培训。
 
 2. 找个 2W 到 3W 的工作。
@@ -152,3 +159,9 @@ topic 聚合管理 topic 把上一个结果，交给下一个命令执行
 秒杀设计
 
 - [x] 基于 rocketmq
+- [ ] seata 和分布式事务
+- [ ] requestId 和 filter
+
+- [使用 ELK(Elasticsearch + Logstash + Kibana) 搭建日志集中分析平台实践 | HelloDog](https://wsgzao.github.io/post/elk/)
+- [Kibana（一张图片胜过千万行日志） - 废物大师兄 - 博客园](https://www.cnblogs.com/cjsblog/p/9476813.html)
+- [Filebeat 模块与配置 - 废物大师兄 - 博客园](https://www.cnblogs.com/cjsblog/p/9495024.html)
