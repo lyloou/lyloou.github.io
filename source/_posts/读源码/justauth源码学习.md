@@ -299,21 +299,255 @@ public enum AuthCacheScheduler {
        .build())
    ```
 
-   
-
-
-
 #### Q: 如何支持自定义 Scope？
+
+[自定义-scope-接入-google-平台](https://justauth.wiki/features/customize-scopes.html#%E8%87%AA%E5%AE%9A%E4%B9%89-scope-%E6%8E%A5%E5%85%A5-google-%E5%B9%B3%E5%8F%B0)
 
 `scope` 简单来说，就是申请得到某个（某些）范围的资源，超过此范围的资源限制访问。
 
->  Scope is a mechanism in  OAuth 2.0 to limit an application's access to a user's account. An  application can request one or more scopes, this information is then  presented to the user in the consent screen, and the access token issued to the application will be limited to the scopes granted. 
+> Scope is a mechanism in OAuth 2.0 to limit an application's access to a user's account. An application can request one or more scopes, this information is then presented to the user in the consent screen, and the access token issued to the application will be limited to the scopes granted.
 >
 > —— 以上内容节选自[oauth.net](https://oauth.net/)[ (opens new window)](https://oauth.net/)
 
+提供 AuthScope 统一接口
 
+```java
+/**
+ * 各个平台 scope 类的统一接口
+ *
+ * @author yadong.zhang (yadong.zhang0415(a)gmail.com)
+ * @version 1.0.0
+ * @since 1.15.7
+ */
+public interface AuthScope {
 
+    /**
+     * 获取字符串 {@code scope}，对应为各平台实际使用的 {@code scope}
+     *
+     * @return String
+     */
+    String getScope();
 
+    /**
+     * 判断当前 {@code scope} 是否为各平台默认启用的
+     *
+     * @return boolean
+     */
+    boolean isDefault();
+}
+```
+
+各个平台实现此接口，如 google
+
+```java
+
+/**
+ * Google 平台 OAuth 授权范围
+ *
+ * @author yadong.zhang (yadong.zhang0415(a)gmail.com)
+ * @version 1.0.0
+ * @since 1.0.0
+ */
+@Getter
+@AllArgsConstructor
+public enum AuthGoogleScope implements AuthScope {
+
+    /**
+     * {@code scope} 含义，以{@code description} 为准
+     */
+    USER_OPENID("openid", "Associate you with your personal info on Google", true),
+    USER_EMAIL("email", "View your email address", true),
+    USER_PROFILE("profile", "View your basic profile info", true),
+    USER_PHONENUMBERS_READ("https://www.googleapis.com/auth/user.phonenumbers.read", "View your phone numbers", false),
+    USER_ORGANIZATION_READ("https://www.googleapis.com/auth/user.organization.read", "See your education, work history and org info", false),
+    USER_GENDER_READ("https://www.googleapis.com/auth/user.gender.read", "See your gender", false),
+    USER_EMAILS_READ("https://www.googleapis.com/auth/user.emails.read", "View your email addresses", false),
+
+    USER_BIRTHDAY_READ("https://www.googleapis.com/auth/user.birthday.read", "View your complete date of birth", false)
+    // ...
+}
+```
+
+结合流程图来说，（A）这里需要将 scope 带过去，进入授权页面。
+
+```
+     +--------+                               +---------------+
+     |        |--(A)- Authorization Request ->|   Resource    |
+     |        |                               |     Owner     |
+     |        |<-(B)-- Authorization Grant ---|               |
+     |        |                               +---------------+
+     |        |
+     |        |                               +---------------+
+     |        |--(C)-- Authorization Grant -->| Authorization |
+     | Client |                               |     Server    |
+     |        |<-(D)----- Access Token -------|               |
+     |        |                               +---------------+
+     |        |
+     |        |                               +---------------+
+     |        |--(E)----- Access Token ------>|    Resource   |
+     |        |                               |     Server    |
+     |        |<-(F)--- Protected Resource ---|               |
+     +--------+
+```
+
+```
+https://accounts.google.com/o/oauth2/v2/auth?response_type=code&client_id=553817080137-d1pe3asc115tfgo74l8me92dhg4ro9k1.apps.googleusercontent.com&redirect_uri=http://x.lyloou.com/oauth/google/callback&state=e829a5725ce69cf1ed7918337caba839&access_type=offline&scope=openid email profile&prompt=select_account
+```
+
+授权页面的链接时通过 `AuthDefaultRequest.authorize` 来拼接得到的。
+
+```java
+// AuthDefaultRequest.java
+    /**
+     * 返回带{@code state}参数的授权url，授权回调时会带上这个{@code state}
+     *
+     * @param state state 验证授权流程的参数，可以防止csrf
+     * @return 返回授权地址
+     * @since 1.9.3
+     */
+    @Override
+    public String authorize(String state) {
+        return UrlBuilder.fromBaseUrl(super.authorize(state))
+            .queryParam("access_type", "offline")
+            .queryParam("scope", this.getScopes(" ", false, AuthScopeUtils.getDefaultScopes(AuthGoogleScope.values())))
+            .queryParam("prompt","select_account")
+            .build();
+    }
+    /**
+     * 获取以 {@code separator}分割过后的 scope 信息
+     *
+     * @param separator     多个 {@code scope} 间的分隔符
+     * @param encode        是否 encode 编码
+     * @param defaultScopes 默认的 scope， 当客户端没有配置 {@code scopes} 时启用
+     * @return String
+     * @since 1.16.7
+     */
+    protected String getScopes(String separator, boolean encode, List<String> defaultScopes) {
+        List<String> scopes = config.getScopes();
+        if (null == scopes || scopes.isEmpty()) {
+            if (null == defaultScopes || defaultScopes.isEmpty()) {
+                return "";
+            }
+            scopes = defaultScopes;
+        }
+        if (null == separator) {
+            // 默认为空格
+            separator = " ";
+        }
+        String scopeStr = String.join(separator, scopes);
+        return encode ? UrlUtil.urlEncode(scopeStr) : scopeStr;
+    }
+```
+
+`getScopes` 这里的逻辑是，如果没有传入 scope 参数，那么就使用默认的 scope 参数，即`openid email profile`：
+
+```java
+    USER_OPENID("openid", "Associate you with your personal info on Google", true),
+    USER_EMAIL("email", "View your email address", true),
+    USER_PROFILE("profile", "View your basic profile info", true),
+```
+
+插曲：如果你把 email 和 profile 取消掉，获取到用户信息时会发现少了 email,profile 这些信息
+
+```json
+// scope=openid
+{
+  "code": 2000,
+  "msg": null,
+  "data": {
+    "uuid": "113911973270419053931",
+    "username": null,
+    "nickname": null,
+    "avatar": "https://lh3.googleusercontent.com/a-/AOh14GgncI8eYK_uG119BDclub5LNGDn57G_GI4OLZeOBA=s96-c",
+    "blog": null,
+    "company": null,
+    "location": null,
+    "email": null,
+    "remark": null,
+    "gender": "UNKNOWN",
+    "source": "GOOGLE",
+    "token": {
+      "accessToken": "ya29.a0ARrdaM-dddddd-MPjpVj6xJAJP0zZFb396tpmi6BkS_Uom1G7DGTvSaWdJwwOzCXC5Bus-xQjq9JdGfNKWylhl029LMtuyZVT7lKzquGvUFePmellmRoY2Or6RgjS-TwKHzSviQoqEFBcYlQ",
+      "expireIn": 3592,
+      "refreshToken": null,
+      "refreshTokenExpireIn": 0,
+      "uid": null,
+      "openId": null,
+      "accessCode": null,
+      "unionId": null,
+      "scope": "openid",
+      "tokenType": "Bearer",
+      "idToken": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImI2ZjhkNTVkYTUzNGVhOTFjYjJjYjAwZTFhZjRlOGUwY2RlY2E5M2QiLCJ0eXAiOiJKV1QifQ.dddddd.yYUcU9VMwrF3vGXfmR4bsJDeQSjl_msow9eCARiV8HYIyjWDyZUM0ihOqxQzunWUT0W3nRVWxFw4oeN9bhZxIU9jBpW600eJRyDZ6BgJs0QEmC4sjJ4rWPp_P6OFo6b4HEM9Cl5i4ix-cJV18-4BxWhM6WbuC09F3a5RVvp7YGzYhMDRK4fecDpy-7q5wFZws3oYOrjCK5rVu4lioLMTJHCV-THbWImZTrEiuiLxw6onvKwhDa2FfLGbO3tei0EoVTvxJJwi18K-5TzcNySb8yBA-NYTXmlLZ9iWb7NNa7IXqKI1qt0VYm7xUUY4r3G14tZKU6JKkuz07RVx-4zxMw",
+      "macAlgorithm": null,
+      "macKey": null,
+      "code": null,
+      "oauthToken": null,
+      "oauthTokenSecret": null,
+      "userId": null,
+      "screenName": null,
+      "oauthCallbackConfirmed": null
+    },
+    "rawUserInfo": {
+      "sub": "ddd",
+      "picture": "https://lh3.googleusercontent.com/a-/AOh14GgncI8eYK_uG119BDclub5LNGDn57G_GI4OLZeOBA=s96-c"
+    }
+  }
+}
+```
+
+```json
+// scope=openid email profile
+{
+  "code": 2000,
+  "msg": null,
+  "data": {
+    "uuid": "113911973270419053931",
+    "username": "lyloou6@gmail.com",
+    "nickname": "Lou",
+    "avatar": "https://lh3.googleusercontent.com/a-/AOh14GgncI8eYK_uG119BDclub5LNGDn57G_GI4OLZeOBA=s96-c",
+    "blog": null,
+    "company": null,
+    "location": "zh-CN",
+    "email": "lyloou6@gmail.com",
+    "remark": null,
+    "gender": "UNKNOWN",
+    "source": "GOOGLE",
+    "token": {
+      "accessToken": "ya29.dd-dddd-eplbTCCWb55DHRZeAGDqDvk5RADufWREONGgKhdtCLa3yWKp4TxTJsyPi2EXYhgmMqV4yVV-NX6swbc38hMXKKGzsTnW4UVaiSOklQ-C1B_af",
+      "expireIn": 3599,
+      "refreshToken": null,
+      "refreshTokenExpireIn": 0,
+      "uid": null,
+      "openId": null,
+      "accessCode": null,
+      "unionId": null,
+      "scope": "openid https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email",
+      "tokenType": "Bearer",
+      "idToken": "dddddddddd",
+      "macAlgorithm": null,
+      "macKey": null,
+      "code": null,
+      "oauthToken": null,
+      "oauthTokenSecret": null,
+      "userId": null,
+      "screenName": null,
+      "oauthCallbackConfirmed": null
+    },
+    "rawUserInfo": {
+      "sub": "113911973270419053931",
+      "email_verified": true,
+      "name": "Lou",
+      "given_name": "Lou",
+      "locale": "zh-CN",
+      "picture": "https://lh3.googleusercontent.com/a-/AOh14GgncI8eYK_uG119BDclub5LNGDn57G_GI4OLZeOBA=s96-c",
+      "email": "lyloou6@gmail.com"
+    }
+  }
+}
+```
+
+![justauth源码学习-2021-07-02-10-50-48](https://raw.githubusercontent.com/lyloou/img/develop/justauth%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0-2021-07-02-10-50-48.png)
+后面获取用户信息，带上 accessToken 来就可以获取了。
 
 #### Q: http 工具如何解耦，可以将选择权交给开发者？
 
