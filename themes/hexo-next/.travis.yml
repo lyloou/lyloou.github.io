@@ -6,4 +6,3 @@ cache:
   npm: true
 
 install: npm install
- 
