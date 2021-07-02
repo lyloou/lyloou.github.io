@@ -373,7 +373,7 @@ theme_config:
     #comment: Donate comment here.
 
   reward:
-    #wechatpay: /images/wechatpay.png
+    wechatpay: /images/wechatpay.png
     #alipay: /images/alipay.png
     #paypal: /images/paypal.png
     #bitcoin: /images/bitcoin.png
@@ -383,7 +383,7 @@ theme_config:
   follow_me:
     #Twitter: https://twitter.com/username || twitter
     #Telegram: https://t.me/channel_name || telegram
-    # WeChat: /images/wechat_channel.jpg || wechat
+    WeChat: /images/wechat_channel.jpg || wechat
     # RSS: /atom.xml || rss
 
   # Related popular posts
@@ -459,7 +459,7 @@ theme_config:
     # Code Highlight theme
     # Available values: normal | night | night eighties | night blue | night bright | solarized | solarized dark | galactic
     # See: https://github.com/chriskempson/tomorrow-theme
-    highlight_theme: normal
+    highlight_theme: solarized dark
     # Add copy button on codeblock
     copy_button:
       enable: true

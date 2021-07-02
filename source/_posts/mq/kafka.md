@@ -16,7 +16,7 @@ www.jasongj.com/2015/01/02/Kafka 深度解析/
 [Kafka 的 Lag 计算误区及正确实现\_朱小厮的博客-CSDN 博客\_kafka lag](https://blog.csdn.net/u013256816/article/details/79955578)
 
 查看正在运行的消费组
-![](/images/article/kafka_2020-07-30-12-51-21.png)
+![kafka_2020-07-30-12-51-21](https://raw.githubusercontent.com/lyloou/img/develop/img/20210702092139.png)
 
 ```
 kafka-consumer-groups --bootstrap-server master:9092 --list --new-consumer
@@ -24,7 +24,7 @@ kafka-consumer-groups.sh --bootstrap-server ce-kafka:9092 --list
 ```
 
 计算消息的消息堆积情况
-![](/images/article/kafka_2020-07-30-12-51-47.png)
+![kafka_2020-07-30-12-51-47](https://raw.githubusercontent.com/lyloou/img/develop/img/20210702092149.png)
 
 ```sh
 kafka-consumer-groups --bootstrap-server master:9092 --describe --group  test_kafka_game_x_g1

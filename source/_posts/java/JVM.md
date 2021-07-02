@@ -24,7 +24,7 @@ tags:
 
 `jstat -gc 21275`
 -gc 垃圾回收堆的行为统计，常用命令
-![](/images/article/JVM_2020-08-11-15-37-17.png)
+![JVM_2020-08-11-15-37-17](https://raw.githubusercontent.com/lyloou/img/develop/img/20210702091905.png)
 C 即 Capacity 总容量，U 即 Used 已使用的容量
 S0C : survivor0 区的总容量
 S1C : survivor1 区的总容量
@@ -48,7 +48,7 @@ GCT : 垃圾回收总消耗时间
 这个命令意思就是每隔 2000ms 输出 1262 的 gc 情况，一共输出 20 次
 
 [JVM 堆、栈信息监测*Think In JAVA—Max-CSDN 博客*查看 jvm 堆栈信息](https://blog.csdn.net/Daybreak1209/article/details/80540360)
-![](/images/article/JVM_2020-08-11-15-45-17.png)
+![JVM_2020-08-11-15-45-17](https://raw.githubusercontent.com/lyloou/img/develop/img/20210702091918.png)
 
 ## Class 文件字节码结构示意图
 
