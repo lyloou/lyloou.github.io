@@ -394,7 +394,7 @@ public enum AuthGoogleScope implements AuthScope {
 https://accounts.google.com/o/oauth2/v2/auth?response_type=code&client_id=553817080137-d1pe3asc115tfgo74l8me92dhg4ro9k1.apps.googleusercontent.com&redirect_uri=http://x.lyloou.com/oauth/google/callback&state=e829a5725ce69cf1ed7918337caba839&access_type=offline&scope=openid email profile&prompt=select_account
 ```
 
-授权页面的链接时通过 `AuthDefaultRequest.authorize` 来拼接得到的。
+授权页面的链接是通过 `AuthDefaultRequest.authorize` 来拼接得到的。
 
 ```java
 // AuthDefaultRequest.java

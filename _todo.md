@@ -160,8 +160,10 @@ topic 聚合管理 topic 把上一个结果，交给下一个命令执行
 
 - [x] 基于 rocketmq
 - [ ] seata 和分布式事务
-- [ ] requestId 和 filter
+- [x] requestId 和 filter
+- [x] 验证码
 
 - [使用 ELK(Elasticsearch + Logstash + Kibana) 搭建日志集中分析平台实践 | HelloDog](https://wsgzao.github.io/post/elk/)
+- [ELK 处理 Spring Boot 日志，妙！](https://mp.weixin.qq.com/s/i1qgONtrtaqHo0o0TcRFGA)
 - [Kibana（一张图片胜过千万行日志） - 废物大师兄 - 博客园](https://www.cnblogs.com/cjsblog/p/9476813.html)
 - [Filebeat 模块与配置 - 废物大师兄 - 博客园](https://www.cnblogs.com/cjsblog/p/9495024.html)
