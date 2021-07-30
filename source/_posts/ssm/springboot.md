@@ -287,3 +287,28 @@ public class PageHelpUtils {
 @JsonProperty("Test_Id")
 private String Test_Id; // prefer rename to testId
 ```
+
+## CROS 跨域处理
+
+```java
+@Configuration
+public class CorsConfiguration {
+    @Bean
+    public FilterRegistrationBean<CorsFilter> corsFilter() {
+        CorsConfiguration config = new CorsConfiguration() {{
+            setAllowCredentials(true);
+            addAllowedOrigin("*");
+            addAllowedHeader("*");
+            addAllowedMethod("*");
+        }};
+
+        final CorsFilter corsFilter = new CorsFilter(new UrlBasedCorsConfigurationSource() {{
+            registerCorsConfiguration("/**", config);
+        }});
+
+        return new FilterRegistrationBean<CorsFilter>(corsFilter) {{
+            setOrder(0);
+        }};
+    }
+}
+```
