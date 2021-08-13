@@ -170,6 +170,18 @@ public class RedisCodeCache implements DataCache {
 在 Header 中配置身份认证 Token 的信息：
 如：`Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2Mjg4MzQ3MjQsImV4cCI6MTYyOTQzOTUyNCwieC11c2VyLW5hbWUiOiJhYmNkZSIsIngtdXNlci1pZCI6IjEifQ.x0nIhSUPfxC5FlnzJ-MmJvLnJv7w5ZvFzGlNphdSByE`
 
+
+
+## 测试
+
+登录接口：
+
+![image-20210813155138945](https://raw.githubusercontent.com/lyloou/img/develop/img/20210813155146.png)
+
+获取用户信息接口：
+
+![image-20210813155327715](https://raw.githubusercontent.com/lyloou/img/develop/img/20210813155327.png)
+
 ## 源码实现
 
 [component/component-security-loginvalidator-starter at master · lyloou/component](https://github.com/lyloou/component/tree/master/component-security-loginvalidator-starter)
