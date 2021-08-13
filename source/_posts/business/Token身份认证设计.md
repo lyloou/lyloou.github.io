@@ -19,18 +19,21 @@ tags:
 - 验证过程：前端通过 Header 头信息的 Authorization 属性得到 Token，先进行 token 验证，再结合缓存验证，验证成功的话，将用户 id 和用户名等信息存入 `ThreadLocal` 中，这样在执行切面逻辑的时候。就可以从 `ThreadLocal` 中获取数据了，如`UserManager.getUserId()`；执行完成后需要清除 ThreadLocal 中的数据；代码如下
 
 ```java
-@Around("pointCutMethod()")
-    public Object preHandle(ProceedingJoinPoint pjp){
-        // ......
-        UserContextHolder.getInstance().setContext(userMap);
-        final Object proceed;
-        try {
-            proceed = pjp.proceed();
-        } finally {
-            UserContextHolder.getInstance().clear();
-        }
-        return proceed;
+class ValidateLoginAspect {
+
+  @Around("pointCutMethod()")
+  public Object preHandle(ProceedingJoinPoint pjp) {
+    // ......
+    UserContextHolder.getInstance().setContext(userMap);
+    final Object proceed;
+    try {
+      proceed = pjp.proceed();
+    } finally {
+      UserContextHolder.getInstance().clear();
     }
+    return proceed;
+  }
+}
 ```
 
 - 认证接口的范围：给 `BaseTokenController`这个基类添加 `@ValidateLogin`，
