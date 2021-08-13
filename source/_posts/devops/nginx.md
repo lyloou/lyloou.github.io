@@ -205,3 +205,34 @@ location ~.*(js|css|png|gif|jpg|mp3|ogg)$ {
 - https://caddyserver.com/
 
 - [Using Caddy instead of Nginx, the whole station upgrades https, and the configuration is simpler.](https://programmer.help/blogs/5d1a87803e2e9.html)
+
+## 配置文本
+
+[一些 nginx 配置小技巧 | 石尧的博客](https://opstrip.com/2017/08/10/some-nginx-configuration-tips/)
+
+```ini
+server {
+    listen 80;
+    server_name www.example.com;
+    access_log /var/log/nginx/www-example-com.log access;
+    root /etc/nginx/html;
+
+    ......
+
+    # Aliyun ssl by txt
+    location = /.well-known/pki-validation/fileauth.txt
+    {
+        default_type text/plain;
+        return 200 '201708090000005cpmpl49g1psxj1r86w70mmpi27g61r4f7u2bthwedki0trwtx';
+    }
+
+    # robots.txt
+    location = /robots.txt {
+        default_type text/plain;
+        return 200 'User-agent: *\nDisallow: /\n';
+    }
+
+    ......
+
+}
+```
