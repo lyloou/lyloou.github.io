@@ -122,6 +122,109 @@ server
 > 在 proxy_pass 中的代理 url 后带 / （则不会加上 location 中的匹配路径）
 > 在 proxy_pass 中的代理 url 中不带 / （则会加上 location 中的匹配路径）
 
+## upstream
+
+[Nginx 的 upstream 详解 - 简书](https://www.jianshu.com/p/8671c40a5be8)
+
+## 分配方式
+
+Nginx的upstream支持5种 分配方式，**其中 轮询、权重、IP散列这三种为Nginx原生支持的分配方式，fair 和 url_hash 为第三方支持的分配方式。**
+
+
+
+#### 1，轮询
+
+轮询是upstream的默认分配方式，即每个请求按照时间顺序轮流分配到不同的后端服务器，如果某个后端服务器 down 掉后，能自动剔除。
+
+> upstream zhang21（名称）{
+>
+>   server 192.168.1.11：8888；
+>
+>    server 192.168.1.22：8888；
+>
+>   server 192.168.1.33：8888；
+>
+> }
+
+####  
+
+#### 2，weight（权重）
+
+轮询的加强版，既可以指定轮询比率，weight 和访问几率成正比，主要应用于后端服务器异质的场景下。
+
+> upstream zhang21 {
+>
+>   server 192.168.1.11 weight=1；
+>
+>   server 192.168.1.22 weight=2；
+>
+>   server 192.168.1.33 weight=3；
+>
+> }
+
+
+
+#### 3，ip_hash
+
+每个请求按照访问 Ip（即Nginx的前置服务器或客户端IP）的 hash结果分配，这样每个访客会固定访问一个后端服务器，可以解决 session 一致问题。
+
+> upstream zhang21 {
+>
+>   ip_hash;
+>
+>   server 192.168.1.11:7777;
+>
+>   server 192.168.1.22:8888;
+>
+>   server 192.168.1.33:9999;
+>
+> }
+
+
+
+#### 4，fair
+
+fair顾名思义，公平地按照后端服务器的响应时间（rt）来分配请求，响应时间（rt）小的后端服务器优先分配请求。
+
+> upstream zhang21 {
+>
+>   server 192.168.1.11;
+>
+>   server 192.168.1.22;
+>
+>   server 192.168.1.33;
+>
+> }
+
+
+
+#### 5，url_hash
+
+与 ip_hash类似，但是按照访问 url 的 hash 结果来分配请求，使得每个 url 定向到同一个后端服务器，主要应用于后端服务器为缓存的场景下。
+
+> upstream zhang21 {
+>
+>   server 192.168.1.11;
+>
+>   server 192.168.1.22;
+>
+>   server 192.168.1.33;
+>
+>   hash $request_uri；
+>
+>   hash_method crc32；
+>
+> }
+
+其中，hash_method为使用的hash算法，需要注意，此时server语句中不能添加 weight等参数。
+
+
+
+作者：Zhang21
+链接：https://www.jianshu.com/p/8671c40a5be8
+来源：简书
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
 ## [nginx 在一个服务器上配置两个项目，并通过两个不同的域名访问 - 半马 - 博客园](https://www.cnblogs.com/banma/p/9069858.html)
 
 ## nginx 搭建文件服务器

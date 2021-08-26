@@ -10,11 +10,61 @@ tags:
 ## 拼接字符串
 
 ```sql
-select concat();
-# CONCAT_WS，表示 CONCAT With Separator
+-- 语法：CONCAT(str1,str2,…)
+-- 返回结果为连接参数产生的字符串。
+select concat('a','b');
+-- 如有任何一个参数为NULL ，则返回值为 NULL。
+select concat('a',null,'b');
+
+
+
+-- 语法：CONCAT_WS(separator,str1,str2,…)
+-- CONCAT_WS，表示 CONCAT With Separator
+-- 如果分隔符为 NULL，则结果为 NULL。
+SELECT CONCAT_WS(null,1,2);
+-- 函数会忽略任何分隔符参数后的 NULL 值。这是和MySQL中concat函数不同的地方、concat_ws函数在执行的时候，不会因为NULL值而返回NULL。（这点很重要）
+SELECT CONCAT_WS(',','First name',NULL,'Last Name');
 ```
 
-[mysql 中 concat 和 group_concat()的用法 - zhming - 博客园](https://www.cnblogs.com/zhming26/p/6382995.html)
+**GROUP_CONCAT 只有一列时如何拼接**
+
+> 完整的语法如下：group_concat([DISTINCT] 要连接的字段 [Order BY ASC/DESC 排序字段] [Separator '分隔符'])（分隔符默认逗号）
+
+示例
+![sql常见操作-2021-08-25-10-49-37](http://cdn.lyloou.com/img/sql常见操作-2021-08-25-10-49-37.png)
+
+```sql
+SELECT 1, GROUP_CONCAT(id SEPARATOR ',') ids FROM `user` GROUP BY 1;
+SELECT 1, GROUP_CONCAT(id ORDER BY id desc SEPARATOR ',')ids FROM `user` GROUP BY 1;
+```
+
+![sql常见操作-2021-08-25-10-50-11](http://cdn.lyloou.com/img/sql常见操作-2021-08-25-10-50-11.png)
+
+```sql
+-- 获取某列的组合
+SELECT GROUP_CONCAT(id ORDER BY id desc SEPARATOR ',')ids FROM `user` GROUP BY '';
+SELECT GROUP_CONCAT(DISTINCT nickname  ORDER BY nickname  desc  SEPARATOR ',')nickname FROM `user` GROUP BY '';
+```
+
+![sql常见操作-2021-08-25-10-56-01](http://cdn.lyloou.com/img/sql常见操作-2021-08-25-10-56-01.png)
+![sql常见操作-2021-08-25-10-58-34](http://cdn.lyloou.com/img/sql常见操作-2021-08-25-10-58-34.png)
+
+- [mysql 中 concat 和 group_concat()的用法 - zhming - 博客园](https://www.cnblogs.com/zhming26/p/6382995.html)
+- [模糊搜索：concat 各种函数详解、like 操作符、通配符 - 古兰精 - 博客园](https://www.cnblogs.com/goloving/p/7576440.html)
+
+## 字符串拆分
+
+```sql
+SELECT
+SUBSTRING_INDEX(SUBSTRING_INDEX('7654,7698,7782,7788',',',help_topic_id+1),',',-1) AS num
+FROM
+mysql.help_topic
+WHERE
+help_topic_id < LENGTH('7654,7698,7782,7788')-LENGTH(REPLACE('7654,7698,7782,7788',',',''))+1
+```
+
+[mysql 字符串拆分实现 split 功能](https://www.shuzhiduo.com/A/x9J2vlNWJ6/)
+[MySQL——字符串拆分（含分隔符的字符串截取）\_逗比的小博客-CSDN 博客\_mysql 字符串分割](https://blog.csdn.net/pjymyself/article/details/81668157)
 
 ## 查询某个字段的值出现多于 1 次的
 
