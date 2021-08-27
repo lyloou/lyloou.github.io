@@ -10,12 +10,18 @@ tags:
 ## maven 修改版本号命令
 
 ```sh
+# 更新根模块及所有子模块的版本号，同时会生成 pom.xml.versionsBackup 文件
 mvn versions:set -DnewVersion=x.x.x-SNAPSHOT
+
+# 提交版本修改 同时会删除 pom.xml.versionsBackup 文件。
+mvn versions:commit
 ```
 
 ref:
 
-> [DevNote_CN · alibaba/jetcache Wiki](https://github.com/alibaba/jetcache/wiki/DevNote_CN)
+> - [【Maven】修改模块版本号 | 佳佳的博客](https://www.liujiajia.me/2018/11/29/maven-set-modules-version)
+> - [DevNote_CN · alibaba/jetcache Wiki](https://github.com/alibaba/jetcache/wiki/DevNote_CN)
+> - [Versions maven plugin 修改版本\_GGBomb2 的博客-CSDN 博客](https://blog.csdn.net/ggbomb2/article/details/78316068)
 
 ## 多个 maven 模块的项目，只打包某个模块和其关联的模块
 
