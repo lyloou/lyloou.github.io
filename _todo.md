@@ -45,29 +45,7 @@ https://github.com/threerocks/studyFiles
 - `JustAuth` 史上最全的整合第三方登录的开源库: [zhangyd-c/JustAuth](https://github.com/zhangyd-c/JustAuth)
 - `spring-boot-demo` 深度学习并实战 spring boot 的项目: [xkcoding/spring-boot-demo](https://github.com/xkcoding/spring-boot-demo)
 
-### 1. 好好地完成培训。
-
-2. 找个 2W 到 3W 的工作。
-3. 结婚生子。
-4. 投资与数据分析。
-5. 量化。
-6. 创业。
-
-自信
-财富自由
-
-需要完善的：
-cola - 领域 - 状态机
-[COLA 的扩展性使用和源码研究 - 知乎](https://zhuanlan.zhihu.com/p/143558539)
-[什么是状态机？ - 知乎](https://zhuanlan.zhihu.com/p/47434856)
-[jakesgordon/javascript-state-machine: A javascript finite state machine library](https://github.com/jakesgordon/javascript-state-machine)
-
-其实我有很多的时间和精力来写属于我的东西，
-只是，我“懒惰了”，
-总结和思考，这个是必须要有的，
-既然已经整理的够好了，那么是时候拉出来看看，
-
-我有我自己的一套表达方式，一套不但完善的方式。
+### plan
 
 1. 好好地完成培训。
 2. 找个 2W 到 3W 的工作。
@@ -91,6 +69,8 @@ cola - 领域 - 状态机
 既然已经整理的够好了，那么是时候拉出来看看，
 
 我有我自己的一套表达方式，一套不但完善的方式。
+
+
 
 ### todo_2021_03_01
 
@@ -159,7 +139,7 @@ topic 聚合管理 topic 把上一个结果，交给下一个命令执行
 秒杀设计
 
 - [x] 基于 rocketmq
-- [ ] seata 和分布式事务
+- [x] seata 和分布式事务
 - [x] requestId 和 filter
 - [x] 验证码
 

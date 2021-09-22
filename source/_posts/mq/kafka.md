@@ -12,6 +12,10 @@ tags:
 www.jasongj.com/2015/01/02/Kafka 深度解析/
 
 ## [查看 kafka 消息队列的积压情况-12463494-51CTO 博客](https://blog.51cto.com/12473494/2420105)
+```
+kafka-consumer-groups.sh --bootstrap-server 172.20.154.101:9092 --describe --group  marketing_group | grep task-prize-gift
+
+```
 
 [Kafka 的 Lag 计算误区及正确实现\_朱小厮的博客-CSDN 博客\_kafka lag](https://blog.csdn.net/u013256816/article/details/79955578)
 
@@ -72,4 +76,5 @@ kafka-console-producer.sh --topic topic_1 --broker-list nodek.com:9092
 
 # 消费消息（指定消费组为 console-consumer-83559）
 kafka-console-consumer.sh --bootstrap-server nodek.com:9092 --topic topic_1 --group console-consumer-83559
+kafka-console-consumer.sh --bootstrap-server 172.20.154.101:9092 --topic task-prize-gift-dev --from-beginning
 ```

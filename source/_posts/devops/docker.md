@@ -223,6 +223,15 @@ docker-compose start ce-kafka
 docker-compose exec ce-kafka bash
 ```
 
+![docker-2021-09-17-10-38-19](http://cdn.lyloou.com/img/docker-2021-09-17-10-38-19.png)
+https://docs.docker.com/compose/reference/down/
+
+```sh
+# rebuild demo-admin
+docker-compose stop demo-admin && docker-compose rm -f demo-admin
+docker-compose build demo-admin && docker-compose up -d demo-admin
+echo "rebuild demo-admin success."
+```
 ## 宿主机与容器之前的复制
 
 容器到宿主机：`docker cp container_name:/opt/abc.txt /tmp/`
