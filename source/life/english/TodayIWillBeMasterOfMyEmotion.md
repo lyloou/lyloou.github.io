@@ -1,5 +1,4 @@
 Today I Will be Master of My Emotion
-Today I Will be Master of My Emotion
 
 The tides advance; the tides recede. Winter goes and summer comes. summer wanes and the cold increases. The sun rises; the sun sets. The moon is full; the moon is black. The birds arrive; the birds depart. Flowers bloom; flowers fade. Seeds are sown; harvests are reaped. all nature is a circle of moods and I am a part of nature and so, like the tides, my moods will rise; my moods will fall.
 
