@@ -62,7 +62,7 @@ let cEmmcCID = "ddd";
 let cModel = "eee";
 
 // 签名
-let signStr = `MAC=${MAC}&accessToken=${accessToken}&cChip=${cChip}&cEmmcCID=${cEmmcCID}&cModel=${cModel}&cOpenId=${cOpenId}&cUDID=${cUDID}&id=${activeId}&source=&tjvjBQIhvrJ9Kodf`;
+let signStr = `MAC=${MAC}&accessToken=${accessToken}&cChip=${cChip}&cEmmcCID=${cEmmcCID}&cModel=${cModel}&cOpenId=${cOpenId}&cUDID=${cUDID}&id=${activeId}&source=wechat`;
 var sign = CryptoJS.SHA256(signStr).toString();
 
 // 将必填参数拼接到路径上
