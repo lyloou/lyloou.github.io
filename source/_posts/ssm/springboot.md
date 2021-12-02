@@ -151,8 +151,26 @@ public class GlobalExceptionHandler {
                 break;
             }
         }
+
+        // 处理实体字段验证不通过异常
+        if( exception instanceof  MethodArgumentNotValidException){
+          message = getDefaultMessageStr((MethodArgumentNotValidException) e);
+        }
+
         return ResponseVO.buildIllegalMsg(message);
 
+    }
+
+    private String getDefaultMessageStr(MethodArgumentNotValidException e) {
+        BindingResult result = e.getBindingResult();
+        final List<FieldError> fieldErrors = result.getFieldErrors();
+        String defaultMessageStr = "";
+        if (!CollectionUtil.isEmpty(fieldErrors)) {
+            final List<String> msgList = fieldErrors.stream().map(FieldError::getDefaultMessage)
+                    .collect(Collectors.toList());
+            defaultMessageStr = StrUtil.join(", ", msgList);
+        }
+        return defaultMessageStr;
     }
 }
 ```

@@ -321,6 +321,64 @@ $ git reset --soft D # (or ORIG_HEAD or @{1} [previous location of HEAD]), all o
 $ git commit
 ```
 
+## 统计
+
+统计 tag1 和 tag2 之间的行数
+
+```bash
+git log tag1..tag2 --pretty=tformat: --numstat | gawk '{ add += $1 ; subs += $2 ; loc += $1 + $2 } END { printf "added lines: %s removed lines : %s total lines: %s\n",add,subs,loc }'
+
+# 或者
+git log tag1..tag2 --pretty=tformat: --numstat | awk '{ add += $1 ; subs += $2 ; loc += $1 + $2 } END { printf "added lines: %s removed lines : %s total lines: %s\n",add,subs,loc }'
+```
+
+统计某个人修改的代码行数
+
+```bash
+# 当前作者
+git log --author="$(git config --get user.name)" --pretty=tformat: --numstat | gawk '{ add += $1 ; subs += $2 ; loc += $1 + $2 } END { printf "added lines: %s removed lines : %s total lines: %s\n",add,subs,loc }'
+
+# 或者修改 username 为此人名字
+git log --author="username" --pretty=tformat: --numstat | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf "added lines: %s, removed lines: %s, total lines: %s\n", add, subs, loc }' -
+```
+
+按个人分别统计
+
+```bash
+git log --format='%aN' | sort -u | while read name; do echo -en "$name\t"; git log --author="$name" --pretty=tformat: --numstat | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf "added lines: %s, removed lines: %s, total lines: %s\n", add, subs, loc }' -; done
+```
+
+统计总行数
+
+```bash
+git log  --pretty=tformat: --numstat | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf "added lines: %s, removed lines: %s, total lines: %s\n", add, subs, loc }' -
+```
+
+按时间范围统计个人行数
+
+```bash
+git log --since="2020-01-08" --before="2021-11-14" --author="lilou" \
+--pretty=tformat: --numstat | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf "新增行数: %s, 移除行数: %s, 总行数: %s\n", add, subs, loc }'
+```
+
+仓库提交排名
+
+```bash
+git log --pretty='%aN' | sort | uniq -c | sort -k1 -n -r | head -n 5
+```
+
+贡献者统计
+
+```bash
+git log --pretty='%aN' | sort -u | wc -l
+```
+提交数统计
+```bash
+git log --oneline | wc -l
+```
+- [git 统计两个不同版本代码修改行数\_JiangJsf 的博客-CSDN 博客](https://blog.csdn.net/JiangJsf/article/details/83686749)
+- [GIT 统计代码量及 IDEA Statistic 统计解析\_超人不会飞-CSDN 博客](https://blog.csdn.net/qinchao_mei/article/details/112172432)
+
 ## 参考链接
 
 - 《GitHub 入门与实践》

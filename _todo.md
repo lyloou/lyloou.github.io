@@ -1,4 +1,4 @@
-- [x] travis
+- [X] travis
 
 @import "./readme.md"
 
@@ -11,14 +11,12 @@
 - [ ] 框架
 - [ ] 自定义 View 模板
 - [ ] 滑动速度+Sling
-
 - [ ] 数据库
 - [ ] 线程
 - [ ] 网络
 - [ ] OkHTTP
 - [ ] restiful
-
-- [x] 代码整洁之道
+- [X] 代码整洁之道
 
 * [ ] [经验：如何正确的使用开源项目](http://www.infoq.com/cn/articles/how-to-correctly-use-the-open-source-project)
 * [ ] 开源项目推荐
@@ -30,14 +28,10 @@ https://github.com/xingshaocheng/architect-awesome
 https://github.com/threerocks/studyFiles
 
 - [justauth/JustAuth: 🏆Gitee 最有价值开源项目 🚀:100: 小而全而美的第三方登录开源组件。目前已支持 Github、Gitee、微博、钉钉、百度、Coding、腾讯云开发者平台、OSChina、支付宝、QQ、微信、淘宝、Google、Facebook、抖音、领英、小米、微软、今日头条、Teambition、StackOverflow、Pinterest、人人、华为、企业微信、酷家乐、Gitlab、美团、饿了么、推特、飞书、京东、阿里云、喜马拉雅、Amazon、Slack 和 Line 等第三方平台的授权登录。 Login, so easy!](https://github.com/justauth/JustAuth)
-
 - [SpringBlade: SpringBlade 是一个由商业级项目升级优化而来的 SpringCloud 分布式微服务架构、SpringBoot 单体式微服务架构并存的综合型项目，采用 Java8 API 重构了业务代码，完全遵循阿里巴巴编码规范。采用 Spring Boot 2.4 、Spring Cloud 2020 、Mybatis 等核心技术，同时提供基于 React 和 Vue 的两个前端框架用于快速搭建企业级的 SaaS 多租户微服务平台。](https://gitee.com/smallc/SpringBlade#https://github.com/chillzhuang/SpringBlade)
-
 - [jap: JAP 是一款开源的登录认证中间件，基于模块化设计，为所有需要登录认证的 WEB 应用提供一套标准的技术解决方案，开发者可以基于 JAP 适配绝大多数的 WEB 系统（自有系统、联邦协议）。Just auth into any app!](https://gitee.com/fujieid/jap#https://gitee.com/smallc/SpringBlade)
-
 - [pig: 基于 Spring Boot 2.5、 Spring Cloud 2020 & Alibaba、 OAuth2 的微服务 RBAC 权限管理系统。 🔝 🔝 记得上边点个 star 关注更新](https://gitee.com/log4j/pig)
 - [Kuboard*Kubernetes 教程\_K8S 安装*管理界面](https://kuboard.cn/)
-
 - `Avue` 一款基于 vue 可配置化的神奇框架：[gitee.com/smallweigit/avue](https://gitee.com/smallweigit/avue)
 - `pig` 宇宙最强微服务（架构师必备）：[gitee.com/log4j/pig](https://gitee.com/log4j/pig)
 - `SpringBlade` 完整的线上解决方案（企业开发必备）：[gitee.com/smallc/SpringBlade](https://gitee.com/smallc/SpringBlade)
@@ -69,8 +63,6 @@ cola - 领域 - 状态机
 既然已经整理的够好了，那么是时候拉出来看看，
 
 我有我自己的一套表达方式，一套不但完善的方式。
-
-
 
 ### todo_2021_03_01
 
@@ -138,10 +130,10 @@ topic 聚合管理 topic 把上一个结果，交给下一个命令执行
 
 秒杀设计
 
-- [x] 基于 rocketmq
-- [x] seata 和分布式事务
-- [x] requestId 和 filter
-- [x] 验证码
+- [X] 基于 rocketmq
+- [X] seata 和分布式事务
+- [X] requestId 和 filter
+- [X] 验证码
 
 - [使用 ELK(Elasticsearch + Logstash + Kibana) 搭建日志集中分析平台实践 | HelloDog](https://wsgzao.github.io/post/elk/)
 - [ELK 处理 Spring Boot 日志，妙！](https://mp.weixin.qq.com/s/i1qgONtrtaqHo0o0TcRFGA)
