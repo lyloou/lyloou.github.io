@@ -385,9 +385,7 @@ git log --oneline | wc -l
 - [10 组最常用 Git 命令](http://mp.weixin.qq.com/s?__biz=MzA4MjU5NTY0NA==&mid=401074259&idx=1&sn=6e69ce5338eb5d9212953068165c1cd0&mpshare=1&scene=23&srcid=1122laeBDuW58x2VncUQ44xs)
 - [Git 教程-廖雪峰](http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000)
 - [Git 远程操作详解](http://www.ruanyifeng.com/blog/2014/06/git_remote.html)
-<div id="shortlog">
 - [第 30 天：分享工作中幾個好用的 Git 操作技巧](https://github.com/doggy8088/Learn-Git-in-30-days/blob/master/zh-tw/30.md)
-</div>
 - [^和~的区别](http://www.cnblogs.com/hutaoer/archive/2013/05/14/3078191.html)
 
   ```sh
