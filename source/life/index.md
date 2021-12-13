@@ -1,8 +1,8 @@
 #### life
 
 
-<br/><br/>
-**文件列表**
+###### 文件列表
+
 - [index](index.html)
 - [电影](电影.html)
 - [激励的话](激励的话.html)
@@ -11,8 +11,8 @@
 - [小窍门](小窍门.html)
 - [饮食名单](饮食名单.html)
 
-<br/><br/>
-**子目录列表**
+###### 子目录列表
+
 - [article](./article/index.html)
 - [book](./book/index.html)
 - [english](./english/index.html)
