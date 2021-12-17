@@ -16,14 +16,14 @@ tags:
 4. 销毁（Destruction）
 
 > org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory#doCreateBean
-> ![img](C:\Users\lilou\Documents\My Knowledge\temp\6a48485b-33c7-453e-b9b5-86feb5152495\128\index_files\1b022eef-895d-4f8e-bd1b-a67bd8740a74.png)
+> ![img](https://raw.githubusercontent.com/lyloou/img/develop/img/1b022eef-895d-4f8e-bd1b-a67bd8740a74_20211217114231733_9c8c98.png)
 > ![img](https://raw.githubusercontent.com/lyloou/img/develop/img/d0cd34bf-96d8-4a56-ae66-e41c3bac6c5d_20211216114015327_6687b3.jpg)
 
 ###### 1. 实例化
 
 判断是否存在方法覆盖，如果有，使用 JDK 的反射机制来实例化。
 如果没有，使用 CGLib 技术实例化。
-![img](C:\Users\lilou\Documents\My Knowledge\temp\6a48485b-33c7-453e-b9b5-86feb5152495\128\index_files\d4ee5cad-5b5e-440a-8a3f-865cf5f10ab3.png)
+![img](https://raw.githubusercontent.com/lyloou/img/develop/img/d4ee5cad-5b5e-440a-8a3f-865cf5f10ab3_20211217114246020_9bdc78.png)
 
 ###### 2.属性填充
 
@@ -44,7 +44,7 @@ tags:
 
 从容器中，移除 beanName
 调用 DesposableBean.distroy 接口
-![img](C:\Users\lilou\Documents\My Knowledge\temp\6a48485b-33c7-453e-b9b5-86feb5152495\128\index_files\faefd2dc-114c-4dbb-9850-99598310a635.png)
+![img](https://raw.githubusercontent.com/lyloou/img/develop/img/faefd2dc-114c-4dbb-9850-99598310a635_20211217114256213_243b26.png)
 
 ###### 参考资料
 
