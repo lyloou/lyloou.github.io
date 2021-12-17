@@ -27,7 +27,7 @@ script:
   - ./run_d.sh
 after_success:
   - echo "oked!"
-  - "curl 'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=$notify_key' -H 'Content-Type: application/json' -d '\{\"msgtype\": \"text\",\"text\": \{\"content\": \"hello world\"\}\}'"
+  - "curl https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=$notify_key -H 'Content-Type: application/json' -d '{\"msgtype\": \"text\",\"text\": {\"content\": \"hello world\"}}'"
 env:
   global:
     - USER_NAME: lyloou
