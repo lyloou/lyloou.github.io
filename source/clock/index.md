@@ -8,4 +8,4 @@ tags:
 ---
 
 
-<img src="./clock.svg" alt="Clock" title="Clock" height="250px" width="250px">
+<img src="clock.svg" alt="Clock" title="Clock" height="250px" width="250px">
