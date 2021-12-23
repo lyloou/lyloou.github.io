@@ -97,7 +97,7 @@ git remote add origin git@github.com:lyloou/merge_all.git
 git push -u origin master
 ```
 
-至此合并完成就完成了。
+至此合并多项目操作就完成了。
 
 ## 参考资料
 
