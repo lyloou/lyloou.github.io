@@ -108,4 +108,54 @@ git push -u origin master
 
 > As you can guess, it stands for extended globbing. This option allows for more advanced pattern matching.
 
+## 一键合并多个项目 shell 脚本
+
+```sh
+#!/usr/bin/env sh
+
+#1. 在本地新建 merge_all 目录，并初始化
+mkdir merge_all
+cd merge_all
+# 将当前目录初始化为git版本管理的目录
+git init
+
+#2. 在 merge_all 中添加 merge_a，merge_b，merge_c 的远程分支。
+git remote add origin_a git@github.com:lyloou/merge_a.git
+git remote add origin_b git@github.com:lyloou/merge_b.git
+git remote add origin_c git@github.com:lyloou/merge_c.git
+
+#3. 可以验证是否添加成功`git remote -v`
+git remote -v
+
+#4. 在 merge_all 目录下，获取 merge_a, merge_b,merge_c 的 master 分支数据
+git fetch origin_a master
+git fetch origin_b master
+git fetch origin_c master
+
+#5. 开始合并了，并移动到子目录中
+
+# 注意 执行 `mv !(.|..|.git|merge_a) merge_a` 的过程中可能会报错误 `-bash: !: event not`，执行一下命令 `shopt -s extglob`
+shopt -s extglob
+
+# 合并，并保留历史
+git merge origin_a/master --allow-unrelated-histories
+# 新建子文件夹，并移动到此文件中（排除需要忽略的文件夹）
+mkdir merge_a && mv !(.|..|.git|merge_a) merge_a
+# 生成一条commit日志
+git add . && git commit -m "merge and mv to merge_a"
+
+git merge origin_b/master --allow-unrelated-histories
+mkdir merge_b && mv !(.|..|.git|merge_a|merge_b) merge_b
+git add . && git commit -m "merge and mv to merge_b"
+
+git merge origin_c/master --allow-unrelated-histories
+mkdir merge_c && mv !(.|..|.git|merge_a|merge_b|merge_c) merge_c
+git add . && git commit -m "merge and mv to merge_c"
+
+#6. 推送 merge_all 的 master 分支到远程
+git remote add origin git@github.com:lyloou/merge_all.git
+git push -u origin master
+
+```
+
 [阅读原文](http://lyloou.com/git/Git中合并多个项目并保留所有commit记录/)
