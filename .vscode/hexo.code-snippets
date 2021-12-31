@@ -24,5 +24,51 @@
       "![${1:this is an image}](https://github.com/lyloou/img/raw/develop/z/${2:$CURRENT_YEAR$CURRENT_MONTH$CURRENT_DATE$CURRENT_HOUR$CURRENT_MINUTE$CURRENT_SECOND.png})"
     ],
     "description": "Add hexo image url"
-  }
+  },
+  
+  "code for es": {
+    "prefix": "codees",
+    "body": [
+      "```js",
+      "${1}",
+      "```"
+    ],
+    "description": "code for es"
+  },
+  "code for java": {
+    "prefix": "codejava",
+    "body": [
+      "```java",
+      "${1}",
+      "```"
+    ],
+    "description": "code for java"
+  },
+  "code for js": {
+    "prefix": "codejs",
+    "body": [
+      "```js",
+      "${1}",
+      "```"
+    ],
+    "description": "code for js"
+  },
+  "code for sh": {
+    "prefix": "codesh",
+    "body": [
+      "```sh",
+      "${1}",
+      "```"
+    ],
+    "description": "code for sh"
+  },
+  "code for ini": {
+    "prefix": "codeini",
+    "body": [
+      "```ini",
+      "${1}",
+      "```"
+    ],
+    "description": "code for ini"
+  },
 }

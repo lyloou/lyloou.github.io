@@ -1,5 +1,5 @@
 {
-  "editor.fontSize": 13,
+  "editor.fontSize": 15,
   "editor.fontFamily": "Fira Code, Monaco, Consolas, 'Courier New', monospace",
   "editor.fontLigatures": true,
   "files.autoGuessEncoding": true,
@@ -11,9 +11,10 @@
   "window.openFoldersInNewWindow": "on",
   "files.autoSave": "afterDelay",
   "files.autoSaveDelay": 2000,
-  "window.zoomLevel": 1,
+  "window.zoomLevel": 0,
   "editor.minimap.enabled": false,
   "workbench.editor.enablePreview": false,
+  "workbench.list.horizontalScrolling": true,
   // 控制编辑器是否在滚动时使用动画
   "editor.smoothScrolling": true,
   // 总是隐藏打开的文件
