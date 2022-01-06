@@ -246,8 +246,8 @@ theme_config:
 
   sidebar:
     # Sidebar Position.
-    # position: left
-    position: right
+    position: left
+    # position: right
 
     # Manual define the sidebar width. If commented, will be default for:
     # Muse | Mist: 320
@@ -259,7 +259,7 @@ theme_config:
     #  - always  expand for all pages automatically.
     #  - hide    expand only when click on the sidebar toggle icon.
     #  - remove  totally remove sidebar including sidebar toggle.
-    display: hide
+    display: always
 
     # Sidebar padding in pixels.
     padding: 18
@@ -275,7 +275,7 @@ theme_config:
     # If true, the avatar will be dispalyed in circle.
     rounded: true
     # If true, the avatar will be rotated with the cursor.
-    rotated: true
+    rotated: false
 
   # Posts / Categories / Tags in sidebar.
   site_state: true
@@ -288,6 +288,8 @@ theme_config:
     GitHub: https://github.com/lyloou || github
     E-Mail: mailto:lyloou6@gmail.com || envelope
     Weibo: https://weibo.com/lyloou || weibo
+    CSDN: https://blog.csdn.net/ly1414725328 || csdn
+    cnblogs: https://www.cnblogs.com/lyloou || cnblogs
     #Google: https://plus.google.com/yourname || google
     #Twitter: https://twitter.com/yourname || twitter
     #FB Page: https://www.facebook.com/yourname || facebook
@@ -297,7 +299,7 @@ theme_config:
     #Skype: skype:yourname?call|chat || skype
 
   social_icons:
-    enable: true
+    enable: false
     icons_only: false
     transition: false
 
@@ -318,7 +320,7 @@ theme_config:
     # Automatically add list number to toc.
     number: true
     # If true, all words will placed on next lines if header width longer then sidebar width.
-    wrap: false
+    wrap: true
     # If true, all level of TOC in a post will be displayed, rather than the activated part of it.
     expand_all: false
     # Maximum heading depth of generated toc.
@@ -485,7 +487,7 @@ theme_config:
 
   # Bookmark Support
   bookmark:
-    enable: false
+    enable: true
     # Customize the color of the bookmark.
     color: "#222"
     # If auto, save the reading progress when closing the page or clicking the bookmark-icon.
@@ -918,7 +920,7 @@ theme_config:
   # Use velocity to animate everything.
   # For more information: http://velocityjs.org
   motion:
-    enable: true
+    enable: false
     async: false
     transition:
       # Transition variants:
