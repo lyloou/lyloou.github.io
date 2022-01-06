@@ -1,13 +1,14 @@
 ---
-title: ElasticSearch
+title: ElasticSearch 知多少-基础篇
 date: 2021-12-30 18:00:02
 toc: true
 comments: true
 tags:
   - search
+  - 知多少
 ---
 
-## 基础
+## 基础篇
 
 ![ElasticSearch-basic](https://raw.githubusercontent.com/lyloou/img/develop/img/ElasticSearch-basic_20211229152205725_8b645c.png)
 
@@ -90,11 +91,19 @@ Solr 在传统搜索应用中表现好于 ES，ES 在实时搜索应用方面好
 
 数据节点，对数据的 CRUD 操作，还有搜索和聚合操作。
 
-协调节点，将集群请求转发到主节点，将数据请求转发到数据节点。
+协调节点，将集群请求转发到主节点，将数据请求转发到数据节点
+（每个节点都是自带协调节点功能的，也可以只作为协调节点。设置协调节点有益于降低主节点和数据节点负担，但过多会增加集群负担，因为需要同步状态）。
 
 集群：ES 集群是一组连接在一起的 ES 节点实例。
 
 集群规划策略：当前数据规模+适量增长规模。（后续可按需添加）
+
+示例，三个节点和一个索引的集群（2 个主分片，4 个副本分片）
+![Elasticsearch-1基础_20211231161535_2021-12-31-16-15-35](https://raw.githubusercontent.com/lyloou/img/develop/Elasticsearch-1%E5%9F%BA%E7%A1%80_20211231161535_2021-12-31-16-15-35.png)
+我们发出的请求，可以被任何一个节点接收处理（首个处理的节点被称为协调节点），每个节点都知道集群中任一文档的位置，
+可以将请求转发到需要的节点上。
+
+- [ES集群中各节点角色功能简介 - 掘金](https://juejin.cn/post/7038828692671299620)
 
 #### 安装 es 需要什么组件
 
@@ -102,7 +111,9 @@ Solr 在传统搜索应用中表现好于 ES，ES 在实时搜索应用方面好
 
 #### 如何安装、配置和启动
 
-创建新用户用于启动 es 和 kibana
+> 下载 ES 和 kibana: https://www.elastic.co/cn/start
+
+创建 OS 的新用户用于启动 es 和 kibana
 
 ```sh
 # 添加用户
@@ -807,7 +818,7 @@ POST /_bulk
 {"data"}
 ```
 
-# detete 不需要请求体
+detete 不需要请求体
 
 格式，每个 json 不能换行；相邻 json 必须换行。
 
@@ -822,481 +833,7 @@ POST /_bulk
 { "doc" : {"name" : "test"} }
 ```
 
-## 进阶
-
-![ElasticSearch-m](https://raw.githubusercontent.com/lyloou/img/develop/img/ElasticSearch-m_20211229152234503_cbd78a.png)
-
-#### 聚合分析
-
-聚合，即将一组查询的数据集中在一起做聚合计算。可以用来分析各种指标，如平均值，总和，排名，最大值，最小值等。
-
-聚合分为三大类：
-
-Bucket 聚合（分桶聚合）：根据字段值、范围等将文档分组为桶，类似 sql 中的`goup by`。
-
-Metric 聚合（指标聚合）： 从字段值，计算出来指标，如：总和、平均值。
-
-Pipeline 聚合（管道聚合）： 子聚合，从其它聚合（非文档或字段）中获取输入。
-
-**聚合的语法**
-
-```javascript
-"aggregations": { # aggregations 也可以缩写为 aggs
-   "<aggregation_name1>": { # 聚合的名称
-      <aggregation_body> {# 聚合体：对哪些字段做聚合
-      }
-      [,"meta": {[<meta_data_body>]}]? # 元数据
-      [,"aggregations": {[<sub_aggregation>]+}]? # 定义的子聚合
-   },
-   "<aggregation_name2>": {} # 聚合的名称
-}
-```
-
-**数据准备**
-
-```js
-DELETE /book/
-PUT /book
-PUT /book/_mapping
-{
-  "properties": {
-    "_class": {
-      "type": "text",
-      "fields": {
-        "keyword": {
-          "type": "keyword",
-          "ignore_above": 256
-        }
-      }
-    },
-    "author": {
-      "type": "text",
-      "fields": {
-        "keyword": {
-          "type": "keyword",
-          "ignore_above": 256
-        }
-      }
-    },
-    "createTime": {
-      "type": "text",
-      "fields": {
-        "keyword": {
-          "type": "keyword",
-          "ignore_above": 256
-        }
-      }
-    },
-    "id": {
-      "type": "text",
-      "fields": {
-        "keyword": {
-          "type": "keyword",
-          "ignore_above": 256
-        }
-      }
-    },
-    "price": {
-      "type": "float"
-    },
-    "title": {
-      "type": "text",
-      "fields": {
-        "keyword": {
-          "type": "keyword",
-          "ignore_above": 256
-        }
-      }
-    },
-    "updateTime": {
-      "type": "text",
-      "fields": {
-        "keyword": {
-          "type": "keyword",
-          "ignore_above": 256
-        }
-      }
-    }
-  }
-}
-
-DELETE /book/
-PUT /book
-PUT /book/_mapping
-{
-  "properties": {
-    "_class": {
-      "type": "text",
-      "fields": {
-        "keyword": {
-          "type": "keyword",
-          "ignore_above": 256
-        }
-      }
-    },
-    "author": {
-      "type": "text",
-      "fields": {
-        "keyword": {
-          "type": "keyword",
-          "ignore_above": 256
-        }
-      }
-    },
-    "createTime": {
-      "type": "text",
-      "fields": {
-        "keyword": {
-          "type": "keyword",
-          "ignore_above": 256
-        }
-      }
-    },
-    "id": {
-      "type": "text",
-      "fields": {
-        "keyword": {
-          "type": "keyword",
-          "ignore_above": 256
-        }
-      }
-    },
-    "price": {
-      "type": "float"
-    },
-    "title": {
-      "type": "text",
-      "fields": {
-        "keyword": {
-          "type": "keyword",
-          "ignore_above": 256
-        }
-      }
-    },
-    "updateTime": {
-      "type": "text",
-      "fields": {
-        "keyword": {
-          "type": "keyword",
-          "ignore_above": 256
-        }
-      }
-    }
-  }
-}
-```
-
-**指标聚合-「max」**
-
-```js
-# 统计最大价格，size=0表示不获取数据，只获取指标数据
-POST /book/_search
-{
-   "size": 0,
-   "aggs": {
-      "max_price": {
-         "max": {
-            "field": "price"
-         }
-      }
-   }
-}
-```
-
-**指标聚合-「count」**
-
-```js
-# 统计价格大于0.2的书数量
-POST /book/_count
-{
-   "query": {
-      "range": {
-         "price": {
-            "gt": 0.2
-         }
-      }
-   }
-}
-```
-
-**指标聚合-「value_count」**
-
-```js
-# 统计某字段有值的文档数量，size=0表示不获取数据，只获取指标数据
-POST /book/_search?size=0
-{
-   "aggs": {
-      "price_count": {
-         "value_count": {
-            "field": "price"
-         }
-      }
-   }
-}
-```
-
-**指标聚合-「cardinality」**
-
-```js
-# cardinality 去重计数，size=0表示不获取数据，只获取指标数据
-POST /book/_search?size=0
-{
-   "aggs": {
-      "_id_count": {
-         "cardinality": {
-            "field": "_id"
-         }
-      },
-      "price_count": {
-         "cardinality": {
-            "field": "price"
-         }
-      }
-   }
-}
-```
-
-**指标聚合-「stats」**
-
-```js
-# 统计count,min,max,avg,sum这5个值，size=0表示不获取数据，只获取指标数据
-POST /book/_search?size=0
-{
-   "aggs": {
-      "price_stats": {
-         "stats": {
-            "field": "price"
-         }
-      }
-   }
-}
-```
-
-**指标聚合-「extended_stats」**
-
-```js
-# 统计比 stats多4个结果：平方和，方差，标准差，标准差区间
-# size=0表示不获取数据，只获取指标数据
-POST /book/_search?size=0
-{
-   "aggs": {
-      "price_stats": {
-         "extended_stats": {
-            "field": "price"
-         }
-      }
-   }
-}
-```
-
-**指标聚合-「percentiles」**
-
-```js
-# 占比百分位对应的值统计
-POST /book/_search?size=0
-{
-   "aggs": {
-      "price_percents": {
-         "percentiles": {
-            "field": "price"
-         }
-      }
-   }
-}
-
-# 占比百分位对应的值统计，指定分位值
-POST /book/_search?size=0
-{
-   "aggs": {
-      "price_percents": {
-         "percentiles": {
-            "field": "price",
-            "percents": [75,99,99.9]
-         }
-      }
-   }
-}
-```
-
-**指标聚合-「percentile_ranks」**
-
-```js
-# 统计值小于等于指定值的的文档占比
-# 分别统计价格小于等于0.2和0.3的文档占比
-POST /book/_search?size=0
-{
-   "aggs":{
-      "gge_perc_rank": {
-         "percentile_ranks": {
-            "field": "price",
-            "values": [0.2,0.3]
-         }
-      }
-   }
-}
-```
-
-**桶聚合-「rang」**
-
-```js
-# 区间平均值
-POST /book/_search
-{
-   "size": 0,
-   "aggs": {
-      "group_by_price": {
-         "range": {
-            "field": "price",
-            "ranges": [
-               {"from":0, "to": 0.2},
-               {"from":0.2, "to": 0.3},
-               {"from":0.3, "to": 0.5}
-            ]
-         },
-         "aggs": {
-            "average_price": {
-               "avg": {"field": "price"}
-            }
-         }
-      }
-   }
-}
-
-# 区间数量
-POST /book/_search
-{
-   "size": 0,
-   "aggs": {
-      "group_by_price": {
-         "range": {
-            "field": "price",
-            "ranges": [
-               {"from":0, "to": 0.2},
-               {"from":0.2, "to": 0.3},
-               {"from":0.3, "to": 0.5}
-            ]
-         },
-         "aggs": {
-            "count_price": {
-               "value_count": {"field": "price"}
-            }
-         }
-      }
-   }
-}
-
-# having操作
-POST /book/_search
-{
-  "size": 0,
-  "aggs": {
-    "group_by_price": {
-      "range": {
-        "field": "price",
-        "ranges": [
-          {
-            "from": 0,
-            "to": 0.2
-          },
-          {
-            "from": 0.2,
-            "to": 0.3
-          },
-          {
-            "from": 0.3,
-            "to": 0.5
-          }
-        ]
-      },
-      "aggs": {
-        "average_price": {
-          "avg": {
-            "field": "price"
-          }
-        },
-        "having": {
-          "bucket_selector": {
-            "buckets_path": {
-              "avg_price": "average_price"
-            },
-            "script": {
-              "source": "params.avg_price >= 0.2 "
-            }
-          }
-        }
-      }
-    }
-  }
-}
-```
-
-#### how - es 写入流程是怎样的
-
-#### how - es 写数据的底层原理
-
-#### how - es 的更新和删除流程是怎样的
-
-#### es 的搜索流程是怎样的
-
-#### 部署 ES 时，对 Linux 的配置有哪些优化方法
-
-#### ES 是如何索引文档的（建立索引的过程）
-
-#### 如何分片，分多少？
-
-#### lucence 内部结构是什么
-
-#### es 中的相关性和得分是什么
-
-#### 精准匹配检索和全文检索匹配
-
-#### Spring boot 访问 ES
-
-#### ELK 如何搭建和使用
-
-## 高级
-
-![ElasticSearch-h](https://raw.githubusercontent.com/lyloou/img/develop/img/ElasticSearch-h_20211229152245372_5b112d.png)
-
-#### 高并发下如何保证读写一致性
-
-#### ES 是如何选举 Master 节点的
-
-#### 怎样建立索引才能有更佳的性能
-
-#### 对于 GC，在使用 ES 时需要注意什么
-
-#### 为 ES 服务分配多少内存，VM 如何优化
-
-#### 有哪些途径减少 data node 上的 segment memory 占用？
-
-#### 数据多了，如何高估，部署？
-
-#### 说说你公司中的 ES 集群架构，分片多少，高优过程
-
-#### 拼写纠错是如何实现的？
-
-#### 零停机索引重建
-
-#### 智能搜索搜索建议
-
-#### 定位非法搜索及原因
-
-#### 文档写入和近实时搜索的原理
-
-#### 文件合并机制
-
-#### 并发冲突处理
-
-#### 相关性得分算法 BM25
-
-#### Query 文档搜索机制
-
-#### Filter 过滤机制
-
-#### 如何控制搜索精准度
-
-#### ES 深度分页与滚动搜索是什么回事
+#### 资料
 
 【金山文档】 ElasticSearch [https://kdocs.cn/l/cpGSu8K35cQk](https://kdocs.cn/l/cpGSu8K35cQk)
-:smile:
+[Elasticsearch: 权威指南 | Elastic](https://www.elastic.co/guide/cn/elasticsearch/guide/2.x/index.html)
