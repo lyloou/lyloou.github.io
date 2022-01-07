@@ -1,0 +1,131 @@
+.sidebar {
+  background: #FFF;
+  left: 0 - $sidebar-desktop;
+  box-shadow: inset 0 1px 8px #eee;
+
+  &.sidebar-active {
+    left: 0;
+  }
+}
+
+.sidebar-toggle, .back-to-top {
+  left: auto;
+  right: $b2t-position-right;
+
+  +tablet-mobile() {
+    right: $b2t-position-right-mobile;
+  }
+}
+
+.book-mark-link {
+  left: $b2t-position-right;
+}
+
+.sidebar {
+  width: $sidebar-desktop;
+  z-index: $zindex-2;
+  the-transition-ease-out();
+
+  a, span.exturl {
+    border-bottom: 0px solid #FFF;
+    color: #333;
+
+    &:hover {
+      border-bottom: 1px solid #999;
+      color: darken($orange, 20%);
+    }
+  }
+}
+
+.links-of-blogroll-item {
+  if (hexo-config('links_settings.layout') == 'inline') {
+    display: inline-block;
+  }
+  padding: 2px 10px;
+
+  a, span.exturl {
+    box-sizing: border-box;
+    display: inline-block;
+    max-width: 280px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+ 
+}
+.site-author-name {
+    color: #111;
+    font-weight: border;
+    margin: 5px 0 0;
+    text-align: center;
+}
+
+.sidebar-nav .sidebar-nav-active {
+    border-bottom-color: darken($orange, 20%);
+    color: darken($orange, 20%);
+}
+
+.sidebar-nav .sidebar-nav-active:hover {
+    border-bottom-color: darken($orange, 20%);
+    color: darken($orange, 20%);
+}
+.post-toc .nav .active-current > a {
+    color: darken($orange, 20%);
+}
+.post-toc .nav .active > a {
+    border-bottom-color: darken($orange, 20%);
+    color: darken($orange, 20%);
+}
+
+.sidebar-nav li:hover {
+    color: darken($orange, 20%);
+}
+
+.sidebar-toggle, .back-to-top {
+    left: auto;
+    left: 30px;
+}
+
+.sidebar-toggle {
+    background: #bbb;
+}
+.sidebar-toggle:hover {
+    background: darken($orange, 20%);
+}
+
+.back-to-top {
+    background: #bbb;
+}
+
+.back-to-top:hover {
+    background: darken($orange, 20%);
+}
+
+.sidebar-inner {
+    color: #333;
+    padding: 18px 10px;
+    text-align: center;
+}
+
+.links-of-author a::before, .links-of-author span.exturl::before {
+    content: " ";
+    display: inline-block;
+    height: 4px;
+    margin-right: 3px;
+    vertical-align: middle;
+    width: 4px;
+    background: darken($orange, 20%);
+    border-radius: 50%;
+}
+
+.site-description {
+  color: darken($orange, 20%);
+}
+
+.posts-expand .post-title .post-edit-link {
+    font-size: 1em;
+}
+
+.posts-expand .post-title .post-edit-link:hover {
+    color: darken($orange, 20%);
+}
