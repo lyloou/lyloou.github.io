@@ -193,3 +193,21 @@ keyword in (
  SELECT keyword FROM cc_brief_keyword_v2 GROUP BY keyword HAVING count(keyword) > 1
 )
 ```
+
+## 数据库备份
+
+如果是记录表，且不对外提供查询操作可以这样处理。
+
+快速备份的方案，具体操作如下：
+
+1.  创建一个和 order_info 一样的新表（表结构、索引）。
+    -- 执行 DDL 语句
+    create table order_info_new like order_info;
+
+2.  修改 order_info 的表名为 order_info_20220101，用日期做后缀方便以后查询
+    -- 执行 DDL 语句
+    alter table order_info rename to order_info_20220101;
+
+3.  修改 order_info_new 为 order_info。
+    -- 执行 DDL 语句
+    alter table order_info_new rename to order_info;
