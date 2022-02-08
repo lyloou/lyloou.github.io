@@ -19,7 +19,7 @@ https://www.jianshu.com/p/95e397570896
 sudo groupadd docker
 
 将用户加入该 group 内。然后退出并重新登录就生效啦。
-sudo gpasswd -a \${USER} docker
+sudo gpasswd -a ${USER} docker
 
 重启 docker 服务
 sudo service docker restart
