@@ -61,3 +61,176 @@ https://visualvm.github.io/pluginscenters.html
 
 - [What is Java JDK, JRE and JVM - In-depth Analysis - HowToDoInJava](https://howtodoinjava.com/java/basics/jdk-jre-jvm/)
 - [How the JIT compiler optimizes code](https://www.ibm.com/support/knowledgecenter/en/SSYKE2_8.0.0/com.ibm.java.vm.80.doc/docs/jit_optimize.html)
+
+## [JVM 垃圾回收 之 强引用、弱引用、软引用、虚引用\_cyt-CSDN 博客](https://blog.csdn.net/qq_41291945/article/details/108549120)
+
+```java
+
+public class Strong {
+    /**
+     * 强引用 是最常见的引用， 首先用 new 关键字创建对象的时候
+     * 这个对象就是一个强引用也就是默认的引用类型。 只要强引用的对象
+     * 是可触及的， 那么他就不会被回收！如果强引用对象超过了他的作用范围
+     * 或者被设置为 null  那就可以被回收了。
+     *
+     * 只要有强引用在， 当内存不足的时候jvm就算抛出OOM也不会回收掉它！
+     */
+    public static void main(String[] args) {
+        String test_strong_reference = new String("test strong reference");
+        String test = test_strong_reference;
+        test_strong_reference = null;
+        System.gc();
+
+        try {
+            TimeUnit.SECONDS.sleep(2);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        System.out.println("test_strong_reference - > "+ test_strong_reference);
+        System.out.println("test - > "+test);
+    }
+}
+```
+
+```java
+
+public class Soft {
+
+    /**
+     * 软引用， 用来描述那些还有用， 但是不是必须用的对象， 只被软引用关联着的对象
+     * 在系统内存溢出之前，会把这些对象列进入回收范围之内进行二次回收， 如果回收之后
+     * 内存还不够的话， 就抛出内存溢出的异常.
+     * <p>
+     * 可以在一些内存敏感的地方 进行使用, 高速缓存之类的
+     * <p>
+     * 内存够用的时候就保留软引用的可达对象
+     * 内存不够的时候就回收可达对象
+     *
+     * @param args
+     */
+    public static void main(String[] args) {
+        User cuiyt = new User(1, "cuiyt");
+        SoftReference<User> reference = new SoftReference<User>(cuiyt);
+        cuiyt = null;
+
+        System.out.println(reference.get().toString());
+        System.gc();
+        System.out.println("after - > " + reference.get().toString());
+
+        try {
+            TimeUnit.SECONDS.sleep(3);
+            byte[] bytes = new byte[1024 * 1024 * 7];
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            System.out.println(reference.get());
+        }
+    }
+}
+
+
+```
+
+```java
+
+public class Weak {
+    /**
+     * 弱引用， 发送GC就会被回收掉！ 不管内存够不够
+     *
+     * @param args
+     */
+    public static void main(String[] args) {
+
+        WeakReference<User> test = new WeakReference<User>(new User(1, "@cuiyut"));
+        System.out.println(test.get());
+        System.gc();
+        System.out.println(test.get());
+    }
+}
+
+
+```
+
+```java
+public class Empty {
+    public static Empty empty;
+    public static PhantomReference<Empty> reference;
+    public static ReferenceQueue<Empty> queue;
+
+    @Override
+    protected void finalize() throws Throwable {
+        super.finalize();
+        System.out.println("调用 finalize");
+        empty = this;
+    }
+
+    public static class Check extends Thread {
+        @Override
+        public void run() {
+            while (true) {
+                super.run();
+                if (reference != null) {
+                    PhantomReference<Empty> test = null;
+                    try {
+                        test = (PhantomReference<Empty>) queue.remove();
+                    } catch (Exception e) {
+
+                    }
+                    if (test != null) {
+                        System.out.println("跟踪垃圾回收过程， Empty 被GC");
+                    }
+                }
+            }
+        }
+    }
+
+    /**
+     * 形同虚设的一个引用类型， 当试图从虚引用中获得对象的时候
+     * 它总是空的 ！ 为一个对象设置虚引用关联的唯一目的是跟踪垃圾回收的过程
+     * 比如: 能在这个对象被回收的时候发出一个通知
+     */
+    public static void main(String[] args) {
+        Check check = new Check();
+        check.setDaemon(true);
+        check.start();
+
+        queue = new ReferenceQueue<>();
+        empty = new Empty();
+        reference = new PhantomReference<>(empty, queue);
+        // 取消强引用
+        empty = null;
+        System.out.println(reference.get());
+
+        System.out.println("第一次GC");
+        // 把回收的对象， 放到引用队列中
+        System.gc();
+        try {
+            TimeUnit.SECONDS.sleep(3);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("after 第一次GC");
+        if (empty != null) {
+            System.out.println("empty 可用");
+        } else {
+            System.out.println("empty 不可用");
+        }
+        System.out.println("第二次GC");
+
+        // 取消强引用
+        empty = null;
+        System.gc();
+
+        System.out.println("after 第二次GC");
+        if (empty != null) {
+            System.out.println("empty 可用");
+        } else {
+            System.out.println("empty 不可用");
+        }
+    }
+}
+
+
+
+```

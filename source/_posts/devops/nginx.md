@@ -128,25 +128,23 @@ server
 
 ## 分配方式
 
-Nginx的upstream支持5种 分配方式，**其中 轮询、权重、IP散列这三种为Nginx原生支持的分配方式，fair 和 url_hash 为第三方支持的分配方式。**
-
-
+Nginx 的 upstream 支持 5 种 分配方式，**其中 轮询、权重、IP 散列这三种为 Nginx 原生支持的分配方式，fair 和 url_hash 为第三方支持的分配方式。**
 
 #### 1，轮询
 
-轮询是upstream的默认分配方式，即每个请求按照时间顺序轮流分配到不同的后端服务器，如果某个后端服务器 down 掉后，能自动剔除。
+轮询是 upstream 的默认分配方式，即每个请求按照时间顺序轮流分配到不同的后端服务器，如果某个后端服务器 down 掉后，能自动剔除。
 
 > upstream zhang21（名称）{
 >
->   server 192.168.1.11：8888；
+> server 192.168.1.11：8888；
 >
->    server 192.168.1.22：8888；
+> server 192.168.1.22：8888；
 >
->   server 192.168.1.33：8888；
+> server 192.168.1.33：8888；
 >
 > }
 
-####  
+####
 
 #### 2，weight（权重）
 
@@ -154,71 +152,63 @@ Nginx的upstream支持5种 分配方式，**其中 轮询、权重、IP散列这
 
 > upstream zhang21 {
 >
->   server 192.168.1.11 weight=1；
+> server 192.168.1.11 weight=1；
 >
->   server 192.168.1.22 weight=2；
+> server 192.168.1.22 weight=2；
 >
->   server 192.168.1.33 weight=3；
+> server 192.168.1.33 weight=3；
 >
 > }
-
-
 
 #### 3，ip_hash
 
-每个请求按照访问 Ip（即Nginx的前置服务器或客户端IP）的 hash结果分配，这样每个访客会固定访问一个后端服务器，可以解决 session 一致问题。
+每个请求按照访问 Ip（即 Nginx 的前置服务器或客户端 IP）的 hash 结果分配，这样每个访客会固定访问一个后端服务器，可以解决 session 一致问题。
 
 > upstream zhang21 {
 >
->   ip_hash;
+> ip_hash;
 >
->   server 192.168.1.11:7777;
+> server 192.168.1.11:7777;
 >
->   server 192.168.1.22:8888;
+> server 192.168.1.22:8888;
 >
->   server 192.168.1.33:9999;
+> server 192.168.1.33:9999;
 >
 > }
-
-
 
 #### 4，fair
 
-fair顾名思义，公平地按照后端服务器的响应时间（rt）来分配请求，响应时间（rt）小的后端服务器优先分配请求。
+fair 顾名思义，公平地按照后端服务器的响应时间（rt）来分配请求，响应时间（rt）小的后端服务器优先分配请求。
 
 > upstream zhang21 {
 >
->   server 192.168.1.11;
+> server 192.168.1.11;
 >
->   server 192.168.1.22;
+> server 192.168.1.22;
 >
->   server 192.168.1.33;
+> server 192.168.1.33;
 >
 > }
-
-
 
 #### 5，url_hash
 
-与 ip_hash类似，但是按照访问 url 的 hash 结果来分配请求，使得每个 url 定向到同一个后端服务器，主要应用于后端服务器为缓存的场景下。
+与 ip_hash 类似，但是按照访问 url 的 hash 结果来分配请求，使得每个 url 定向到同一个后端服务器，主要应用于后端服务器为缓存的场景下。
 
 > upstream zhang21 {
 >
->   server 192.168.1.11;
+> server 192.168.1.11;
 >
->   server 192.168.1.22;
+> server 192.168.1.22;
 >
->   server 192.168.1.33;
+> server 192.168.1.33;
 >
->   hash $request_uri；
+> hash $request_uri；
 >
->   hash_method crc32；
+> hash_method crc32；
 >
 > }
 
-其中，hash_method为使用的hash算法，需要注意，此时server语句中不能添加 weight等参数。
-
-
+其中，hash_method 为使用的 hash 算法，需要注意，此时 server 语句中不能添加 weight 等参数。
 
 作者：Zhang21
 链接：https://www.jianshu.com/p/8671c40a5be8
@@ -339,3 +329,36 @@ server {
 
 }
 ```
+
+## [生产环境之 Nginx 高可用方案 - 日落西风又在吹 - 博客园](https://www.cnblogs.com/SimpleWu/p/11004902.html)
+
+keepalive+vip+双击主备来实现 nginx 高可用。
+
+> Keepalived 软件起初是专为 LVS 负载均衡软件设计的，用来管理并监控 LVS 集群系统中各个服务节点的状态，后来又加入了可以实现高可用的 VRRP 功能。因此，keepalived 除了能够管理 LVS 软件外，还可以作为其他服务的高可用解决方案软件。
+
+> keepalived 软件主要是通过 VRRP 协议实现高可用功能的。VRRP 是 Virtual  Router  Redundancy Protocol（虚拟路由冗余协议）的缩写，VRRP 出现的目的就是为了解决静态路由的单点故障问题的，它能保证当个别节点宕机时，整个网络可以不间断地运行。所以，keepalived 一方面具有配置管理 LVS 的功能，同时还具有对 LVS 下面节点进行健康检查的功能，另一方面也可以实现系统网络服务的高可用功能。
+
+检测 nginx 是否存活：check_nginx_pid.sh
+
+```sh
+#!/bin/bash
+#检测nginx是否启动了
+A=`ps -C nginx --no-header |wc -l`
+if [ $A -eq 0 ];then    #如果nginx没有启动就启动nginx
+      systemctl start nginx                #重启nginx
+      if [ `ps -C nginx --no-header |wc -l` -eq 0 ];then    #nginx重启失败，则停掉keepalived服务，进行VIP转移
+              killall keepalived
+      fi
+fi
+```
+
+[Nginx+Keepalived 高可用集群\_技术博客的技术博客\_51CTO 博客\_keepalived nginx](https://blog.51cto.com/superpcm/2095395)
+
+[如何给集群设置 VIP（虚拟 IP）\_沐瑾儿的博客-CSDN 博客\_vip 地址 虚拟地址](https://blog.csdn.net/qq_41833549/article/details/108119975)
+
+[使用 keepalived 设置虚拟 IP 环境\_kongxx 的专栏-CSDN 博客\_keepalived virtual_ipaddress](https://blog.csdn.net/kongxx/article/details/73173762)
+
+阿里云方案：
+[HaVip 结合 keepalived 实现主备双机高可用](https://help.aliyun.com/document_detail/184485.htm?spm=a2c4g.11186623.0.0.370c3cb3uvYUKS#task-1938181)
+
+[科普一下公有云的网络 – 酷 壳 – CoolShell 3F](https://coolshell.me/articles/public-network-working-tutorial.html)

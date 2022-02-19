@@ -97,3 +97,7 @@ C-> 王五
 */
 
 ```
+
+[聊聊 Java8 以后各个版本的新特性 - 掘金](https://juejin.cn/post/6844903918586052616)
+[A categorized list of all Java and JVM features since JDK 8 to 17 - Advanced Web Machinery](https://advancedweb.hu/a-categorized-list-of-all-java-and-jvm-features-since-jdk-8-to-17/)
+[Java 9 到 16 的语言和 JVM 特性更新分类清单 | NanoNova's cyberspace](https://nanova.me/java-lang-jvm-updates/)
