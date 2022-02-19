@@ -201,3 +201,11 @@ public void name() {
 ```
 
 - [intellij idea - How to disable code formatting for some part of the code using comments? - Stack Overflow](https://stackoverflow.com/questions/3375307/how-to-disable-code-formatting-for-some-part-of-the-code-using-comments)
+
+## 激活 spring 环境
+
+```java
+-Dspring.profiles.active=dev
+```
+
+![202201270913347](https://raw.githubusercontent.com/lyloou/img/develop/img/202201270913347.png)
