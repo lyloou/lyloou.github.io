@@ -33,3 +33,20 @@ Bean的完整生命周期经历了各种方法调用，这些方法可以划分�
 版本问题：
 例如：`4.0.0.RELEASE`版本对 Component 和 ComponentScan 支持不好，
 而`4.3.2.RELEASE`是支持很好的。
+
+## sprring boot 测试
+
+```java
+@RunWith(SpringRunner.class)
+@Profile("dev")
+@SpringBootTest(classes = ApiTvApplication.class)
+public class DemoServiceImplTest {
+    @Autowired
+    DemoServiceImpl demoService;
+
+    @Test
+    public void list() {
+
+    }
+}
+```

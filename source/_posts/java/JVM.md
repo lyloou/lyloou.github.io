@@ -62,6 +62,22 @@ https://visualvm.github.io/pluginscenters.html
 - [What is Java JDK, JRE and JVM - In-depth Analysis - HowToDoInJava](https://howtodoinjava.com/java/basics/jdk-jre-jvm/)
 - [How the JIT compiler optimizes code](https://www.ibm.com/support/knowledgecenter/en/SSYKE2_8.0.0/com.ibm.java.vm.80.doc/docs/jit_optimize.html)
 
+## JVM 相关问题
+
+```ini
+; vi /etc/supervisord.conf
+[program:xxl-job-admin-7005]
+command=java -XX:-UseGCOverheadLimit -jar /data/www/xxl-job-admin/xxl-job-admin-7005.jar --server.port=7005
+autostart = true
+autorestart = true
+user = omadmin
+redirect_stderr = true
+stdout_logfile_maxbytes=100MB
+stdout_logfile = /data/log/xxl-job-admin/xxl-job-admin.log
+```
+
+[-XX:-UseGCOverheadLimit 参数 java.lang.OutOfMemoryError：GC overhead limit exceeded 填坑心得\_cas3$#%nca%6nes_3sdf 的博客-CSDN 博客\_usegcoverheadlimit 有什么作用](https://blog.csdn.net/casablancaagnes_3sdf/article/details/52299100)
+
 ## [JVM 垃圾回收 之 强引用、弱引用、软引用、虚引用\_cyt-CSDN 博客](https://blog.csdn.net/qq_41291945/article/details/108549120)
 
 ```java

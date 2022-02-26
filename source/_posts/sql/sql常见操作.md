@@ -211,3 +211,54 @@ keyword in (
 3.  修改 order_info_new 为 order_info。
     -- 执行 DDL 语句
     alter table order_info_new rename to order_info;
+
+## 获取表结构
+
+[mysql 获取所有的表结构及备注\_阳水平的博客-CSDN 博客\_mysql 获取表备注](https://blog.csdn.net/zhezhebie/article/details/108258387)
+
+```sql
+-- 获取所有表信息
+SELECT
+    *
+FROM
+    information_schema.`TABLES`
+WHERE
+    TABLE_SCHEMA = (select database())
+```
+
+```sql
+-- 获取所有表名和备注
+SELECT
+    TABLE_NAME 表名,
+    TABLE_COMMENT 备注
+FROM
+    information_schema.`TABLES`
+WHERE
+    TABLE_SCHEMA = (select database())
+```
+
+```sql
+-- 获取所有的表结构及备注
+SELECT
+    TABLE_SCHEMA AS '库名',
+    TABLE_NAME AS '表名',
+    COLUMN_NAME AS '列名',
+    ORDINAL_POSITION AS '列的排列顺序',
+    COLUMN_DEFAULT AS '默认值',
+    IS_NULLABLE AS '是否为空',
+    DATA_TYPE AS '数据类型',
+    CHARACTER_MAXIMUM_LENGTH AS '字符最大长度',
+    NUMERIC_PRECISION AS '数值精度(最大位数)',
+    NUMERIC_SCALE AS '小数精度',
+    COLUMN_TYPE AS '列类型',
+    COLUMN_KEY 'KEY',
+    EXTRA AS '额外说明',
+    COLUMN_COMMENT AS '注释'
+FROM
+    information_schema.`COLUMNS`
+WHERE
+    TABLE_SCHEMA = (select database())
+ORDER BY
+    TABLE_NAME,
+    ORDINAL_POSITION;
+```
