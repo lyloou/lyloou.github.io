@@ -8,6 +8,10 @@ tags:
   - 面试题
 ---
 
+## 常见问题
+
+[大Key/热Key分析/整库扫描_分布式缓存服务 DCS_常见问题_华为云](https://support.huaweicloud.com/dcs_faq/dcs-faq-0805001.html)
+
 # 备份策略
 
 ## RDB

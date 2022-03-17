@@ -11,19 +11,21 @@ tags:
 ## 插件
 
 - GitToolBox
-- CamelCase: CamelCase, camelCase, snake_case and SNAKE_CASE
-- Past Images into Markdown
+- CamelCase
 - .ignore
 - GsonFormat
 - Markdown support
 - GO
 - Lombok plugin
-- Mybatis plugin
+- Swagger Tools
+- Mybatisx
+- MybatisPlus
 - AceJump
 - Key promoter X
 - Alibaba Java Coding Guidelines
 - Database navigator
 - Rainbow Brackets
+- Past Images into Markdown
 - Free mybatis plugin
 
 - https://www.hollischuang.com/archives/3220
