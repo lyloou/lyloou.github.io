@@ -9,17 +9,24 @@ tags:
 
 #### 背景
 
-如果能确定指定的全量属性都是相等的，就可以认为这两个对象是相等的。
-一般的做法是重写 equal 方法，会比较复杂，需要手动获取属性内容，并比较，如果是 list 和 map 就更复杂了。
+编写代码时，会经常需要编写两个对象是否相等的逻辑，一般会有如下做法
+
+1. 直接写在业务代码中；
+2. 单独写个方法，业务代码中调用；
+3. 重写 equals 方法；
+
+上面这些做法，都比较复杂，如果属性太多或复杂点（如果是 list 和 map 就更复杂了），就需要编写更多的判断逻辑代码了。
 
 #### 想法（需求）
 
-如果能只提供需要比较的方法引用列表，就好了。
+如果能只需要提供比较的方法引用列表，有个地方能自动方法引用取值，并比较就好了。
 
 #### 思路
 
-1. 将所有要比较的 Getter 保存到列表中。
-2.
+1. 在 java8 中可以使用方法引用，如：People::getName；
+2. 可以将所有要比较的 Getter 保存到列表中；
+3. 在 比较的时候，根据 方法引用获取具体的值进行比较；
+4. 全部比较都相等了，就认为是相等的。
 
 #### 举个例子 1(改造前)
 
@@ -113,8 +120,6 @@ public class EqualDemo implements Equable {
 
 // 使用
 public class EqualDemoTest {
-
-
     @Test
     public void testSimpleTrue() {
         final EqualDemo s1 = new EqualDemo();
@@ -455,8 +460,67 @@ public class EqualDemoTest {
 
 ```
 
-![Equable_20220409191807_2022-04-09-19-18-08](https://raw.githubusercontent.com/lyloou/img/develop/Equable_20220409191807_2022-04-09-19-18-08.png)
+![Equable_20220409191807_2022-04-09-19-18-08](https://img-blog.csdnimg.cn/img_convert/2c6805c26b0cc409c60c7682d71d9cac.png)
+
+## 彩蛋
+
+如果不想继承 Equable 接口，或者想兼容之前的数据，可以通工具类中的静态方法来比较，源码如下
+
+```java
+public class FieldUtil{
+
+    /**
+     * 判断两个对象是否相等，根据 getter 方法引用来比较
+     *
+     * @param t1      对象1
+     * @param t2      对象2
+     * @param getters getter 方法引用列表
+     * @param <T>     输入类型
+     * @param <U>     输出类型
+     * @return 是否相等
+     */
+    public static <T, U> boolean equal(T t1, T t2, List<IGetter<T, U>> getters) {
+        for (IGetter<T, U> getter : getters) {
+            if (!Objects.equals(getter.apply(t1), getter.apply(t2))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * getter方法接口定义
+     */
+    @FunctionalInterface
+    public interface IGetter<T, U> extends Serializable {
+        U apply(T source);
+    }
+}
+
+// 使用
+public class Test {
+
+    public static void main(String[] args) {
+        final EqualDemo s1 = new EqualDemo();
+        s1.setId(1);
+        s1.setUsername("bob");
+
+        final EqualDemo s2 = new EqualDemo();
+        s2.setId(1);
+        s2.setUsername("bob");
+
+        // true
+        System.out.println(FieldUtil.equal(s1, s2, Arrays.asList(
+                EqualDemo::getId,
+                EqualDemo::getUsername,
+                EqualDemo::getList,
+                EqualDemo::getMap
+        )));
+    }
+}
+```
 
 ## 参考资源
 
-https://github.com/lyloou/component/blob/master/component-dto/src/main/java/com/lyloou/component/dto/Equable.java
+- https://github.com/lyloou/component/blob/master/component-dto/src/main/java/com/lyloou/component/dto/Equable.java
+- https://github.com/lyloou/component/blob/master/component-dto/src/main/java/com/lyloou/component/dto/field/FieldUtil.java
