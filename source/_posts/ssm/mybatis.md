@@ -385,25 +385,114 @@ mybatis 在调用 connection 进行 sql 预编译之前，会对 sql 语句进�
 
 mybatis 强大的动态 SQL 功能的具体实现就在此。动态解析涉及的东西太多，以后再讨论。
 
-## [mysql 一条语句 update 多条记录\_chijiaodaxie 的博客-CSDN 博客\_mysql update 多条数据](https://blog.csdn.net/chijiaodaxie/article/details/50210337)
+## 批量处理示例（修复歌手名称）
+
+```java
+   public void fixSongSingleName() {
+        // 从0开始
+        int id = 0;
+        // 每次查询100条
+        int limit = 100;
+        List<CcMusicInfoEntity> list;
+        do {
+            list = ccMusicInfoMapper.queryListByLastIdWithLimit(id, limit);
+            if (CollUtil.isEmpty(list)) {
+                break;
+            }
+
+            // 记录下一次的开始的id
+            id = list.get(list.size() - 1).getId();
+
+            // 找到需要更新的实体
+            final List<CcMusicInfoEntity> needUpdateList = list.stream()
+                    .filter(Objects::nonNull)
+                    .filter(it -> SingerNameUtil.isContainCombinedSeparator(it.getSingerName()))
+                    .collect(Collectors.toList());
+
+            // 在db中更新实体
+            if (CollUtil.isNotEmpty(needUpdateList)) {
+                final List<String> originSingerNameList = needUpdateList.stream().map(CcMusicInfoEntity::getSingerName).collect(Collectors.toList());
+                updateSongSingerInfo(needUpdateList);
+
+                Map<Integer, String> map = new HashMap<>(needUpdateList.size());
+                for (int i = 0; i < needUpdateList.size(); i++) {
+                    final CcMusicInfoEntity entity = needUpdateList.get(i);
+                    final String originSingerName = originSingerNameList.get(i);
+                    map.put(entity.getId(), StrUtil.format("更新前:{}，更新后:{}", originSingerName, entity.getSingerName()));
+                }
+                logger.info(StrUtil.format("fixSongSingleName 本次更新数量，{}，修改数据：{}", needUpdateList.size(), map));
+            }
+            logger.info("fixSongSingleName: 本次更新到ID，" + id);
+            // break;
+        } while (CollUtil.isNotEmpty(list));
+        logger.info("fixSongSingleName: 本次更新完成");
+    }
+
+    private void updateSongSingerInfo(List<MusicInfoEntity> needUpdateList) {
+        List<MusicInfoEntity> list = new ArrayList<>(needUpdateList.size());
+        for (MusicInfoEntity entity : needUpdateList) {
+            final String originSingerName = entity.getSingerName();
+            final String calculateSingerName = SingerNameUtil.calculate(originSingerName);
+
+            // 一样的情况，不用处理
+            if (Objects.equals(originSingerName, calculateSingerName)) {
+                continue;
+            }
+            MusicInfoEntity newCcMusicInfoEntity = new MusicInfoEntity();
+            newCcMusicInfoEntity.setId(entity.getId());
+            newCcMusicInfoEntity.setLastUpdateDate(new Date());
+            newCcMusicInfoEntity.setSingerName(calculateSingerName);
+            list.add(newCcMusicInfoEntity);
+        }
+        if (CollUtil.isNotEmpty(list)) {
+            musicInfoMapper.updateByList(list);
+        }
+    }
+```
+
+**批量查询：**
+
+```java
+// MusicInfoMapper.java
+List<MusicInfoEntity> queryListByLastIdWithLimit(@Param("id") int id, @Param("limit") int limit);
+void updateByList(List<MusicInfoEntity> list);
+```
 
 ```xml
-<!--    原文链接：https://blog.csdn.net/u013506626/article/details/121229892-->
-<update id="updateContentSource" parameterType="object">
+<!-- MusicInfoMapper.xml -->
+<select id="queryListByLastIdWithLimit" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List" />
+    FROM t_music_info a
+    where a.id > #{id} limit #{limit}
+</select>
+```
 
+**批量插入：**
+
+[mysql 一条语句 update 多条记录\_chijiaodaxie 的博客-CSDN 博客\_mysql update 多条数据](https://blog.csdn.net/chijiaodaxie/article/details/50210337)
+
+```xml
+<!--    原文链接：https://blog.csdn.net/u013506626/article/details/121229892 -->
+<update id="updateByList" parameterType="object">
+    update music_info
     <trim prefix="set" suffixOverrides=",">
-        <trim prefix="content_source=case" suffix="end,">
+        <trim prefix="singer_name=case" suffix="end,">
             <foreach collection="list" item="item" index="index">
-                WHEN id=#{item.id} THEN #{item.contentSource}
+                WHEN id=#{item.id} THEN #{item.singerName}
+            </foreach>
+        </trim>
+        <trim prefix="last_update_date=case" suffix="end,">
+            <foreach collection="list" item="item" index="index">
+                WHEN id=#{item.id} THEN #{item.lastUpdateDate}
             </foreach>
         </trim>
     </trim>
 
     WHERE id IN
     <foreach collection="list" item="item" open="(" close=")" separator=",">
-        #{i.id}
+        #{item.id}
     </foreach>
-
 </update>
 ```
 

@@ -27,12 +27,13 @@ tags:
 - Rainbow Brackets
 - Past Images into Markdown
 - Free mybatis plugin
+- Packages
 
 - https://www.hollischuang.com/archives/3220
 
 ## THEME
 
-http://ethanschoonover.com/solarized
+solarized
 
 ## 取消折叠代码
 
