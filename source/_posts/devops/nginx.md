@@ -362,3 +362,34 @@ fi
 [HaVip 结合 keepalived 实现主备双机高可用](https://help.aliyun.com/document_detail/184485.htm?spm=a2c4g.11186623.0.0.370c3cb3uvYUKS#task-1938181)
 
 [科普一下公有云的网络 – 酷 壳 – CoolShell 3F](https://coolshell.me/articles/public-network-working-tutorial.html)
+
+## 下载而不显示
+
+当我们使用 Nginx 时,如果要让一些附件比如 txt,pdf,doc 等不直接在浏览器打开,而弹出另存为的对话框(也就是下载),则可以在 nginx 里添加如下配置:
+
+```ini
+location /
+{
+if ($request_filename ~* ^.*?\.(txt|doc|pdf|rar|gz|zip|docx|exe|xlsx|ppt|pptx)$){
+add_header Content-Disposition: 'attachment;';
+}
+}
+```
+
+## 显示而不下载
+
+```ini
+//例如
+location = /md/test.txt {
+   //匹配到这里，显示文件内容，而不是下载
+  root /home/wwwroot/default;
+  # 图片的显示不下载也可以用下面的方式
+  add_header Content-Type text/plain;
+}
+```
+
+## nginx 无权访问目录
+
+![nginx_20220528122340_2022-05-28-12-23-40](https://raw.githubusercontent.com/lyloou/img/develop/nginx_20220528122340_2022-05-28-12-23-40.png)
+
+设置 nginx user 为 root;

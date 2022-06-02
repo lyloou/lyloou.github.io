@@ -212,3 +212,20 @@ public void name() {
 ```
 
 ![202201270913347](https://raw.githubusercontent.com/lyloou/img/develop/img/202201270913347.png)
+
+
+## Live Templates
+
+```
+logd
+log.info("[$CLASS_NAME$#$METHOD_NAME$]: $END$");
+
+logi
+log.info("[$CLASS_NAME$#$METHOD_NAME$]: $END$");
+
+logw
+log.warn("[$CLASS_NAME$#$METHOD_NAME$]: $END$", e);
+
+loge
+log.error("[$CLASS_NAME$#$METHOD_NAME$]: $END$", e);
+```

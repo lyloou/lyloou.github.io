@@ -332,3 +332,18 @@ public class CorsConfiguration {
 ```
 
 ## [Spring-Boot 之@Enable\*注解的工作原理 - 简书](https://www.jianshu.com/p/3da069bd865c)
+
+
+## 扫描
+
+```java
+com.lyloou.*;
+com.lyloou.**;
+```
+
+`**`匹配当前包和子包：如 com.lyloou 包下的Bean可以识别，com.lyloou.demo 也可以识别。
+而`*`只能匹配子包：如 com.lyloou 包下的Bean识别不了。com.lyloou.demo下面的可以识别。
+
+[关于component-scan中base-package包含通配符的问题探究_陈夏明的博客-CSDN博客_basepackages通配符](https://blog.csdn.net/u012325167/article/details/75388990?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_paycolumn_v3&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_paycolumn_v3&utm_relevant_index=1)
+
+[Spring boot basePackages 通配符* 找不到Bean_小小一只の蜗牛的博客-CSDN博客_basepackages通配符](https://blog.csdn.net/SunnyDay87/article/details/106391759)

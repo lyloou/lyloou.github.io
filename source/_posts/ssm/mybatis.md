@@ -499,3 +499,6 @@ void updateByList(List<MusicInfoEntity> list);
 ## 总结
 
 本文主要深入探究了 mybatis 对 #{ } 和 ${ }的不同处理方式，并了解了 sql 预编译。
+
+
+## [Mybatis Mapper.xml继承机制 - SegmentFault 思否](https://segmentfault.com/a/1190000012470056)

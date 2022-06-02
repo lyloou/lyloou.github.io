@@ -7,6 +7,10 @@ tags:
   - java
 ---
 
+## [Run Your Maven Build Anywhere with the Maven Wrapper](https://reflectoring.io/maven-wrapper/)
+
+> mvn -N io.takari:maven:wrapper -Dmaven=3.6.3
+
 ## Guide to installing 3rd party JARs
 
 http://maven.apache.org/guides/mini/guide-3rd-party-jars-local.html
