@@ -363,3 +363,8 @@ https://central.sonatype.org/publish/requirements/gpg
 
 > mvn clean deploy -P release -Dgpg.passphrase=密码
 > mvn clean deploy -Pdeploy
+
+
+[How to Deploy only the sub-modules using maven deploy? - Stack Overflow](https://stackoverflow.com/questions/7446599/how-to-deploy-only-the-sub-modules-using-maven-deploy)
+
+> mvn deploy -pl SubModuleB
