@@ -24,7 +24,11 @@
   "files.eol": "\n",
   "window.enableMenuBarMnemonics": false,
   "[markdown]": {
-    "editor.quickSuggestions": true
+    "editor.quickSuggestions": {
+      "comments": "on",
+      "strings": "on",
+      "other": "on"
+    }
   },
   "editor.tabCompletion": "on",
   "pasteImage.path": "${projectRoot}/source/images/article/",
