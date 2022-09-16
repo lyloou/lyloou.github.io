@@ -500,5 +500,23 @@ void updateByList(List<MusicInfoEntity> list);
 
 本文主要深入探究了 mybatis 对 #{ } 和 ${ }的不同处理方式，并了解了 sql 预编译。
 
+## [Mybatis Mapper.xml 继承机制 - SegmentFault 思否](https://segmentfault.com/a/1190000012470056)
 
-## [Mybatis Mapper.xml继承机制 - SegmentFault 思否](https://segmentfault.com/a/1190000012470056)
+## [mybatis 中大于等于小于等于的写法](https://blog.csdn.net/xuanzhangran/article/details/60329357)
+
+```ini
+第一种写法（1）：
+
+原符号       <        <=      >       >=       &        '        "
+替换符号    &lt;    &lt;=   &gt;    &gt;=   &amp;   &apos;  &quot;
+例如：sql如下：
+create_date_time &gt;= #{startTime} and  create_date_time &lt;= #{endTime}
+
+第二种写法（2）：
+大于等于
+<![CDATA[ >= ]]>
+小于等于
+<![CDATA[ <= ]]>
+例如：sql如下：
+create_date_time <![CDATA[ >= ]]> #{startTime} and  create_date_time <![CDATA[ <= ]]> #{endTime}
+```

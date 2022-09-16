@@ -39,3 +39,10 @@ public class Event {
     private String content;
 }
 ```
+
+## Lombok IDEA 异常
+
+[intellij idea - java: You aren't using a compiler supported by lombok, so lombok will not work and has been disabled - Stack Overflow](https://stackoverflow.com/questions/65128763/java-you-arent-using-a-compiler-supported-by-lombok-so-lombok-will-not-work-a)
+
+> `-Djps.track.ap.dependencies=false`
+> Build, Execution, Deployment -> Compiler -> Shared build process VM options

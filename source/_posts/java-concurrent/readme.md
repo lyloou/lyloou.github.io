@@ -52,3 +52,30 @@ futureList.stream().map(CompletableFuture::join).collect(Collectors.toList());
 ```
 
 通过`Runtime.getRuntime().avaiableProcessors()`来获取 cpu 个数。
+
+## 窃取线程池
+
+```java
+
+import cn.hutool.core.thread.ThreadUtil;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+public class ExecutorOfWorkStealingPoolTest {
+    public static void main(String[] args) {
+        final ExecutorService executorService = Executors.newWorkStealingPool();
+        for (int i = 0; i < Integer.MAX_VALUE; i++) {
+            System.out.println(i);
+            int finalI = i;
+            executorService.submit(() -> {
+                System.out.println(Thread.currentThread().getName() + " - " + finalI);
+                ThreadUtil.sleep(1000);
+            });
+        }
+        ThreadUtil.sleep(1000000);
+        executorService.shutdown();
+    }
+}
+
+```
