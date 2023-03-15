@@ -4,10 +4,10 @@ echo """
 获取当前目录。
 
 获取所有文件，排序：目录、文件，
-1. 如果是目录：生成【目录名/index.html链接】
-2. 如果是文件：生成【文件名.html链接】
+1. 如果是目录：生成【目录名/index.md链接】
+2. 如果是文件：生成【文件名.md链接】
 
-将1、2拼接后，放入本目录的index.html中。
+将1、2拼接后，放入本目录的index.md中。
 如果是目录，递归操作。
 """
 
@@ -26,7 +26,7 @@ create_md_link() {
     for filename in $files; do
         if [[ -f "$filename" && $filename =~ .*md$ ]]; then
             md_link=$(echo $filename | sed 's/\.[^.]*$//')
-            md_link="- [$md_link]($md_link.html)"
+            md_link="- [$md_link]($md_link.md)"
             echo $md_link >>index.md
         fi
     done
@@ -36,7 +36,7 @@ create_md_link() {
     # 输出目录
     for filename in $files; do
         if [ -d "$filename" ]; then
-            md_link="- [$filename](./$filename/index.html)"
+            md_link="- [$filename](./$filename/index.md)"
             echo $md_link >>index.md
             cd $filename
             create_md_link
