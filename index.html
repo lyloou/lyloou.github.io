@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+<html lang="zh-CN,zh-HK,zh-TW,en,default">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"lyloou.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="&#x2F;* Better than last best *&#x2F;">
+<meta property="og:type" content="website">
+<meta property="og:title" content="lyloou">
+<meta property="og:url" content="https://lyloou.github.io/index.html">
+<meta property="og:site_name" content="lyloou">
+<meta property="og:description" content="&#x2F;* Better than last best *&#x2F;">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="lyloou">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://lyloou.github.io/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>lyloou</title>
+  
+    <script>
+      function sendPageView() {
+        if (CONFIG.hostname !== location.hostname) return;
+        var uid = localStorage.getItem('uid') || (Math.random() + '.' + Math.random());
+        localStorage.setItem('uid', uid);
+        navigator.sendBeacon('https://www.google-analytics.com/collect', new URLSearchParams({
+          v  : 1,
+          tid: 'UA-80542932-1',
+          cid: uid,
+          t  : 'pageview',
+          dp : encodeURIComponent(location.pathname)
+        }));
+      }
+      document.addEventListener('pjax:complete', sendPageView);
+      sendPageView();
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta custom-logo">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">lyloou</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/java/%E8%8E%B7%E5%8F%96%E6%9C%89%E6%95%88%E7%9A%84%E5%BC%82%E5%B8%B8%E8%B0%83%E7%94%A8%E5%A0%86%E6%A0%88%E4%BF%A1%E6%81%AF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lyloou">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/java/%E8%8E%B7%E5%8F%96%E6%9C%89%E6%95%88%E7%9A%84%E5%BC%82%E5%B8%B8%E8%B0%83%E7%94%A8%E5%A0%86%E6%A0%88%E4%BF%A1%E6%81%AF/" class="post-title-link" itemprop="url">【Java】获取有效的异常调用堆栈信息</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-03-17 15:39:37" itemprop="dateCreated datePublished" datetime="2023-03-17T15:39:37+08:00">2023-03-17</time>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/java/%E8%8E%B7%E5%8F%96%E6%9C%89%E6%95%88%E7%9A%84%E5%BC%82%E5%B8%B8%E8%B0%83%E7%94%A8%E5%A0%86%E6%A0%88%E4%BF%A1%E6%81%AF/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/java/%E8%8E%B7%E5%8F%96%E6%9C%89%E6%95%88%E7%9A%84%E5%BC%82%E5%B8%B8%E8%B0%83%E7%94%A8%E5%A0%86%E6%A0%88%E4%BF%A1%E6%81%AF/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>项目中，可能会遇到虽然知道发生了异常，但是不知道异常是什么，由于调用栈信息不全，从日志上看不出具体问题；主要原因是异常调用栈太深，导致异常信息被截断。</p>
+<p>下面这个方法可以获取根异常，将中间的非主要异常过滤掉。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**  </span><br><span class="hljs-comment"> * 获取根异常，防止调用链太长，导致有效信息被截断 </span><br><span class="hljs-comment"> */</span><br> <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Throwable <span class="hljs-title">getRootThrowable</span><span class="hljs-params">(Throwable e)</span> </span>&#123;  <br>    <span class="hljs-keyword">if</span> (Objects.isNull(e)) &#123;  <br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;  <br>    &#125;  <br>  <br>    Throwable lastCause = e;  <br>    Throwable currentCause = e.getCause();  <br>    <span class="hljs-keyword">while</span> (Objects.nonNull(currentCause)) &#123;  <br>        lastCause = currentCause;  <br>        currentCause = currentCause.getCause();  <br>    &#125;  <br>  <br>    <span class="hljs-keyword">return</span> lastCause;  <br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>示例</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Slf</span>4j  <br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ThrowableTestDemo</span> </span>&#123;  <br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;  <br>        test();  <br>    &#125;  <br>  <br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test</span><span class="hljs-params">()</span> </span>&#123;  <br>        <span class="hljs-keyword">try</span> &#123;  <br>            <span class="hljs-keyword">try</span> &#123;  <br>                <span class="hljs-keyword">try</span> &#123;  <br>                    <span class="hljs-keyword">try</span> &#123;  <br>                        <span class="hljs-keyword">try</span> &#123;  <br>                            <span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span> / <span class="hljs-number">0</span>;  <br>                        &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;  <br>                            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> RuntimeException(e);  <br>                        &#125;  <br>                    &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;  <br>                        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> RuntimeException(e);  <br>                    &#125;  <br>                &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;  <br>                    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> RuntimeException(e);  <br>                &#125;  <br>            &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;  <br>                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> RuntimeException(e);  <br>            &#125;  <br>        &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;  <br>            log.warn(<span class="hljs-string">"处理前："</span>, e);  <br>            System.out.println(<span class="hljs-string">"=======&gt;"</span>);  <br>            log.warn(<span class="hljs-string">"处理后："</span>, getRootThrowable(e));  <br>        &#125;  <br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-number">10</span>:<span class="hljs-number">38</span>:<span class="hljs-number">13.122</span> [main] WARN com<span class="hljs-selector-class">.coocaa</span><span class="hljs-selector-class">.media</span><span class="hljs-selector-class">.sync</span><span class="hljs-selector-class">.ThrowableTestDemo</span> - 处理前：<br>java<span class="hljs-selector-class">.lang</span><span class="hljs-selector-class">.RuntimeException</span>: java<span class="hljs-selector-class">.lang</span><span class="hljs-selector-class">.RuntimeException</span>: java<span class="hljs-selector-class">.lang</span><span class="hljs-selector-class">.RuntimeException</span>: java<span class="hljs-selector-class">.lang</span><span class="hljs-selector-class">.RuntimeException</span>: java<span class="hljs-selector-class">.lang</span><span class="hljs-selector-class">.ArithmeticException</span>: / by zero<br>	at com<span class="hljs-selector-class">.coocaa</span><span class="hljs-selector-class">.media</span><span class="hljs-selector-class">.sync</span><span class="hljs-selector-class">.ThrowableTestDemo</span>.test(ThrowableTestDemo<span class="hljs-selector-class">.java</span>:<span class="hljs-number">36</span>)<br>	at com<span class="hljs-selector-class">.coocaa</span><span class="hljs-selector-class">.media</span><span class="hljs-selector-class">.sync</span><span class="hljs-selector-class">.ThrowableTestDemo</span>.main(ThrowableTestDemo<span class="hljs-selector-class">.java</span>:<span class="hljs-number">15</span>)<br>Caused by: java<span class="hljs-selector-class">.lang</span><span class="hljs-selector-class">.RuntimeException</span>: java<span class="hljs-selector-class">.lang</span><span class="hljs-selector-class">.RuntimeException</span>: java<span class="hljs-selector-class">.lang</span><span class="hljs-selector-class">.RuntimeException</span>: java<span class="hljs-selector-class">.lang</span><span class="hljs-selector-class">.ArithmeticException</span>: / by zero<br>	at com<span class="hljs-selector-class">.coocaa</span><span class="hljs-selector-class">.media</span><span class="hljs-selector-class">.sync</span><span class="hljs-selector-class">.ThrowableTestDemo</span>.test(ThrowableTestDemo<span class="hljs-selector-class">.java</span>:<span class="hljs-number">33</span>)<br>	... <span class="hljs-number">1</span> common frames omitted<br>Caused by: java<span class="hljs-selector-class">.lang</span><span class="hljs-selector-class">.RuntimeException</span>: java<span class="hljs-selector-class">.lang</span><span class="hljs-selector-class">.RuntimeException</span>: java<span class="hljs-selector-class">.lang</span><span class="hljs-selector-class">.ArithmeticException</span>: / by zero<br>	at com<span class="hljs-selector-class">.coocaa</span><span class="hljs-selector-class">.media</span><span class="hljs-selector-class">.sync</span><span class="hljs-selector-class">.ThrowableTestDemo</span>.test(ThrowableTestDemo<span class="hljs-selector-class">.java</span>:<span class="hljs-number">30</span>)<br>	... <span class="hljs-number">1</span> common frames omitted<br>Caused by: java<span class="hljs-selector-class">.lang</span><span class="hljs-selector-class">.RuntimeException</span>: java<span class="hljs-selector-class">.lang</span><span class="hljs-selector-class">.ArithmeticException</span>: / by zero<br>	at com<span class="hljs-selector-class">.coocaa</span><span class="hljs-selector-class">.media</span><span class="hljs-selector-class">.sync</span><span class="hljs-selector-class">.ThrowableTestDemo</span>.test(ThrowableTestDemo<span class="hljs-selector-class">.java</span>:<span class="hljs-number">27</span>)<br>	... <span class="hljs-number">1</span> common frames omitted<br>Caused by: java<span class="hljs-selector-class">.lang</span><span class="hljs-selector-class">.ArithmeticException</span>: / by zero<br>	at com<span class="hljs-selector-class">.coocaa</span><span class="hljs-selector-class">.media</span><span class="hljs-selector-class">.sync</span><span class="hljs-selector-class">.ThrowableTestDemo</span>.test(ThrowableTestDemo<span class="hljs-selector-class">.java</span>:<span class="hljs-number">25</span>)<br>	... <span class="hljs-number">1</span> common frames omitted<br>	<br>=======&gt;<br><span class="hljs-number">10</span>:<span class="hljs-number">38</span>:<span class="hljs-number">13.124</span> [main] WARN com<span class="hljs-selector-class">.coocaa</span><span class="hljs-selector-class">.media</span><span class="hljs-selector-class">.sync</span><span class="hljs-selector-class">.ThrowableTestDemo</span> - 处理后：<br>java<span class="hljs-selector-class">.lang</span><span class="hljs-selector-class">.ArithmeticException</span>: / by zero<br>	at com<span class="hljs-selector-class">.coocaa</span><span class="hljs-selector-class">.media</span><span class="hljs-selector-class">.sync</span><span class="hljs-selector-class">.ThrowableTestDemo</span>.test(ThrowableTestDemo<span class="hljs-selector-class">.java</span>:<span class="hljs-number">25</span>)<br>	at com<span class="hljs-selector-class">.coocaa</span><span class="hljs-selector-class">.media</span><span class="hljs-selector-class">.sync</span><span class="hljs-selector-class">.ThrowableTestDemo</span>.main(ThrowableTestDemo<span class="hljs-selector-class">.java</span>:<span class="hljs-number">15</span>)<br></code></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/java/%E5%9F%BA%E4%BA%8E%E6%96%B9%E6%B3%95%E5%BC%95%E7%94%A8%E7%9A%84%E6%9E%84%E5%BB%BA%E5%99%A8%E6%A8%A1%E5%BC%8F%E8%BF%90%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lyloou">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/java/%E5%9F%BA%E4%BA%8E%E6%96%B9%E6%B3%95%E5%BC%95%E7%94%A8%E7%9A%84%E6%9E%84%E5%BB%BA%E5%99%A8%E6%A8%A1%E5%BC%8F%E8%BF%90%E7%94%A8/" class="post-title-link" itemprop="url">【Java】基于方法引用的构建器模式运用</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-12-07 17:39:37" itemprop="dateCreated datePublished" datetime="2022-12-07T17:39:37+08:00">2022-12-07</time>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/java/%E5%9F%BA%E4%BA%8E%E6%96%B9%E6%B3%95%E5%BC%95%E7%94%A8%E7%9A%84%E6%9E%84%E5%BB%BA%E5%99%A8%E6%A8%A1%E5%BC%8F%E8%BF%90%E7%94%A8/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/java/%E5%9F%BA%E4%BA%8E%E6%96%B9%E6%B3%95%E5%BC%95%E7%94%A8%E7%9A%84%E6%9E%84%E5%BB%BA%E5%99%A8%E6%A8%A1%E5%BC%8F%E8%BF%90%E7%94%A8/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h2><p>封装一个 set 对象构建器，利用类的 set 引用方法（不局限 set 开头的方法）来设值，便于点式调用。</p>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><code class="hljs java"><br><span class="hljs-keyword">import</span> cn.hutool.core.bean.BeanUtil;<br><span class="hljs-keyword">import</span> lombok.Data;<br><br><span class="hljs-meta">@Data</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">User</span> </span>&#123;<br>    <span class="hljs-keyword">private</span> String name;<br>    <span class="hljs-keyword">private</span> Integer age;<br>    <span class="hljs-keyword">private</span> String sex;<br>    <span class="hljs-keyword">private</span> String email;<br><br>    <span class="hljs-keyword">private</span> String other;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">appendOther</span><span class="hljs-params">(String other)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.other = other;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        <span class="hljs-comment">// 方法1，普通语法（推荐）</span><br>        User user1 = <span class="hljs-keyword">new</span> User();<br>        user1.setName(<span class="hljs-string">"Jojo"</span>);<br>        user1.setAge(<span class="hljs-number">18</span>);<br>        user1.setSex(<span class="hljs-string">"女"</span>);<br>        user1.setEmail(<span class="hljs-string">"JoJo@example.com"</span>);<br>        user1.appendOther(<span class="hljs-string">"其他数据"</span>);<br>        System.out.println(user1);<br><br>        <span class="hljs-comment">// 方法2，双括号语法（本质是匿名函数。不推荐使用，可能引起内层泄露）</span><br>        User user2 = <span class="hljs-keyword">new</span> User() &#123;&#123;<br>            setName(<span class="hljs-string">"Jojo"</span>);<br>            setAge(<span class="hljs-number">18</span>);<br>            setSex(<span class="hljs-string">"女"</span>);<br>            setEmail(<span class="hljs-string">"JoJo@example.com"</span>);<br>            appendOther(<span class="hljs-string">"其他数据"</span>);<br>        &#125;&#125;;<br>        System.out.println(user2);<br><br>        <span class="hljs-comment">// 方法3：set 构建器（推荐）</span><br>        <span class="hljs-keyword">final</span> User user3 = SetBuilder.of(<span class="hljs-keyword">new</span> User())<br>                .set(User::setName, <span class="hljs-string">"JoJo"</span>)<br>                .set(User::setAge, <span class="hljs-number">18</span>)<br>                .set(User::setSex, <span class="hljs-string">"女"</span>)<br>                .set(User::setEmail, <span class="hljs-string">"JoJo@example.com"</span>)<br>                .set(User::appendOther, <span class="hljs-string">"其他数据"</span>)<br>                .build();<br>        System.out.println(user3);<br><br>        <span class="hljs-comment">// 方法4：反射设值</span><br>        <span class="hljs-keyword">final</span> User user4 = <span class="hljs-keyword">new</span> User();<br>        BeanUtil.setFieldValue(user4, <span class="hljs-string">"name"</span>, <span class="hljs-string">"JoJo"</span>);<br>        BeanUtil.setFieldValue(user4, <span class="hljs-string">"age"</span>, <span class="hljs-number">18</span>);<br>        BeanUtil.setFieldValue(user4, <span class="hljs-string">"sex"</span>, <span class="hljs-string">"女"</span>);<br>        BeanUtil.setFieldValue(user4, <span class="hljs-string">"email"</span>, <span class="hljs-string">"JoJo@example.com"</span>);<br>        BeanUtil.setFieldValue(user4, <span class="hljs-string">"other"</span>, <span class="hljs-string">"其他数据"</span>);<br>        System.out.println(user4);<br>    &#125;<br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 打印：</span><br><span class="hljs-comment">     User(name=Jojo, age=18, sex=女, email=JoJo@example.com, other=其他数据)</span><br><span class="hljs-comment">     User(name=Jojo, age=18, sex=女, email=JoJo@example.com, other=其他数据)</span><br><span class="hljs-comment">     User(name=JoJo, age=18, sex=女, email=JoJo@example.com, other=其他数据)</span><br><span class="hljs-comment">     User(name=JoJo, age=18, sex=女, email=JoJo@example.com, other=其他数据)</span><br><span class="hljs-comment">     */</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 封装一个set构建器，基于对象的 set 引用方法来设值</span><br><span class="hljs-comment"> * &lt;p&gt;</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> &lt;T&gt; 指定对象泛型</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SetBuilder</span>&lt;<span class="hljs-title">T</span>&gt; </span>&#123;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> T object;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> &lt;T&gt; <span class="hljs-function">SetBuilder&lt;T&gt; <span class="hljs-title">of</span><span class="hljs-params">(T object)</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> SetBuilder&lt;&gt;(object);<br>    &#125;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 构造函数</span><br><span class="hljs-comment">     *</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> object 对象</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">SetBuilder</span><span class="hljs-params">(T object)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.object = object;<br>    &#125;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 链式调用</span><br><span class="hljs-comment">     *</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> setter set引用方法</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> value  要设置的属性值</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> &lt;V&gt;    对象泛型</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@return</span> builder，可链式调用</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">public</span> &lt;V&gt; <span class="hljs-function">SetBuilder&lt;T&gt; <span class="hljs-title">set</span><span class="hljs-params">(Setter&lt;T, V&gt; setter, V value)</span> </span>&#123;<br>        setter.set(object, value);<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;<br>    &#125;<br><br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 构建</span><br><span class="hljs-comment">     *</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@return</span> 构建后对象</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> T <span class="hljs-title">build</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> object;<br>    &#125;<br><br>    <span class="hljs-meta">@FunctionalInterface</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Setter</span>&lt;<span class="hljs-title">T</span>, <span class="hljs-title">V</span>&gt; </span>&#123;<br><br>        <span class="hljs-comment">/**</span><br><span class="hljs-comment">         * 调用set方法</span><br><span class="hljs-comment">         *</span><br><span class="hljs-comment">         * <span class="hljs-doctag">@param</span> t     实体对象</span><br><span class="hljs-comment">         * <span class="hljs-doctag">@param</span> value 实体对象属性值</span><br><span class="hljs-comment">         */</span><br>        <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">set</span><span class="hljs-params">(T t, V value)</span></span>;<br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/java-concurrent/%E5%9F%BA%E4%BA%8E%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E7%8B%AC%E7%AB%8B%E4%BB%BB%E5%8A%A1%E5%B9%B6%E5%8F%91%E6%89%A7%E8%A1%8C%E5%99%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lyloou">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/java-concurrent/%E5%9F%BA%E4%BA%8E%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E7%8B%AC%E7%AB%8B%E4%BB%BB%E5%8A%A1%E5%B9%B6%E5%8F%91%E6%89%A7%E8%A1%8C%E5%99%A8/" class="post-title-link" itemprop="url">【Java】基于线程池的独立任务并发执行器</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-06-11 09:40:42" itemprop="dateCreated datePublished" datetime="2022-06-11T09:40:42+08:00">2022-06-11</time>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/java-concurrent/%E5%9F%BA%E4%BA%8E%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E7%8B%AC%E7%AB%8B%E4%BB%BB%E5%8A%A1%E5%B9%B6%E5%8F%91%E6%89%A7%E8%A1%8C%E5%99%A8/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/java-concurrent/%E5%9F%BA%E4%BA%8E%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E7%8B%AC%E7%AB%8B%E4%BB%BB%E5%8A%A1%E5%B9%B6%E5%8F%91%E6%89%A7%E8%A1%8C%E5%99%A8/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="目的："><a href="#目的：" class="headerlink" title="目的："></a>目的：</h4><p>对于多个独立的任务，可以以并发的方式执行任务，以提高 CPU 利用率，提高处理效率。</p>
+<h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><p>在一个线程池中，开启指定数量的线程，每个线程从任务队列中获取任务执行。</p>
+<p>执行的过程中，判断当前线程是否在执行任务的状态，如果没有执行任务，取一条任务执行，如果正在执行，则跳过，下轮再判断。</p>
+<p>在所有任务执行完后，关闭线程池。</p>
+<p>需要注意的是数据结构的选择，须选择并发类的数据结构，不然可能出现阻塞，死锁等情况。</p>
+<p>（具体逻辑参考源码）</p>
+<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 并发执行器示例</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ConcurrentExecutorTest</span> </span>&#123;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 测试</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">100</span>; i++) &#123;<br>            test();<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test</span><span class="hljs-params">()</span> </span>&#123;<br>        Map&lt;String, String&gt; paramMap = <span class="hljs-keyword">new</span> LinkedHashMap&lt;&gt;();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i++) &#123;<br>            paramMap.put(<span class="hljs-string">"key:"</span> + i, <span class="hljs-string">"value:"</span> + i);<br>        &#125;<br><br>        <span class="hljs-keyword">final</span> ConcurrentExecutor&lt;String, String, Integer&gt; executor = <span class="hljs-keyword">new</span> ConcurrentExecutor&lt;&gt;(<span class="hljs-number">5</span>, paramMap,<br>                (k, v) -&gt; &#123;<br>                    ThreadUtil.sleep(<span class="hljs-number">10</span>);<br>                    System.out.println(Thread.currentThread().getName() + <span class="hljs-string">"-"</span> + v);<br>                    <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> abs = Math.abs(Objects.hash(v));<br>                    <span class="hljs-keyword">if</span> (abs % <span class="hljs-number">3</span> == <span class="hljs-number">0</span>) &#123;<br>                        <span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span> / <span class="hljs-number">0</span>;<br>                    &#125;<br>                    <span class="hljs-keyword">return</span> abs;<br>                &#125;);<br>        executor.execute();<br>        System.out.println(<span class="hljs-string">"success result: "</span> + executor.getSuccessResultMap());<br>        System.out.println(<span class="hljs-string">"error result: "</span> + executor.getErrorResultMap());<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>测试结果</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs ini">pool-1-thread-1-value:0<br>pool-1-thread-2-value:1<br>pool-1-thread-4-value:3<br>pool-1-thread-3-value:2<br>pool-1-thread-3-value:8<br>pool-1-thread-1-value:5<br>pool-1-thread-5-value:4<br>pool-1-thread-2-value:6<br>pool-1-thread-4-value:7<br>pool-1-thread-3-value:9<br>success result: &#123;key:2=231604360, key:0=231604358, key:6=231604364, key:5=231604363, key:3=231604361, key:9=231604367, key:8=231604366&#125;<br>error result: &#123;key:1=java.lang.ArithmeticException: / by zero, key:4=java.lang.ArithmeticException: / by zero, key:7=java.lang.ArithmeticException: / by zero&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="源码（方案-1）"><a href="#源码（方案-1）" class="headerlink" title="源码（方案 1）"></a>源码（方案 1）</h4><p>基于自定义的 queue 实现</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br></pre></td><td class="code"><pre><code class="hljs java"><br><span class="hljs-keyword">import</span> cn.hutool.core.collection.CollUtil;<br><span class="hljs-keyword">import</span> cn.hutool.core.collection.ConcurrentHashSet;<br><span class="hljs-keyword">import</span> cn.hutool.core.lang.Assert;<br><span class="hljs-keyword">import</span> cn.hutool.core.thread.ThreadUtil;<br><span class="hljs-keyword">import</span> cn.hutool.core.util.BooleanUtil;<br><br><span class="hljs-keyword">import</span> java.util.*;<br><span class="hljs-keyword">import</span> java.util.concurrent.ConcurrentHashMap;<br><span class="hljs-keyword">import</span> java.util.concurrent.ConcurrentLinkedQueue;<br><span class="hljs-keyword">import</span> java.util.concurrent.ExecutorService;<br><span class="hljs-keyword">import</span> java.util.function.BiFunction;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 并发执行器</span><br><span class="hljs-comment"> * &lt;p&gt;</span><br><span class="hljs-comment"> * 适用场景：每个任务是独立的，不耦合的</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@author</span> lilou</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@since</span> 2022/6/9 9:05</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ConcurrentExecutor</span>&lt;<span class="hljs-title">K</span>, <span class="hljs-title">V</span>, <span class="hljs-title">R</span>&gt; </span>&#123;<br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 任务参数映射（K：key的类型，V：值的类型）</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Map&lt;K, V&gt; paramMap;<br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 成功的任务结果映射（R：结果类型）</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Map&lt;K, R&gt; successResultMap;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 失败的任务结果映射</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Map&lt;K, Throwable&gt; errorResultMap;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 当前运行中的key集合</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Set&lt;K&gt; runningKeySet;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 候选任务key队列</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Queue&lt;K&gt; candidateKeyQueue;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 同时运行的最大线程数量</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> maxThreadNum;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 执行器</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> ExecutorService executorService;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 具体任务策略</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> BiFunction&lt;K, V, R&gt; biFunction;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 当前index线程的运行状态，可依据此状态，判断是否立刻从任务参数中获取任务执行</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Map&lt;Integer, Boolean&gt; currentIndexThreadRunningStatusMap;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">ConcurrentExecutor</span><span class="hljs-params">(<span class="hljs-keyword">int</span> maxThreadNum, Map&lt;K, V&gt; paramMap, BiFunction&lt;K, V, R&gt; biFunction)</span> </span>&#123;<br>        Assert.notNull(paramMap, <span class="hljs-string">"paramMap不可为空"</span>);<br>        Assert.isTrue(maxThreadNum &gt; <span class="hljs-number">0</span>, <span class="hljs-string">"maxThreadNum不可小于1"</span>);<br><br>        <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> paramSize = paramMap.size();<br>        <span class="hljs-keyword">this</span>.maxThreadNum = Math.min(maxThreadNum, paramSize);<br>        <span class="hljs-comment">// tips: 须转换成同步类的map数据结构，如果错误地使用 this.paramMap = paramMap; 且外部使用了HashMap 或 LinkedHashMap，多测试几遍会发现，偶尔会陷入了阻塞</span><br>        <span class="hljs-keyword">this</span>.paramMap = Collections.synchronizedMap(paramMap);<br>        <span class="hljs-keyword">this</span>.candidateKeyQueue = <span class="hljs-keyword">new</span> ConcurrentLinkedQueue&lt;&gt;(paramMap.keySet());<br>        <span class="hljs-keyword">this</span>.runningKeySet = <span class="hljs-keyword">new</span> ConcurrentHashSet&lt;&gt;(paramSize);<br>        <span class="hljs-keyword">this</span>.biFunction = biFunction;<br>        <span class="hljs-keyword">this</span>.executorService = ThreadUtil.newExecutor(<span class="hljs-keyword">this</span>.maxThreadNum, <span class="hljs-keyword">this</span>.maxThreadNum, Integer.MAX_VALUE);<br>        <span class="hljs-keyword">this</span>.currentIndexThreadRunningStatusMap = <span class="hljs-keyword">new</span> ConcurrentHashMap&lt;&gt;(<span class="hljs-keyword">this</span>.maxThreadNum);<br>        <span class="hljs-keyword">this</span>.successResultMap = <span class="hljs-keyword">new</span> ConcurrentHashMap&lt;&gt;(<span class="hljs-keyword">this</span>.paramMap.size());<br>        <span class="hljs-keyword">this</span>.errorResultMap = <span class="hljs-keyword">new</span> ConcurrentHashMap&lt;&gt;();<br>    &#125;<br><br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">execute</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">while</span> (CollUtil.isNotEmpty(paramMap)) &#123;<br><br>            <span class="hljs-comment">// 最多同时有 maxRunningThreadNumber 同时消费 taskMap 中的数据</span><br>            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-keyword">this</span>.maxThreadNum; i++) &#123;<br>                <span class="hljs-keyword">int</span> currentIndex = i;<br><br>                <span class="hljs-comment">// 当前线程上次还未执行完，暂时跳过</span><br>                <span class="hljs-keyword">final</span> Boolean isRunning = currentIndexThreadRunningStatusMap.getOrDefault(currentIndex, <span class="hljs-keyword">false</span>);<br>                <span class="hljs-keyword">if</span> (BooleanUtil.isTrue(isRunning)) &#123;<br>                    <span class="hljs-keyword">continue</span>;<br>                &#125;<br><br>                <span class="hljs-comment">// 选择一个候选key</span><br>                <span class="hljs-keyword">final</span> K candidateKey = pickCandidateKey();<br>                <span class="hljs-comment">// 当前没有对应key的任务</span><br>                <span class="hljs-keyword">if</span> (Objects.isNull(candidateKey)) &#123;<br>                    <span class="hljs-keyword">continue</span>;<br>                &#125;<br><br>                <span class="hljs-comment">// 在线程池中运行任务</span><br>                executorService.submit(() -&gt; &#123;<br>                    <span class="hljs-keyword">try</span> &#123;<br>                        currentIndexThreadRunningStatusMap.put(currentIndex, <span class="hljs-keyword">true</span>);<br>                        <span class="hljs-keyword">final</span> V data = paramMap.get(candidateKey);<br><br>                        <span class="hljs-comment">// 开始执行任务</span><br>                        <span class="hljs-keyword">final</span> R result = biFunction.apply(candidateKey, data);<br><br>                        <span class="hljs-comment">// 存入正常结果</span><br>                        successResultMap.put(candidateKey, result);<br>                    &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;<br>                        <span class="hljs-comment">// 存入异常结果</span><br>                        errorResultMap.put(candidateKey, e);<br>                    &#125; <span class="hljs-keyword">finally</span> &#123;<br>                        paramMap.remove(candidateKey);<br>                        candidateKeyQueue.remove(candidateKey);<br>                        currentIndexThreadRunningStatusMap.remove(currentIndex);<br>                    &#125;<br>                &#125;);<br>            &#125;<br>        &#125;<br>        executorService.shutdown();<br>    &#125;<br><br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 从候选任务key队列中选择一个任务key</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> K <span class="hljs-title">pickCandidateKey</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">for</span> (K candidateKey : candidateKeyQueue) &#123;<br>            <span class="hljs-keyword">if</span> (!runningKeySet.contains(candidateKey)) &#123;<br>                runningKeySet.add(candidateKey);<br>                <span class="hljs-keyword">return</span> candidateKey;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Map&lt;K, R&gt; <span class="hljs-title">getSuccessResultMap</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> successResultMap;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Map&lt;K, Throwable&gt; <span class="hljs-title">getErrorResultMap</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> errorResultMap;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="源码（方案-2）"><a href="#源码（方案-2）" class="headerlink" title="源码（方案 2）"></a>源码（方案 2）</h2><p>基于 executorService.invokeAll</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.lyloou.component.util.concurrent;<br><br><span class="hljs-keyword">import</span> cn.hutool.core.collection.CollUtil;<br><span class="hljs-keyword">import</span> cn.hutool.core.date.DateUtil;<br><span class="hljs-keyword">import</span> cn.hutool.core.date.TimeInterval;<br><span class="hljs-keyword">import</span> cn.hutool.core.lang.Assert;<br><span class="hljs-keyword">import</span> cn.hutool.core.thread.ThreadUtil;<br><span class="hljs-keyword">import</span> lombok.SneakyThrows;<br><br><span class="hljs-keyword">import</span> java.util.*;<br><span class="hljs-keyword">import</span> java.util.concurrent.Callable;<br><span class="hljs-keyword">import</span> java.util.concurrent.ConcurrentHashMap;<br><span class="hljs-keyword">import</span> java.util.concurrent.ExecutorService;<br><span class="hljs-keyword">import</span> java.util.function.BiFunction;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 并发执行器</span><br><span class="hljs-comment"> * &lt;p&gt;</span><br><span class="hljs-comment"> * 适用场景：每个任务是独立的，不耦合的</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@author</span> lilou</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@since</span> 2022/6/9 9:05</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ConcurrentExecutor2</span>&lt;<span class="hljs-title">K</span>, <span class="hljs-title">V</span>, <span class="hljs-title">R</span>&gt; </span>&#123;<br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 任务参数映射（K：key的类型，V：值的类型）</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Map&lt;K, V&gt; paramMap;<br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 成功的任务结果映射</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Map&lt;K, R&gt; successResultMap;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 失败的任务结果映射</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Map&lt;K, Throwable&gt; errorResultMap;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 执行器</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> ExecutorService executorService;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 具体任务策略</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> BiFunction&lt;K, V, R&gt; biFunction;<br><br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">ConcurrentExecutor2</span><span class="hljs-params">(<span class="hljs-keyword">int</span> maxThreadNum, Map&lt;K, V&gt; paramMap, BiFunction&lt;K, V, R&gt; biFunction)</span> </span>&#123;<br>        Assert.notNull(paramMap, <span class="hljs-string">"paramMap不可为空"</span>);<br>        Assert.isTrue(maxThreadNum &gt; <span class="hljs-number">0</span>, <span class="hljs-string">"maxThreadNum不可小于1"</span>);<br><br>        <span class="hljs-comment">// 同时运行的最大线程数量</span><br>        <span class="hljs-keyword">int</span> maxThreadNum1 = Math.min(maxThreadNum, paramMap.size());<br>        <span class="hljs-comment">// tips: 如果错误地使用 this.paramMap = paramMap; 多测试几遍会发现，偶尔会陷入了阻塞</span><br>        <span class="hljs-keyword">this</span>.paramMap = Collections.synchronizedMap(paramMap);<br>        <span class="hljs-keyword">this</span>.biFunction = biFunction;<br>        <span class="hljs-keyword">this</span>.executorService = ThreadUtil.newExecutor(maxThreadNum1, maxThreadNum1, Integer.MAX_VALUE);<br>        <span class="hljs-keyword">this</span>.successResultMap = <span class="hljs-keyword">new</span> ConcurrentHashMap&lt;&gt;(<span class="hljs-keyword">this</span>.paramMap.size());<br>        <span class="hljs-keyword">this</span>.errorResultMap = <span class="hljs-keyword">new</span> ConcurrentHashMap&lt;&gt;();<br>    &#125;<br><br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">execute</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> InterruptedException </span>&#123;<br>        <span class="hljs-keyword">while</span> (CollUtil.isNotEmpty(paramMap)) &#123;<br>            List&lt;Callable&lt;R&gt;&gt; callableList = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();<br>            paramMap.forEach((k, v) -&gt; callableList.add(() -&gt; &#123;<br>                <span class="hljs-keyword">try</span> &#123;<br>                    <span class="hljs-keyword">final</span> R result = biFunction.apply(k, v);<br>                    successResultMap.put(k, result);<br>                &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;<br>                    errorResultMap.put(k, e);<br>                &#125; <span class="hljs-keyword">finally</span> &#123;<br>                    paramMap.remove(k);<br>                &#125;<br>                <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;<br>            &#125;));<br>            <span class="hljs-comment">// 在线程池中运行任务</span><br>            executorService.invokeAll(callableList);<br>            executorService.shutdown();<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Map&lt;K, R&gt; <span class="hljs-title">getSuccessResultMap</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> successResultMap;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Map&lt;K, Throwable&gt; <span class="hljs-title">getErrorResultMap</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> errorResultMap;<br>    &#125;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 测试</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> InterruptedException </span>&#123;<br>        <span class="hljs-keyword">final</span> TimeInterval timer = DateUtil.timer();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">100</span>; i++) &#123;<br>            test();<br>        &#125;<br>        System.out.println(timer.intervalMs());<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> InterruptedException </span>&#123;<br>        Map&lt;String, String&gt; paramMap = <span class="hljs-keyword">new</span> LinkedHashMap&lt;&gt;();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i++) &#123;<br>            paramMap.put(<span class="hljs-string">"key:"</span> + i, <span class="hljs-string">"value:"</span> + i);<br>        &#125;<br><br>        <span class="hljs-keyword">final</span> ConcurrentExecutor2&lt;String, String, Integer&gt; executor = <span class="hljs-keyword">new</span> ConcurrentExecutor2&lt;&gt;(<span class="hljs-number">5</span>, paramMap,<br>                (k, v) -&gt; &#123;<br>                    ThreadUtil.sleep(<span class="hljs-number">10</span>);<br>                    System.out.println(Thread.currentThread().getName() + <span class="hljs-string">"-"</span> + v);<br>                    <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> abs = Math.abs(Objects.hash(v));<br>                    <span class="hljs-keyword">if</span> (abs % <span class="hljs-number">3</span> == <span class="hljs-number">0</span>) &#123;<br>                        <span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span> / <span class="hljs-number">0</span>;<br>                    &#125;<br>                    <span class="hljs-keyword">return</span> abs;<br>                &#125;);<br>        executor.execute();<br>        System.out.println(<span class="hljs-string">"success result: "</span> + executor.getSuccessResultMap());<br>        System.out.println(<span class="hljs-string">"error result: "</span> + executor.getErrorResultMap());<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/linux/ftp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lyloou">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/linux/ftp/" class="post-title-link" itemprop="url">Ftp</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-05-26 09:56:53" itemprop="dateCreated datePublished" datetime="2022-05-26T09:56:53+08:00">2022-05-26</time>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/linux/ftp/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/linux/ftp/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><a href="https://hostadvice.com/how-to/how-to-install-and-configure-vsftpd-on-ubuntu-18-04/" target="_blank" rel="noopener">How to Install and Configure vsftpd on Ubuntu 18.04 | HostAdvice</a></p>
+<p><a href="https://blog.csdn.net/soslinken/article/details/79304076" target="_blank" rel="noopener">ubuntu 使用vsftpd 创建FTP服务（用户名密码登录，限制列出目录）_迦蓝叶的博客-CSDN博客_ubuntu vsftpd添加用户</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/java/Equable/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lyloou">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/java/Equable/" class="post-title-link" itemprop="url">【Java】通过 Getter 方法引用，来比较两个对象是否相等</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-04-09 18:52:50" itemprop="dateCreated datePublished" datetime="2022-04-09T18:52:50+08:00">2022-04-09</time>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/java/Equable/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/java/Equable/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h4><p>编写代码时，会经常需要编写两个对象是否相等的逻辑，一般会有如下做法</p>
+<ol>
+<li>直接写在业务代码中；</li>
+<li>单独写个方法，业务代码中调用；</li>
+<li>重写 equals 方法；</li>
+</ol>
+<p>上面这些做法，都比较复杂，如果属性太多或复杂点（如果是 list 和 map 就更复杂了），就需要编写更多的判断逻辑代码了。</p>
+<h4 id="想法"><a href="#想法" class="headerlink" title="想法"></a>想法</h4><p>如果能只需要提供比较的方法引用列表，有个地方能自动方法引用取值，并比较就好了。</p>
+<h4 id="思路-1"><a href="#思路-1" class="headerlink" title="思路 1"></a>思路 1</h4><ol>
+<li>在 java8 中可以使用方法引用，如：People::getName；</li>
+<li>可以将所有要比较的 Getter 保存到列表中；</li>
+<li>在 比较的时候，根据 方法引用获取具体的值进行比较；</li>
+<li>全部比较都相等了，就认为是相等的。</li>
+</ol>
+<h4 id="思路-2"><a href="#思路-2" class="headerlink" title="思路 2"></a>思路 2</h4><ol>
+<li>思路 1 适用于需要比较的字段少时，有一种情况是，需要比较的字段多，只想排除掉少量字段</li>
+<li>通过注解来忽略指定的字段</li>
+<li>获取全部字段，过滤掉忽略的字段，通过反射比较字段对应的值。</li>
+</ol>
+<h4 id="举个例子-1-改造前"><a href="#举个例子-1-改造前" class="headerlink" title="举个例子 1(改造前)"></a>举个例子 1(改造前)</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Getter</span><br><span class="hljs-meta">@Setter</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">EqualDemo</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Equable</span> </span>&#123;<br><br>    <span class="hljs-keyword">private</span> Integer id;<br>    <span class="hljs-keyword">private</span> Integer age;<br>    <span class="hljs-keyword">private</span> String username;<br>    <span class="hljs-keyword">private</span> Date createTime;<br>    <span class="hljs-keyword">private</span> Date updateTime;<br>    <span class="hljs-keyword">private</span> List&lt;EqualDemo&gt; list;<br>    <span class="hljs-keyword">private</span> Map&lt;String, EqualDemo&gt; map;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">equals</span><span class="hljs-params">(Object obj)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (obj <span class="hljs-keyword">instanceof</span> EqualDemo) &#123;<br>            <span class="hljs-keyword">if</span> (!Objects.equals(((EqualDemo) obj).getId(), <span class="hljs-keyword">this</span>.getId())) &#123;<br>                <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;<br>            &#125;<br><br>            <span class="hljs-keyword">if</span> (!Objects.equals(((EqualDemo) obj).getAge(), <span class="hljs-keyword">this</span>.getAge())) &#123;<br>                <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;<br>            &#125;<br><br>            <span class="hljs-keyword">if</span> (!Objects.equals(((EqualDemo) obj).getUsername(), <span class="hljs-keyword">this</span>.getUsername())) &#123;<br>                <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;<br>            &#125;<br>            <span class="hljs-keyword">final</span> List&lt;EqualDemo&gt; list1 = ((EqualDemo) obj).getList();<br>            <span class="hljs-keyword">final</span> List&lt;EqualDemo&gt; list2 = <span class="hljs-keyword">this</span>.getList();<br>            <span class="hljs-comment">// todo 比较 list1 和 list2</span><br><br>            <span class="hljs-keyword">final</span> Map&lt;String, EqualDemo&gt; map1 = ((EqualDemo) obj).getMap();<br>            <span class="hljs-keyword">final</span> Map&lt;String, EqualDemo&gt; map2 = <span class="hljs-keyword">this</span>.getMap();<br>            <span class="hljs-comment">// todo 比较 map1 和 map2</span><br><br><br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;<br>        &#125;<br>        <span class="hljs-keyword">return</span> Objects.equals(<span class="hljs-keyword">this</span>, obj);<br>    &#125;<br>&#125;<br><br><span class="hljs-comment">// 使用</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">EqualDemoTest</span> </span>&#123;<br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testSimpleTrue</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">final</span> EqualDemo s1 = <span class="hljs-keyword">new</span> EqualDemo();<br>        s1.setId(<span class="hljs-number">1</span>);<br>        s1.setUsername(<span class="hljs-string">"bob"</span>);<br><br>        <span class="hljs-keyword">final</span> EqualDemo s2 = <span class="hljs-keyword">new</span> EqualDemo();<br>        s2.setId(<span class="hljs-number">1</span>);<br>        s2.setUsername(<span class="hljs-string">"bob"</span>);<br><br>        <span class="hljs-comment">// // s1 和 s2 相等</span><br>        <span class="hljs-keyword">assert</span> s1.equals(s2);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="举个例子-2-改造后-指定需要比较的字段的-Getter-方法引用"><a href="#举个例子-2-改造后-指定需要比较的字段的-Getter-方法引用" class="headerlink" title="举个例子 2(改造后-指定需要比较的字段的 Getter 方法引用)"></a>举个例子 2(改造后-指定需要比较的字段的 Getter 方法引用)</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Getter</span><br><span class="hljs-meta">@Setter</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">OnlyEqualDemo</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Equable</span> </span>&#123;<br><br>    <span class="hljs-keyword">private</span> Integer id;<br><br>    <span class="hljs-keyword">private</span> Integer age;<br><br>    <span class="hljs-keyword">private</span> String username;<br>    <span class="hljs-keyword">private</span> Date createTime;<br>    <span class="hljs-keyword">private</span> Date updateTime;<br>    <span class="hljs-keyword">private</span> List&lt;OnlyEqualDemo&gt; list;<br>    <span class="hljs-keyword">private</span> Map&lt;String, OnlyEqualDemo&gt; map;<br><br><br>    <span class="hljs-meta">@SuppressWarnings</span>(<span class="hljs-string">"unchecked"</span>)<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> List&lt;EqualGetter&lt;OnlyEqualDemo&gt;&gt; listOnlyEqualsToGetter() &#123;<br>        <span class="hljs-keyword">final</span> EqualGetter&lt;OnlyEqualDemo&gt; getId = OnlyEqualDemo::getId;<br>        <span class="hljs-keyword">return</span> Arrays.asList(<br>                getId,<br>                OnlyEqualDemo::getAge,<br>                OnlyEqualDemo::getUsername,<br>                OnlyEqualDemo::getList,<br>                OnlyEqualDemo::getMap<br>        );<br>    &#125;<br>&#125;<br><br><br><span class="hljs-comment">// 使用</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">OnlyEqualDemoTest</span> </span>&#123;<br><br><br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testSimpleTrue</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">final</span> OnlyEqualDemo s1 = <span class="hljs-keyword">new</span> OnlyEqualDemo();<br>        s1.setId(<span class="hljs-number">1</span>);<br>        s1.setUsername(<span class="hljs-string">"bob"</span>);<br><br>        <span class="hljs-keyword">final</span> OnlyEqualDemo s2 = <span class="hljs-keyword">new</span> OnlyEqualDemo();<br>        s2.setId(<span class="hljs-number">1</span>);<br>        s2.setUsername(<span class="hljs-string">"bob"</span>);<br><br>        <span class="hljs-comment">// // s1 和 s2 相等</span><br>        <span class="hljs-keyword">assert</span> s1.onlyEqualsTo(s2);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="举个例子-3-改造后-排除少量字段"><a href="#举个例子-3-改造后-排除少量字段" class="headerlink" title="举个例子 3(改造后-排除少量字段)"></a>举个例子 3(改造后-排除少量字段)</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Getter</span><br><span class="hljs-meta">@Setter</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">IgnoreEqualDemo</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Equable</span> </span>&#123;<br><br>    <span class="hljs-keyword">private</span> Integer id;<br><br>    <span class="hljs-meta">@EqualIgnored</span><br>    <span class="hljs-keyword">private</span> Integer age;<br><br>    <span class="hljs-keyword">private</span> String username;<br><br>    <span class="hljs-meta">@EqualIgnored</span><br>    <span class="hljs-keyword">private</span> Date createTime;<br><br>    <span class="hljs-meta">@EqualIgnored</span><br>    <span class="hljs-keyword">private</span> Date updateTime;<br><br>    <span class="hljs-keyword">private</span> List&lt;IgnoreEqualDemo&gt; list;<br>    <span class="hljs-keyword">private</span> Map&lt;String, IgnoreEqualDemo&gt; map;<br>&#125;<br><br><span class="hljs-comment">// 使用</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">IgnoreEqualDemoTest</span> </span>&#123;<br><br><br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testSimpleTrue</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">final</span> IgnoreEqualDemo s1 = <span class="hljs-keyword">new</span> IgnoreEqualDemo();<br>        s1.setId(<span class="hljs-number">1</span>);<br>        s1.setUsername(<span class="hljs-string">"bob"</span>);<br>        s1.setCreateTime(<span class="hljs-keyword">new</span> Date());<br><br>        <span class="hljs-keyword">final</span> IgnoreEqualDemo s2 = <span class="hljs-keyword">new</span> IgnoreEqualDemo();<br>        s2.setId(<span class="hljs-number">1</span>);<br>        s2.setUsername(<span class="hljs-string">"bob"</span>);<br><br>        <span class="hljs-comment">// // s1 和 s2 相等</span><br>        <span class="hljs-keyword">assert</span> s1.ignoreEqualsTo(s2);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>这样就简洁很多了，由于 ignoreEqualsTo 和 onlyEqualsTo 方法是 Equable 接口中的默认方法，具体逻辑全封装起来了（包括 object, collection 和 map 的处理），不需要重写就可以直接使用，具体实现看下面的源码。</p>
+<h4 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br></pre></td><td class="code"><pre><code class="hljs java"><br><span class="hljs-keyword">import</span> lombok.SneakyThrows;<br><br><span class="hljs-keyword">import</span> java.beans.PropertyDescriptor;<br><span class="hljs-keyword">import</span> java.io.Serializable;<br><span class="hljs-keyword">import</span> java.lang.reflect.Field;<br><span class="hljs-keyword">import</span> java.lang.reflect.Method;<br><span class="hljs-keyword">import</span> java.util.*;<br><span class="hljs-keyword">import</span> java.util.function.BiFunction;<br><span class="hljs-keyword">import</span> java.util.stream.Collectors;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 比较两个对象是否相等</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@author</span> lilou</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@date</span> 2022/4/9 9:30</span><br><span class="hljs-comment"> * &lt;p&gt;</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@see</span> Equable#onlyEqualsTo(Equable) 方法1：通过 Getter方法引用 来指定需要比较的字段（场景：字段总量多，但是只需要比较少量字段时）</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@see</span> Equable#ignoreEqualsTo(Equable) 方法2：通过忽略注解(&#123;<span class="hljs-doctag">@code</span> EqualIgnored&#125;)来指定忽略比较的字段，未标识的字段会全部参与比较（场景：字段总量多，但是只需要排除少量字段时）</span><br><span class="hljs-comment"> * 注意：onlyEqualsTo 和 ignoreEqualsTo 不要混用</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Equable</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Serializable</span> </span>&#123;<br>    <span class="hljs-keyword">long</span> serialVersionUID = <span class="hljs-number">1L</span>;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 使用方法引用来比较，只比较指定的 Getter 方法引用。</span><br><span class="hljs-comment">     * 使用此方法：重写 listOnlyEqualsToGetter 方法，指定需要比较的字段的Getter方法引用</span><br><span class="hljs-comment">     *</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> other 另一个 model</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@return</span> 结果</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">default</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">onlyEqualsTo</span><span class="hljs-params">(Equable other)</span> </span>&#123;<br>        <span class="hljs-keyword">final</span> List&lt;EqualGetter&lt;Equable&gt;&gt; getterList = listOnlyEqualsToGetter();<br><br>        <span class="hljs-comment">// getter方法引用列表中没有需要比较的 getter，直接比较对象</span><br>        <span class="hljs-keyword">if</span> (getterList == <span class="hljs-keyword">null</span> || getterList.isEmpty()) &#123;<br>            <span class="hljs-keyword">return</span> Objects.equals(other, <span class="hljs-keyword">this</span>);<br>        &#125;<br><br>        <span class="hljs-comment">// 列表有值，计算两个对象在列表中 getter 值，并比较是否相等</span><br>        <span class="hljs-keyword">for</span> (EqualGetter&lt;Equable&gt; equalGetter : getterList) &#123;<br>            Object o1 = equalGetter.apply(<span class="hljs-keyword">this</span>);<br>            Object o2 = equalGetter.apply(other);<br><br>            <span class="hljs-comment">// 对于属性中也有实现了 Equable 接口的，递归调用</span><br>            <span class="hljs-keyword">if</span> (o1 <span class="hljs-keyword">instanceof</span> Equable &amp;&amp; o2 <span class="hljs-keyword">instanceof</span> Equable) <span class="hljs-keyword">return</span> ((Equable) o1).onlyEqualsTo((Equable) o2);<br><br>            <span class="hljs-comment">// equalTo collection</span><br>            <span class="hljs-keyword">if</span> (o1 <span class="hljs-keyword">instanceof</span> Collection &amp;&amp; o2 <span class="hljs-keyword">instanceof</span> Collection) &#123;<br>                <span class="hljs-comment">// 判断不相等</span><br>                <span class="hljs-keyword">if</span> (notEqualsCollection((Collection&lt;?&gt;) o1, (Collection&lt;?&gt;) o2, Equable::onlyEqualsTo)) <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;<br><br>                <span class="hljs-comment">// 列表已经判断完了，开始下一个属性</span><br>                <span class="hljs-keyword">continue</span>;<br>            &#125;<br><br>            <span class="hljs-comment">// equalTo map</span><br>            <span class="hljs-keyword">if</span> (o1 <span class="hljs-keyword">instanceof</span> Map &amp;&amp; o2 <span class="hljs-keyword">instanceof</span> Map) &#123;<br>                <span class="hljs-keyword">if</span> (notEqualsMap((Map&lt;?, ?&gt;) o1, (Map&lt;?, ?&gt;) o2, Equable::onlyEqualsTo)) <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;<br>                <span class="hljs-comment">// 列表已经判断完了，开始下一个属性</span><br>                <span class="hljs-keyword">continue</span>;<br>            &#125;<br><br>            <span class="hljs-keyword">if</span> (!Objects.equals(o1, o2)) &#123;<br>                <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">default</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">notEqualsMap</span><span class="hljs-params">(Map&lt;?, ?&gt; o1, Map&lt;?, ?&gt; o2, BiFunction&lt;Equable, Equable, Boolean&gt; biFunc)</span> </span>&#123;<br>        <span class="hljs-comment">// 比较 key</span><br>        <span class="hljs-keyword">final</span> Collection&lt;?&gt; set1 = o1.keySet();<br>        <span class="hljs-keyword">final</span> Collection&lt;?&gt; set2 = o2.keySet();<br>        <span class="hljs-keyword">if</span> (notEqualsCollection(set1, set2, biFunc)) <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;<br><br>        <span class="hljs-comment">// 比较 value</span><br>        <span class="hljs-keyword">final</span> Collection&lt;?&gt; values1 = o1.values();<br>        <span class="hljs-keyword">final</span> Collection&lt;?&gt; values2 = o2.values();<br>        <span class="hljs-keyword">return</span> notEqualsCollection(values1, values2, biFunc);<br>    &#125;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 判断 collection 是否不相等</span><br><span class="hljs-comment">     *</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> o1 第一个 collection</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> o2 第二个 collection</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@return</span> 是否不相等</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">default</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">notEqualsCollection</span><span class="hljs-params">(Collection&lt;?&gt; o1, Collection&lt;?&gt; o2, BiFunction&lt;Equable, Equable, Boolean&gt; biFunc)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (Objects.isNull(o1) &amp;&amp; Objects.isNull(o2)) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;<br>        &#125;<br><br>        <span class="hljs-keyword">if</span> (Objects.isNull(o1) || Objects.isNull(o2)) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;<br>        &#125;<br><br>        <span class="hljs-keyword">if</span> (o1.isEmpty() &amp;&amp; o2.isEmpty()) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;<br>        &#125;<br><br>        <span class="hljs-keyword">if</span> (o1.size() != o2.size()) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;<br>        &#125;<br><br>        <span class="hljs-comment">// 根据 hashCode 来排序</span><br>        o1 = o1.stream().sorted(Comparator.comparingInt(Object::hashCode)).collect(Collectors.toList());<br>        o2 = o2.stream().sorted(Comparator.comparingInt(Object::hashCode)).collect(Collectors.toList());<br><br><br>        <span class="hljs-comment">// 逐个比较</span><br>        <span class="hljs-keyword">final</span> Iterator&lt;?&gt; iterator1 = o1.iterator();<br>        <span class="hljs-keyword">final</span> Iterator&lt;?&gt; iterator2 = o2.iterator();<br>        <span class="hljs-keyword">while</span> (iterator1.hasNext() &amp;&amp; iterator2.hasNext()) &#123;<br>            <span class="hljs-keyword">final</span> Object next1 = iterator1.next();<br>            <span class="hljs-keyword">final</span> Object next2 = iterator2.next();<br>            <span class="hljs-keyword">if</span> (next1 <span class="hljs-keyword">instanceof</span> Equable &amp;&amp; next2 <span class="hljs-keyword">instanceof</span> Equable) &#123;<br>                <span class="hljs-keyword">if</span> (!biFunc.apply((Equable) next1, (Equable) next2)) &#123;<br>                    <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;<br>                &#125;<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                <span class="hljs-keyword">return</span> !Objects.equals(next1, next2);<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;<br>    &#125;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 需重写</span><br><span class="hljs-comment">     * &lt;p&gt;</span><br><span class="hljs-comment">     * 需要比较的 Getter 方法列表（原理是通过Getter 的 apply 方法得到实际的值，再进行比较）</span><br><span class="hljs-comment">     *</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> &lt;T&gt; 泛型</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@return</span> getter 方法列表</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">default</span> &lt;T extends Equable&gt; List&lt;EqualGetter&lt;T&gt;&gt; listOnlyEqualsToGetter() &#123;<br>        <span class="hljs-keyword">return</span> Collections.emptyList();<br>    &#125;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * getter方法接口定义</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-meta">@FunctionalInterface</span><br>    <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">EqualGetter</span>&lt;<span class="hljs-title">T</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Equable</span>&gt; <span class="hljs-keyword">extends</span> <span class="hljs-title">Serializable</span> </span>&#123;<br>        <span class="hljs-function">Object <span class="hljs-title">apply</span><span class="hljs-params">(T source)</span></span>;<br>    &#125;<br><br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * IgnoreEqual 注解+反射来实现 equal 逻辑</span><br><span class="hljs-comment">     *</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> other 另一个 model</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@return</span> 结果</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-meta">@SneakyThrows</span><br>    <span class="hljs-function"><span class="hljs-keyword">default</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">ignoreEqualsTo</span><span class="hljs-params">(Equable other)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (Objects.equals(<span class="hljs-keyword">this</span>, other)) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;<br>        &#125;<br><br>        <span class="hljs-keyword">final</span> Class&lt;? extends Equable&gt; aClass1 = <span class="hljs-keyword">this</span>.getClass();<br>        <span class="hljs-keyword">final</span> Class&lt;? extends Equable&gt; aClass2 = other.getClass();<br>        <span class="hljs-keyword">if</span> (!Objects.equals(aClass1, aClass2)) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;<br>        &#125;<br><br>        <span class="hljs-keyword">final</span> Field[] declaredFields = aClass1.getDeclaredFields();<br>        <span class="hljs-keyword">for</span> (Field declaredField : declaredFields) &#123;<br><br>            <span class="hljs-comment">// 字段是否被标记忽略</span><br>            <span class="hljs-keyword">final</span> EqualIgnored isIgnored = declaredField.getAnnotation(EqualIgnored<span class="hljs-class">.<span class="hljs-keyword">class</span>)</span>;<br>            <span class="hljs-keyword">if</span> (Objects.nonNull(isIgnored)) &#123;<br>                <span class="hljs-keyword">continue</span>;<br>            &#125;<br><br>            <span class="hljs-keyword">final</span> PropertyDescriptor propertyDescriptor = <span class="hljs-keyword">new</span> PropertyDescriptor(declaredField.getName(), aClass1);<br>            <span class="hljs-keyword">final</span> Method readMethod = propertyDescriptor.getReadMethod();<br><br>            <span class="hljs-keyword">final</span> Object o1 = readMethod.invoke(<span class="hljs-keyword">this</span>);<br>            <span class="hljs-keyword">final</span> Object o2 = readMethod.invoke(other);<br><br>            <span class="hljs-comment">// 对于属性中也有实现了 Equable 接口的，递归调用</span><br>            <span class="hljs-keyword">if</span> (o1 <span class="hljs-keyword">instanceof</span> Equable &amp;&amp; o2 <span class="hljs-keyword">instanceof</span> Equable) <span class="hljs-keyword">return</span> ((Equable) o1).ignoreEqualsTo((Equable) o2);<br><br>            <span class="hljs-comment">// equalTo collection</span><br>            <span class="hljs-keyword">if</span> (o1 <span class="hljs-keyword">instanceof</span> Collection &amp;&amp; o2 <span class="hljs-keyword">instanceof</span> Collection) &#123;<br>                <span class="hljs-comment">// 判断不相等</span><br>                <span class="hljs-keyword">if</span> (notEqualsCollection((Collection&lt;?&gt;) o1, (Collection&lt;?&gt;) o2, Equable::ignoreEqualsTo)) <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;<br><br>                <span class="hljs-comment">// 列表已经判断完了，开始下一个属性</span><br>                <span class="hljs-keyword">continue</span>;<br>            &#125;<br><br>            <span class="hljs-comment">// equalTo map</span><br>            <span class="hljs-keyword">if</span> (o1 <span class="hljs-keyword">instanceof</span> Map &amp;&amp; o2 <span class="hljs-keyword">instanceof</span> Map) &#123;<br><br>                <span class="hljs-keyword">if</span> (notEqualsMap((Map&lt;?, ?&gt;) o1, (Map&lt;?, ?&gt;) o2, Equable::ignoreEqualsTo)) <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;<br><br>                <span class="hljs-comment">// 列表已经判断完了，开始下一个属性</span><br>                <span class="hljs-keyword">continue</span>;<br>            &#125;<br><br>            <span class="hljs-keyword">if</span> (!Objects.equals(o1, o2)) &#123;<br>                <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;<br>            &#125;<br>        &#125;<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;<br>    &#125;<br><br>&#125;<br><br><br><span class="hljs-meta">@Target</span>(&#123;ElementType.FIELD&#125;)<br><span class="hljs-meta">@Retention</span>(RetentionPolicy.RUNTIME)<br><span class="hljs-meta">@Documented</span><br><span class="hljs-keyword">public</span> <span class="hljs-meta">@interface</span> EqualIgnored &#123;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="单元测试"><a href="#单元测试" class="headerlink" title="单元测试"></a>单元测试</h4><p><strong>方法 1：</strong></p>
+<p><a href="https://github.com/lyloou/component/blob/master/component-dto/src/test/java/com/lyloou/component/dto/OnlyEqualDemoTest.java" target="_blank" rel="noopener">https://github.com/lyloou/component/blob/master/component-dto/src/test/java/com/lyloou/component/dto/OnlyEqualDemoTest.java</a><br><img src="https://raw.githubusercontent.com/lyloou/img/develop/Equable_20220410103323_2022-04-10-10-33-24.png" alt="Equable_20220410103323_2022-04-10-10-33-24"></p>
+<p><strong>方法 2：</strong></p>
+<p><a href="https://github.com/lyloou/component/blob/master/component-dto/src/test/java/com/lyloou/component/dto/IgnoreEqualDemoTest.java" target="_blank" rel="noopener">https://github.com/lyloou/component/blob/master/component-dto/src/test/java/com/lyloou/component/dto/IgnoreEqualDemoTest.java</a><br><img src="https://raw.githubusercontent.com/lyloou/img/develop/Equable_20220410103408_2022-04-10-10-34-09.png" alt="Equable_20220410103408_2022-04-10-10-34-09"></p>
+<h2 id="参考资源"><a href="#参考资源" class="headerlink" title="参考资源"></a>参考资源</h2><ul>
+<li><a href="https://github.com/lyloou/component/blob/master/component-dto/src/main/java/com/lyloou/component/dto/Equable.java" target="_blank" rel="noopener">https://github.com/lyloou/component/blob/master/component-dto/src/main/java/com/lyloou/component/dto/Equable.java</a></li>
+<li><a href="https://github.com/lyloou/component/blob/master/component-dto/src/main/java/com/lyloou/component/dto/field/FieldUtil.java" target="_blank" rel="noopener">https://github.com/lyloou/component/blob/master/component-dto/src/main/java/com/lyloou/component/dto/field/FieldUtil.java</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/%E7%BD%91%E7%BB%9C/vpc/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lyloou">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/%E7%BD%91%E7%BB%9C/vpc/" class="post-title-link" itemprop="url">【网络】Vpc专有网络</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-02-15 09:12:02" itemprop="dateCreated datePublished" datetime="2022-02-15T09:12:02+08:00">2022-02-15</time>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/%E7%BD%91%E7%BB%9C/vpc/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/%E7%BD%91%E7%BB%9C/vpc/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><a href="https://developer.aliyun.com/article/58516" target="_blank" rel="noopener">阿里云网络系列之经典网络和专有网络-阿里云开发者社区</a><br><a href="https://coolshell.me/articles/public-network-working-tutorial.html" target="_blank" rel="noopener">科普一下公有云的网络 – 酷 壳 – CoolShell 3F</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/linux/frps/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lyloou">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/linux/frps/" class="post-title-link" itemprop="url">【Linux】frps内网穿透软件</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-02-08 21:04:14" itemprop="dateCreated datePublished" datetime="2022-02-08T21:04:14+08:00">2022-02-08</time>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/linux/frps/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/linux/frps/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>frps 是一个优秀的内网穿透软件。</p>
+<p>frps 下载安装：<a href="https://github.com/fatedier/frp/releases" target="_blank" rel="noopener">https://github.com/fatedier/frp/releases</a></p>
+<p><strong>服务端:</strong> <code>./frps -c ./frps.ini</code></p>
+<p>frps.ini</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-section">[common]</span><br><span class="hljs-attr">bind_addr</span> = <span class="hljs-number">0.0</span>.<span class="hljs-number">0.0</span><br><span class="hljs-attr">bind_port</span> = <span class="hljs-number">7000</span><br><br><span class="hljs-attr">bind_udp_port</span> = <span class="hljs-number">7001</span><br><br><span class="hljs-attr">dashboard_port</span> = <span class="hljs-number">7500</span><br><span class="hljs-attr">dashboard_user</span> = admin<br><span class="hljs-attr">dashboard_pwd</span> = admin<br><br><span class="hljs-attr">vhost_http_port</span> = <span class="hljs-number">2780</span><br><span class="hljs-attr">subdomain_host</span> = frps.example.com<br></code></pre></td></tr></table></figure>
+
+<p><strong>客户端:</strong> <code>./frpc -c ./frpc.ini</code></p>
+<p>frpc.ini</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-section">[common]</span><br><span class="hljs-attr">server_addr</span> = xx.xx.xx.xx<br><span class="hljs-attr">server_port</span> = <span class="hljs-number">7000</span><br><span class="hljs-attr">admin_addr</span> = <span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span><br><span class="hljs-attr">admin_port</span> = <span class="hljs-number">7400</span><br><br><span class="hljs-section">[ssh]</span><br><span class="hljs-attr">type</span> = tcp<br><span class="hljs-attr">local_ip</span> = <span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span><br><span class="hljs-attr">local_port</span> = <span class="hljs-number">22</span><br><span class="hljs-attr">remote_port</span> = <span class="hljs-number">7022</span><br><br><span class="hljs-section">[web]</span><br><span class="hljs-attr">type</span> = http<br><span class="hljs-attr">local_port</span> = <span class="hljs-number">2780</span><br><span class="hljs-attr">subdomain</span> = <span class="hljs-literal">off</span>ice<br></code></pre></td></tr></table></figure>
+
+<p>访问服务器端的 dashboard 查看统计信息: <code>http://frps.example.com:7500/</code></p>
+<p>访问内网 ssh： <code>ssh -oPort=7022 test@x.x.x.x</code><br>通过浏览器访问内网机器: <code>http://office.frps.example.com:2780/</code></p>
+<h2 id="配置自动启动"><a href="#配置自动启动" class="headerlink" title="配置自动启动"></a>配置自动启动</h2><p>安装 supervisor</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sh">apt install supervisor<br><br><span class="hljs-comment"># 查看 supervisor 状态</span><br>service supervisor status<br></code></pre></td></tr></table></figure>
+
+<p>添加 frps 配置：<code>vi /etc/supervisor/conf.d/frps.conf</code></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sh">[program:frps]<br><span class="hljs-built_in">command</span>=/root/c/frp/frps -c /root/c/frp/frps.ini<br>autostart=<span class="hljs-literal">true</span><br>autorestart=<span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure>
+
+<p>可以依次运行下面操作加载 新加入的 frps</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># 告诉 supervisor 新加了配置</span><br>supervisorctl reread<br><br><span class="hljs-comment"># 让 supervisor 启动 frps</span><br>supervisorctl update<br></code></pre></td></tr></table></figure>
+
+<p>输入 supervisorctl 查看 frps 是否已运行</p>
+<p><img src="https://raw.githubusercontent.com/lyloou/img/develop/img/202202082113352.png" alt="202202082113352"></p>
+<p>start 和 stop frps<br><img src="https://raw.githubusercontent.com/lyloou/img/develop/img/202202082114908.png" alt="202202082114908"></p>
+<p>设置 supervisor 开机启动</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">systemctl <span class="hljs-built_in">enable</span> supervisor.service<br>systemctl daemon-reload<br></code></pre></td></tr></table></figure>
+
+<p>为 supervisor 添加 dashboard，通过 9001 来访问：</p>
+<p><code>vi /etc/supervisor/supervisord.conf</code> 添加下面代码</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sh">[inet_http_server]<br>port=*:9001<br>username=admin<br>password=admin<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/lyloou/img/develop/img/202202082135628.png" alt="202202082135628"></p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://github.com/fatedier/frp" target="_blank" rel="noopener">https://github.com/fatedier/frp</a></p>
+<p><a href="https://www.jianshu.com/p/219553bfeca9" target="_blank" rel="noopener">通过 frp 实现访问内网 ssh 与 http 简明教程 - 简书</a></p>
+<p><a href="https://www.atlantic.net/vps-hosting/how-to-install-and-configure-supervisor-on-ubuntu-20-04/" target="_blank" rel="noopener">How to Install and Configure Supervisor on Ubuntu 20.04 | Atlantic.Net</a></p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-section">[program:nginx]</span><br><span class="hljs-attr">command</span>=/usr/sbin/nginx -g <span class="hljs-string">"daemon off;"</span><br><span class="hljs-attr">autostart</span>=<span class="hljs-literal">true</span><br><span class="hljs-attr">autorestart</span>=<span class="hljs-literal">true</span><br><span class="hljs-attr">startretries</span>=<span class="hljs-number">5</span><br><span class="hljs-attr">numprocs</span>=<span class="hljs-number">1</span><br><span class="hljs-attr">startsecs</span>=<span class="hljs-number">0</span><br><span class="hljs-attr">process_name</span>=%(program_name)s_%(process_num)<span class="hljs-number">02</span>d<br><span class="hljs-attr">stderr_logfile</span>=/var/log/supervisor/%(program_name)s_stderr.log<br><span class="hljs-attr">stderr_logfile_maxbytes</span>=<span class="hljs-number">10</span>MB<br><span class="hljs-attr">stdout_logfile</span>=/var/log/supervisor/%(program_name)s_stdout.log<br><span class="hljs-attr">stdout_logfile_maxbytes</span>=<span class="hljs-number">10</span>MB<br></code></pre></td></tr></table></figure>
+
+<p><a href="https://www.92ez.com/?action=show&id=23484" target="_blank" rel="noopener">使用 supervisor 设置服务端 frp 开机启动 - 一只猿 - 前端攻城尸 | 安全研究员 | 硬件控 | 业余极客 | 开源拥护者</a></p>
+<p><a href="https://www.bookstack.cn/read/frp/README_zh.md" target="_blank" rel="noopener">frp - 《frp 中文文档》 - 书栈网 · BookStack</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/windows/win11/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lyloou">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/windows/win11/" class="post-title-link" itemprop="url">【Windows】win11相关</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-02-03 18:32:15" itemprop="dateCreated datePublished" datetime="2022-02-03T18:32:15+08:00">2022-02-03</time>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/windows/win11/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/windows/win11/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="桌面"><a href="#桌面" class="headerlink" title="桌面"></a>桌面</h2><h2 id="关闭弹性滚动"><a href="#关闭弹性滚动" class="headerlink" title="关闭弹性滚动"></a>关闭弹性滚动</h2><p>进入：<code>edge://flags/</code></p>
+<p>disable <code>Microsoft Edge scrolling personality</code></p>
+<h2 id="恢复-win10-桌面右键菜单"><a href="#恢复-win10-桌面右键菜单" class="headerlink" title="恢复 win10 桌面右键菜单"></a>恢复 win10 桌面右键菜单</h2><p><a href="https://blog.csdn.net/admans/article/details/121302883" target="_blank" rel="noopener">Win11 恢复 Win10 经典右键菜单 亲测有效_admans 的专栏-CSDN 博客_win11 换回 win10 右键</a></p>
+<p>管理员权限运行</p>
+<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bat">reg.exe add "HKCU\Software\Classes\CLSID\&#123;<span class="hljs-number">86</span>ca1aa0-<span class="hljs-number">34</span>aa-<span class="hljs-number">4</span>e8b-a509-<span class="hljs-number">50</span>c905bae2a2&#125;\InprocServer32" /f /ve<br></code></pre></td></tr></table></figure>
+
+<p>重启资源管理器：<br><code>taskkill /f /im explorer.exe&amp;&amp;explorer.exe</code></p>
+<blockquote>
+<p><a href="https://zhidao.baidu.com/question/1365850274792601979.html?qbl=relate_question_2" target="_blank" rel="noopener">cmd /c taskkill /f /im explorer.exe&amp;&amp;explorer.exe 这命令什么意思_百度知道</a></p>
+</blockquote>
+<p>恢复 win11</p>
+<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bat">reg.exe delete "HKCU\Software\Classes\CLSID\&#123;<span class="hljs-number">86</span>ca1aa0-<span class="hljs-number">34</span>aa-<span class="hljs-number">4</span>e8b-a509-<span class="hljs-number">50</span>c905bae2a2&#125;\InprocServer32" /va /f<br></code></pre></td></tr></table></figure>
+
+<p>其它方案：startAllback 软件</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/%E7%AE%97%E6%B3%95/jz32-%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lyloou">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/%E7%AE%97%E6%B3%95/jz32-%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91/" class="post-title-link" itemprop="url">【算法】从上到下打印二叉树</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-01-24 18:55:50" itemprop="dateCreated datePublished" datetime="2022-01-24T18:55:50+08:00">2022-01-24</time>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/%E7%AE%97%E6%B3%95/jz32-%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/%E7%AE%97%E6%B3%95/jz32-%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="剑指-Offer-第-32-题-从上到下打印二叉树"><a href="#剑指-Offer-第-32-题-从上到下打印二叉树" class="headerlink" title="剑指 Offer 第 32 题-从上到下打印二叉树"></a>剑指 Offer 第 32 题-从上到下打印二叉树</h2><p>描述</p>
+<p>输入一个整数数组，判断该数组是不是某二叉搜索树的后序遍历的结果。如果是则返回 true ,否则返回 false 。假设输入的数组的任意两个数字都互不相同。<br>数据范围： 节点数量 0≤n≤1000 ，节点上的值满足 1≤val≤10^5，保证节点上的值各不相同</p>
+<p>要求：空间复杂度 O(n) ，时间时间复杂度 O(n^2)</p>
+<p>提示：</p>
+<p>1.二叉搜索树是指父亲节点大于左子树中的全部节点，但是小于右子树中的全部节点的树。</p>
+<p>2.该题我们约定空树不是二叉搜索树</p>
+<p>3.后序遍历是指按照 “左子树-右子树-根节点” 的顺序遍历</p>
+<p>4.参考下面的二叉搜索树，示例 1<br><img src="https://raw.githubusercontent.com/lyloou/img/develop/jz32-%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91_20220124175723_2022-01-24-17-57-24.png" alt="jz32-从上到下打印二叉树_20220124175723_2022-01-24-17-57-24"></p>
+<h2 id="方法-1"><a href="#方法-1" class="headerlink" title="方法 1"></a>方法 1</h2><p><img src="https://raw.githubusercontent.com/lyloou/img/develop/jz32-%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91_20220124175628_2022-01-24-17-56-29.png" alt="jz32-从上到下打印二叉树_20220124175628_2022-01-24-17-56-29"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 从上往下</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@author</span> lilou</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Jz32</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        <span class="hljs-keyword">final</span> Jz32 jz = <span class="hljs-keyword">new</span> Jz32();<br>        <span class="hljs-keyword">final</span> TreeNode root = <span class="hljs-keyword">new</span> TreeNode(<span class="hljs-number">8</span>);<br>        <span class="hljs-keyword">final</span> TreeNode node10 = <span class="hljs-keyword">new</span> TreeNode(<span class="hljs-number">10</span>);<br>        root.left = <span class="hljs-keyword">new</span> TreeNode(<span class="hljs-number">6</span>);<br>        root.right = node10;<br>        node10.left = <span class="hljs-keyword">new</span> TreeNode(<span class="hljs-number">1</span>);<br>        node10.right = <span class="hljs-keyword">new</span> TreeNode(<span class="hljs-number">2</span>);<br>        System.out.println(jz.PrintFromTopToBottom(root));<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> ArrayList&lt;Integer&gt; <span class="hljs-title">PrintFromTopToBottom</span><span class="hljs-params">(TreeNode root)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (root == <span class="hljs-keyword">null</span>) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();<br>        &#125;<br>        <span class="hljs-keyword">final</span> ArrayList&lt;Integer&gt; list = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();<br>        Queue&lt;TreeNode&gt; queue = <span class="hljs-keyword">new</span> LinkedList&lt;&gt;();<br>        queue.offer(root);<br><br>        <span class="hljs-keyword">while</span> (!queue.isEmpty()) &#123;<br>            <span class="hljs-keyword">final</span> TreeNode node = queue.poll();<br>            list.add(node.val);<br>            <span class="hljs-keyword">if</span> (node.left != <span class="hljs-keyword">null</span>) &#123;<br>                queue.offer(node.left);<br>            &#125;<br>            <span class="hljs-keyword">if</span> (node.right != <span class="hljs-keyword">null</span>) &#123;<br>                queue.offer(node.right);<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> list;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TreeNode</span> </span>&#123;<br>        <span class="hljs-keyword">int</span> val = <span class="hljs-number">0</span>;<br>        TreeNode left = <span class="hljs-keyword">null</span>;<br>        TreeNode right = <span class="hljs-keyword">null</span>;<br><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">TreeNode</span><span class="hljs-params">(<span class="hljs-keyword">int</span> val)</span> </span>&#123;<br>            <span class="hljs-keyword">this</span>.val = val;<br><br>        &#125;<br><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="扩展-按层次打印"><a href="#扩展-按层次打印" class="headerlink" title="扩展-按层次打印"></a>扩展-按层次打印</h2><p><img src="https://raw.githubusercontent.com/lyloou/img/develop/jz32-%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91_20220124175928_2022-01-24-17-59-28.png" alt="jz32-从上到下打印二叉树_20220124175928_2022-01-24-17-59-28"></p>
+<p><img src="https://raw.githubusercontent.com/lyloou/img/develop/jz32-%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91_20220124175801_2022-01-24-17-58-01.png" alt="jz32-从上到下打印二叉树_20220124175801_2022-01-24-17-58-01"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> algorithm.jzoffer;<br><br><span class="hljs-keyword">import</span> java.util.LinkedList;<br><span class="hljs-keyword">import</span> java.util.Queue;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 按层次打印</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@author</span> lilou</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Jz32_3</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        <span class="hljs-keyword">final</span> Jz32_3 jz = <span class="hljs-keyword">new</span> Jz32_3();<br>        <span class="hljs-keyword">final</span> TreeNode root = <span class="hljs-keyword">new</span> TreeNode(<span class="hljs-number">8</span>);<br>        <span class="hljs-keyword">final</span> TreeNode node10 = <span class="hljs-keyword">new</span> TreeNode(<span class="hljs-number">10</span>);<br>        <span class="hljs-keyword">final</span> TreeNode node6 = <span class="hljs-keyword">new</span> TreeNode(<span class="hljs-number">6</span>);<br>        root.left = node6;<br>        root.right = node10;<br>        node10.left = <span class="hljs-keyword">new</span> TreeNode(<span class="hljs-number">1</span>);<br>        node10.right = <span class="hljs-keyword">new</span> TreeNode(<span class="hljs-number">2</span>);<br>        node6.left = <span class="hljs-keyword">new</span> TreeNode(<span class="hljs-number">7</span>);<br>        node6.right = <span class="hljs-keyword">new</span> TreeNode(<span class="hljs-number">11</span>);<br><br>        jz.PrintFromTopToBottom(root);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">PrintFromTopToBottom</span><span class="hljs-params">(TreeNode root)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (root == <span class="hljs-keyword">null</span>) &#123;<br>            <span class="hljs-keyword">return</span>;<br>        &#125;<br>        Queue&lt;TreeNode&gt; queue = <span class="hljs-keyword">new</span> LinkedList&lt;&gt;();<br>        queue.offer(root);<br>        <span class="hljs-keyword">int</span> toBePrint = <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">int</span> nextLevel = <span class="hljs-number">0</span>;<br><br>        <span class="hljs-keyword">while</span> (!queue.isEmpty()) &#123;<br>            <span class="hljs-keyword">final</span> TreeNode node = queue.poll();<br>            System.out.printf(<span class="hljs-string">"%s\t"</span>, node.val);<br>            <span class="hljs-keyword">if</span> (node.left != <span class="hljs-keyword">null</span>) &#123;<br>                queue.offer(node.left);<br>                nextLevel++;<br>            &#125;<br>            <span class="hljs-keyword">if</span> (node.right != <span class="hljs-keyword">null</span>) &#123;<br>                queue.offer(node.right);<br>                nextLevel++;<br>            &#125;<br>            toBePrint--;<br>            <span class="hljs-keyword">if</span> (toBePrint == <span class="hljs-number">0</span>) &#123;<br>                System.out.println();<br>                toBePrint = nextLevel;<br>                nextLevel = <span class="hljs-number">0</span>;<br>            &#125;<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TreeNode</span> </span>&#123;<br>        <span class="hljs-keyword">int</span> val = <span class="hljs-number">0</span>;<br>        TreeNode left = <span class="hljs-keyword">null</span>;<br>        TreeNode right = <span class="hljs-keyword">null</span>;<br><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">TreeNode</span><span class="hljs-params">(<span class="hljs-keyword">int</span> val)</span> </span>&#123;<br>            <span class="hljs-keyword">this</span>.val = val;<br><br>        &#125;<br><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="扩展-按「之」字打印"><a href="#扩展-按「之」字打印" class="headerlink" title="扩展-按「之」字打印"></a>扩展-按「之」字打印</h2><p><img src="https://raw.githubusercontent.com/lyloou/img/develop/jz32-%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91_20220124175912_2022-01-24-17-59-13.png" alt="jz32-从上到下打印二叉树_20220124175912_2022-01-24-17-59-13"><br><img src="https://raw.githubusercontent.com/lyloou/img/develop/jz32-%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91_20220124175849_2022-01-24-17-58-49.png" alt="jz32-从上到下打印二叉树_20220124175849_2022-01-24-17-58-49"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> algorithm.jzoffer;<br><br><span class="hljs-keyword">import</span> java.util.Stack;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 按之字打印</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@author</span> lilou</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Jz32_4</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        <span class="hljs-keyword">final</span> Jz32_4 jz = <span class="hljs-keyword">new</span> Jz32_4();<br>        <span class="hljs-keyword">final</span> TreeNode node1 = <span class="hljs-keyword">new</span> TreeNode(<span class="hljs-number">1</span>);<br>        <span class="hljs-keyword">final</span> TreeNode node2 = <span class="hljs-keyword">new</span> TreeNode(<span class="hljs-number">2</span>);<br>        <span class="hljs-keyword">final</span> TreeNode node3 = <span class="hljs-keyword">new</span> TreeNode(<span class="hljs-number">3</span>);<br>        <span class="hljs-keyword">final</span> TreeNode node4 = <span class="hljs-keyword">new</span> TreeNode(<span class="hljs-number">4</span>);<br>        <span class="hljs-keyword">final</span> TreeNode node5 = <span class="hljs-keyword">new</span> TreeNode(<span class="hljs-number">5</span>);<br>        <span class="hljs-keyword">final</span> TreeNode node6 = <span class="hljs-keyword">new</span> TreeNode(<span class="hljs-number">6</span>);<br>        <span class="hljs-keyword">final</span> TreeNode node7 = <span class="hljs-keyword">new</span> TreeNode(<span class="hljs-number">7</span>);<br>        <span class="hljs-keyword">final</span> TreeNode node8 = <span class="hljs-keyword">new</span> TreeNode(<span class="hljs-number">8</span>);<br>        <span class="hljs-keyword">final</span> TreeNode node9 = <span class="hljs-keyword">new</span> TreeNode(<span class="hljs-number">9</span>);<br>        <span class="hljs-keyword">final</span> TreeNode node10 = <span class="hljs-keyword">new</span> TreeNode(<span class="hljs-number">10</span>);<br>        <span class="hljs-keyword">final</span> TreeNode node11 = <span class="hljs-keyword">new</span> TreeNode(<span class="hljs-number">11</span>);<br>        <span class="hljs-keyword">final</span> TreeNode node12 = <span class="hljs-keyword">new</span> TreeNode(<span class="hljs-number">12</span>);<br>        <span class="hljs-keyword">final</span> TreeNode node13 = <span class="hljs-keyword">new</span> TreeNode(<span class="hljs-number">13</span>);<br>        <span class="hljs-keyword">final</span> TreeNode node14 = <span class="hljs-keyword">new</span> TreeNode(<span class="hljs-number">14</span>);<br>        <span class="hljs-keyword">final</span> TreeNode node15 = <span class="hljs-keyword">new</span> TreeNode(<span class="hljs-number">15</span>);<br>        node1.left = node2;<br>        node1.right = node3;<br>        node2.left = node4;<br>        node2.right = node5;<br>        node3.left = node6;<br>        node3.right = node7;<br>        node4.left = node8;<br>        node4.right = node9;<br>        node5.left = node10;<br>        node5.right = node11;<br>        node6.left = node12;<br>        node6.right = node13;<br>        node7.left = node14;<br>        node7.right = node15;<br><br>        jz.PrintFromTopToBottom(node1);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">PrintFromTopToBottom</span><span class="hljs-params">(TreeNode root)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (root == <span class="hljs-keyword">null</span>) &#123;<br>            <span class="hljs-keyword">return</span>;<br>        &#125;<br>        Stack&lt;TreeNode&gt; stack1 = <span class="hljs-keyword">new</span> Stack&lt;&gt;();<br>        Stack&lt;TreeNode&gt; stack2 = <span class="hljs-keyword">new</span> Stack&lt;&gt;();<br>        stack1.push(root);<br><br>        <span class="hljs-keyword">while</span> (!stack1.isEmpty() || !stack2.isEmpty()) &#123;<br>            <span class="hljs-keyword">while</span> (!stack1.isEmpty()) &#123;<br>                <span class="hljs-keyword">final</span> TreeNode node = stack1.pop();<br>                System.out.printf(<span class="hljs-string">"%s\t"</span>, node.val);<br>                <span class="hljs-keyword">if</span> (node.left != <span class="hljs-keyword">null</span>) &#123;<br>                    stack2.push(node.left);<br>                &#125;<br>                <span class="hljs-keyword">if</span> (node.right != <span class="hljs-keyword">null</span>) &#123;<br>                    stack2.push(node.right);<br>                &#125;<br>            &#125;<br><br>            <span class="hljs-comment">// 下一层</span><br>            System.out.println();<br>            <span class="hljs-keyword">while</span> (!stack2.isEmpty()) &#123;<br>                <span class="hljs-keyword">final</span> TreeNode node = stack2.pop();<br>                System.out.printf(<span class="hljs-string">"%s\t"</span>, node.val);<br>                <span class="hljs-keyword">if</span> (node.right != <span class="hljs-keyword">null</span>) &#123;<br>                    stack1.push(node.right);<br>                &#125;<br>                <span class="hljs-keyword">if</span> (node.left != <span class="hljs-keyword">null</span>) &#123;<br>                    stack1.push(node.left);<br>                &#125;<br>            &#125;<br><br>            System.out.println();<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TreeNode</span> </span>&#123;<br>        <span class="hljs-keyword">int</span> val = <span class="hljs-number">0</span>;<br>        TreeNode left = <span class="hljs-keyword">null</span>;<br>        TreeNode right = <span class="hljs-keyword">null</span>;<br><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">TreeNode</span><span class="hljs-params">(<span class="hljs-keyword">int</span> val)</span> </span>&#123;<br>            <span class="hljs-keyword">this</span>.val = val;<br><br>        &#125;<br><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/%E7%AE%97%E6%B3%95/jz29-%E9%A1%BA%E6%97%B6%E9%92%88%E6%89%93%E5%8D%B0%E7%9F%A9%E9%98%B5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lyloou">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/%E7%AE%97%E6%B3%95/jz29-%E9%A1%BA%E6%97%B6%E9%92%88%E6%89%93%E5%8D%B0%E7%9F%A9%E9%98%B5/" class="post-title-link" itemprop="url">【算法】顺时针打印矩阵</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-01-21 17:05:58" itemprop="dateCreated datePublished" datetime="2022-01-21T17:05:58+08:00">2022-01-21</time>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/%E7%AE%97%E6%B3%95/jz29-%E9%A1%BA%E6%97%B6%E9%92%88%E6%89%93%E5%8D%B0%E7%9F%A9%E9%98%B5/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/%E7%AE%97%E6%B3%95/jz29-%E9%A1%BA%E6%97%B6%E9%92%88%E6%89%93%E5%8D%B0%E7%9F%A9%E9%98%B5/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="剑指-Offer-第-23-题-链表中环的入口结点"><a href="#剑指-Offer-第-23-题-链表中环的入口结点" class="headerlink" title="剑指 Offer 第 23 题-链表中环的入口结点"></a><a href="https://www.nowcoder.com/practice/9b4c81a02cd34f76be2659fa0d54342a" target="_blank" rel="noopener">剑指 Offer 第 23 题-链表中环的入口结点</a></h2><p>描述: 输入一个矩阵，按照从外向里以顺时针的顺序依次打印出每一个数字，例如，如果输入如下 4 X 4 矩阵：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs json">[[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>],<br>[<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">8</span>],<br>[<span class="hljs-number">9</span>,<span class="hljs-number">10</span>,<span class="hljs-number">11</span>,<span class="hljs-number">12</span>],<br>[<span class="hljs-number">13</span>,<span class="hljs-number">14</span>,<span class="hljs-number">15</span>,<span class="hljs-number">16</span>]]<br></code></pre></td></tr></table></figure>
+
+<p>则依次打印出数字</p>
+<p>[1,2,3,4,8,12,16,15,14,13,9,5,6,7,11,10]</p>
+<p>数据范围:</p>
+<p>0 &lt;= matrix.length &lt;= 100</p>
+<p>0 &lt;= matrix[i].length &lt;= 100</p>
+<p>例如：</p>
+<p><img src="https://raw.githubusercontent.com/lyloou/img/develop/jz29-%E9%A1%BA%E6%97%B6%E9%92%88%E6%89%93%E5%8D%B0%E7%9F%A9%E9%98%B5_20220121170748_2022-01-21-17-07-49.png" alt="jz29-顺时针打印矩阵_20220121170748_2022-01-21-17-07-49"></p>
+<h2 id="方法-1"><a href="#方法-1" class="headerlink" title="方法 1"></a>方法 1</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Jz29_2</span> </span>&#123;<br>   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        <span class="hljs-keyword">final</span> Jz29_3_1 jz = <span class="hljs-keyword">new</span> Jz29_3_1();<br>        System.out.println(jz.printMatrix(<span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[][]&#123;<br>                &#123;<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">1</span>&#125;,<br>                &#123;<span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">1</span>&#125;,<br>                &#123;<span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">1</span>&#125;,<br>        &#125;));<br><br>        System.out.println(jz.printMatrix(<span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[][]&#123;<br>                &#123;<span class="hljs-number">1</span>&#125;, &#123;<span class="hljs-number">2</span>&#125;, &#123;<span class="hljs-number">3</span>&#125;, &#123;<span class="hljs-number">4</span>&#125;, &#123;<span class="hljs-number">5</span>&#125;<br>        &#125;));<br><br>        System.out.println(jz.printMatrix(<span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[][]&#123;<br>                &#123;<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>&#125;<br>        &#125;));<br><br>        System.out.println(jz.printMatrix(<span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[][]&#123;<br>                &#123;<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>&#125;,<br>                &#123;<span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">8</span>&#125;,<br>                &#123;<span class="hljs-number">9</span>, <span class="hljs-number">10</span>, <span class="hljs-number">11</span>, <span class="hljs-number">12</span>&#125;,<br>                &#123;<span class="hljs-number">13</span>, <span class="hljs-number">14</span>, <span class="hljs-number">15</span>, <span class="hljs-number">16</span>&#125;<br>        &#125;));<br>    &#125;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 对于只有一行或只有一列时，会重复</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> ArrayList&lt;Integer&gt; <span class="hljs-title">printMatrix</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[][] matrix)</span> </span>&#123;<br>        <span class="hljs-comment">// 为空的情况</span><br>        <span class="hljs-keyword">if</span> (matrix == <span class="hljs-keyword">null</span> || matrix.length == <span class="hljs-number">0</span>) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();<br>        &#125;<br><br>        ArrayList&lt;Integer&gt; list = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;(matrix.length * matrix[<span class="hljs-number">0</span>].length);<br>        <span class="hljs-keyword">int</span> minX = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">int</span> maxX = matrix.length - <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">int</span> minY = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">int</span> maxY = matrix[<span class="hljs-number">0</span>].length - <span class="hljs-number">1</span>;<br><br>        <span class="hljs-keyword">int</span> x, y;<br>        <span class="hljs-keyword">while</span> (minX &lt;= maxX &amp;&amp; minY &lt;= maxY) &#123;<br>            <span class="hljs-comment">// 用两个标识来判断本轮是否有下移或左移</span><br>            <span class="hljs-keyword">boolean</span> down = <span class="hljs-keyword">false</span>;<br>            <span class="hljs-keyword">boolean</span> left = <span class="hljs-keyword">false</span>;<br><br>            <span class="hljs-comment">// 从左上角开始</span><br>            <span class="hljs-comment">// 向右</span><br>            <span class="hljs-keyword">for</span> (x = minX, y = minY; y &lt;= maxY; y++) &#123;<br>                list.add(matrix[x][y]);<br>            &#125;<br><br>            <span class="hljs-comment">// 向下</span><br>            <span class="hljs-keyword">for</span> (x = minX + <span class="hljs-number">1</span>, y = maxY; x &lt;= maxX; x++) &#123;<br>                list.add(matrix[x][y]);<br>                down = <span class="hljs-keyword">true</span>;<br>            &#125;<br><br>            <span class="hljs-comment">// 向左，左移之前确认是否有下移，防止重复</span><br>            <span class="hljs-keyword">for</span> (x = maxX, y = maxY - <span class="hljs-number">1</span>; down &amp;&amp; y &gt;= minY; y--) &#123;<br>                list.add(matrix[x][y]);<br>                left = <span class="hljs-keyword">true</span>;<br>            &#125;<br><br>            <span class="hljs-comment">// 向上，上移之前确认是否有左移，防止重复</span><br>            <span class="hljs-keyword">for</span> (x = maxX - <span class="hljs-number">1</span>, y = minY; left &amp;&amp; x &gt; minX; x--) &#123;<br>                list.add(matrix[x][y]);<br>            &#125;<br><br>            <span class="hljs-comment">// 瘦身一圈</span><br>            minX++;<br>            maxX--;<br>            minY++;<br>            maxY--;<br>        &#125;<br><br>        <span class="hljs-keyword">return</span> list;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="方法-2"><a href="#方法-2" class="headerlink" title="方法 2"></a>方法 2</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Jz29_4</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        <span class="hljs-keyword">final</span> Jz29_4 jz = <span class="hljs-keyword">new</span> Jz29_4();<br>        System.out.println(jz.printMatrix(<span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[][]&#123;<br>                &#123;<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">1</span>&#125;,<br>                &#123;<span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">1</span>&#125;,<br>                &#123;<span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">1</span>&#125;,<br>        &#125;));<br><br>        System.out.println(jz.printMatrix(<span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[][]&#123;<br>                &#123;<span class="hljs-number">1</span>&#125;, &#123;<span class="hljs-number">2</span>&#125;, &#123;<span class="hljs-number">3</span>&#125;, &#123;<span class="hljs-number">4</span>&#125;, &#123;<span class="hljs-number">5</span>&#125;<br>        &#125;));<br><br>        System.out.println(jz.printMatrix(<span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[][]&#123;<br>                &#123;<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>&#125;<br>        &#125;));<br><br>        System.out.println(jz.printMatrix(<span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[][]&#123;<br>                &#123;<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>&#125;,<br>                &#123;<span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">8</span>&#125;,<br>                &#123;<span class="hljs-number">9</span>, <span class="hljs-number">10</span>, <span class="hljs-number">11</span>, <span class="hljs-number">12</span>&#125;,<br>                &#123;<span class="hljs-number">13</span>, <span class="hljs-number">14</span>, <span class="hljs-number">15</span>, <span class="hljs-number">16</span>&#125;<br>        &#125;));<br>    &#125;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 起始点从左上角，沿对角线往中间靠</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> ArrayList&lt;Integer&gt; <span class="hljs-title">printMatrix</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[][] matrix)</span> </span>&#123;<br>        <span class="hljs-comment">// 为空的情况</span><br>        <span class="hljs-keyword">if</span> (matrix == <span class="hljs-keyword">null</span> || matrix.length == <span class="hljs-number">0</span>) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();<br>        &#125;<br><br>        ArrayList&lt;Integer&gt; list = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;(matrix.length * matrix[<span class="hljs-number">0</span>].length);<br>        <span class="hljs-keyword">int</span> start = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">while</span> (matrix.length &gt; start * <span class="hljs-number">2</span> &amp;&amp; matrix[<span class="hljs-number">0</span>].length &gt; start * <span class="hljs-number">2</span>) &#123;<br>            addToList(list, matrix, start);<br>            start++;<br>        &#125;<br><br>        <span class="hljs-keyword">return</span> list;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">addToList</span><span class="hljs-params">(ArrayList&lt;Integer&gt; list, <span class="hljs-keyword">int</span>[][] matrix, <span class="hljs-keyword">int</span> start)</span> </span>&#123;<br><br>        <span class="hljs-comment">// max row index</span><br>        <span class="hljs-keyword">int</span> maxX = matrix.length - <span class="hljs-number">1</span> - start;<br>        <span class="hljs-comment">// max column index</span><br>        <span class="hljs-keyword">int</span> maxY = matrix[<span class="hljs-number">0</span>].length - <span class="hljs-number">1</span> - start;<br><br>        <span class="hljs-keyword">boolean</span> down = <span class="hljs-keyword">false</span>;<br>        <span class="hljs-keyword">boolean</span> left = <span class="hljs-keyword">false</span>;<br><br>        <span class="hljs-comment">// 从左向右</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = start; i &lt;= maxY; ++i) &#123;<br>            list.add(matrix[start][i]);<br>        &#125;<br><br>        <span class="hljs-comment">// 从上向下</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = start + <span class="hljs-number">1</span>; i &lt;= maxX; i++) &#123;<br>            list.add(matrix[i][maxY]);<br>            down = <span class="hljs-keyword">true</span>;<br>        &#125;<br><br>        <span class="hljs-comment">// 从右向左</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = maxY - <span class="hljs-number">1</span>; down &amp;&amp; i &gt;= start; i--) &#123;<br>            list.add(matrix[maxX][i]);<br>            left = <span class="hljs-keyword">true</span>;<br>        &#125;<br><br>        <span class="hljs-comment">// 从下向上</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = maxX - <span class="hljs-number">1</span>; left &amp;&amp; i &gt; start + <span class="hljs-number">1</span>; i--) &#123;<br>            list.add(matrix[i][start]);<br>        &#125;<br><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/32/">32</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="lyloou"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">lyloou</p>
+  <div class="site-description" itemprop="description">/* Better than last best */</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">311</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">56</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/lyloou" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;lyloou" rel="noopener" target="_blank">GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:lyloou6@gmail.com" title="E-Mail → mailto:lyloou6@gmail.com" rel="noopener" target="_blank">E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/lyloou" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;lyloou" rel="noopener" target="_blank">Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/ly1414725328" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;ly1414725328" rel="noopener" target="_blank">CSDN</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">粤ICP备18151128号 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lyloou</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : true,
+      appId      : 'yhivNNDDoank7qFbmyEj9Ldq-gzGzoHsz',
+      appKey     : 'QuFu2ooibSzW1Q8eTrmPLyPw',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>

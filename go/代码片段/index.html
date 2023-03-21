@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="zh-CN,zh-HK,zh-TW,en,default">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"lyloou.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="初始值12345678910111213141516171819202122232425type Na struct &amp;#123;    name string&amp;#125;type Ia interface &amp;#123;&amp;#125;func main() &amp;#123;    var e error    var na Na    var ia Ia    fmt.Println(na, e, ia">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Go代码片段">
+<meta property="og:url" content="https://lyloou.github.io/go/%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/index.html">
+<meta property="og:site_name" content="lyloou">
+<meta property="og:description" content="初始值12345678910111213141516171819202122232425type Na struct &amp;#123;    name string&amp;#125;type Ia interface &amp;#123;&amp;#125;func main() &amp;#123;    var e error    var na Na    var ia Ia    fmt.Println(na, e, ia">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2017-11-23T09:12:00.000Z">
+<meta property="article:modified_time" content="2017-11-23T09:12:00.000Z">
+<meta property="article:author" content="lyloou">
+<meta property="article:tag" content="go">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://lyloou.github.io/go/%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Go代码片段 | lyloou</title>
+  
+    <script>
+      function sendPageView() {
+        if (CONFIG.hostname !== location.hostname) return;
+        var uid = localStorage.getItem('uid') || (Math.random() + '.' + Math.random());
+        localStorage.setItem('uid', uid);
+        navigator.sendBeacon('https://www.google-analytics.com/collect', new URLSearchParams({
+          v  : 1,
+          tid: 'UA-80542932-1',
+          cid: uid,
+          t  : 'pageview',
+          dp : encodeURIComponent(location.pathname)
+        }));
+      }
+      document.addEventListener('pjax:complete', sendPageView);
+      sendPageView();
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta custom-logo">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">lyloou</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/go/%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lyloou">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Go代码片段<a href="https://github.com/lyloou/lyloou.github.io/edit/source/source/_posts/go/%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil-alt"></i></a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-11-23 17:12:00" itemprop="dateCreated datePublished" datetime="2017-11-23T17:12:00+08:00">2017-11-23</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/go/%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/go/%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="初始值"><a href="#初始值" class="headerlink" title="初始值"></a>初始值</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">type</span> Na <span class="hljs-keyword">struct</span> &#123;<br>    name <span class="hljs-keyword">string</span><br>&#125;<br><br><span class="hljs-keyword">type</span> Ia <span class="hljs-keyword">interface</span> &#123;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;<br>    <span class="hljs-keyword">var</span> e error<br>    <span class="hljs-keyword">var</span> na Na<br>    <span class="hljs-keyword">var</span> ia Ia<br>    fmt.Println(na, e, ia)<br><br>    n := <span class="hljs-built_in">new</span>(Na)<br>    i := <span class="hljs-built_in">new</span>(Ia)<br>    fmt.Println(n, i)<br><br>    c := <span class="hljs-built_in">make</span>([]<span class="hljs-keyword">byte</span>, <span class="hljs-number">2</span>, <span class="hljs-number">5</span>)<br>    fmt.Println(c)<br>&#125;<br><span class="hljs-comment">/* output:</span><br><span class="hljs-comment">&#123;&#125; &lt;nil&gt; &lt;nil&gt;</span><br><span class="hljs-comment">&amp;&#123;&#125; 0xc042008270</span><br><span class="hljs-comment">[0 0]</span><br><span class="hljs-comment">*/</span><br></code></pre></td></tr></table></figure>
+<h2 id="make-和-new"><a href="#make-和-new" class="headerlink" title="make 和 new"></a>make 和 new</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">var</span> v = <span class="hljs-built_in">make</span>([]<span class="hljs-keyword">byte</span>, <span class="hljs-number">10</span>, <span class="hljs-number">20</span>)<br>v[<span class="hljs-number">0</span>] = <span class="hljs-number">0</span><br>v[<span class="hljs-number">1</span>] = <span class="hljs-number">1</span><br>v[<span class="hljs-number">2</span>] = <span class="hljs-number">2</span><br>v[<span class="hljs-number">9</span>] = <span class="hljs-number">32</span><br>v = v[:<span class="hljs-built_in">cap</span>(v)]  <span class="hljs-comment">// We can grow s to its capacity by slicing it again  https://blog.golang.org/go-slices-usage-and-internals</span><br>v[<span class="hljs-number">10</span>] = <span class="hljs-number">33</span><br>fmt.Println(v)<br><br><span class="hljs-keyword">var</span> n = <span class="hljs-built_in">new</span>([]<span class="hljs-keyword">byte</span>)<br>n = &amp;v<br>fmt.Println(*n)<br><span class="hljs-comment">/* output:</span><br><span class="hljs-comment">[0 1 2 0 0 0 0 0 0 32 33 0 0 0 0]</span><br><span class="hljs-comment">[0 1 2 0 0 0 0 0 0 32 33 0 0 0 0]</span><br><span class="hljs-comment">*/</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="How-to-check-if-a-map-contains-a-key-in-go"><a href="#How-to-check-if-a-map-contains-a-key-in-go" class="headerlink" title="How to check if a map contains a key in go?"></a><a href="https://stackoverflow.com/questions/2050391/how-to-check-if-a-map-contains-a-key-in-go" target="_blank" rel="noopener">How to check if a map contains a key in go?</a></h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">if</span> val, ok := dict[<span class="hljs-string">"foo"</span>]; ok &#123;<br>    <span class="hljs-comment">//do something here</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="Removing-item-s-from-a-slice-while-iterating-in-Go"><a href="#Removing-item-s-from-a-slice-while-iterating-in-Go" class="headerlink" title="Removing item(s) from a slice, while iterating in Go"></a><a href="https://vbauerster.github.io/2017/04/removing-items-from-a-slice-while-iterating-in-go/" target="_blank" rel="noopener">Removing item(s) from a slice, while iterating in Go</a></h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">package</span> main<br><br><span class="hljs-keyword">import</span> <span class="hljs-string">"fmt"</span><br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;<br>    arr := []<span class="hljs-keyword">int64</span>&#123;<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">6</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>, <span class="hljs-number">10</span>, <span class="hljs-number">11</span>, <span class="hljs-number">23</span>&#125;<br>    <span class="hljs-keyword">for</span> i := <span class="hljs-built_in">len</span>(arr) - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; i-- &#123;<br>     <span class="hljs-keyword">if</span> arr[i]%<span class="hljs-number">2</span> == <span class="hljs-number">0</span> &#123;<br>      arr = <span class="hljs-built_in">append</span>(arr[:i], arr[i+<span class="hljs-number">1</span>:]...)<br>     &#125;<br>    &#125;<br>    fmt.Println(arr)<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="过滤selected为false的商品规格"><a href="#过滤selected为false的商品规格" class="headerlink" title="过滤selected为false的商品规格"></a>过滤selected为false的商品规格</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-comment">// 方案1 </span><br>specProps := product.SpecProps<br>spec := models.Spec&#123;&#125;<br>err := json.Unmarshal([]<span class="hljs-keyword">byte</span>(specProps), &amp;spec)<br><span class="hljs-keyword">if</span> err == <span class="hljs-literal">nil</span> &#123;<br>    sItem := <span class="hljs-built_in">make</span>([]models.SpecChildren, <span class="hljs-number">0</span>)<br>    <span class="hljs-keyword">for</span> _, v := <span class="hljs-keyword">range</span> spec.Spec &#123;<br>        scItem := <span class="hljs-built_in">make</span>([]models.SpecChildrenItem, <span class="hljs-number">0</span>)<br>        <span class="hljs-keyword">for</span> _, vv := <span class="hljs-keyword">range</span> v.Children &#123;<br>            <span class="hljs-keyword">if</span> vv.Selected &#123;<br>                vv.Selected = <span class="hljs-literal">false</span><br>                scItem = <span class="hljs-built_in">append</span>(scItem, vv)<br>            &#125;<br>        &#125;<br>        v.Children = scItem<br>        sItem = <span class="hljs-built_in">append</span>(sItem, v)<br>    &#125;<br>    spec.Spec = sItem<br><br>    data, err := json.Marshal(spec)<br>    <span class="hljs-keyword">if</span> err == <span class="hljs-literal">nil</span> &#123;<br>        product.SpecProps = <span class="hljs-keyword">string</span>(data)<br>    &#125;<br>&#125;<br><br><span class="hljs-comment">// 方案2</span><br>specProps := product.SpecProps<br>spec := models.Spec&#123;&#125;<br>err := json.Unmarshal([]<span class="hljs-keyword">byte</span>(specProps), &amp;spec)<br><span class="hljs-keyword">if</span> err == <span class="hljs-literal">nil</span> &#123;<br>    <span class="hljs-keyword">for</span> j := <span class="hljs-number">0</span>; j &lt; <span class="hljs-built_in">len</span>(spec.Spec); j++ &#123;<br>        v := &amp;spec.Spec[j] <span class="hljs-comment">// Note: need pointer</span><br>        <span class="hljs-keyword">for</span> i := <span class="hljs-built_in">len</span>(v.Children) - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; i-- &#123;<br>            <span class="hljs-keyword">if</span> !v.Children[i].Selected &#123;<br>                <span class="hljs-comment">// https://vbauerster.github.io/2017/04/removing-items-from-a-slice-while-iterating-in-go/</span><br>                v.Children = <span class="hljs-built_in">append</span>(v.Children[:i], v.Children[i+<span class="hljs-number">1</span>:]...)<br>            &#125;<br>        &#125;<br>    &#125;<br><br>    specData, err := json.Marshal(spec)<br>    <span class="hljs-keyword">if</span> err == <span class="hljs-literal">nil</span> &#123;<br>        product.SpecProps = <span class="hljs-keyword">string</span>(specData)<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="Converting-Go-struct-to-JSON"><a href="#Converting-Go-struct-to-JSON" class="headerlink" title="Converting Go struct to JSON"></a><a href="https://stackoverflow.com/questions/8270816/converting-go-struct-to-json" target="_blank" rel="noopener">Converting Go struct to JSON</a></h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">package</span> main<br><br><span class="hljs-keyword">import</span> (<br>    <span class="hljs-string">"fmt"</span><br>    <span class="hljs-string">"encoding/json"</span><br>)<br><br><span class="hljs-keyword">type</span> User <span class="hljs-keyword">struct</span> &#123;<br>    name <span class="hljs-keyword">string</span><br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;<br>    user := &amp;User&#123;name:<span class="hljs-string">"Frank"</span>&#125;<br>    b, err := json.Marshal(user)<br>    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> &#123;<br>        fmt.Printf(<span class="hljs-string">"Error: %s"</span>, err)<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>    fmt.Println(<span class="hljs-keyword">string</span>(b))<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="Go-json-Unmarshal-array"><a href="#Go-json-Unmarshal-array" class="headerlink" title="Go json.Unmarshal array"></a>Go json.Unmarshal array</h2><ul>
+<li><a href="https://coderwall.com/p/4c2zig/decode-top-level-json-array-into-a-slice-of-structs-in-golang" target="_blank" rel="noopener">Decode top level JSON array into a slice of structs in golang</a><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">package</span> main<br><br><span class="hljs-keyword">import</span> <span class="hljs-string">"fmt"</span><br><span class="hljs-keyword">import</span> <span class="hljs-string">"encoding/json"</span><br><br><span class="hljs-keyword">type</span> PublicKey <span class="hljs-keyword">struct</span> &#123;<br>    Id <span class="hljs-keyword">int</span><br>    Key <span class="hljs-keyword">string</span><br>&#125;<br><br><span class="hljs-keyword">type</span> KeysResponse <span class="hljs-keyword">struct</span> &#123;<br>    Collection []PublicKey<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> &#123;<br>    keysBody := []<span class="hljs-keyword">byte</span>(<span class="hljs-string">`[&#123;"id": 1,"key": "-"&#125;,&#123;"id": 2,"key": "-"&#125;,&#123;"id": 3,"key": "-"&#125;]`</span>)<br>    keys := <span class="hljs-built_in">make</span>([]PublicKey,<span class="hljs-number">0</span>)<br>    json.Unmarshal(keysBody, &amp;keys)<br>    fmt.Printf(<span class="hljs-string">"%#v"</span>, keys)<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/go/beego/" rel="bookmark">Beego相关</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/go/get和post/" rel="bookmark">Go中的网络请求和数据转发</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/go/基础理论/" rel="bookmark">Go基础理论</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/go/学习资料/" rel="bookmark">Go学习资料</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/go/三方库/" rel="bookmark">【Go】三方库</a></div>
+    </li>
+  </ul>
+
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
+            <span class="icon">
+              <i class="wechat"></i>
+            </span>
+
+            <span class="label">WeChat</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/go/" rel="tag"># go</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/go/get%E5%92%8Cpost/" rel="prev" title="Go中的网络请求和数据转发">
+      <i class="fa fa-chevron-left"></i> Go中的网络请求和数据转发
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/js/css%E5%B8%83%E5%B1%80/" rel="next" title="CSS布局">
+      CSS布局 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#初始值"><span class="nav-number">1.</span> <span class="nav-text">初始值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#make-和-new"><span class="nav-number">2.</span> <span class="nav-text">make 和 new</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-to-check-if-a-map-contains-a-key-in-go"><span class="nav-number">3.</span> <span class="nav-text">How to check if a map contains a key in go?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Removing-item-s-from-a-slice-while-iterating-in-Go"><span class="nav-number">4.</span> <span class="nav-text">Removing item(s) from a slice, while iterating in Go</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#过滤selected为false的商品规格"><span class="nav-number">5.</span> <span class="nav-text">过滤selected为false的商品规格</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Converting-Go-struct-to-JSON"><span class="nav-number">6.</span> <span class="nav-text">Converting Go struct to JSON</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Go-json-Unmarshal-array"><span class="nav-number">7.</span> <span class="nav-text">Go json.Unmarshal array</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="lyloou"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">lyloou</p>
+  <div class="site-description" itemprop="description">/* Better than last best */</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">311</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">56</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/lyloou" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;lyloou" rel="noopener" target="_blank">GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:lyloou6@gmail.com" title="E-Mail → mailto:lyloou6@gmail.com" rel="noopener" target="_blank">E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/lyloou" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;lyloou" rel="noopener" target="_blank">Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/ly1414725328" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;ly1414725328" rel="noopener" target="_blank">CSDN</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">粤ICP备18151128号 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lyloou</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : true,
+      appId      : 'yhivNNDDoank7qFbmyEj9Ldq-gzGzoHsz',
+      appKey     : 'QuFu2ooibSzW1Q8eTrmPLyPw',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>

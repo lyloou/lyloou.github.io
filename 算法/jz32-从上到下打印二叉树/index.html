@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="zh-CN,zh-HK,zh-TW,en,default">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"lyloou.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="剑指 Offer 第 32 题-从上到下打印二叉树描述 输入一个整数数组，判断该数组是不是某二叉搜索树的后序遍历的结果。如果是则返回 true ,否则返回 false 。假设输入的数组的任意两个数字都互不相同。数据范围： 节点数量 0≤n≤1000 ，节点上的值满足 1≤val≤10^5，保证节点上的值各不相同 要求：空间复杂度 O(n) ，时间时间复杂度 O(n^2) 提示： 1.二叉搜索树是指">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【算法】从上到下打印二叉树">
+<meta property="og:url" content="https://lyloou.github.io/%E7%AE%97%E6%B3%95/jz32-%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91/index.html">
+<meta property="og:site_name" content="lyloou">
+<meta property="og:description" content="剑指 Offer 第 32 题-从上到下打印二叉树描述 输入一个整数数组，判断该数组是不是某二叉搜索树的后序遍历的结果。如果是则返回 true ,否则返回 false 。假设输入的数组的任意两个数字都互不相同。数据范围： 节点数量 0≤n≤1000 ，节点上的值满足 1≤val≤10^5，保证节点上的值各不相同 要求：空间复杂度 O(n) ，时间时间复杂度 O(n^2) 提示： 1.二叉搜索树是指">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/lyloou/img/develop/jz32-%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91_20220124175723_2022-01-24-17-57-24.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lyloou/img/develop/jz32-%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91_20220124175628_2022-01-24-17-56-29.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lyloou/img/develop/jz32-%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91_20220124175928_2022-01-24-17-59-28.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lyloou/img/develop/jz32-%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91_20220124175801_2022-01-24-17-58-01.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lyloou/img/develop/jz32-%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91_20220124175912_2022-01-24-17-59-13.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lyloou/img/develop/jz32-%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91_20220124175849_2022-01-24-17-58-49.png">
+<meta property="article:published_time" content="2022-01-24T10:55:50.000Z">
+<meta property="article:modified_time" content="2022-01-24T10:55:50.000Z">
+<meta property="article:author" content="lyloou">
+<meta property="article:tag" content="算法">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/lyloou/img/develop/jz32-%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91_20220124175723_2022-01-24-17-57-24.png">
+
+<link rel="canonical" href="https://lyloou.github.io/%E7%AE%97%E6%B3%95/jz32-%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>【算法】从上到下打印二叉树 | lyloou</title>
+  
+    <script>
+      function sendPageView() {
+        if (CONFIG.hostname !== location.hostname) return;
+        var uid = localStorage.getItem('uid') || (Math.random() + '.' + Math.random());
+        localStorage.setItem('uid', uid);
+        navigator.sendBeacon('https://www.google-analytics.com/collect', new URLSearchParams({
+          v  : 1,
+          tid: 'UA-80542932-1',
+          cid: uid,
+          t  : 'pageview',
+          dp : encodeURIComponent(location.pathname)
+        }));
+      }
+      document.addEventListener('pjax:complete', sendPageView);
+      sendPageView();
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta custom-logo">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">lyloou</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/%E7%AE%97%E6%B3%95/jz32-%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lyloou">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【算法】从上到下打印二叉树<a href="https://github.com/lyloou/lyloou.github.io/edit/source/source/_posts/%E7%AE%97%E6%B3%95/jz32-%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil-alt"></i></a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-01-24 18:55:50" itemprop="dateCreated datePublished" datetime="2022-01-24T18:55:50+08:00">2022-01-24</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/%E7%AE%97%E6%B3%95/jz32-%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/%E7%AE%97%E6%B3%95/jz32-%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="剑指-Offer-第-32-题-从上到下打印二叉树"><a href="#剑指-Offer-第-32-题-从上到下打印二叉树" class="headerlink" title="剑指 Offer 第 32 题-从上到下打印二叉树"></a>剑指 Offer 第 32 题-从上到下打印二叉树</h2><p>描述</p>
+<p>输入一个整数数组，判断该数组是不是某二叉搜索树的后序遍历的结果。如果是则返回 true ,否则返回 false 。假设输入的数组的任意两个数字都互不相同。<br>数据范围： 节点数量 0≤n≤1000 ，节点上的值满足 1≤val≤10^5，保证节点上的值各不相同</p>
+<p>要求：空间复杂度 O(n) ，时间时间复杂度 O(n^2)</p>
+<p>提示：</p>
+<p>1.二叉搜索树是指父亲节点大于左子树中的全部节点，但是小于右子树中的全部节点的树。</p>
+<p>2.该题我们约定空树不是二叉搜索树</p>
+<p>3.后序遍历是指按照 “左子树-右子树-根节点” 的顺序遍历</p>
+<p>4.参考下面的二叉搜索树，示例 1<br><img src="https://raw.githubusercontent.com/lyloou/img/develop/jz32-%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91_20220124175723_2022-01-24-17-57-24.png" alt="jz32-从上到下打印二叉树_20220124175723_2022-01-24-17-57-24"></p>
+<h2 id="方法-1"><a href="#方法-1" class="headerlink" title="方法 1"></a>方法 1</h2><p><img src="https://raw.githubusercontent.com/lyloou/img/develop/jz32-%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91_20220124175628_2022-01-24-17-56-29.png" alt="jz32-从上到下打印二叉树_20220124175628_2022-01-24-17-56-29"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 从上往下</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@author</span> lilou</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Jz32</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        <span class="hljs-keyword">final</span> Jz32 jz = <span class="hljs-keyword">new</span> Jz32();<br>        <span class="hljs-keyword">final</span> TreeNode root = <span class="hljs-keyword">new</span> TreeNode(<span class="hljs-number">8</span>);<br>        <span class="hljs-keyword">final</span> TreeNode node10 = <span class="hljs-keyword">new</span> TreeNode(<span class="hljs-number">10</span>);<br>        root.left = <span class="hljs-keyword">new</span> TreeNode(<span class="hljs-number">6</span>);<br>        root.right = node10;<br>        node10.left = <span class="hljs-keyword">new</span> TreeNode(<span class="hljs-number">1</span>);<br>        node10.right = <span class="hljs-keyword">new</span> TreeNode(<span class="hljs-number">2</span>);<br>        System.out.println(jz.PrintFromTopToBottom(root));<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> ArrayList&lt;Integer&gt; <span class="hljs-title">PrintFromTopToBottom</span><span class="hljs-params">(TreeNode root)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (root == <span class="hljs-keyword">null</span>) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();<br>        &#125;<br>        <span class="hljs-keyword">final</span> ArrayList&lt;Integer&gt; list = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();<br>        Queue&lt;TreeNode&gt; queue = <span class="hljs-keyword">new</span> LinkedList&lt;&gt;();<br>        queue.offer(root);<br><br>        <span class="hljs-keyword">while</span> (!queue.isEmpty()) &#123;<br>            <span class="hljs-keyword">final</span> TreeNode node = queue.poll();<br>            list.add(node.val);<br>            <span class="hljs-keyword">if</span> (node.left != <span class="hljs-keyword">null</span>) &#123;<br>                queue.offer(node.left);<br>            &#125;<br>            <span class="hljs-keyword">if</span> (node.right != <span class="hljs-keyword">null</span>) &#123;<br>                queue.offer(node.right);<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> list;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TreeNode</span> </span>&#123;<br>        <span class="hljs-keyword">int</span> val = <span class="hljs-number">0</span>;<br>        TreeNode left = <span class="hljs-keyword">null</span>;<br>        TreeNode right = <span class="hljs-keyword">null</span>;<br><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">TreeNode</span><span class="hljs-params">(<span class="hljs-keyword">int</span> val)</span> </span>&#123;<br>            <span class="hljs-keyword">this</span>.val = val;<br><br>        &#125;<br><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="扩展-按层次打印"><a href="#扩展-按层次打印" class="headerlink" title="扩展-按层次打印"></a>扩展-按层次打印</h2><p><img src="https://raw.githubusercontent.com/lyloou/img/develop/jz32-%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91_20220124175928_2022-01-24-17-59-28.png" alt="jz32-从上到下打印二叉树_20220124175928_2022-01-24-17-59-28"></p>
+<p><img src="https://raw.githubusercontent.com/lyloou/img/develop/jz32-%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91_20220124175801_2022-01-24-17-58-01.png" alt="jz32-从上到下打印二叉树_20220124175801_2022-01-24-17-58-01"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> algorithm.jzoffer;<br><br><span class="hljs-keyword">import</span> java.util.LinkedList;<br><span class="hljs-keyword">import</span> java.util.Queue;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 按层次打印</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@author</span> lilou</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Jz32_3</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        <span class="hljs-keyword">final</span> Jz32_3 jz = <span class="hljs-keyword">new</span> Jz32_3();<br>        <span class="hljs-keyword">final</span> TreeNode root = <span class="hljs-keyword">new</span> TreeNode(<span class="hljs-number">8</span>);<br>        <span class="hljs-keyword">final</span> TreeNode node10 = <span class="hljs-keyword">new</span> TreeNode(<span class="hljs-number">10</span>);<br>        <span class="hljs-keyword">final</span> TreeNode node6 = <span class="hljs-keyword">new</span> TreeNode(<span class="hljs-number">6</span>);<br>        root.left = node6;<br>        root.right = node10;<br>        node10.left = <span class="hljs-keyword">new</span> TreeNode(<span class="hljs-number">1</span>);<br>        node10.right = <span class="hljs-keyword">new</span> TreeNode(<span class="hljs-number">2</span>);<br>        node6.left = <span class="hljs-keyword">new</span> TreeNode(<span class="hljs-number">7</span>);<br>        node6.right = <span class="hljs-keyword">new</span> TreeNode(<span class="hljs-number">11</span>);<br><br>        jz.PrintFromTopToBottom(root);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">PrintFromTopToBottom</span><span class="hljs-params">(TreeNode root)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (root == <span class="hljs-keyword">null</span>) &#123;<br>            <span class="hljs-keyword">return</span>;<br>        &#125;<br>        Queue&lt;TreeNode&gt; queue = <span class="hljs-keyword">new</span> LinkedList&lt;&gt;();<br>        queue.offer(root);<br>        <span class="hljs-keyword">int</span> toBePrint = <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">int</span> nextLevel = <span class="hljs-number">0</span>;<br><br>        <span class="hljs-keyword">while</span> (!queue.isEmpty()) &#123;<br>            <span class="hljs-keyword">final</span> TreeNode node = queue.poll();<br>            System.out.printf(<span class="hljs-string">"%s\t"</span>, node.val);<br>            <span class="hljs-keyword">if</span> (node.left != <span class="hljs-keyword">null</span>) &#123;<br>                queue.offer(node.left);<br>                nextLevel++;<br>            &#125;<br>            <span class="hljs-keyword">if</span> (node.right != <span class="hljs-keyword">null</span>) &#123;<br>                queue.offer(node.right);<br>                nextLevel++;<br>            &#125;<br>            toBePrint--;<br>            <span class="hljs-keyword">if</span> (toBePrint == <span class="hljs-number">0</span>) &#123;<br>                System.out.println();<br>                toBePrint = nextLevel;<br>                nextLevel = <span class="hljs-number">0</span>;<br>            &#125;<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TreeNode</span> </span>&#123;<br>        <span class="hljs-keyword">int</span> val = <span class="hljs-number">0</span>;<br>        TreeNode left = <span class="hljs-keyword">null</span>;<br>        TreeNode right = <span class="hljs-keyword">null</span>;<br><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">TreeNode</span><span class="hljs-params">(<span class="hljs-keyword">int</span> val)</span> </span>&#123;<br>            <span class="hljs-keyword">this</span>.val = val;<br><br>        &#125;<br><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="扩展-按「之」字打印"><a href="#扩展-按「之」字打印" class="headerlink" title="扩展-按「之」字打印"></a>扩展-按「之」字打印</h2><p><img src="https://raw.githubusercontent.com/lyloou/img/develop/jz32-%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91_20220124175912_2022-01-24-17-59-13.png" alt="jz32-从上到下打印二叉树_20220124175912_2022-01-24-17-59-13"><br><img src="https://raw.githubusercontent.com/lyloou/img/develop/jz32-%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91_20220124175849_2022-01-24-17-58-49.png" alt="jz32-从上到下打印二叉树_20220124175849_2022-01-24-17-58-49"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> algorithm.jzoffer;<br><br><span class="hljs-keyword">import</span> java.util.Stack;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 按之字打印</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@author</span> lilou</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Jz32_4</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        <span class="hljs-keyword">final</span> Jz32_4 jz = <span class="hljs-keyword">new</span> Jz32_4();<br>        <span class="hljs-keyword">final</span> TreeNode node1 = <span class="hljs-keyword">new</span> TreeNode(<span class="hljs-number">1</span>);<br>        <span class="hljs-keyword">final</span> TreeNode node2 = <span class="hljs-keyword">new</span> TreeNode(<span class="hljs-number">2</span>);<br>        <span class="hljs-keyword">final</span> TreeNode node3 = <span class="hljs-keyword">new</span> TreeNode(<span class="hljs-number">3</span>);<br>        <span class="hljs-keyword">final</span> TreeNode node4 = <span class="hljs-keyword">new</span> TreeNode(<span class="hljs-number">4</span>);<br>        <span class="hljs-keyword">final</span> TreeNode node5 = <span class="hljs-keyword">new</span> TreeNode(<span class="hljs-number">5</span>);<br>        <span class="hljs-keyword">final</span> TreeNode node6 = <span class="hljs-keyword">new</span> TreeNode(<span class="hljs-number">6</span>);<br>        <span class="hljs-keyword">final</span> TreeNode node7 = <span class="hljs-keyword">new</span> TreeNode(<span class="hljs-number">7</span>);<br>        <span class="hljs-keyword">final</span> TreeNode node8 = <span class="hljs-keyword">new</span> TreeNode(<span class="hljs-number">8</span>);<br>        <span class="hljs-keyword">final</span> TreeNode node9 = <span class="hljs-keyword">new</span> TreeNode(<span class="hljs-number">9</span>);<br>        <span class="hljs-keyword">final</span> TreeNode node10 = <span class="hljs-keyword">new</span> TreeNode(<span class="hljs-number">10</span>);<br>        <span class="hljs-keyword">final</span> TreeNode node11 = <span class="hljs-keyword">new</span> TreeNode(<span class="hljs-number">11</span>);<br>        <span class="hljs-keyword">final</span> TreeNode node12 = <span class="hljs-keyword">new</span> TreeNode(<span class="hljs-number">12</span>);<br>        <span class="hljs-keyword">final</span> TreeNode node13 = <span class="hljs-keyword">new</span> TreeNode(<span class="hljs-number">13</span>);<br>        <span class="hljs-keyword">final</span> TreeNode node14 = <span class="hljs-keyword">new</span> TreeNode(<span class="hljs-number">14</span>);<br>        <span class="hljs-keyword">final</span> TreeNode node15 = <span class="hljs-keyword">new</span> TreeNode(<span class="hljs-number">15</span>);<br>        node1.left = node2;<br>        node1.right = node3;<br>        node2.left = node4;<br>        node2.right = node5;<br>        node3.left = node6;<br>        node3.right = node7;<br>        node4.left = node8;<br>        node4.right = node9;<br>        node5.left = node10;<br>        node5.right = node11;<br>        node6.left = node12;<br>        node6.right = node13;<br>        node7.left = node14;<br>        node7.right = node15;<br><br>        jz.PrintFromTopToBottom(node1);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">PrintFromTopToBottom</span><span class="hljs-params">(TreeNode root)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (root == <span class="hljs-keyword">null</span>) &#123;<br>            <span class="hljs-keyword">return</span>;<br>        &#125;<br>        Stack&lt;TreeNode&gt; stack1 = <span class="hljs-keyword">new</span> Stack&lt;&gt;();<br>        Stack&lt;TreeNode&gt; stack2 = <span class="hljs-keyword">new</span> Stack&lt;&gt;();<br>        stack1.push(root);<br><br>        <span class="hljs-keyword">while</span> (!stack1.isEmpty() || !stack2.isEmpty()) &#123;<br>            <span class="hljs-keyword">while</span> (!stack1.isEmpty()) &#123;<br>                <span class="hljs-keyword">final</span> TreeNode node = stack1.pop();<br>                System.out.printf(<span class="hljs-string">"%s\t"</span>, node.val);<br>                <span class="hljs-keyword">if</span> (node.left != <span class="hljs-keyword">null</span>) &#123;<br>                    stack2.push(node.left);<br>                &#125;<br>                <span class="hljs-keyword">if</span> (node.right != <span class="hljs-keyword">null</span>) &#123;<br>                    stack2.push(node.right);<br>                &#125;<br>            &#125;<br><br>            <span class="hljs-comment">// 下一层</span><br>            System.out.println();<br>            <span class="hljs-keyword">while</span> (!stack2.isEmpty()) &#123;<br>                <span class="hljs-keyword">final</span> TreeNode node = stack2.pop();<br>                System.out.printf(<span class="hljs-string">"%s\t"</span>, node.val);<br>                <span class="hljs-keyword">if</span> (node.right != <span class="hljs-keyword">null</span>) &#123;<br>                    stack1.push(node.right);<br>                &#125;<br>                <span class="hljs-keyword">if</span> (node.left != <span class="hljs-keyword">null</span>) &#123;<br>                    stack1.push(node.left);<br>                &#125;<br>            &#125;<br><br>            System.out.println();<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TreeNode</span> </span>&#123;<br>        <span class="hljs-keyword">int</span> val = <span class="hljs-number">0</span>;<br>        TreeNode left = <span class="hljs-keyword">null</span>;<br>        TreeNode right = <span class="hljs-keyword">null</span>;<br><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">TreeNode</span><span class="hljs-params">(<span class="hljs-keyword">int</span> val)</span> </span>&#123;<br>            <span class="hljs-keyword">this</span>.val = val;<br><br>        &#125;<br><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/算法/K选择问题/" rel="bookmark">【算法】K选择问题</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/算法/jz19-正则表达式匹配/" rel="bookmark">【算法】正则表达式匹配</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/算法/jz13-机器人运动范围/" rel="bookmark">【算法】机器人运动范围</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/算法/jz21-奇数位于偶数前面/" rel="bookmark">【算法】奇数位于偶数前面</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/算法/jz23-链表中环的入口结点/" rel="bookmark">【算法】链表中环的入口结点</a></div>
+    </li>
+  </ul>
+
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
+            <span class="icon">
+              <i class="wechat"></i>
+            </span>
+
+            <span class="label">WeChat</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"># 算法</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/%E7%AE%97%E6%B3%95/jz29-%E9%A1%BA%E6%97%B6%E9%92%88%E6%89%93%E5%8D%B0%E7%9F%A9%E9%98%B5/" rel="prev" title="【算法】顺时针打印矩阵">
+      <i class="fa fa-chevron-left"></i> 【算法】顺时针打印矩阵
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/windows/win11/" rel="next" title="【Windows】win11相关">
+      【Windows】win11相关 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#剑指-Offer-第-32-题-从上到下打印二叉树"><span class="nav-number">1.</span> <span class="nav-text">剑指 Offer 第 32 题-从上到下打印二叉树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法-1"><span class="nav-number">2.</span> <span class="nav-text">方法 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#扩展-按层次打印"><span class="nav-number">3.</span> <span class="nav-text">扩展-按层次打印</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#扩展-按「之」字打印"><span class="nav-number">4.</span> <span class="nav-text">扩展-按「之」字打印</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="lyloou"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">lyloou</p>
+  <div class="site-description" itemprop="description">/* Better than last best */</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">311</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">56</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/lyloou" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;lyloou" rel="noopener" target="_blank">GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:lyloou6@gmail.com" title="E-Mail → mailto:lyloou6@gmail.com" rel="noopener" target="_blank">E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/lyloou" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;lyloou" rel="noopener" target="_blank">Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/ly1414725328" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;ly1414725328" rel="noopener" target="_blank">CSDN</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">粤ICP备18151128号 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lyloou</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : true,
+      appId      : 'yhivNNDDoank7qFbmyEj9Ldq-gzGzoHsz',
+      appKey     : 'QuFu2ooibSzW1Q8eTrmPLyPw',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>

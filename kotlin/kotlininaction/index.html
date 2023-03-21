@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="zh-CN,zh-HK,zh-TW,en,default">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"lyloou.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Only after understanding the surrounding code can you make the necessarymodifications. Note that omitting the return type is allowed only for functions with an expressionbody Note that this example sh">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kotlin in Action笔记">
+<meta property="og:url" content="https://lyloou.github.io/kotlin/kotlininaction/index.html">
+<meta property="og:site_name" content="lyloou">
+<meta property="og:description" content="Only after understanding the surrounding code can you make the necessarymodifications. Note that omitting the return type is allowed only for functions with an expressionbody Note that this example sh">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-12-05T14:03:34.000Z">
+<meta property="article:modified_time" content="2018-12-05T14:03:34.000Z">
+<meta property="article:author" content="lyloou">
+<meta property="article:tag" content="kotlin">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://lyloou.github.io/kotlin/kotlininaction/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Kotlin in Action笔记 | lyloou</title>
+  
+    <script>
+      function sendPageView() {
+        if (CONFIG.hostname !== location.hostname) return;
+        var uid = localStorage.getItem('uid') || (Math.random() + '.' + Math.random());
+        localStorage.setItem('uid', uid);
+        navigator.sendBeacon('https://www.google-analytics.com/collect', new URLSearchParams({
+          v  : 1,
+          tid: 'UA-80542932-1',
+          cid: uid,
+          t  : 'pageview',
+          dp : encodeURIComponent(location.pathname)
+        }));
+      }
+      document.addEventListener('pjax:complete', sendPageView);
+      sendPageView();
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta custom-logo">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">lyloou</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/kotlin/kotlininaction/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lyloou">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Kotlin in Action笔记<a href="https://github.com/lyloou/lyloou.github.io/edit/source/source/_posts/kotlin/kotlininaction.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil-alt"></i></a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-12-05 22:03:34" itemprop="dateCreated datePublished" datetime="2018-12-05T22:03:34+08:00">2018-12-05</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/kotlin/kotlininaction/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/kotlin/kotlininaction/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>Only after understanding the surrounding code can you make the necessary<br>modifications.</p>
+<p>Note that omitting the return type is allowed only for functions with an expression<br>body</p>
+<p>Note that this example shows the<br>only place in the Kotlin syntax where you’re required to use semicolons: if you define<br>any methods in the enum class, the semicolon separates the enum constant list from the<br>method definitions.</p>
+<p>The rule “the last expression in a block is the result” holds in all cases where a block<br>can be used and a result is expected. As you’ll see at the end of this chapter, the same<br>rule works for the try body and catch clauses, and chapter 5 discusses its application to<br>lambda expressions. But as we already mentioned in section 2.2.1, this rule doesn’t hold<br>for regular functions. A function can have either an expression body that can’t be a block,<br>or a block body with explicit return statements inside.<br>p41</p>
+<p>Just like many other modern JVM languages, Kotlin doesn’t differentiate between<br>checked and unchecked exceptions. You don’t specify the exceptions thrown by a<br>function, and you may or may not handle any exceptions. This design decision is based<br>on the practice of using checked exceptions in Java. Experience has shown that the Java<br>rules often require a lot of meaningless code to rethrow or ignore exceptions, and the<br>rules don’t consistently protect you from the errors that can happen.<br>p48</p>
+<p>Note that extension<br>functions don’t allow you to break encapsulation. Unlike methods defined in the class,<br>extension functions don’t have access to private or protected members of the class.<br>p61</p>
+<p>Method overriding in Kotlin works as usual for member functions, but you can’t override<br>an extension function.<br>the function that’s called depends on the static type of the<br>variable being declared, not on the runtime type of the value stored in that variable.<br>p64-p65</p>
+<p>Note: If the class has a member function with the same signature as an<br>extension function, the member function always takes precedence.<br>You should keep this in mind when extending the API of classes: if<br>you add a member function with the same signature as an<br>extension function that a client of your class has defined, and they<br>then recompile their code, it will change its meaning and start<br>referring to the new member function.<br>p65<br>//TODO but how to override CharSequence.split, if the member function always takes precedence ???</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">A</span></span>(<span class="hljs-keyword">var</span> c: String) &#123;<br>    <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">getDiffC</span><span class="hljs-params">()</span></span>: String &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">"---<span class="hljs-variable">$c</span>---"</span><br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">getDiffD</span><span class="hljs-params">()</span></span>: String &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">"!!!!!<span class="hljs-variable">$c</span>!!!!!"</span><br>    &#125;<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">fun</span> A.<span class="hljs-title">getDiffD</span><span class="hljs-params">()</span></span>: String = <span class="hljs-string">"====<span class="hljs-subst">$&#123;this.c&#125;</span>===="</span><br><span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">main</span><span class="hljs-params">(args: <span class="hljs-type">Array</span>&lt;<span class="hljs-type">String</span>&gt;)</span></span> &#123;<br>    println(A(<span class="hljs-string">"a"</span>).getDiffC())<br>    println(A(<span class="hljs-string">"d"</span>).getDiffD())<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+<p>The destructuring declaration feature isn’t limited to pairs. For example, you can<br>assign a map entry to two separate variables, key and value , as well.<br>p69</p>
+<p>The to function is an extension function. You can create a pair of any elements,<br>which means it’s an extension to a generic receiver: you can write <code>1 to &quot;one&quot;</code> ,<br><code>&quot;one&quot; to 1</code> , <code>list to list.size()</code> , and so one.<br>Even though the creation of a new map may look like a special construct in Kotlin,<br>it’s a regular function with a concise syntax</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-number">1</span>.to(<span class="hljs-string">"one)</span><br><span class="hljs-string">// ====equivalent====</span><br><span class="hljs-string">1 to "</span>one<span class="hljs-string">"</span><br></code></pre></td></tr></table></figure>
+<p>p70</p>
+<p>local functions and extensions<br>Kotlin gives you a cleaner solution: you can nest the functions you’ve extracted in the<br>containing function. This way, you have the structure you need without any extra<br>syntactic overhead. (meaning fun in fun)<br>p75</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">User</span></span>(<span class="hljs-keyword">val</span> id: <span class="hljs-built_in">Int</span>, <span class="hljs-keyword">val</span> name: String, <span class="hljs-keyword">val</span> address: String)<br><br><span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">saveUser</span><span class="hljs-params">(user: <span class="hljs-type">User</span>)</span></span> &#123;<br>    <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">validate</span><span class="hljs-params">(user: <span class="hljs-type">User</span>,</span></span><br><span class="hljs-function"><span class="hljs-params">                 value: <span class="hljs-type">String</span>,</span></span><br><span class="hljs-function"><span class="hljs-params">                 fieldName: <span class="hljs-type">String</span>)</span></span> &#123;<br>        <span class="hljs-keyword">if</span> (value.isEmpty()) &#123;<br>            <span class="hljs-keyword">throw</span> IllegalArgumentException(<br>                    <span class="hljs-string">"Cannot save user <span class="hljs-subst">$&#123;user.id&#125;</span>: <span class="hljs-variable">$fieldName</span> is empty"</span>)<br>        &#125;<br>    &#125;<br>    validate(user, user.name, <span class="hljs-string">"Name"</span>)<br>    validate(user, user.address, <span class="hljs-string">"Address"</span>)<br><span class="hljs-comment">// Save user to the database</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+<h2 id="4"><a href="#4" class="headerlink" title="4"></a>4</h2><p>Declaring a class as a <code>data</code> class instructs the compiler to generate several standard methods<br>for this class. You can also avoid writing delegating methods by hand, because the delegation<br>pattern is supported natively in Kotlin.<br>p78</p>
+<p>This chapter also describes a new <code>object</code> keyword that declares a class and also<br>creates an instance of the class. The keyword is used to express singleton objects,<br>companion objects, and object expressions<br>p78</p>
+<p>Unlike Java, using the override modifier is mandatory in Kotlin<br>p79</p>
+<p>Whereas Java’s classes and methods are open by<br>default, Kotlin’s are final by default.<br>If you want to allow the creation of subclasses of a class, you need to mark the class<br>with the open modifier. In addition, you need to add the open modifier to everyproperty<br>or method that can be overridden<br>p82</p>
+<p>Note that if you override a member of a base class or interface, the overriding<br>member will also be open by default. If you want to change this and forbid the subclasses<br>of your class from overriding your implementation, you can explicitly mark the<br>overriding member as final.(不像java中的修饰符不能缩小权限，kotlin中可以)<br>p83</p>
+<p>The meaning of access modifiers in a class (p84)</p>
+<table>
+<thead>
+<tr>
+<th align="left">Modifier</th>
+<th align="left">Corresponding member</th>
+<th align="left">Comments</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">final</td>
+<td align="left">Can’t be overridden</td>
+<td align="left">Used by default for class members</td>
+</tr>
+<tr>
+<td align="left">open</td>
+<td align="left">Can be overridden</td>
+<td align="left">Should be specified explicitly</td>
+</tr>
+<tr>
+<td align="left">abstract</td>
+<td align="left">Must be overridden</td>
+<td align="left">Can be used only in abstract classes; abstract members can’t have an implementation</td>
+</tr>
+<tr>
+<td align="left">override</td>
+<td align="left">Overrides a member in a superclass</td>
+<td align="left">Overridden member is open by default, if not marked final</td>
+</tr>
+</tbody></table>
+<p>Kotlin offers a new visibility modifier, <code>internal</code>, which means<br>“visible inside a module.” A module is a set of Kotlin files compiled together. It may be<br>an IntelliJ IDEA module, an Eclipse project, a Maven or Gradle project, or a set of files<br>compiled with an invocation of the Ant task.<br>p84</p>
+<p>kotlin visibility modifiers (p85)</p>
+<table>
+<thead>
+<tr>
+<th align="left">Modifier</th>
+<th align="left">Class Member</th>
+<th align="left">Top-level declaration</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">public(default)</td>
+<td align="left">Visible everywhere</td>
+<td align="left">Visible everywhere</td>
+</tr>
+<tr>
+<td align="left">internal</td>
+<td align="left">Visible in a moudle</td>
+<td align="left">Visible in a moudle</td>
+</tr>
+<tr>
+<td align="left">protected</td>
+<td align="left">Visible in a subclasses</td>
+<td align="left">—</td>
+</tr>
+<tr>
+<td align="left">private</td>
+<td align="left">Visible in a class</td>
+<td align="left">Visible in a file</td>
+</tr>
+</tbody></table>
+<p>This is a case of a general rule that<br>requires all types used in the list of base types and type parameters of a class, or the<br>signature of a method, to be as visible as the class or method itself. This rule ensures that<br>you always have access to all types you might need to invoke the function or extend a<br>class.<br>p85</p>
+<p>Note the difference in behavior for the protected modifier in Java and in Kotlin. In<br>Java, you can access a protected member from the same package, but Kotlin doesn’t<br>allow that. In Kotlin, visibility rules are simple, and a protected member is only visible<br>in the class and its subclasses. Also note that extension functions of a class don’t get<br>access to its private or protected members.<br>p85</p>
+<p>The difference<br>is that Kotlin nested classes don’t have access to the outer class instance, unless you<br>specifically request that.<br>p86</p>
+<p>A nested class in Kotlin with no explicit modifiers is the same as a static nested<br>class in Java. To turn it into an inner class, so that it contains a reference to an outer<br>class, you use the inner modifier.<br>p88</p>
+<table>
+<thead>
+<tr>
+<th align="left">Class A declared within another class B</th>
+<th align="left">In Java</th>
+<th>In Kotlin</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Nested class (doesn’t store a reference to an outer class)</td>
+<td align="left">static class A</td>
+<td>class A</td>
+</tr>
+<tr>
+<td align="left">Inner class (store a reference to an outer class)</td>
+<td align="left">class A</td>
+<td>inner class A</td>
+</tr>
+<tr>
+<td align="left"><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Outer</span> </span>&#123;<br>    <span class="hljs-keyword">inner</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Inner</span> </span>&#123;<br>        <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">getOuterReference</span><span class="hljs-params">()</span></span>: Outer = <span class="hljs-keyword">this</span><span class="hljs-symbol">@Outer</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure></td>
+<td align="left"></td>
+<td></td>
+</tr>
+<tr>
+<td align="left">p88</td>
+<td align="left"></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>In Java, as you know, a class can declare one or more constructors. Kotlin is similar, with<br>one additional change: it makes a distinction between a primary constructor (which is<br>usually the main, concise way to initialize a class and is <code>declared outside of the class body</code>)<br>and a secondary constructor (which is <code>declared in the class body</code>). It also allows<br>you to put additional initialization logic in initializer blocks</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-comment">// This block of code surrounded by parentheses is called a primary constructor. It serves two</span><br><span class="hljs-comment">// purposes: specifying constructor parameters and defining properties that are initialized by</span><br><span class="hljs-comment">// those parameters.</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">User</span></span>(<span class="hljs-keyword">val</span> nickname: String)<br></code></pre></td></tr></table></figure>
+<p>p91</p>
+<p>If your class has a superclass, the primary constructor also needs to initialize the<br>superclass. You can do so by providing the superclass constructor parameters after the<br>superclass reference in the base class list:</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">open</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">User</span></span>(<span class="hljs-keyword">val</span> nickname: String) &#123; ... &#125;<br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TwitterUser</span></span>(nickname: String) : User(nickname) &#123; ... &#125;<br></code></pre></td></tr></table></figure>
+<p>p93</p>
+<p>If you inherit the Button class and don’t provide any constructors, you have to<br>explicitly invoke the constructor of the superclass even if it doesn’t have any parameters:</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">open</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Button</span></span><br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RadioButton</span>: <span class="hljs-type">Button</span></span>()<br></code></pre></td></tr></table></figure>
+<p>That’s why you need empty parentheses after the name of the superclass. Note the<br>difference with interfaces: interfaces don’t have constructors, so if you implement an<br>interface, you never put parentheses after its name in the supertype list.<br>p93</p>
+<p>If you want to ensure that your class can’t be instantiated by other code, you have to<br>make the constructor private</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Secretive</span> <span class="hljs-keyword">private</span> <span class="hljs-keyword">constructor</span></span>() &#123;&#125;<br><br><span class="hljs-comment">// or</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Secretive</span> </span>&#123;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">constructor</span>()<br>&#125;<br><br><span class="hljs-comment">// or use : companion objects</span><br></code></pre></td></tr></table></figure>
+<p>p94</p>
+<p><code>secondary constructor</code><br>The below class doesn’t declare a primary constructor (as you can tell because there are no<br>parentheses after the class name in the class header), but it declares two secondary<br>constructors. A secondary constructor is introduced using the <code>constructor</code> keyword<br>You can declare as many secondary constructors as you need.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">open</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">View</span> </span>&#123;<br>    <span class="hljs-keyword">constructor</span>(ctx: Context) &#123;<br>        <span class="hljs-comment">// some code</span><br>    &#125;<br><br>    <span class="hljs-keyword">constructor</span>(ctx: Context, attr: AttributeSet) &#123;<br>        <span class="hljs-comment">// some code</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>If you want to extend this class, you can declare the same constructors:</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyButton</span> : <span class="hljs-type">View &#123;</span></span><br>    <span class="hljs-keyword">constructor</span>(ctx: Context) : <span class="hljs-keyword">super</span>(ctx) &#123;<br>        <span class="hljs-comment">// ...</span><br>    &#125;<br><br>    <span class="hljs-keyword">constructor</span>(ctx: Context, attr: AttributeSet) : <span class="hljs-keyword">super</span>(ctx, attr) &#123;<br>        <span class="hljs-comment">// ...</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>p95</p>
+<p>If the class has no primary constructor, then each secondary constructor has to<br>initialize the base class or delegate to another constructor that does so. Thinking in terms<br>of the previous figures, each secondary constructor must have an outgoing arrow starting<br>a path that ends at any constructor of the base class.<br>p96</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">User</span></span>(<span class="hljs-keyword">val</span> name: String) &#123;<br>    <span class="hljs-keyword">var</span> address: String = <span class="hljs-string">"unspecified"</span><br>        <span class="hljs-keyword">set</span>(value: String) &#123;<br>            println(<span class="hljs-string">"""</span><br><span class="hljs-string">                Address was changed for <span class="hljs-variable">$name</span>:</span><br><span class="hljs-string">                "<span class="hljs-variable">$field</span>" -&gt; "<span class="hljs-variable">$value</span>"."""</span>.trimIndent())<br>            field = value<br>        &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>In the body of the setter, you use the special identifier field to access the value of<br>the backing field. In a getter, you can only read the value; and in a setter, you can both<br>read and modify it.<br>In the body of the setter, you use the special identifier field to access the value of<br>the backing field. In a getter, you can only read the value; and in a setter, you can both<br>read and modify it.<br>Note that you can redefine only one of the accessors for a mutable property. The<br>getter in the previous example is trivial and just returns the field value, so you didn’t<br>need to redefine it<br>p99</p>
+<p>In Kotlin, == is the default way to compare two objects: it compares their<br>values by calling equals under the hood. Thus, if equals is overridden in<br>your class, you can safely compare its instances using == . For reference<br>comparison, you can use the === operator, which works exactly thesame<br>as == in Java.<br>p102</p>
+<p>Note that properties that aren’t declared in the primary<br>constructor don’t take part in the equality checks and hashcode calculation.<br>p104</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs ini">- You use the field identifier to reference a property backing field from the accessor body.<br>- Data classes provide compiler-generated equals() , hashCode() , toString() , copy() , and other methods.<br>- Companion objects (along with package-level functions and properties) replace Java’s static method and field definitions.<br>- Companion objects, like other objects, can implement interfaces or have extension functions or properties.<br>- Object expressions are Kotlin’s replacement for Java’s anonymous inner classes, with <br>    added power such as the ability to implement multiple interfaces and to modify the<br>    variables defined in the scope where the object is created.<br></code></pre></td></tr></table></figure>
+
+<h1 id="5"><a href="#5" class="headerlink" title="5"></a>5</h1><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs kotlin">&#123;x:<span class="hljs-built_in">Int</span>, y:<span class="hljs-built_in">Int</span> -&gt; x+y&#125;<br></code></pre></td></tr></table></figure>
+<p>A lambda expression in Kotlin is always surrounded by curly braces. Note that there<br>are no parentheses around the arguments. The arrow separates the argument list from the<br>body of the lambda.<br>p122</p>
+<p>The road of improvement</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">data</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span></span>(<span class="hljs-keyword">val</span> name: String, <span class="hljs-keyword">val</span> age: <span class="hljs-built_in">Int</span>)<br><span class="hljs-keyword">val</span> people = listOf(Person(<span class="hljs-string">"lisi"</span>, <span class="hljs-number">18</span>), Person(<span class="hljs-string">"wangwu"</span>, <span class="hljs-number">15</span>))<br>people.maxBy(&#123;p:Person -&gt; p.age&#125;)<br></code></pre></td></tr></table></figure>
+<p>In Kotlin, a syntactic convention lets you move a lambda expression out of parentheses<br>if it’s the last argument in a function call.<br>In this example, the lambda is the only argument, so it can be placed<br>after the parentheses:</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs kotlin">people.maxBy() &#123; p: Person -&gt; p.age &#125;<br></code></pre></td></tr></table></figure>
+<p>When the lambda is the only argument to a function, you can also remove the empty<br>parentheses from the call:</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-comment">// If a lambda is the only argument, you’ll definitely want to write it without the parentheses.</span><br>people.maxBy &#123; p: Person -&gt; p.age &#125;<br></code></pre></td></tr></table></figure>
+<p>As with local variables, if the type of a lambda parameter can be inferred, you don’t<br>need to specify it explicitly.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs kotlin">people.maxBy &#123; p -&gt; p.age &#125;<br></code></pre></td></tr></table></figure>
+<p>The last simplification you can make in this example is to replace an argument with<br>the default argument name: <code>it</code> . This name is generated if the context expects a lambda<br>with only one argument, and its type can be inferred:</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs kotlin">peopel.maxBy &#123;it.age&#125;<br></code></pre></td></tr></table></figure>
+<p>p125</p>
+<p>One important difference between Kotlin and Java is that in Kotlin, you aren’t<br>restricted to accessing final variables. You can also modify variables from within a<br>lambda. The next example counts the number of client and server errors in the given set<br>of response status codes:</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">printProblemCounts</span><span class="hljs-params">(responses: <span class="hljs-type">Collection</span>&lt;<span class="hljs-type">String</span>&gt;)</span></span> &#123;<br>    <span class="hljs-keyword">var</span> clientErrors = <span class="hljs-number">0</span><br>    <span class="hljs-keyword">var</span> serverErrors = <span class="hljs-number">0</span><br>    responses.forEach &#123;<br>        <span class="hljs-keyword">if</span> (it.startsWith(<span class="hljs-string">"4"</span>)) &#123;<br>            clientErrors++<br>        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (it.startsWith(<span class="hljs-string">"5"</span>)) &#123;<br>            serverErrors++<br>        &#125;<br>    &#125;<br>    println(<span class="hljs-string">"<span class="hljs-variable">$clientErrors</span> client errors, <span class="hljs-variable">$serverErrors</span> server errors"</span>)<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>Note that, by default, the lifetime of a local variable is constrained by the function in<br>which the variable is declared. But if it’s captured by the lambda, the code that uses this<br>variable can be stored and executed later. You may ask how this works. When you<br>capture a final variable, is value is stored together with the lambda code that uses it. For<br>non-final variables, the value is enclosed in a special wrapper that lets you change it, and<br>the reference to the wrapper is stored together with the lambda.<br>p127</p>
+<p>An important caveat is that, if a lambda is used as an event handler or is otherwise<br>executed asynchronously, the modifications to local variables will occur only when the<br>lambda is executed. For example, the following code isn’t a correct way to count button<br>clicks:</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">tryToCountButtonClicks</span><span class="hljs-params">(button: <span class="hljs-type">Button</span>)</span></span>: <span class="hljs-built_in">Int</span> &#123;   <br>    <span class="hljs-keyword">var</span> clicks = <span class="hljs-number">0</span><br>    button.onClick &#123; clicks++ &#125;<br>    <span class="hljs-keyword">return</span> clicks <span class="hljs-comment">// always return 0, you should store the clicks variable </span><br>                  <span class="hljs-comment">// in a location that remains accessible outside of the function</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<p>p128</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-comment">// smaple1</span><br>people.filter &#123; it.age == people.maxBy(Person::age).age &#125; <span class="hljs-comment">// not work well with performance, because calculate maxAge everytime</span><br><br><span class="hljs-comment">// sample2</span><br><span class="hljs-keyword">val</span> maxAge = people.maxBy(Person::age).age <span class="hljs-comment">// work well, only compulate once</span><br>people.filter &#123; it.age == maxAge &#125;<br></code></pre></td></tr></table></figure>
+<p>Don’t repeat a calculation if you don’t need to! Simple-looking code using lambda<br>expressions can sometimes obscure the complexity of the underlying operations, so<br>always keep in mind what is happening in the code you write.<br>p133</p>
+<p>The entry point for lazy collection operations in Kotlin is the Sequence interface. The<br>interface represents just that: a sequence of elements that can be enumerated one by one.<br>Sequence provides only one method, iterator , that you can use to obtain the values<br>from the sequence.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs kotlin">people.asSequence() <span class="hljs-comment">// the lazy way more efficient than eager way when there are a million data.</span><br>.map(Person::name)<br>.filter &#123; it.startsWith(<span class="hljs-string">"A"</span>) &#125;<br>.toList()<br></code></pre></td></tr></table></figure>
+<p>p138</p>
+<p>Note<br>As a rule, use a sequence whenever you have a chain of<br>operations on a large collection. In section 8.2, we’ll discuss why<br>eager operations on regular collections are efficient in Kotlin, in<br>spite of creating intermediate collections. But if the collection<br>contains a large number of elements, the intermediate rearranging<br>of elements costs a lot, so lazy evaluation is preferable.<br>p139</p>
+<p>The order of the operations you perform on a collection can affect performance as<br>well.<br>If map goes first, each element is transformed. If you apply filter first,<br>inappropriate elements are filtered out as soon as possible and aren’t transformed.<br>p141</p>
+<p>SAM: single abstract method p144</p>
+<p>In addition to returning values, SAM constructors are used when you need to store a<br>functional interface instance generated from a lambda in a variable. Suppose you want to<br>reuse one listener for several buttons, as in the following example (in an Android<br>application, this code can be a part of the Activity.onCreate method):</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">val</span> listener = OnClickListener &#123; view -&gt;<br>    <span class="hljs-keyword">val</span> text = <span class="hljs-keyword">when</span> (view.id) &#123;<br>        R.id.button1 -&gt; <span class="hljs-string">"First button"</span><br>        R.id.button2 -&gt; <span class="hljs-string">"Second button"</span><br>        <span class="hljs-keyword">else</span> -&gt; <span class="hljs-string">"Unknown button"</span><br>    &#125;<br>    toast(text)<br>&#125;<br>button1.setOnClickListener(listener)<br>button2.setOnClickListener(listener)<br></code></pre></td></tr></table></figure>
+<p>p147</p>
+<p>Note that there’s no this in a lambda as there is in an anonymousobject:<br>there’s no way to refer to the anonymous class instance into which the<br>lambda is converted. From the compiler’s point of view, the lambda is a<br>block of code, not an object, and you can’t refer to it as an object.<br><code>The &#39;this&#39; reference in a lambda refers to a surrounding class.</code><br>p148</p>
+<p>If your event listener needs to unsubscribe itself while handling an event,<br>you can’t use a lambda for that. Use an anonymous object to implement<br>a listener, instead. In an anonymous object, the this keyword refers to<br>the instance of that object, and you can pass it to the API that removes<br>the listener.</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">val</span>  anonymousObject: Runnable = <span class="hljs-keyword">object</span> : Runnable &#123;<br>    <span class="hljs-keyword">override</span> <span class="hljs-function"><span class="hljs-keyword">fun</span> <span class="hljs-title">run</span><span class="hljs-params">()</span></span> &#123;<br>        println(<span class="hljs-string">"world"</span>)<br>    &#125;<br>&#125;<br>Computation().postponeComputation(<span class="hljs-number">1</span>, anonymousObject)<br></code></pre></td></tr></table></figure>
+<p>p148</p>
+<h1 id="6"><a href="#6" class="headerlink" title="6"></a>6</h1><p>To reiterate, a type without a question mark denotes that variables of this type can’t<br>store null references. This means all regular types are non- null by default, unless<br>explicitly marked as nullable.<br>p156</p>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/android/基于委托的SharedPreference封装/" rel="bookmark">基于委托的SharedPreference封装</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/kotlin/难点/" rel="bookmark">Kotlin疑点难点</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/kotlin/参考资料/" rel="bookmark">Kotlin 参考资料</a></div>
+    </li>
+  </ul>
+
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
+            <span class="icon">
+              <i class="wechat"></i>
+            </span>
+
+            <span class="label">WeChat</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/kotlin/" rel="tag"># kotlin</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/http/%E7%BD%91%E7%BB%9C/" rel="prev" title="网络">
+      <i class="fa fa-chevron-left"></i> 网络
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/c/make%20and%20compile/" rel="next" title="C编译">
+      C编译 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#4"><span class="nav-number">1.</span> <span class="nav-text">4</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5"><span class="nav-number"></span> <span class="nav-text">5</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6"><span class="nav-number"></span> <span class="nav-text">6</span></a></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="lyloou"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">lyloou</p>
+  <div class="site-description" itemprop="description">/* Better than last best */</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">311</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">56</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/lyloou" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;lyloou" rel="noopener" target="_blank">GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:lyloou6@gmail.com" title="E-Mail → mailto:lyloou6@gmail.com" rel="noopener" target="_blank">E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/lyloou" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;lyloou" rel="noopener" target="_blank">Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/ly1414725328" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;ly1414725328" rel="noopener" target="_blank">CSDN</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">粤ICP备18151128号 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lyloou</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : true,
+      appId      : 'yhivNNDDoank7qFbmyEj9Ldq-gzGzoHsz',
+      appKey     : 'QuFu2ooibSzW1Q8eTrmPLyPw',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>

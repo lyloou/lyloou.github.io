@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="zh-CN,zh-HK,zh-TW,en,default">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"lyloou.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="HTTP The Definitive Guide 读书笔记 逆序记录   | Status  –p59  100-199: Informational Status Codes 200-299: Success Status Codes 300-399:Redirection Status Codes  | The TRACE method is used primarily for diagn">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTTP the Definitive Guide 读书笔记">
+<meta property="og:url" content="https://lyloou.github.io/http/HTTP%20The%20Definitive%20Guide/index.html">
+<meta property="og:site_name" content="lyloou">
+<meta property="og:description" content="HTTP The Definitive Guide 读书笔记 逆序记录   | Status  –p59  100-199: Informational Status Codes 200-299: Success Status Codes 300-399:Redirection Status Codes  | The TRACE method is used primarily for diagn">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://lyloou.github.io/http/HTTP%20The%20Definitive%20Guide/http_status_code.png">
+<meta property="og:image" content="https://lyloou.github.io/http/HTTP%20The%20Definitive%20Guide/http_methods.png">
+<meta property="og:image" content="https://lyloou.github.io/.io//url_component.png">
+<meta property="article:published_time" content="2017-08-24T01:49:34.000Z">
+<meta property="article:modified_time" content="2017-08-24T01:49:34.000Z">
+<meta property="article:author" content="lyloou">
+<meta property="article:tag" content="http">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://lyloou.github.io/http/HTTP%20The%20Definitive%20Guide/http_status_code.png">
+
+<link rel="canonical" href="https://lyloou.github.io/http/HTTP%20The%20Definitive%20Guide/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>HTTP the Definitive Guide 读书笔记 | lyloou</title>
+  
+    <script>
+      function sendPageView() {
+        if (CONFIG.hostname !== location.hostname) return;
+        var uid = localStorage.getItem('uid') || (Math.random() + '.' + Math.random());
+        localStorage.setItem('uid', uid);
+        navigator.sendBeacon('https://www.google-analytics.com/collect', new URLSearchParams({
+          v  : 1,
+          tid: 'UA-80542932-1',
+          cid: uid,
+          t  : 'pageview',
+          dp : encodeURIComponent(location.pathname)
+        }));
+      }
+      document.addEventListener('pjax:complete', sendPageView);
+      sendPageView();
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta custom-logo">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">lyloou</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/http/HTTP%20The%20Definitive%20Guide/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lyloou">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          HTTP the Definitive Guide 读书笔记<a href="https://github.com/lyloou/lyloou.github.io/edit/source/source/_posts/http/HTTP%20The%20Definitive%20Guide.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil-alt"></i></a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-08-24 09:49:34" itemprop="dateCreated datePublished" datetime="2017-08-24T09:49:34+08:00">2017-08-24</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/http/HTTP%20The%20Definitive%20Guide/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/http/HTTP%20The%20Definitive%20Guide/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="HTTP-The-Definitive-Guide-读书笔记"><a href="#HTTP-The-Definitive-Guide-读书笔记" class="headerlink" title="HTTP The Definitive Guide 读书笔记"></a>HTTP The Definitive Guide 读书笔记</h1><blockquote>
+<p>逆序记录 </p>
+</blockquote>
+<p>| Status  –p59</p>
+<ul>
+<li>100-199: Informational Status Codes</li>
+<li>200-299: Success Status Codes</li>
+<li>300-399:Redirection Status Codes</li>
+</ul>
+<p>| The TRACE method is used primarily for diagnostics;<br>It’s also a good tool for seeing the effects of proxies and other applications<br>on your requests. –p56</p>
+<p>| The TRACE method allows clients to see how its request looks when it finally<br>makes it to the server. –p55</p>
+<p>| PUT:<br>Because PUT allows you to change content, many web servers require you to log in<br>with a password before you can perform a PUT. –p55</p>
+<p>| HEAD METHOD:<br>The HEAD method behaves exactly like the GET method, but the server returns<br>only the headers in the response. No entity body is ever returned.<br>Using HEAD, you can:</p>
+<ul>
+<li>Find out about a resource without getting it.</li>
+<li>See if an object exists, by looking at the status code of the response.</li>
+<li>Test if the resource has been modified, by looking at the headers.</li>
+<li>-p54</li>
+</ul>
+<p>| The GET and HEAD methods are said to be safe, meaning that no action should<br>occur as a result of an HTTP request that uses either the GET or HEAD method.<br>–p53</p>
+<p>| HTTP mesages can carry many kinds of digital data:  –p52</p>
+<ul>
+<li>images;</li>
+<li>video;</li>
+<li>HTML documents;</li>
+<li>software applications;</li>
+<li>credit card transactions;</li>
+<li>electronic mail;</li>
+<li>…</li>
+</ul>
+<p>| HTTP headers are classified into:  –p51</p>
+<ul>
+<li>General headers;</li>
+<li>Request headers;</li>
+<li>Response headers;</li>
+<li>Entity headers;</li>
+<li>Extension headers;</li>
+</ul>
+<p>| Version:<br>Note that version numbers are not treated as fractional numbers.<br>Each number in the version is treated as a separate number.<br>HTTP/2.22 &gt; HTTP/2.3, because 22 &gt; 3</p>
+<p>| The numeric code makes error processing easy for programs, while the reason<br>phrase is easily understood by humans.(这样的存在总是有意义的)<br><img src="./http_status_code.png" alt="status_code"></p>
+<p>| The method begins the start line of requests, telling the server what to do.<br>–p48</p>
+<ul>
+<li>GET</li>
+<li>POST</li>
+<li>PUSH</li>
+<li>DELETE</li>
+<li>HEAD</li>
+<li>TRACE</li>
+<li>OPTIONS<br><img src="./http_methods.png" alt="HTTP method"></li>
+</ul>
+<p>| The headders are terminated by a blank line (CRLF), marking the<br>end of the list of headers and the beginning of the entity body.<br>–p47</p>
+<p>| messages –p46<br>request message:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">method</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">request-URL</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">headers</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">entity-body</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>response message:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">status</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">reason-phrase</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">headers</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">entity-body</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>| Both request and response messages have the same basic message structure.<br>(start line; headers; body) –pp45</p>
+<p>| The Parts of a Message: –p44</p>
+<ul>
+<li>a start line describing the message;(Start line)</li>
+<li>a block of headers containing attributes; (Headers)</li>
+<li>an optional body containing data. (Body)</li>
+</ul>
+<p>| HTTP messages flow like rivers. All messages flow downstream,regardless of<br>whether they are request messages or response messages.(所有的消息流都downstream)<br>The sender of any message is upstream of the receiver.<br>在图3-2中，代理1是代理3请求的上流，回应的下流。 –p44</p>
+<p>| Messages travel inbound to the origin server, and when their work is done,<br>they travel outbound back to the user agent. –p43</p>
+<p>| Describe message direction: –p43</p>
+<ul>
+<li>inbound</li>
+<li>outbound</li>
+<li>upstream</li>
+<li>downstream</li>
+</ul>
+<p>| HTTP messages are the blocks of data sent between HTTP applications (clients,<br>  servers, and proxies). These blocks of data begin with some text <code>meta-information</code><br>  describing the message contents and meaning, followed by optional data. –p43</p>
+<p>| The chapter 3 aim to: –p43</p>
+<ul>
+<li>how to create them;</li>
+<li>how to understand them;</li>
+</ul>
+<p>If HTTP is the Internet’s courier, HTTP messages are the packages it uses<br>to move things around. –p43</p>
+<h2 id="CHAPTER-3-HTTP-Messages"><a href="#CHAPTER-3-HTTP-Messages" class="headerlink" title="CHAPTER 3: HTTP Messages"></a>CHAPTER 3: HTTP Messages</h2><p>| https: The https scheme is a twin to the http scheme. The only difference is<br>  that the https scheme uses Netscape’s Secure Sockets Layer (SSL), which provides<br>  end-to-end encryption of HTTP connnections. Its syntax is idential to that of<br>  HTTP, with a default port of 443. –p38</p>
+<p>| In general, applications interpreting URLs must decode the URLs before<br>  processing them. –p37</p>
+<p>| 字符限制(Character Restrictions)：有些字符是保留的，是有特殊意义的，<br>  不允许直接在URL中使用。（例如：% / . # ? ; : % + @ &amp; = { } [ ] ~ &lt; &gt;）–p36</p>
+<p>| Encoding Mechanisms –p36</p>
+<ul>
+<li><code>%7E == ~</code></li>
+<li><code>%20 == [space]</code></li>
+<li><code>%25 == %</code></li>
+<li><code>%40 == -</code></li>
+</ul>
+<p>| Shady Characters<br>nonprinting characters also are prohibited in URLs, even though these characters<br>may pass through mailers and otherwise be portable. –p35</p>
+<p>| Expandomatic URLs –p34<br>two flavors:</p>
+<ul>
+<li>Hostname expansion.(eg. if you type “yahoo” in the address, your browser<br>can automatically insert “www.” and “.com” onto the hostname)</li>
+<li>History expansion.(eg. if you were typing in the start of a URL that<br>you had visited previously, such as <code>http://www.joes-</code> your browser<br>could suggest <code>http://www.joes-hardware.com</code>)<br>Note: Be aware that URL auto-expansion may behave differently when used with proxies.</li>
+</ul>
+<p>| Using this URL as a base, we can infer the missing information. –p32</p>
+<p>| Fragments (<frag>): To allow referencing of parts or fragments of a resource,<br> URLs support a frag component to identify pieces within a resource. –p30<br>(精确定位到文档具体位置，这个过程在 client 端进行，而不是 server 端。<br>  the server sends the entire object and the agent applies the fragment<br>  identifier to the resource)</frag></p>
+<p>| Query component: There is no requirement for the format of the query component, except that some<br>characters are illegal.(查询组件对格式没有要求，但必须是合法的字符) –p29<br>跟在 <code>?</code> 后面的名值对，多个查询条件用 <code>&amp;</code> 分割：<code>?item=12731&amp;color=blue</code></p>
+<p>| Auery Strings:<br>Some resources, such as database services, can be asked questions or queries to<br>narrow down the type of resource being requested. –p29</p>
+<p>| If an application is using a URL scheme that requires a username and password,<br>such as FTP, it generally will insert a default username and password if<br>they aren’t supplied. –p27</p>
+<p>| Scheme names are case-insensitive –p27<br>(Scheme的名字不区分大小写：例如<code>http://</code>和<code>HTTP://</code>是等效的)</p>
+<p>| The scheme is really the main identifier of how to access a given resource.<br>–p27</p>
+<p>| Most URL schemes base their URL syntax on this nine-part general format: –p26</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs ruby">-------------------------------------------------------------------------<br>&lt;scheme&gt;<span class="hljs-symbol">://&lt;user&gt;</span><span class="hljs-symbol">:&lt;password&gt;</span>@&lt;host&gt;<span class="hljs-symbol">:&lt;port&gt;/&lt;path&gt;</span>;&lt;params&gt;<span class="hljs-string">?&lt;</span>query&gt;#&lt;frag&gt;<br>-------------------------------------------------------------------------<br>eg. <span class="hljs-symbol">http:</span>/<span class="hljs-regexp">/www.joes-hardware.com:80/index</span>.html<br></code></pre></td></tr></table></figure>
+
+<p>| Urls give you and your browser all you need to find a piece of<br>information. They define the particular resource you want,<br>where it is located, and how to get it.</p>
+<p>| <img src="/.io//url_component.png" alt="URL Component"></p>
+<h2 id="CHAPTER-2-URLs-and-Resources"><a href="#CHAPTER-2-URLs-and-Resources" class="headerlink" title="CHAPTER 2: URLs and Resources"></a>CHAPTER 2: URLs and Resources</h2><p>| Agents<br>User agents (or just agents) are client programs that make HTTP requests on the<br>user’s behalf. (用来发出HTTP请求的客户端程序，例如：web浏览器) –p19</p>
+<p>| Tunnels<br>HTTP tunnels are often used to transport non-HTTP data over one or more HTTP<br>connections, without looking at the data. –p19</p>
+<p>| Gateways</p>
+<p>| Caches</p>
+<p>| Proxies<br>A proxy sits between a client and a server.<br>Proxies are often used for security, acting as trusted intermediaries<br>through which all web traffic flows. –p18</p>
+<h2 id="Architectrual-Components-of-the-Web"><a href="#Architectrual-Components-of-the-Web" class="headerlink" title="Architectrual Components of the Web"></a>Architectrual Components of the Web</h2><p>| Protocol Versions –p16<br>HTTP/0.9 supports only the GET method.<br>1.0 was the first version of HTTP that was widely deployed.</p>
+<p>| An HTTP transaction using telnet:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs sh">[root@localhost ~]<span class="hljs-comment"># telnet www.lyloou.com 80</span><br>Trying 151.101.192.133...<br>Connected to www.lyloou.com.<br>Escape character is <span class="hljs-string">'^]'</span>.<br>GET /index.html HTTP/1.1  <span class="hljs-comment"># input this</span><br>Host: www.lyloou.com      <span class="hljs-comment"># input this</span><br>                          <span class="hljs-comment"># input this</span><br><br>HTTP/1.1 301 Moved Permanently<br>Server: GitHub.com<br>Content-Type: text/html<br>Location: http://lyloou.com/index.html<br>X-GitHub-Request-Id: 26A4:06EC:8E05E6C:B479C11:58CB8810<br>Content-Length: 178<br>Accept-Ranges: bytes<br>Date: Fri, 17 Mar 2017 06:54:08 GMT<br>Via: 1.1 varnish<br>Age: 0<br>Connection: keep-alive<br>X-Served-By: cache-lax8651-LAX<br>X-Cache: MISS<br>X-Cache-Hits: 0<br>X-Timer: S1489733648.903540,VS0,VE68<br>Vary: Accept-Encoding<br>X-Fastly-Request-ID: b8d3f5bbb2343450fd125b92f1dde483c5109377<br><br>&lt;html&gt;<br>&lt;head&gt;&lt;title&gt;301 Moved Permanently&lt;/title&gt;&lt;/head&gt;<br>&lt;body bgcolor=<span class="hljs-string">"white"</span>&gt;<br>&lt;center&gt;&lt;h1&gt;301 Moved Permanently&lt;/h1&gt;&lt;/center&gt;<br>&lt;hr&gt;&lt;center&gt;nginx&lt;/center&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;<br></code></pre></td></tr></table></figure>
+
+<p>| Telnet is commonly used for remote terminal sessions, but it can<br>generally connect to any TCP server, including HTTP servers.</p>
+<p>| Establish a TCP/IP connection between the client and server:</p>
+<ul>
+<li>Internet protocol (IP) addresses</li>
+<li>Port numbers</li>
+</ul>
+<p>| TCP/IP<br>Once a TCP connections is established, messages exchanged between the client and<br>server computers will never be lost, damaged, or received out of order. –p12</p>
+<p>| HTTP messages consist of three parts: –p11</p>
+<ol>
+<li>Start line; (indicating what to do for a request and what happened for a<br>response)</li>
+<li>Header fields; (Note: The headers end with a blank line)</li>
+<li>Body; (can contain arbitray binary data. eg., images, videos, audio tracks,<br>software applications.)</li>
+</ol>
+<p>| Messages</p>
+<ul>
+<li>request messages: sent from web clients to web servers.</li>
+<li>response messages: messages from servers to clients.<br>they are very similar.</li>
+</ul>
+<p>| Status Codes<br>Every HTTP response message comes back with a status code. –p9</p>
+<p>| Methods<br>The method tells the server what action to perform (e.g. fetch a web page,<br>  delete a file, etc.) –p8</p>
+<ul>
+<li>GET</li>
+<li>POST</li>
+<li>DELETE</li>
+<li>PUT</li>
+<li>HEAD</li>
+</ul>
+<p>| Transactions<br>An HTTP transaction consists of: –p8</p>
+<ul>
+<li>a request command (sent from client to server).</li>
+<li>a response result (sent from the server back to the client)</li>
+</ul>
+<p>| URNs<br>A URNs serves as a unique name for a particular piece of content,<br>independent of where the resource currently resides.<br>URNs are still experimental and not yet widely adopted. –p7</p>
+<p>| URLs<br>URLs describe the specific location of a resource on a particular server.<br>contains three main parts: –p7</p>
+<ul>
+<li>scheme: (e.g., http://)</li>
+<li>server Internet address (e.g., <a href="http://www.lyloou.com" target="_blank" rel="noopener">www.lyloou.com</a>)</li>
+<li>names a resource on the web server (e.g., hello.gif)</li>
+</ul>
+<p>| URIs<br>URIs come in two flavors: URLs and URNs.</p>
+<p>| Media Types<br>MIME was originally designed to solve problems encountered in moving messages<br>between different electronic mail systems.<br>MIME worked so well for email that HTTP adopted it to describe and label its<br>own multimedia content. –p5<br>eg.</p>
+<ul>
+<li>text/HTML</li>
+<li>text/plain</li>
+<li>image/jpeg</li>
+<li>image/gif</li>
+<li>video/quicktime</li>
+<li>application/vnd.ms-powerpoint<br><a href="https://zh.wikipedia.org/wiki/多用途互聯網郵件擴展" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/多用途互聯網郵件擴展</a></li>
+</ul>
+<p>| Resources</p>
+<ul>
+<li>static file: text files, HTML files, Word files, JPEG files, AVI…</li>
+<li>dynamic content: generate content based on your identity, on what<br>information you’ve requested, or on the time of day.(eg. show live image<br>  from a camera, trade stocks, search databases, buy gifts from online<br>  stores)</li>
+</ul>
+<p>| Because HTTP uses reliable data-transmission protocols, it guarantees that<br>your data will not be damaged or scrambled in transit, even when it comes from<br>the other side of the globe. –p3</p>
+<p>| Throughout the book, we are careful to explain the “why” of HTTP, not just the<br>“how”.</p>
+<p>| There are many books that  explain how to use Web,<br>but this is the book that explains how the Web works.</p>
+<p>| The Definitive Guide is in understanding how the Web works<br>and how to apply that knowledge to web programming and administration.</p>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/http/HTTP笔记/" rel="bookmark">HTTP笔记</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/http/socket/" rel="bookmark">Socket编程</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/http/tcp-ip如何运作/" rel="bookmark">Tcp-Ip</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/http/名词解释/" rel="bookmark">网络名词解释</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/http/网络/" rel="bookmark">网络</a></div>
+    </li>
+  </ul>
+
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
+            <span class="icon">
+              <i class="wechat"></i>
+            </span>
+
+            <span class="label">WeChat</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/http/" rel="tag"># http</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/js/node/" rel="prev" title="Node相关">
+      <i class="fa fa-chevron-left"></i> Node相关
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/http/HTTP%E7%AC%94%E8%AE%B0/" rel="next" title="HTTP笔记">
+      HTTP笔记 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HTTP-The-Definitive-Guide-读书笔记"><span class="nav-number">1.</span> <span class="nav-text">HTTP The Definitive Guide 读书笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CHAPTER-3-HTTP-Messages"><span class="nav-number">1.1.</span> <span class="nav-text">CHAPTER 3: HTTP Messages</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CHAPTER-2-URLs-and-Resources"><span class="nav-number">1.2.</span> <span class="nav-text">CHAPTER 2: URLs and Resources</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Architectrual-Components-of-the-Web"><span class="nav-number">1.3.</span> <span class="nav-text">Architectrual Components of the Web</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="lyloou"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">lyloou</p>
+  <div class="site-description" itemprop="description">/* Better than last best */</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">311</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">56</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/lyloou" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;lyloou" rel="noopener" target="_blank">GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:lyloou6@gmail.com" title="E-Mail → mailto:lyloou6@gmail.com" rel="noopener" target="_blank">E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/lyloou" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;lyloou" rel="noopener" target="_blank">Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/ly1414725328" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;ly1414725328" rel="noopener" target="_blank">CSDN</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">粤ICP备18151128号 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lyloou</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : true,
+      appId      : 'yhivNNDDoank7qFbmyEj9Ldq-gzGzoHsz',
+      appKey     : 'QuFu2ooibSzW1Q8eTrmPLyPw',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>

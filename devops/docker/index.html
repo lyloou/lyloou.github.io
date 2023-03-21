@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="zh-CN,zh-HK,zh-TW,en,default">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"lyloou.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="installwget -qO- https:&#x2F;&#x2F;get.docker.com | sh confighttps:&#x2F;&#x2F;www.jianshu.com&#x2F;p&#x2F;95e397570896｀｀｀ sh如果还没有 docker group 就添加一个：sudo groupadd docker 将用户加入该 group 内。然后退出并重新登录就生效啦。sudo gpasswd -a ${USER} docker">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docker">
+<meta property="og:url" content="https://lyloou.github.io/devops/docker/index.html">
+<meta property="og:site_name" content="lyloou">
+<meta property="og:description" content="installwget -qO- https:&#x2F;&#x2F;get.docker.com | sh confighttps:&#x2F;&#x2F;www.jianshu.com&#x2F;p&#x2F;95e397570896｀｀｀ sh如果还没有 docker group 就添加一个：sudo groupadd docker 将用户加入该 group 内。然后退出并重新登录就生效啦。sudo gpasswd -a ${USER} docker">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://cdn.lyloou.com/img/docker-2021-09-17-10-38-19.png">
+<meta property="article:published_time" content="2018-06-04T09:16:15.000Z">
+<meta property="article:modified_time" content="2018-06-04T09:16:15.000Z">
+<meta property="article:author" content="lyloou">
+<meta property="article:tag" content="devops">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://cdn.lyloou.com/img/docker-2021-09-17-10-38-19.png">
+
+<link rel="canonical" href="https://lyloou.github.io/devops/docker/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Docker | lyloou</title>
+  
+    <script>
+      function sendPageView() {
+        if (CONFIG.hostname !== location.hostname) return;
+        var uid = localStorage.getItem('uid') || (Math.random() + '.' + Math.random());
+        localStorage.setItem('uid', uid);
+        navigator.sendBeacon('https://www.google-analytics.com/collect', new URLSearchParams({
+          v  : 1,
+          tid: 'UA-80542932-1',
+          cid: uid,
+          t  : 'pageview',
+          dp : encodeURIComponent(location.pathname)
+        }));
+      }
+      document.addEventListener('pjax:complete', sendPageView);
+      sendPageView();
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta custom-logo">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">lyloou</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/devops/docker/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lyloou">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Docker<a href="https://github.com/lyloou/lyloou.github.io/edit/source/source/_posts/devops/docker.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil-alt"></i></a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-06-04 17:16:15" itemprop="dateCreated datePublished" datetime="2018-06-04T17:16:15+08:00">2018-06-04</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/devops/docker/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/devops/docker/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="install"><a href="#install" class="headerlink" title="install"></a>install</h2><p>wget -qO- <a href="https://get.docker.com" target="_blank" rel="noopener">https://get.docker.com</a> | sh</p>
+<h2 id="config"><a href="#config" class="headerlink" title="config"></a>config</h2><p><a href="https://www.jianshu.com/p/95e397570896" target="_blank" rel="noopener">https://www.jianshu.com/p/95e397570896</a><br>｀｀｀ sh<br>如果还没有 docker group 就添加一个：<br>sudo groupadd docker</p>
+<p>将用户加入该 group 内。然后退出并重新登录就生效啦。<br>sudo gpasswd -a ${USER} docker</p>
+<p>重启 docker 服务<br>sudo service docker restart</p>
+<p>切换当前会话到新 group 或者重启 X 会话<br>newgrp - docker</p>
+<p>注意:最后一步是必须的，否则因为 groups 命令获取到的是缓存的组信息，刚添加的组信息未能生效，所以 docker images 执行时同样有错。<br>｀｀｀</p>
+<h2 id="加速器"><a href="#加速器" class="headerlink" title="加速器"></a>加速器</h2><p><a href="https://www.daocloud.io" target="_blank" rel="noopener">https://www.daocloud.io</a><br>config docker preference(registry-mirrors) :<br>for ubuntu</p>
+<blockquote>
+<p>curl -sSL <a href="https://get.daocloud.io/daotools/set_mirror.sh" target="_blank" rel="noopener">https://get.daocloud.io/daotools/set_mirror.sh</a> | sh -s <a href="http://6cde3c02.m.daocloud.io" target="_blank" rel="noopener">http://6cde3c02.m.daocloud.io</a><br>sudo systemctl restart docker.service</p>
+</blockquote>
+<blockquote>
+<p>curl -sSL <a href="https://get.daocloud.io/daotools/set_mirror.sh" target="_blank" rel="noopener">https://get.daocloud.io/daotools/set_mirror.sh</a> | sh -s <a href="http://d1d9aef0.m.daocloud.io" target="_blank" rel="noopener">http://d1d9aef0.m.daocloud.io</a></p>
+</blockquote>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs sh">docker run hello-world<br><br>docker run -it alpine sh<br><br>docker images<br><br>docker run -d -p 80:80 nginx<br>docker ps<br>docker <span class="hljs-built_in">kill</span> __id__<br><br>docker run -d -p 9200:9200 elasticsearch<br>docker logs __id__<br></code></pre></td></tr></table></figure>
+
+<h2 id="Docker-中文教程-Docker-开发中文手册-PDF-下载-极客学院-Wiki"><a href="#Docker-中文教程-Docker-开发中文手册-PDF-下载-极客学院-Wiki" class="headerlink" title="Docker 中文教程_Docker 开发中文手册[PDF]下载-极客学院 Wiki"></a><a href="http://wiki.jikexueyuan.com/project/docker/" target="_blank" rel="noopener">Docker 中文教程_Docker 开发中文手册[PDF]下载-极客学院 Wiki</a></h2><p><code>-d</code>: 标示是让 docker 容器在后台运行。<br><code>-P</code>: 标示 Docker 所需的端口映射从主机映射到我们的容器内。<br><code>-t</code>: 表示在新容器内指定一个伪终端或终端，<br><code>-i</code>: 表示允许我们对容器内的 STDIN 进行交互。<br><code>-p</code>: 标识来指定容器端口绑定到主机端口 &gt; <code>sudo docker run -d -p 5000:5000 training/webapp python app.py</code> &gt; <code>sudo ocker port nostalgic_morse 5000</code> &gt; <a href="https://wiki.jikexueyuan.com/project/docker/userguide/dockerlinks.html" target="_blank" rel="noopener">https://wiki.jikexueyuan.com/project/docker/userguide/dockerlinks.html</a></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sh">sudo docker run -t -i training/sinatra /bin/bash<br>sudo docker commit -m=<span class="hljs-string">"Added json gem"</span> -a=<span class="hljs-string">"Lou Li"</span> \<br>    9e4dcef3e152 lyloou/sinatra:v2<br>    4f177bd27a9ff0f6dc2a830403925b5360bfe0b93d476f7fc3231110e7f71b1c<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sh">sudo docker build -t=<span class="hljs-string">"lyloou/sinatra:v2"</span> .<br>sudo docker tag 5db5f8471261 lyloou/sinatra:devel<br>sudo docker push lyloou/sinatra<br>sudo docker rmi lyloou/sinatra<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># http://wiki.jikexueyuan.com/project/docker/examples/nodejs_web_app.html</span><br><span class="hljs-comment"># run in background</span><br>sudo docker run -p 49161:8080 -d lyloou/centos-node-hello:latest<br><br><span class="hljs-comment"># https://askubuntu.com/questions/505506/how-to-get-bash-or-ssh-into-a-running-container-in-background-mode</span><br>sudo docker <span class="hljs-built_in">exec</span> -it f3b /bin/bash<br></code></pre></td></tr></table></figure>
+
+<h2 id="数据持久化"><a href="#数据持久化" class="headerlink" title="数据持久化"></a>数据持久化</h2><p>如果需要数据持久化，可以使用数据卷机制。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">docker run -p 8080:8080 -p 50000:50000 -v /your/home:/var/jenkins_home jenkins<br></code></pre></td></tr></table></figure>
+
+<p>or</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">docker volume create --name jenkins_home<br>docker run -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home jenkins/jenkins:lts<br></code></pre></td></tr></table></figure>
+
+<h2 id="docker-compose"><a href="#docker-compose" class="headerlink" title="docker-compose"></a>docker-compose</h2><h3 id="install-and-run"><a href="#install-and-run" class="headerlink" title="install and run"></a>install and run</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs sh">pip install docker-compose<br><br><span class="hljs-comment"># create file docker-compose.yml</span><br><span class="hljs-comment"># run</span><br>docker-compose up<br></code></pre></td></tr></table></figure>
+
+<h3 id="uninstall-and-remove"><a href="#uninstall-and-remove" class="headerlink" title="uninstall and remove"></a>uninstall and remove</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># Stop and remove containers, networks, images, and volumes</span><br>docker-compose down<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># 获取docker服务地址</span><br>[root@iZj6c9zr2mst7l8t6ardbkZ ~]<span class="hljs-comment"># cat show_ip.sh</span><br><span class="hljs-comment">#/bin/bash</span><br>docker inspect --format=<span class="hljs-string">'&#123;&#123;.Name&#125;&#125; - &#123;&#123;range .NetworkSettings.Networks&#125;&#125;&#123;&#123;.IPAddress&#125;&#125;&#123;&#123;end&#125;&#125;'</span> $(docker ps -aq)<br><br>[root@iZj6c9zr2mst7l8t6ardbkZ ~]<span class="hljs-comment"># ./show_ip.sh</span><br>/nginx - 172.18.0.8<br>/reward - 172.18.0.4<br>/web - 172.18.0.14<br>/app - 172.18.0.7<br>/check - 172.18.0.13<br>/exapi - 172.18.0.3<br>/coin - 172.18.0.12<br>/api - 172.18.0.5<br>/trade - 172.18.0.9<br>/admin - 172.18.0.11<br>/service - 172.18.0.6<br>/rabbitmq - 172.18.0.17<br>/redis2 - 172.18.0.2<br>/zookeeper - 172.18.0.15<br>/redis1 - 172.18.0.10<br>/mysql - 172.18.0.16<br>/nexus3 - 172.17.0.2<br></code></pre></td></tr></table></figure>
+
+<h2 id="网络管理"><a href="#网络管理" class="headerlink" title="网络管理"></a>网络管理</h2><p><a href="https://blog.csdn.net/benpaodelulu_guajian/article/details/90546129" target="_blank" rel="noopener">Docker 错误集合_挂件-CSDN 博客_error: pool overlaps with other one on this addres</a><br>查看 docker 网卡</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">docker<span class="hljs-built_in"> network </span>ls<br></code></pre></td></tr></table></figure>
+
+<p>查看 docker 网卡的相关详细信息 确认是自己创建的 ip 段 然后在删除相应的网卡</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">docker<span class="hljs-built_in"> network </span>inspect <span class="hljs-variable">$&#123;containerid&#125;</span><br></code></pre></td></tr></table></figure>
+
+<p>删除 docker 网卡</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">docker<span class="hljs-built_in"> network </span>rm <span class="hljs-variable">$&#123;containerid&#125;</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="清除日志"><a href="#清除日志" class="headerlink" title="清除日志"></a>清除日志</h2><p><a href="https://stackoverflow.com/a/43570083" target="_blank" rel="noopener">https://stackoverflow.com/a/43570083</a></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">truncate -s 0 /var/lib/docker/containers/*/*-json.log<br></code></pre></td></tr></table></figure>
+
+<h2 id="查看日志"><a href="#查看日志" class="headerlink" title="查看日志"></a>查看日志</h2><p><a href="https://blog.csdn.net/jiangyu1013/article/details/96147534" target="_blank" rel="noopener">https://blog.csdn.net/jiangyu1013/article/details/96147534</a></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs sh">docker logs -f -t --since=<span class="hljs-string">"2017-05-31"</span> --tail=10 edu_web_1<br>docker logs --tail 1 26b12d17fefc<br>docker logs -t 26b12d17fefc<br><br>docker logs [OPTIONS] CONTAINER<br><br>Options:<br><br>--details 显示更多的信息<br><br>-f, --follow 实时输出日志，最后一行为当前时间戳的日志<br><br>--since string 输出日志开始日期，即只输出指定日期之后的日志。<br><br>--tail string 显示最后多少行日志， 默认是all<br>            （如： -tail=10 : 查看最后的 10 行日志。）<br><br>-t, --timestamps 显示时间戳<br></code></pre></td></tr></table></figure>
+
+<h2 id="搭建私有仓库"><a href="#搭建私有仓库" class="headerlink" title="搭建私有仓库"></a>搭建私有仓库</h2><p><a href="https://yeasy.gitbook.io/docker_practice/repository/registry" target="_blank" rel="noopener">https://yeasy.gitbook.io/docker_practice/repository/registry</a></p>
+<h2 id="停止"><a href="#停止" class="headerlink" title="停止"></a>停止</h2><p>docker stop $(docker ps -aq)</p>
+<h2 id="docker-compose-1"><a href="#docker-compose-1" class="headerlink" title="docker-compose"></a>docker-compose</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sh">docker-compose ps<br>docker-compose up -d<br>docker-compose down<br>docker-compose down -v<br>docker-compose start ce-kafka<br>docker-compose <span class="hljs-built_in">exec</span> ce-kafka bash<br></code></pre></td></tr></table></figure>
+
+<p><img src="http://cdn.lyloou.com/img/docker-2021-09-17-10-38-19.png" alt="docker-2021-09-17-10-38-19"><br><a href="https://docs.docker.com/compose/reference/down/" target="_blank" rel="noopener">https://docs.docker.com/compose/reference/down/</a></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># rebuild demo-admin</span><br>docker-compose stop demo-admin &amp;&amp; docker-compose rm -f demo-admin<br>docker-compose build demo-admin &amp;&amp; docker-compose up -d demo-admin<br><span class="hljs-built_in">echo</span> <span class="hljs-string">"rebuild demo-admin success."</span><br></code></pre></td></tr></table></figure>
+<h2 id="宿主机与容器之前的复制"><a href="#宿主机与容器之前的复制" class="headerlink" title="宿主机与容器之前的复制"></a>宿主机与容器之前的复制</h2><p>容器到宿主机：<code>docker cp container_name:/opt/abc.txt /tmp/</code><br>宿主机到容器：<code>docker cp /tmp/abc.txt container_name:/opt/</code><br>不论容器是否启动，都可以执行上面的命令</p>
+<h2 id="查看容器信息"><a href="#查看容器信息" class="headerlink" title="查看容器信息"></a>查看容器信息</h2><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">docker inspect aafbdd</span><br></code></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/devops/elk/" rel="bookmark">ELK环境部署</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/devops/jenkins/" rel="bookmark">Jenkins</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/devops/ngrok/" rel="bookmark">Ngrok搭建</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/devops/security/" rel="bookmark">安全</a></div>
+    </li>
+  </ul>
+
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
+            <span class="icon">
+              <i class="wechat"></i>
+            </span>
+
+            <span class="label">WeChat</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/devops/" rel="tag"># devops</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/js/weex/" rel="prev" title="Weex">
+      <i class="fa fa-chevron-left"></i> Weex
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/java/maven/" rel="next" title="Maven">
+      Maven <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#install"><span class="nav-number">1.</span> <span class="nav-text">install</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#config"><span class="nav-number">2.</span> <span class="nav-text">config</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#加速器"><span class="nav-number">3.</span> <span class="nav-text">加速器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#示例"><span class="nav-number">4.</span> <span class="nav-text">示例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker-中文教程-Docker-开发中文手册-PDF-下载-极客学院-Wiki"><span class="nav-number">5.</span> <span class="nav-text">Docker 中文教程_Docker 开发中文手册[PDF]下载-极客学院 Wiki</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据持久化"><span class="nav-number">6.</span> <span class="nav-text">数据持久化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#docker-compose"><span class="nav-number">7.</span> <span class="nav-text">docker-compose</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#install-and-run"><span class="nav-number">7.1.</span> <span class="nav-text">install and run</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#uninstall-and-remove"><span class="nav-number">7.2.</span> <span class="nav-text">uninstall and remove</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网络管理"><span class="nav-number">8.</span> <span class="nav-text">网络管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#清除日志"><span class="nav-number">9.</span> <span class="nav-text">清除日志</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看日志"><span class="nav-number">10.</span> <span class="nav-text">查看日志</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建私有仓库"><span class="nav-number">11.</span> <span class="nav-text">搭建私有仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#停止"><span class="nav-number">12.</span> <span class="nav-text">停止</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#docker-compose-1"><span class="nav-number">13.</span> <span class="nav-text">docker-compose</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#宿主机与容器之前的复制"><span class="nav-number">14.</span> <span class="nav-text">宿主机与容器之前的复制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看容器信息"><span class="nav-number">15.</span> <span class="nav-text">查看容器信息</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="lyloou"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">lyloou</p>
+  <div class="site-description" itemprop="description">/* Better than last best */</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">311</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">56</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/lyloou" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;lyloou" rel="noopener" target="_blank">GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:lyloou6@gmail.com" title="E-Mail → mailto:lyloou6@gmail.com" rel="noopener" target="_blank">E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/lyloou" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;lyloou" rel="noopener" target="_blank">Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/ly1414725328" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;ly1414725328" rel="noopener" target="_blank">CSDN</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">粤ICP备18151128号 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lyloou</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : true,
+      appId      : 'yhivNNDDoank7qFbmyEj9Ldq-gzGzoHsz',
+      appKey     : 'QuFu2ooibSzW1Q8eTrmPLyPw',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>

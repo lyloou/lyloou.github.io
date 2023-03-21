@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="zh-CN,zh-HK,zh-TW,en,default">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"lyloou.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="基本操作C 添加到版本控制: git add filename.md 添加描述并提交： git commit -m &quot;first init&quot;  R 查看图形 log：git log --graph 查看单行 log：git log --pretty&#x3D;oneline 查看分支合并情况：git log --graph --pretty&#x3D;oneline --abbrev-commit">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git命令">
+<meta property="og:url" content="https://lyloou.github.io/git/git%E5%91%BD%E4%BB%A4/index.html">
+<meta property="og:site_name" content="lyloou">
+<meta property="og:description" content="基本操作C 添加到版本控制: git add filename.md 添加描述并提交： git commit -m &quot;first init&quot;  R 查看图形 log：git log --graph 查看单行 log：git log --pretty&#x3D;oneline 查看分支合并情况：git log --graph --pretty&#x3D;oneline --abbrev-commit">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2016-07-12T00:17:25.000Z">
+<meta property="article:modified_time" content="2016-07-12T00:17:25.000Z">
+<meta property="article:author" content="lyloou">
+<meta property="article:tag" content="git">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://lyloou.github.io/git/git%E5%91%BD%E4%BB%A4/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Git命令 | lyloou</title>
+  
+    <script>
+      function sendPageView() {
+        if (CONFIG.hostname !== location.hostname) return;
+        var uid = localStorage.getItem('uid') || (Math.random() + '.' + Math.random());
+        localStorage.setItem('uid', uid);
+        navigator.sendBeacon('https://www.google-analytics.com/collect', new URLSearchParams({
+          v  : 1,
+          tid: 'UA-80542932-1',
+          cid: uid,
+          t  : 'pageview',
+          dp : encodeURIComponent(location.pathname)
+        }));
+      }
+      document.addEventListener('pjax:complete', sendPageView);
+      sendPageView();
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta custom-logo">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">lyloou</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/git/git%E5%91%BD%E4%BB%A4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lyloou">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Git命令<a href="https://github.com/lyloou/lyloou.github.io/edit/source/source/_posts/git/git%E5%91%BD%E4%BB%A4.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil-alt"></i></a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-07-12 08:17:25" itemprop="dateCreated datePublished" datetime="2016-07-12T08:17:25+08:00">2016-07-12</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/git/git%E5%91%BD%E4%BB%A4/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/git/git%E5%91%BD%E4%BB%A4/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><ul>
+<li>添加到版本控制: <code>git add filename.md</code></li>
+<li>添加描述并提交： <code>git commit -m &quot;first init&quot;</code></li>
+</ul>
+<h3 id="R"><a href="#R" class="headerlink" title="R"></a>R</h3><ul>
+<li>查看图形 log：<code>git log --graph</code></li>
+<li>查看单行 log：<code>git log --pretty=oneline</code></li>
+<li>查看分支合并情况：<code>git log --graph --pretty=oneline --abbrev-commit</code></li>
+<li>查看工作区和版本库最新版本的区别： <code>git diff HEAD -- test.xml</code></li>
+<li><a href="#shortlog">列出每个人的最近 commit 记录：<code>git shortlog</code></a></li>
+<li>列出每个人的 commit 次数：<code>git shortlog -sne</code></li>
+</ul>
+<h3 id="U"><a href="#U" class="headerlink" title="U"></a>U</h3><ul>
+<li>修改提交信息：<code>git commit --amend</code></li>
+<li>取消添加（git add .）的命令：<code>git reset HEAD test.xml</code></li>
+</ul>
+<h3 id="D"><a href="#D" class="headerlink" title="D"></a>D</h3><ul>
+<li>移除工作空间的文件： <code>git rm test.xml</code></li>
+<li>丢弃工作区的修改： <code>git checkout -- test.xml</code>，其中<code>--</code>很重要，没有这个<code>--</code>，就变成了“切换到另一个分支”。</li>
+</ul>
+<h3 id="RESET"><a href="#RESET" class="headerlink" title="RESET"></a>RESET</h3><ul>
+<li><p>将 HEAD 指向到某个版本： <code>git reset --hard commit_id</code></p>
+</li>
+<li><p>重返未来，用<code>git reflog</code>查看命令历史，以便回到未来的那个版本。</p>
+</li>
+<li><p>git reset 后丢弃远程的提交</p>
+<blockquote>
+<p><a href="https://segmentfault.com/q/1010000002898735" target="_blank" rel="noopener">github - git 怎样删除远程仓库的某次错误提交？ - SegmentFault</a></p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">log</span> <span class="hljs-comment"># 获取log的某次提交commit id</span><br>git reset --hard 0301382 <span class="hljs-comment"># 回退到0301382</span><br>git push --force <span class="hljs-comment"># 强制推送到服务器端</span><br></code></pre></td></tr></table></figure></li>
+<li><p>Git 撤销 git commit 但是未 git push 的修改<br><code>git reset commit_id</code></p>
+<blockquote>
+<p><a href="https://blog.csdn.net/winceos/article/details/22797437" target="_blank" rel="noopener">Git 撤销 git commit 但是未 git push 的修改</a></p>
+</blockquote>
+</li>
+<li><p><a href="https://blog.csdn.net/a478555/article/details/50970930" target="_blank" rel="noopener">撤销一次分支的合并 Merge</a></p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">git <span class="hljs-keyword">reset</span> <span class="hljs-comment">--hard HEAD~</span><br></code></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>How can I undo those commits from the local repository?<br><a href="https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git" target="_blank" rel="noopener">https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git</a></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">git reset HEAD~<br></code></pre></td></tr></table></figure>
+
+<h2 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h2><ul>
+<li><p>移除远程仓库： <code>git remote remove origin</code></p>
+</li>
+<li><p>添加远程仓库： <code>git remote add origin git@github.com:lyloou/lou.git</code></p>
+</li>
+<li><p><a href="https://github.com/doggy8088/Learn-Git-in-30-days/blob/master/zh-tw/25.md#註冊遠端儲存庫" target="_blank" rel="noopener">添加多个远程仓库： <code>git remote add jquery https://github.com/jquery/jquery.git</code></a></p>
+</li>
+<li><p>远程主机改名： <code>git remote rename &lt;原主机名&gt; &lt;新主机名&gt;</code></p>
+</li>
+<li><p>删除远程主机： <code>git remote rm &lt;主机名&gt;</code></p>
+</li>
+<li><p>显示远程主机详细信息： <code>git remote show &lt;主机名&gt;</code></p>
+</li>
+<li><p>提交到远程仓库： <code>git push -u origin master</code></p>
+<blockquote>
+<p>由于远程库是空的，我们第一次推送 master 分支时，加上了-u 参数，Git 不但会把本地的 master 分支内容推送的远程新的<br>master 分支，还会把本地的 master 分支和远程的 master 分支关联起来，在以后的推送或者拉取时就可以简化命令<br>（<code>git push origin master</code>）。<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/0013752340242354807e192f02a44359908df8a5643103a000" target="_blank" rel="noopener">http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/0013752340242354807e192f02a44359908df8a5643103a000</a></p>
+</blockquote>
+</li>
+<li><p><a href="https://github.com/doggy8088/Learn-Git-in-30-days/blob/master/zh-tw/24.md#直接將現有的本地-git-儲存庫上傳到指定的-github-專案" target="_blank" rel="noopener">拉取并且合并远程分支：<code>git pull origin master --allow-unrelated-histories</code></a></p>
+</li>
+<li><p>删除远程文件夹或文件，但是本地还保留着： <code>git rm -r --cached dir2</code> (<code>-r</code>参数，表示递归删除文件夹的内容)</p>
+<blockquote>
+<p><a href="https://stackoverflow.com/questions/1274057/how-to-make-git-forget-about-a-file-that-was-tracked-but-is-now-in-gitignore" target="_blank" rel="noopener">https://stackoverflow.com/questions/1274057/how-to-make-git-forget-about-a-file-that-was-tracked-but-is-now-in-gitignore</a></p>
+</blockquote>
+</li>
+<li><p>删除远程文件夹或文件，但是本地还保留着（展示要删除的文件，不是真的删除）： <code>git rm -r -n --cached dir2</code></p>
+</li>
+<li><p><code>pull = fetch + merge</code></p>
+<blockquote>
+<p><a href="https://ruby-china.org/topics/15729" target="_blank" rel="noopener">git pull 和 git fetch 有什么区别？</a> &gt; <a href="http://blog.kainaodong.com/?p=12" target="_blank" rel="noopener">git 查看远程版本库和本地库的差异 | 星辰</a></p>
+</blockquote>
+</li>
+<li><p>直接修改远程仓库 url</p>
+<blockquote>
+<p><code>git remote set-url origin git:new.url.here</code><br>See this question: <a href="http://stackoverflow.com/questions/16330404/how-to-remove-remote-origin-from-git-repo/16330439" target="_blank" rel="noopener">Change the URI (URL) for a remote Git repository - Stack Overflow</a></p>
+</blockquote>
+</li>
+<li><p>clone repo with its submodule (use the –recursive argument)</p>
+<blockquote>
+<p>git clone –recursive <a href="mailto:git@github.com">git@github.com</a>:rbind/yihui.git<br><a href="https://yihui.name/cn/2017/03/git-submodule/" target="_blank" rel="noopener">https://yihui.name/cn/2017/03/git-submodule/</a></p>
+</blockquote>
+<ul>
+<li>如果克隆库的时候要初始化子模块，请加上 –recursive 参数，如：<br>git clone –recursive <a href="mailto:git@github.com">git@github.com</a>:rbind/yihui.git</li>
+<li>如果已经克隆了主库但没初始化子模块，则用：<br>git submodule update –init –recursive</li>
+<li>如果已经克隆并初始化子模块，而需要从子模块的源更新这个子模块，则：<br>git submodule update –recursive –remote</li>
+<li>如果要向一个库中添加一个新的子模块，可以用 git submodule add<br>git submodule add <a href="https://github.com/yihui/hugo-lithium-theme.git" target="_blank" rel="noopener">https://github.com/yihui/hugo-lithium-theme.git</a> themes/hugo-lithium-theme</li>
+</ul>
+</li>
+</ul>
+<h2 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h2><h3 id="创建空白分支"><a href="#创建空白分支" class="headerlink" title="创建空白分支"></a><a href="https://blog.csdn.net/playboyanta123/article/details/48975175" target="_blank" rel="noopener">创建空白分支</a></h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">git checkout --orphan gh-pages<br></code></pre></td></tr></table></figure>
+
+<h3 id="delete-a-git-branch-both-locally-and-remotely"><a href="#delete-a-git-branch-both-locally-and-remotely" class="headerlink" title="delete a git branch both locally and remotely."></a>delete a git branch both locally and remotely.</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">$ git push --delete &lt;remote_name&gt; &lt;branch_name&gt;<br>$ git branch -d &lt;branch_name&gt;<br><span class="hljs-comment"># (https://stackoverflow.com/questions/2003505/how-do-i-delete-a-git-branch-both-locally-and-remotely)</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="本地分支"><a href="#本地分支" class="headerlink" title="本地分支"></a>本地分支</h3><ul>
+<li>删除本地分支：<code>git branch -d {the_local_branch}</code></li>
+</ul>
+<h3 id="远程分支"><a href="#远程分支" class="headerlink" title="远程分支"></a>远程分支</h3><ul>
+<li><p>添加本地分支到远程分支，并关联：<code>git push -u origin develop</code></p>
+<blockquote>
+<p><a href="https://stackoverflow.com/questions/2765421/how-do-i-push-a-new-local-branch-to-a-remote-git-repository-and-track-it-too" target="_blank" rel="noopener">https://stackoverflow.com/questions/2765421/how-do-i-push-a-new-local-branch-to-a-remote-git-repository-and-track-it-too</a></p>
+</blockquote>
+</li>
+<li><p>创建远程 origin 的 dev 分支到本地：<code>git checkout -b dev origin/dev</code></p>
+</li>
+<li><p>指定本地 dev 分支与远程 origin/dev 分支的链接：<code>git branch --set-upstream dev origin/dev</code></p>
+</li>
+<li><p><code>git clone</code>默认会把远程仓库整个克隆下来，但只会创建<code>master</code>分支，如果远程还有其他分支，可以通过下面的方式 clone 分支。</p>
+<ul>
+<li>将远程分支获取至本地仓库：git checkout -b python_mail.skin origin/python_mail.skin</li>
+<li>使用-t 参数，它默认会在本地建立一个和远程分支名字一样的分支：git checkout -t origin/python_mail.skin</li>
+<li><a href="http://blog.csdn.net/xqs83/article/details/7382074" target="_blank" rel="noopener">git clone 远程分支 - xqs83 的专栏 - 博客频道 - CSDN.NET</a></li>
+</ul>
+</li>
+<li><p>在<code>git pull</code>之前，本地分支关联远程分支：<code>git branch --set-upstream feature-A origin/feature-A</code></p>
+<ul>
+<li><a href="http://blog.csdn.net/xqs83/article/details/17361201" target="_blank" rel="noopener">git 新建本地分支自动与远程分支关联 - xqs83 的专栏 - 博客频道 - CSDN.NET</a></li>
+</ul>
+</li>
+<li><p>提交分支：<code>git push origin feature-A:feature-A</code></p>
+</li>
+<li><p>删除远程分支：<code>git push origin :feature-A</code></p>
+</li>
+<li><p>删除远程分支：<code>git push --delete {the_remote_branch}</code></p>
+</li>
+<li><p>克隆指定分支：<code>git clone -b rryp https://github.com/bmfe/eros-nexus.git &quot;nexus&quot; --depth=1</code></p>
+</li>
+</ul>
+<h3 id="合并-merge-amp-rebase"><a href="#合并-merge-amp-rebase" class="headerlink" title="合并 merge &amp; rebase"></a>合并 merge &amp; rebase</h3><ul>
+<li><p><a href="https://git-scm.com/docs/git-merge" target="_blank" rel="noopener">Git - git-merge Documentation</a></p>
+<blockquote>
+<p>If there were uncommitted worktree changes present when the merge started,<br><code>git merge --abort</code> will in some cases be unable to reconstruct these changes<br>It is therefore recommended to always commit or stash your changes before running git merge.</p>
+</blockquote>
+</li>
+<li><p><a href="http://lemonup.logdown.com/posts/166352-git-merge-fast-forward-difference" target="_blank" rel="noopener">Git merge 時使用 fast-forward 的差別</a></p>
+</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># 我要新增一個功能，所以在master上開一個branch叫feature1。</span><br><span class="hljs-comment"># 我在新增功能時，加了3個commit在feature1中。</span><br><span class="hljs-comment"># 當功能開發完成時，checkout回master，要將 feature1合併回master，這時可以有兩個選擇：</span><br><br><span class="hljs-comment"># 选择1：master會將feature1上的3個commit全視為master的commit，並將HEAD移到跟feature1的HEAD相同的commit上。</span><br>git merge --ff feature1<br><br><span class="hljs-comment"># 选择2：master會新增一個commit，內容為feature1上的改變，並將HEAD移到新的commit上。</span><br>git merge --no-ff feature1<br><br><span class="hljs-comment"># 至於該使用哪種方式，就要看個人需求了，如果是新增功能的branch，個人認為使用non-fast-forward的方式比較好。</span><br><span class="hljs-comment"># 這樣可以很清楚的看出哪些是新增功能用的commit，哪些是原本master的commit。master才不會有太多不相干的commit交錯在一起。</span><br><span class="hljs-comment"># 而且master要移除功能時，也只要處理一個commit就可以了。</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><a href="https://backlog.com/git-tutorial/cn/stepup/stepup1_4.html" target="_blank" rel="noopener">分支的合并【分支】| 猴子都能懂的 GIT 入门 | 贝格乐（Backlog）</a></li>
+</ul>
+<h2 id="remove-untracked-files"><a href="#remove-untracked-files" class="headerlink" title="remove untracked files"></a>remove untracked files</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git clean -d -f<br>$ git clean --<span class="hljs-built_in">help</span><br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p><a href="https://stackoverflow.com/questions/61212/how-to-remove-local-untracked-files-from-the-current-git-working-tree" target="_blank" rel="noopener">branch - How to remove local (untracked) files from the current Git working tree? - Stack Overflow</a></p>
+</blockquote>
+<h2 id="git-stash"><a href="#git-stash" class="headerlink" title="git stash"></a>git stash</h2><ul>
+<li><p>Git 还提供了一个 stash 功能，可以把当前工作状态“储藏”起来，等以后恢复现场后继续工作。</p>
+</li>
+<li><p>查看 stash 的列表：<code>git stash list</code></p>
+</li>
+<li><p>恢复：<code>git stash pop</code> 或者 <code>git stash apply</code></p>
+<blockquote>
+<p>一是用 git stash apply 恢复，但是恢复后，stash 内容并不删除，你需要用 git stash drop 来删除；<br>另一种方式是用 git stash pop，恢复的同时把 stash 内容也删了：</p>
+</blockquote>
+</li>
+<li><p>参考资料：<br><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/00137602359178794d966923e5c4134bc8bf98dfb03aea3000" target="_blank" rel="noopener">Bug 分支</a></p>
+</li>
+</ul>
+<h2 id="添加注释的技巧"><a href="#添加注释的技巧" class="headerlink" title="添加注释的技巧"></a>添加注释的技巧</h2><p>参考<code>golang.org/x/net</code>的提交日志：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs sh">* 92b859f - ipv6: update icmp parameters (4 days ago) &lt;Mikio Hara&gt;<br>* 344b2e3 - ipv4: update icmp parameters (4 days ago) &lt;Mikio Hara&gt;<br>* 08b7f81 - internal/iana: add address family number constants (4 days ago) &lt;Mikio Hara&gt;<br>* a4c73ec - icmp: use subtests (4 days ago) &lt;Mikio Hara&gt;<br>* 24dd378 - dns/dnsmessage: reject compressed SRV resource records (6 days ago) &lt;Ian Gudger&gt;<br>* e0c57d8 - CONTRIBUTING.md: remove note about not accepting Pull Requests (9 days ago) &lt;Andrew Bonventre&gt;<br>* 892bf7b - dns/dnsmessage: correctly handle multiple and &gt;255 byte TXT records (10 days ago) &lt;Ian Gudger&gt;<br>* 803fdb9 - ipv4, ipv6, icmp, internal/socket: fix build on netbsd/arm (10 days ago) &lt;Mikio Hara&gt;<br>* ae89d30 - route: avoid unnecessary <span class="hljs-built_in">type</span> conversions (12 days ago) &lt;namusyaka&gt;<br>* d0aafc7 - trace: fix races on concurrent Trace method calls (2 weeks ago) &lt;David Howden&gt;<br></code></pre></td></tr></table></figure>
+
+<p>名称最好简洁、准确，<br>可以总结：<code>模块: 动词 + 名词；</code><br>动词：</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs asciidoc"><span class="hljs-bullet">- </span>add<br><span class="hljs-bullet">- </span>update<br><span class="hljs-bullet">- </span>fix<br><span class="hljs-bullet">- </span>remove<br><span class="hljs-bullet">- </span>simply<br><span class="hljs-bullet">- </span>enable<br><span class="hljs-bullet">- </span>disable<br><span class="hljs-bullet">- </span>rename<br></code></pre></td></tr></table></figure>
+
+<h2 id="delete-all-tags"><a href="#delete-all-tags" class="headerlink" title="delete all tags"></a><a href="https://stackoverflow.com/questions/19542301/delete-all-tags-from-a-git-repository" target="_blank" rel="noopener">delete all tags</a></h2><p>To delete remote tags (before deleting local tags) simply do:</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">git <span class="hljs-keyword">tag</span> <span class="hljs-title">-l</span> | grep v2 -v | xargs -n <span class="hljs-number">1</span> git push --delete origin<br></code></pre></td></tr></table></figure>
+
+<p>and then delete the local copies:</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">git <span class="hljs-keyword">tag</span> <span class="hljs-title">-l</span> | grep v2 -v | xargs git <span class="hljs-keyword">tag</span> <span class="hljs-title">-d</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="How-do-you-rename-a-Git-tag"><a href="#How-do-you-rename-a-Git-tag" class="headerlink" title="How do you rename a Git tag?"></a><a href="https://stackoverflow.com/questions/1028649/how-do-you-rename-a-git-tag" target="_blank" rel="noopener">How do you rename a Git tag?</a></h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sh">git tag new old<br>git tag -d old<br>git push origin :refs/tags/old<br>git push --tags<br><br>git pull --prune --tags <span class="hljs-comment"># Finally, make sure that the other users remove the deleted tag. Please tell them (co-workers) to run the following command</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="Remove-a-file-from-a-Git-repository-without-deleting-it-from-the-local-filesystem"><a href="#Remove-a-file-from-a-Git-repository-without-deleting-it-from-the-local-filesystem" class="headerlink" title="Remove a file from a Git repository without deleting it from the local filesystem"></a><a href="https://stackoverflow.com/questions/1143796/remove-a-file-from-a-git-repository-without-deleting-it-from-the-local-filesyste" target="_blank" rel="noopener">Remove a file from a Git repository without deleting it from the local filesystem</a></h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># For single file:</span><br>git rm --cached mylogfile.log<br><br><span class="hljs-comment"># For single directory:</span><br>git rm --cached -r mydirectory<br></code></pre></td></tr></table></figure>
+
+<h2 id="git-delete-remotes-remote-refs-do-not-exist-Stack-Overflow"><a href="#git-delete-remotes-remote-refs-do-not-exist-Stack-Overflow" class="headerlink" title="git delete remotes: remote refs do not exist - Stack Overflow"></a><a href="https://stackoverflow.com/questions/32147093/git-delete-remotes-remote-refs-do-not-exist" target="_blank" rel="noopener">git delete remotes: remote refs do not exist - Stack Overflow</a></h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># You may need to prune your local "cache" of remote branches first. Try running:</span><br>git fetch -p origin<br><span class="hljs-comment"># or</span><br>git fetch --prune origin<br></code></pre></td></tr></table></figure>
+
+<h2 id="How-to-revert-multiple-git-commits-Stack-Overflow"><a href="#How-to-revert-multiple-git-commits-Stack-Overflow" class="headerlink" title="How to revert multiple git commits? - Stack Overflow"></a><a href="https://stackoverflow.com/questions/1463340/how-to-revert-multiple-git-commits" target="_blank" rel="noopener">How to revert multiple git commits? - Stack Overflow</a></h2><p><em>Expanding what I wrote in a comment</em></p>
+<p>The general rule is that you should not rewrite (change) history that you have published, because somebody might have based their work on it. If you rewrite (change) history, you would make problems with merging their changes and with updating for them.</p>
+<p>So the solution is to create a <em>new commit</em> which <strong>reverts changes</strong> that you want to get rid of. You can do this using <a href="http://www.kernel.org/pub/software/scm/git/docs/git-revert.html" target="_blank" rel="noopener">git revert</a> command.</p>
+<p>You have the following situation:</p>
+<figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs brainfuck"><span class="hljs-comment">A</span> &lt;-- <span class="hljs-comment">B</span>  &lt;-- <span class="hljs-comment">C</span> &lt;-- <span class="hljs-comment">D</span>                                  &lt;-- <span class="hljs-comment">master</span> &lt;-- <span class="hljs-comment">HEAD</span><br></code></pre></td></tr></table></figure>
+
+<p>(arrows here refers to the direction of the pointer: the “parent” reference in the case of commits, the top commit in the case of branch head (branch ref), and the name of branch in the case of HEAD reference).</p>
+<p>What you need to create is the following:</p>
+<figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs brainfuck"><span class="hljs-comment">A</span> &lt;-- <span class="hljs-comment">B</span>  &lt;-- <span class="hljs-comment">C</span> &lt;-- <span class="hljs-comment">D</span> &lt;-- <span class="hljs-title">[</span><span class="hljs-comment">(BCD)</span><span class="hljs-literal">-</span><span class="hljs-comment">1</span><span class="hljs-title">]</span>                   &lt;-- <span class="hljs-comment">master</span> &lt;-- <span class="hljs-comment">HEAD</span><br></code></pre></td></tr></table></figure>
+
+<p>where <code>[(BCD)^-1]</code> means the commit that reverts changes in commits B, C, D. Mathematics tells us that (BCD)-1 = D-1 C-1 B-1, so you can get the required situation using the following commands:</p>
+<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs gams"><span class="hljs-symbol">$</span> git revert --<span class="hljs-keyword">no</span>-commit D<br><span class="hljs-symbol">$</span> git revert --<span class="hljs-keyword">no</span>-commit C<br><span class="hljs-symbol">$</span> git revert --<span class="hljs-keyword">no</span>-commit B<br><span class="hljs-symbol">$</span> git commit -m <span class="hljs-string">"the commit message for all of them"</span><br></code></pre></td></tr></table></figure>
+
+<p>Works for everything except merge commits.</p>
+<hr>
+<p>Alternate solution would be to <a href="http://git-scm.com/docs/git-checkout" target="_blank" rel="noopener">checkout</a> <em>contents</em> of commit A, and commit this state. Also works with merge commits. Added files will not be deleted, however. If you have any local changes <code>git stash</code> them first:</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs elixir"><span class="hljs-variable">$ </span>git checkout -f A -- . <span class="hljs-comment"># checkout that revision over the top of local files</span><br><span class="hljs-variable">$ </span>git commit -a<br></code></pre></td></tr></table></figure>
+
+<p>Then you would have the following situation:</p>
+<figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs brainfuck"><span class="hljs-comment">A</span> &lt;-- <span class="hljs-comment">B</span>  &lt;-- <span class="hljs-comment">C</span> &lt;-- <span class="hljs-comment">D</span> &lt;-- <span class="hljs-comment">A'</span>                       &lt;-- <span class="hljs-comment">master</span> &lt;-- <span class="hljs-comment">HEAD</span><br></code></pre></td></tr></table></figure>
+
+<p>The commit A’ has the same contents as commit A, but is a different commit (commit message, parents, commit date).</p>
+<hr>
+<p>Alternate <a href="https://stackoverflow.com/questions/1463340/revert-multiple-git-commits/1463390#comment1312779_1463390" target="_blank" rel="noopener">solution by Jeff Ferland, modified by Charles Bailey</a> builds upon the same idea, but uses <a href="https://www.kernel.org/pub/software/scm/git/docs/git-reset.html" target="_blank" rel="noopener">git reset</a>. Here it is slightly modified, this way WORKS FOR EVERYTHING:</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">$ git <span class="hljs-keyword">reset</span> <span class="hljs-comment">--hard A</span><br>$ git <span class="hljs-keyword">reset</span> <span class="hljs-comment">--soft D # (or ORIG_HEAD or @&#123;1&#125; [previous location of HEAD]), all of which are D</span><br>$ git <span class="hljs-keyword">commit</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="统计"><a href="#统计" class="headerlink" title="统计"></a>统计</h2><p>统计 tag1 和 tag2 之间的行数</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">log</span> tag1..tag2 --pretty=tformat: --numstat | gawk <span class="hljs-string">'&#123; add += $1 ; subs += $2 ; loc += $1 + $2 &#125; END &#123; printf "added lines: %s removed lines : %s total lines: %s\n",add,subs,loc &#125;'</span><br><br><span class="hljs-comment"># 或者</span><br>git <span class="hljs-built_in">log</span> tag1..tag2 --pretty=tformat: --numstat | awk <span class="hljs-string">'&#123; add += $1 ; subs += $2 ; loc += $1 + $2 &#125; END &#123; printf "added lines: %s removed lines : %s total lines: %s\n",add,subs,loc &#125;'</span><br></code></pre></td></tr></table></figure>
+
+<p>统计某个人修改的代码行数</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 当前作者</span><br>git <span class="hljs-built_in">log</span> --author=<span class="hljs-string">"<span class="hljs-variable">$(git config --get user.name)</span>"</span> --pretty=tformat: --numstat | gawk <span class="hljs-string">'&#123; add += $1 ; subs += $2 ; loc += $1 + $2 &#125; END &#123; printf "added lines: %s removed lines : %s total lines: %s\n",add,subs,loc &#125;'</span><br><br><span class="hljs-comment"># 或者修改 username 为此人名字</span><br>git <span class="hljs-built_in">log</span> --author=<span class="hljs-string">"username"</span> --pretty=tformat: --numstat | awk <span class="hljs-string">'&#123; add += $1; subs += $2; loc += $1 - $2 &#125; END &#123; printf "added lines: %s, removed lines: %s, total lines: %s\n", add, subs, loc &#125;'</span> -<br></code></pre></td></tr></table></figure>
+
+<p>按个人分别统计</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">log</span> --format=<span class="hljs-string">'%aN'</span> | sort -u | <span class="hljs-keyword">while</span> <span class="hljs-built_in">read</span> name; <span class="hljs-keyword">do</span> <span class="hljs-built_in">echo</span> -en <span class="hljs-string">"<span class="hljs-variable">$name</span>\t"</span>; git <span class="hljs-built_in">log</span> --author=<span class="hljs-string">"<span class="hljs-variable">$name</span>"</span> --pretty=tformat: --numstat | awk <span class="hljs-string">'&#123; add += $1; subs += $2; loc += $1 - $2 &#125; END &#123; printf "added lines: %s, removed lines: %s, total lines: %s\n", add, subs, loc &#125;'</span> -; <span class="hljs-keyword">done</span><br></code></pre></td></tr></table></figure>
+
+<p>统计总行数</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">log</span>  --pretty=tformat: --numstat | awk <span class="hljs-string">'&#123; add += $1; subs += $2; loc += $1 - $2 &#125; END &#123; printf "added lines: %s, removed lines: %s, total lines: %s\n", add, subs, loc &#125;'</span> -<br></code></pre></td></tr></table></figure>
+
+<p>按时间范围统计个人行数</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">log</span> --since=<span class="hljs-string">"2020-01-08"</span> --before=<span class="hljs-string">"2021-11-14"</span> --author=<span class="hljs-string">"lilou"</span> \<br>--pretty=tformat: --numstat | awk <span class="hljs-string">'&#123; add += $1; subs += $2; loc += $1 - $2 &#125; END &#123; printf "新增行数: %s, 移除行数: %s, 总行数: %s\n", add, subs, loc &#125;'</span><br></code></pre></td></tr></table></figure>
+
+<p>仓库提交排名</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">log</span> --pretty=<span class="hljs-string">'%aN'</span> | sort | uniq -c | sort -k1 -n -r | head -n 5<br></code></pre></td></tr></table></figure>
+
+<p>贡献者统计</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">log</span> --pretty=<span class="hljs-string">'%aN'</span> | sort -u | wc -l<br></code></pre></td></tr></table></figure>
+<p>提交数统计</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">log</span> --oneline | wc -l<br></code></pre></td></tr></table></figure>
+<ul>
+<li><a href="https://blog.csdn.net/JiangJsf/article/details/83686749" target="_blank" rel="noopener">git 统计两个不同版本代码修改行数_JiangJsf 的博客-CSDN 博客</a></li>
+<li><a href="https://blog.csdn.net/qinchao_mei/article/details/112172432" target="_blank" rel="noopener">GIT 统计代码量及 IDEA Statistic 统计解析_超人不会飞-CSDN 博客</a></li>
+</ul>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li><p>《GitHub 入门与实践》</p>
+</li>
+<li><p><a href="http://mp.weixin.qq.com/s?__biz=MzA4MjU5NTY0NA==&mid=401074259&idx=1&sn=6e69ce5338eb5d9212953068165c1cd0&mpshare=1&scene=23&srcid=1122laeBDuW58x2VncUQ44xs" target="_blank" rel="noopener">10 组最常用 Git 命令</a></p>
+</li>
+<li><p><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="noopener">Git 教程-廖雪峰</a></p>
+</li>
+<li><p><a href="http://www.ruanyifeng.com/blog/2014/06/git_remote.html" target="_blank" rel="noopener">Git 远程操作详解</a></p>
+</li>
+<li><p><a href="https://github.com/doggy8088/Learn-Git-in-30-days/blob/master/zh-tw/30.md" target="_blank" rel="noopener">第 30 天：分享工作中幾個好用的 Git 操作技巧</a></p>
+</li>
+<li><p><a href="http://www.cnblogs.com/hutaoer/archive/2013/05/14/3078191.html" target="_blank" rel="noopener">^和~的区别</a></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">- `^`代表父提交,当一个提交有多个父提交时，可以通过在`^`后面跟上一个数字，表示第几个父提交，`^`相当于`^1`<br>- `~`&lt;n&gt;相当于连续的&lt;n&gt;个`^`.<br>- checkout只会移动HEAD指针，reset会改变HEAD的引用值<br></code></pre></td></tr></table></figure>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/git/git tutor/" rel="bookmark">Git Tutor</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/git/Git中合并多个项目并保留所有commit记录/" rel="bookmark">【开发工具-Git】Git中合并多个项目并保留所有commit提交记录</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/git/github提交pr/" rel="bookmark">在Github提交pr</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/git/github配置/" rel="bookmark">Github配置</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/git/gitlab/" rel="bookmark">Gitlab</a></div>
+    </li>
+  </ul>
+
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
+            <span class="icon">
+              <i class="wechat"></i>
+            </span>
+
+            <span class="label">WeChat</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/git/" rel="tag"># git</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/tool/cmder/" rel="prev" title="Cmder定置">
+      <i class="fa fa-chevron-left"></i> Cmder定置
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/git/git%E7%9A%84%E9%85%8D%E7%BD%AE/" rel="next" title="Git配置">
+      Git配置 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本操作"><span class="nav-number">1.</span> <span class="nav-text">基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#C"><span class="nav-number">1.1.</span> <span class="nav-text">C</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#R"><span class="nav-number">1.2.</span> <span class="nav-text">R</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#U"><span class="nav-number">1.3.</span> <span class="nav-text">U</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D"><span class="nav-number">1.4.</span> <span class="nav-text">D</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RESET"><span class="nav-number">1.5.</span> <span class="nav-text">RESET</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#远程仓库"><span class="nav-number">2.</span> <span class="nav-text">远程仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分支"><span class="nav-number">3.</span> <span class="nav-text">分支</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建空白分支"><span class="nav-number">3.1.</span> <span class="nav-text">创建空白分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#delete-a-git-branch-both-locally-and-remotely"><span class="nav-number">3.2.</span> <span class="nav-text">delete a git branch both locally and remotely.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#本地分支"><span class="nav-number">3.3.</span> <span class="nav-text">本地分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#远程分支"><span class="nav-number">3.4.</span> <span class="nav-text">远程分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#合并-merge-amp-rebase"><span class="nav-number">3.5.</span> <span class="nav-text">合并 merge &amp; rebase</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#remove-untracked-files"><span class="nav-number">4.</span> <span class="nav-text">remove untracked files</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-stash"><span class="nav-number">5.</span> <span class="nav-text">git stash</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加注释的技巧"><span class="nav-number">6.</span> <span class="nav-text">添加注释的技巧</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#delete-all-tags"><span class="nav-number">7.</span> <span class="nav-text">delete all tags</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-do-you-rename-a-Git-tag"><span class="nav-number">8.</span> <span class="nav-text">How do you rename a Git tag?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Remove-a-file-from-a-Git-repository-without-deleting-it-from-the-local-filesystem"><span class="nav-number">9.</span> <span class="nav-text">Remove a file from a Git repository without deleting it from the local filesystem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-delete-remotes-remote-refs-do-not-exist-Stack-Overflow"><span class="nav-number">10.</span> <span class="nav-text">git delete remotes: remote refs do not exist - Stack Overflow</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-to-revert-multiple-git-commits-Stack-Overflow"><span class="nav-number">11.</span> <span class="nav-text">How to revert multiple git commits? - Stack Overflow</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#统计"><span class="nav-number">12.</span> <span class="nav-text">统计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考链接"><span class="nav-number">13.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="lyloou"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">lyloou</p>
+  <div class="site-description" itemprop="description">/* Better than last best */</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">311</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">56</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/lyloou" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;lyloou" rel="noopener" target="_blank">GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:lyloou6@gmail.com" title="E-Mail → mailto:lyloou6@gmail.com" rel="noopener" target="_blank">E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/lyloou" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;lyloou" rel="noopener" target="_blank">Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/ly1414725328" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;ly1414725328" rel="noopener" target="_blank">CSDN</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">粤ICP备18151128号 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lyloou</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : true,
+      appId      : 'yhivNNDDoank7qFbmyEj9Ldq-gzGzoHsz',
+      appKey     : 'QuFu2ooibSzW1Q8eTrmPLyPw',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>

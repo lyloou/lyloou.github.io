@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="zh-CN,zh-HK,zh-TW,en,default">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"lyloou.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="TextView字符串资源里的变量替换在 xml 中定位占位符（其中1表示第一个变量，多个变量递增表示） 12&lt;!-- values&#x2F;strings.xml --&gt;&lt;string name&#x3D;&quot;replace_str&quot;&gt;你好，%1$s：欢迎您！&lt;&#x2F;string&gt;  java 代码中动态指定%1$s处的值 1String str &#x3D; getString(R.stri">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android中巧用官方自带View">
+<meta property="og:url" content="https://lyloou.github.io/android/view/index.html">
+<meta property="og:site_name" content="lyloou">
+<meta property="og:description" content="TextView字符串资源里的变量替换在 xml 中定位占位符（其中1表示第一个变量，多个变量递增表示） 12&lt;!-- values&#x2F;strings.xml --&gt;&lt;string name&#x3D;&quot;replace_str&quot;&gt;你好，%1$s：欢迎您！&lt;&#x2F;string&gt;  java 代码中动态指定%1$s处的值 1String str &#x3D; getString(R.stri">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://github.com/lyloou/img/raw/develop/z/date_picker.jpg">
+<meta property="article:published_time" content="2016-05-27T02:54:32.000Z">
+<meta property="article:modified_time" content="2016-05-27T02:54:32.000Z">
+<meta property="article:author" content="lyloou">
+<meta property="article:tag" content="android">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://github.com/lyloou/img/raw/develop/z/date_picker.jpg">
+
+<link rel="canonical" href="https://lyloou.github.io/android/view/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Android中巧用官方自带View | lyloou</title>
+  
+    <script>
+      function sendPageView() {
+        if (CONFIG.hostname !== location.hostname) return;
+        var uid = localStorage.getItem('uid') || (Math.random() + '.' + Math.random());
+        localStorage.setItem('uid', uid);
+        navigator.sendBeacon('https://www.google-analytics.com/collect', new URLSearchParams({
+          v  : 1,
+          tid: 'UA-80542932-1',
+          cid: uid,
+          t  : 'pageview',
+          dp : encodeURIComponent(location.pathname)
+        }));
+      }
+      document.addEventListener('pjax:complete', sendPageView);
+      sendPageView();
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta custom-logo">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">lyloou</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/android/view/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lyloou">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Android中巧用官方自带View<a href="https://github.com/lyloou/lyloou.github.io/edit/source/source/_posts/android/view.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil-alt"></i></a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-05-27 10:54:32" itemprop="dateCreated datePublished" datetime="2016-05-27T10:54:32+08:00">2016-05-27</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/android/view/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/android/view/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="TextView"><a href="#TextView" class="headerlink" title="TextView"></a>TextView</h2><h3 id="字符串资源里的变量替换"><a href="#字符串资源里的变量替换" class="headerlink" title="字符串资源里的变量替换"></a>字符串资源里的变量替换</h3><p>在 xml 中定位占位符（其中<code>1</code>表示第一个变量，多个变量递增表示）</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- values/strings.xml --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"replace_str"</span>&gt;</span>你好，%1$s：欢迎您！<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>java 代码中动态指定<code>%1$s</code>处的值</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">String str = getString(R.string.replace_str, <span class="hljs-string">"小明"</span>);<br></code></pre></td></tr></table></figure>
+
+<h3 id="使用-HTML-格式化文本"><a href="#使用-HTML-格式化文本" class="headerlink" title="使用 HTML 格式化文本"></a>使用 HTML 格式化文本</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">textView.setText(Html.fromHtml(HTML_STR));<br></code></pre></td></tr></table></figure>
+
+<h3 id="跑马灯效果不生效"><a href="#跑马灯效果不生效" class="headerlink" title="跑马灯效果不生效"></a>跑马灯效果不生效</h3><p>需要在代码中设置<code>tv.setSelected(true)</code></p>
+<blockquote>
+<p><a href="http://stackoverflow.com/questions/3332924/textview-marquee-not-working" target="_blank" rel="noopener">TextView Marquee not working</a></p>
+</blockquote>
+<h3 id="外部链接"><a href="#外部链接" class="headerlink" title="外部链接"></a>外部链接</h3><ul>
+<li><a href="http://blog.csdn.net/sdkfjksf/article/details/51317204" target="_blank" rel="noopener">TextView 实战之你真的懂我么？</a></li>
+</ul>
+<h2 id="TextView-设置空格"><a href="#TextView-设置空格" class="headerlink" title="TextView 设置空格"></a>TextView 设置空格</h2><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs angelscript">&amp;#<span class="hljs-number">160</span>;&amp;#<span class="hljs-number">160</span>;&amp;#<span class="hljs-number">160</span>;&amp;#<span class="hljs-number">8201</span>;&amp;#<span class="hljs-number">160</span>;&amp;#<span class="hljs-number">160</span>;&amp;#<span class="hljs-number">8201</span>;<br></code></pre></td></tr></table></figure>
+
+<h3 id="TextView-html-渲染（注意：html-渲染的方式无法改变字体的大小，可以调整颜色、粗细、斜体等属性）"><a href="#TextView-html-渲染（注意：html-渲染的方式无法改变字体的大小，可以调整颜色、粗细、斜体等属性）" class="headerlink" title="TextView html 渲染（注意：html 渲染的方式无法改变字体的大小，可以调整颜色、粗细、斜体等属性）"></a>TextView html 渲染（注意：html 渲染的方式无法改变字体的大小，可以调整颜色、粗细、斜体等属性）</h3><pre><code><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">renderWithHtml</span><span class="hljs-params">(<span class="hljs-keyword">final</span> TextView tv, String data)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.N) &#123;<br>        tv.setText(Html.fromHtml(data, Html.FROM_HTML_MODE_COMPACT));<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        tv.setText(Html.fromHtml(data));<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure></code></pre><h2 id="TextView-渲染字体"><a href="#TextView-渲染字体" class="headerlink" title="TextView 渲染字体"></a>TextView 渲染字体</h2><blockquote>
+<p><a href="http://www.jianshu.com/p/2671e78089f9" target="_blank" rel="noopener">Android TextView 个别字体格式设置小结 - 简书</a></p>
+</blockquote>
+<pre><code><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><code class="hljs java">SpannableString msp = <span class="hljs-keyword">new</span> SpannableString(<span class="hljs-string">"字体测试字体大小一半两倍前景色背景色正常粗体斜体粗斜体下划线删除线x1x2电话邮件网站短信彩信地图X轴综合"</span>);<br><br><span class="hljs-comment">//设置字体(default,default-bold,monospace,serif,sans-serif)</span><br>msp.setSpan(<span class="hljs-keyword">new</span> TypefaceSpan(<span class="hljs-string">"monospace"</span>), <span class="hljs-number">0</span>, <span class="hljs-number">2</span>, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);<br>msp.setSpan(<span class="hljs-keyword">new</span> TypefaceSpan(<span class="hljs-string">"serif"</span>), <span class="hljs-number">2</span>, <span class="hljs-number">4</span>, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);<br><br><span class="hljs-comment">//设置字体大小（绝对值,单位：像素）</span><br>msp.setSpan(<span class="hljs-keyword">new</span> AbsoluteSizeSpan(<span class="hljs-number">20</span>), <span class="hljs-number">4</span>, <span class="hljs-number">6</span>, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);<br>msp.setSpan(<span class="hljs-keyword">new</span> AbsoluteSizeSpan(<span class="hljs-number">20</span>, <span class="hljs-keyword">true</span>), <span class="hljs-number">6</span>, <span class="hljs-number">8</span>, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);  <span class="hljs-comment">//第二个参数boolean dip，如果为true，表示前面的字体大小单位为dip，否则为像素，同上。</span><br><br><span class="hljs-comment">//设置字体大小（相对值,单位：像素） 参数表示为默认字体大小的多少倍</span><br>msp.setSpan(<span class="hljs-keyword">new</span> RelativeSizeSpan(<span class="hljs-number">0.5f</span>), <span class="hljs-number">8</span>, <span class="hljs-number">10</span>, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);  <span class="hljs-comment">//0.5f表示默认字体大小的一半</span><br>msp.setSpan(<span class="hljs-keyword">new</span> RelativeSizeSpan(<span class="hljs-number">2.0f</span>), <span class="hljs-number">10</span>, <span class="hljs-number">12</span>, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);  <span class="hljs-comment">//2.0f表示默认字体大小的两倍</span><br><br><span class="hljs-comment">//设置字体前景色</span><br>msp.setSpan(<span class="hljs-keyword">new</span> ForegroundColorSpan(Color.MAGENTA), <span class="hljs-number">12</span>, <span class="hljs-number">15</span>, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);  <span class="hljs-comment">//设置前景色为洋红色</span><br><br><span class="hljs-comment">//设置字体背景色</span><br>msp.setSpan(<span class="hljs-keyword">new</span> BackgroundColorSpan(Color.CYAN), <span class="hljs-number">15</span>, <span class="hljs-number">18</span>, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);  <span class="hljs-comment">//设置背景色为青色</span><br><br><span class="hljs-comment">//设置字体样式正常，粗体，斜体，粗斜体</span><br>msp.setSpan(<span class="hljs-keyword">new</span> StyleSpan(android.graphics.Typeface.NORMAL), <span class="hljs-number">18</span>, <span class="hljs-number">20</span>, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);  <span class="hljs-comment">//正常</span><br>msp.setSpan(<span class="hljs-keyword">new</span> StyleSpan(android.graphics.Typeface.BOLD), <span class="hljs-number">20</span>, <span class="hljs-number">22</span>, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);  <span class="hljs-comment">//粗体</span><br>msp.setSpan(<span class="hljs-keyword">new</span> StyleSpan(android.graphics.Typeface.ITALIC), <span class="hljs-number">22</span>, <span class="hljs-number">24</span>, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);  <span class="hljs-comment">//斜体</span><br>msp.setSpan(<span class="hljs-keyword">new</span> StyleSpan(android.graphics.Typeface.BOLD_ITALIC), <span class="hljs-number">24</span>, <span class="hljs-number">27</span>, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);  <span class="hljs-comment">//粗斜体</span><br><br><span class="hljs-comment">//设置下划线</span><br>msp.setSpan(<span class="hljs-keyword">new</span> UnderlineSpan(), <span class="hljs-number">27</span>, <span class="hljs-number">30</span>, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);<br><br><span class="hljs-comment">//设置删除线</span><br>msp.setSpan(<span class="hljs-keyword">new</span> StrikethroughSpan(), <span class="hljs-number">30</span>, <span class="hljs-number">33</span>, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);<br><br><span class="hljs-comment">//设置上下标</span><br>msp.setSpan(<span class="hljs-keyword">new</span> SubscriptSpan(), <span class="hljs-number">34</span>, <span class="hljs-number">35</span>, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);     <span class="hljs-comment">//下标</span><br>msp.setSpan(<span class="hljs-keyword">new</span> SuperscriptSpan(), <span class="hljs-number">36</span>, <span class="hljs-number">37</span>, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);   <span class="hljs-comment">//上标</span><br><br><span class="hljs-comment">//超级链接（需要添加setMovementMethod方法附加响应）</span><br>msp.setSpan(<span class="hljs-keyword">new</span> URLSpan(<span class="hljs-string">"tel:4155551212"</span>), <span class="hljs-number">37</span>, <span class="hljs-number">39</span>, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);     <span class="hljs-comment">//电话</span><br>msp.setSpan(<span class="hljs-keyword">new</span> URLSpan(<span class="hljs-string">"mailto:webmaster@google.com"</span>), <span class="hljs-number">39</span>, <span class="hljs-number">41</span>, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);     <span class="hljs-comment">//邮件</span><br>msp.setSpan(<span class="hljs-keyword">new</span> URLSpan(<span class="hljs-string">"http://www.baidu.com"</span>), <span class="hljs-number">41</span>, <span class="hljs-number">43</span>, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);     <span class="hljs-comment">//网络</span><br>msp.setSpan(<span class="hljs-keyword">new</span> URLSpan(<span class="hljs-string">"sms:4155551212"</span>), <span class="hljs-number">43</span>, <span class="hljs-number">45</span>, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);     <span class="hljs-comment">//短信   使用sms:或者smsto:</span><br>msp.setSpan(<span class="hljs-keyword">new</span> URLSpan(<span class="hljs-string">"mms:4155551212"</span>), <span class="hljs-number">45</span>, <span class="hljs-number">47</span>, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);     <span class="hljs-comment">//彩信   使用mms:或者mmsto:</span><br>msp.setSpan(<span class="hljs-keyword">new</span> URLSpan(<span class="hljs-string">"geo:38.899533,-77.036476"</span>), <span class="hljs-number">47</span>, <span class="hljs-number">49</span>, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);     <span class="hljs-comment">//地图</span><br><br><span class="hljs-comment">//设置字体大小（相对值,单位：像素） 参数表示为默认字体宽度的多少倍</span><br>msp.setSpan(<span class="hljs-keyword">new</span> ScaleXSpan(<span class="hljs-number">2.0f</span>), <span class="hljs-number">49</span>, <span class="hljs-number">51</span>, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE); <span class="hljs-comment">//2.0f表示默认字体宽度的两倍，即X轴方向放大为默认字体的两倍，而高度不变</span><br><span class="hljs-comment">//SpannableString对象设置给TextView</span><br>tokenTv.setText(msp);<br><span class="hljs-comment">//设置TextView可点击</span><br>tokenTv.setMovementMethod(LinkMovementMethod.getInstance());<br></code></pre></td></tr></table></figure></code></pre><h3 id="Android-开发，你遇上-Emoji-头疼吗？-掘金"><a href="#Android-开发，你遇上-Emoji-头疼吗？-掘金" class="headerlink" title="Android 开发，你遇上 Emoji 头疼吗？ - 掘金"></a><a href="https://juejin.im/post/5a45b38451882512d823076a" target="_blank" rel="noopener">Android 开发，你遇上 Emoji 头疼吗？ - 掘金</a></h3><h2 id="ImageView"><a href="#ImageView" class="headerlink" title="ImageView"></a>ImageView</h2><h3 id="交叉使用-mipmap-和-drawable"><a href="#交叉使用-mipmap-和-drawable" class="headerlink" title="交叉使用 mipmap 和 drawable"></a>交叉使用 mipmap 和 drawable</h3><p>钻牛角尖：先必须获取到之前的 Drawable，然后将这个 Drawable 进行转换，然后进行图片替换；<br>解决思路：通过覆盖的单向方式，而不用知道之前是图片资源还是 Drawable 资源。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java">ImageView ivMain = findViewById(R.id.iv_main);<br><span class="hljs-keyword">if</span>(满足条件)&#123;<br>  ivMain.setBackgroundResource(R.id.selected);<br>&#125; <span class="hljs-keyword">else</span> &#123;<br>  ivMain.setBackgroundResource(R.id.unselected);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="ImageView-加载-GIF-图片"><a href="#ImageView-加载-GIF-图片" class="headerlink" title="ImageView 加载 GIF 图片"></a>ImageView 加载 GIF 图片</h3><p>代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java">ImageView iv = (ImageView) findViewById(R.id.vp_iv);<br>Glide<br>  .with(<span class="hljs-keyword">this</span>)<br>  .load(<span class="hljs-string">"https://i.imgur.com/l9lffwf.gif"</span>)<br>  .into(iv);<br></code></pre></td></tr></table></figure>
+
+<p>外部链接</p>
+<ul>
+<li><a href="https://github.com/bumptech/glide" target="_blank" rel="noopener">Glide</a></li>
+</ul>
+<h3 id="加载网络图片"><a href="#加载网络图片" class="headerlink" title="加载网络图片"></a>加载网络图片</h3><p>代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java">Picasso<br>  .with(<span class="hljs-keyword">this</span>)<br>  .load(<span class="hljs-string">"https://i.imgur.com/l9lffwf.gif"</span>)<br>  .placeholder(R.mipmap.ic_launcher)<br>  .into(iv);<br></code></pre></td></tr></table></figure>
+
+<p>外部链接</p>
+<ul>
+<li><a href="https://github.com/square/picasso" target="_blank" rel="noopener">Picasso</a></li>
+</ul>
+<hr>
+<h2 id="EditText"><a href="#EditText" class="headerlink" title="EditText"></a>EditText</h2><h3 id="定位光标位置："><a href="#定位光标位置：" class="headerlink" title="定位光标位置："></a>定位光标位置：</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java">String name = <span class="hljs-string">"Lou"</span>;<br>EditText et = (EditText)findViewById(R.id.et_name);<br>et.setSelection(name.length()); <span class="hljs-comment">// 将光标至于文字最后</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="使光标颜色和文字颜色保持一致（EditText-不显示光标问题）："><a href="#使光标颜色和文字颜色保持一致（EditText-不显示光标问题）：" class="headerlink" title="使光标颜色和文字颜色保持一致（EditText 不显示光标问题）："></a>使光标颜色和文字颜色保持一致（EditText 不显示光标问题）：</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- 有的时候发现EditText里的光标无法显示的问题，很可能是光标的颜色和背景重合了，可以通过设置光标的颜色属性来让其显示 --&gt;</span><br><span class="hljs-comment">&lt;!-- 在EditText标签中添加如下属性 --&gt;</span><br>android:textCursorDrawable="@null"<br></code></pre></td></tr></table></figure>
+
+<h3 id="外部链接-1"><a href="#外部链接-1" class="headerlink" title="外部链接"></a>外部链接</h3><ul>
+<li><a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2013/0216/858.html" target="_blank" rel="noopener">修改 EditText 的光标颜色</a></li>
+<li><a href="http://stackoverflow.com/questions/7238450/set-edittext-cursor-color" target="_blank" rel="noopener">Set EditText cursor color</a></li>
+</ul>
+<hr>
+<h2 id="ListView"><a href="#ListView" class="headerlink" title="ListView"></a>ListView</h2><p>ListView 中不可见的元素，其对应的 view 为 null。这是容易理解的，性能优化。<br>（在 updateItem 的时候要做两方面的处理，即数据(updateItemData)和视图(updateItemView)）</p>
+<h3 id="添加空白"><a href="#添加空白" class="headerlink" title="添加空白"></a>添加空白</h3><ul>
+<li>在 ListView 的顶部和底部添加空白（见外部链接）</li>
+<li>在 Item 之间添加空白（通过 Divider 的方式）</li>
+</ul>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">LinearLayout</span></span><br><span class="hljs-tag">    <span class="hljs-attr">xmlns:android</span>=<span class="hljs-string">"http://schemas.android.com/apk/res/android"</span></span><br><span class="hljs-tag">    <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span></span><br><span class="hljs-tag">    <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"match_parent"</span></span><br><span class="hljs-tag">    <span class="hljs-attr">android:background</span>=<span class="hljs-string">"@color/alarm_bg"</span></span><br><span class="hljs-tag">    <span class="hljs-attr">android:orientation</span>=<span class="hljs-string">"vertical"</span>&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">ListView</span></span><br><span class="hljs-tag">        <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/lv_main"</span></span><br><span class="hljs-tag">        <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span></span><br><span class="hljs-tag">        <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"match_parent"</span></span><br><span class="hljs-tag"></span><br><span class="hljs-tag">        <span class="hljs-attr">android:paddingTop</span>=<span class="hljs-string">"16dp"</span></span><br><span class="hljs-tag">        <span class="hljs-attr">android:paddingBottom</span>=<span class="hljs-string">"16dp"</span></span><br><span class="hljs-tag">        <span class="hljs-attr">android:clipToPadding</span>=<span class="hljs-string">"false"</span></span><br><span class="hljs-tag"></span><br><span class="hljs-tag">        <span class="hljs-attr">android:scrollbars</span>=<span class="hljs-string">"none"</span></span><br><span class="hljs-tag">        <span class="hljs-attr">android:divider</span>=<span class="hljs-string">"@android:color/transparent"</span></span><br><span class="hljs-tag">        <span class="hljs-attr">android:dividerHeight</span>=<span class="hljs-string">"10dp"</span></span><br><span class="hljs-tag">        /&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">LinearLayout</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="外部链接-2"><a href="#外部链接-2" class="headerlink" title="外部链接"></a>外部链接</h4><ul>
+<li><a href="http://stackoverflow.com/questions/6288167/add-margin-above-top-listview-item-and-below-last-in-android" target="_blank" rel="noopener">Add margin above top ListView item (and below last) in Android</a></li>
+<li><a href="http://stackoverflow.com/questions/4984313/spacing-between-listview-items-android" target="_blank" rel="noopener">Spacing between listView Items Android</a></li>
+</ul>
+<hr>
+<h2 id="修改-DatePicker-日期选择器默认样式（同理适用于-TimePicker）"><a href="#修改-DatePicker-日期选择器默认样式（同理适用于-TimePicker）" class="headerlink" title="修改 DatePicker 日期选择器默认样式（同理适用于 TimePicker）"></a>修改 DatePicker 日期选择器默认样式（同理适用于 TimePicker）</h2><h3 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h3><p><img src="https://github.com/lyloou/img/raw/develop/z/date_picker.jpg" alt="DatePicker"></p>
+<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- 使用Holo样式 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">DatePicker</span></span><br><span class="hljs-tag">        <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/dialog_personal_birth_dp"</span></span><br><span class="hljs-tag">        <span class="hljs-attr">style</span>=<span class="hljs-string">"@android:style/Widget.Holo.DatePicker"</span></span><br><span class="hljs-tag">        <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span></span><br><span class="hljs-tag">        <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"wrap_content"</span>/&gt;</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">private</span> String mBirth = <span class="hljs-string">"1981.12.11"</span>;<br><span class="hljs-keyword">final</span> DatePicker dp = dialogBirth.getView(R.id.dialog_personal_birth_dp);<br>dp.setCalendarViewShown(<span class="hljs-keyword">false</span>); <span class="hljs-comment">// 不要显示Calendar视图</span><br>Uview.changeTimePickerSepColor(dp, Color.DKGRAY); <span class="hljs-comment">// 修改分割线样式</span><br>String[] birth = mBirth.split(<span class="hljs-string">"\\."</span>);<br>dp.init(Integer.parseInt(birth[<span class="hljs-number">0</span>]),<br>        Integer.parseInt(birth[<span class="hljs-number">1</span>]) - <span class="hljs-number">1</span>,<br>        Integer.parseInt(birth[<span class="hljs-number">2</span>]),<br>        <span class="hljs-keyword">null</span>);<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//: Uview.java</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">changeTimePickerSepColor</span><span class="hljs-params">(ViewGroup group, <span class="hljs-keyword">int</span> color)</span> </span>&#123;<br>    <span class="hljs-keyword">for</span> (NumberPicker np : getNumberPickers(group)) &#123;<br>        changeNumberPickerSepColor(np, color);<br>    &#125;<br>&#125;<br><br><br><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> List&lt;NumberPicker&gt; <span class="hljs-title">getNumberPickers</span><span class="hljs-params">(ViewGroup group)</span> </span>&#123;<br>    List&lt;NumberPicker&gt; lists = <span class="hljs-keyword">new</span> ArrayList&lt;NumberPicker&gt;();<br>    <span class="hljs-keyword">if</span> (group == <span class="hljs-keyword">null</span>) &#123;<br>        <span class="hljs-keyword">return</span> lists;<br>    &#125;<br><br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; group.getChildCount(); i++) &#123;<br>        View v = group.getChildAt(i);<br>        <span class="hljs-keyword">if</span> (v <span class="hljs-keyword">instanceof</span> NumberPicker) &#123;<br>            lists.add((NumberPicker) v);<br>        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (v <span class="hljs-keyword">instanceof</span> LinearLayout) &#123;<br>            List&lt;NumberPicker&gt; ls = getNumberPickers((ViewGroup) v);<br>            <span class="hljs-keyword">if</span> (ls.size() &gt; <span class="hljs-number">0</span>) &#123;<br>                <span class="hljs-keyword">return</span> ls;<br>            &#125;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> lists;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">changeNumberPickerSepColor</span><span class="hljs-params">(NumberPicker np, <span class="hljs-keyword">int</span> color)</span> </span>&#123;<br>    Field[] pickerFields = NumberPicker<span class="hljs-class">.<span class="hljs-keyword">class</span>.<span class="hljs-title">getDeclaredFields</span>()</span>;<br>    <span class="hljs-keyword">for</span> (Field f : pickerFields) &#123;<br>        <span class="hljs-keyword">if</span> (f.getName().equals(<span class="hljs-string">"mSelectionDivider"</span>)) &#123;<br>            <span class="hljs-keyword">try</span> &#123;<br>                f.setAccessible(<span class="hljs-keyword">true</span>);<br>                f.set(np, <span class="hljs-keyword">new</span> ColorDrawable(color));<br>            &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;<br>                e.printStackTrace();<br>            &#125;<br>            <span class="hljs-keyword">break</span>;<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-comment">// 分割线粗细</span><br>    <span class="hljs-keyword">for</span> (Field f : pickerFields) &#123;<br>        <span class="hljs-keyword">if</span> (f.getName().equals(<span class="hljs-string">"mSelectionDividerHeight"</span>)) &#123;<br>            <span class="hljs-keyword">try</span> &#123;<br>                f.setAccessible(<span class="hljs-keyword">true</span>);<br>                f.set(np, <span class="hljs-number">1</span>);<br>            &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;<br>                e.printStackTrace();<br>            &#125;<br>            <span class="hljs-keyword">break</span>;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="给-imageview-设置-tag-值来传值"><a href="#给-imageview-设置-tag-值来传值" class="headerlink" title="给 imageview 设置 tag 值来传值"></a>给 imageview 设置 tag 值来传值</h2><p>ivSetting.setTag(room.getId());<br>这样在进入设置界面时，可以通过 getTag 的方式获取到 room 的 id。</p>
+<blockquote>
+<p><a href="http://www.vogella.com/tutorials/Retrofit/article.html#create-activity" target="_blank" rel="noopener">http://www.vogella.com/tutorials/Retrofit/article.html#create-activity</a></p>
+</blockquote>
+<h2 id="主题中使用-tint-会导致-imageview-显示空白"><a href="#主题中使用-tint-会导致-imageview-显示空白" class="headerlink" title="主题中使用 tint 会导致 imageview 显示空白"></a>主题中使用 tint 会导致 imageview 显示空白</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">item</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"android:tint"</span>&gt;</span>#ffffff<span class="hljs-tag">&lt;/<span class="hljs-name">item</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/android/Android和JavaScript交互/" rel="bookmark">Android和JavaScript交互</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/android/ApplicationContext中弹出对话框/" rel="bookmark">Android中app响应浏览器链接</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/android/IME输入法/" rel="bookmark">IME输入法</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/android/SharedPreference封装/" rel="bookmark">SharedPreference封装</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/android/SQLite封装/" rel="bookmark">SQLite封装</a></div>
+    </li>
+  </ul>
+
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
+            <span class="icon">
+              <i class="wechat"></i>
+            </span>
+
+            <span class="label">WeChat</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/android/" rel="tag"># android</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/tool/chrome/" rel="prev" title="Chrome定制">
+      <i class="fa fa-chevron-left"></i> Chrome定制
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/android/drawable/" rel="next" title="Drawable相关">
+      Drawable相关 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#TextView"><span class="nav-number">1.</span> <span class="nav-text">TextView</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串资源里的变量替换"><span class="nav-number">1.1.</span> <span class="nav-text">字符串资源里的变量替换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-HTML-格式化文本"><span class="nav-number">1.2.</span> <span class="nav-text">使用 HTML 格式化文本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#跑马灯效果不生效"><span class="nav-number">1.3.</span> <span class="nav-text">跑马灯效果不生效</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#外部链接"><span class="nav-number">1.4.</span> <span class="nav-text">外部链接</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TextView-设置空格"><span class="nav-number">2.</span> <span class="nav-text">TextView 设置空格</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#TextView-html-渲染（注意：html-渲染的方式无法改变字体的大小，可以调整颜色、粗细、斜体等属性）"><span class="nav-number">2.1.</span> <span class="nav-text">TextView html 渲染（注意：html 渲染的方式无法改变字体的大小，可以调整颜色、粗细、斜体等属性）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TextView-渲染字体"><span class="nav-number">3.</span> <span class="nav-text">TextView 渲染字体</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Android-开发，你遇上-Emoji-头疼吗？-掘金"><span class="nav-number">3.1.</span> <span class="nav-text">Android 开发，你遇上 Emoji 头疼吗？ - 掘金</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ImageView"><span class="nav-number">4.</span> <span class="nav-text">ImageView</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#交叉使用-mipmap-和-drawable"><span class="nav-number">4.1.</span> <span class="nav-text">交叉使用 mipmap 和 drawable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ImageView-加载-GIF-图片"><span class="nav-number">4.2.</span> <span class="nav-text">ImageView 加载 GIF 图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加载网络图片"><span class="nav-number">4.3.</span> <span class="nav-text">加载网络图片</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EditText"><span class="nav-number">5.</span> <span class="nav-text">EditText</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定位光标位置："><span class="nav-number">5.1.</span> <span class="nav-text">定位光标位置：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使光标颜色和文字颜色保持一致（EditText-不显示光标问题）："><span class="nav-number">5.2.</span> <span class="nav-text">使光标颜色和文字颜色保持一致（EditText 不显示光标问题）：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#外部链接-1"><span class="nav-number">5.3.</span> <span class="nav-text">外部链接</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ListView"><span class="nav-number">6.</span> <span class="nav-text">ListView</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加空白"><span class="nav-number">6.1.</span> <span class="nav-text">添加空白</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#代码"><span class="nav-number">6.1.1.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#外部链接-2"><span class="nav-number">6.1.2.</span> <span class="nav-text">外部链接</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改-DatePicker-日期选择器默认样式（同理适用于-TimePicker）"><span class="nav-number">7.</span> <span class="nav-text">修改 DatePicker 日期选择器默认样式（同理适用于 TimePicker）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#效果图"><span class="nav-number">7.1.</span> <span class="nav-text">效果图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码-1"><span class="nav-number">7.2.</span> <span class="nav-text">代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#给-imageview-设置-tag-值来传值"><span class="nav-number">8.</span> <span class="nav-text">给 imageview 设置 tag 值来传值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主题中使用-tint-会导致-imageview-显示空白"><span class="nav-number">9.</span> <span class="nav-text">主题中使用 tint 会导致 imageview 显示空白</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="lyloou"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">lyloou</p>
+  <div class="site-description" itemprop="description">/* Better than last best */</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">311</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">56</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/lyloou" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;lyloou" rel="noopener" target="_blank">GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:lyloou6@gmail.com" title="E-Mail → mailto:lyloou6@gmail.com" rel="noopener" target="_blank">E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/lyloou" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;lyloou" rel="noopener" target="_blank">Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/ly1414725328" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;ly1414725328" rel="noopener" target="_blank">CSDN</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">粤ICP备18151128号 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lyloou</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : true,
+      appId      : 'yhivNNDDoank7qFbmyEj9Ldq-gzGzoHsz',
+      appKey     : 'QuFu2ooibSzW1Q8eTrmPLyPw',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>

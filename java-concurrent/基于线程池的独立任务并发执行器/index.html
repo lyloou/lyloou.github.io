@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="zh-CN,zh-HK,zh-TW,en,default">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"lyloou.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="目的：对于多个独立的任务，可以以并发的方式执行任务，以提高 CPU 利用率，提高处理效率。 思路在一个线程池中，开启指定数量的线程，每个线程从任务队列中获取任务执行。 执行的过程中，判断当前线程是否在执行任务的状态，如果没有执行任务，取一条任务执行，如果正在执行，则跳过，下轮再判断。 在所有任务执行完后，关闭线程池。 需要注意的是数据结构的选择，须选择并发类的数据结构，不然可能出现阻塞，死锁等情况">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Java】基于线程池的独立任务并发执行器">
+<meta property="og:url" content="https://lyloou.github.io/java-concurrent/%E5%9F%BA%E4%BA%8E%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E7%8B%AC%E7%AB%8B%E4%BB%BB%E5%8A%A1%E5%B9%B6%E5%8F%91%E6%89%A7%E8%A1%8C%E5%99%A8/index.html">
+<meta property="og:site_name" content="lyloou">
+<meta property="og:description" content="目的：对于多个独立的任务，可以以并发的方式执行任务，以提高 CPU 利用率，提高处理效率。 思路在一个线程池中，开启指定数量的线程，每个线程从任务队列中获取任务执行。 执行的过程中，判断当前线程是否在执行任务的状态，如果没有执行任务，取一条任务执行，如果正在执行，则跳过，下轮再判断。 在所有任务执行完后，关闭线程池。 需要注意的是数据结构的选择，须选择并发类的数据结构，不然可能出现阻塞，死锁等情况">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-06-11T01:40:42.000Z">
+<meta property="article:modified_time" content="2022-06-11T01:40:42.000Z">
+<meta property="article:author" content="lyloou">
+<meta property="article:tag" content="java">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://lyloou.github.io/java-concurrent/%E5%9F%BA%E4%BA%8E%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E7%8B%AC%E7%AB%8B%E4%BB%BB%E5%8A%A1%E5%B9%B6%E5%8F%91%E6%89%A7%E8%A1%8C%E5%99%A8/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>【Java】基于线程池的独立任务并发执行器 | lyloou</title>
+  
+    <script>
+      function sendPageView() {
+        if (CONFIG.hostname !== location.hostname) return;
+        var uid = localStorage.getItem('uid') || (Math.random() + '.' + Math.random());
+        localStorage.setItem('uid', uid);
+        navigator.sendBeacon('https://www.google-analytics.com/collect', new URLSearchParams({
+          v  : 1,
+          tid: 'UA-80542932-1',
+          cid: uid,
+          t  : 'pageview',
+          dp : encodeURIComponent(location.pathname)
+        }));
+      }
+      document.addEventListener('pjax:complete', sendPageView);
+      sendPageView();
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta custom-logo">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">lyloou</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/java-concurrent/%E5%9F%BA%E4%BA%8E%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E7%8B%AC%E7%AB%8B%E4%BB%BB%E5%8A%A1%E5%B9%B6%E5%8F%91%E6%89%A7%E8%A1%8C%E5%99%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lyloou">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【Java】基于线程池的独立任务并发执行器<a href="https://github.com/lyloou/lyloou.github.io/edit/source/source/_posts/java-concurrent/%E5%9F%BA%E4%BA%8E%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E7%8B%AC%E7%AB%8B%E4%BB%BB%E5%8A%A1%E5%B9%B6%E5%8F%91%E6%89%A7%E8%A1%8C%E5%99%A8.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil-alt"></i></a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-06-11 09:40:42" itemprop="dateCreated datePublished" datetime="2022-06-11T09:40:42+08:00">2022-06-11</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/java-concurrent/%E5%9F%BA%E4%BA%8E%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E7%8B%AC%E7%AB%8B%E4%BB%BB%E5%8A%A1%E5%B9%B6%E5%8F%91%E6%89%A7%E8%A1%8C%E5%99%A8/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/java-concurrent/%E5%9F%BA%E4%BA%8E%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E7%8B%AC%E7%AB%8B%E4%BB%BB%E5%8A%A1%E5%B9%B6%E5%8F%91%E6%89%A7%E8%A1%8C%E5%99%A8/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h4 id="目的："><a href="#目的：" class="headerlink" title="目的："></a>目的：</h4><p>对于多个独立的任务，可以以并发的方式执行任务，以提高 CPU 利用率，提高处理效率。</p>
+<h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><p>在一个线程池中，开启指定数量的线程，每个线程从任务队列中获取任务执行。</p>
+<p>执行的过程中，判断当前线程是否在执行任务的状态，如果没有执行任务，取一条任务执行，如果正在执行，则跳过，下轮再判断。</p>
+<p>在所有任务执行完后，关闭线程池。</p>
+<p>需要注意的是数据结构的选择，须选择并发类的数据结构，不然可能出现阻塞，死锁等情况。</p>
+<p>（具体逻辑参考源码）</p>
+<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 并发执行器示例</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ConcurrentExecutorTest</span> </span>&#123;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 测试</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">100</span>; i++) &#123;<br>            test();<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test</span><span class="hljs-params">()</span> </span>&#123;<br>        Map&lt;String, String&gt; paramMap = <span class="hljs-keyword">new</span> LinkedHashMap&lt;&gt;();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i++) &#123;<br>            paramMap.put(<span class="hljs-string">"key:"</span> + i, <span class="hljs-string">"value:"</span> + i);<br>        &#125;<br><br>        <span class="hljs-keyword">final</span> ConcurrentExecutor&lt;String, String, Integer&gt; executor = <span class="hljs-keyword">new</span> ConcurrentExecutor&lt;&gt;(<span class="hljs-number">5</span>, paramMap,<br>                (k, v) -&gt; &#123;<br>                    ThreadUtil.sleep(<span class="hljs-number">10</span>);<br>                    System.out.println(Thread.currentThread().getName() + <span class="hljs-string">"-"</span> + v);<br>                    <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> abs = Math.abs(Objects.hash(v));<br>                    <span class="hljs-keyword">if</span> (abs % <span class="hljs-number">3</span> == <span class="hljs-number">0</span>) &#123;<br>                        <span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span> / <span class="hljs-number">0</span>;<br>                    &#125;<br>                    <span class="hljs-keyword">return</span> abs;<br>                &#125;);<br>        executor.execute();<br>        System.out.println(<span class="hljs-string">"success result: "</span> + executor.getSuccessResultMap());<br>        System.out.println(<span class="hljs-string">"error result: "</span> + executor.getErrorResultMap());<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>测试结果</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs ini">pool-1-thread-1-value:0<br>pool-1-thread-2-value:1<br>pool-1-thread-4-value:3<br>pool-1-thread-3-value:2<br>pool-1-thread-3-value:8<br>pool-1-thread-1-value:5<br>pool-1-thread-5-value:4<br>pool-1-thread-2-value:6<br>pool-1-thread-4-value:7<br>pool-1-thread-3-value:9<br>success result: &#123;key:2=231604360, key:0=231604358, key:6=231604364, key:5=231604363, key:3=231604361, key:9=231604367, key:8=231604366&#125;<br>error result: &#123;key:1=java.lang.ArithmeticException: / by zero, key:4=java.lang.ArithmeticException: / by zero, key:7=java.lang.ArithmeticException: / by zero&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="源码（方案-1）"><a href="#源码（方案-1）" class="headerlink" title="源码（方案 1）"></a>源码（方案 1）</h4><p>基于自定义的 queue 实现</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br></pre></td><td class="code"><pre><code class="hljs java"><br><span class="hljs-keyword">import</span> cn.hutool.core.collection.CollUtil;<br><span class="hljs-keyword">import</span> cn.hutool.core.collection.ConcurrentHashSet;<br><span class="hljs-keyword">import</span> cn.hutool.core.lang.Assert;<br><span class="hljs-keyword">import</span> cn.hutool.core.thread.ThreadUtil;<br><span class="hljs-keyword">import</span> cn.hutool.core.util.BooleanUtil;<br><br><span class="hljs-keyword">import</span> java.util.*;<br><span class="hljs-keyword">import</span> java.util.concurrent.ConcurrentHashMap;<br><span class="hljs-keyword">import</span> java.util.concurrent.ConcurrentLinkedQueue;<br><span class="hljs-keyword">import</span> java.util.concurrent.ExecutorService;<br><span class="hljs-keyword">import</span> java.util.function.BiFunction;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 并发执行器</span><br><span class="hljs-comment"> * &lt;p&gt;</span><br><span class="hljs-comment"> * 适用场景：每个任务是独立的，不耦合的</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@author</span> lilou</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@since</span> 2022/6/9 9:05</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ConcurrentExecutor</span>&lt;<span class="hljs-title">K</span>, <span class="hljs-title">V</span>, <span class="hljs-title">R</span>&gt; </span>&#123;<br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 任务参数映射（K：key的类型，V：值的类型）</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Map&lt;K, V&gt; paramMap;<br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 成功的任务结果映射（R：结果类型）</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Map&lt;K, R&gt; successResultMap;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 失败的任务结果映射</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Map&lt;K, Throwable&gt; errorResultMap;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 当前运行中的key集合</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Set&lt;K&gt; runningKeySet;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 候选任务key队列</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Queue&lt;K&gt; candidateKeyQueue;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 同时运行的最大线程数量</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> maxThreadNum;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 执行器</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> ExecutorService executorService;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 具体任务策略</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> BiFunction&lt;K, V, R&gt; biFunction;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 当前index线程的运行状态，可依据此状态，判断是否立刻从任务参数中获取任务执行</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Map&lt;Integer, Boolean&gt; currentIndexThreadRunningStatusMap;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">ConcurrentExecutor</span><span class="hljs-params">(<span class="hljs-keyword">int</span> maxThreadNum, Map&lt;K, V&gt; paramMap, BiFunction&lt;K, V, R&gt; biFunction)</span> </span>&#123;<br>        Assert.notNull(paramMap, <span class="hljs-string">"paramMap不可为空"</span>);<br>        Assert.isTrue(maxThreadNum &gt; <span class="hljs-number">0</span>, <span class="hljs-string">"maxThreadNum不可小于1"</span>);<br><br>        <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> paramSize = paramMap.size();<br>        <span class="hljs-keyword">this</span>.maxThreadNum = Math.min(maxThreadNum, paramSize);<br>        <span class="hljs-comment">// tips: 须转换成同步类的map数据结构，如果错误地使用 this.paramMap = paramMap; 且外部使用了HashMap 或 LinkedHashMap，多测试几遍会发现，偶尔会陷入了阻塞</span><br>        <span class="hljs-keyword">this</span>.paramMap = Collections.synchronizedMap(paramMap);<br>        <span class="hljs-keyword">this</span>.candidateKeyQueue = <span class="hljs-keyword">new</span> ConcurrentLinkedQueue&lt;&gt;(paramMap.keySet());<br>        <span class="hljs-keyword">this</span>.runningKeySet = <span class="hljs-keyword">new</span> ConcurrentHashSet&lt;&gt;(paramSize);<br>        <span class="hljs-keyword">this</span>.biFunction = biFunction;<br>        <span class="hljs-keyword">this</span>.executorService = ThreadUtil.newExecutor(<span class="hljs-keyword">this</span>.maxThreadNum, <span class="hljs-keyword">this</span>.maxThreadNum, Integer.MAX_VALUE);<br>        <span class="hljs-keyword">this</span>.currentIndexThreadRunningStatusMap = <span class="hljs-keyword">new</span> ConcurrentHashMap&lt;&gt;(<span class="hljs-keyword">this</span>.maxThreadNum);<br>        <span class="hljs-keyword">this</span>.successResultMap = <span class="hljs-keyword">new</span> ConcurrentHashMap&lt;&gt;(<span class="hljs-keyword">this</span>.paramMap.size());<br>        <span class="hljs-keyword">this</span>.errorResultMap = <span class="hljs-keyword">new</span> ConcurrentHashMap&lt;&gt;();<br>    &#125;<br><br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">execute</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">while</span> (CollUtil.isNotEmpty(paramMap)) &#123;<br><br>            <span class="hljs-comment">// 最多同时有 maxRunningThreadNumber 同时消费 taskMap 中的数据</span><br>            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-keyword">this</span>.maxThreadNum; i++) &#123;<br>                <span class="hljs-keyword">int</span> currentIndex = i;<br><br>                <span class="hljs-comment">// 当前线程上次还未执行完，暂时跳过</span><br>                <span class="hljs-keyword">final</span> Boolean isRunning = currentIndexThreadRunningStatusMap.getOrDefault(currentIndex, <span class="hljs-keyword">false</span>);<br>                <span class="hljs-keyword">if</span> (BooleanUtil.isTrue(isRunning)) &#123;<br>                    <span class="hljs-keyword">continue</span>;<br>                &#125;<br><br>                <span class="hljs-comment">// 选择一个候选key</span><br>                <span class="hljs-keyword">final</span> K candidateKey = pickCandidateKey();<br>                <span class="hljs-comment">// 当前没有对应key的任务</span><br>                <span class="hljs-keyword">if</span> (Objects.isNull(candidateKey)) &#123;<br>                    <span class="hljs-keyword">continue</span>;<br>                &#125;<br><br>                <span class="hljs-comment">// 在线程池中运行任务</span><br>                executorService.submit(() -&gt; &#123;<br>                    <span class="hljs-keyword">try</span> &#123;<br>                        currentIndexThreadRunningStatusMap.put(currentIndex, <span class="hljs-keyword">true</span>);<br>                        <span class="hljs-keyword">final</span> V data = paramMap.get(candidateKey);<br><br>                        <span class="hljs-comment">// 开始执行任务</span><br>                        <span class="hljs-keyword">final</span> R result = biFunction.apply(candidateKey, data);<br><br>                        <span class="hljs-comment">// 存入正常结果</span><br>                        successResultMap.put(candidateKey, result);<br>                    &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;<br>                        <span class="hljs-comment">// 存入异常结果</span><br>                        errorResultMap.put(candidateKey, e);<br>                    &#125; <span class="hljs-keyword">finally</span> &#123;<br>                        paramMap.remove(candidateKey);<br>                        candidateKeyQueue.remove(candidateKey);<br>                        currentIndexThreadRunningStatusMap.remove(currentIndex);<br>                    &#125;<br>                &#125;);<br>            &#125;<br>        &#125;<br>        executorService.shutdown();<br>    &#125;<br><br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 从候选任务key队列中选择一个任务key</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> K <span class="hljs-title">pickCandidateKey</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">for</span> (K candidateKey : candidateKeyQueue) &#123;<br>            <span class="hljs-keyword">if</span> (!runningKeySet.contains(candidateKey)) &#123;<br>                runningKeySet.add(candidateKey);<br>                <span class="hljs-keyword">return</span> candidateKey;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Map&lt;K, R&gt; <span class="hljs-title">getSuccessResultMap</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> successResultMap;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Map&lt;K, Throwable&gt; <span class="hljs-title">getErrorResultMap</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> errorResultMap;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="源码（方案-2）"><a href="#源码（方案-2）" class="headerlink" title="源码（方案 2）"></a>源码（方案 2）</h2><p>基于 executorService.invokeAll</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.lyloou.component.util.concurrent;<br><br><span class="hljs-keyword">import</span> cn.hutool.core.collection.CollUtil;<br><span class="hljs-keyword">import</span> cn.hutool.core.date.DateUtil;<br><span class="hljs-keyword">import</span> cn.hutool.core.date.TimeInterval;<br><span class="hljs-keyword">import</span> cn.hutool.core.lang.Assert;<br><span class="hljs-keyword">import</span> cn.hutool.core.thread.ThreadUtil;<br><span class="hljs-keyword">import</span> lombok.SneakyThrows;<br><br><span class="hljs-keyword">import</span> java.util.*;<br><span class="hljs-keyword">import</span> java.util.concurrent.Callable;<br><span class="hljs-keyword">import</span> java.util.concurrent.ConcurrentHashMap;<br><span class="hljs-keyword">import</span> java.util.concurrent.ExecutorService;<br><span class="hljs-keyword">import</span> java.util.function.BiFunction;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 并发执行器</span><br><span class="hljs-comment"> * &lt;p&gt;</span><br><span class="hljs-comment"> * 适用场景：每个任务是独立的，不耦合的</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@author</span> lilou</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@since</span> 2022/6/9 9:05</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ConcurrentExecutor2</span>&lt;<span class="hljs-title">K</span>, <span class="hljs-title">V</span>, <span class="hljs-title">R</span>&gt; </span>&#123;<br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 任务参数映射（K：key的类型，V：值的类型）</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Map&lt;K, V&gt; paramMap;<br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 成功的任务结果映射</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Map&lt;K, R&gt; successResultMap;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 失败的任务结果映射</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Map&lt;K, Throwable&gt; errorResultMap;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 执行器</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> ExecutorService executorService;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 具体任务策略</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> BiFunction&lt;K, V, R&gt; biFunction;<br><br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">ConcurrentExecutor2</span><span class="hljs-params">(<span class="hljs-keyword">int</span> maxThreadNum, Map&lt;K, V&gt; paramMap, BiFunction&lt;K, V, R&gt; biFunction)</span> </span>&#123;<br>        Assert.notNull(paramMap, <span class="hljs-string">"paramMap不可为空"</span>);<br>        Assert.isTrue(maxThreadNum &gt; <span class="hljs-number">0</span>, <span class="hljs-string">"maxThreadNum不可小于1"</span>);<br><br>        <span class="hljs-comment">// 同时运行的最大线程数量</span><br>        <span class="hljs-keyword">int</span> maxThreadNum1 = Math.min(maxThreadNum, paramMap.size());<br>        <span class="hljs-comment">// tips: 如果错误地使用 this.paramMap = paramMap; 多测试几遍会发现，偶尔会陷入了阻塞</span><br>        <span class="hljs-keyword">this</span>.paramMap = Collections.synchronizedMap(paramMap);<br>        <span class="hljs-keyword">this</span>.biFunction = biFunction;<br>        <span class="hljs-keyword">this</span>.executorService = ThreadUtil.newExecutor(maxThreadNum1, maxThreadNum1, Integer.MAX_VALUE);<br>        <span class="hljs-keyword">this</span>.successResultMap = <span class="hljs-keyword">new</span> ConcurrentHashMap&lt;&gt;(<span class="hljs-keyword">this</span>.paramMap.size());<br>        <span class="hljs-keyword">this</span>.errorResultMap = <span class="hljs-keyword">new</span> ConcurrentHashMap&lt;&gt;();<br>    &#125;<br><br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">execute</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> InterruptedException </span>&#123;<br>        <span class="hljs-keyword">while</span> (CollUtil.isNotEmpty(paramMap)) &#123;<br>            List&lt;Callable&lt;R&gt;&gt; callableList = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();<br>            paramMap.forEach((k, v) -&gt; callableList.add(() -&gt; &#123;<br>                <span class="hljs-keyword">try</span> &#123;<br>                    <span class="hljs-keyword">final</span> R result = biFunction.apply(k, v);<br>                    successResultMap.put(k, result);<br>                &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;<br>                    errorResultMap.put(k, e);<br>                &#125; <span class="hljs-keyword">finally</span> &#123;<br>                    paramMap.remove(k);<br>                &#125;<br>                <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;<br>            &#125;));<br>            <span class="hljs-comment">// 在线程池中运行任务</span><br>            executorService.invokeAll(callableList);<br>            executorService.shutdown();<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Map&lt;K, R&gt; <span class="hljs-title">getSuccessResultMap</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> successResultMap;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Map&lt;K, Throwable&gt; <span class="hljs-title">getErrorResultMap</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> errorResultMap;<br>    &#125;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 测试</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> InterruptedException </span>&#123;<br>        <span class="hljs-keyword">final</span> TimeInterval timer = DateUtil.timer();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">100</span>; i++) &#123;<br>            test();<br>        &#125;<br>        System.out.println(timer.intervalMs());<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> InterruptedException </span>&#123;<br>        Map&lt;String, String&gt; paramMap = <span class="hljs-keyword">new</span> LinkedHashMap&lt;&gt;();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i++) &#123;<br>            paramMap.put(<span class="hljs-string">"key:"</span> + i, <span class="hljs-string">"value:"</span> + i);<br>        &#125;<br><br>        <span class="hljs-keyword">final</span> ConcurrentExecutor2&lt;String, String, Integer&gt; executor = <span class="hljs-keyword">new</span> ConcurrentExecutor2&lt;&gt;(<span class="hljs-number">5</span>, paramMap,<br>                (k, v) -&gt; &#123;<br>                    ThreadUtil.sleep(<span class="hljs-number">10</span>);<br>                    System.out.println(Thread.currentThread().getName() + <span class="hljs-string">"-"</span> + v);<br>                    <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> abs = Math.abs(Objects.hash(v));<br>                    <span class="hljs-keyword">if</span> (abs % <span class="hljs-number">3</span> == <span class="hljs-number">0</span>) &#123;<br>                        <span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span> / <span class="hljs-number">0</span>;<br>                    &#125;<br>                    <span class="hljs-keyword">return</span> abs;<br>                &#125;);<br>        executor.execute();<br>        System.out.println(<span class="hljs-string">"success result: "</span> + executor.getSuccessResultMap());<br>        System.out.println(<span class="hljs-string">"error result: "</span> + executor.getErrorResultMap());<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/android/学习资料/" rel="bookmark">Android学习资料</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/business/Token身份认证设计/" rel="bookmark">基于 AOP 和 JWT 实现的 Token 身份认证组件</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/business/签名设计/" rel="bookmark">接口签名校验设计</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/java/Equable/" rel="bookmark">【Java】通过 Getter 方法引用，来比较两个对象是否相等</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/java/JVM/" rel="bookmark">JVM</a></div>
+    </li>
+  </ul>
+
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
+            <span class="icon">
+              <i class="wechat"></i>
+            </span>
+
+            <span class="label">WeChat</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/java/" rel="tag"># java</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/linux/ftp/" rel="prev" title="Ftp">
+      <i class="fa fa-chevron-left"></i> Ftp
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/java/%E5%9F%BA%E4%BA%8E%E6%96%B9%E6%B3%95%E5%BC%95%E7%94%A8%E7%9A%84%E6%9E%84%E5%BB%BA%E5%99%A8%E6%A8%A1%E5%BC%8F%E8%BF%90%E7%94%A8/" rel="next" title="【Java】基于方法引用的构建器模式运用">
+      【Java】基于方法引用的构建器模式运用 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#目的："><span class="nav-number">1.</span> <span class="nav-text">目的：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#思路"><span class="nav-number">2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#示例"><span class="nav-number">3.</span> <span class="nav-text">示例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#源码（方案-1）"><span class="nav-number">4.</span> <span class="nav-text">源码（方案 1）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#源码（方案-2）"><span class="nav-number"></span> <span class="nav-text">源码（方案 2）</span></a></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="lyloou"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">lyloou</p>
+  <div class="site-description" itemprop="description">/* Better than last best */</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">311</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">56</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/lyloou" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;lyloou" rel="noopener" target="_blank">GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:lyloou6@gmail.com" title="E-Mail → mailto:lyloou6@gmail.com" rel="noopener" target="_blank">E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/lyloou" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;lyloou" rel="noopener" target="_blank">Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/ly1414725328" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;ly1414725328" rel="noopener" target="_blank">CSDN</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">粤ICP备18151128号 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lyloou</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : true,
+      appId      : 'yhivNNDDoank7qFbmyEj9Ldq-gzGzoHsz',
+      appKey     : 'QuFu2ooibSzW1Q8eTrmPLyPw',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>

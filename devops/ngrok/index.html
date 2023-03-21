@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="zh-CN,zh-HK,zh-TW,en,default">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"lyloou.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="配置域名（需支持泛域名功能）   子域名 记录类型 线路类型 记录值    ngrok A 记录 通用 170.10.10.100   *.ngrok A 记录 通用 170.10.10.100   安装 git… 安装并配置好 go https:&#x2F;&#x2F;github.com&#x2F;golang&#x2F;go&#x2F;wiki&#x2F;Ubuntu  1234567sudo add-apt-repository ppa:gophe">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ngrok搭建">
+<meta property="og:url" content="https://lyloou.github.io/devops/ngrok/index.html">
+<meta property="og:site_name" content="lyloou">
+<meta property="og:description" content="配置域名（需支持泛域名功能）   子域名 记录类型 线路类型 记录值    ngrok A 记录 通用 170.10.10.100   *.ngrok A 记录 通用 170.10.10.100   安装 git… 安装并配置好 go https:&#x2F;&#x2F;github.com&#x2F;golang&#x2F;go&#x2F;wiki&#x2F;Ubuntu  1234567sudo add-apt-repository ppa:gophe">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-11-30T02:39:51.000Z">
+<meta property="article:modified_time" content="2018-11-30T02:39:51.000Z">
+<meta property="article:author" content="lyloou">
+<meta property="article:tag" content="devops">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://lyloou.github.io/devops/ngrok/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Ngrok搭建 | lyloou</title>
+  
+    <script>
+      function sendPageView() {
+        if (CONFIG.hostname !== location.hostname) return;
+        var uid = localStorage.getItem('uid') || (Math.random() + '.' + Math.random());
+        localStorage.setItem('uid', uid);
+        navigator.sendBeacon('https://www.google-analytics.com/collect', new URLSearchParams({
+          v  : 1,
+          tid: 'UA-80542932-1',
+          cid: uid,
+          t  : 'pageview',
+          dp : encodeURIComponent(location.pathname)
+        }));
+      }
+      document.addEventListener('pjax:complete', sendPageView);
+      sendPageView();
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta custom-logo">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">lyloou</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/devops/ngrok/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lyloou">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Ngrok搭建<a href="https://github.com/lyloou/lyloou.github.io/edit/source/source/_posts/devops/ngrok.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil-alt"></i></a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-11-30 10:39:51" itemprop="dateCreated datePublished" datetime="2018-11-30T10:39:51+08:00">2018-11-30</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/devops/ngrok/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/devops/ngrok/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="配置域名（需支持泛域名功能）"><a href="#配置域名（需支持泛域名功能）" class="headerlink" title="配置域名（需支持泛域名功能）"></a>配置域名（需支持泛域名功能）</h2><table>
+<thead>
+<tr>
+<th>子域名</th>
+<th>记录类型</th>
+<th>线路类型</th>
+<th>记录值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ngrok</td>
+<td>A 记录</td>
+<td>通用</td>
+<td>170.10.10.100</td>
+</tr>
+<tr>
+<td>*.ngrok</td>
+<td>A 记录</td>
+<td>通用</td>
+<td>170.10.10.100</td>
+</tr>
+</tbody></table>
+<h2 id="安装-git"><a href="#安装-git" class="headerlink" title="安装 git"></a>安装 git</h2><p>…</p>
+<h2 id="安装并配置好-go"><a href="#安装并配置好-go" class="headerlink" title="安装并配置好 go"></a>安装并配置好 go</h2><ul>
+<li><a href="https://github.com/golang/go/wiki/Ubuntu" target="_blank" rel="noopener">https://github.com/golang/go/wiki/Ubuntu</a></li>
+</ul>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs vim">sudo <span class="hljs-built_in">add</span>-apt-repository <span class="hljs-keyword">pp</span><span class="hljs-variable">a:gophers</span>/archive<br>sudo apt-<span class="hljs-built_in">get</span> <span class="hljs-keyword">update</span><br>sudo apt-<span class="hljs-built_in">get</span> install golang-<span class="hljs-number">1.10</span>-<span class="hljs-keyword">go</span> -<span class="hljs-keyword">y</span><br><br><span class="hljs-built_in">mkdir</span> -<span class="hljs-keyword">p</span> $HOME/<span class="hljs-keyword">c</span><br><span class="hljs-built_in">mkdir</span> -<span class="hljs-keyword">p</span> $HOME/<span class="hljs-keyword">w</span><br><span class="hljs-keyword">ln</span> -<span class="hljs-keyword">sf</span> /usr/lib/<span class="hljs-keyword">go</span>-<span class="hljs-number">1.10</span> $HOME/<span class="hljs-keyword">c</span>/<span class="hljs-keyword">go</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ini">export GOROOT=$HOME/c/go<br>export GOPATH=$HOME/w/go<br>export PATH=$GOROOT/bin:$&#123;GOPATH&#125;/bin:$PATH<br></code></pre></td></tr></table></figure>
+
+<h2 id="编译生成目标文件"><a href="#编译生成目标文件" class="headerlink" title="编译生成目标文件"></a>编译生成目标文件</h2><p>创建并进入临时目录：<code>mkdir $HOME/t &amp;&amp; cd $_</code><br>创建文件<code>build_ngrok.sh</code>加入以下内容</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-meta">#!/bin/sh</span><br><span class="hljs-built_in">read</span> -p <span class="hljs-string">"Input your domain name:"</span> DOMAIN<br><span class="hljs-keyword">if</span> [ <span class="hljs-string">"<span class="hljs-variable">$DOMAIN</span>"</span> = <span class="hljs-string">""</span> ];<span class="hljs-keyword">then</span><br>    <span class="hljs-built_in">echo</span> Please input your domain name.<br>    <span class="hljs-built_in">exit</span> 0<br><span class="hljs-keyword">fi</span><br><br>resultFileName=ngrok_`<span class="hljs-built_in">echo</span> <span class="hljs-variable">$&#123;DOMAIN&#125;</span> | sed <span class="hljs-string">'s/\./_/g'</span>`<br><br>currentPwd=$(<span class="hljs-built_in">pwd</span>)<br><span class="hljs-built_in">echo</span> current path: <span class="hljs-variable">$currentPwd</span><br>go get github.com/inconshreveable/ngrok<br><span class="hljs-built_in">cd</span> <span class="hljs-variable">$GOPATH</span>/src/github.com/inconshreveable/ngrok<br>git clean -df<br>git checkout -- .<br><br>openssl genrsa -out rootCA.key 2048<br>openssl req -x509 -new -nodes -key rootCA.key -subj <span class="hljs-string">"/CN=<span class="hljs-variable">$DOMAIN</span>"</span> -days 5000 -out rootCA.pem<br>openssl genrsa -out device.key 2048<br>openssl req -new -key device.key -subj <span class="hljs-string">"/CN=<span class="hljs-variable">$DOMAIN</span>"</span> -out device.csr<br>openssl x509 -req -<span class="hljs-keyword">in</span> device.csr -CA rootCA.pem -CAkey rootCA.key -CAcreateserial -out device.crt -days 5000<br><br>cp rootCA.pem assets/client/tls/ngrokroot.crt<br>cp device.crt assets/server/tls/snakeoil.crt<br>cp device.key assets/server/tls/snakeoil.key<br><br>make release-server<br>GOOS=linux GOARCH=amd64 make release-client<br>GOOS=windows GOARCH=amd64 make release-client<br>GOOS=linux GOARCH=arm make release-client<br>GOOS=darwin GOARCH=amd64 make release-client<br><br>mkdir -p bin/tls<br>mkdir -p bin/out<br><br>cp device.crt bin/tls/snakeoil.crt<br>cp device.key bin/tls/snakeoil.key<br><span class="hljs-built_in">echo</span> <span class="hljs-string">'nohup ./ngrokd -tlsKey="tls/snakeoil.key" -tlsCrt="tls/snakeoil.crt" -domain='</span><span class="hljs-string">"<span class="hljs-variable">$DOMAIN</span>"</span><span class="hljs-string">' -httpAddr=":80" -httpsAddr=":443" &gt; out/nohupd.out 2&gt;&amp;1 &amp;'</span> &gt; ./bin/start.sh<br>chmod +x ./bin/start.sh<br><span class="hljs-built_in">echo</span> <span class="hljs-string">"server_addr: <span class="hljs-variable">$DOMAIN</span>:4443"</span> &gt; ./bin/ngrok.cfg<br><span class="hljs-built_in">echo</span> <span class="hljs-string">"trust_host_root_certs: false"</span> &gt;&gt; ./bin/ngrok.cfg<br><span class="hljs-built_in">echo</span> <span class="hljs-string">'nohup ./ngrok -config=./ngrok.cfg -subdomain=blog -proto=http 8078 &gt; /dev/null 2&gt;&amp;1 &amp;'</span> &gt; ./bin/blog.sh<br>chmod +x ./bin/ngrok_blog.sh<br><br>mv bin <span class="hljs-variable">$&#123;resultFileName&#125;</span><br>tar -zcvf <span class="hljs-variable">$&#123;resultFileName&#125;</span>.tar.gz <span class="hljs-variable">$&#123;resultFileName&#125;</span><br>mv <span class="hljs-variable">$&#123;resultFileName&#125;</span>.tar.gz <span class="hljs-variable">$currentPwd</span>/<span class="hljs-variable">$&#123;resultFileName&#125;</span>.tar.gz<br>git clean -df<br>git checkout -- .<br><span class="hljs-built_in">echo</span> ok! result: <span class="hljs-variable">$&#123;resultFileName&#125;</span>.tar.gz<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>运行 <code>sh build_ngrok.sh</code></li>
+<li>根据提示输入已经配置好的域名，例如：ngrok.lyloou.com</li>
+<li>在域名对应的服务器上运行：<code>./start.sh</code> （这样，服务器端就完成了）</li>
+</ul>
+<h2 id="打包和解压"><a href="#打包和解压" class="headerlink" title="打包和解压"></a>打包和解压</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">tar -zcvf ngrok_lyloou_com.tar.gz bin<br>tar -zxvf ngrok_lyloou_com.tar.gz<br></code></pre></td></tr></table></figure>
+
+<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>realpath ngrok_lyloou_com.tar.gz # 获取文件路径<br>scp <a href="mailto:root@170.10.0.100">root@170.10.0.100</a>:/root/t/ngrok_lyloou_com.tar.gz ngrok_lyloou_com.tar.gz # 从服务器拉取文件</p>
+<h2 id="运行服务器（已经在上面的build-ngrok-sh中配置过了）"><a href="#运行服务器（已经在上面的build-ngrok-sh中配置过了）" class="headerlink" title="运行服务器（已经在上面的build_ngrok.sh中配置过了）"></a>运行服务器（已经在上面的<code>build_ngrok.sh</code>中配置过了）</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-meta">#!/bin/sh</span><br>./ngrokd -domain=<span class="hljs-string">"ngrok.lyloou.com"</span> -httpAddr=<span class="hljs-string">":80"</span> -httpsAddr=<span class="hljs-string">":443"</span><br><br><span class="hljs-comment">## 或者后台运行</span><br>mkdir out<br>chmod +x ngrokd<br>nohup ./ngrokd -domain=<span class="hljs-string">"ngrok.lyloou.com"</span> -httpAddr=<span class="hljs-string">":80"</span> -httpsAddr=<span class="hljs-string">":443"</span>  &gt; out/nohup_log.out 2&gt;&amp;1 &amp;<br></code></pre></td></tr></table></figure>
+
+<h2 id="运行客户端（在上面的build-ngrok-sh中配置并生成了一个案例ngrok-blog-sh）"><a href="#运行客户端（在上面的build-ngrok-sh中配置并生成了一个案例ngrok-blog-sh）" class="headerlink" title="运行客户端（在上面的build_ngrok.sh中配置并生成了一个案例ngrok_blog.sh）"></a>运行客户端（在上面的<code>build_ngrok.sh</code>中配置并生成了一个案例<code>ngrok_blog.sh</code>）</h2><p>添加配置 ngrok.cfg：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">server_addr: <span class="hljs-string">"ngrok.lyloou.com:4443"</span><br>trust_host_root_certs: <span class="hljs-literal">false</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-meta">#!/bin/sh</span><br>nohup ./ngrok -config=./ngrok.cfg -subdomain=lou -proto=http 80 &gt; /dev/null 2&gt;&amp;1 &amp;<br></code></pre></td></tr></table></figure>
+
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>如果在云平台中运行 ngrok 服务, 需要将<code>4443端口</code>和<code>80端口</code>添加到安全组中，如下表：</p>
+<table>
+<thead>
+<tr>
+<th>授权策略</th>
+<th>协议类型</th>
+<th>端口范围</th>
+<th>授权类型(全部)</th>
+<th>授权对象</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>允许</td>
+<td>自定义 TCP</td>
+<td>4443/4443</td>
+<td>IPv4 地址段访问</td>
+<td>0.0.0.0/0</td>
+</tr>
+<tr>
+<td>允许</td>
+<td>自定义 TCP</td>
+<td>80/80</td>
+<td>IPv4 地址段访问</td>
+<td>0.0.0.0/0</td>
+</tr>
+</tbody></table>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a href="https://morongs.github.io/2016/12/28/dajian-ngrok/" target="_blank" rel="noopener">从零教你搭建 ngrok 服务</a></li>
+<li><a href="https://blog.csdn.net/cloume/article/details/51209493" target="_blank" rel="noopener">Ubuntu 下编译安装 ngrok</a></li>
+</ul>
+<h2 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h2><figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs md"><span class="hljs-section">#一、系统说明</span><br><br><span class="hljs-bullet">- </span>Windows 使用<span class="hljs-code">`windows_amd64`</span>版本<br><span class="hljs-bullet">- </span>Mac 使用<span class="hljs-code">`darwin_amd64`</span>版本<br><span class="hljs-bullet">- </span>Linux 使用<span class="hljs-code">`linux`</span>版本<br><br><span class="hljs-section">#二、配置说明</span><br>.\ngrok.exe -config=.\ngrok.cfg -subdomain=lou -proto=http 80<br><br><span class="hljs-bullet">- </span>subdomain 指向自定义的子域名<br><span class="hljs-bullet">- </span>proto 指向使用的协议<br><span class="hljs-bullet">- </span>随后的数字表示：准备映射出去的端口号<br><br><span class="hljs-section"># 三、使用方法</span><br><br><span class="hljs-bullet">- </span>Windows 系统执行 ngrok.bat<br><span class="hljs-bullet">- </span>Mac 和 Linux 系统执行 ngrok.sh<br><br><span class="hljs-section"># 四、访问方式</span><br><br>浏览器中打开链接：<br>[<span class="hljs-string">http://lou.ngrok.lyloou.com</span>](<span class="hljs-link">http://lou.ngrok.lyloou.com</span>)<br></code></pre></td></tr></table></figure>
+
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p><a href="https://github.com/lyloou/build_ngrok" target="_blank" rel="noopener">https://github.com/lyloou/build_ngrok</a></p>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/devops/elk/" rel="bookmark">ELK环境部署</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/devops/jenkins/" rel="bookmark">Jenkins</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/devops/security/" rel="bookmark">安全</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/devops/docker/" rel="bookmark">Docker</a></div>
+    </li>
+  </ul>
+
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
+            <span class="icon">
+              <i class="wechat"></i>
+            </span>
+
+            <span class="label">WeChat</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/devops/" rel="tag"># devops</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/sql/redis/" rel="prev" title="Redis">
+      <i class="fa fa-chevron-left"></i> Redis
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/http/%E7%BD%91%E7%BB%9C/" rel="next" title="网络">
+      网络 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#配置域名（需支持泛域名功能）"><span class="nav-number">1.</span> <span class="nav-text">配置域名（需支持泛域名功能）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-git"><span class="nav-number">2.</span> <span class="nav-text">安装 git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装并配置好-go"><span class="nav-number">3.</span> <span class="nav-text">安装并配置好 go</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译生成目标文件"><span class="nav-number">4.</span> <span class="nav-text">编译生成目标文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#打包和解压"><span class="nav-number">5.</span> <span class="nav-text">打包和解压</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下载"><span class="nav-number">6.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行服务器（已经在上面的build-ngrok-sh中配置过了）"><span class="nav-number">7.</span> <span class="nav-text">运行服务器（已经在上面的build_ngrok.sh中配置过了）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行客户端（在上面的build-ngrok-sh中配置并生成了一个案例ngrok-blog-sh）"><span class="nav-number">8.</span> <span class="nav-text">运行客户端（在上面的build_ngrok.sh中配置并生成了一个案例ngrok_blog.sh）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">9.</span> <span class="nav-text">其他</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">10.</span> <span class="nav-text">参考资料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#客户端"><span class="nav-number">11.</span> <span class="nav-text">客户端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#源码"><span class="nav-number">12.</span> <span class="nav-text">源码</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="lyloou"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">lyloou</p>
+  <div class="site-description" itemprop="description">/* Better than last best */</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">311</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">56</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/lyloou" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;lyloou" rel="noopener" target="_blank">GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:lyloou6@gmail.com" title="E-Mail → mailto:lyloou6@gmail.com" rel="noopener" target="_blank">E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/lyloou" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;lyloou" rel="noopener" target="_blank">Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/ly1414725328" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;ly1414725328" rel="noopener" target="_blank">CSDN</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">粤ICP备18151128号 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lyloou</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : true,
+      appId      : 'yhivNNDDoank7qFbmyEj9Ldq-gzGzoHsz',
+      appKey     : 'QuFu2ooibSzW1Q8eTrmPLyPw',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>

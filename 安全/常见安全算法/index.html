@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="zh-CN,zh-HK,zh-TW,en,default">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"lyloou.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="MD5（MD5 Message-Digest Algorithm)消息摘要算法 特点 不可逆 输入不室长，输出定长的128-bits（用32个16进制字符表示）  算法 使用场合用于各种程序语言中，以确保资料传递无误（摘要）。 参考资料 MD5 - 维基百科，自由的百科全书  SHA(Secure Hash Algorithm)安全散列算法  SHA-3：2015年正式发布，由于对MD5出现成功的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【安全-算法】常见安全算法">
+<meta property="og:url" content="https://lyloou.github.io/%E5%AE%89%E5%85%A8/%E5%B8%B8%E8%A7%81%E5%AE%89%E5%85%A8%E7%AE%97%E6%B3%95/index.html">
+<meta property="og:site_name" content="lyloou">
+<meta property="og:description" content="MD5（MD5 Message-Digest Algorithm)消息摘要算法 特点 不可逆 输入不室长，输出定长的128-bits（用32个16进制字符表示）  算法 使用场合用于各种程序语言中，以确保资料传递无误（摘要）。 参考资料 MD5 - 维基百科，自由的百科全书  SHA(Secure Hash Algorithm)安全散列算法  SHA-3：2015年正式发布，由于对MD5出现成功的">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/lyloou/img/develop/img/cbbfed12-d2a2-42d2-a5ad-26e6c72612fa_20211220152522726_3266a3.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lyloou/img/develop/img/91d85977-78d4-4a52-a925-b016099f1568_20211220152908396_57b035.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lyloou/img/develop/img/ddd8938c-0386-424d-b7b8-4c16b5889f7c_20211220152522708_ebc258.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/lyloou/img/develop/img/0bd15490-2c01-4cfc-aa2f-b0d0f1a80560_20211220152522780_cbb058.jpg">
+<meta property="article:published_time" content="2021-12-23T02:21:24.000Z">
+<meta property="article:modified_time" content="2021-12-23T02:21:24.000Z">
+<meta property="article:author" content="lyloou">
+<meta property="article:tag" content="安全">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/lyloou/img/develop/img/cbbfed12-d2a2-42d2-a5ad-26e6c72612fa_20211220152522726_3266a3.png">
+
+<link rel="canonical" href="https://lyloou.github.io/%E5%AE%89%E5%85%A8/%E5%B8%B8%E8%A7%81%E5%AE%89%E5%85%A8%E7%AE%97%E6%B3%95/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>【安全-算法】常见安全算法 | lyloou</title>
+  
+    <script>
+      function sendPageView() {
+        if (CONFIG.hostname !== location.hostname) return;
+        var uid = localStorage.getItem('uid') || (Math.random() + '.' + Math.random());
+        localStorage.setItem('uid', uid);
+        navigator.sendBeacon('https://www.google-analytics.com/collect', new URLSearchParams({
+          v  : 1,
+          tid: 'UA-80542932-1',
+          cid: uid,
+          t  : 'pageview',
+          dp : encodeURIComponent(location.pathname)
+        }));
+      }
+      document.addEventListener('pjax:complete', sendPageView);
+      sendPageView();
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta custom-logo">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">lyloou</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/%E5%AE%89%E5%85%A8/%E5%B8%B8%E8%A7%81%E5%AE%89%E5%85%A8%E7%AE%97%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lyloou">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【安全-算法】常见安全算法<a href="https://github.com/lyloou/lyloou.github.io/edit/source/source/_posts/%E5%AE%89%E5%85%A8/%E5%B8%B8%E8%A7%81%E5%AE%89%E5%85%A8%E7%AE%97%E6%B3%95.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil-alt"></i></a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-12-23 10:21:24" itemprop="dateCreated datePublished" datetime="2021-12-23T10:21:24+08:00">2021-12-23</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/%E5%AE%89%E5%85%A8/%E5%B8%B8%E8%A7%81%E5%AE%89%E5%85%A8%E7%AE%97%E6%B3%95/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/%E5%AE%89%E5%85%A8/%E5%B8%B8%E8%A7%81%E5%AE%89%E5%85%A8%E7%AE%97%E6%B3%95/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="MD5（MD5-Message-Digest-Algorithm"><a href="#MD5（MD5-Message-Digest-Algorithm" class="headerlink" title="MD5（MD5 Message-Digest Algorithm)"></a>MD5（MD5 Message-Digest Algorithm)</h2><p>消息摘要算法</p>
+<h4 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h4><ul>
+<li>不可逆</li>
+<li>输入不室长，输出定长的128-bits（用32个16进制字符表示）</li>
+</ul>
+<h4 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h4><p><img src="https://raw.githubusercontent.com/lyloou/img/develop/img/cbbfed12-d2a2-42d2-a5ad-26e6c72612fa_20211220152522726_3266a3.png" alt="img"></p>
+<h4 id="使用场合"><a href="#使用场合" class="headerlink" title="使用场合"></a>使用场合</h4><p>用于各种程序语言中，以确保资料传递无误（摘要）。</p>
+<h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><ul>
+<li><a href="https://zh.wikipedia.org/wiki/MD5" target="_blank" rel="noopener">MD5 - 维基百科，自由的百科全书</a></li>
+</ul>
+<h2 id="SHA-Secure-Hash-Algorithm"><a href="#SHA-Secure-Hash-Algorithm" class="headerlink" title="SHA(Secure Hash Algorithm)"></a>SHA(Secure Hash Algorithm)</h2><p>安全散列算法</p>
+<blockquote>
+<p><a href="https://zh.wikipedia.org/wiki/SHA-3" target="_blank" rel="noopener">SHA-3</a>：2015年正式发布，由于对MD5出现成功的破解，以及对SHA-0和SHA-1出现理论上破解的方法，<a href="https://zh.wikipedia.org/wiki/國家標準暨技術研究院" target="_blank" rel="noopener">NIST</a>感觉需要一个与之前算法不同的，可替换的加密散列算法，也就是现在的SHA-3。</p>
+</blockquote>
+<h4 id="特点-1"><a href="#特点-1" class="headerlink" title="特点"></a>特点</h4><ul>
+<li>输出定长（具体模式长度不一样，SHA3-512、SHA3-256）</li>
+<li>SHA2和SHA3目前还未被破解。</li>
+</ul>
+<h4 id="参考资料-1"><a href="#参考资料-1" class="headerlink" title="参考资料"></a>参考资料</h4><ul>
+<li><a href="https://zh.wikipedia.org/wiki/SHA家族" target="_blank" rel="noopener">SHA家族 - 维基百科，自由的百科全书</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/SHA-3" target="_blank" rel="noopener">SHA-3 - 维基百科，自由的百科全书</a></li>
+</ul>
+<h2 id="Base64-基底64，一种编码方式，非算法"><a href="#Base64-基底64，一种编码方式，非算法" class="headerlink" title="Base64(基底64，一种编码方式，非算法)"></a>Base64(基底64，一种编码方式，非算法)</h2><h4 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h4><p>是一种基于64个可打印字符来表示二进制数据的表示方法。<br>字符有：[0-9、A-Z、a-z、+/]<br>还有类似其它的编码方式，如Base32。对比Base32，Base64有更多的字符用于编码，其编码后的长度要更短。还有Base58，用于比特币中，不使用易混淆的字符[不使用数字”0”，字母大写”O”，字母大写”I”，和字母小写”l”，以及”+”和”/“符号]<br>目的是：<br><img src="https://raw.githubusercontent.com/lyloou/img/develop/img/91d85977-78d4-4a52-a925-b016099f1568_20211220152908396_57b035.png" alt="img"></p>
+<p>可以编码，也可以解码。<br><strong>是一种编码方式，切记不要误用于加密、解密的场合（有DES、IDEA等对称加密算法）。</strong></p>
+<h4 id="使用场合-1"><a href="#使用场合-1" class="headerlink" title="使用场合"></a>使用场合</h4><p>常用于在处理文本数据的场合，表示、传输、存储一些二进制数据，包括MIME的电子邮件及XML的一些复杂数据。<br>如：Base64编码图片、MIME内容、URL（用于传递参数）。<br><img src="https://raw.githubusercontent.com/lyloou/img/develop/img/ddd8938c-0386-424d-b7b8-4c16b5889f7c_20211220152522708_ebc258.jpg" alt="img"><br><img src="https://raw.githubusercontent.com/lyloou/img/develop/img/0bd15490-2c01-4cfc-aa2f-b0d0f1a80560_20211220152522780_cbb058.jpg" alt="img"></p>
+<h4 id="参考资料-2"><a href="#参考资料-2" class="headerlink" title="参考资料"></a>参考资料</h4><ul>
+<li><a href="https://zh.wikipedia.org/wiki/Base64" target="_blank" rel="noopener">Base64 - 维基百科，自由的百科全书</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/Base58" target="_blank" rel="noopener">Base58 - 维基百科，自由的百科全书</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/34937271" target="_blank" rel="noopener">对称加密和Base64编码 - 知乎</a></li>
+</ul>
+<h2 id="DES-Data-Encryptioin-Standard"><a href="#DES-Data-Encryptioin-Standard" class="headerlink" title="DES(Data Encryptioin Standard)"></a>DES(Data Encryptioin Standard)</h2><p>数据加密标准，是一种对称加密算法。是由IBM公司研制的对称密码体制加密算法，密钥长64位，实事上是56位参与DES运算（其它的是校验位，8、16、24、32、60、48、56、64）</p>
+<h4 id="特点-2"><a href="#特点-2" class="headerlink" title="特点"></a>特点</h4><p>分组比较短、密钥太短、运算速度慢<br>有极高的安全性（并非不可破解。用穷举的时间特别长。特殊的硬件并行计算几个小时）<br>加强版本：<a href="https://baike.baidu.com/item/3DES" target="_blank" rel="noopener">3DES_百度百科</a>，即Triple Data Encryption Algorithm。相当于对每个数据块应用三次DES加密算法。</p>
+<h4 id="参考资料-3"><a href="#参考资料-3" class="headerlink" title="参考资料"></a>参考资料</h4><ul>
+<li><a href="https://baike.baidu.com/item/des算法/10306073" target="_blank" rel="noopener">des算法_百度百科</a></li>
+</ul>
+<h2 id="IDEA-International-Data-Encryption-Algorithm"><a href="#IDEA-International-Data-Encryption-Algorithm" class="headerlink" title="IDEA(International Data Encryption Algorithm)"></a>IDEA(International Data Encryption Algorithm)</h2><p>国际数据加密算法，是从DES算法的基础上发展出来的。密钥长度为128位。</p>
+<h4 id="特点-3"><a href="#特点-3" class="headerlink" title="特点"></a>特点</h4><ul>
+<li>对比DES而言，更安全</li>
+<li>是一种数据块加密算法</li>
+<li>在美国之外发展（避开了美国法律上对加密技术的限制）</li>
+</ul>
+<h4 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h4><ul>
+<li>PGP使用IDEA作为其分组加密算法；</li>
+<li>SSL也将IDEA包含在SSLRef中；</li>
+</ul>
+<h4 id="参考资料-4"><a href="#参考资料-4" class="headerlink" title="参考资料"></a>参考资料</h4><ul>
+<li><a href="https://baike.baidu.com/item/国际数据加密算法/11048972" target="_blank" rel="noopener">国际数据加密算法_百度百科</a></li>
+</ul>
+<h2 id="AES-Advanced-Encryption-Standard"><a href="#AES-Advanced-Encryption-Standard" class="headerlink" title="AES(Advanced Encryption Standard)"></a>AES(Advanced Encryption Standard)</h2><p>高级加密标准，用来替代原先的DES，目前被广泛应用。<br>密钥长度可以是128位、192位或256位。</p>
+<h4 id="应用场合"><a href="#应用场合" class="headerlink" title="应用场合"></a>应用场合</h4><p>SSL、IpSec、ATM、路由器、网络保密系统、卫星通信、移动通信。</p>
+<h4 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h4><ul>
+<li><a href="https://www.jianshu.com/p/1d5b95dca31d" target="_blank" rel="noopener">AES加密技术：AES加密算法在信息安全中的应用 - 简书</a></li>
+</ul>
+<h2 id="RSA非对称加密算法"><a href="#RSA非对称加密算法" class="headerlink" title="RSA非对称加密算法"></a>RSA非对称加密算法</h2><p>RSA是由三个人名的首字母缩写而来。</p>
+<h4 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h4><p>优点是，相对于对称加密，对称密钥需要协商密钥，非对称加密不需要协商，可以将公钥完全地公开。<br>缺点是，运算速度慢。</p>
+<h4 id="与对称加密结合使用"><a href="#与对称加密结合使用" class="headerlink" title="与对称加密结合使用"></a>与对称加密结合使用</h4><p>在实际应用中，将对称和非对称结合使用。</p>
+<ol>
+<li>A和B先交换公钥；</li>
+<li>A生成一个随机AES口令，通过B的公钥加密，并发送给B；</li>
+<li>B接收信息后，通过自己的私钥解密得到AES口令；</li>
+<li>双方用这个AES口令进行加密通信。</li>
+</ol>
+<h4 id="应用场合-1"><a href="#应用场合-1" class="headerlink" title="应用场合"></a>应用场合</h4><ul>
+<li>https 加密链接</li>
+<li>socket程序，结合运用 rsa + aes</li>
+</ul>
+<h4 id="参考资料-5"><a href="#参考资料-5" class="headerlink" title="参考资料"></a>参考资料</h4><ul>
+<li><a href="https://www.liaoxuefeng.com/wiki/1252599548343744/1304227873816610" target="_blank" rel="noopener">非对称加密算法 - 廖雪峰的官方网站</a></li>
+<li><a href="https://0f9de7f3.wiz06.com/wapp/pages/view/share/s/0fDuvP3SO4QS2Hb3sP2Di0ai3NopV-1UR4d820U8CU0Eq8qJ" target="_blank" rel="noopener">原文</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+      
+
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
+            <span class="icon">
+              <i class="wechat"></i>
+            </span>
+
+            <span class="label">WeChat</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%AE%89%E5%85%A8/" rel="tag"># 安全</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/git/Git%E4%B8%AD%E5%90%88%E5%B9%B6%E5%A4%9A%E4%B8%AA%E9%A1%B9%E7%9B%AE%E5%B9%B6%E4%BF%9D%E7%95%99%E6%89%80%E6%9C%89commit%E8%AE%B0%E5%BD%95/" rel="prev" title="【开发工具-Git】Git中合并多个项目并保留所有commit提交记录">
+      <i class="fa fa-chevron-left"></i> 【开发工具-Git】Git中合并多个项目并保留所有commit提交记录
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/%E7%AE%97%E6%B3%95/%E6%8A%BD%E5%A5%96%E7%AE%97%E6%B3%95/" rel="next" title="【算法】抽奖算法">
+      【算法】抽奖算法 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MD5（MD5-Message-Digest-Algorithm"><span class="nav-number">1.</span> <span class="nav-text">MD5（MD5 Message-Digest Algorithm)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#特点"><span class="nav-number">1.0.1.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#算法"><span class="nav-number">1.0.2.</span> <span class="nav-text">算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用场合"><span class="nav-number">1.0.3.</span> <span class="nav-text">使用场合</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考资料"><span class="nav-number">1.0.4.</span> <span class="nav-text">参考资料</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SHA-Secure-Hash-Algorithm"><span class="nav-number">2.</span> <span class="nav-text">SHA(Secure Hash Algorithm)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#特点-1"><span class="nav-number">2.0.1.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考资料-1"><span class="nav-number">2.0.2.</span> <span class="nav-text">参考资料</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Base64-基底64，一种编码方式，非算法"><span class="nav-number">3.</span> <span class="nav-text">Base64(基底64，一种编码方式，非算法)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#概念"><span class="nav-number">3.0.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用场合-1"><span class="nav-number">3.0.2.</span> <span class="nav-text">使用场合</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考资料-2"><span class="nav-number">3.0.3.</span> <span class="nav-text">参考资料</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DES-Data-Encryptioin-Standard"><span class="nav-number">4.</span> <span class="nav-text">DES(Data Encryptioin Standard)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#特点-2"><span class="nav-number">4.0.1.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考资料-3"><span class="nav-number">4.0.2.</span> <span class="nav-text">参考资料</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IDEA-International-Data-Encryption-Algorithm"><span class="nav-number">5.</span> <span class="nav-text">IDEA(International Data Encryption Algorithm)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#特点-3"><span class="nav-number">5.0.1.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#应用"><span class="nav-number">5.0.2.</span> <span class="nav-text">应用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考资料-4"><span class="nav-number">5.0.3.</span> <span class="nav-text">参考资料</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AES-Advanced-Encryption-Standard"><span class="nav-number">6.</span> <span class="nav-text">AES(Advanced Encryption Standard)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#应用场合"><span class="nav-number">6.0.1.</span> <span class="nav-text">应用场合</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考链接"><span class="nav-number">6.0.2.</span> <span class="nav-text">参考链接</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RSA非对称加密算法"><span class="nav-number">7.</span> <span class="nav-text">RSA非对称加密算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#优缺点"><span class="nav-number">7.0.1.</span> <span class="nav-text">优缺点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#与对称加密结合使用"><span class="nav-number">7.0.2.</span> <span class="nav-text">与对称加密结合使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#应用场合-1"><span class="nav-number">7.0.3.</span> <span class="nav-text">应用场合</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考资料-5"><span class="nav-number">7.0.4.</span> <span class="nav-text">参考资料</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="lyloou"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">lyloou</p>
+  <div class="site-description" itemprop="description">/* Better than last best */</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">311</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">56</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/lyloou" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;lyloou" rel="noopener" target="_blank">GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:lyloou6@gmail.com" title="E-Mail → mailto:lyloou6@gmail.com" rel="noopener" target="_blank">E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/lyloou" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;lyloou" rel="noopener" target="_blank">Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/ly1414725328" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;ly1414725328" rel="noopener" target="_blank">CSDN</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">粤ICP备18151128号 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lyloou</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : true,
+      appId      : 'yhivNNDDoank7qFbmyEj9Ldq-gzGzoHsz',
+      appKey     : 'QuFu2ooibSzW1Q8eTrmPLyPw',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
