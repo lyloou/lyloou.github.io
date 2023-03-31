@@ -119,3 +119,38 @@ deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted
 ```
 
 [Ubuntu18.04 更换官方默认更新源 sources.list - SpringCore - 博客园](https://www.cnblogs.com/fanqisoft/p/10753092.html)
+
+
+## 终端显示乱码
+```
+1. 配置locale-gen
+终端执行
+
+sudo locale-gen zh_CN.UTF-8
+
+配置完后检查中文显示是否正常，若仍然不正常执行第二步
+
+2. 配置语言环境变量
+复制以下命令，终端执行
+
+export LANG=en_US.UTF-8
+export LANGUAGE=
+export LC_CTYPE="en_US.UTF-8"
+export LC_NUMERIC=zh_CN.UTF-8
+export LC_TIME=zh_CN.UTF-8
+export LC_COLLATE="en_US.UTF-8"
+export LC_MONETARY=zh_CN.UTF-8
+export LC_MESSAGES="en_US.UTF-8"
+export LC_PAPER=zh_CN.UTF-8
+export LC_NAME=zh_CN.UTF-8
+export LC_ADDRESS=zh_CN.UTF-8
+export LC_TELEPHONE=zh_CN.UTF-8
+export LC_MEASUREMENT=zh_CN.UTF-8
+export LC_IDENTIFICATION=zh_CN.UTF-8
+export LC_ALL=
+
+到第二步问题一般都解决了
+若仍然不正常，可以重启试试
+————————————————
+原文链接：https://blog.csdn.net/weixin_39198406/article/details/82177944
+```
