@@ -1,1 +1,18 @@
-{}
+{
+	"nodes":[
+		{"type":"text","text":"应用程序1","id":"f30f24d54d0bea16","x":-320,"y":20,"width":250,"height":60},
+		{"id":"5104cf11b58811e4","x":120,"y":200,"width":250,"height":60,"type":"text","text":"定时器"},
+		{"type":"text","text":"缓存队列(redis)","id":"dee53b167501c3e4","x":120,"y":380,"width":250,"height":60},
+		{"type":"text","text":"starrocks","id":"020f610c30a38691","x":120,"y":20,"width":250,"height":60},
+		{"type":"text","text":"bili-ugc 三方数据源","id":"ab22449723ba9702","x":-320,"y":-160,"width":250,"height":60},
+		{"type":"text","text":"应用程序2","id":"94de61ceb413d076","x":480,"y":20,"width":250,"height":60}
+	],
+	"edges":[
+		{"id":"c03c20961bbb3480","fromNode":"ab22449723ba9702","fromSide":"bottom","toNode":"f30f24d54d0bea16","toSide":"top","label":"1. get from api"},
+		{"id":"d68acb7507b6faa9","fromNode":"f30f24d54d0bea16","fromSide":"bottom","toNode":"dee53b167501c3e4","toSide":"left","label":"2. 持续写入缓存"},
+		{"id":"0bd308989119f0ac","fromNode":"020f610c30a38691","fromSide":"left","toNode":"f30f24d54d0bea16","toSide":"right","label":"1.1读取"},
+		{"id":"c23fd98052b071be","fromNode":"020f610c30a38691","fromSide":"right","toNode":"94de61ceb413d076","toSide":"left","label":"5. 读取"},
+		{"id":"08651adc66ed40ea","fromNode":"dee53b167501c3e4","fromSide":"top","toNode":"5104cf11b58811e4","toSide":"bottom","label":"3. 批量获取"},
+		{"id":"0f75917b3125e83e","fromNode":"5104cf11b58811e4","fromSide":"top","toNode":"020f610c30a38691","toSide":"bottom","label":"4. streamload批量写入"}
+	]
+}
