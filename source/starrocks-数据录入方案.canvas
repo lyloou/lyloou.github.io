@@ -1,10 +1,10 @@
 {
 	"nodes":[
 		{"type":"text","text":"应用程序1","id":"f30f24d54d0bea16","x":-320,"y":20,"width":250,"height":60},
-		{"id":"5104cf11b58811e4","x":120,"y":200,"width":250,"height":60,"type":"text","text":"定时器"},
+		{"type":"text","text":"定时器","id":"5104cf11b58811e4","x":120,"y":200,"width":250,"height":60},
 		{"type":"text","text":"缓存队列(redis)","id":"dee53b167501c3e4","x":120,"y":380,"width":250,"height":60},
 		{"type":"text","text":"starrocks","id":"020f610c30a38691","x":120,"y":20,"width":250,"height":60},
-		{"type":"text","text":"bili-ugc 三方数据源","id":"ab22449723ba9702","x":-320,"y":-160,"width":250,"height":60},
+		{"type":"text","text":"ugc 三方数据源","id":"ab22449723ba9702","x":-320,"y":-160,"width":250,"height":60},
 		{"type":"text","text":"应用程序2","id":"94de61ceb413d076","x":480,"y":20,"width":250,"height":60}
 	],
 	"edges":[
