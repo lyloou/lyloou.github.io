@@ -270,7 +270,7 @@ theme_config:
   # Sidebar Avatar
   avatar:
     # Replace the default image and set the url here.
-    url: /images/avatar.png #/images/avatar.gif
+    url: /assets/images/avatar.png #/images/avatar.gif
     # If true, the avatar will be dispalyed in circle.
     rounded: true
     # If true, the avatar will be rotated with the cursor.
@@ -374,7 +374,7 @@ theme_config:
     #comment: Donate comment here.
 
   reward:
-    wechatpay: /images/wechatpay.png
+    wechatpay: /assets/images/wechatpay.png
     #alipay: /images/alipay.png
     #paypal: /images/paypal.png
     #bitcoin: /images/bitcoin.png
