@@ -80,7 +80,36 @@ kafka-console-consumer.sh --bootstrap-server nodek.com:9092 --topic topic_1 --gr
 kafka-console-consumer.sh --bootstrap-server 172.20.154.101:9092 --topic task-prize-gift-dev --from-beginning
 ```
 
-## [【spring-kafka】属性 concurrency 的作用及如何配置(RoundRobinAssignor 、RangeAssignor) - 云+社区 - 腾讯云](https://cloud.tencent.com/developer/article/1846785)
+## kafka的concurrency 配置过大导致CPU占用率过大
+
+问题：kafka的concurrency 配置过大导致CPU占用率过大。
+说明和解决方案：3台机器，分区数量为10，concurrency修改前为30，修改后为3(`参考值：机器数量*concurrency<=分区数`)
+
+> 修改前后趋势图
+> ![image.png](https://raw.githubusercontent.com/lyloou/img/develop/v3/202304131428849.png)
+
+修改前：![5dYCAwIUJ0.jpg](https://raw.githubusercontent.com/lyloou/img/develop/v3/202304131429741.jpg)
+修改后：![image.png](https://raw.githubusercontent.com/lyloou/img/develop/v3/202304131430480.png)
+
+**注意：**`concurrent` 的数量和 `@KafkaListener` 是相关的（也可以通过注解参数配置覆盖factory的concurrency `@KafkaListener(concurrency = 3)`），互相直接的线程是不干扰的。
+![image.png](https://raw.githubusercontent.com/lyloou/img/develop/v3/202304131701372.png)
+
+![image.png](https://raw.githubusercontent.com/lyloou/img/develop/v3/202304131659956.png)
+
+**消耗资源分析**
+每一个consumer都会添加到线程池中
+![image.png](https://raw.githubusercontent.com/lyloou/img/develop/v3/202304131728246.png)
+
+每个consumer都会再 while 循环中执行 isRunning()和 pollAndInvoke() 方法（空轮询消耗CPU）。
+![image.png](https://raw.githubusercontent.com/lyloou/img/develop/v3/202304131736265.png)
+
+空轮询消耗CPU示例
+![image.png](https://raw.githubusercontent.com/lyloou/img/develop/v3/202304131740462.png)
+
+参考资料：[【spring-kafka】属性 concurrency 的作用及如何配置(RoundRobinAssignor 、RangeAssignor) - 云+社区 - 腾讯云](https://cloud.tencent.com/developer/article/1846785)
+
+
+## 其他参考资料
 
 [kafka 系列七、kafka 核心配置 - 小人物的奋斗 - 博客园](https://www.cnblogs.com/wangzhuxing/p/10111831.html#_label1_14)
 
@@ -90,8 +119,5 @@ kafka-console-consumer.sh --bootstrap-server 172.20.154.101:9092 --topic task-pr
 [Kafka auto.offset.reset 值详解\_lishuangzhe7047 的博客-CSDN 博客\_auto.offset.reset](https://blog.csdn.net/lishuangzhe7047/article/details/74530417)
 [Kafka 获得 topicPartition 的最早，最新 offset 的时间，以及存储量\_卞卞要运动的博客-CSDN 博客\_topicpartitions](https://blog.csdn.net/qq_29976261/article/details/90229375)
 [Kafka 消费者重复消费问题解决 | 贫贫贫贫僧](http://haoyuanliu.github.io/2020/07/24/Kafka%E6%B6%88%E8%B4%B9%E8%80%85%E9%87%8D%E5%A4%8D%E6%B6%88%E8%B4%B9%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/)
-
-
-
 
 [“高深莫测”的Kafka时间轮原理，原来也就这么回事-CFANZ编程社区](https://www.cfanz.cn/mobile/resource/detail/QzqWOjxEnjxEv)

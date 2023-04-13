@@ -1,3 +1,4 @@
+
 chatgpt 技巧–使用 `"""` 符号将指令和待处理文本分开。
 ```
 Please summarize the following sentences to make them easier to understand.
