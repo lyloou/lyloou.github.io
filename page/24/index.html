@@ -201,7 +201,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lyloou.com/js/node%E9%85%8D%E7%BD%AE/">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.com/js/node/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/images/avatar.png">
@@ -215,7 +215,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/js/node%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">Node配置</a>
+            <a href="/js/node/" class="post-title-link" itemprop="url">Node相关</a>
         </h2>
 
         <div class="post-meta">
@@ -239,26 +239,51 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="国内优秀npm镜像推荐及使用"><a href="#国内优秀npm镜像推荐及使用" class="headerlink" title="国内优秀npm镜像推荐及使用"></a><a href="http://riny.net/2014/cnpm/" target="_blank" rel="noopener">国内优秀npm镜像推荐及使用</a></h2><p>淘宝npm镜像</p>
+          <p>| crypto模块：提供通用的加密和哈希算法。</p>
+<p>| 服务器案例（模块http、path、fs的运用）：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-meta">'use strict'</span><br><br><span class="hljs-keyword">var</span> http = <span class="hljs-built_in">require</span>(<span class="hljs-string">"http"</span>);<br><span class="hljs-keyword">var</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">"path"</span>);<br><span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">"fs"</span>);<br><br><span class="hljs-keyword">var</span> server = http.createServer(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">request, response</span>) </span>&#123;<br>  <span class="hljs-keyword">var</span> workDir = path.resolve(<span class="hljs-string">"."</span>); <span class="hljs-comment">// 获取当前目录</span><br>  <span class="hljs-keyword">var</span> filepath = path.join(workDir, <span class="hljs-string">"showdate.html"</span>); <span class="hljs-comment">// 定位showdate.html文件</span><br><br>  <span class="hljs-comment">// 将本地的文件作为响应返回</span><br>  response.writeHead(<span class="hljs-number">200</span>);<br>  fs.createReadStream(filepath).pipe(response);<br>&#125;);<br><br>server.listen(<span class="hljs-number">3000</span>);<br><span class="hljs-built_in">console</span>.log(<span class="hljs-string">"服务已开启，请登录：http://localhost:3000"</span>);<br></code></pre></td></tr></table></figure>
+
+<p>| pipe</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">"fs"</span>);<br><span class="hljs-keyword">var</span> rs = fs.createReadStream(<span class="hljs-string">"hello.js"</span>);<br><span class="hljs-keyword">var</span> ws = fs.createWriteStream(<span class="hljs-string">"copy.js"</span>);<br>rs.pipe(ws);<br></code></pre></td></tr></table></figure>
+
+<p>| stream 是node.js提供的仅在服务端可用的模块；<br>基于事件的、异步的方式：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">"fs"</span>);<br><span class="hljs-keyword">var</span> rs = fs.createReadStream(<span class="hljs-string">"hello.js"</span>, <span class="hljs-string">"utf-8"</span>);<br>rs.on(<span class="hljs-string">"data"</span>, f);<br>rs.on(<span class="hljs-string">"end"</span>, f);<br>rs.on(<span class="hljs-string">"error"</span>, f);<br></code></pre></td></tr></table></figure>
+
+<p>| 同步的写文件：<code>fs.writeFileSync()</code>；</p>
+<p>| 写文件：<code>fs.writeFile(&quot;output.txt&quot;, data, function(x){})</code>，如果data是String，默认<br>  编码是UTF-8；如果传入的是Buffer，则写入的是二进制文件；回调函数只关心成功与否。</p>
+<p>| 同步读文件使用<code>fs.readFileSync()</code>方法，不接受回调函数，函数直接返回结果。<br>通过<code>try...catch</code>来捕获同步获取文件时的错误。</p>
+<p>| <code>Buffer</code>对象可以和String做转换：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// Buffer -&gt; String</span><br><span class="hljs-keyword">var</span> text = data.toString(<span class="hljs-string">"utf-8"</span>);<br><span class="hljs-built_in">console</span>.log(text);<br><span class="hljs-comment">// String -&gt; Buffer</span><br><span class="hljs-keyword">var</span> buf = <span class="hljs-keyword">new</span> Buffer(text, <span class="hljs-string">"utf-8"</span>);<br><span class="hljs-built_in">console</span>.log(buf);<br></code></pre></td></tr></table></figure>
+
+<p>| fs模块</p>
 <ul>
-<li>搜索地址：<a href="http://npm.taobao.org/" target="_blank" rel="noopener">http://npm.taobao.org/</a></li>
-<li>registry地址：<a href="http://registry.npm.taobao.org/" target="_blank" rel="noopener">http://registry.npm.taobao.org/</a><br>cnpmjs镜像</li>
-<li>搜索地址：<a href="http://cnpmjs.org/" target="_blank" rel="noopener">http://cnpmjs.org/</a></li>
-<li>registry地址：<a href="http://r.cnpmjs.org/" target="_blank" rel="noopener">http://r.cnpmjs.org/</a></li>
+<li>读取文件编码是<code>utf-8</code>的文件；<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">"fs"</span>);<br>fs.readFile(<span class="hljs-string">"hello.js"</span>, <span class="hljs-string">"utf-8"</span>, <span class="hljs-built_in">console</span>.log);<br></code></pre></td></tr></table></figure></li>
+<li>读取二进制文件，不传入文件编码，回调函数将返回一个Buffer对象。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">fs.readFile(<span class="hljs-string">"hello.js"</span>, <span class="hljs-built_in">console</span>.log);<br></code></pre></td></tr></table></figure>
+
+</li>
 </ul>
-<h3 id="临时使用"><a href="#临时使用" class="headerlink" title="临时使用"></a>临时使用</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">npm --registry https://registry.npm.taobao.org install express<br></code></pre></td></tr></table></figure>
-<h3 id="持久使用"><a href="#持久使用" class="headerlink" title="持久使用"></a>持久使用</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sh">npm config <span class="hljs-built_in">set</span> registry https://registry.npm.taobao.org<br><br>// 配置后可通过下面方式来验证是否成功<br>npm config get registry<br>// 或<br>npm info express<br></code></pre></td></tr></table></figure>
-<h3 id="通过cnpm使用"><a href="#通过cnpm使用" class="headerlink" title="通过cnpm使用"></a>通过cnpm使用</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sh">npm install -g cnpm --registry=https://registry.npm.taobao.org<br><br>// 使用<br>cnpm install express<br></code></pre></td></tr></table></figure>
-
-
-
-
-<h2 id="https-blog-niceue-com-front-end-development-using-domestic-npm-images-html"><a href="#https-blog-niceue-com-front-end-development-using-domestic-npm-images-html" class="headerlink" title="https://blog.niceue.com/front-end-development/using-domestic-npm-images.html"></a><a href="https://blog.niceue.com/front-end-development/using-domestic-npm-images.html" target="_blank" rel="noopener">https://blog.niceue.com/front-end-development/using-domestic-npm-images.html</a></h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># 配置 registry</span><br>npm config <span class="hljs-built_in">set</span> registry https://r.cnpmjs.org/<br><span class="hljs-comment"># 验证配置是否修改成功</span><br>npm config get registry<br></code></pre></td></tr></table></figure>
-
-<h2 id="npm-install"><a href="#npm-install" class="headerlink" title="npm install"></a>npm install</h2><blockquote>
-<p>If you have a package.json file in your directory and you run npm install,<br>then npm will look at the dependencies that are listed in that file and<br>download the latest versions satisfying semver rules for all of those.<br><a href="https://docs.npmjs.com/getting-started/using-a-package.json" target="_blank" rel="noopener">https://docs.npmjs.com/getting-started/using-a-package.json</a></p>
+<p>| 在需要使用回调函数的地方，传入<code>console.log</code>，可以打印出回调函数的参数信息。</p>
+<p>| 建议始终使用<code>module.exports</code>的方式，而不是省写的<code>exports</code>；</p>
+<p>| 如果要输出一个键值对象<code>{}</code>，可以利用<code>exports</code>这个已经存在的空对象<code>{}</code>，<br>  并继续在上面添加新的键值；</p>
+<blockquote>
+<p>var exported = load(module.exports, module);<br>  因为对exports重新赋值，对module.exports没有任何副作用。</p>
 </blockquote>
-<h2 id="修改npm-install-g-的安装目录"><a href="#修改npm-install-g-的安装目录" class="headerlink" title="修改npm install -g 的安装目录"></a>修改<code>npm install -g</code> 的安装目录</h2><p>查看： <code>npm root -g</code><br>修改：在配置文件中 <code>.npmrc</code> 中添加，<code>prefix = &quot;D:\\c\\nodejs\\node_modules\\npm&quot;</code></p>
+<p>如果要输出一个函数或数组，必须直接对<code>module.exports</code>对象赋值；</p>
+<p>| 实现“模块”功能的奥妙就在于JavaScript是一种函数式编程语言，它支持闭包。</p>
+<p>| 引入的对象具体是什么，取决于引用模块输出的变量。（输出的变量可以是任意对象、函数、数组等等）</p>
+<p>| 一个模块想要对外暴露变量（函数也是变量），可以用<code>module.exports = variable;</code>；<br>  一个模块想要引用其他模块暴露的变量，用<code>var ref = require(&#39;module_name&#39;)</code>就拿到了引用模块变量；</p>
+<p>| 使用模块的好处：</p>
+<ul>
+<li>提高了代码的可维护性；</li>
+<li>代码重用；</li>
+<li>避免了函数名和变量名冲突；</li>
+</ul>
+<p>| 在Node环境中，一个.js文件就称之为一个模块（module）。</p>
+<p>| 让node直接为所有js文件都开启严格模式：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">node --use_strict myFile.js<br></code></pre></td></tr></table></figure>
+
+
+<p><a href="http://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000" target="_blank" rel="noopener">http://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000</a></p>
 
       
     </div>
@@ -1452,7 +1477,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lyloou.com/windows/%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85/">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.com/tool/font/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/images/avatar.png">
@@ -1466,7 +1491,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/windows/%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85/" class="post-title-link" itemprop="url">Windows系统安装</a>
+            <a href="/tool/font/" class="post-title-link" itemprop="url">字体定制</a>
         </h2>
 
         <div class="post-meta">
@@ -1490,32 +1515,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><p>（以 win7 家庭版为例）</p>
-<ul>
-<li>购买获取产品密钥；</li>
-<li>依据产品密钥获得 iso 系统镜像文件；<a href="https://www.microsoft.com/zh-cn/software-download/windows7" target="_blank" rel="noopener">下载 Windows 7 光盘映像（ISO 文件）</a></li>
-<li>制作 winPE；</li>
-<li>硬盘格式化和分区；</li>
-<li>安装系统；</li>
-<li>再次输入产品密钥激活；</li>
-</ul>
-<h2 id="必备软件安装；"><a href="#必备软件安装；" class="headerlink" title="必备软件安装；"></a>必备软件安装；</h2><ul>
-<li>7-zip 压缩工具</li>
-<li>wps 办公软件</li>
-<li>搜狗输入法（拼音 || 五笔）</li>
-</ul>
-<h2 id="制作-winPE"><a href="#制作-winPE" class="headerlink" title="制作 winPE"></a>制作 winPE</h2><ul>
-<li>微 Pe： <a href="http://www.wepe.com.cn/" target="_blank" rel="noopener">http://www.wepe.com.cn/</a></li>
-<li>老毛桃： <a href="http://www.laomaotao.org/" target="_blank" rel="noopener">http://www.laomaotao.org/</a></li>
-<li>大白菜： <a href="http://www.bigbaicai.com/" target="_blank" rel="noopener">http://www.bigbaicai.com/</a></li>
-</ul>
-<h2 id="雨林木风"><a href="#雨林木风" class="headerlink" title="雨林木风"></a>雨林木风</h2><ul>
-<li>下载 iso 镜像（里面包含 GHO 和 EXE 文件）；</li>
-<li>将 iso 镜像拷贝到制作好 PE 的 U 盘里；</li>
-<li>启动 PE 后，装载 iso，双击盘符里的 EXE 文件；</li>
-</ul>
-<h2 id="镜像地址"><a href="#镜像地址" class="headerlink" title="镜像地址"></a>镜像地址</h2><p><a href="https://msdn.itellyou.cn/" target="_blank" rel="noopener">https://msdn.itellyou.cn/</a></p>
-
+          <h2 id="monoca"><a href="#monoca" class="headerlink" title="monoca"></a><a href="https://github.com/todylu/monaco.ttf" target="_blank" rel="noopener">monoca</a></h2><h2 id="FiraCode"><a href="#FiraCode" class="headerlink" title="FiraCode"></a><a href="https://github.com/tonsky/FiraCode" target="_blank" rel="noopener">FiraCode</a></h2><p><a href="https://github.com/tonsky/FiraCode/wiki/Linux-instructions#installing-with-a-package-manager" target="_blank" rel="noopener">https://github.com/tonsky/FiraCode/wiki/Linux-instructions#installing-with-a-package-manager</a></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">sudo apt install fonts-firacode<br></code></pre></td></tr></table></figure>
       
     </div>
 

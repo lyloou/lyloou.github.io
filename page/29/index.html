@@ -600,6 +600,75 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.com/android/app%E5%93%8D%E5%BA%94%E6%B5%8F%E8%A7%88%E5%99%A8%E9%93%BE%E6%8E%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/images/avatar.png">
+      <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lyloou">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/android/app%E5%93%8D%E5%BA%94%E6%B5%8F%E8%A7%88%E5%99%A8%E9%93%BE%E6%8E%A5/" class="post-title-link" itemprop="url">Android中app响应浏览器链接</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-07-19 09:23:17" itemprop="dateCreated datePublished" datetime="2016-07-19T09:23:17+08:00">2016-07-19</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="App响应外部链接（类似：http-https-tel-mailto）"><a href="#App响应外部链接（类似：http-https-tel-mailto）" class="headerlink" title="App响应外部链接（类似：http, https, tel, mailto）"></a>App响应外部链接（类似：http, https, tel, mailto）</h2><p>主要步骤是，配置、使用、获取数据；</p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs html">在自定义的 webview中点击<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"lyloou://..."</span>&gt;</span>链接，可以跳转到app。<br>在系统浏览器中（魅族）打开一个页面，页面中包含<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"lyloou://..."</span>&gt;</span>链接，可以跳转<br>在chrome浏览器中打开一个页面，页面中包含<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"lyloou://..."</span>&gt;</span>链接，可以跳转<br>在qq浏览器中打开一个页面，页面中包含<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"lyloou://..."</span>&gt;</span>链接，可以跳转<br><br>直接通过浏览器的地址栏输入，不可以跳转到app。<br>微信对话中点击，不可以跳转app。<br>qq对话中点击，不可以跳转app。<br><br>app没有安装的时候，点击链接都没有任何反应。<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">activity</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">".MainActivity"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">intent-filter</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"android.intent.action.MAIN"</span>/&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">category</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"android.intent.category.LAUNCHER"</span>/&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">intent-filter</span>&gt;</span><br><br>    <span class="hljs-comment">&lt;!-- 必要的 --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">intent-filter</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"android.intent.action.VIEW"</span>/&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">category</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"android.intent.category.DEFAULT"</span>/&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">category</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"android.intent.category.BROWSABLE"</span>/&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">data</span></span><br><span class="hljs-tag">            <span class="hljs-attr">android:host</span>=<span class="hljs-string">"lou.app"</span></span><br><span class="hljs-tag">            <span class="hljs-attr">android:pathPrefix</span>=<span class="hljs-string">"/openwith"</span></span><br><span class="hljs-tag">            <span class="hljs-attr">android:scheme</span>=<span class="hljs-string">"lyloou"</span>/&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">intent-filter</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">activity</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="在html中使用"><a href="#在html中使用" class="headerlink" title="在html中使用"></a>在html中使用</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-comment">&lt;!-- </span><br><span class="hljs-comment">    如果把html代码放在了 WebView中，如果设置了setWebViewClient()，</span><br><span class="hljs-comment">    其中重写的方法不要拦截，否则app无法响应； （即，重写shouldOverrideUrlLoading方法时需要小心，不设置webviewClient为妙）</span><br><span class="hljs-comment">--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"lyloou://lou.app/openwith?name=zhangsan&amp;age=26"</span>&gt;</span>启动应用程序<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="获取数据"><a href="#获取数据" class="headerlink" title="获取数据"></a>获取数据</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">getData</span><span class="hljs-params">()</span> </span>&#123;<br>    Intent i_getvalue = getIntent();<br>    String action = i_getvalue.getAction();<br><br>    <span class="hljs-keyword">if</span> (Intent.ACTION_VIEW.equals(action)) &#123;<br>        Uri uri = i_getvalue.getData();<br>        <span class="hljs-keyword">if</span> (uri != <span class="hljs-keyword">null</span>) &#123;<br>            String name = uri.getQueryParameter(<span class="hljs-string">"name"</span>);<br>            String age = uri.getQueryParameter(<span class="hljs-string">"age"</span>);<br>            Log.i(TAG, <span class="hljs-string">"getData: name="</span> + name);<br>            Log.i(TAG, <span class="hljs-string">"getData: age="</span> + age);<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h2><ul>
+<li><a href="http://blog.csdn.net/geekpark/article/details/16118457" target="_blank" rel="noopener">android实现通过浏览器点击链接打开本地应用（APP）并拿到浏览器传递的数据 - 极客公园 - CSDN博客</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://lyloou.com/android/UnsupportedOperationException/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -651,75 +720,6 @@
 <p>【外部链接】</p>
 <ul>
 <li><a href="http://stackoverflow.com/questions/3200551/unable-to-modify-arrayadapter-in-listview-unsupportedoperationexception" target="_blank" rel="noopener">Unable to modify ArrayAdapter in ListView: UnsupportedOperationException</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lyloou.com/android/app%E5%93%8D%E5%BA%94%E6%B5%8F%E8%A7%88%E5%99%A8%E9%93%BE%E6%8E%A5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/assets/images/avatar.png">
-      <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="lyloou">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/android/app%E5%93%8D%E5%BA%94%E6%B5%8F%E8%A7%88%E5%99%A8%E9%93%BE%E6%8E%A5/" class="post-title-link" itemprop="url">Android中app响应浏览器链接</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-07-19 09:23:17" itemprop="dateCreated datePublished" datetime="2016-07-19T09:23:17+08:00">2016-07-19</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="App响应外部链接（类似：http-https-tel-mailto）"><a href="#App响应外部链接（类似：http-https-tel-mailto）" class="headerlink" title="App响应外部链接（类似：http, https, tel, mailto）"></a>App响应外部链接（类似：http, https, tel, mailto）</h2><p>主要步骤是，配置、使用、获取数据；</p>
-<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs html">在自定义的 webview中点击<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"lyloou://..."</span>&gt;</span>链接，可以跳转到app。<br>在系统浏览器中（魅族）打开一个页面，页面中包含<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"lyloou://..."</span>&gt;</span>链接，可以跳转<br>在chrome浏览器中打开一个页面，页面中包含<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"lyloou://..."</span>&gt;</span>链接，可以跳转<br>在qq浏览器中打开一个页面，页面中包含<span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"lyloou://..."</span>&gt;</span>链接，可以跳转<br><br>直接通过浏览器的地址栏输入，不可以跳转到app。<br>微信对话中点击，不可以跳转app。<br>qq对话中点击，不可以跳转app。<br><br>app没有安装的时候，点击链接都没有任何反应。<br></code></pre></td></tr></table></figure>
-
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">activity</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">".MainActivity"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">intent-filter</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"android.intent.action.MAIN"</span>/&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">category</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"android.intent.category.LAUNCHER"</span>/&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">intent-filter</span>&gt;</span><br><br>    <span class="hljs-comment">&lt;!-- 必要的 --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">intent-filter</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"android.intent.action.VIEW"</span>/&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">category</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"android.intent.category.DEFAULT"</span>/&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">category</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"android.intent.category.BROWSABLE"</span>/&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">data</span></span><br><span class="hljs-tag">            <span class="hljs-attr">android:host</span>=<span class="hljs-string">"lou.app"</span></span><br><span class="hljs-tag">            <span class="hljs-attr">android:pathPrefix</span>=<span class="hljs-string">"/openwith"</span></span><br><span class="hljs-tag">            <span class="hljs-attr">android:scheme</span>=<span class="hljs-string">"lyloou"</span>/&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">intent-filter</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">activity</span>&gt;</span><br></code></pre></td></tr></table></figure>
-
-<h2 id="在html中使用"><a href="#在html中使用" class="headerlink" title="在html中使用"></a>在html中使用</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-comment">&lt;!-- </span><br><span class="hljs-comment">    如果把html代码放在了 WebView中，如果设置了setWebViewClient()，</span><br><span class="hljs-comment">    其中重写的方法不要拦截，否则app无法响应； （即，重写shouldOverrideUrlLoading方法时需要小心，不设置webviewClient为妙）</span><br><span class="hljs-comment">--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"lyloou://lou.app/openwith?name=zhangsan&amp;age=26"</span>&gt;</span>启动应用程序<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br></code></pre></td></tr></table></figure>
-
-<h2 id="获取数据"><a href="#获取数据" class="headerlink" title="获取数据"></a>获取数据</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">getData</span><span class="hljs-params">()</span> </span>&#123;<br>    Intent i_getvalue = getIntent();<br>    String action = i_getvalue.getAction();<br><br>    <span class="hljs-keyword">if</span> (Intent.ACTION_VIEW.equals(action)) &#123;<br>        Uri uri = i_getvalue.getData();<br>        <span class="hljs-keyword">if</span> (uri != <span class="hljs-keyword">null</span>) &#123;<br>            String name = uri.getQueryParameter(<span class="hljs-string">"name"</span>);<br>            String age = uri.getQueryParameter(<span class="hljs-string">"age"</span>);<br>            Log.i(TAG, <span class="hljs-string">"getData: name="</span> + name);<br>            Log.i(TAG, <span class="hljs-string">"getData: age="</span> + age);<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h2 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h2><ul>
-<li><a href="http://blog.csdn.net/geekpark/article/details/16118457" target="_blank" rel="noopener">android实现通过浏览器点击链接打开本地应用（APP）并拿到浏览器传递的数据 - 极客公园 - CSDN博客</a></li>
 </ul>
 
       

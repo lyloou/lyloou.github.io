@@ -425,6 +425,122 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.com/git/git%E7%9A%84%E9%85%8D%E7%BD%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/images/avatar.png">
+      <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lyloou">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/git/git%E7%9A%84%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">Git配置</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-07-12 08:17:25" itemprop="dateCreated datePublished" datetime="2016-07-12T08:17:25+08:00">2016-07-12</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="设置用户名和邮箱"><a href="#设置用户名和邮箱" class="headerlink" title="设置用户名和邮箱"></a>设置用户名和邮箱</h2><figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs verilog">$ git <span class="hljs-keyword">config</span> --<span class="hljs-keyword">global</span> user<span class="hljs-variable">.name</span> <span class="hljs-string">"Lou"</span><br>$ git <span class="hljs-keyword">config</span> --<span class="hljs-keyword">global</span> user<span class="hljs-variable">.email</span> <span class="hljs-string">"lyloou6@gmail.com"</span><br><br><span class="hljs-comment">// 查看用户的配置信息</span><br>$ git <span class="hljs-keyword">config</span> user<span class="hljs-variable">.name</span><br>$ git <span class="hljs-keyword">config</span> user<span class="hljs-variable">.email</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="保存-push-时的用户名和密码"><a href="#保存-push-时的用户名和密码" class="headerlink" title="保存 push 时的用户名和密码"></a>保存 push 时的用户名和密码</h2><p>针对 http 协议的也可以不用总是输入用户名密码那么麻烦，如：<code>https://github.com/lyloou/hexo.git</code>，<br>可以通过设置<code>credential.help</code>来保存。</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">git<span class="hljs-built_in"> config </span>--global credential.helper store<br></code></pre></td></tr></table></figure>
+
+<h2 id="同时同步多个远程分支"><a href="#同时同步多个远程分支" class="headerlink" title="同时同步多个远程分支"></a>同时同步多个远程分支</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs sh">git config -–add remote.all.url  http://domain1.com/repo.git<br>git config -–add remote.all.url  http://domain2.com/repo.git<br><br>git push all master<br>git push all develop<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><a href="https://howto.lintel.in/git-how-to-push-code-to-multiple-remotes-simultaneously/" target="_blank" rel="noopener">GIT - How to push code to multiple remotes simultaneously - Lintel Technologies Blog</a></li>
+</ul>
+<h2 id="网络配置："><a href="#网络配置：" class="headerlink" title="网络配置："></a>网络配置：</h2><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs routeros">git<span class="hljs-built_in"> config </span>--global http.proxy <span class="hljs-string">'socks5://127.0.0.1:1080'</span><br>git<span class="hljs-built_in"> config </span>--global https.proxy <span class="hljs-string">'socks5://127.0.0.1:1080'</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><a href="https://gist.github.com/laispace/666dd7b27e9116faece6" target="_blank" rel="noopener">git 设置和取消代理</a></li>
+</ul>
+<p>或：</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs verilog">git <span class="hljs-keyword">config</span> --<span class="hljs-keyword">global</span> http<span class="hljs-variable">.proxy</span> http:<span class="hljs-comment">//127.0.0.1:8118</span><br>git <span class="hljs-keyword">config</span> --<span class="hljs-keyword">global</span> https<span class="hljs-variable">.proxy</span> https:<span class="hljs-comment">//127.0.0.1:8118</span><br></code></pre></td></tr></table></figure>
+
+<p><a href="https://tzrgaga.github.io/2017/04/12/forward-socks-by-privoxy/" target="_blank" rel="noopener">Windows 下使用 Privoxy 转换 socks5 代理为 Http 代理 | 小田的 blog</a></p>
+<h2 id="配置别名"><a href="#配置别名" class="headerlink" title="配置别名"></a>配置别名</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 显示漂亮的分支日志：git lg</span><br>git config --global alias.lg <span class="hljs-string">"log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit"</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="解除上传文件大小限制"><a href="#解除上传文件大小限制" class="headerlink" title="解除上传文件大小限制"></a>解除上传文件大小限制</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">git config http.postBuffer <span class="hljs-number">524288000</span><br></code></pre></td></tr></table></figure>
+
+<p><a href="https://blog.csdn.net/zhiyuan_x/article/details/72954729" target="_blank" rel="noopener">https://blog.csdn.net/zhiyuan_x/article/details/72954729</a></p>
+<h2 id="行尾结束符自动转换问题"><a href="#行尾结束符自动转换问题" class="headerlink" title="行尾结束符自动转换问题"></a>行尾结束符自动转换问题</h2><p><code>warning: LF will be replaced by CRLF in xx.txt</code><br>如果项目的文件是依照文件的 md5 来作为标识，那么提交代码到远程仓库，文件的行尾结束符会自动发生改变，那么之前的 md5 标识就发挥不到作用<br>（这样的 bug 很难找），这时候就需要取消 git 的行尾结束符自动转换功能；</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">$ git config --global core.autocrlf <span class="hljs-literal">false</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><a href="https://git-scm.com/book/zh/v1/%E8%87%AA%E5%AE%9A%E4%B9%89-Git-%E9%85%8D%E7%BD%AE-Git#格式化与空白" target="_blank" rel="noopener">Git - 配置 Git</a></li>
+<li><a href="https://stackoverflow.com/questions/5834014/lf-will-be-replaced-by-crlf-in-git-what-is-that-and-is-it-important" target="_blank" rel="noopener">https://stackoverflow.com/questions/5834014/lf-will-be-replaced-by-crlf-in-git-what-is-that-and-is-it-important</a></li>
+</ul>
+<h2 id="gitignore-文件"><a href="#gitignore-文件" class="headerlink" title=".gitignore 文件"></a>.gitignore 文件</h2><h3 id="package-json和-package-json两种表示方式的区别"><a href="#package-json和-package-json两种表示方式的区别" class="headerlink" title="package.json和/package.json两种表示方式的区别"></a><code>package.json</code>和<code>/package.json</code>两种表示方式的区别</h3><ul>
+<li>前者是所有目录中的 <code>package.json</code>文件都被忽略；</li>
+<li>后者是只有当前目录的 <code>package.json</code>文件被忽略；</li>
+</ul>
+<h2 id="Prevent-commits-in-master-or-develop-branch"><a href="#Prevent-commits-in-master-or-develop-branch" class="headerlink" title="Prevent commits in master or develop branch"></a><a href="https://stackoverflow.com/questions/40462111/git-prevent-commits-in-master-branch" target="_blank" rel="noopener">Prevent commits in master or develop branch</a></h2><ol>
+<li>Go to your repository.</li>
+<li>Create file .git/hooks/pre-commit with following content:</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-meta">#!/bin/sh</span><br>branch=<span class="hljs-string">"<span class="hljs-variable">$(git rev-parse --abbrev-ref HEAD)</span>"</span><br><br><span class="hljs-keyword">if</span> [ <span class="hljs-string">"<span class="hljs-variable">$branch</span>"</span> = <span class="hljs-string">"develop"</span> -o <span class="hljs-string">"<span class="hljs-variable">$branch</span>"</span> = <span class="hljs-string">"master"</span> ]; <span class="hljs-keyword">then</span><br>  <span class="hljs-built_in">echo</span> <span class="hljs-string">"You can't commit directly to master or develop branch"</span><br>  <span class="hljs-built_in">exit</span> 1<br><span class="hljs-keyword">fi</span><br></code></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>Make it executable (not required on Windows):</li>
+</ol>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">$ chmod +x .git<span class="hljs-regexp">/hooks/</span>pre-commit<br></code></pre></td></tr></table></figure>
+
+<p>To disable fast-forwad merges you must also add following option to your .git/config file:</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs ada">[branch <span class="hljs-string">"master"</span>]<br>    mergeoptions = <span class="hljs-comment">--no-ff</span><br></code></pre></td></tr></table></figure>
+
+<p>If you want also protect master branch on your remote, check this answer: <a href="https://stackoverflow.com/questions/38864405/how-to-restrict-access-to-master-branch-on-git" target="_blank" rel="noopener">How to restrict access to master branch on git</a></p>
+<h2 id="NOTE"><a href="#NOTE" class="headerlink" title="NOTE"></a>NOTE</h2><ul>
+<li>配置 Git 的时候，加上–global 是针对当前用户起作用的，如果不加，那只针对当前的仓库起作用。</li>
+<li>可以通过配置<code>~/.gitconfig</code>文件来删除和修改配置</li>
+</ul>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li><a href="https://segmentfault.com/a/1190000002645623" target="_blank" rel="noopener">git-ssh 配置和使用</a></li>
+<li><a href="https://help.github.com/articles/which-remote-url-should-i-use/" target="_blank" rel="noopener">Which remote URL should I use?</a></li>
+<li><a href="gitignore.io">gitignore.io</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://lyloou.com/git/git%E5%91%BD%E4%BB%A4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -709,122 +825,6 @@
 <li><p><a href="http://www.cnblogs.com/hutaoer/archive/2013/05/14/3078191.html" target="_blank" rel="noopener">^和~的区别</a></p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">- `^`代表父提交,当一个提交有多个父提交时，可以通过在`^`后面跟上一个数字，表示第几个父提交，`^`相当于`^1`<br>- `~`&lt;n&gt;相当于连续的&lt;n&gt;个`^`.<br>- checkout只会移动HEAD指针，reset会改变HEAD的引用值<br></code></pre></td></tr></table></figure>
 </li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lyloou.com/git/git%E7%9A%84%E9%85%8D%E7%BD%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/assets/images/avatar.png">
-      <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="lyloou">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/git/git%E7%9A%84%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">Git配置</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-07-12 08:17:25" itemprop="dateCreated datePublished" datetime="2016-07-12T08:17:25+08:00">2016-07-12</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="设置用户名和邮箱"><a href="#设置用户名和邮箱" class="headerlink" title="设置用户名和邮箱"></a>设置用户名和邮箱</h2><figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs verilog">$ git <span class="hljs-keyword">config</span> --<span class="hljs-keyword">global</span> user<span class="hljs-variable">.name</span> <span class="hljs-string">"Lou"</span><br>$ git <span class="hljs-keyword">config</span> --<span class="hljs-keyword">global</span> user<span class="hljs-variable">.email</span> <span class="hljs-string">"lyloou6@gmail.com"</span><br><br><span class="hljs-comment">// 查看用户的配置信息</span><br>$ git <span class="hljs-keyword">config</span> user<span class="hljs-variable">.name</span><br>$ git <span class="hljs-keyword">config</span> user<span class="hljs-variable">.email</span><br></code></pre></td></tr></table></figure>
-
-<h2 id="保存-push-时的用户名和密码"><a href="#保存-push-时的用户名和密码" class="headerlink" title="保存 push 时的用户名和密码"></a>保存 push 时的用户名和密码</h2><p>针对 http 协议的也可以不用总是输入用户名密码那么麻烦，如：<code>https://github.com/lyloou/hexo.git</code>，<br>可以通过设置<code>credential.help</code>来保存。</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">git<span class="hljs-built_in"> config </span>--global credential.helper store<br></code></pre></td></tr></table></figure>
-
-<h2 id="同时同步多个远程分支"><a href="#同时同步多个远程分支" class="headerlink" title="同时同步多个远程分支"></a>同时同步多个远程分支</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs sh">git config -–add remote.all.url  http://domain1.com/repo.git<br>git config -–add remote.all.url  http://domain2.com/repo.git<br><br>git push all master<br>git push all develop<br></code></pre></td></tr></table></figure>
-
-<ul>
-<li><a href="https://howto.lintel.in/git-how-to-push-code-to-multiple-remotes-simultaneously/" target="_blank" rel="noopener">GIT - How to push code to multiple remotes simultaneously - Lintel Technologies Blog</a></li>
-</ul>
-<h2 id="网络配置："><a href="#网络配置：" class="headerlink" title="网络配置："></a>网络配置：</h2><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs routeros">git<span class="hljs-built_in"> config </span>--global http.proxy <span class="hljs-string">'socks5://127.0.0.1:1080'</span><br>git<span class="hljs-built_in"> config </span>--global https.proxy <span class="hljs-string">'socks5://127.0.0.1:1080'</span><br></code></pre></td></tr></table></figure>
-
-<ul>
-<li><a href="https://gist.github.com/laispace/666dd7b27e9116faece6" target="_blank" rel="noopener">git 设置和取消代理</a></li>
-</ul>
-<p>或：</p>
-<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs verilog">git <span class="hljs-keyword">config</span> --<span class="hljs-keyword">global</span> http<span class="hljs-variable">.proxy</span> http:<span class="hljs-comment">//127.0.0.1:8118</span><br>git <span class="hljs-keyword">config</span> --<span class="hljs-keyword">global</span> https<span class="hljs-variable">.proxy</span> https:<span class="hljs-comment">//127.0.0.1:8118</span><br></code></pre></td></tr></table></figure>
-
-<p><a href="https://tzrgaga.github.io/2017/04/12/forward-socks-by-privoxy/" target="_blank" rel="noopener">Windows 下使用 Privoxy 转换 socks5 代理为 Http 代理 | 小田的 blog</a></p>
-<h2 id="配置别名"><a href="#配置别名" class="headerlink" title="配置别名"></a>配置别名</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 显示漂亮的分支日志：git lg</span><br>git config --global alias.lg <span class="hljs-string">"log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit"</span><br></code></pre></td></tr></table></figure>
-
-<h2 id="解除上传文件大小限制"><a href="#解除上传文件大小限制" class="headerlink" title="解除上传文件大小限制"></a>解除上传文件大小限制</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">git config http.postBuffer <span class="hljs-number">524288000</span><br></code></pre></td></tr></table></figure>
-
-<p><a href="https://blog.csdn.net/zhiyuan_x/article/details/72954729" target="_blank" rel="noopener">https://blog.csdn.net/zhiyuan_x/article/details/72954729</a></p>
-<h2 id="行尾结束符自动转换问题"><a href="#行尾结束符自动转换问题" class="headerlink" title="行尾结束符自动转换问题"></a>行尾结束符自动转换问题</h2><p><code>warning: LF will be replaced by CRLF in xx.txt</code><br>如果项目的文件是依照文件的 md5 来作为标识，那么提交代码到远程仓库，文件的行尾结束符会自动发生改变，那么之前的 md5 标识就发挥不到作用<br>（这样的 bug 很难找），这时候就需要取消 git 的行尾结束符自动转换功能；</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">$ git config --global core.autocrlf <span class="hljs-literal">false</span><br></code></pre></td></tr></table></figure>
-
-<ul>
-<li><a href="https://git-scm.com/book/zh/v1/%E8%87%AA%E5%AE%9A%E4%B9%89-Git-%E9%85%8D%E7%BD%AE-Git#格式化与空白" target="_blank" rel="noopener">Git - 配置 Git</a></li>
-<li><a href="https://stackoverflow.com/questions/5834014/lf-will-be-replaced-by-crlf-in-git-what-is-that-and-is-it-important" target="_blank" rel="noopener">https://stackoverflow.com/questions/5834014/lf-will-be-replaced-by-crlf-in-git-what-is-that-and-is-it-important</a></li>
-</ul>
-<h2 id="gitignore-文件"><a href="#gitignore-文件" class="headerlink" title=".gitignore 文件"></a>.gitignore 文件</h2><h3 id="package-json和-package-json两种表示方式的区别"><a href="#package-json和-package-json两种表示方式的区别" class="headerlink" title="package.json和/package.json两种表示方式的区别"></a><code>package.json</code>和<code>/package.json</code>两种表示方式的区别</h3><ul>
-<li>前者是所有目录中的 <code>package.json</code>文件都被忽略；</li>
-<li>后者是只有当前目录的 <code>package.json</code>文件被忽略；</li>
-</ul>
-<h2 id="Prevent-commits-in-master-or-develop-branch"><a href="#Prevent-commits-in-master-or-develop-branch" class="headerlink" title="Prevent commits in master or develop branch"></a><a href="https://stackoverflow.com/questions/40462111/git-prevent-commits-in-master-branch" target="_blank" rel="noopener">Prevent commits in master or develop branch</a></h2><ol>
-<li>Go to your repository.</li>
-<li>Create file .git/hooks/pre-commit with following content:</li>
-</ol>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-meta">#!/bin/sh</span><br>branch=<span class="hljs-string">"<span class="hljs-variable">$(git rev-parse --abbrev-ref HEAD)</span>"</span><br><br><span class="hljs-keyword">if</span> [ <span class="hljs-string">"<span class="hljs-variable">$branch</span>"</span> = <span class="hljs-string">"develop"</span> -o <span class="hljs-string">"<span class="hljs-variable">$branch</span>"</span> = <span class="hljs-string">"master"</span> ]; <span class="hljs-keyword">then</span><br>  <span class="hljs-built_in">echo</span> <span class="hljs-string">"You can't commit directly to master or develop branch"</span><br>  <span class="hljs-built_in">exit</span> 1<br><span class="hljs-keyword">fi</span><br></code></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>Make it executable (not required on Windows):</li>
-</ol>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">$ chmod +x .git<span class="hljs-regexp">/hooks/</span>pre-commit<br></code></pre></td></tr></table></figure>
-
-<p>To disable fast-forwad merges you must also add following option to your .git/config file:</p>
-<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs ada">[branch <span class="hljs-string">"master"</span>]<br>    mergeoptions = <span class="hljs-comment">--no-ff</span><br></code></pre></td></tr></table></figure>
-
-<p>If you want also protect master branch on your remote, check this answer: <a href="https://stackoverflow.com/questions/38864405/how-to-restrict-access-to-master-branch-on-git" target="_blank" rel="noopener">How to restrict access to master branch on git</a></p>
-<h2 id="NOTE"><a href="#NOTE" class="headerlink" title="NOTE"></a>NOTE</h2><ul>
-<li>配置 Git 的时候，加上–global 是针对当前用户起作用的，如果不加，那只针对当前的仓库起作用。</li>
-<li>可以通过配置<code>~/.gitconfig</code>文件来删除和修改配置</li>
-</ul>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
-<li><a href="https://segmentfault.com/a/1190000002645623" target="_blank" rel="noopener">git-ssh 配置和使用</a></li>
-<li><a href="https://help.github.com/articles/which-remote-url-should-i-use/" target="_blank" rel="noopener">Which remote URL should I use?</a></li>
-<li><a href="gitignore.io">gitignore.io</a></li>
 </ul>
 
       

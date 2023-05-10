@@ -201,6 +201,65 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.com/shell/tips/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/images/avatar.png">
+      <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lyloou">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/shell/tips/" class="post-title-link" itemprop="url">Shell Tips</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-12-20 10:30:13" itemprop="dateCreated datePublished" datetime="2016-12-20T10:30:13+08:00">2016-12-20</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="help-tips"><a href="#help-tips" class="headerlink" title="help tips"></a>help tips</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-meta">#!/bin/bash</span><br><br><span class="hljs-function"><span class="hljs-title">help</span></span>()&#123;<br>cat &lt;&lt; HELP<br>usage: dd ddk <br>example: <span class="hljs-string">'wowo wowo'</span><br>HELP<br><span class="hljs-built_in">exit</span> 0<br>&#125;<br><br><span class="hljs-keyword">if</span> [[ <span class="hljs-variable">$1</span> == <span class="hljs-string">""</span> || <span class="hljs-variable">$1</span> == <span class="hljs-string">"-h"</span> ]]; <span class="hljs-keyword">then</span><br>    <span class="hljs-built_in">echo</span> <span class="hljs-string">'what?'</span><br>    <span class="hljs-built_in">help</span><br><span class="hljs-keyword">fi</span><br><br><span class="hljs-keyword">if</span> [[ <span class="hljs-variable">$1</span> != <span class="hljs-string">""</span> ]]; <span class="hljs-keyword">then</span><br>    <span class="hljs-built_in">echo</span> <span class="hljs-variable">$1</span><br><span class="hljs-keyword">fi</span><br><br><span class="hljs-built_in">echo</span> -e <span class="hljs-string">"\033]0;<span class="hljs-variable">$1</span>\007"</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="read-from-terminal"><a href="#read-from-terminal" class="headerlink" title="read from terminal"></a>read from terminal</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">echo</span> input your name:<br><span class="hljs-built_in">read</span> name<br><span class="hljs-built_in">echo</span> your name is <span class="hljs-variable">$&#123;name&#125;</span><br></code></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://lyloou.com/shell/%E5%B8%B8%E7%94%A8%E7%9A%84shell%E5%91%BD%E4%BB%A4%EF%BC%88Windows%E5%B9%B3%E5%8F%B0%E4%B8%8A%EF%BC%89/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -246,65 +305,6 @@
 
 <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="http://blog.csdn.net/zzban/article/details/8852655" target="_blank" rel="noopener">Linux Shell编程语法（变量及其赋值）</a><br><a href="http://blog.csdn.net/ithomer/article/details/5904632" target="_blank" rel="noopener">SHELL学习笔记—-IF条件判断，判断条件</a><br><a href="http://blog.csdn.net/liuxincumt/article/details/6202295" target="_blank" rel="noopener">shell的read方法使用介绍</a></p>
 
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lyloou.com/shell/tips/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/assets/images/avatar.png">
-      <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="lyloou">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/shell/tips/" class="post-title-link" itemprop="url">Shell Tips</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-12-20 10:30:13" itemprop="dateCreated datePublished" datetime="2016-12-20T10:30:13+08:00">2016-12-20</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="help-tips"><a href="#help-tips" class="headerlink" title="help tips"></a>help tips</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-meta">#!/bin/bash</span><br><br><span class="hljs-function"><span class="hljs-title">help</span></span>()&#123;<br>cat &lt;&lt; HELP<br>usage: dd ddk <br>example: <span class="hljs-string">'wowo wowo'</span><br>HELP<br><span class="hljs-built_in">exit</span> 0<br>&#125;<br><br><span class="hljs-keyword">if</span> [[ <span class="hljs-variable">$1</span> == <span class="hljs-string">""</span> || <span class="hljs-variable">$1</span> == <span class="hljs-string">"-h"</span> ]]; <span class="hljs-keyword">then</span><br>    <span class="hljs-built_in">echo</span> <span class="hljs-string">'what?'</span><br>    <span class="hljs-built_in">help</span><br><span class="hljs-keyword">fi</span><br><br><span class="hljs-keyword">if</span> [[ <span class="hljs-variable">$1</span> != <span class="hljs-string">""</span> ]]; <span class="hljs-keyword">then</span><br>    <span class="hljs-built_in">echo</span> <span class="hljs-variable">$1</span><br><span class="hljs-keyword">fi</span><br><br><span class="hljs-built_in">echo</span> -e <span class="hljs-string">"\033]0;<span class="hljs-variable">$1</span>\007"</span><br></code></pre></td></tr></table></figure>
-
-<h2 id="read-from-terminal"><a href="#read-from-terminal" class="headerlink" title="read from terminal"></a>read from terminal</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">echo</span> input your name:<br><span class="hljs-built_in">read</span> name<br><span class="hljs-built_in">echo</span> your name is <span class="hljs-variable">$&#123;name&#125;</span><br></code></pre></td></tr></table></figure>
       
     </div>
 
