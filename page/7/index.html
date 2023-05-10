@@ -201,75 +201,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/gradle/%E8%A7%A3%E5%86%B3gradle%E7%BC%96%E8%AF%91%E6%97%B6%E7%9A%84%E7%89%88%E6%9C%AC%E5%86%B2%E7%AA%81/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/assets/images/avatar.png">
-      <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="lyloou">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/gradle/%E8%A7%A3%E5%86%B3gradle%E7%BC%96%E8%AF%91%E6%97%B6%E7%9A%84%E7%89%88%E6%9C%AC%E5%86%B2%E7%AA%81/" class="post-title-link" itemprop="url">解决Gradle编译时的版本冲突</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-03-31 10:29:43" itemprop="dateCreated datePublished" datetime="2020-03-31T10:29:43+08:00">2020-03-31</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="方法-1：排除冲突的依赖"><a href="#方法-1：排除冲突的依赖" class="headerlink" title="方法 1：排除冲突的依赖"></a>方法 1：排除冲突的依赖</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># 查看 app 模块所依赖的项目（通过 grep 来过滤冲突的模块名称）</span><br>./gradlew -q app:dependencies | grep commons-codec<br></code></pre></td></tr></table></figure>
-
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-comment">// 针对某个冲突模块排除</span><br>api(<span class="hljs-string">"com.afollestad.material-dialogs:core:0.9.5.0"</span>) &#123;<br>    exclude group: <span class="hljs-string">'com.android.support'</span>, module: <span class="hljs-string">'support-v13'</span><br>    exclude group: <span class="hljs-string">'com.android.support'</span>, module: <span class="hljs-string">'support-vector-drawable'</span><br>&#125;<br></code></pre></td></tr></table></figure>
-
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-comment">// 重置所有相同模块的版本号</span><br>configurations.all &#123;<br>    resolutionStrategy.eachDependency &#123; DependencyResolveDetails details -&gt;<br>        def requested = details.requested<br>        <span class="hljs-keyword">if</span> (requested.group == <span class="hljs-string">'com.android.support'</span>) &#123;<br>            <span class="hljs-keyword">if</span> (!requested.name.startsWith(<span class="hljs-string">"multidex"</span>)) &#123;<br>                details.useVersion <span class="hljs-string">'28.0.0'</span><br>            &#125;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h2 id="方法-2：使用-androidx"><a href="#方法-2：使用-androidx" class="headerlink" title="方法 2：使用 androidx"></a>方法 2：使用 androidx</h2><p>如果是 <code>com.android.support</code> 库冲突可以使用 androidx 来解决。</p>
-<p>具体查看 <a href="https://developer.android.google.cn/jetpack/androidx/migrate" target="_blank" rel="noopener">迁移到 AndroidX  |  Android 开发者  |  Android Developers</a></p>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
-<li><a href="https://blog.csdn.net/yuzhiqiang_1993/article/details/78214812" target="_blank" rel="noopener">com.android.support 版本冲突的解决办法<em>移动开发</em>喻志强的博客-CSDN 博客</a></li>
-<li><a href="https://blog.csdn.net/yuzhiqiang_1993/article/details/78366985" target="_blank" rel="noopener">implementation、api、compileOnly 区别详解<em>移动开发</em>喻志强的博客-CSDN 博客</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/android/%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -941,6 +872,64 @@
   
   
 
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/java/%E8%A7%A3%E6%9E%90%E6%95%B0%E6%8D%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/images/avatar.png">
+      <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lyloou">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/java/%E8%A7%A3%E6%9E%90%E6%95%B0%E6%8D%AE/" class="post-title-link" itemprop="url">解析数据</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-18 10:39:30" itemprop="dateCreated datePublished" datetime="2019-11-18T10:39:30+08:00">2019-11-18</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Jsoup-解析-html-标签"><a href="#Jsoup-解析-html-标签" class="headerlink" title="Jsoup 解析 html 标签"></a>Jsoup 解析 html 标签</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> org.jsoup.Jsoup;<br><span class="hljs-keyword">import</span> org.jsoup.nodes.Document;<br><span class="hljs-keyword">import</span> org.junit.Test;<br><br><span class="hljs-keyword">import</span> java.util.ArrayList;<br><span class="hljs-keyword">import</span> java.util.List;<br><span class="hljs-keyword">import</span> java.util.regex.Matcher;<br><span class="hljs-keyword">import</span> java.util.regex.Pattern;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Test</span> </span>&#123;<br><br>    <span class="hljs-comment">// http://www.runoob.com/java/java-regular-expressions.html</span><br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testRegex</span><span class="hljs-params">()</span> </span>&#123;<br>        String input = <span class="hljs-string">"【丝路亚心】250gX4&lt;font color=\"red\"&gt;核桃仁&lt;/font&gt; 原味生&lt;font color=\"red\"&gt;核桃核桃仁&lt;/font&gt; 新疆特产, &lt;font color=\"red\"&gt;123445&lt;/font&gt;bcdef"</span>;<br>        String regex = <span class="hljs-string">"&lt;font[^&gt;]+?&gt;(.*?)&lt;\\\\/font&gt;"</span>;<br>        Pattern compile = Pattern.compile(regex);<br>        Matcher matcher = compile.matcher(input);<br>        List&lt;String&gt; output = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();<br>        <span class="hljs-keyword">int</span> count = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">while</span> (matcher.find()) &#123;<br>            System.out.println(<span class="hljs-string">"--"</span> + count);<br>            output.add(matcher.group(count));<br>            count++;<br>        &#125;<br><br>        System.out.println(output);<br>    &#125;<br><br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testHtml</span><span class="hljs-params">()</span> </span>&#123;<br><br>        String html = <span class="hljs-string">"&lt;span style=\"color:red;border-radius:10px;background-color:blue;\"&gt;抢购&lt;/span&gt; 我是标题我是标题我是标题&lt;font color=\"red\"&gt;高亮&lt;/font&gt;我是标题我是标题我是标题我是标题&lt;font color=\"red\"&gt;高亮&lt;/font&gt;我是标题"</span>;<br><br>        Document doc = Jsoup.parse(html);<br>        System.out.println(doc); <span class="hljs-comment">// 输出带标签的html文档</span><br>        System.out.println(<span class="hljs-string">"\n----&gt;"</span> + doc.text()); <span class="hljs-comment">// 输出内容</span><br>        System.out.println(<span class="hljs-string">"\n----&gt;"</span> + doc.getElementsByTag(<span class="hljs-string">"span"</span>).get(<span class="hljs-number">0</span>).html());<br>        System.out.println(<span class="hljs-string">"\n----&gt;"</span> + doc.getElementsByTag(<span class="hljs-string">"font"</span>).get(<span class="hljs-number">0</span>).html());<br><br>    &#125;<br><br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testStyle</span><span class="hljs-params">()</span> </span>&#123;<br>        String style = <span class="hljs-string">"position: absolute; width: 500px; height: 552px; color: red; background-color: blue;"</span>;<br>        String width = <span class="hljs-string">"width"</span>;<br>        String color = <span class="hljs-string">"color"</span>;<br>        String backgroundColor = <span class="hljs-string">"background-color"</span>;<br>        System.out.println(getFloat(style, width));<br>        System.out.println(getString(style, color));<br>        System.out.println(getString(style, backgroundColor));<br>    &#125;<br><br>    <span class="hljs-comment">// https://www.cnblogs.com/qlqwjy/p/7531579.html</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">double</span> <span class="hljs-title">getFloat</span><span class="hljs-params">(String value, String property)</span> </span>&#123;<br>        <span class="hljs-keyword">try</span> &#123;<br>            <span class="hljs-keyword">if</span> (value.contains(property)) &#123;<br>                value = value.substring(value.indexOf(property));<br>                value = value.substring(<span class="hljs-number">0</span>, value.contains(<span class="hljs-string">";"</span>) ? value.indexOf(<span class="hljs-string">";"</span>) : value.length());<br>                String attr = value.substring(value.indexOf(<span class="hljs-string">":"</span>) + <span class="hljs-number">1</span>).trim();<br>                <span class="hljs-keyword">return</span> Double.parseDouble(attr.substring(<span class="hljs-number">0</span>, attr.indexOf(<span class="hljs-string">"px"</span>)));<br>            &#125;<br>        &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;<br>            <span class="hljs-comment">// ignore all exception</span><br>        &#125;<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String <span class="hljs-title">getString</span><span class="hljs-params">(String value, String property)</span> </span>&#123;<br>        <span class="hljs-keyword">try</span> &#123;<br>            <span class="hljs-keyword">if</span> (value.contains(property)) &#123;<br>                System.out.println(value);<br>                value = value.substring(value.indexOf(property));<br>                value = value.substring(<span class="hljs-number">0</span>, value.contains(<span class="hljs-string">";"</span>) ? value.indexOf(<span class="hljs-string">";"</span>) : value.length());<br>                <span class="hljs-keyword">return</span> value.substring(value.indexOf(<span class="hljs-string">":"</span>) + <span class="hljs-number">1</span>).trim();<br>            &#125;<br>        &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;<br>            <span class="hljs-comment">// ignore all exception</span><br>        &#125;<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-string">""</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
 
   
   <nav class="pagination">
@@ -1012,7 +1001,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">313</span>
+          <span class="site-state-item-count">312</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

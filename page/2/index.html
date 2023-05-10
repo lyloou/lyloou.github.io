@@ -201,76 +201,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/%E7%AE%97%E6%B3%95/jz29-%E9%A1%BA%E6%97%B6%E9%92%88%E6%89%93%E5%8D%B0%E7%9F%A9%E9%98%B5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/assets/images/avatar.png">
-      <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="lyloou">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/%E7%AE%97%E6%B3%95/jz29-%E9%A1%BA%E6%97%B6%E9%92%88%E6%89%93%E5%8D%B0%E7%9F%A9%E9%98%B5/" class="post-title-link" itemprop="url">【算法】顺时针打印矩阵</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-01-21 17:05:58" itemprop="dateCreated datePublished" datetime="2022-01-21T17:05:58+08:00">2022-01-21</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="剑指-Offer-第-23-题-链表中环的入口结点"><a href="#剑指-Offer-第-23-题-链表中环的入口结点" class="headerlink" title="剑指 Offer 第 23 题-链表中环的入口结点"></a><a href="https://www.nowcoder.com/practice/9b4c81a02cd34f76be2659fa0d54342a" target="_blank" rel="noopener">剑指 Offer 第 23 题-链表中环的入口结点</a></h2><p>描述: 输入一个矩阵，按照从外向里以顺时针的顺序依次打印出每一个数字，例如，如果输入如下 4 X 4 矩阵：</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs json">[[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>],<br>[<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">8</span>],<br>[<span class="hljs-number">9</span>,<span class="hljs-number">10</span>,<span class="hljs-number">11</span>,<span class="hljs-number">12</span>],<br>[<span class="hljs-number">13</span>,<span class="hljs-number">14</span>,<span class="hljs-number">15</span>,<span class="hljs-number">16</span>]]<br></code></pre></td></tr></table></figure>
-
-<p>则依次打印出数字</p>
-<p>[1,2,3,4,8,12,16,15,14,13,9,5,6,7,11,10]</p>
-<p>数据范围:</p>
-<p>0 &lt;= matrix.length &lt;= 100</p>
-<p>0 &lt;= matrix[i].length &lt;= 100</p>
-<p>例如：</p>
-<p><img src="https://raw.githubusercontent.com/lyloou/img/develop/jz29-%E9%A1%BA%E6%97%B6%E9%92%88%E6%89%93%E5%8D%B0%E7%9F%A9%E9%98%B5_20220121170748_2022-01-21-17-07-49.png" alt="jz29-顺时针打印矩阵_20220121170748_2022-01-21-17-07-49"></p>
-<h2 id="方法-1"><a href="#方法-1" class="headerlink" title="方法 1"></a>方法 1</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Jz29_2</span> </span>&#123;<br>   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        <span class="hljs-keyword">final</span> Jz29_3_1 jz = <span class="hljs-keyword">new</span> Jz29_3_1();<br>        System.out.println(jz.printMatrix(<span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[][]&#123;<br>                &#123;<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">1</span>&#125;,<br>                &#123;<span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">1</span>&#125;,<br>                &#123;<span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">1</span>&#125;,<br>        &#125;));<br><br>        System.out.println(jz.printMatrix(<span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[][]&#123;<br>                &#123;<span class="hljs-number">1</span>&#125;, &#123;<span class="hljs-number">2</span>&#125;, &#123;<span class="hljs-number">3</span>&#125;, &#123;<span class="hljs-number">4</span>&#125;, &#123;<span class="hljs-number">5</span>&#125;<br>        &#125;));<br><br>        System.out.println(jz.printMatrix(<span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[][]&#123;<br>                &#123;<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>&#125;<br>        &#125;));<br><br>        System.out.println(jz.printMatrix(<span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[][]&#123;<br>                &#123;<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>&#125;,<br>                &#123;<span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">8</span>&#125;,<br>                &#123;<span class="hljs-number">9</span>, <span class="hljs-number">10</span>, <span class="hljs-number">11</span>, <span class="hljs-number">12</span>&#125;,<br>                &#123;<span class="hljs-number">13</span>, <span class="hljs-number">14</span>, <span class="hljs-number">15</span>, <span class="hljs-number">16</span>&#125;<br>        &#125;));<br>    &#125;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 对于只有一行或只有一列时，会重复</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> ArrayList&lt;Integer&gt; <span class="hljs-title">printMatrix</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[][] matrix)</span> </span>&#123;<br>        <span class="hljs-comment">// 为空的情况</span><br>        <span class="hljs-keyword">if</span> (matrix == <span class="hljs-keyword">null</span> || matrix.length == <span class="hljs-number">0</span>) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();<br>        &#125;<br><br>        ArrayList&lt;Integer&gt; list = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;(matrix.length * matrix[<span class="hljs-number">0</span>].length);<br>        <span class="hljs-keyword">int</span> minX = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">int</span> maxX = matrix.length - <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">int</span> minY = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">int</span> maxY = matrix[<span class="hljs-number">0</span>].length - <span class="hljs-number">1</span>;<br><br>        <span class="hljs-keyword">int</span> x, y;<br>        <span class="hljs-keyword">while</span> (minX &lt;= maxX &amp;&amp; minY &lt;= maxY) &#123;<br>            <span class="hljs-comment">// 用两个标识来判断本轮是否有下移或左移</span><br>            <span class="hljs-keyword">boolean</span> down = <span class="hljs-keyword">false</span>;<br>            <span class="hljs-keyword">boolean</span> left = <span class="hljs-keyword">false</span>;<br><br>            <span class="hljs-comment">// 从左上角开始</span><br>            <span class="hljs-comment">// 向右</span><br>            <span class="hljs-keyword">for</span> (x = minX, y = minY; y &lt;= maxY; y++) &#123;<br>                list.add(matrix[x][y]);<br>            &#125;<br><br>            <span class="hljs-comment">// 向下</span><br>            <span class="hljs-keyword">for</span> (x = minX + <span class="hljs-number">1</span>, y = maxY; x &lt;= maxX; x++) &#123;<br>                list.add(matrix[x][y]);<br>                down = <span class="hljs-keyword">true</span>;<br>            &#125;<br><br>            <span class="hljs-comment">// 向左，左移之前确认是否有下移，防止重复</span><br>            <span class="hljs-keyword">for</span> (x = maxX, y = maxY - <span class="hljs-number">1</span>; down &amp;&amp; y &gt;= minY; y--) &#123;<br>                list.add(matrix[x][y]);<br>                left = <span class="hljs-keyword">true</span>;<br>            &#125;<br><br>            <span class="hljs-comment">// 向上，上移之前确认是否有左移，防止重复</span><br>            <span class="hljs-keyword">for</span> (x = maxX - <span class="hljs-number">1</span>, y = minY; left &amp;&amp; x &gt; minX; x--) &#123;<br>                list.add(matrix[x][y]);<br>            &#125;<br><br>            <span class="hljs-comment">// 瘦身一圈</span><br>            minX++;<br>            maxX--;<br>            minY++;<br>            maxY--;<br>        &#125;<br><br>        <span class="hljs-keyword">return</span> list;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h2 id="方法-2"><a href="#方法-2" class="headerlink" title="方法 2"></a>方法 2</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Jz29_4</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        <span class="hljs-keyword">final</span> Jz29_4 jz = <span class="hljs-keyword">new</span> Jz29_4();<br>        System.out.println(jz.printMatrix(<span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[][]&#123;<br>                &#123;<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">1</span>&#125;,<br>                &#123;<span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">1</span>&#125;,<br>                &#123;<span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">1</span>&#125;,<br>        &#125;));<br><br>        System.out.println(jz.printMatrix(<span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[][]&#123;<br>                &#123;<span class="hljs-number">1</span>&#125;, &#123;<span class="hljs-number">2</span>&#125;, &#123;<span class="hljs-number">3</span>&#125;, &#123;<span class="hljs-number">4</span>&#125;, &#123;<span class="hljs-number">5</span>&#125;<br>        &#125;));<br><br>        System.out.println(jz.printMatrix(<span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[][]&#123;<br>                &#123;<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>&#125;<br>        &#125;));<br><br>        System.out.println(jz.printMatrix(<span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[][]&#123;<br>                &#123;<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>&#125;,<br>                &#123;<span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">8</span>&#125;,<br>                &#123;<span class="hljs-number">9</span>, <span class="hljs-number">10</span>, <span class="hljs-number">11</span>, <span class="hljs-number">12</span>&#125;,<br>                &#123;<span class="hljs-number">13</span>, <span class="hljs-number">14</span>, <span class="hljs-number">15</span>, <span class="hljs-number">16</span>&#125;<br>        &#125;));<br>    &#125;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 起始点从左上角，沿对角线往中间靠</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> ArrayList&lt;Integer&gt; <span class="hljs-title">printMatrix</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[][] matrix)</span> </span>&#123;<br>        <span class="hljs-comment">// 为空的情况</span><br>        <span class="hljs-keyword">if</span> (matrix == <span class="hljs-keyword">null</span> || matrix.length == <span class="hljs-number">0</span>) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();<br>        &#125;<br><br>        ArrayList&lt;Integer&gt; list = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;(matrix.length * matrix[<span class="hljs-number">0</span>].length);<br>        <span class="hljs-keyword">int</span> start = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">while</span> (matrix.length &gt; start * <span class="hljs-number">2</span> &amp;&amp; matrix[<span class="hljs-number">0</span>].length &gt; start * <span class="hljs-number">2</span>) &#123;<br>            addToList(list, matrix, start);<br>            start++;<br>        &#125;<br><br>        <span class="hljs-keyword">return</span> list;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">addToList</span><span class="hljs-params">(ArrayList&lt;Integer&gt; list, <span class="hljs-keyword">int</span>[][] matrix, <span class="hljs-keyword">int</span> start)</span> </span>&#123;<br><br>        <span class="hljs-comment">// max row index</span><br>        <span class="hljs-keyword">int</span> maxX = matrix.length - <span class="hljs-number">1</span> - start;<br>        <span class="hljs-comment">// max column index</span><br>        <span class="hljs-keyword">int</span> maxY = matrix[<span class="hljs-number">0</span>].length - <span class="hljs-number">1</span> - start;<br><br>        <span class="hljs-keyword">boolean</span> down = <span class="hljs-keyword">false</span>;<br>        <span class="hljs-keyword">boolean</span> left = <span class="hljs-keyword">false</span>;<br><br>        <span class="hljs-comment">// 从左向右</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = start; i &lt;= maxY; ++i) &#123;<br>            list.add(matrix[start][i]);<br>        &#125;<br><br>        <span class="hljs-comment">// 从上向下</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = start + <span class="hljs-number">1</span>; i &lt;= maxX; i++) &#123;<br>            list.add(matrix[i][maxY]);<br>            down = <span class="hljs-keyword">true</span>;<br>        &#125;<br><br>        <span class="hljs-comment">// 从右向左</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = maxY - <span class="hljs-number">1</span>; down &amp;&amp; i &gt;= start; i--) &#123;<br>            list.add(matrix[maxX][i]);<br>            left = <span class="hljs-keyword">true</span>;<br>        &#125;<br><br>        <span class="hljs-comment">// 从下向上</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = maxX - <span class="hljs-number">1</span>; left &amp;&amp; i &gt; start + <span class="hljs-number">1</span>; i--) &#123;<br>            list.add(matrix[i][start]);<br>        &#125;<br><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/%E7%AE%97%E6%B3%95/jz23-%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%8E%AF%E7%9A%84%E5%85%A5%E5%8F%A3%E7%BB%93%E7%82%B9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1140,6 +1070,115 @@
   
   
 
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/git/Git%E4%B8%AD%E5%90%88%E5%B9%B6%E5%A4%9A%E4%B8%AA%E9%A1%B9%E7%9B%AE%E5%B9%B6%E4%BF%9D%E7%95%99%E6%89%80%E6%9C%89commit%E8%AE%B0%E5%BD%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/images/avatar.png">
+      <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lyloou">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/git/Git%E4%B8%AD%E5%90%88%E5%B9%B6%E5%A4%9A%E4%B8%AA%E9%A1%B9%E7%9B%AE%E5%B9%B6%E4%BF%9D%E7%95%99%E6%89%80%E6%9C%89commit%E8%AE%B0%E5%BD%95/" class="post-title-link" itemprop="url">【开发工具-Git】Git中合并多个项目并保留所有commit提交记录</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-12-22 18:35:06" itemprop="dateCreated datePublished" datetime="2021-12-22T18:35:06+08:00">2021-12-22</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>通常的合并项目的做法是，将所有项目移动到一个新目录中，并重新生成纳入 git 管理（去掉了.git 文件夹），这样做的弊端是之前的历史提交记录都没有了，想要看之前的记录，还需要再回到旧项目中查看。<br>在本文中，我会介绍怎样完整地保留历史提交记录。</p>
+<h2 id="为什么保留提交记录？"><a href="#为什么保留提交记录？" class="headerlink" title="为什么保留提交记录？"></a>为什么保留提交记录？</h2><ol>
+<li>可以追踪文件修改历史，方便对比和还原历史。</li>
+<li>可以追责，知道之前是谁写的，什么时候写的。</li>
+</ol>
+<p>拆分</p>
+<h2 id="怎样完整地保留提交记录？"><a href="#怎样完整地保留提交记录？" class="headerlink" title="怎样完整地保留提交记录？"></a>怎样完整地保留提交记录？</h2><p>假设有三个项目</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">A：远程地址为：git@github.com:lyloou/merge_a.git ，分支为<span class="hljs-literal">master</span><br>B：远程地址为：git@github.com:lyloou/merge_b.git ，分支为<span class="hljs-literal">master</span><br>C：远程地址为：git@github.com:lyloou/merge_c.git ，分支为<span class="hljs-literal">master</span><br></code></pre></td></tr></table></figure>
+
+<p>合并结果为：<a href="mailto:git@github.com">git@github.com</a>:lyloou/merge_all.git ，分支为 master</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sh">merge_all<br>  -- merge_a<br>  -- merge_b<br>  -- merge_c<br></code></pre></td></tr></table></figure>
+
+<p><strong>操作步骤</strong></p>
+<ol>
+<li>在本地新建 merge_all 目录，并初始化</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">cd</span> merge_all<br><span class="hljs-comment"># 将当前目录初始化为git版本管理的目录</span><br>git init<br></code></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>在 merge_all 中添加 merge_a，merge_b，merge_c 的远程分支。</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">git remote add origin_merge_a git@github.com:lyloou/merge_a.git<br>git remote add origin_merge_b git@github.com:lyloou/merge_b.git<br>git remote add origin_merge_c git@github.com:lyloou/merge_c.git<br></code></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>可以验证是否添加成功<code>git remote -v</code></li>
+<li>在 merge_all 目录下，获取 merge_a, merge_b,merge_c 的 master 分支数据</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">git fetch origin_merge_a master<br>git fetch origin_merge_b master<br>git fetch origin_merge_c master<br></code></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>开始合并了，并移动到子目录中</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># 合并，并保留历史</span><br>git merge origin_merge_a/master --allow-unrelated-histories<br><span class="hljs-comment"># 新建子文件夹，并移动到此文件中（排除需要忽略的文件夹）</span><br>mkdir merge_a<br>mv !(.|..|.git|merge_a) merge_a<br><span class="hljs-comment"># 生成一条commit日志</span><br>git add . &amp;&amp; git commit -m <span class="hljs-string">"merge merge_a_master and mv to merge_a"</span><br><br>git merge origin_merge_b/master --allow-unrelated-histories<br>mkdir merge_b<br>mv !(.|..|.git|merge_b) merge_b<br>git add . &amp;&amp; git commit -m <span class="hljs-string">"merge merge_b_master and mv to merge_b"</span><br><br>git merge origin_merge_c/master --allow-unrelated-histories<br>mkdir merge_c<br>mv !(.|..|.git|merge_c) merge_c<br>git add . &amp;&amp; git commit -m <span class="hljs-string">"merge merge_c_master and mv to merge_c"</span><br><span class="hljs-comment"># 注意 1： `--allow-unrelated-histories` 的意思是，允许合并不相关历史</span><br><span class="hljs-comment"># 注意 2：执行 `mv !(.|..|.git|merge_a) merge_a` 的过程中可能会报错误 `-bash: !: event not`，执行一下命令 `shopt -s extglob`</span><br></code></pre></td></tr></table></figure>
+
+<ol start="6">
+<li>推送 merge_all 的 master 分支到远程</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">git remote add origin git@github.com:lyloou/merge_all.git<br>git push -u origin master<br></code></pre></td></tr></table></figure>
+
+<p>至此合并多项目操作就完成了。</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a href="https://0f9de7f3.wiz06.com/wapp/pages/view/share/s/0fDuvP3SO4QS2Hb3sP2Di0ai2_-yc63ErkxP28a9kS3XUYgP" target="_blank" rel="noopener">Wiz 原文</a></li>
+<li><a href="https://juejin.cn/post/6885549929960472590" target="_blank" rel="noopener">git 合并两个项目 - 掘金</a></li>
+<li><a href="https://blog.csdn.net/m0_37586991/article/details/88617332" target="_blank" rel="noopener">linux mv 命令排除某个文件或文件夹_哪惧明天，风高路斜-CSDN 博客_mv 排除文件</a></li>
+<li><a href="https://askubuntu.com/questions/889744/what-is-the-purpose-of-shopt-s-extglob" target="_blank" rel="noopener">command line - What is the purpose of shopt -s extglob - Ask Ubuntu</a></li>
+</ul>
+<blockquote>
+<p>As you can guess, it stands for extended globbing. This option allows for more advanced pattern matching.</p>
+</blockquote>
+<h2 id="一键合并多个项目-shell-脚本"><a href="#一键合并多个项目-shell-脚本" class="headerlink" title="一键合并多个项目 shell 脚本"></a>一键合并多个项目 shell 脚本</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-meta">#!/usr/bin/env sh</span><br><br><span class="hljs-comment">#1. 在本地新建 merge_all 目录，并初始化</span><br>mkdir merge_all<br><span class="hljs-built_in">cd</span> merge_all<br><span class="hljs-comment"># 将当前目录初始化为git版本管理的目录</span><br>git init<br><br><span class="hljs-comment">#2. 在 merge_all 中添加 merge_a，merge_b，merge_c 的远程分支。</span><br>git remote add origin_a git@github.com:lyloou/merge_a.git<br>git remote add origin_b git@github.com:lyloou/merge_b.git<br>git remote add origin_c git@github.com:lyloou/merge_c.git<br><br><span class="hljs-comment">#3. 可以验证是否添加成功`git remote -v`</span><br>git remote -v<br><br><span class="hljs-comment">#4. 在 merge_all 目录下，获取 merge_a, merge_b,merge_c 的 master 分支数据</span><br>git fetch origin_a master<br>git fetch origin_b master<br>git fetch origin_c master<br><br><span class="hljs-comment">#5. 开始合并了，并移动到子目录中</span><br><br><span class="hljs-comment"># 注意 执行 `mv !(.|..|.git|merge_a) merge_a` 的过程中可能会报错误 `-bash: !: event not`，执行一下命令 `shopt -s extglob`</span><br><span class="hljs-built_in">shopt</span> -s extglob<br><br><span class="hljs-comment"># 合并，并保留历史</span><br>git merge origin_a/master --allow-unrelated-histories<br><span class="hljs-comment"># 新建子文件夹，并移动到此文件中（排除需要忽略的文件夹）</span><br>mkdir merge_a &amp;&amp; mv !(.|..|.git|merge_a) merge_a<br><span class="hljs-comment"># 生成一条commit日志</span><br>git add . &amp;&amp; git commit -m <span class="hljs-string">"merge and mv to merge_a"</span><br><br>git merge origin_b/master --allow-unrelated-histories<br>mkdir merge_b &amp;&amp; mv !(.|..|.git|merge_a|merge_b) merge_b<br>git add . &amp;&amp; git commit -m <span class="hljs-string">"merge and mv to merge_b"</span><br><br>git merge origin_c/master --allow-unrelated-histories<br>mkdir merge_c &amp;&amp; mv !(.|..|.git|merge_a|merge_b|merge_c) merge_c<br>git add . &amp;&amp; git commit -m <span class="hljs-string">"merge and mv to merge_c"</span><br><br><span class="hljs-comment">#6. 推送 merge_all 的 master 分支到远程</span><br>git remote add origin git@github.com:lyloou/merge_all.git<br>git push -u origin master<br></code></pre></td></tr></table></figure>
+
+<p><a href="http://lyloou.com/git/Git中合并多个项目并保留所有commit记录/" target="_blank" rel="noopener">阅读原文</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
 
   
   <nav class="pagination">
@@ -1211,7 +1250,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">313</span>
+          <span class="site-state-item-count">312</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

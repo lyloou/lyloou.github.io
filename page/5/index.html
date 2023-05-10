@@ -201,65 +201,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/design-pattern/cola/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/assets/images/avatar.png">
-      <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="lyloou">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/design-pattern/cola/" class="post-title-link" itemprop="url">Cola架构</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-04-14 16:28:02" itemprop="dateCreated datePublished" datetime="2021-04-14T16:28:02+08:00">2021-04-14</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><a href="https://blog.csdn.net/significantfrank/article/details/85785565" target="_blank" rel="noopener">复杂度应对之道 - COLA 应用架构_我的新书《代码精进之路：从码农到工匠》-CSDN 博客_cola 架构</a><br><a href="https://www.jianshu.com/p/a20e1793f6d9" target="_blank" rel="noopener">扩展点设计 - 简书</a><br><a href="https://blog.csdn.net/significantfrank/article/details/79614915#comments_15943809" target="_blank" rel="noopener">复杂性应对之道 - 领域建模_我的新书《代码精进之路：从码农到工匠》-CSDN博客</a><br><a href="https://blog.csdn.net/significantfrank/article/details/79286947" target="_blank" rel="noopener">SOFA企业应用框架_我的新书《代码精进之路：从码农到工匠》-CSDN博客_sofa框架</a></p>
-<p><a href="https://tech.meituan.com/2017/12/22/ddd-in-practice.html" target="_blank" rel="noopener">领域驱动设计在互联网业务开发中的实践 - 美团技术团队</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/linux/ubuntu/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1146,6 +1087,67 @@ l  运行效果
   
   
 
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/mq/RabbitMq/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/images/avatar.png">
+      <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lyloou">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/mq/RabbitMq/" class="post-title-link" itemprop="url">RabbitMq</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-07-24 16:21:57" itemprop="dateCreated datePublished" datetime="2020-07-24T16:21:57+08:00">2020-07-24</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><a href="https://juejin.im/post/5dabec98e51d4524c06047aa" target="_blank" rel="noopener">docker安装RabbitMq - 掘金</a></p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs yml"><br><span class="hljs-attr">version:</span> <span class="hljs-string">'3.3'</span><br><span class="hljs-attr">services:</span><br>  <span class="hljs-attr">rabbitmq-server:</span><br>    <span class="hljs-attr">container_name:</span> <span class="hljs-string">rabbitmq</span><br>    <span class="hljs-attr">image:</span> <span class="hljs-string">rabbitmq:3.8-management</span><br>    <span class="hljs-attr">restart:</span> <span class="hljs-string">always</span><br>    <span class="hljs-attr">ports:</span><br>        <span class="hljs-bullet">-</span> <span class="hljs-number">15672</span><span class="hljs-string">:15672</span><br>        <span class="hljs-bullet">-</span> <span class="hljs-number">25672</span><span class="hljs-string">:25672</span><br>        <span class="hljs-bullet">-</span> <span class="hljs-number">4369</span><span class="hljs-string">:4369</span><br>        <span class="hljs-bullet">-</span> <span class="hljs-number">5671</span><span class="hljs-string">:5671</span><br>        <span class="hljs-bullet">-</span> <span class="hljs-number">5672</span><span class="hljs-string">:5672</span><br>    <span class="hljs-attr">volumes:</span><br>        <span class="hljs-bullet">-</span> <span class="hljs-string">./mq/rabbitmq:/var/lib/rabbitmq</span><br>    <span class="hljs-attr">environment:</span><br>        <span class="hljs-bullet">-</span> <span class="hljs-string">TZ=Asia/Hong_Kong</span><br>        <span class="hljs-bullet">-</span> <span class="hljs-string">RABBITMQ_DEFAULT_USER=qq</span><br>        <span class="hljs-bullet">-</span> <span class="hljs-string">RABBITMQ_DEFAULT_PASS=1234</span><br>        <span class="hljs-bullet">-</span> <span class="hljs-string">RABBITMQ_DEFAULT_VHOST=/qq</span><br></code></pre></td></tr></table></figure>
+<p><a href="https://www.jianshu.com/p/2ecad37d64ff" target="_blank" rel="noopener">Rabbit安装配置问题 - 简书</a></p>
+<p><a href="https://www.jianshu.com/p/dae5bbed39b1" target="_blank" rel="noopener">RabbitMQ入门教程（概念，应用场景，安装，使用） - 简书</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
 
   
   <nav class="pagination">
@@ -1217,7 +1219,7 @@ l  运行效果
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">313</span>
+          <span class="site-state-item-count">312</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

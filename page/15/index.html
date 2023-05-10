@@ -201,83 +201,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/java/lombok/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/assets/images/avatar.png">
-      <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="lyloou">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/java/lombok/" class="post-title-link" itemprop="url">Lombok</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-11-07 15:31:02" itemprop="dateCreated datePublished" datetime="2018-11-07T15:31:02+08:00">2018-11-07</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="常用的-lombok-注解"><a href="#常用的-lombok-注解" class="headerlink" title="常用的 lombok 注解"></a><a href="https://blog.csdn.net/mccand1234/article/details/53456411" target="_blank" rel="noopener">常用的 lombok 注解</a></h2><ul>
-<li><code>@EqualsAndHashCode</code> ：实现 equals()方法和 hashCode()方法 @ToString：实现` toString()方法</li>
-<li><code>@Data</code> ：注解在类上；提供类所有属性的 getting 和 setting 方法，此外还提供了 equals、canEqual、hashCode、toString 方法</li>
-<li><code>@Setter</code> ：注解在属性上；为属性提供 setting 方法</li>
-<li><code>@Getter</code> ：注解在属性上；为属性提供 getting 方法</li>
-<li><code>@Log4j</code> ：注解在类上；为类提供一个 属性名为 log 的 log4j 日志对象</li>
-<li><code>@NoArgsConstructor</code> ：注解在类上；为类提供一个无参的构造方法</li>
-<li><code>@AllArgsConstructor</code> ：注解在类上；为类提供一个全参的构造方法</li>
-<li><code>@Cleanup</code> ：关闭流 @Synchronized：对象同步 @SneakyThrows：抛出异常</li>
-</ul>
-<h2 id="转换数据库数据到实体对象出错"><a href="#转换数据库数据到实体对象出错" class="headerlink" title="转换数据库数据到实体对象出错"></a>转换数据库数据到实体对象出错</h2><blockquote>
-<p>org.springframework.dao.DataIntegrityViolationException: Error attempting to get column ‘content’ from result set. Cause: java.sql.SQLDataException: Cannot convert string ‘2202’ to java.sql.Timestamp value</p>
-</blockquote>
-<p>实际上是因为没有空构造函数引起的错误，参考 <a href="https://github.com/baomidou/mybatis-plus/issues/1074" target="_blank" rel="noopener">改变实体类成员变量的顺序,导致报错 · Issue #1074 · baomidou/mybatis-plus</a></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Data</span><br><span class="hljs-meta">@Builder</span><br><span class="hljs-meta">@NoArgsConstructor</span> <span class="hljs-comment">// 添加这个</span><br><span class="hljs-meta">@AllArgsConstructor</span> <span class="hljs-comment">// 也加上这个</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Event</span> </span>&#123;<br>    <span class="hljs-keyword">private</span> Long id;<br><br>    <span class="hljs-keyword">private</span> Date gmtCreate;<br><br>    <span class="hljs-keyword">private</span> Date gmtModified;<br><br>    <span class="hljs-keyword">private</span> String day;<br><br>    <span class="hljs-keyword">private</span> String content;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h2 id="Lombok-IDEA-异常"><a href="#Lombok-IDEA-异常" class="headerlink" title="Lombok IDEA 异常"></a>Lombok IDEA 异常</h2><p><a href="https://stackoverflow.com/questions/65128763/java-you-arent-using-a-compiler-supported-by-lombok-so-lombok-will-not-work-a" target="_blank" rel="noopener">intellij idea - java: You aren’t using a compiler supported by lombok, so lombok will not work and has been disabled - Stack Overflow</a></p>
-<blockquote>
-<p><code>-Djps.track.ap.dependencies=false</code><br>Build, Execution, Deployment -&gt; Compiler -&gt; Shared build process VM options</p>
-</blockquote>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/ssm/%E5%BC%82%E5%B8%B8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -974,6 +897,69 @@ Ctrl + z – suspend/stop the command</code></pre><p>Bash Bang (!) Commands</p>
   
   
 
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/ssm/swagger/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/images/avatar.png">
+      <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lyloou">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/ssm/swagger/" class="post-title-link" itemprop="url">【SSM】swagger相关</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-10-11 11:29:00" itemprop="dateCreated datePublished" datetime="2018-10-11T11:29:00+08:00">2018-10-11</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><p>idea 插件：Swagger Tool - <a href="https://github.com/Pwhxbdk/swagger-tool" target="_blank" rel="noopener">https://github.com/Pwhxbdk/swagger-tool</a></p>
+<h2 id="资料"><a href="#资料" class="headerlink" title="资料"></a>资料</h2><p><a href="https://github.com/swagger-api/swagger-core/wiki/Annotations-1.5.X#quick-annotation-overview" target="_blank" rel="noopener">Annotations 1.5.X · swagger-api/swagger-core Wiki</a></p>
+<p><a href="https://juejin.cn/post/7038473995640897543" target="_blank" rel="noopener">Swagger 笔记之 Swagger 注解 - 掘金</a></p>
+<p><a href="https://blog.csdn.net/u014231523/article/details/54562695" target="_blank" rel="noopener">SpringBoot 集成 springfox-swagger2 构建 restful API_兴国-为梦想而战-CSDN 博客_springboot springfox-swagger2</a></p>
+<p><a href="https://blog.csdn.net/u014231523/article/details/76522486" target="_blank" rel="noopener">swagger2 常用注解说明_兴国-为梦想而战-CSDN 博客_swagger 常用注解</a></p>
+<p><a href="https://github.com/OAI/OpenAPI-Specification/blob/main/versions/2.0.md#data-types" target="_blank" rel="noopener">datatype 数据类型</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
 
   
   <nav class="pagination">
@@ -1045,7 +1031,7 @@ Ctrl + z – suspend/stop the command</code></pre><p>Bash Bang (!) Commands</p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">313</span>
+          <span class="site-state-item-count">312</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

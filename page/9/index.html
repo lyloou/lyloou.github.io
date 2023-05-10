@@ -201,66 +201,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/js/%E5%95%86%E5%93%81sku%E7%BB%84%E5%90%88/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/assets/images/avatar.png">
-      <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="lyloou">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/js/%E5%95%86%E5%93%81sku%E7%BB%84%E5%90%88/" class="post-title-link" itemprop="url">商品多规格组合成单个SKU</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-09-19 19:47:37" itemprop="dateCreated datePublished" datetime="2019-09-19T19:47:37+08:00">2019-09-19</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">compose</span>(<span class="hljs-params">a, b</span>) </span>&#123;<br>  <span class="hljs-keyword">let</span> arr = [];<br>  <span class="hljs-keyword">if</span> (!a || a.length == <span class="hljs-number">0</span>) &#123;<br>    <span class="hljs-keyword">return</span> b;<br>  &#125;<br><br>  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i <span class="hljs-keyword">in</span> a) &#123;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> j <span class="hljs-keyword">in</span> b) &#123;<br>      arr.push(a[i] + <span class="hljs-string">","</span> + b[j]);<br>    &#125;<br>  &#125;<br>  <span class="hljs-keyword">return</span> arr;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getComposeResult</span>(<span class="hljs-params">d</span>) </span>&#123;<br>  <span class="hljs-keyword">let</span> result = compose([]);<br>  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; d.length; i++) &#123;<br>    result = compose(<br>      result,<br>      d[i]<br>    );<br>  &#125;<br>  <span class="hljs-keyword">return</span> result;<br>&#125;<br><br><span class="hljs-keyword">let</span> a = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>];<br><span class="hljs-keyword">let</span> b = [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>];<br><span class="hljs-keyword">let</span> c = [<span class="hljs-number">5</span>, <span class="hljs-number">6</span>];<br><span class="hljs-keyword">let</span> d = [a, b, c];<br><span class="hljs-comment">// let d = [[1,2], [3,4], [5,6]]</span><br><span class="hljs-built_in">console</span>.log(getComposeResult(d));<br><br><span class="hljs-comment">// output: ["1,3,5", "1,3,6", "1,4,5", "1,4,6", "2,3,5", "2,3,6", "2,4,5", "2,4,6"]</span><br></code></pre></td></tr></table></figure>
-
-<h2 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> products = [&#123;<br>    <span class="hljs-string">"18547,49234,48480"</span>: <span class="hljs-number">947858</span><br>&#125;, &#123;<br>    <span class="hljs-string">"18547,49234,48481"</span>: <span class="hljs-number">947859</span><br>&#125;, &#123;<br>    <span class="hljs-string">"18547,49235,48480"</span>: <span class="hljs-number">947860</span><br>&#125;, &#123;<br>    <span class="hljs-string">"18547,49235,48481"</span>: <span class="hljs-number">947861</span><br>&#125;, &#123;<br>    <span class="hljs-string">"19167,49234,48480"</span>: <span class="hljs-number">947862</span><br>&#125;, &#123;<br>    <span class="hljs-string">"19167,49234,48481"</span>: <span class="hljs-number">947863</span><br>&#125;, &#123;<br>    <span class="hljs-string">"19167,49235,48480"</span>: <span class="hljs-number">947864</span><br>&#125;, &#123;<br>    <span class="hljs-string">"19167,49235,48481"</span>: <span class="hljs-number">947865</span><br>&#125;]<br><br><span class="hljs-keyword">let</span> spec = [&#123;<br>    <span class="hljs-string">"spec_name"</span>: <span class="hljs-string">"颜色"</span>,<br>    <span class="hljs-string">"children"</span>: [&#123;<br>        <span class="hljs-string">"spec_value_name"</span>: <span class="hljs-string">"红"</span>,<br>        <span class="hljs-string">"spec_value_image"</span>: <span class="hljs-string">""</span>,<br>        <span class="hljs-string">"spec_value_id"</span>: <span class="hljs-number">18547</span>,<br>        <span class="hljs-string">"active"</span>: <span class="hljs-string">"selected"</span>,<br>        <span class="hljs-string">"disabled"</span>: <span class="hljs-string">"false"</span><br>    &#125;, &#123;<br>        <span class="hljs-string">"spec_value_name"</span>: <span class="hljs-string">"白"</span>,<br>        <span class="hljs-string">"spec_value_image"</span>: <span class="hljs-string">""</span>,<br>        <span class="hljs-string">"spec_value_id"</span>: <span class="hljs-number">19167</span>,<br>        <span class="hljs-string">"disabled"</span>: <span class="hljs-string">"false"</span><br>    &#125;],<br>    <span class="hljs-string">"spec_id"</span>: <span class="hljs-number">4</span><br>&#125;, &#123;<br>    <span class="hljs-string">"spec_name"</span>: <span class="hljs-string">"重量"</span>,<br>    <span class="hljs-string">"children"</span>: [&#123;<br>        <span class="hljs-string">"spec_value_name"</span>: <span class="hljs-string">"1吨"</span>,<br>        <span class="hljs-string">"spec_value_image"</span>: <span class="hljs-string">""</span>,<br>        <span class="hljs-string">"spec_value_id"</span>: <span class="hljs-number">49234</span>,<br>        <span class="hljs-string">"active"</span>: <span class="hljs-string">"selected"</span>,<br>        <span class="hljs-string">"disabled"</span>: <span class="hljs-string">"false"</span><br>    &#125;, &#123;<br>        <span class="hljs-string">"spec_value_name"</span>: <span class="hljs-string">"2吨"</span>,<br>        <span class="hljs-string">"spec_value_image"</span>: <span class="hljs-string">""</span>,<br>        <span class="hljs-string">"spec_value_id"</span>: <span class="hljs-number">49235</span>,<br>        <span class="hljs-string">"disabled"</span>: <span class="hljs-string">"false"</span><br>    &#125;],<br>    <span class="hljs-string">"spec_id"</span>: <span class="hljs-number">113</span><br>&#125;, &#123;<br>    <span class="hljs-string">"spec_name"</span>: <span class="hljs-string">"大小"</span>,<br>    <span class="hljs-string">"children"</span>: [&#123;<br>        <span class="hljs-string">"spec_value_name"</span>: <span class="hljs-string">"L"</span>,<br>        <span class="hljs-string">"spec_value_image"</span>: <span class="hljs-string">""</span>,<br>        <span class="hljs-string">"spec_value_id"</span>: <span class="hljs-number">48480</span>,<br>        <span class="hljs-string">"active"</span>: <span class="hljs-string">"selected"</span>,<br>        <span class="hljs-string">"disabled"</span>: <span class="hljs-string">"false"</span><br>    &#125;, &#123;<br>        <span class="hljs-string">"spec_value_name"</span>: <span class="hljs-string">"M"</span>,<br>        <span class="hljs-string">"spec_value_image"</span>: <span class="hljs-string">""</span>,<br>        <span class="hljs-string">"spec_value_id"</span>: <span class="hljs-number">48481</span>,<br>        <span class="hljs-string">"disabled"</span>: <span class="hljs-string">"false"</span><br>    &#125;],<br>    <span class="hljs-string">"spec_id"</span>: <span class="hljs-number">742</span><br>&#125;]<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getNumberArray</span>(<span class="hljs-params">spec</span>) </span>&#123;<br>    <span class="hljs-keyword">let</span> arr1 = []<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i <span class="hljs-keyword">in</span> spec) &#123;<br>        <span class="hljs-keyword">let</span> arr2 = [];<br>        <span class="hljs-keyword">let</span> children = spec[i].children;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> j <span class="hljs-keyword">in</span> children) &#123;<br>            <span class="hljs-keyword">let</span> child = children[j].spec_value_id;<br>            arr2.push(child);<br>        &#125;<br>        arr1.push(arr2);<br>    &#125;<br>    <span class="hljs-keyword">return</span> arr1;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">compose</span>(<span class="hljs-params">a, b</span>) </span>&#123;<br>    <span class="hljs-keyword">let</span> arr = [];<br>    <span class="hljs-keyword">if</span> (!a || a.length == <span class="hljs-number">0</span>) &#123;<br>        <span class="hljs-keyword">return</span> b;<br>    &#125;<br><br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i <span class="hljs-keyword">in</span> a) &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> j <span class="hljs-keyword">in</span> b) &#123;<br>            arr.push(a[i] + <span class="hljs-string">','</span> + b[j])<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> arr;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getComposeSpecArray</span>(<span class="hljs-params">numArr</span>) </span>&#123;<br>    <span class="hljs-keyword">let</span> result = compose([])<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; numArr.length; i++) &#123;<br>        result = compose(result, numArr[i])<br>    &#125;<br>    <span class="hljs-keyword">return</span> result;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getSelectSkuBySelectedStatus</span>(<span class="hljs-params">spec</span>) </span>&#123;<br>    <span class="hljs-keyword">let</span> arr = [];<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i <span class="hljs-keyword">in</span> spec) &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> j <span class="hljs-keyword">in</span> spec[i].children) &#123;<br>            <span class="hljs-keyword">let</span> child = spec[i].children[j];<br>            <span class="hljs-keyword">if</span> (child.active &amp;&amp; child.active == <span class="hljs-string">'selected'</span>) &#123;<br>                arr.push(child.spec_value_id);<br>                <span class="hljs-keyword">break</span>;<br>            &#125;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> arr.join(<span class="hljs-string">','</span>);<br>&#125;<br><br><span class="hljs-keyword">let</span> arr = getNumberArray(spec);<br><span class="hljs-built_in">console</span>.log(arr)<br><span class="hljs-comment">// output: [[18547,19167],[49234,49235],[48480,48481]]</span><br><br><span class="hljs-keyword">let</span> specArr = getComposeSpecArray(arr)<br><span class="hljs-built_in">console</span>.log(specArr);<br><span class="hljs-comment">// output: ["18547,49234,48480", "18547,49234,48481", "18547,49235,48480", "18547,49235,48481", "19167,49234,48480", "19167,49234,48481", "19167,49235,48480", "19167,49235,48481"]</span><br><br><span class="hljs-keyword">let</span> sku = getSelectSkuBySelectedStatus(spec);<br><span class="hljs-built_in">console</span>.log(sku)<br><span class="hljs-comment">// output: '18547,49234,48480'</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getProductId</span>(<span class="hljs-params">products, sku</span>) </span>&#123;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i <span class="hljs-keyword">in</span> products) &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> j <span class="hljs-keyword">in</span> products[i]) &#123;<br>            <span class="hljs-keyword">if</span> (j == sku) &#123;<br>                <span class="hljs-keyword">return</span> products[i][j];<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br>    &#125;<br>&#125;<br><span class="hljs-keyword">let</span> productId = getProductId(products, sku)<br><span class="hljs-built_in">console</span>.log(productId)<br><span class="hljs-comment">// output: 947858</span><br></code></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/java/exception%E5%92%8Cerror/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -888,6 +828,98 @@
   
   
 
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/sql/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/images/avatar.png">
+      <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lyloou">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/sql/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">【Sql】常见问题列表</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-07-26 13:59:33" itemprop="dateCreated datePublished" datetime="2019-07-26T13:59:33+08:00">2019-07-26</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h2><p>解决思路就是：避免同时操作数据；</p>
+<ul>
+<li><a href="https://www.cnblogs.com/zejin2008/p/5262751.html" target="_blank" rel="noopener">Mysql 并发时经典常见的死锁原因及解决方法 - 泽锦 - 博客园</a></li>
+</ul>
+<p>首先我们执行<br><code>show engine innodb status\G;</code><br>查看死锁情况，也可以<br><code>mysql -u root -p --execute=&quot;show engine innodb status \G&quot;&gt; c:/mysql.log</code><br>把死锁信息输出到本地磁盘，查看起来比较方便<br><a href="https://blog.csdn.net/weixin_38250126/article/details/70053222" target="_blank" rel="noopener">mysql 死锁分析 - 那片天空！那片海！ - CSDN 博客</a></p>
+<p><strong>例如：</strong></p>
+<p>通过定位死锁的数据库： <code>show engine \G</code>，发现一个统计任务、一个改价任务，同时修改同一个端口的内容，导致死锁。</p>
+<p>解决方法：将两个任务的时间错开，改价的为每分钟的 0 秒触发；统计的为每两分钟的 30 秒触发；</p>
+<h2 id="日志文件被删除后，无法正常启动"><a href="#日志文件被删除后，无法正常启动" class="headerlink" title="日志文件被删除后，无法正常启动"></a>日志文件被删除后，无法正常启动</h2><p>通过<code>systemctl status mariadb.service</code>来查看缺少什么文件，创建对应的即可，<br>如果是权限问题，把外层的文件夹修改下权限 <code>/var/log/mysql</code>。<br>然后重启： <code>systemctl restart mariadb.service</code></p>
+<h2 id="Authentication-plugin-‘caching-sha2-password’-cannot-be-loaded"><a href="#Authentication-plugin-‘caching-sha2-password’-cannot-be-loaded" class="headerlink" title="Authentication plugin ‘caching_sha2_password’ cannot be loaded"></a>Authentication plugin ‘caching_sha2_password’ cannot be loaded</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">use</span> mysql;<br><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">USER</span> <span class="hljs-string">'root'</span>@<span class="hljs-string">'%'</span> <span class="hljs-keyword">IDENTIFIED</span> <span class="hljs-keyword">WITH</span> mysql_native_password <span class="hljs-keyword">BY</span> <span class="hljs-string">'12345678'</span>;<br><span class="hljs-keyword">select</span> Host,<span class="hljs-keyword">user</span>,<span class="hljs-keyword">plugin</span>,Authentication_string <span class="hljs-keyword">from</span> <span class="hljs-keyword">user</span>;<br></code></pre></td></tr></table></figure>
+
+<p><a href="https://blog.csdn.net/u010358168/article/details/81253744" target="_blank" rel="noopener">完美解决 ERROR2059(HY000):Authenticationplugincaching<em>sha2_passwordcannotbeloaded 问题</em>小洋人最 happy 的专栏-CSDN 博客_error2059</a></p>
+<h2 id="不可重复读和幻读的区别"><a href="#不可重复读和幻读的区别" class="headerlink" title="不可重复读和幻读的区别"></a>不可重复读和幻读的区别</h2><ul>
+<li>脏读：读取未提交的数据；</li>
+<li>不可重复读（update）：前后多次读取，数据内容不一致；</li>
+<li>幻读（insert、delete）：前后多次读取，数据总量不一致；</li>
+</ul>
+<ul>
+<li><a href="https://cloud.tencent.com/developer/article/1450773" target="_blank" rel="noopener">快速理解脏读、不可重复读、幻读和 MVCC - 云+社区 - 腾讯云</a><br>(1) 不可重复读是读取了其他事务更改的数据，针对 update 操作<br>解决：使用行级锁，锁定该行，事务 A 多次读取操作完成后才释放该锁，这个时候才允许其他事务更改刚才的数据。<br>(2) 幻读是读取了其他事务新增的数据，针对 insert 和 delete 操作<br>解决：使用表级锁，锁定整张表，事务 A 多次读取数据总量之后才释放该锁，这个时候才允许其他事务新增数据。</li>
+</ul>
+<h4 id="SELECT-IN-子查询-太慢问题"><a href="#SELECT-IN-子查询-太慢问题" class="headerlink" title="SELECT IN(子查询)太慢问题"></a>SELECT IN(子查询)太慢问题</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">explain</span> <span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> third_video_iqiyi <span class="hljs-keyword">WHERE</span>  v_id <span class="hljs-keyword">in</span> (<span class="hljs-keyword">SELECT</span> v_id <span class="hljs-keyword">FROM</span> third_video_iqiyi <span class="hljs-keyword">WHERE</span> v_id &lt; <span class="hljs-number">10</span>);<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/lyloou/img/develop/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98_20220608185021_2022-06-08-18-50-22.png" alt="常见问题_20220608185021_2022-06-08-18-50-22"><br>在表的整体数据量大的情况下，上面的 sql 基本无法执行。</p>
+<ul>
+<li><p><a href="https://blog.csdn.net/youbl/article/details/113696590" target="_blank" rel="noopener">生产慢查询记录：MySQL IN 子查询导致的慢查询_北亮bl的博客-CSDN博客</a><br><img src="https://raw.githubusercontent.com/lyloou/img/develop/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98_20220608185524_2022-06-08-18-55-24.png" alt="常见问题_20220608185524_2022-06-08-18-55-24"></p>
+</li>
+<li><p><a href="https://www.cnblogs.com/wxw16/p/6105624.html" target="_blank" rel="noopener">深入理解MySql子查询IN的执行和优化 - wuxiwei - 博客园</a></p>
+</li>
+<li><p><a href="https://www.365seal.com/y/AZvgXQL3Va.html" target="_blank" rel="noopener">MySQL子查询慢现象的解决</a><br><img src="https://raw.githubusercontent.com/lyloou/img/develop/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98_20220608185226_2022-06-08-18-52-27.png" alt="常见问题_20220608185226_2022-06-08-18-52-27"></p>
+</li>
+</ul>
+<p>优化方案</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">explain</span> <span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> third_video_iqiyi a ,(<span class="hljs-keyword">SELECT</span> v_id <span class="hljs-keyword">FROM</span> third_video_iqiyi <span class="hljs-keyword">WHERE</span> v_id &lt; <span class="hljs-number">10</span>) b <span class="hljs-keyword">WHERE</span> a.v_id = b.v_id;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://raw.githubusercontent.com/lyloou/img/develop/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98_20220608184956_2022-06-08-18-49-57.png" alt="常见问题_20220608184956_2022-06-08-18-49-57"></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
 
   
   <nav class="pagination">
@@ -959,7 +991,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">313</span>
+          <span class="site-state-item-count">312</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

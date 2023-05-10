@@ -201,80 +201,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/android/view-webview/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/assets/images/avatar.png">
-      <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="lyloou">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/android/view-webview/" class="post-title-link" itemprop="url">Webview相关</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-08-04 08:42:57" itemprop="dateCreated datePublished" datetime="2016-08-04T08:42:57+08:00">2016-08-04</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Android-7-0-webview-不自动刷新"><a href="#Android-7-0-webview-不自动刷新" class="headerlink" title="Android 7.0 webview 不自动刷新"></a>Android 7.0 webview 不自动刷新</h1><p>当 webview 所在的 activity 采用了以下主题时，Android7.0 设备将无法正常运行：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"WelcomeBg"</span> <span class="hljs-attr">parent</span>=<span class="hljs-string">"@android:style/Theme.DeviceDefault.NoActionBar"</span>&gt;</span><br><span class="xml">    <span class="hljs-tag">&lt;<span class="hljs-name">item</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"android:windowIsTranslucent"</span>&gt;</span>false<span class="hljs-tag">&lt;/<span class="hljs-name">item</span>&gt;</span></span><br><span class="xml">    <span class="hljs-tag">&lt;<span class="hljs-name">item</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"android:windowNoTitle"</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">item</span>&gt;</span></span><br><span class="xml">    <span class="hljs-tag">&lt;<span class="hljs-name">item</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"android:windowActionBar"</span>&gt;</span>false<span class="hljs-tag">&lt;/<span class="hljs-name">item</span>&gt;</span></span><br><span class="xml">    <span class="hljs-tag">&lt;<span class="hljs-name">item</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"android:windowBackground"</span>&gt;</span>@null<span class="hljs-tag">&lt;/<span class="hljs-name">item</span>&gt;</span></span><br><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br></code></pre></td></tr></table></figure>
-
-<p>之所以有这样的改变，目的是想要提升启动 Activity 的性能，哪里知道 7.0 之后会遇到无法正常渲染 WebView 的问题。</p>
-<p>解决办法是：<br>直接使用默认主题，而不再对其包装：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml">@android:style/Theme.DeviceDefault.NoActionBar<br></code></pre></td></tr></table></figure>
-
-<h1 id="获取-WebView-的点击元素"><a href="#获取-WebView-的点击元素" class="headerlink" title="获取 WebView 的点击元素"></a>获取 WebView 的点击元素</h1><p>可以通过搜索关键字：<code>HitTestResult getHitTestResult</code>来知道更多内容；</p>
-<p>注意：X5WebView，来源于腾讯 TBS 系统，是另外一个继承体系（可以通过打印<code>view.getClass()</code>的方式查看其继承体系）</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setLongClick</span><span class="hljs-params">(<span class="hljs-keyword">final</span> View view)</span> </span>&#123;<br>    <span class="hljs-comment">//长按点击事件</span><br>    view.setOnLongClickListener(<span class="hljs-keyword">new</span> View.OnLongClickListener() &#123;<br>        <span class="hljs-meta">@Override</span><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">onLongClick</span><span class="hljs-params">(View v)</span> </span>&#123;<br>            <span class="hljs-comment">//响应长按事件（如果webview继承自安卓原生系统）</span><br>            <span class="hljs-keyword">if</span> (view <span class="hljs-keyword">instanceof</span> WebView) &#123;<br>                WebView.HitTestResult result = ((WebView) view).getHitTestResult();<br>                <span class="hljs-keyword">if</span> (result != <span class="hljs-keyword">null</span>) &#123;<br>                    <span class="hljs-keyword">int</span> type = result.getType();<br>                    <span class="hljs-comment">//判断点击类型如果是图片</span><br>                    <span class="hljs-keyword">if</span> (type == WebView.HitTestResult.IMAGE_TYPE || type == WebView.HitTestResult.SRC_IMAGE_ANCHOR_TYPE) &#123;<br>                        <span class="hljs-comment">//弹出对话框</span><br>                        showDialog(result.getExtra());<br>                    &#125;<br>                &#125;<br>            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (view <span class="hljs-keyword">instanceof</span> X5WebView) &#123;<br>                <span class="hljs-comment">//响应长按事件（如果webview继承自腾讯的TBS系统）</span><br>                Log.i(TAG, <span class="hljs-string">"onLongClick: x5"</span>);<br>                com.tencent.smtt.sdk.WebView.HitTestResult hitTestResult = ((X5WebView) view).getHitTestResult();<br>                <span class="hljs-keyword">if</span> (hitTestResult != <span class="hljs-keyword">null</span>) &#123;<br>                    <span class="hljs-keyword">int</span> type = hitTestResult.getType();<br>                    <span class="hljs-keyword">if</span> (type == X5WebView.HitTestResult.IMAGE_TYPE || type == X5WebView.HitTestResult.SRC_IMAGE_ANCHOR_TYPE) &#123;<br>                        showDialog(hitTestResult.getExtra());<br>                    &#125;<br>                &#125;<br>            &#125;<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;<br>        &#125;<br>    &#125;);<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p><strong>参考资料</strong></p>
-<ul>
-<li><a href="http://www.cnblogs.com/classloader/p/5302784.html" target="_blank" rel="noopener">获取 Android webview 的点击元素</a></li>
-<li><a href="https://developer.android.com/reference/android/webkit/WebView.HitTestResult.html" target="_blank" rel="noopener">HitTestResult</a></li>
-</ul>
-<h1 id="需要登录网页授权的页面处理"><a href="#需要登录网页授权的页面处理" class="headerlink" title="需要登录网页授权的页面处理"></a>需要登录网页授权的页面处理</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><code class="hljs java">webSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NARROW_COLUMNS);<br>webSettings.setUseWideViewPort(<span class="hljs-keyword">true</span>);<br>webSettings.setJavaScriptEnabled(<span class="hljs-keyword">true</span>);<br>webSettings.setDomStorageEnabled(<span class="hljs-keyword">true</span>);<br>webSettings.setLoadWithOverviewMode(<span class="hljs-keyword">true</span>);<br>webview.setWebViewClient(getWebViewClient());<br><br><span class="hljs-function"><span class="hljs-keyword">private</span> WebViewClient <span class="hljs-title">getWebViewClient</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> WebViewClient() &#123;<br>        <span class="hljs-meta">@Override</span><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onReceivedHttpAuthRequest</span><span class="hljs-params">(WebView view, HttpAuthHandler handler, String host, String realm)</span> </span>&#123;<br>            <span class="hljs-comment">// [Android-WebView's onReceivedHttpAuthRequest() not called again - Stack Overflow](https://stackoverflow.com/questions/20399339/android-webviews-onreceivedhttpauthrequest-not-called-again)</span><br>            <span class="hljs-keyword">final</span> EditText usernameInput = <span class="hljs-keyword">new</span> EditText(mContext);<br>            usernameInput.setHint(<span class="hljs-string">"Username"</span>);<br><br>            <span class="hljs-keyword">final</span> EditText passwordInput = <span class="hljs-keyword">new</span> EditText(mContext);<br>            passwordInput.setHint(<span class="hljs-string">"Password"</span>);<br>            passwordInput.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);<br><br>            LinearLayout ll = <span class="hljs-keyword">new</span> LinearLayout(mContext);<br>            ll.setOrientation(LinearLayout.VERTICAL);<br>            ll.addView(usernameInput);<br>            ll.addView(passwordInput);<br><br>            AlertDialog.Builder authDialog = <span class="hljs-keyword">new</span> AlertDialog<br>                    .Builder(mContext)<br>                    .setTitle(<span class="hljs-string">"Authentication"</span>)<br>                    .setView(ll)<br>                    .setCancelable(<span class="hljs-keyword">false</span>)<br>                    .setPositiveButton(<span class="hljs-string">"OK"</span>, (dialog, whichButton) -&gt; &#123;<br>                        String username = usernameInput.getText().toString();<br>                        String password = passwordInput.getText().toString();<br>                        handler.proceed(username, password);<br>                        Toast.makeText(mContext, username + <span class="hljs-string">":"</span> + password, Toast.LENGTH_LONG).show();<br>                        dialog.dismiss();<br>                    &#125;)<br>                    .setNegativeButton(<span class="hljs-string">"Cancel"</span>, (dialog, whichButton) -&gt; &#123;<br>                        dialog.dismiss();<br>                        view.stopLoading();<br>                    &#125;);<br><br>            authDialog.show();<br>        &#125;<br>    &#125;;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/android/%E5%AF%BC%E8%88%AA/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -986,6 +912,71 @@
   
   
 
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/android/SharedPreference%E5%B0%81%E8%A3%85/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/images/avatar.png">
+      <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lyloou">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/android/SharedPreference%E5%B0%81%E8%A3%85/" class="post-title-link" itemprop="url">SharedPreference封装</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-07-13 21:14:09" itemprop="dateCreated datePublished" datetime="2016-07-13T21:14:09+08:00">2016-07-13</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="摘要："><a href="#摘要：" class="headerlink" title="摘要："></a>摘要：</h2><blockquote>
+<p>主要内容：<br>本文介绍了封装后的SharedPreference，以便快速开发；<br>只保留必要的定制，重复的代码封装到一个通用类中；</p>
+</blockquote>
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><ul>
+<li>具体用法参照<code>UspDemo.java</code>文件；</li>
+<li>通用源文件为<code>Usp.java</code></li>
+</ul>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><script src="https://gist.github.com/lyloou/695fa3c371a4702bcaeeaa7fa3d3feaf.js"></script>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
 
   
   <nav class="pagination">
@@ -1057,7 +1048,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">313</span>
+          <span class="site-state-item-count">312</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

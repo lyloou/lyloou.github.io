@@ -201,63 +201,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/sql/Untitled/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/assets/images/avatar.png">
-      <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="lyloou">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/sql/Untitled/" class="post-title-link" itemprop="url">sql/Untitled</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-04-21 11:13:16" itemprop="dateCreated datePublished" datetime="2023-04-21T11:13:16+08:00">2023-04-21</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/java/%E8%8E%B7%E5%8F%96%E6%9C%89%E6%95%88%E7%9A%84%E5%BC%82%E5%B8%B8%E8%B0%83%E7%94%A8%E5%A0%86%E6%A0%88%E4%BF%A1%E6%81%AF/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -904,6 +847,76 @@
   
   
 
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/%E7%AE%97%E6%B3%95/jz29-%E9%A1%BA%E6%97%B6%E9%92%88%E6%89%93%E5%8D%B0%E7%9F%A9%E9%98%B5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/images/avatar.png">
+      <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lyloou">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/%E7%AE%97%E6%B3%95/jz29-%E9%A1%BA%E6%97%B6%E9%92%88%E6%89%93%E5%8D%B0%E7%9F%A9%E9%98%B5/" class="post-title-link" itemprop="url">【算法】顺时针打印矩阵</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-01-21 17:05:58" itemprop="dateCreated datePublished" datetime="2022-01-21T17:05:58+08:00">2022-01-21</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="剑指-Offer-第-23-题-链表中环的入口结点"><a href="#剑指-Offer-第-23-题-链表中环的入口结点" class="headerlink" title="剑指 Offer 第 23 题-链表中环的入口结点"></a><a href="https://www.nowcoder.com/practice/9b4c81a02cd34f76be2659fa0d54342a" target="_blank" rel="noopener">剑指 Offer 第 23 题-链表中环的入口结点</a></h2><p>描述: 输入一个矩阵，按照从外向里以顺时针的顺序依次打印出每一个数字，例如，如果输入如下 4 X 4 矩阵：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs json">[[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>],<br>[<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">8</span>],<br>[<span class="hljs-number">9</span>,<span class="hljs-number">10</span>,<span class="hljs-number">11</span>,<span class="hljs-number">12</span>],<br>[<span class="hljs-number">13</span>,<span class="hljs-number">14</span>,<span class="hljs-number">15</span>,<span class="hljs-number">16</span>]]<br></code></pre></td></tr></table></figure>
+
+<p>则依次打印出数字</p>
+<p>[1,2,3,4,8,12,16,15,14,13,9,5,6,7,11,10]</p>
+<p>数据范围:</p>
+<p>0 &lt;= matrix.length &lt;= 100</p>
+<p>0 &lt;= matrix[i].length &lt;= 100</p>
+<p>例如：</p>
+<p><img src="https://raw.githubusercontent.com/lyloou/img/develop/jz29-%E9%A1%BA%E6%97%B6%E9%92%88%E6%89%93%E5%8D%B0%E7%9F%A9%E9%98%B5_20220121170748_2022-01-21-17-07-49.png" alt="jz29-顺时针打印矩阵_20220121170748_2022-01-21-17-07-49"></p>
+<h2 id="方法-1"><a href="#方法-1" class="headerlink" title="方法 1"></a>方法 1</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Jz29_2</span> </span>&#123;<br>   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        <span class="hljs-keyword">final</span> Jz29_3_1 jz = <span class="hljs-keyword">new</span> Jz29_3_1();<br>        System.out.println(jz.printMatrix(<span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[][]&#123;<br>                &#123;<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">1</span>&#125;,<br>                &#123;<span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">1</span>&#125;,<br>                &#123;<span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">1</span>&#125;,<br>        &#125;));<br><br>        System.out.println(jz.printMatrix(<span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[][]&#123;<br>                &#123;<span class="hljs-number">1</span>&#125;, &#123;<span class="hljs-number">2</span>&#125;, &#123;<span class="hljs-number">3</span>&#125;, &#123;<span class="hljs-number">4</span>&#125;, &#123;<span class="hljs-number">5</span>&#125;<br>        &#125;));<br><br>        System.out.println(jz.printMatrix(<span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[][]&#123;<br>                &#123;<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>&#125;<br>        &#125;));<br><br>        System.out.println(jz.printMatrix(<span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[][]&#123;<br>                &#123;<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>&#125;,<br>                &#123;<span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">8</span>&#125;,<br>                &#123;<span class="hljs-number">9</span>, <span class="hljs-number">10</span>, <span class="hljs-number">11</span>, <span class="hljs-number">12</span>&#125;,<br>                &#123;<span class="hljs-number">13</span>, <span class="hljs-number">14</span>, <span class="hljs-number">15</span>, <span class="hljs-number">16</span>&#125;<br>        &#125;));<br>    &#125;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 对于只有一行或只有一列时，会重复</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> ArrayList&lt;Integer&gt; <span class="hljs-title">printMatrix</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[][] matrix)</span> </span>&#123;<br>        <span class="hljs-comment">// 为空的情况</span><br>        <span class="hljs-keyword">if</span> (matrix == <span class="hljs-keyword">null</span> || matrix.length == <span class="hljs-number">0</span>) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();<br>        &#125;<br><br>        ArrayList&lt;Integer&gt; list = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;(matrix.length * matrix[<span class="hljs-number">0</span>].length);<br>        <span class="hljs-keyword">int</span> minX = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">int</span> maxX = matrix.length - <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">int</span> minY = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">int</span> maxY = matrix[<span class="hljs-number">0</span>].length - <span class="hljs-number">1</span>;<br><br>        <span class="hljs-keyword">int</span> x, y;<br>        <span class="hljs-keyword">while</span> (minX &lt;= maxX &amp;&amp; minY &lt;= maxY) &#123;<br>            <span class="hljs-comment">// 用两个标识来判断本轮是否有下移或左移</span><br>            <span class="hljs-keyword">boolean</span> down = <span class="hljs-keyword">false</span>;<br>            <span class="hljs-keyword">boolean</span> left = <span class="hljs-keyword">false</span>;<br><br>            <span class="hljs-comment">// 从左上角开始</span><br>            <span class="hljs-comment">// 向右</span><br>            <span class="hljs-keyword">for</span> (x = minX, y = minY; y &lt;= maxY; y++) &#123;<br>                list.add(matrix[x][y]);<br>            &#125;<br><br>            <span class="hljs-comment">// 向下</span><br>            <span class="hljs-keyword">for</span> (x = minX + <span class="hljs-number">1</span>, y = maxY; x &lt;= maxX; x++) &#123;<br>                list.add(matrix[x][y]);<br>                down = <span class="hljs-keyword">true</span>;<br>            &#125;<br><br>            <span class="hljs-comment">// 向左，左移之前确认是否有下移，防止重复</span><br>            <span class="hljs-keyword">for</span> (x = maxX, y = maxY - <span class="hljs-number">1</span>; down &amp;&amp; y &gt;= minY; y--) &#123;<br>                list.add(matrix[x][y]);<br>                left = <span class="hljs-keyword">true</span>;<br>            &#125;<br><br>            <span class="hljs-comment">// 向上，上移之前确认是否有左移，防止重复</span><br>            <span class="hljs-keyword">for</span> (x = maxX - <span class="hljs-number">1</span>, y = minY; left &amp;&amp; x &gt; minX; x--) &#123;<br>                list.add(matrix[x][y]);<br>            &#125;<br><br>            <span class="hljs-comment">// 瘦身一圈</span><br>            minX++;<br>            maxX--;<br>            minY++;<br>            maxY--;<br>        &#125;<br><br>        <span class="hljs-keyword">return</span> list;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="方法-2"><a href="#方法-2" class="headerlink" title="方法 2"></a>方法 2</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Jz29_4</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        <span class="hljs-keyword">final</span> Jz29_4 jz = <span class="hljs-keyword">new</span> Jz29_4();<br>        System.out.println(jz.printMatrix(<span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[][]&#123;<br>                &#123;<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">1</span>&#125;,<br>                &#123;<span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">1</span>&#125;,<br>                &#123;<span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">1</span>&#125;,<br>        &#125;));<br><br>        System.out.println(jz.printMatrix(<span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[][]&#123;<br>                &#123;<span class="hljs-number">1</span>&#125;, &#123;<span class="hljs-number">2</span>&#125;, &#123;<span class="hljs-number">3</span>&#125;, &#123;<span class="hljs-number">4</span>&#125;, &#123;<span class="hljs-number">5</span>&#125;<br>        &#125;));<br><br>        System.out.println(jz.printMatrix(<span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[][]&#123;<br>                &#123;<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>&#125;<br>        &#125;));<br><br>        System.out.println(jz.printMatrix(<span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[][]&#123;<br>                &#123;<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>&#125;,<br>                &#123;<span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">8</span>&#125;,<br>                &#123;<span class="hljs-number">9</span>, <span class="hljs-number">10</span>, <span class="hljs-number">11</span>, <span class="hljs-number">12</span>&#125;,<br>                &#123;<span class="hljs-number">13</span>, <span class="hljs-number">14</span>, <span class="hljs-number">15</span>, <span class="hljs-number">16</span>&#125;<br>        &#125;));<br>    &#125;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 起始点从左上角，沿对角线往中间靠</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> ArrayList&lt;Integer&gt; <span class="hljs-title">printMatrix</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[][] matrix)</span> </span>&#123;<br>        <span class="hljs-comment">// 为空的情况</span><br>        <span class="hljs-keyword">if</span> (matrix == <span class="hljs-keyword">null</span> || matrix.length == <span class="hljs-number">0</span>) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();<br>        &#125;<br><br>        ArrayList&lt;Integer&gt; list = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;(matrix.length * matrix[<span class="hljs-number">0</span>].length);<br>        <span class="hljs-keyword">int</span> start = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">while</span> (matrix.length &gt; start * <span class="hljs-number">2</span> &amp;&amp; matrix[<span class="hljs-number">0</span>].length &gt; start * <span class="hljs-number">2</span>) &#123;<br>            addToList(list, matrix, start);<br>            start++;<br>        &#125;<br><br>        <span class="hljs-keyword">return</span> list;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">addToList</span><span class="hljs-params">(ArrayList&lt;Integer&gt; list, <span class="hljs-keyword">int</span>[][] matrix, <span class="hljs-keyword">int</span> start)</span> </span>&#123;<br><br>        <span class="hljs-comment">// max row index</span><br>        <span class="hljs-keyword">int</span> maxX = matrix.length - <span class="hljs-number">1</span> - start;<br>        <span class="hljs-comment">// max column index</span><br>        <span class="hljs-keyword">int</span> maxY = matrix[<span class="hljs-number">0</span>].length - <span class="hljs-number">1</span> - start;<br><br>        <span class="hljs-keyword">boolean</span> down = <span class="hljs-keyword">false</span>;<br>        <span class="hljs-keyword">boolean</span> left = <span class="hljs-keyword">false</span>;<br><br>        <span class="hljs-comment">// 从左向右</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = start; i &lt;= maxY; ++i) &#123;<br>            list.add(matrix[start][i]);<br>        &#125;<br><br>        <span class="hljs-comment">// 从上向下</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = start + <span class="hljs-number">1</span>; i &lt;= maxX; i++) &#123;<br>            list.add(matrix[i][maxY]);<br>            down = <span class="hljs-keyword">true</span>;<br>        &#125;<br><br>        <span class="hljs-comment">// 从右向左</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = maxY - <span class="hljs-number">1</span>; down &amp;&amp; i &gt;= start; i--) &#123;<br>            list.add(matrix[maxX][i]);<br>            left = <span class="hljs-keyword">true</span>;<br>        &#125;<br><br>        <span class="hljs-comment">// 从下向上</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = maxX - <span class="hljs-number">1</span>; left &amp;&amp; i &gt; start + <span class="hljs-number">1</span>; i--) &#123;<br>            list.add(matrix[i][start]);<br>        &#125;<br><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
 
   
   <nav class="pagination">
@@ -975,7 +988,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">313</span>
+          <span class="site-state-item-count">312</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
