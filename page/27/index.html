@@ -533,67 +533,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/java/%E5%8F%AA%E6%9C%89%E4%B8%80%E4%B8%AA%E6%97%B6%E9%97%B4%E6%88%B3%20/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/assets/images/avatar.png">
-      <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="lyloou">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/java/%E5%8F%AA%E6%9C%89%E4%B8%80%E4%B8%AA%E6%97%B6%E9%97%B4%E6%88%B3%20/" class="post-title-link" itemprop="url">Java验证只有一个时间戳</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-11-02 15:53:00" itemprop="dateCreated datePublished" datetime="2016-11-02T15:53:00+08:00">2016-11-02</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>每个不同的地区都有对应有不同时间戳吗？</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//: 通过程序证明来时间戳只有一个；</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TimeTest</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        Calendar now = <span class="hljs-keyword">new</span> GregorianCalendar();<br>        System.out.println(TimeZone.getDefault());<br>        System.out.println(now.getTime());<br>        System.out.println(now.getTime().getTime());<br>        System.out.println();<br><br>        TimeZone.setDefault(TimeZone.getTimeZone(<span class="hljs-string">"GMT+8"</span>));<br>        System.out.println(TimeZone.getDefault());<br>        System.out.println(now.getTime());<br>        System.out.println(now.getTime().getTime());<br>        System.out.println();<br><br>        TimeZone.setDefault(TimeZone.getTimeZone(<span class="hljs-string">"GMT+0"</span>));<br>        System.out.println(TimeZone.getDefault());<br>        System.out.println(now.getTime());<br>        System.out.println(now.getTime().getTime());<br>        System.out.println();<br><br>        TimeZone.setDefault(TimeZone.getTimeZone(<span class="hljs-string">"GMT+12"</span>));<br>        System.out.println(TimeZone.getDefault());<br>        System.out.println(now.getTime());<br>        System.out.println(now.getTime().getTime());<br>    &#125;<br>&#125;<br><span class="hljs-comment">/*</span><br><span class="hljs-comment">sun.util.calendar.ZoneInfo[id="Asia/Shanghai",offset=28800000,dstSavings=0,useDaylight=false,transitions=19,lastRule=null]</span><br><span class="hljs-comment">Thu Aug 10 09:39:22 CST 2017</span><br><span class="hljs-comment">1502329162745</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">sun.util.calendar.ZoneInfo[id="GMT+08:00",offset=28800000,dstSavings=0,useDaylight=false,transitions=0,lastRule=null]</span><br><span class="hljs-comment">Thu Aug 10 09:39:22 GMT+08:00 2017</span><br><span class="hljs-comment">1502329162745</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">sun.util.calendar.ZoneInfo[id="GMT+00:00",offset=0,dstSavings=0,useDaylight=false,transitions=0,lastRule=null]</span><br><span class="hljs-comment">Thu Aug 10 01:39:22 GMT+00:00 2017</span><br><span class="hljs-comment">1502329162745</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">sun.util.calendar.ZoneInfo[id="GMT+12:00",offset=43200000,dstSavings=0,useDaylight=false,transitions=0,lastRule=null]</span><br><span class="hljs-comment">Thu Aug 10 13:39:22 GMT+12:00 2017</span><br><span class="hljs-comment">1502329162745</span><br><span class="hljs-comment">*/</span><span class="hljs-comment">//~</span><br></code></pre></td></tr></table></figure>
-
-<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>只有一个时间戳；<br><strong>时间戳在所有地方都是一样的，只不过是该时间戳对应不同的地区有不同的当地时间表示（而不是有每个地区都有一个不同的时间戳）。</strong></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/java/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -650,6 +589,67 @@
 <li><p><a href="https://google.github.io/styleguide/javaguide.html" target="_blank" rel="noopener">Google Java Style Guide</a></p>
 </li>
 </ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/java/%E5%8F%AA%E6%9C%89%E4%B8%80%E4%B8%AA%E6%97%B6%E9%97%B4%E6%88%B3%20/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/images/avatar.png">
+      <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lyloou">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/java/%E5%8F%AA%E6%9C%89%E4%B8%80%E4%B8%AA%E6%97%B6%E9%97%B4%E6%88%B3%20/" class="post-title-link" itemprop="url">Java验证只有一个时间戳</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-11-02 15:53:00" itemprop="dateCreated datePublished" datetime="2016-11-02T15:53:00+08:00">2016-11-02</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>每个不同的地区都有对应有不同时间戳吗？</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//: 通过程序证明来时间戳只有一个；</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TimeTest</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        Calendar now = <span class="hljs-keyword">new</span> GregorianCalendar();<br>        System.out.println(TimeZone.getDefault());<br>        System.out.println(now.getTime());<br>        System.out.println(now.getTime().getTime());<br>        System.out.println();<br><br>        TimeZone.setDefault(TimeZone.getTimeZone(<span class="hljs-string">"GMT+8"</span>));<br>        System.out.println(TimeZone.getDefault());<br>        System.out.println(now.getTime());<br>        System.out.println(now.getTime().getTime());<br>        System.out.println();<br><br>        TimeZone.setDefault(TimeZone.getTimeZone(<span class="hljs-string">"GMT+0"</span>));<br>        System.out.println(TimeZone.getDefault());<br>        System.out.println(now.getTime());<br>        System.out.println(now.getTime().getTime());<br>        System.out.println();<br><br>        TimeZone.setDefault(TimeZone.getTimeZone(<span class="hljs-string">"GMT+12"</span>));<br>        System.out.println(TimeZone.getDefault());<br>        System.out.println(now.getTime());<br>        System.out.println(now.getTime().getTime());<br>    &#125;<br>&#125;<br><span class="hljs-comment">/*</span><br><span class="hljs-comment">sun.util.calendar.ZoneInfo[id="Asia/Shanghai",offset=28800000,dstSavings=0,useDaylight=false,transitions=19,lastRule=null]</span><br><span class="hljs-comment">Thu Aug 10 09:39:22 CST 2017</span><br><span class="hljs-comment">1502329162745</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">sun.util.calendar.ZoneInfo[id="GMT+08:00",offset=28800000,dstSavings=0,useDaylight=false,transitions=0,lastRule=null]</span><br><span class="hljs-comment">Thu Aug 10 09:39:22 GMT+08:00 2017</span><br><span class="hljs-comment">1502329162745</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">sun.util.calendar.ZoneInfo[id="GMT+00:00",offset=0,dstSavings=0,useDaylight=false,transitions=0,lastRule=null]</span><br><span class="hljs-comment">Thu Aug 10 01:39:22 GMT+00:00 2017</span><br><span class="hljs-comment">1502329162745</span><br><span class="hljs-comment"></span><br><span class="hljs-comment">sun.util.calendar.ZoneInfo[id="GMT+12:00",offset=43200000,dstSavings=0,useDaylight=false,transitions=0,lastRule=null]</span><br><span class="hljs-comment">Thu Aug 10 13:39:22 GMT+12:00 2017</span><br><span class="hljs-comment">1502329162745</span><br><span class="hljs-comment">*/</span><span class="hljs-comment">//~</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>只有一个时间戳；<br><strong>时间戳在所有地方都是一样的，只不过是该时间戳对应不同的地区有不同的当地时间表示（而不是有每个地区都有一个不同的时间戳）。</strong></p>
 
       
     </div>
