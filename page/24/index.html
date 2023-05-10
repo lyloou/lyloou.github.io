@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"lyloou.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"lyloou.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="&#x2F;* Better than last best *&#x2F;">
@@ -201,10 +201,189 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/js/node/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/images/avatar.png">
+      <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lyloou">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/js/node/" class="post-title-link" itemprop="url">Node相关</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-08-18 17:12:00" itemprop="dateCreated datePublished" datetime="2017-08-18T17:12:00+08:00">2017-08-18</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>| crypto模块：提供通用的加密和哈希算法。</p>
+<p>| 服务器案例（模块http、path、fs的运用）：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-meta">'use strict'</span><br><br><span class="hljs-keyword">var</span> http = <span class="hljs-built_in">require</span>(<span class="hljs-string">"http"</span>);<br><span class="hljs-keyword">var</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">"path"</span>);<br><span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">"fs"</span>);<br><br><span class="hljs-keyword">var</span> server = http.createServer(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">request, response</span>) </span>&#123;<br>  <span class="hljs-keyword">var</span> workDir = path.resolve(<span class="hljs-string">"."</span>); <span class="hljs-comment">// 获取当前目录</span><br>  <span class="hljs-keyword">var</span> filepath = path.join(workDir, <span class="hljs-string">"showdate.html"</span>); <span class="hljs-comment">// 定位showdate.html文件</span><br><br>  <span class="hljs-comment">// 将本地的文件作为响应返回</span><br>  response.writeHead(<span class="hljs-number">200</span>);<br>  fs.createReadStream(filepath).pipe(response);<br>&#125;);<br><br>server.listen(<span class="hljs-number">3000</span>);<br><span class="hljs-built_in">console</span>.log(<span class="hljs-string">"服务已开启，请登录：http://localhost:3000"</span>);<br></code></pre></td></tr></table></figure>
+
+<p>| pipe</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">"fs"</span>);<br><span class="hljs-keyword">var</span> rs = fs.createReadStream(<span class="hljs-string">"hello.js"</span>);<br><span class="hljs-keyword">var</span> ws = fs.createWriteStream(<span class="hljs-string">"copy.js"</span>);<br>rs.pipe(ws);<br></code></pre></td></tr></table></figure>
+
+<p>| stream 是node.js提供的仅在服务端可用的模块；<br>基于事件的、异步的方式：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">"fs"</span>);<br><span class="hljs-keyword">var</span> rs = fs.createReadStream(<span class="hljs-string">"hello.js"</span>, <span class="hljs-string">"utf-8"</span>);<br>rs.on(<span class="hljs-string">"data"</span>, f);<br>rs.on(<span class="hljs-string">"end"</span>, f);<br>rs.on(<span class="hljs-string">"error"</span>, f);<br></code></pre></td></tr></table></figure>
+
+<p>| 同步的写文件：<code>fs.writeFileSync()</code>；</p>
+<p>| 写文件：<code>fs.writeFile(&quot;output.txt&quot;, data, function(x){})</code>，如果data是String，默认<br>  编码是UTF-8；如果传入的是Buffer，则写入的是二进制文件；回调函数只关心成功与否。</p>
+<p>| 同步读文件使用<code>fs.readFileSync()</code>方法，不接受回调函数，函数直接返回结果。<br>通过<code>try...catch</code>来捕获同步获取文件时的错误。</p>
+<p>| <code>Buffer</code>对象可以和String做转换：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// Buffer -&gt; String</span><br><span class="hljs-keyword">var</span> text = data.toString(<span class="hljs-string">"utf-8"</span>);<br><span class="hljs-built_in">console</span>.log(text);<br><span class="hljs-comment">// String -&gt; Buffer</span><br><span class="hljs-keyword">var</span> buf = <span class="hljs-keyword">new</span> Buffer(text, <span class="hljs-string">"utf-8"</span>);<br><span class="hljs-built_in">console</span>.log(buf);<br></code></pre></td></tr></table></figure>
+
+<p>| fs模块</p>
+<ul>
+<li>读取文件编码是<code>utf-8</code>的文件；<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">"fs"</span>);<br>fs.readFile(<span class="hljs-string">"hello.js"</span>, <span class="hljs-string">"utf-8"</span>, <span class="hljs-built_in">console</span>.log);<br></code></pre></td></tr></table></figure></li>
+<li>读取二进制文件，不传入文件编码，回调函数将返回一个Buffer对象。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">fs.readFile(<span class="hljs-string">"hello.js"</span>, <span class="hljs-built_in">console</span>.log);<br></code></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>| 在需要使用回调函数的地方，传入<code>console.log</code>，可以打印出回调函数的参数信息。</p>
+<p>| 建议始终使用<code>module.exports</code>的方式，而不是省写的<code>exports</code>；</p>
+<p>| 如果要输出一个键值对象<code>{}</code>，可以利用<code>exports</code>这个已经存在的空对象<code>{}</code>，<br>  并继续在上面添加新的键值；</p>
+<blockquote>
+<p>var exported = load(module.exports, module);<br>  因为对exports重新赋值，对module.exports没有任何副作用。</p>
+</blockquote>
+<p>如果要输出一个函数或数组，必须直接对<code>module.exports</code>对象赋值；</p>
+<p>| 实现“模块”功能的奥妙就在于JavaScript是一种函数式编程语言，它支持闭包。</p>
+<p>| 引入的对象具体是什么，取决于引用模块输出的变量。（输出的变量可以是任意对象、函数、数组等等）</p>
+<p>| 一个模块想要对外暴露变量（函数也是变量），可以用<code>module.exports = variable;</code>；<br>  一个模块想要引用其他模块暴露的变量，用<code>var ref = require(&#39;module_name&#39;)</code>就拿到了引用模块变量；</p>
+<p>| 使用模块的好处：</p>
+<ul>
+<li>提高了代码的可维护性；</li>
+<li>代码重用；</li>
+<li>避免了函数名和变量名冲突；</li>
+</ul>
+<p>| 在Node环境中，一个.js文件就称之为一个模块（module）。</p>
+<p>| 让node直接为所有js文件都开启严格模式：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">node --use_strict myFile.js<br></code></pre></td></tr></table></figure>
+
+
+<p><a href="http://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000" target="_blank" rel="noopener">http://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/js/node%E9%85%8D%E7%BD%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/images/avatar.png">
+      <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lyloou">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/js/node%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">Node配置</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-08-18 17:12:00" itemprop="dateCreated datePublished" datetime="2017-08-18T17:12:00+08:00">2017-08-18</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="国内优秀npm镜像推荐及使用"><a href="#国内优秀npm镜像推荐及使用" class="headerlink" title="国内优秀npm镜像推荐及使用"></a><a href="http://riny.net/2014/cnpm/" target="_blank" rel="noopener">国内优秀npm镜像推荐及使用</a></h2><p>淘宝npm镜像</p>
+<ul>
+<li>搜索地址：<a href="http://npm.taobao.org/" target="_blank" rel="noopener">http://npm.taobao.org/</a></li>
+<li>registry地址：<a href="http://registry.npm.taobao.org/" target="_blank" rel="noopener">http://registry.npm.taobao.org/</a><br>cnpmjs镜像</li>
+<li>搜索地址：<a href="http://cnpmjs.org/" target="_blank" rel="noopener">http://cnpmjs.org/</a></li>
+<li>registry地址：<a href="http://r.cnpmjs.org/" target="_blank" rel="noopener">http://r.cnpmjs.org/</a></li>
+</ul>
+<h3 id="临时使用"><a href="#临时使用" class="headerlink" title="临时使用"></a>临时使用</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">npm --registry https://registry.npm.taobao.org install express<br></code></pre></td></tr></table></figure>
+<h3 id="持久使用"><a href="#持久使用" class="headerlink" title="持久使用"></a>持久使用</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sh">npm config <span class="hljs-built_in">set</span> registry https://registry.npm.taobao.org<br><br>// 配置后可通过下面方式来验证是否成功<br>npm config get registry<br>// 或<br>npm info express<br></code></pre></td></tr></table></figure>
+<h3 id="通过cnpm使用"><a href="#通过cnpm使用" class="headerlink" title="通过cnpm使用"></a>通过cnpm使用</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sh">npm install -g cnpm --registry=https://registry.npm.taobao.org<br><br>// 使用<br>cnpm install express<br></code></pre></td></tr></table></figure>
+
+
+
+
+<h2 id="https-blog-niceue-com-front-end-development-using-domestic-npm-images-html"><a href="#https-blog-niceue-com-front-end-development-using-domestic-npm-images-html" class="headerlink" title="https://blog.niceue.com/front-end-development/using-domestic-npm-images.html"></a><a href="https://blog.niceue.com/front-end-development/using-domestic-npm-images.html" target="_blank" rel="noopener">https://blog.niceue.com/front-end-development/using-domestic-npm-images.html</a></h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># 配置 registry</span><br>npm config <span class="hljs-built_in">set</span> registry https://r.cnpmjs.org/<br><span class="hljs-comment"># 验证配置是否修改成功</span><br>npm config get registry<br></code></pre></td></tr></table></figure>
+
+<h2 id="npm-install"><a href="#npm-install" class="headerlink" title="npm install"></a>npm install</h2><blockquote>
+<p>If you have a package.json file in your directory and you run npm install,<br>then npm will look at the dependencies that are listed in that file and<br>download the latest versions satisfying semver rules for all of those.<br><a href="https://docs.npmjs.com/getting-started/using-a-package.json" target="_blank" rel="noopener">https://docs.npmjs.com/getting-started/using-a-package.json</a></p>
+</blockquote>
+<h2 id="修改npm-install-g-的安装目录"><a href="#修改npm-install-g-的安装目录" class="headerlink" title="修改npm install -g 的安装目录"></a>修改<code>npm install -g</code> 的安装目录</h2><p>查看： <code>npm root -g</code><br>修改：在配置文件中 <code>.npmrc</code> 中添加，<code>prefix = &quot;D:\\c\\nodejs\\node_modules\\npm&quot;</code></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/js/%E5%B0%8F%E7%A8%8B%E5%BA%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -229,20 +408,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/js/%E5%B0%8F%E7%A8%8B%E5%BA%8F/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/js/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -320,7 +485,7 @@
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/js/qa/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -345,20 +510,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/js/qa/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/js/qa/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -391,7 +542,7 @@
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/android/adb/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -416,20 +567,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/android/adb/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/android/adb/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -476,7 +613,7 @@
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/linux/%E9%B8%9F%E5%93%A5%E7%9A%84linux%E7%A7%81%E6%88%BF%E8%8F%9C/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -501,20 +638,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/linux/%E9%B8%9F%E5%93%A5%E7%9A%84linux%E7%A7%81%E6%88%BF%E8%8F%9C/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/linux/%E9%B8%9F%E5%93%A5%E7%9A%84linux%E7%A7%81%E6%88%BF%E8%8F%9C/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -1119,7 +1242,7 @@
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/tool/virtualbox/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -1144,20 +1267,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/tool/virtualbox/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/tool/virtualbox/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -1204,7 +1313,7 @@
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/windows/%E6%8A%80%E5%B7%A7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -1229,20 +1338,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/windows/%E6%8A%80%E5%B7%A7/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/windows/%E6%8A%80%E5%B7%A7/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -1314,7 +1409,7 @@
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/windows/%E8%BD%AF%E4%BB%B6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -1339,20 +1434,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/windows/%E8%BD%AF%E4%BB%B6/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/windows/%E8%BD%AF%E4%BB%B6/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -1415,7 +1496,7 @@
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/windows/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -1440,20 +1521,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/windows/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/windows/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -1469,207 +1536,6 @@
 <h2 id="Go"><a href="#Go" class="headerlink" title="Go"></a>Go</h2><p>GOROOT=D:\c\go<br>GOPATH=D:\w\go<br>PATH=%GOROOT%\bin;%GOPATH%\bin;</p>
 <h2 id="Path"><a href="#Path" class="headerlink" title="Path"></a>Path</h2><p>D:\c\python\Scripts;<br>D:\c\python;<br>D:\p\shortcut;<br>D:\c\nodejs;<br>D:\c\mingw64\bin;<br>D:\c\apache-maven-3.5.0\bin;<br>D:\c\Apache24\bin;<br>D:\c\git\bin;<br>D:\c\git;</p>
 <h2 id="Paht-all"><a href="#Paht-all" class="headerlink" title="Paht-all"></a>Paht-all</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;D:\c\android\studio\gradle\gradle-4.4\bin;D:\c\android\ndk\android-ndk-r14;%ANDROID_HOME%\platform-tools;%ANDROID_HOME%\tools;%GOROOT%\bin;%GOPATH%\bin;D:\c\python\Scripts\;D:\c\python\;D:\p\shortcut;D:\c\nodejs;D:\c\mingw64\bin;D:\c\apache-maven-3.5.0\bin;D:\c\Apache24\bin;D:\c\git\bin;D:\c\git;D:\c\pgadmin\runtime;C:\p\TortoiseSVN\bin;D:\c\java\spring-2.0.5.RELEASE/bin;D:\c\git\mingw64\bin;D:\c\LoadRunner\strawberry-perl\perl\bin;D:\c\jmeter\apache-jmeter-5.0\bin<br></code></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/tool/idea/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="lyloou">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/tool/idea/" class="post-title-link" itemprop="url">Idea定制</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2017-02-24 10:13:00" itemprop="dateCreated datePublished" datetime="2017-02-24T10:13:00+08:00">2017-02-24</time>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/tool/idea/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/tool/idea/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h2><ul>
-<li><p>GitToolBox</p>
-</li>
-<li><p>CamelCase</p>
-</li>
-<li><p>.ignore</p>
-</li>
-<li><p>GsonFormat</p>
-</li>
-<li><p>Markdown support</p>
-</li>
-<li><p>GO</p>
-</li>
-<li><p>Lombok plugin</p>
-</li>
-<li><p>Swagger Tools</p>
-</li>
-<li><p>Mybatisx</p>
-</li>
-<li><p>MybatisPlus</p>
-</li>
-<li><p>AceJump</p>
-</li>
-<li><p>Key promoter X</p>
-</li>
-<li><p>Alibaba Java Coding Guidelines</p>
-</li>
-<li><p>Database navigator</p>
-</li>
-<li><p>Rainbow Brackets</p>
-</li>
-<li><p>Past Images into Markdown</p>
-</li>
-<li><p>Free mybatis plugin</p>
-</li>
-<li><p>Packages</p>
-</li>
-<li><p><a href="https://www.hollischuang.com/archives/3220" target="_blank" rel="noopener">https://www.hollischuang.com/archives/3220</a></p>
-</li>
-</ul>
-<h2 id="THEME"><a href="#THEME" class="headerlink" title="THEME"></a>THEME</h2><p>solarized</p>
-<h2 id="取消折叠代码"><a href="#取消折叠代码" class="headerlink" title="取消折叠代码"></a>取消折叠代码</h2><p>Settings | Editor | General | Code Folding</p>
-<ul>
-<li><a href="https://stackoverflow.com/questions/49132093/intellij-idea-2018-1-disable-simple-comment-folding" target="_blank" rel="noopener">editor - Intellij IDEA 2018.1 - Disable simple comment folding - Stack Overflow</a></li>
-</ul>
-<h2 id="set-author-and-date"><a href="#set-author-and-date" class="headerlink" title="set author and date"></a>set author and date</h2><p>Settings -&gt; Editor -&gt; File and code templates -&gt; Includes -&gt; File Header</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@author</span> $&#123;USER&#125;</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@date</span> $&#123;YEAR&#125;/$&#123;MONTH&#125;/$&#123;DAY&#125;</span><br><span class="hljs-comment"> */</span><br></code></pre></td></tr></table></figure>
-
-<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">keymap</span> <span class="hljs-attr">version</span>=<span class="hljs-string">"1"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"louva"</span> <span class="hljs-attr">parent</span>=<span class="hljs-string">"Default for XWin"</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"$Copy"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">keyboard-shortcut</span> <span class="hljs-attr">first-keystroke</span>=<span class="hljs-string">"ctrl c"</span> /&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">keyboard-shortcut</span> <span class="hljs-attr">first-keystroke</span>=<span class="hljs-string">"ctrl insert"</span> /&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">keyboard-shortcut</span> <span class="hljs-attr">first-keystroke</span>=<span class="hljs-string">"alt c"</span> /&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">action</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"$Cut"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">keyboard-shortcut</span> <span class="hljs-attr">first-keystroke</span>=<span class="hljs-string">"ctrl x"</span> /&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">keyboard-shortcut</span> <span class="hljs-attr">first-keystroke</span>=<span class="hljs-string">"shift delete"</span> /&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">keyboard-shortcut</span> <span class="hljs-attr">first-keystroke</span>=<span class="hljs-string">"alt x"</span> /&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">action</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"$Delete"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">keyboard-shortcut</span> <span class="hljs-attr">first-keystroke</span>=<span class="hljs-string">"delete"</span> /&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">keyboard-shortcut</span> <span class="hljs-attr">first-keystroke</span>=<span class="hljs-string">"alt quote"</span> /&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">action</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"$Paste"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">keyboard-shortcut</span> <span class="hljs-attr">first-keystroke</span>=<span class="hljs-string">"ctrl v"</span> /&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">keyboard-shortcut</span> <span class="hljs-attr">first-keystroke</span>=<span class="hljs-string">"shift insert"</span> /&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">keyboard-shortcut</span> <span class="hljs-attr">first-keystroke</span>=<span class="hljs-string">"alt v"</span> /&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">action</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ActivateRunToolWindow"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">keyboard-shortcut</span> <span class="hljs-attr">first-keystroke</span>=<span class="hljs-string">"alt r"</span> /&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">action</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"CloseContent"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">keyboard-shortcut</span> <span class="hljs-attr">first-keystroke</span>=<span class="hljs-string">"ctrl f4"</span> /&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">keyboard-shortcut</span> <span class="hljs-attr">first-keystroke</span>=<span class="hljs-string">"shift alt w"</span> /&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">action</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"CodeInspection.OnEditor"</span> /&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"Console.Execute"</span> /&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"Editor Copy"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">keyboard-shortcut</span> <span class="hljs-attr">first-keystroke</span>=<span class="hljs-string">"alt c"</span> /&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">action</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"Editor Cut"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">keyboard-shortcut</span> <span class="hljs-attr">first-keystroke</span>=<span class="hljs-string">"alt x"</span> /&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">action</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"Editor Delete"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">keyboard-shortcut</span> <span class="hljs-attr">first-keystroke</span>=<span class="hljs-string">"alt quote"</span> /&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">action</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"Editor Paste"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">keyboard-shortcut</span> <span class="hljs-attr">first-keystroke</span>=<span class="hljs-string">"alt v"</span> /&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">action</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"EditorDown"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">keyboard-shortcut</span> <span class="hljs-attr">first-keystroke</span>=<span class="hljs-string">"down"</span> /&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">keyboard-shortcut</span> <span class="hljs-attr">first-keystroke</span>=<span class="hljs-string">"alt comma"</span> /&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">action</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"EditorDownWithSelection"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">keyboard-shortcut</span> <span class="hljs-attr">first-keystroke</span>=<span class="hljs-string">"shift down"</span> /&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">keyboard-shortcut</span> <span class="hljs-attr">first-keystroke</span>=<span class="hljs-string">"shift alt comma"</span> /&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">action</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"EditorLeft"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">keyboard-shortcut</span> <span class="hljs-attr">first-keystroke</span>=<span class="hljs-string">"left"</span> /&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">keyboard-shortcut</span> <span class="hljs-attr">first-keystroke</span>=<span class="hljs-string">"alt h"</span> /&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">action</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"EditorLeftWithSelection"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">keyboard-shortcut</span> <span class="hljs-attr">first-keystroke</span>=<span class="hljs-string">"shift left"</span> /&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">keyboard-shortcut</span> <span class="hljs-attr">first-keystroke</span>=<span class="hljs-string">"shift alt h"</span> /&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">action</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"EditorLineEnd"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">keyboard-shortcut</span> <span class="hljs-attr">first-keystroke</span>=<span class="hljs-string">"end"</span> /&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">keyboard-shortcut</span> <span class="hljs-attr">first-keystroke</span>=<span class="hljs-string">"alt 4"</span> /&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">action</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"EditorLineEndWithSelection"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">keyboard-shortcut</span> <span class="hljs-attr">first-keystroke</span>=<span class="hljs-string">"shift end"</span> /&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">keyboard-shortcut</span> <span class="hljs-attr">first-keystroke</span>=<span class="hljs-string">"shift alt 4"</span> /&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">action</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"EditorLineStart"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">keyboard-shortcut</span> <span class="hljs-attr">first-keystroke</span>=<span class="hljs-string">"home"</span> /&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">keyboard-shortcut</span> <span class="hljs-attr">first-keystroke</span>=<span class="hljs-string">"alt 0"</span> /&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">action</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"EditorLineStartWithSelection"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">keyboard-shortcut</span> <span class="hljs-attr">first-keystroke</span>=<span class="hljs-string">"shift home"</span> /&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">keyboard-shortcut</span> <span class="hljs-attr">first-keystroke</span>=<span class="hljs-string">"shift alt 0"</span> /&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">action</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"EditorNextWordWithSelection"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">keyboard-shortcut</span> <span class="hljs-attr">first-keystroke</span>=<span class="hljs-string">"shift ctrl right"</span> /&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">keyboard-shortcut</span> <span class="hljs-attr">first-keystroke</span>=<span class="hljs-string">"shift ctrl alt l"</span> /&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">action</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"EditorPreviousWordWithSelection"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">keyboard-shortcut</span> <span class="hljs-attr">first-keystroke</span>=<span class="hljs-string">"shift ctrl left"</span> /&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">keyboard-shortcut</span> <span class="hljs-attr">first-keystroke</span>=<span class="hljs-string">"shift ctrl alt h"</span> /&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">action</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"EditorRight"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">keyboard-shortcut</span> <span class="hljs-attr">first-keystroke</span>=<span class="hljs-string">"right"</span> /&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">keyboard-shortcut</span> <span class="hljs-attr">first-keystroke</span>=<span class="hljs-string">"alt l"</span> /&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">action</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"EditorRightWithSelection"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">keyboard-shortcut</span> <span class="hljs-attr">first-keystroke</span>=<span class="hljs-string">"shift right"</span> /&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">keyboard-shortcut</span> <span class="hljs-attr">first-keystroke</span>=<span class="hljs-string">"shift alt l"</span> /&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">action</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"EditorSelectWord"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">keyboard-shortcut</span> <span class="hljs-attr">first-keystroke</span>=<span class="hljs-string">"ctrl w"</span> /&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">keyboard-shortcut</span> <span class="hljs-attr">first-keystroke</span>=<span class="hljs-string">"alt w"</span> /&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">action</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"EditorUp"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">keyboard-shortcut</span> <span class="hljs-attr">first-keystroke</span>=<span class="hljs-string">"up"</span> /&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">keyboard-shortcut</span> <span class="hljs-attr">first-keystroke</span>=<span class="hljs-string">"alt i"</span> /&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">action</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"EditorUpWithSelection"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">keyboard-shortcut</span> <span class="hljs-attr">first-keystroke</span>=<span class="hljs-string">"shift up"</span> /&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">keyboard-shortcut</span> <span class="hljs-attr">first-keystroke</span>=<span class="hljs-string">"shift alt i"</span> /&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">action</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"NextSplitter"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">keyboard-shortcut</span> <span class="hljs-attr">first-keystroke</span>=<span class="hljs-string">"shift alt n"</span> /&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">action</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"NextTab"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">keyboard-shortcut</span> <span class="hljs-attr">first-keystroke</span>=<span class="hljs-string">"alt right"</span> /&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">keyboard-shortcut</span> <span class="hljs-attr">first-keystroke</span>=<span class="hljs-string">"alt equals"</span> /&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">action</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"PopupHector"</span> /&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"PrevSplitter"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">keyboard-shortcut</span> <span class="hljs-attr">first-keystroke</span>=<span class="hljs-string">"shift alt p"</span> /&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">action</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"PreviousTab"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">keyboard-shortcut</span> <span class="hljs-attr">first-keystroke</span>=<span class="hljs-string">"alt left"</span> /&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">keyboard-shortcut</span> <span class="hljs-attr">first-keystroke</span>=<span class="hljs-string">"alt minus"</span> /&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">action</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ShowReformatFileDialog"</span> /&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"Annotate"</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">keyboard-shortcut</span> <span class="hljs-attr">first-keystroke</span>=<span class="hljs-string">"ctrl alt 0"</span> /&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">action</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"SplitHorizontally"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">keyboard-shortcut</span> <span class="hljs-attr">first-keystroke</span>=<span class="hljs-string">"shift alt o"</span> /&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">action</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"SplitVertically"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">keyboard-shortcut</span> <span class="hljs-attr">first-keystroke</span>=<span class="hljs-string">"shift alt e"</span> /&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">action</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"TabShiftActions.ShiftUp"</span> /&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">action</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"hg4idea.QPushAction"</span> /&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">keymap</span>&gt;</span><br></code></pre></td></tr></table></figure>
-
-<h2 id="IntelliJ-IDEA-change-open-with-associated-application-preference-Stack-Overflow"><a href="#IntelliJ-IDEA-change-open-with-associated-application-preference-Stack-Overflow" class="headerlink" title="IntelliJ IDEA: change open with (associated application) preference - Stack Overflow"></a><a href="https://stackoverflow.com/questions/44699658/intellij-idea-change-open-with-associated-application-preference" target="_blank" rel="noopener">IntelliJ IDEA: change open with (associated application) preference - Stack Overflow</a></h2><h2 id="java-doc-不自动格式化"><a href="#java-doc-不自动格式化" class="headerlink" title="java doc 不自动格式化"></a>java doc 不自动格式化</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment">// <span class="hljs-doctag">@formatter</span>:off</span><br><span class="hljs-comment">  &#123;</span><br><span class="hljs-comment">    "a":"b"</span><br><span class="hljs-comment">  &#125;</span><br><span class="hljs-comment">// <span class="hljs-doctag">@formatter</span>:on</span><br><span class="hljs-comment">*/</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">name</span><span class="hljs-params">()</span> </span>&#123;<br><br>&#125;<br></code></pre></td></tr></table></figure>
-
-<ul>
-<li><a href="https://stackoverflow.com/questions/3375307/how-to-disable-code-formatting-for-some-part-of-the-code-using-comments" target="_blank" rel="noopener">intellij idea - How to disable code formatting for some part of the code using comments? - Stack Overflow</a></li>
-</ul>
-<h2 id="激活-spring-环境"><a href="#激活-spring-环境" class="headerlink" title="激活 spring 环境"></a>激活 spring 环境</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">-Dspring.profiles.active=dev<br></code></pre></td></tr></table></figure>
-
-<p><img src="https://raw.githubusercontent.com/lyloou/img/develop/img/202201270913347.png" alt="202201270913347"></p>
-<h2 id="Live-Templates"><a href="#Live-Templates" class="headerlink" title="Live Templates"></a>Live Templates</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs powershell">logd<br>log.info(<span class="hljs-string">"[<span class="hljs-variable">$CLASS_NAME</span><span class="hljs-variable">$</span>#<span class="hljs-variable">$METHOD_NAME</span><span class="hljs-variable">$</span>]: <span class="hljs-variable">$END</span><span class="hljs-variable">$</span>"</span>);<br><br>logi<br>log.info(<span class="hljs-string">"[<span class="hljs-variable">$CLASS_NAME</span><span class="hljs-variable">$</span>#<span class="hljs-variable">$METHOD_NAME</span><span class="hljs-variable">$</span>]: <span class="hljs-variable">$END</span><span class="hljs-variable">$</span>"</span>);<br><br>logw<br>log.warn(<span class="hljs-string">"[<span class="hljs-variable">$CLASS_NAME</span><span class="hljs-variable">$</span>#<span class="hljs-variable">$METHOD_NAME</span><span class="hljs-variable">$</span>]: <span class="hljs-variable">$END</span><span class="hljs-variable">$</span>"</span>, e);<br><br>loge<br>log.error(<span class="hljs-string">"[<span class="hljs-variable">$CLASS_NAME</span><span class="hljs-variable">$</span>#<span class="hljs-variable">$METHOD_NAME</span><span class="hljs-variable">$</span>]: <span class="hljs-variable">$END</span><span class="hljs-variable">$</span>"</span>, e);<br></code></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/tool/font/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="lyloou">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/tool/font/" class="post-title-link" itemprop="url">字体定制</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2017-02-24 10:13:00" itemprop="dateCreated datePublished" datetime="2017-02-24T10:13:00+08:00">2017-02-24</time>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/tool/font/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/tool/font/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="monoca"><a href="#monoca" class="headerlink" title="monoca"></a><a href="https://github.com/todylu/monaco.ttf" target="_blank" rel="noopener">monoca</a></h2><h2 id="FiraCode"><a href="#FiraCode" class="headerlink" title="FiraCode"></a><a href="https://github.com/tonsky/FiraCode" target="_blank" rel="noopener">FiraCode</a></h2><p><a href="https://github.com/tonsky/FiraCode/wiki/Linux-instructions#installing-with-a-package-manager" target="_blank" rel="noopener">https://github.com/tonsky/FiraCode/wiki/Linux-instructions#installing-with-a-package-manager</a></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">sudo apt install fonts-firacode<br></code></pre></td></tr></table></figure>
       
     </div>
 
@@ -1746,7 +1612,7 @@
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="lyloou"
-      src="/images/avatar.png">
+      src="/assets/images/avatar.png">
   <p class="site-author-name" itemprop="name">lyloou</p>
   <div class="site-description" itemprop="description">/* Better than last best */</div>
 </div>
@@ -1755,7 +1621,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">311</span>
+          <span class="site-state-item-count">313</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1926,34 +1792,6 @@ if (document.querySelectorAll('pre.mermaid').length) {
 
   
 
-
-<script>
-NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
-  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
-    var GUEST = ['nick', 'mail', 'link'];
-    var guest = 'nick,mail,link';
-    guest = guest.split(',').filter(item => {
-      return GUEST.includes(item);
-    });
-    new Valine({
-      el         : '#valine-comments',
-      verify     : false,
-      notify     : true,
-      appId      : 'yhivNNDDoank7qFbmyEj9Ldq-gzGzoHsz',
-      appKey     : 'QuFu2ooibSzW1Q8eTrmPLyPw',
-      placeholder: "Just go go",
-      avatar     : 'mm',
-      meta       : guest,
-      pageSize   : '10' || 10,
-      visitor    : false,
-      lang       : '' || 'zh-cn',
-      path       : location.pathname,
-      recordIP   : true,
-      serverURLs : ''
-    });
-  }, window.Valine);
-});
-</script>
 
 </body>
 </html>

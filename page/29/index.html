@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"lyloou.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"lyloou.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="&#x2F;* Better than last best *&#x2F;">
@@ -201,10 +201,192 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/android/view-webview/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/images/avatar.png">
+      <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lyloou">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/android/view-webview/" class="post-title-link" itemprop="url">Webview相关</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-08-04 08:42:57" itemprop="dateCreated datePublished" datetime="2016-08-04T08:42:57+08:00">2016-08-04</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Android-7-0-webview-不自动刷新"><a href="#Android-7-0-webview-不自动刷新" class="headerlink" title="Android 7.0 webview 不自动刷新"></a>Android 7.0 webview 不自动刷新</h1><p>当 webview 所在的 activity 采用了以下主题时，Android7.0 设备将无法正常运行：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"WelcomeBg"</span> <span class="hljs-attr">parent</span>=<span class="hljs-string">"@android:style/Theme.DeviceDefault.NoActionBar"</span>&gt;</span><br><span class="xml">    <span class="hljs-tag">&lt;<span class="hljs-name">item</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"android:windowIsTranslucent"</span>&gt;</span>false<span class="hljs-tag">&lt;/<span class="hljs-name">item</span>&gt;</span></span><br><span class="xml">    <span class="hljs-tag">&lt;<span class="hljs-name">item</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"android:windowNoTitle"</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">item</span>&gt;</span></span><br><span class="xml">    <span class="hljs-tag">&lt;<span class="hljs-name">item</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"android:windowActionBar"</span>&gt;</span>false<span class="hljs-tag">&lt;/<span class="hljs-name">item</span>&gt;</span></span><br><span class="xml">    <span class="hljs-tag">&lt;<span class="hljs-name">item</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"android:windowBackground"</span>&gt;</span>@null<span class="hljs-tag">&lt;/<span class="hljs-name">item</span>&gt;</span></span><br><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>之所以有这样的改变，目的是想要提升启动 Activity 的性能，哪里知道 7.0 之后会遇到无法正常渲染 WebView 的问题。</p>
+<p>解决办法是：<br>直接使用默认主题，而不再对其包装：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml">@android:style/Theme.DeviceDefault.NoActionBar<br></code></pre></td></tr></table></figure>
+
+<h1 id="获取-WebView-的点击元素"><a href="#获取-WebView-的点击元素" class="headerlink" title="获取 WebView 的点击元素"></a>获取 WebView 的点击元素</h1><p>可以通过搜索关键字：<code>HitTestResult getHitTestResult</code>来知道更多内容；</p>
+<p>注意：X5WebView，来源于腾讯 TBS 系统，是另外一个继承体系（可以通过打印<code>view.getClass()</code>的方式查看其继承体系）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setLongClick</span><span class="hljs-params">(<span class="hljs-keyword">final</span> View view)</span> </span>&#123;<br>    <span class="hljs-comment">//长按点击事件</span><br>    view.setOnLongClickListener(<span class="hljs-keyword">new</span> View.OnLongClickListener() &#123;<br>        <span class="hljs-meta">@Override</span><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">onLongClick</span><span class="hljs-params">(View v)</span> </span>&#123;<br>            <span class="hljs-comment">//响应长按事件（如果webview继承自安卓原生系统）</span><br>            <span class="hljs-keyword">if</span> (view <span class="hljs-keyword">instanceof</span> WebView) &#123;<br>                WebView.HitTestResult result = ((WebView) view).getHitTestResult();<br>                <span class="hljs-keyword">if</span> (result != <span class="hljs-keyword">null</span>) &#123;<br>                    <span class="hljs-keyword">int</span> type = result.getType();<br>                    <span class="hljs-comment">//判断点击类型如果是图片</span><br>                    <span class="hljs-keyword">if</span> (type == WebView.HitTestResult.IMAGE_TYPE || type == WebView.HitTestResult.SRC_IMAGE_ANCHOR_TYPE) &#123;<br>                        <span class="hljs-comment">//弹出对话框</span><br>                        showDialog(result.getExtra());<br>                    &#125;<br>                &#125;<br>            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (view <span class="hljs-keyword">instanceof</span> X5WebView) &#123;<br>                <span class="hljs-comment">//响应长按事件（如果webview继承自腾讯的TBS系统）</span><br>                Log.i(TAG, <span class="hljs-string">"onLongClick: x5"</span>);<br>                com.tencent.smtt.sdk.WebView.HitTestResult hitTestResult = ((X5WebView) view).getHitTestResult();<br>                <span class="hljs-keyword">if</span> (hitTestResult != <span class="hljs-keyword">null</span>) &#123;<br>                    <span class="hljs-keyword">int</span> type = hitTestResult.getType();<br>                    <span class="hljs-keyword">if</span> (type == X5WebView.HitTestResult.IMAGE_TYPE || type == X5WebView.HitTestResult.SRC_IMAGE_ANCHOR_TYPE) &#123;<br>                        showDialog(hitTestResult.getExtra());<br>                    &#125;<br>                &#125;<br>            &#125;<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;<br>        &#125;<br>    &#125;);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>参考资料</strong></p>
+<ul>
+<li><a href="http://www.cnblogs.com/classloader/p/5302784.html" target="_blank" rel="noopener">获取 Android webview 的点击元素</a></li>
+<li><a href="https://developer.android.com/reference/android/webkit/WebView.HitTestResult.html" target="_blank" rel="noopener">HitTestResult</a></li>
+</ul>
+<h1 id="需要登录网页授权的页面处理"><a href="#需要登录网页授权的页面处理" class="headerlink" title="需要登录网页授权的页面处理"></a>需要登录网页授权的页面处理</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><code class="hljs java">webSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NARROW_COLUMNS);<br>webSettings.setUseWideViewPort(<span class="hljs-keyword">true</span>);<br>webSettings.setJavaScriptEnabled(<span class="hljs-keyword">true</span>);<br>webSettings.setDomStorageEnabled(<span class="hljs-keyword">true</span>);<br>webSettings.setLoadWithOverviewMode(<span class="hljs-keyword">true</span>);<br>webview.setWebViewClient(getWebViewClient());<br><br><span class="hljs-function"><span class="hljs-keyword">private</span> WebViewClient <span class="hljs-title">getWebViewClient</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> WebViewClient() &#123;<br>        <span class="hljs-meta">@Override</span><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onReceivedHttpAuthRequest</span><span class="hljs-params">(WebView view, HttpAuthHandler handler, String host, String realm)</span> </span>&#123;<br>            <span class="hljs-comment">// [Android-WebView's onReceivedHttpAuthRequest() not called again - Stack Overflow](https://stackoverflow.com/questions/20399339/android-webviews-onreceivedhttpauthrequest-not-called-again)</span><br>            <span class="hljs-keyword">final</span> EditText usernameInput = <span class="hljs-keyword">new</span> EditText(mContext);<br>            usernameInput.setHint(<span class="hljs-string">"Username"</span>);<br><br>            <span class="hljs-keyword">final</span> EditText passwordInput = <span class="hljs-keyword">new</span> EditText(mContext);<br>            passwordInput.setHint(<span class="hljs-string">"Password"</span>);<br>            passwordInput.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);<br><br>            LinearLayout ll = <span class="hljs-keyword">new</span> LinearLayout(mContext);<br>            ll.setOrientation(LinearLayout.VERTICAL);<br>            ll.addView(usernameInput);<br>            ll.addView(passwordInput);<br><br>            AlertDialog.Builder authDialog = <span class="hljs-keyword">new</span> AlertDialog<br>                    .Builder(mContext)<br>                    .setTitle(<span class="hljs-string">"Authentication"</span>)<br>                    .setView(ll)<br>                    .setCancelable(<span class="hljs-keyword">false</span>)<br>                    .setPositiveButton(<span class="hljs-string">"OK"</span>, (dialog, whichButton) -&gt; &#123;<br>                        String username = usernameInput.getText().toString();<br>                        String password = passwordInput.getText().toString();<br>                        handler.proceed(username, password);<br>                        Toast.makeText(mContext, username + <span class="hljs-string">":"</span> + password, Toast.LENGTH_LONG).show();<br>                        dialog.dismiss();<br>                    &#125;)<br>                    .setNegativeButton(<span class="hljs-string">"Cancel"</span>, (dialog, whichButton) -&gt; &#123;<br>                        dialog.dismiss();<br>                        view.stopLoading();<br>                    &#125;);<br><br>            authDialog.show();<br>        &#125;<br>    &#125;;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/android/%E5%AF%BC%E8%88%AA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/images/avatar.png">
+      <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lyloou">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/android/%E5%AF%BC%E8%88%AA/" class="post-title-link" itemprop="url">Android中巧用官方自带View —— 导航</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-08-04 08:42:57" itemprop="dateCreated datePublished" datetime="2016-08-04T08:42:57+08:00">2016-08-04</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="TabLayout"><a href="#TabLayout" class="headerlink" title="TabLayout"></a>TabLayout</h2><ul>
+<li>步骤：<ol>
+<li>布局（TabLayout和ViewPager位置关系）；</li>
+<li>自定义Adapter（继承自 FragmentPagerAdapter），并配置Fragment和tab标题内容；</li>
+<li>java代码中给ViewPager绑定Adapter；</li>
+</ol>
+</li>
+</ul>
+<ol>
+<li><p>布局</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">merge</span> <span class="hljs-attr">xmlns:android</span>=<span class="hljs-string">"http://schemas.android.com/apk/res/android"</span></span><br><span class="hljs-tag">              <span class="hljs-attr">xmlns:app</span>=<span class="hljs-string">"http://schemas.android.com/apk/res-auto"</span></span><br><span class="hljs-tag">              <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span></span><br><span class="hljs-tag">              <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"match_parent"</span></span><br><span class="hljs-tag">              <span class="hljs-attr">android:orientation</span>=<span class="hljs-string">"vertical"</span>&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">View</span></span><br><span class="hljs-tag">        <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span></span><br><span class="hljs-tag">        <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"0.1dp"</span></span><br><span class="hljs-tag">        <span class="hljs-attr">android:background</span>=<span class="hljs-string">"@color/tab_sep"</span>/&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">android.support.design.widget.TabLayout</span></span><br><span class="hljs-tag">        <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/sliding_tabs"</span></span><br><span class="hljs-tag">        <span class="hljs-attr">style</span>=<span class="hljs-string">"@style/MyCustomTabLayout"</span></span><br><span class="hljs-tag">        <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span></span><br><span class="hljs-tag">        <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"wrap_content"</span></span><br><span class="hljs-tag">        <span class="hljs-attr">app:tabMode</span>=<span class="hljs-string">"fixed"</span>/&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">View</span></span><br><span class="hljs-tag">        <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span></span><br><span class="hljs-tag">        <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"0.1dp"</span></span><br><span class="hljs-tag">        <span class="hljs-attr">android:background</span>=<span class="hljs-string">"@color/tab_sep"</span>/&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">android.support.v4.view.ViewPager</span></span><br><span class="hljs-tag">        <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/viewpager"</span></span><br><span class="hljs-tag">        <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span></span><br><span class="hljs-tag">        <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"0px"</span></span><br><span class="hljs-tag">        <span class="hljs-attr">android:layout_weight</span>=<span class="hljs-string">"1"</span>/&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">merge</span>&gt;</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>自定义Adapter</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs java"><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ModeListVpAdapter</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">FragmentPagerAdapter</span> </span>&#123;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> String mTabTitles[];<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Mode.Position[] mPosition = Mode.Position.values();<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> PAGE_COUNT = mPosition.length;<br>    <span class="hljs-keyword">private</span> Context mContext;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">ModeListVpAdapter</span><span class="hljs-params">(FragmentManager fm, Context context)</span> </span>&#123;<br>        <span class="hljs-keyword">super</span>(fm);<br>        mContext = context;<br>        mTabTitles = context.getResources().getStringArray(R.array.main_tabs);<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getCount</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> PAGE_COUNT;<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Fragment <span class="hljs-title">getItem</span><span class="hljs-params">(<span class="hljs-keyword">int</span> position)</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> ModeListFragment.newInstance(position); <span class="hljs-comment">// 根据position返回对应的fragment</span><br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> CharSequence <span class="hljs-title">getPageTitle</span><span class="hljs-params">(<span class="hljs-keyword">int</span> position)</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> mTabTitles[position]; <span class="hljs-comment">// 根据position返回对应的tab标题</span><br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>绑定</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java">ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);<br>viewPager.setAdapter(<span class="hljs-keyword">new</span> ModeListVpAdapter(getSupportFragmentManager(), mContext));<br><br>TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);<br>tabLayout.setupWithViewPager(viewPager);<br>viewPager.setCurrentItem(<span class="hljs-number">2</span>); <span class="hljs-comment">// 默认选中第二个tab</span><br></code></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li><a href="https://guides.codepath.com/android/google-play-style-tabs-using-tablayout" target="_blank" rel="noopener">Google Play Style Tabs using TabLayout</a></li>
+</ul>
+<h2 id="DrawerLayout-amp-NavigationView"><a href="#DrawerLayout-amp-NavigationView" class="headerlink" title="DrawerLayout &amp; NavigationView"></a>DrawerLayout &amp; NavigationView</h2><ul>
+<li>NavigationView隐藏menu：不使用app:menu属性即可；</li>
+<li>给NavigationView头部布局组件设置点击事件：可以通过<code>mNavView.getHeaderView(0)</code>获取根布局的view引用；</li>
+<li>禁用滑动<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// lock</span><br>mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);<br><span class="hljs-comment">// unlock</span><br>mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);<br></code></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="外部链接"><a href="#外部链接" class="headerlink" title="外部链接"></a>外部链接</h3><ul>
+<li><a href="http://stackoverflow.com/questions/17051104/disable-the-swipe-gesture-that-opens-the-navigation-drawer-in-android" target="_blank" rel="noopener">disable the swipe gesture that opens the navigation drawer in android</a></li>
+<li><a href="http://stackoverflow.com/questions/26440879/how-do-i-use-drawerlayout-to-display-over-the-actionbar-toolbar-and-under-the-st" target="_blank" rel="noopener">How do I use DrawerLayout to display over the ActionBar/Toolbar and under the status bar?</a></li>
+<li><a href="http://www.jianshu.com/p/3fe2acac0ddb" target="_blank" rel="noopener">使用 DrawerLayout 实现 Material Design风格的侧滑</a></li>
+</ul>
+<h2 id="ToolBar"><a href="#ToolBar" class="headerlink" title="ToolBar"></a>ToolBar</h2><ul>
+<li><p>切换fragment时对应显示不同的菜单：<br>通过控制自定义的标志，然后调用<code>invalidateOptionsMenu();</code>刷新菜单即可；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Override</span><br><span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">onPrepareOptionsPanel</span><span class="hljs-params">(View view, Menu menu)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (mMode == DEVICE_FRAGMENT) &#123;<br>        menu.findItem(R.id.action_add).setVisible(<span class="hljs-keyword">true</span>);<br>        menu.findItem(R.id.action_ok).setVisible(<span class="hljs-keyword">false</span>);<br>    &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (mMode == SETTING_TIME_FRAGMENT) &#123;<br>        menu.findItem(R.id.action_add).setVisible(<span class="hljs-keyword">false</span>);<br>        menu.findItem(R.id.action_ok).setVisible(<span class="hljs-keyword">true</span>);<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">super</span>.onPrepareOptionsPanel(view, menu);<br>&#125;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>在Fragment中获取ToolBar对象，并监听点击事件；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs java">Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);<br>TextView tvTitle = (TextView) toolbar.findViewById(R.id.tv_nav_title);<br>tvTitle.setText(<span class="hljs-string">"标题1"</span>);<br><br><span class="hljs-comment">// 处理toolbar上的菜单点击事件；</span><br>toolbar.setOnMenuItemClickListener(<span class="hljs-keyword">new</span> Toolbar.OnMenuItemClickListener() &#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">onMenuItemClick</span><span class="hljs-params">(MenuItem item)</span> </span>&#123;<br>        <span class="hljs-keyword">switch</span> (item.getItemId()) &#123;<br>            <span class="hljs-keyword">case</span> R.id.action_ok:<br>                Usp.init(mContext).putInt(CKeys.KEY_TS, indexInTIMES(mRgSettingTime.getCheckedRadioButtonId()));<br>                Utoast.toastOnMain(mContext, mContext.getString(R.string.time_setting_setted));<br>                <span class="hljs-keyword">break</span>;<br>        &#125;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;<br>    &#125;<br>&#125;);<br></code></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="适配"><a href="#适配" class="headerlink" title="适配"></a>适配</h2><blockquote>
+<p>Toolbar 里面有两个属性很关键:<br>android:minHeight=”?attr/actionBarSize”,这个表示引用系统 ActionBar 的高度.<br>android:paddingTop=”@dimen/tool_bar_top_padding”这个是来引用资源文件里面的tool_bar_top_padding的高度,这个高度主要是为了对5.0做适配,在5.0 上为24dp,其他版本为0dp</p>
+</blockquote>
+<h3 id="外部链接-1"><a href="#外部链接-1" class="headerlink" title="外部链接"></a>外部链接</h3><ul>
+<li><a href="http://stackoverflow.com/questions/26813991/actionbar-toolbar-not-showing-on-lollipop-version-of-app" target="_blank" rel="noopener">ActionBar/Toolbar not showing on Lollipop version of app</a></li>
+<li><a href="http://stackoverflow.com/questions/26440879/how-do-i-use-drawerlayout-to-display-over-the-actionbar-toolbar-and-under-the-st" target="_blank" rel="noopener">How do I use DrawerLayout to display over the ActionBar/Toolbar and under the status bar?</a></li>
+<li><a href="http://www.jianshu.com/p/3fe2acac0ddb" target="_blank" rel="noopener">使用 DrawerLayout 实现 Material Design风格的侧滑</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/android/material-design/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -229,20 +411,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/android/material-design/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/android/material-design/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -278,7 +446,7 @@
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/android/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -303,20 +471,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/android/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/android/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -358,7 +512,7 @@
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/android/%E5%BC%80%E6%BA%90%E5%BA%93/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -383,20 +537,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/android/%E5%BC%80%E6%BA%90%E5%BA%93/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/android/%E5%BC%80%E6%BA%90%E5%BA%93/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -470,7 +610,7 @@
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/linux/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -495,20 +635,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/linux/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/linux/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -551,7 +677,7 @@
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/android/UnsupportedOperationException/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -576,20 +702,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/android/UnsupportedOperationException/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/android/UnsupportedOperationException/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -636,7 +748,7 @@
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/android/app%E5%93%8D%E5%BA%94%E6%B5%8F%E8%A7%88%E5%99%A8%E9%93%BE%E6%8E%A5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -661,20 +773,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/android/app%E5%93%8D%E5%BA%94%E6%B5%8F%E8%A7%88%E5%99%A8%E9%93%BE%E6%8E%A5/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/android/app%E5%93%8D%E5%BA%94%E6%B5%8F%E8%A7%88%E5%99%A8%E9%93%BE%E6%8E%A5/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -719,7 +817,7 @@
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/android/qa/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -744,20 +842,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/android/qa/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/android/qa/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -816,7 +900,7 @@
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/git/git%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%EF%BC%88windows%E5%B9%B3%E5%8F%B0%EF%BC%89/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -841,20 +925,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/git/git%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%EF%BC%88windows%E5%B9%B3%E5%8F%B0%EF%BC%89/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/git/git%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%EF%BC%88windows%E5%B9%B3%E5%8F%B0%EF%BC%89/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -900,189 +970,6 @@
 <hr>
 <h2 id="外部链接"><a href="#外部链接" class="headerlink" title="外部链接"></a>外部链接</h2><ul>
 <li><a href="http://www.cnblogs.com/ucos/p/3924720.html" target="_blank" rel="noopener">Windows平台下Git服务器搭建</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/android/SharedPreference%E5%B0%81%E8%A3%85/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="lyloou">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/android/SharedPreference%E5%B0%81%E8%A3%85/" class="post-title-link" itemprop="url">SharedPreference封装</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-07-13 21:14:09" itemprop="dateCreated datePublished" datetime="2016-07-13T21:14:09+08:00">2016-07-13</time>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/android/SharedPreference%E5%B0%81%E8%A3%85/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/android/SharedPreference%E5%B0%81%E8%A3%85/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="摘要："><a href="#摘要：" class="headerlink" title="摘要："></a>摘要：</h2><blockquote>
-<p>主要内容：<br>本文介绍了封装后的SharedPreference，以便快速开发；<br>只保留必要的定制，重复的代码封装到一个通用类中；</p>
-</blockquote>
-<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><ul>
-<li>具体用法参照<code>UspDemo.java</code>文件；</li>
-<li>通用源文件为<code>Usp.java</code></li>
-</ul>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><script src="https://gist.github.com/lyloou/695fa3c371a4702bcaeeaa7fa3d3feaf.js"></script>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/sql/SQLite%E6%80%BB%E7%BB%93/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="lyloou">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/sql/SQLite%E6%80%BB%E7%BB%93/" class="post-title-link" itemprop="url">关于SQLite的总结</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-07-13 09:17:54" itemprop="dateCreated datePublished" datetime="2016-07-13T09:17:54+08:00">2016-07-13</time>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/sql/SQLite%E6%80%BB%E7%BB%93/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/sql/SQLite%E6%80%BB%E7%BB%93/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="C-Create"><a href="#C-Create" class="headerlink" title="C (Create)"></a>C (Create)</h2><p>使用自带API：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java">db = dbHelper.getWritableDatabase();<br>ContentValue values = <span class="hljs-keyword">new</span> ContentValue();<br>values.put(<span class="hljs-string">"name"</span>, <span class="hljs-string">"第一行代码"</span>);<br>values.put(<span class="hljs-string">"author"</span>, <span class="hljs-string">"郭霖"</span>);<br>values.put(<span class="hljs-string">"price"</span>, <span class="hljs-string">"79.99"</span>);<br>values.put(<span class="hljs-string">"pages"</span>, <span class="hljs-string">"552"</span>);<br>db.insert(<span class="hljs-string">"Book"</span>, <span class="hljs-keyword">null</span>, values);<br>values.clear();<br></code></pre></td></tr></table></figure>
-
-<p>使用数据库语句：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java">db = dbHelper.getWritableDatabase();<br>db.execSQL(<span class="hljs-string">"insert into Book (name, author, pages, price) values (?, ?, ?, ?)"</span>, <span class="hljs-keyword">new</span> String[]&#123; <span class="hljs-string">"第一行代码"</span>, <span class="hljs-string">"郭霖"</span>, <span class="hljs-string">"552"</span>, <span class="hljs-string">"79.00"</span>&#125;);<br></code></pre></td></tr></table></figure>
-
-<h2 id="R-Retrieve"><a href="#R-Retrieve" class="headerlink" title="R (Retrieve)"></a>R (Retrieve)</h2><p>使用自带API：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">Cursor cursor = db.query(<span class="hljs-string">"Book"</span>, <span class="hljs-keyword">null</span>, <span class="hljs-keyword">null</span>, <span class="hljs-keyword">null</span>, <span class="hljs-keyword">null</span>, <span class="hljs-keyword">null</span>, <span class="hljs-keyword">null</span>);<br></code></pre></td></tr></table></figure>
-
-<p>使用数据库语句：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java">db = dbHelper.getReadableDatabase();<br>Cursor cursor = db.rawQuery(<span class="hljs-string">"SELECT id, name FROM people WHERE name = ? AND id = ?"</span>, <span class="hljs-keyword">new</span> String[] &#123;<span class="hljs-string">"David"</span>, <span class="hljs-string">"2"</span>&#125;);<br><span class="hljs-keyword">if</span>(cursor.moveToFirst())&#123;<br>  <span class="hljs-keyword">do</span>&#123;<br>    String name = cursor.getString(cursor.getColumnIndex(<span class="hljs-string">"name"</span>));<br>    String id = cursor.getString(cursor.getColumnIndex(<span class="hljs-string">"id"</span>));<br><br>    Log.e(<span class="hljs-string">"TAG"</span>, <span class="hljs-string">"name = "</span> + name);<br>    Log.e(<span class="hljs-string">"TAG"</span>, <span class="hljs-string">"id = "</span> + id);<br>  &#125; <span class="hljs-keyword">while</span> (cursor.moveToNext());<br>&#125;<br>cursor.close();<br></code></pre></td></tr></table></figure>
-
-
-<h2 id="U-Update"><a href="#U-Update" class="headerlink" title="U (Update)"></a>U (Update)</h2><p>使用自带API：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java">db = dbHelper.getWritableDatabase();<br>ContentValue values = <span class="hljs-keyword">new</span> ContentValue();<br>values.put(<span class="hljs-string">"price"</span>, <span class="hljs-number">79.99</span>);<br>db.update(<span class="hljs-string">"Book"</span>, values, <span class="hljs-string">"name = ?"</span>, <span class="hljs-keyword">new</span> String[]&#123; <span class="hljs-string">"第一行代码"</span> &#125;);<br></code></pre></td></tr></table></figure>
-
-<p>使用数据库语句：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java">db = dbHelper.getWritableDatabase();<br>db.execSQL(<span class="hljs-string">"update Book set price = ? where name = ?"</span>, <span class="hljs-keyword">new</span> String[]&#123; <span class="hljs-string">"79.99"</span>, <span class="hljs-string">"第一行代码"</span> &#125;)<br></code></pre></td></tr></table></figure>
-
-<h2 id="D-Delete"><a href="#D-Delete" class="headerlink" title="D (Delete)"></a>D (Delete)</h2><p>使用自带API：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java">db = dbHelper.getWritableDatabase();<br>db.delete(<span class="hljs-string">"Book"</span>, <span class="hljs-string">"page &gt; ?"</span>, <span class="hljs-keyword">new</span> String[]&#123; <span class="hljs-string">"500"</span> &#125;);<br></code></pre></td></tr></table></figure>
-
-<p>使用数据库语句：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java">db = dbHelper.getWritableDatabase();<br>db.execSQL(<span class="hljs-string">"delete from Book where pages &gt; ?"</span>, <span class="hljs-keyword">new</span> String[]&#123; <span class="hljs-string">"500"</span> &#125;)<br></code></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="使用事务（保证数据操作的原子性）"><a href="#使用事务（保证数据操作的原子性）" class="headerlink" title="使用事务（保证数据操作的原子性）"></a>使用事务（保证数据操作的原子性）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs java">SQLiteDatabase db = mDbHelper.getWritableDatabase();<br><span class="hljs-keyword">try</span> &#123;<br>   db.beginTransaction();<br><br>   String position = mode.getPosition().ordinal() + <span class="hljs-string">""</span>;<br>   String action = mode.getAction().ordinal() + <span class="hljs-string">""</span>;<br><br>   ContentValues values = <span class="hljs-keyword">new</span> ContentValues();<br>   values.put(<span class="hljs-string">"color"</span>, mode.getColor());<br>   values.put(<span class="hljs-string">"used"</span>, mode.isUsed() ? <span class="hljs-number">1</span> : <span class="hljs-number">0</span>);<br>   values.put(<span class="hljs-string">"level"</span>, mode.getLevel());<br>   values.put(<span class="hljs-string">"time"</span>, mode.getTime());<br><br>   db.update(TABLE_NAME, values, <span class="hljs-string">" position=? and action = ? "</span>, <span class="hljs-keyword">new</span> String[]&#123;position, action&#125;);<br>   values.clear();<br><br>   db.setTransactionSuccessful();<br>&#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;<br>  e.printStackTrace();<br>&#125; <span class="hljs-keyword">finally</span> &#123;<br>   db.endTransaction();<br>   db.close();<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="外部链接"><a href="#外部链接" class="headerlink" title="外部链接"></a>外部链接</h2><ul>
-<li><a href="http://stackoverflow.com/questions/10598137/rawqueryquery-selectionargs" target="_blank" rel="noopener">rawQuery(query, selectionArgs)</a></li>
-<li>《第一行代码》（第六章 数据存储全方案，详解持久化技术）</li>
 </ul>
 
       
@@ -1161,7 +1048,7 @@
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="lyloou"
-      src="/images/avatar.png">
+      src="/assets/images/avatar.png">
   <p class="site-author-name" itemprop="name">lyloou</p>
   <div class="site-description" itemprop="description">/* Better than last best */</div>
 </div>
@@ -1170,7 +1057,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">311</span>
+          <span class="site-state-item-count">313</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1341,34 +1228,6 @@ if (document.querySelectorAll('pre.mermaid').length) {
 
   
 
-
-<script>
-NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
-  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
-    var GUEST = ['nick', 'mail', 'link'];
-    var guest = 'nick,mail,link';
-    guest = guest.split(',').filter(item => {
-      return GUEST.includes(item);
-    });
-    new Valine({
-      el         : '#valine-comments',
-      verify     : false,
-      notify     : true,
-      appId      : 'yhivNNDDoank7qFbmyEj9Ldq-gzGzoHsz',
-      appKey     : 'QuFu2ooibSzW1Q8eTrmPLyPw',
-      placeholder: "Just go go",
-      avatar     : 'mm',
-      meta       : guest,
-      pageSize   : '10' || 10,
-      visitor    : false,
-      lang       : '' || 'zh-cn',
-      path       : location.pathname,
-      recordIP   : true,
-      serverURLs : ''
-    });
-  }, window.Valine);
-});
-</script>
 
 </body>
 </html>

@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"lyloou.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"lyloou.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="&#x2F;* Better than last best *&#x2F;">
@@ -201,10 +201,111 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/go/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/images/avatar.png">
+      <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lyloou">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/go/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99/" class="post-title-link" itemprop="url">Go学习资料</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-11-03 17:12:00" itemprop="dateCreated datePublished" datetime="2017-11-03T17:12:00+08:00">2017-11-03</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <ul>
+<li><p><a href="https://coding.imooc.com/class/chapter/180.html#Anchor" target="_blank" rel="noopener">Google资深工程师深度讲解Go语言</a></p>
+</li>
+<li><p><a href="https://tour.golang.org/welcome/1" target="_blank" rel="noopener">A Tour of Go</a></p>
+</li>
+<li><p><a href="https://golang.org/doc/effective_go.html" target="_blank" rel="noopener">Effective Go</a></p>
+</li>
+<li><p><a href="https://peter.bourgon.org/go-best-practices-2016/" target="_blank" rel="noopener">Go best practices, six years in</a></p>
+</li>
+<li><p><a href="https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/preface.md" target="_blank" rel="noopener">build-web-application-with-golang</a></p>
+</li>
+<li><p><a href="https://beego.me/docs/intro/" target="_blank" rel="noopener">beego 简介</a></p>
+</li>
+<li><p><a href="http://go-tour-zh.appspot.com/concurrency/10" target="_blank" rel="noopener">where to go from here</a></p>
+</li>
+<li><p><a href="http://fuxiaohei.me/2016/9/20/go-and-http-server.html" target="_blank" rel="noopener">Go 开发 HTTP</a></p>
+</li>
+</ul>
+<h2 id="make-and-new"><a href="#make-and-new" class="headerlink" title="make and new"></a>make and new</h2><table>
+<thead>
+<tr>
+<th>type</th>
+<th>object</th>
+<th>return</th>
+<th>init</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>make</td>
+<td>channel, slice, map</td>
+<td>the relative type</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>new</td>
+<td>all</td>
+<td>pointer</td>
+<td>yes</td>
+</tr>
+</tbody></table>
+<ul>
+<li><a href="https://github.com/astaxie/build-web-application-with-golang/blob/master/zh/02.2.md" target="_blank" rel="noopener">build-web-application-with-golang/02.2.md at master · astaxie/build-web-application-with-golang</a></li>
+<li><a href="https://www.godesignpatterns.com/2014/04/new-vs-make.html" target="_blank" rel="noopener">new() vs make() | Go Design Patterns</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/js/grunt/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -229,20 +330,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/js/grunt/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/js/grunt/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -348,10 +435,97 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/js/js%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/images/avatar.png">
+      <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lyloou">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/js/js%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/" class="post-title-link" itemprop="url">Js代码片段</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-10-18 17:12:00" itemprop="dateCreated datePublished" datetime="2017-10-18T17:12:00+08:00">2017-10-18</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="获取日期字符串"><a href="#获取日期字符串" class="headerlink" title="获取日期字符串"></a>获取日期字符串</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// [javascript Date format(js日期格式化)(转) - 先锋之客 - 博客园](https://www.cnblogs.com/xianfengzhike/p/9656382.html)</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">format</span>(<span class="hljs-params">date, format</span>) </span>&#123;<br>  <span class="hljs-keyword">let</span> o = &#123;<br>    <span class="hljs-string">"M+"</span>: date.getMonth() + <span class="hljs-number">1</span>, <span class="hljs-comment">// month</span><br>    <span class="hljs-string">"d+"</span>: date.getDate(), <span class="hljs-comment">// day</span><br>    <span class="hljs-string">"h+"</span>: date.getHours(), <span class="hljs-comment">// hour</span><br>    <span class="hljs-string">"m+"</span>: date.getMinutes(), <span class="hljs-comment">// minute</span><br>    <span class="hljs-string">"s+"</span>: date.getSeconds(), <span class="hljs-comment">// second</span><br>    <span class="hljs-string">"q+"</span>: <span class="hljs-built_in">Math</span>.floor((date.getMonth() + <span class="hljs-number">3</span>) / <span class="hljs-number">3</span>), <span class="hljs-comment">// quarter</span><br>    S: date.getMilliseconds() <span class="hljs-comment">// millisecond</span><br>  &#125;;<br>  <span class="hljs-keyword">if</span> (<span class="hljs-regexp">/(y+)/</span>.test(format)) &#123;<br>    format = format.replace(<br>      <span class="hljs-built_in">RegExp</span>.$<span class="hljs-number">1</span>,<br>      (date.getFullYear() + <span class="hljs-string">""</span>).substr(<span class="hljs-number">4</span> - <span class="hljs-built_in">RegExp</span>.$<span class="hljs-number">1.</span>length)<br>    );<br>  &#125;<br>  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> k <span class="hljs-keyword">in</span> o) &#123;<br>    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">new</span> <span class="hljs-built_in">RegExp</span>(<span class="hljs-string">"("</span> + k + <span class="hljs-string">")"</span>).test(format)) &#123;<br>      format = format.replace(<br>        <span class="hljs-built_in">RegExp</span>.$<span class="hljs-number">1</span>,<br>        <span class="hljs-built_in">RegExp</span>.$<span class="hljs-number">1.</span>length == <span class="hljs-number">1</span> ? o[k] : (<span class="hljs-string">"00"</span> + o[k]).substr((<span class="hljs-string">""</span> + o[k]).length)<br>      );<br>    &#125;<br>  &#125;<br>  <span class="hljs-keyword">return</span> format;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getYearMonthDay</span>(<span class="hljs-params">date</span>) </span>&#123;<br>  <span class="hljs-keyword">return</span> format(date || <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(), <span class="hljs-string">"yyyyMMdd"</span>);<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getYearMonth</span>(<span class="hljs-params">date</span>) </span>&#123;<br>  <span class="hljs-keyword">return</span> format(date || <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(), <span class="hljs-string">"yyyyMM"</span>);<br>&#125;<br><br><span class="hljs-built_in">console</span>.log(getYearMonthDay());<br><span class="hljs-built_in">console</span>.log(getYearMonth());<br><span class="hljs-built_in">console</span>.log(getYearMonthDay(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-number">1999</span>, <span class="hljs-number">1</span>, <span class="hljs-number">3</span>)));<br><span class="hljs-built_in">console</span>.log(getYearMonth(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-number">1999</span>, <span class="hljs-number">1</span>, <span class="hljs-number">3</span>)));<br></code></pre></td></tr></table></figure>
+
+<h2 id="身份证验证"><a href="#身份证验证" class="headerlink" title="身份证验证"></a>身份证验证</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> isIDCard = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">str</span>) </span>&#123;<br>  <span class="hljs-comment">// 验证是否身份证号</span><br>  <span class="hljs-keyword">var</span> city = &#123;<br>    <span class="hljs-number">11</span>: <span class="hljs-string">"北京"</span>,<br>    <span class="hljs-number">12</span>: <span class="hljs-string">"天津"</span>,<br>    <span class="hljs-number">13</span>: <span class="hljs-string">"河北"</span>,<br>    <span class="hljs-number">14</span>: <span class="hljs-string">"山西"</span>,<br>    <span class="hljs-number">15</span>: <span class="hljs-string">"内蒙古"</span>,<br>    <span class="hljs-number">21</span>: <span class="hljs-string">"辽宁"</span>,<br>    <span class="hljs-number">22</span>: <span class="hljs-string">"吉林"</span>,<br>    <span class="hljs-number">23</span>: <span class="hljs-string">"黑龙江 "</span>,<br>    <span class="hljs-number">31</span>: <span class="hljs-string">"上海"</span>,<br>    <span class="hljs-number">32</span>: <span class="hljs-string">"江苏"</span>,<br>    <span class="hljs-number">33</span>: <span class="hljs-string">"浙江"</span>,<br>    <span class="hljs-number">34</span>: <span class="hljs-string">"安徽"</span>,<br>    <span class="hljs-number">35</span>: <span class="hljs-string">"福建"</span>,<br>    <span class="hljs-number">36</span>: <span class="hljs-string">"江西"</span>,<br>    <span class="hljs-number">37</span>: <span class="hljs-string">"山东"</span>,<br>    <span class="hljs-number">41</span>: <span class="hljs-string">"河南"</span>,<br>    <span class="hljs-number">42</span>: <span class="hljs-string">"湖北 "</span>,<br>    <span class="hljs-number">43</span>: <span class="hljs-string">"湖南"</span>,<br>    <span class="hljs-number">44</span>: <span class="hljs-string">"广东"</span>,<br>    <span class="hljs-number">45</span>: <span class="hljs-string">"广西"</span>,<br>    <span class="hljs-number">46</span>: <span class="hljs-string">"海南"</span>,<br>    <span class="hljs-number">50</span>: <span class="hljs-string">"重庆"</span>,<br>    <span class="hljs-number">51</span>: <span class="hljs-string">"四川"</span>,<br>    <span class="hljs-number">52</span>: <span class="hljs-string">"贵州"</span>,<br>    <span class="hljs-number">53</span>: <span class="hljs-string">"云南"</span>,<br>    <span class="hljs-number">54</span>: <span class="hljs-string">"西藏 "</span>,<br>    <span class="hljs-number">61</span>: <span class="hljs-string">"陕西"</span>,<br>    <span class="hljs-number">62</span>: <span class="hljs-string">"甘肃"</span>,<br>    <span class="hljs-number">63</span>: <span class="hljs-string">"青海"</span>,<br>    <span class="hljs-number">64</span>: <span class="hljs-string">"宁夏"</span>,<br>    <span class="hljs-number">65</span>: <span class="hljs-string">"新疆"</span>,<br>    <span class="hljs-number">71</span>: <span class="hljs-string">"台湾"</span>,<br>    <span class="hljs-number">81</span>: <span class="hljs-string">"香港"</span>,<br>    <span class="hljs-number">82</span>: <span class="hljs-string">"澳门"</span>,<br>    <span class="hljs-number">91</span>: <span class="hljs-string">"国外"</span><br>  &#125;;<br><br>  <span class="hljs-comment">// 基础验证，长度验证</span><br>  <span class="hljs-keyword">if</span> (!str || !<span class="hljs-regexp">/^\d&#123;17&#125;(\d|x)$/i</span>.test(str)) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>  &#125;<br><br>  <span class="hljs-comment">// 验证地址编码</span><br>  <span class="hljs-keyword">if</span> (!city[<span class="hljs-built_in">parseInt</span>(str.substr(<span class="hljs-number">0</span>, <span class="hljs-number">2</span>))]) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>  &#125;<br><br>  <span class="hljs-comment">// 验证出生日期</span><br>  <span class="hljs-keyword">var</span> birthdayStr =<br>    str.substr(<span class="hljs-number">6</span>, <span class="hljs-number">4</span>) + <span class="hljs-string">"/"</span> + str.substr(<span class="hljs-number">10</span>, <span class="hljs-number">2</span>) + <span class="hljs-string">"/"</span> + str.substr(<span class="hljs-number">12</span>, <span class="hljs-number">2</span>);<br>  <span class="hljs-keyword">var</span> birthday = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(birthdayStr);<br>  <span class="hljs-keyword">if</span> (!birthday) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>  <span class="hljs-keyword">var</span> transBirthdayStr =<br>    birthday.getFullYear() +<br>    <span class="hljs-string">"/"</span> +<br>    (birthday.getMonth() &gt;= <span class="hljs-number">9</span><br>      ? birthday.getMonth() + <span class="hljs-number">1</span><br>      : <span class="hljs-string">"0"</span> + (birthday.getMonth() + <span class="hljs-number">1</span>)) +<br>    <span class="hljs-string">"/"</span> +<br>    (birthday.getDate() &gt;= <span class="hljs-number">10</span> ? birthday.getDate() : <span class="hljs-string">"0"</span> + birthday.getDate());<br>  <span class="hljs-keyword">if</span> (birthdayStr != transBirthdayStr) &#123;<br>    <span class="hljs-comment">// 日期有误</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>  &#125;<br><br>  <span class="hljs-comment">// 验证长度和校验位</span><br>  <span class="hljs-keyword">if</span> (str.length == <span class="hljs-number">18</span>) &#123;<br>    str = str.split(<span class="hljs-string">""</span>);<br>    <span class="hljs-comment">//∑(ai×Wi)(mod 11)</span><br>    <span class="hljs-comment">//加权因子</span><br>    <span class="hljs-keyword">var</span> factor = [<span class="hljs-number">7</span>, <span class="hljs-number">9</span>, <span class="hljs-number">10</span>, <span class="hljs-number">5</span>, <span class="hljs-number">8</span>, <span class="hljs-number">4</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">6</span>, <span class="hljs-number">3</span>, <span class="hljs-number">7</span>, <span class="hljs-number">9</span>, <span class="hljs-number">10</span>, <span class="hljs-number">5</span>, <span class="hljs-number">8</span>, <span class="hljs-number">4</span>, <span class="hljs-number">2</span>];<br>    <span class="hljs-comment">//校验位</span><br>    <span class="hljs-keyword">var</span> parity = [<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-string">"X"</span>, <span class="hljs-number">9</span>, <span class="hljs-number">8</span>, <span class="hljs-number">7</span>, <span class="hljs-number">6</span>, <span class="hljs-number">5</span>, <span class="hljs-number">4</span>, <span class="hljs-number">3</span>, <span class="hljs-number">2</span>];<br>    <span class="hljs-keyword">var</span> sum = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">var</span> ai = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">var</span> wi = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">17</span>; i++) &#123;<br>      ai = str[i];<br>      wi = factor[i];<br>      sum += ai * wi;<br>    &#125;<br>    <span class="hljs-keyword">var</span> last = parity[sum % <span class="hljs-number">11</span>];<br>    <span class="hljs-keyword">if</span> (parity[sum % <span class="hljs-number">11</span>] != str[<span class="hljs-number">17</span>].toUpperCase()) &#123;<br>      <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>    &#125;<br>  &#125;<br><br>  <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<h2 id="设定参数必须传递"><a href="#设定参数必须传递" class="headerlink" title="设定参数必须传递"></a><a href="http://es6.ruanyifeng.com/#docs/function#应用" target="_blank" rel="noopener">设定参数必须传递</a></h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">throwIfMissing</span>(<span class="hljs-params"></span>) </span>&#123;<br>  <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">"Missing parameter"</span>);<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">foo</span>(<span class="hljs-params">mustBeProvided = throwIfMissing(</span>)) </span>&#123;<br>  <span class="hljs-keyword">return</span> mustBeProvided;<br>&#125;<br><br>foo();<br><span class="hljs-comment">// Error: Missing parameter</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="为浮点数运算部署一个误差检查函数"><a href="#为浮点数运算部署一个误差检查函数" class="headerlink" title="为浮点数运算部署一个误差检查函数"></a><a href="http://es6.ruanyifeng.com/#docs/number#Number-EPSILON" target="_blank" rel="noopener">为浮点数运算部署一个误差检查函数</a></h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">withinErrorMargin</span>(<span class="hljs-params">left, right</span>) </span>&#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-built_in">Math</span>.abs(left - right) &lt; <span class="hljs-built_in">Number</span>.EPSILON * <span class="hljs-built_in">Math</span>.pow(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>);<br>&#125;<br><br><span class="hljs-number">0.1</span> + <span class="hljs-number">0.2</span> === <span class="hljs-number">0.3</span>; <span class="hljs-comment">// false</span><br>withinErrorMargin(<span class="hljs-number">0.1</span> + <span class="hljs-number">0.2</span>, <span class="hljs-number">0.3</span>); <span class="hljs-comment">// true</span><br><br><span class="hljs-number">1.1</span> + <span class="hljs-number">1.3</span> === <span class="hljs-number">2.4</span>; <span class="hljs-comment">// false</span><br>withinErrorMargin(<span class="hljs-number">1.1</span> + <span class="hljs-number">1.3</span>, <span class="hljs-number">2.4</span>); <span class="hljs-comment">// true</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="正确返回字符串长度的函数（Unicode-字符）"><a href="#正确返回字符串长度的函数（Unicode-字符）" class="headerlink" title="正确返回字符串长度的函数（Unicode 字符）"></a><a href="http://es6.ruanyifeng.com/#docs/regex#u-修饰符" target="_blank" rel="noopener">正确返回字符串长度的函数（Unicode 字符）</a></h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">codePointLength</span>(<span class="hljs-params">text</span>) </span>&#123;<br>  <span class="hljs-keyword">var</span> result = text.match(<span class="hljs-regexp">/[\s\S]/gu</span>);<br>  <span class="hljs-keyword">return</span> result ? result.length : <span class="hljs-number">0</span>;<br>&#125;<br><br><span class="hljs-keyword">var</span> s = <span class="hljs-string">"𠮷𠮷"</span>;<br><br>s.length; <span class="hljs-comment">// 4</span><br>codePointLength(s); <span class="hljs-comment">// 2</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="apply-amp-call"><a href="#apply-amp-call" class="headerlink" title="apply &amp; call"></a>apply &amp; call</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> a = &#123; <span class="hljs-attr">x</span>: <span class="hljs-number">1</span> &#125;;<br><span class="hljs-keyword">var</span> b = &#123; <span class="hljs-attr">x</span>: <span class="hljs-number">2</span> &#125;;<br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">f</span>(<span class="hljs-params"></span>) </span>&#123;<br>  <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.x);<br>&#125;<br>a.f = f;<br>b.f = f;<br>f.apply(a); <span class="hljs-comment">//1</span><br>f.apply(b); <span class="hljs-comment">//2</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="返回对象的类"><a href="#返回对象的类" class="headerlink" title="返回对象的类"></a>返回对象的类</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// p214</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">classof</span>(<span class="hljs-params">o</span>) </span>&#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-built_in">Object</span>.prototype.toString.call(o).slice(<span class="hljs-number">8</span>, <span class="hljs-number">-1</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="输出对象的类：Object-prototype-toString-call"><a href="#输出对象的类：Object-prototype-toString-call" class="headerlink" title="输出对象的类：Object.prototype.toString.call"></a>输出对象的类：Object.prototype.toString.call</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-built_in">Object</span>.prototype.toString.call(<span class="hljs-number">1</span>);<br>(<span class="hljs-string">"[object Number]"</span>);<br><br><span class="hljs-built_in">Object</span>.prototype.toString.call(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;&#125;);<br>(<span class="hljs-string">"[object Function]"</span>);<br></code></pre></td></tr></table></figure>
+
+<p>typeof 得到的是类型；</p>
+<h2 id="How-to-pass-url-query-params"><a href="#How-to-pass-url-query-params" class="headerlink" title="How to pass url query params"></a><a href="https://github.com/github/fetch/issues/256" target="_blank" rel="noopener">How to pass url query params</a></h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getUrl</span>(<span class="hljs-params">url, options</span>) </span>&#123;<br>  <span class="hljs-keyword">if</span> (!isEmptyObject(options)) &#123;<br>    url += (url.indexOf(<span class="hljs-string">"?"</span>) === <span class="hljs-number">-1</span> ? <span class="hljs-string">"?"</span> : <span class="hljs-string">"&amp;"</span>) + queryParams(options);<br>  &#125;<br>  <span class="hljs-keyword">return</span> url;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">queryParams</span>(<span class="hljs-params">params</span>) </span>&#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-built_in">Object</span>.keys(params)<br>    .map(<span class="hljs-function"><span class="hljs-params">k</span> =&gt;</span> <span class="hljs-built_in">encodeURIComponent</span>(k) + <span class="hljs-string">"="</span> + <span class="hljs-built_in">encodeURIComponent</span>(params[k]))<br>    .join(<span class="hljs-string">"&amp;"</span>);<br>&#125;<br><br><span class="hljs-comment">// 判断对象是否为空 https://stackoverflow.com/questions/4994201/is-object-empty</span><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">isEmptyObject</span>(<span class="hljs-params">obj</span>) </span>&#123;<br>  <span class="hljs-keyword">if</span> (obj == <span class="hljs-literal">null</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>  <span class="hljs-keyword">if</span> (obj.length &gt; <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>  <span class="hljs-keyword">if</span> (obj.length === <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>  <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> obj != <span class="hljs-string">"object"</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br><br>  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> name <span class="hljs-keyword">in</span> obj) &#123;<br>    <span class="hljs-keyword">if</span> (obj.hasOwnProperty(name)) &#123;<br>      <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>    &#125;<br>  &#125;<br>  <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>&#125;<br><br><span class="hljs-keyword">var</span> url = getUrl(<span class="hljs-string">"http://lyloou.com"</span>, &#123;&#125;);<br><span class="hljs-built_in">console</span>.log(url);<br></code></pre></td></tr></table></figure>
+
+<h2 id="对象转数组"><a href="#对象转数组" class="headerlink" title="对象转数组"></a>对象转数组</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs js">json2array = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">json</span>) </span>&#123;<br>  <span class="hljs-keyword">let</span> result = [];<br>  <span class="hljs-keyword">let</span> keys = <span class="hljs-built_in">Object</span>.keys(json);<br>  keys.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">key</span>) </span>&#123;<br>    result.push(json[key]);<br>  &#125;);<br>  <span class="hljs-keyword">return</span> result;<br>&#125;;<br><br>arr2Obj = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">array</span>) </span>&#123;<br>  <span class="hljs-keyword">var</span> obj = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Object</span>();<br>  <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> array == <span class="hljs-string">"object"</span>) &#123;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i <span class="hljs-keyword">in</span> array) &#123;<br>      <span class="hljs-keyword">var</span> thisEle = convArrToObj(array[i]);<br>      obj[i] = thisEle;<br>    &#125;<br>  &#125; <span class="hljs-keyword">else</span> &#123;<br>    obj = array;<br>  &#125;<br>  <span class="hljs-keyword">return</span> obj;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<h2 id="输入银行卡号，4-位自动加上空格分隔"><a href="#输入银行卡号，4-位自动加上空格分隔" class="headerlink" title="输入银行卡号，4 位自动加上空格分隔"></a>输入银行卡号，4 位自动加上空格分隔</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span> <span class="hljs-meta-keyword">PUBLIC</span> <span class="hljs-meta-string">"-//W3C//DTD HTML 4.01 Transitional//EN"</span> <span class="hljs-meta-string">"http://www.w3.org/TR/html4/loose.dtd"</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>test<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span>&gt;</span><br><span class="javascript">      <span class="hljs-built_in">window</span>.onload = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="javascript">        <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"test"</span>).onkeyup = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="actionscript">          <span class="hljs-keyword">this</span>.value = <span class="hljs-keyword">this</span>.value</span><br><span class="javascript">            .replace(<span class="hljs-regexp">/\s/g</span>, <span class="hljs-string">""</span>)</span><br><span class="javascript">            .replace(<span class="hljs-regexp">/\D/g</span>, <span class="hljs-string">""</span>)</span><br><span class="javascript">            .replace(<span class="hljs-regexp">/(\d&#123;4&#125;)(?=\d)/g</span>, <span class="hljs-string">"$1 "</span>);</span><br>        &#125;;<br>      &#125;;<br>    <span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"test"</span> /&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>在前台读取数字时自动忽略空格</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 这样的话会把a b c d读取为abc</span><br><span class="hljs-built_in">String</span> newStr = <span class="hljs-string">"a b c"</span>.replaceAll(<span class="hljs-string">" "</span>,<span class="hljs-string">""</span>);<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><a href="https://blog.csdn.net/happy_jijiawei/article/details/22850839" target="_blank" rel="noopener">JS 控制文本框：输入银行卡号，4 位自动加上空格分隔 - 别在熬夜了！ - CSDN 博客</a></li>
+</ul>
+<h2 id="正则摘取文字"><a href="#正则摘取文字" class="headerlink" title="正则摘取文字"></a>正则摘取文字</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// var input = "'Warehouse','Local Release','Local Release DA'";</span><br><span class="hljs-keyword">var</span> input =<br>  <span class="hljs-string">'【丝路亚心】250gX4&lt;font color="red"&gt;核桃仁&lt;/font&gt; 原味生&lt;font color="red"&gt;核桃核桃仁&lt;/font&gt; 新疆特产, &lt;font color="red"&gt;123445&lt;/font&gt;bcdef'</span>;<br><span class="hljs-keyword">var</span> regex = <span class="hljs-regexp">/&lt;font[^&gt;]+?&gt;(.*?)&lt;\/font&gt;/g</span>;<br><br><span class="hljs-keyword">var</span> matches,<br>  output = [];<br><span class="hljs-keyword">while</span> ((matches = regex.exec(input))) &#123;<br>  output.push(matches[<span class="hljs-number">1</span>]);<br>&#125;<br><span class="hljs-built_in">console</span>.log(matches);<br><span class="hljs-built_in">console</span>.log(output);<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">replaceText</span>(<span class="hljs-params">text</span>) </span>&#123;<br>  <span class="hljs-keyword">return</span> text.replace(<span class="hljs-regexp">/&lt;font[^&gt;]*&gt;/g</span>, <span class="hljs-string">""</span>).replace(<span class="hljs-regexp">/&lt;\/font&gt;/g</span>, <span class="hljs-string">""</span>);<br>&#125;<br><br><span class="hljs-keyword">var</span> newStr = replaceText(input);<br><span class="hljs-built_in">console</span>.log(newStr);<br><br><span class="hljs-keyword">var</span> arr = [];<br><span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i <span class="hljs-keyword">in</span> output) &#123;<br>  <span class="hljs-keyword">let</span> val = output[i];<br>  <span class="hljs-built_in">console</span>.log(val);<br>  <span class="hljs-keyword">let</span> index = newStr.indexOf(val);<br>  arr.push(&#123; <span class="hljs-attr">type</span>: <span class="hljs-string">"normal"</span>, <span class="hljs-attr">value</span>: newStr.substring(<span class="hljs-number">0</span>, index) &#125;);<br>  arr.push(&#123; <span class="hljs-attr">type</span>: <span class="hljs-string">"highlight"</span>, <span class="hljs-attr">value</span>: val &#125;);<br>  newStr = newStr.substring(index + val.length);<br>&#125;<br><br><span class="hljs-keyword">if</span> (newStr) &#123;<br>  arr.push(&#123; <span class="hljs-attr">type</span>: <span class="hljs-string">"normal"</span>, <span class="hljs-attr">value</span>: newStr &#125;);<br>&#125;<br><br><span class="hljs-built_in">console</span>.log(arr);<br><span class="hljs-comment">// [&#123;"type":"normal","value":"【丝路亚心】250gX4"&#125;,&#123;"type":"highlight","value":"核桃仁"&#125;,&#123;"type":"normal","value":" 原味生"&#125;,&#123;"type":"highlight","value":"核桃核桃仁"&#125;,&#123;"type":"normal","value":" 新疆特产, "&#125;,&#123;"type":"highlight","value":"123445"&#125;,&#123;"type":"normal","value":"bcdef"&#125;]</span><br></code></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/js/vue/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -376,20 +550,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/js/vue/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/js/vue/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -436,7 +596,7 @@
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/js/webpack/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -461,20 +621,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/js/webpack/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/js/webpack/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -518,7 +664,7 @@
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/js/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -543,20 +689,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/js/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/js/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -597,7 +729,7 @@
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/android/%E8%A7%84%E8%8C%83/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -622,20 +754,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/android/%E8%A7%84%E8%8C%83/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/android/%E8%A7%84%E8%8C%83/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -681,7 +799,7 @@
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/android/view-toolbar/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -706,20 +824,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/android/view-toolbar/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/android/view-toolbar/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -755,99 +859,10 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/android/view-recyclerview/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="lyloou">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/android/view-recyclerview/" class="post-title-link" itemprop="url">RecyclerView相关</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2017-08-30 17:16:15" itemprop="dateCreated datePublished" datetime="2017-08-30T17:16:15+08:00">2017-08-30</time>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/android/view-recyclerview/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/android/view-recyclerview/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="RecyclerView"><a href="#RecyclerView" class="headerlink" title="RecyclerView"></a>RecyclerView</h2><ul>
-<li>针对多种类型的情况，可以创建多个 <code>ViewHolder</code>和设置多个 <code>type</code></li>
-</ul>
-<h3 id="分页加载（加载更多）"><a href="#分页加载（加载更多）" class="headerlink" title="分页加载（加载更多）"></a>分页加载（加载更多）</h3><blockquote>
-<p><a href="https://github.com/lyloou/lou/blob/demo/test/src/main/java/com/lyloou/test/gank/GankWelfareActivity.java" target="_blank" rel="noopener">https://github.com/lyloou/lou/blob/demo/test/src/main/java/com/lyloou/test/gank/GankWelfareActivity.java</a></p>
-</blockquote>
-<blockquote>
-<p><a href="http://www.gadgetsaint.com/android/recyclerview-header-footer-pagination/#.WRwxJGh96Hs" target="_blank" rel="noopener">http://www.gadgetsaint.com/android/recyclerview-header-footer-pagination/#.WRwxJGh96Hs</a></p>
-</blockquote>
-<p><em>方案一：</em></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs java">mRecyclerView.addOnScrollListener(<span class="hljs-keyword">new</span> RecyclerView.OnScrollListener() &#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onScrollStateChanged</span><span class="hljs-params">(RecyclerView recyclerView, <span class="hljs-keyword">int</span> newState)</span> </span>&#123;<br>        <span class="hljs-keyword">super</span>.onScrollStateChanged(recyclerView, newState);<br><br>        <span class="hljs-keyword">int</span> lastvisibleitemposition = mLayoutManager.findLastVisibleItemPosition();<br><br>        <span class="hljs-keyword">if</span> (lastvisibleitemposition == mAdapter.getItemCount() - <span class="hljs-number">1</span>) &#123;<br><br>            <span class="hljs-keyword">if</span> (!loading &amp;&amp; !isLastPage) &#123;<br><br>                loading = <span class="hljs-keyword">true</span>;<br>                fetchData((++pageCount));<br>                <span class="hljs-comment">// Increment the pagecount everytime we scroll to fetch data from the next page</span><br>                <span class="hljs-comment">// make loading = false once the data is loaded</span><br>                <span class="hljs-comment">// call mAdapter.notifyDataSetChanged() to refresh the Adapter and Layout</span><br><br>            &#125;<br><br><br>        &#125;<br>    &#125;<br>&#125;);<br></code></pre></td></tr></table></figure>
-
-<p><em>方案二：</em></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// http://www.jianshu.com/p/4feb0c16d1b5</span><br><span class="hljs-keyword">private</span> RecyclerView.OnScrollListener mListener = <span class="hljs-keyword">new</span> RecyclerView.OnScrollListener() &#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onScrollStateChanged</span><span class="hljs-params">(RecyclerView recyclerView, <span class="hljs-keyword">int</span> newState)</span> </span>&#123;<br>        <span class="hljs-keyword">super</span>.onScrollStateChanged(recyclerView, newState);<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onScrolled</span><span class="hljs-params">(RecyclerView recyclerView, <span class="hljs-keyword">int</span> dx, <span class="hljs-keyword">int</span> dy)</span> </span>&#123;<br>        <span class="hljs-keyword">super</span>.onScrolled(recyclerView, dx, dy);<br><br>        LinearLayoutManager layoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();<br>        <span class="hljs-keyword">int</span> lastVisibleItem = layoutManager.findLastVisibleItemPosition();<br>        <span class="hljs-keyword">int</span> totalItemCount = layoutManager.getItemCount();<br><br>        <span class="hljs-keyword">if</span> (totalItemCount &lt; <span class="hljs-number">250</span> &amp;&amp; lastVisibleItem &gt;= totalItemCount - <span class="hljs-number">4</span>) &#123;<br>            <span class="hljs-comment">// 注意：要限制请求，否则请求太多次数，导致服务器崩溃或者服务器拒绝请求（罪过，罪过）。</span><br>            <span class="hljs-keyword">if</span> (mIsLoading) &#123;<br>                Log.i(TAG, <span class="hljs-string">"onScrolled: "</span> + <span class="hljs-string">"加载中---------"</span>);<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                Log.i(TAG, <span class="hljs-string">"onScrolled: "</span> + <span class="hljs-string">"加载更多了=======》"</span>);<br>                loadSubject();<br>            &#125;<br><br>        &#125;<br><br>        Log.d(TAG, <span class="hljs-string">"onScrolled: lastVisibleItem="</span> + lastVisibleItem);<br>        Log.d(TAG, <span class="hljs-string">"onScrolled: totalItemCount="</span> + totalItemCount);<br><br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
-
-<h2 id="加载更多调用-notifyDataSetChanged-时会白一下屏"><a href="#加载更多调用-notifyDataSetChanged-时会白一下屏" class="headerlink" title="加载更多调用 notifyDataSetChanged 时会白一下屏"></a>加载更多调用 notifyDataSetChanged 时会白一下屏</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java">getDataListFromNet(++page, dataList-&gt;&#123;<br>    <span class="hljs-keyword">int</span> lastSize = mAdapter.getList().size();<br>    mAdapter.getList().addAll(dataList);<br>    <span class="hljs-comment">// mAdapter.notifyDataSetChanged(); // 调用这个方法会白屏，可以用下面的方式解决</span><br>    mAdapter.notifyItemRangeInserted(lastSize - <span class="hljs-number">1</span>, dataList.size());<br>&#125;);<br></code></pre></td></tr></table></figure>
-
-<h2 id="GridLayoutManager-均分两列的装饰器-ItemDecoration"><a href="#GridLayoutManager-均分两列的装饰器-ItemDecoration" class="headerlink" title="GridLayoutManager 均分两列的装饰器 ItemDecoration"></a>GridLayoutManager 均分两列的装饰器 ItemDecoration</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DoubleItemOffsetDecoration</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">RecyclerView</span>.<span class="hljs-title">ItemDecoration</span> </span>&#123;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> offset;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">DoubleItemOffsetDecoration</span><span class="hljs-params">(<span class="hljs-keyword">int</span> offset)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.offset = offset;<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">getItemOffsets</span><span class="hljs-params">(Rect outRect, View view, RecyclerView parent, RecyclerView.State state)</span> </span>&#123;<br>        <span class="hljs-keyword">int</span> position = parent.getChildLayoutPosition(view);<br>        <span class="hljs-keyword">if</span> (position == <span class="hljs-number">0</span> || position == <span class="hljs-number">1</span>) &#123;<br>            outRect.top = offset;<br>        &#125;<br><br>        outRect.bottom = offset;<br>        <span class="hljs-keyword">if</span> (position % <span class="hljs-number">2</span> == <span class="hljs-number">1</span>) &#123;<br>            outRect.left = offset / <span class="hljs-number">2</span>;<br>            outRect.right = offset;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            outRect.left = offset;<br>            outRect.right = offset / <span class="hljs-number">2</span>;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/android/view-tab%E6%82%AC%E6%B5%AE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -872,20 +887,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/android/view-tab%E6%82%AC%E6%B5%AE/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/android/view-tab%E6%82%AC%E6%B5%AE/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -929,10 +930,10 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/android/lib-glide/">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/android/view-recyclerview/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -943,7 +944,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/android/lib-glide/" class="post-title-link" itemprop="url">Glide库</a>
+            <a href="/android/view-recyclerview/" class="post-title-link" itemprop="url">RecyclerView相关</a>
         </h2>
 
         <div class="post-meta">
@@ -953,24 +954,10 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2017-08-29 17:16:15" itemprop="dateCreated datePublished" datetime="2017-08-29T17:16:15+08:00">2017-08-29</time>
+              <time title="创建时间：2017-08-30 17:16:15" itemprop="dateCreated datePublished" datetime="2017-08-30T17:16:15+08:00">2017-08-30</time>
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/android/lib-glide/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/android/lib-glide/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -981,85 +968,24 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="根据图片的文件路径，显示给ImageView"><a href="#根据图片的文件路径，显示给ImageView" class="headerlink" title="根据图片的文件路径，显示给ImageView"></a>根据图片的文件路径，显示给ImageView</h2><p>原理：借助 Glide 库来实现；<br>    <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java">String pathname = <span class="hljs-string">"/storage/emulated/0/lyloou/image/hello_world.png"</span>;<br>File file = <span class="hljs-keyword">new</span> File(pathname);<br>Glide.with(mContext).load(file).asBitmap().into(mIvHi);<br></code></pre></td></tr></table></figure></p>
-<h2 id="通过图像-URL-设置圆角图像："><a href="#通过图像-URL-设置圆角图像：" class="headerlink" title="通过图像 URL 设置圆角图像："></a>通过图像 URL 设置圆角图像：</h2><pre><code><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setCircleIcon</span><span class="hljs-params">(ImageView view)</span> </span>&#123;<br>    String url = <span class="hljs-string">"https://img.gcall.com/dca5/M00/10/8E/wKhoNlggetaENWylAAAAAAAAAAA457.jpg"</span>;<br>    <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> w = Uscreen.dp2Px(mContext, <span class="hljs-number">48</span>);<br>    Glide.with(mContext)<br>            .load(url)<br>            .centerCrop()<br>            .fitCenter()<br>            .thumbnail(<span class="hljs-number">0.1f</span>)<br>            .placeholder(R.mipmap.ic_launcher)<br>            .crossFade()<br>            .override(w, w)<br>            .transform(<span class="hljs-keyword">new</span> BitmapTransformation(mContext) &#123;<br>                <span class="hljs-meta">@Override</span><br>                <span class="hljs-function"><span class="hljs-keyword">protected</span> Bitmap <span class="hljs-title">transform</span><span class="hljs-params">(BitmapPool pool, Bitmap toTransform, <span class="hljs-keyword">int</span> outWidth, <span class="hljs-keyword">int</span> outHeight)</span> </span>&#123;<br>                    <span class="hljs-keyword">return</span> Uview.getBitmapByXfermode(mContext, toTransform,<br>                            Color.parseColor(<span class="hljs-string">"#dddddd"</span>),<br>                            w,<br>                            w, PorterDuff.Mode.SRC_IN);<br>                &#125;<br><br>                <span class="hljs-meta">@Override</span><br>                <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getId</span><span class="hljs-params">()</span> </span>&#123;<br>                    <span class="hljs-keyword">return</span> getClass().getName();<br>                &#125;<br>            &#125;)<br>            .into(view);<br>&#125;<br></code></pre></td></tr></table></figure></code></pre>
-      
-    </div>
+          <h2 id="RecyclerView"><a href="#RecyclerView" class="headerlink" title="RecyclerView"></a>RecyclerView</h2><ul>
+<li>针对多种类型的情况，可以创建多个 <code>ViewHolder</code>和设置多个 <code>type</code></li>
+</ul>
+<h3 id="分页加载（加载更多）"><a href="#分页加载（加载更多）" class="headerlink" title="分页加载（加载更多）"></a>分页加载（加载更多）</h3><blockquote>
+<p><a href="https://github.com/lyloou/lou/blob/demo/test/src/main/java/com/lyloou/test/gank/GankWelfareActivity.java" target="_blank" rel="noopener">https://github.com/lyloou/lou/blob/demo/test/src/main/java/com/lyloou/test/gank/GankWelfareActivity.java</a></p>
+</blockquote>
+<blockquote>
+<p><a href="http://www.gadgetsaint.com/android/recyclerview-header-footer-pagination/#.WRwxJGh96Hs" target="_blank" rel="noopener">http://www.gadgetsaint.com/android/recyclerview-header-footer-pagination/#.WRwxJGh96Hs</a></p>
+</blockquote>
+<p><em>方案一：</em></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs java">mRecyclerView.addOnScrollListener(<span class="hljs-keyword">new</span> RecyclerView.OnScrollListener() &#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onScrollStateChanged</span><span class="hljs-params">(RecyclerView recyclerView, <span class="hljs-keyword">int</span> newState)</span> </span>&#123;<br>        <span class="hljs-keyword">super</span>.onScrollStateChanged(recyclerView, newState);<br><br>        <span class="hljs-keyword">int</span> lastvisibleitemposition = mLayoutManager.findLastVisibleItemPosition();<br><br>        <span class="hljs-keyword">if</span> (lastvisibleitemposition == mAdapter.getItemCount() - <span class="hljs-number">1</span>) &#123;<br><br>            <span class="hljs-keyword">if</span> (!loading &amp;&amp; !isLastPage) &#123;<br><br>                loading = <span class="hljs-keyword">true</span>;<br>                fetchData((++pageCount));<br>                <span class="hljs-comment">// Increment the pagecount everytime we scroll to fetch data from the next page</span><br>                <span class="hljs-comment">// make loading = false once the data is loaded</span><br>                <span class="hljs-comment">// call mAdapter.notifyDataSetChanged() to refresh the Adapter and Layout</span><br><br>            &#125;<br><br><br>        &#125;<br>    &#125;<br>&#125;);<br></code></pre></td></tr></table></figure>
 
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+<p><em>方案二：</em></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// http://www.jianshu.com/p/4feb0c16d1b5</span><br><span class="hljs-keyword">private</span> RecyclerView.OnScrollListener mListener = <span class="hljs-keyword">new</span> RecyclerView.OnScrollListener() &#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onScrollStateChanged</span><span class="hljs-params">(RecyclerView recyclerView, <span class="hljs-keyword">int</span> newState)</span> </span>&#123;<br>        <span class="hljs-keyword">super</span>.onScrollStateChanged(recyclerView, newState);<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onScrolled</span><span class="hljs-params">(RecyclerView recyclerView, <span class="hljs-keyword">int</span> dx, <span class="hljs-keyword">int</span> dy)</span> </span>&#123;<br>        <span class="hljs-keyword">super</span>.onScrolled(recyclerView, dx, dy);<br><br>        LinearLayoutManager layoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();<br>        <span class="hljs-keyword">int</span> lastVisibleItem = layoutManager.findLastVisibleItemPosition();<br>        <span class="hljs-keyword">int</span> totalItemCount = layoutManager.getItemCount();<br><br>        <span class="hljs-keyword">if</span> (totalItemCount &lt; <span class="hljs-number">250</span> &amp;&amp; lastVisibleItem &gt;= totalItemCount - <span class="hljs-number">4</span>) &#123;<br>            <span class="hljs-comment">// 注意：要限制请求，否则请求太多次数，导致服务器崩溃或者服务器拒绝请求（罪过，罪过）。</span><br>            <span class="hljs-keyword">if</span> (mIsLoading) &#123;<br>                Log.i(TAG, <span class="hljs-string">"onScrolled: "</span> + <span class="hljs-string">"加载中---------"</span>);<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                Log.i(TAG, <span class="hljs-string">"onScrolled: "</span> + <span class="hljs-string">"加载更多了=======》"</span>);<br>                loadSubject();<br>            &#125;<br><br>        &#125;<br><br>        Log.d(TAG, <span class="hljs-string">"onScrolled: lastVisibleItem="</span> + lastVisibleItem);<br>        Log.d(TAG, <span class="hljs-string">"onScrolled: totalItemCount="</span> + totalItemCount);<br><br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/android/%E5%BC%B9%E7%AA%97/">
+<h2 id="加载更多调用-notifyDataSetChanged-时会白一下屏"><a href="#加载更多调用-notifyDataSetChanged-时会白一下屏" class="headerlink" title="加载更多调用 notifyDataSetChanged 时会白一下屏"></a>加载更多调用 notifyDataSetChanged 时会白一下屏</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java">getDataListFromNet(++page, dataList-&gt;&#123;<br>    <span class="hljs-keyword">int</span> lastSize = mAdapter.getList().size();<br>    mAdapter.getList().addAll(dataList);<br>    <span class="hljs-comment">// mAdapter.notifyDataSetChanged(); // 调用这个方法会白屏，可以用下面的方式解决</span><br>    mAdapter.notifyItemRangeInserted(lastSize - <span class="hljs-number">1</span>, dataList.size());<br>&#125;);<br></code></pre></td></tr></table></figure>
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="lyloou">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/android/%E5%BC%B9%E7%AA%97/" class="post-title-link" itemprop="url">Android 弹窗</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2017-08-29 17:16:15" itemprop="dateCreated datePublished" datetime="2017-08-29T17:16:15+08:00">2017-08-29</time>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/android/%E5%BC%B9%E7%AA%97/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/android/%E5%BC%B9%E7%AA%97/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="弹出和隐藏进度条"><a href="#弹出和隐藏进度条" class="headerlink" title="弹出和隐藏进度条"></a>弹出和隐藏进度条</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">private</span> Dialog dialog;<br><br><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">showDialog</span><span class="hljs-params">(<span class="hljs-keyword">final</span> Context ctx)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (ctx <span class="hljs-keyword">instanceof</span> Activity) &#123;<br>        <span class="hljs-keyword">final</span> Activity context = (Activity) ctx;<br>        context.runOnUiThread(<span class="hljs-keyword">new</span> Runnable() &#123;<br>            <span class="hljs-meta">@Override</span><br>            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>&#123;<br>                <span class="hljs-keyword">int</span> spacing = Uscreen.dp2Px(context, <span class="hljs-number">16</span>);<br>                LinearLayout layout = <span class="hljs-keyword">new</span> LinearLayout(context);<br>                LinearLayout.LayoutParams layoutParams = <span class="hljs-keyword">new</span> LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);<br>                layout.setLayoutParams(layoutParams);<br>                layout.setGravity(Gravity.CENTER);<br>                layout.setPadding(spacing, spacing, spacing, spacing);<br>                <span class="hljs-comment">// add ProgressBar</span><br>                ProgressBar bar = <span class="hljs-keyword">new</span> ProgressBar(context);<br>                layout.addView(bar, layoutParams);<br><br>                dialog = <span class="hljs-keyword">new</span> Dialog(context, android.R.style.Theme_Holo_Dialog_NoActionBar);<br>                dialog.setCancelable(<span class="hljs-keyword">false</span>);<br>                dialog.getWindow().setDimAmount(<span class="hljs-number">0.3f</span>);<br>                dialog.setContentView(layout);<br>                dialog.show();<br>            &#125;<br>        &#125;);<br>    &#125;<br><br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">dismissDialog</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (dialog != <span class="hljs-keyword">null</span> &amp;&amp; dialog.isShowing()) &#123;<br>        dialog.dismiss();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h2 id="单个操作的-alert"><a href="#单个操作的-alert" class="headerlink" title="单个操作的 alert"></a>单个操作的 alert</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AlertOneItem</span> </span>&#123;<br>    <span class="hljs-keyword">private</span> Context context;<br>    <span class="hljs-keyword">private</span> String title;<br>    <span class="hljs-keyword">private</span> String message;<br>    <span class="hljs-keyword">private</span> Consumer&lt;Boolean&gt; consumer;<br>    <span class="hljs-keyword">private</span> String positiveTips = <span class="hljs-string">"确定"</span>;<br>    <span class="hljs-keyword">private</span> String negativeTips = <span class="hljs-string">"取消"</span>;<br><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">AlertOneItem</span><span class="hljs-params">(Context context, Consumer&lt;Boolean&gt; consumer)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.context = context;<br>        <span class="hljs-keyword">this</span>.consumer = consumer;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> AlertOneItem <span class="hljs-title">builder</span><span class="hljs-params">(Context context, Consumer&lt;Boolean&gt; consumer)</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> AlertOneItem(context, consumer);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> AlertOneItem <span class="hljs-title">title</span><span class="hljs-params">(String title)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.title = title;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> AlertOneItem <span class="hljs-title">message</span><span class="hljs-params">(String message)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.message = message;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> AlertOneItem <span class="hljs-title">positiveTips</span><span class="hljs-params">(String positiveTips)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.positiveTips = positiveTips;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> AlertOneItem <span class="hljs-title">negativeTips</span><span class="hljs-params">(String negativeTips)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.negativeTips = negativeTips;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;<br>    &#125;<br><br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">show</span><span class="hljs-params">()</span> </span>&#123;<br>        AlertDialog.Builder builder = <span class="hljs-keyword">new</span> AlertDialog.Builder(context);<br>        <span class="hljs-keyword">if</span> (!TextUtils.isEmpty(title)) &#123;<br>            builder.setTitle(title);<br>        &#125;<br>        <span class="hljs-keyword">if</span> (!TextUtils.isEmpty(message)) &#123;<br>            builder.setMessage(message);<br>        &#125;<br>        <span class="hljs-keyword">if</span> (!TextUtils.isEmpty(negativeTips)) &#123;<br>            builder.setNegativeButton(negativeTips, (dialog, which) -&gt; consumer.accept(<span class="hljs-keyword">false</span>));<br>        &#125;<br><br>        <span class="hljs-keyword">if</span> (!TextUtils.isEmpty(positiveTips)) &#123;<br>            builder.setPositiveButton(positiveTips, (dialog, which) -&gt; consumer.accept(<span class="hljs-keyword">true</span>));<br>        &#125;<br><br>        builder.setCancelable(<span class="hljs-keyword">true</span>);<br>        builder.create();<br>        builder.show();<br>    &#125;<br>&#125;<br><span class="hljs-comment">// 调用</span><br>Udialog.AlertOneItem.builder(context, result -&gt; &#123;<br>        <span class="hljs-keyword">if</span> (result) &#123;<br>            toSetWallpaperAsync(context, imageView, color);<br>        &#125;<br>    &#125;).message(<span class="hljs-string">"设置成壁纸?"</span>).show();<br></code></pre></td></tr></table></figure>
-
-<h2 id="多个操作的-alert-（方案-1）"><a href="#多个操作的-alert-（方案-1）" class="headerlink" title="多个操作的 alert （方案 1）"></a>多个操作的 alert （方案 1）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">enum</span> OperateType &#123;<br>    REFRESH(<span class="hljs-string">"刷新"</span>),<br>    COPY_LINK(<span class="hljs-string">"复制链接"</span>),<br>    COPY_MD_LINK(<span class="hljs-string">"复制md链接"</span>),<br>    OPEN_WITH_BROWSER(<span class="hljs-string">"在浏览器中打开"</span>),<br>    ;<br>    String title;<br><br>    OperateType(String title) &#123;<br>        <span class="hljs-keyword">this</span>.title = title;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> OperateType <span class="hljs-title">indexOf</span><span class="hljs-params">(<span class="hljs-keyword">int</span> index)</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> OperateType.values()[index];<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String[] toStrArray() &#123;<br>        OperateType[] values = OperateType.values();<br>        String[] result = <span class="hljs-keyword">new</span> String[values.length];<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; values.length; i++) &#123;<br>            result[i] = values[i].title;<br>        &#125;<br>        <span class="hljs-keyword">return</span> result;<br>    &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onMorePressed</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">new</span> AlertDialog.Builder(mContext)<br>            .setTitle(<span class="hljs-string">"操作"</span>)<br>            .setItems(OperateType.toStrArray(), (dialog, which) -&gt; &#123;<br>                <span class="hljs-keyword">switch</span> (OperateType.indexOf(which)) &#123;<br>                    <span class="hljs-keyword">case</span> REFRESH:<br>                        mWvContent.reload();<br>                        <span class="hljs-keyword">break</span>;<br>                    <span class="hljs-keyword">case</span> COPY_LINK:<br>                        copyToClipboard(mWvContent.getUrl(), <span class="hljs-string">"已复制到剪切板"</span>);<br>                        <span class="hljs-keyword">break</span>;<br>                    <span class="hljs-keyword">case</span> COPY_MD_LINK:<br>                        String title = mWvContent.getTitle();<br>                        String url = mWvContent.getUrl();<br>                        copyToClipboard(<span class="hljs-string">"- ["</span> + title + <span class="hljs-string">"]"</span> + <span class="hljs-string">"("</span> + url + <span class="hljs-string">")"</span>, <span class="hljs-string">"已复制到剪切板"</span>);<br>                        <span class="hljs-keyword">break</span>;<br>                    <span class="hljs-keyword">case</span> OPEN_WITH_BROWSER:<br>                        Uri uri = Uri.parse(mWvContent.getUrl());<br>                        Intent intent = <span class="hljs-keyword">new</span> Intent(Intent.ACTION_VIEW, uri);<br>                        startActivity(intent);<br>                        <span class="hljs-keyword">break</span>;<br>                    <span class="hljs-keyword">default</span>:<br>                &#125;<br>            &#125;)<br>            .create().show();<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h2 id="多个操作的-alert（方案-2）"><a href="#多个操作的-alert（方案-2）" class="headerlink" title="多个操作的 alert（方案 2）"></a>多个操作的 alert（方案 2）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AlertMultiItem</span> </span>&#123;<br>    <span class="hljs-keyword">private</span> List&lt;String&gt; nameList = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();<br>    <span class="hljs-keyword">private</span> List&lt;Runnable&gt; taskList = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();<br>    <span class="hljs-keyword">private</span> Context context;<br>    <span class="hljs-keyword">private</span> String title;<br><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">AlertMultiItem</span><span class="hljs-params">(Context context)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.context = context;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> AlertMultiItem <span class="hljs-title">builder</span><span class="hljs-params">(Context context)</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> AlertMultiItem(context);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> AlertMultiItem <span class="hljs-title">title</span><span class="hljs-params">(String title)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.title = title;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> AlertMultiItem <span class="hljs-title">add</span><span class="hljs-params">(String title, Runnable runnable)</span> </span>&#123;<br>        nameList.add(title);<br>        taskList.add(runnable);<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;<br>    &#125;<br><br>    <span class="hljs-keyword">private</span> String[] getItemNames() &#123;<br>        String[] result = <span class="hljs-keyword">new</span> String[nameList.size()];<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; nameList.size(); i++) &#123;<br>            result[i] = nameList.get(i);<br>        &#125;<br>        <span class="hljs-keyword">return</span> result;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">show</span><span class="hljs-params">()</span> </span>&#123;<br>        AlertDialog.Builder builder = <span class="hljs-keyword">new</span> AlertDialog.Builder(context);<br>        <span class="hljs-keyword">if</span> (!TextUtils.isEmpty(title)) &#123;<br>            builder.setTitle(title);<br>        &#125;<br>        builder.setItems(getItemNames(), (dialog, which) -&gt; taskList.get(which).run());<br>        builder.create();<br>        builder.show();<br>    &#125;<br>&#125;<br><br><span class="hljs-comment">// 调用</span><br>Udialog.AlertMultiItem.builder(mContext)<br>        .add(<span class="hljs-string">"复制内容"</span>, () -&gt; copyContent())<br>        .add(<span class="hljs-string">"复制全部"</span>, () -&gt; copyAll())<br>        .add(<span class="hljs-string">"删除此项"</span>, () -&gt; delete())<br>        .show();<br></code></pre></td></tr></table></figure>
+<h2 id="GridLayoutManager-均分两列的装饰器-ItemDecoration"><a href="#GridLayoutManager-均分两列的装饰器-ItemDecoration" class="headerlink" title="GridLayoutManager 均分两列的装饰器 ItemDecoration"></a>GridLayoutManager 均分两列的装饰器 ItemDecoration</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DoubleItemOffsetDecoration</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">RecyclerView</span>.<span class="hljs-title">ItemDecoration</span> </span>&#123;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> offset;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">DoubleItemOffsetDecoration</span><span class="hljs-params">(<span class="hljs-keyword">int</span> offset)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.offset = offset;<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">getItemOffsets</span><span class="hljs-params">(Rect outRect, View view, RecyclerView parent, RecyclerView.State state)</span> </span>&#123;<br>        <span class="hljs-keyword">int</span> position = parent.getChildLayoutPosition(view);<br>        <span class="hljs-keyword">if</span> (position == <span class="hljs-number">0</span> || position == <span class="hljs-number">1</span>) &#123;<br>            outRect.top = offset;<br>        &#125;<br><br>        outRect.bottom = offset;<br>        <span class="hljs-keyword">if</span> (position % <span class="hljs-number">2</span> == <span class="hljs-number">1</span>) &#123;<br>            outRect.left = offset / <span class="hljs-number">2</span>;<br>            outRect.right = offset;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            outRect.left = offset;<br>            outRect.right = offset / <span class="hljs-number">2</span>;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
       
     </div>
@@ -1137,7 +1063,7 @@
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="lyloou"
-      src="/images/avatar.png">
+      src="/assets/images/avatar.png">
   <p class="site-author-name" itemprop="name">lyloou</p>
   <div class="site-description" itemprop="description">/* Better than last best */</div>
 </div>
@@ -1146,7 +1072,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">311</span>
+          <span class="site-state-item-count">313</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1317,34 +1243,6 @@ if (document.querySelectorAll('pre.mermaid').length) {
 
   
 
-
-<script>
-NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
-  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
-    var GUEST = ['nick', 'mail', 'link'];
-    var guest = 'nick,mail,link';
-    guest = guest.split(',').filter(item => {
-      return GUEST.includes(item);
-    });
-    new Valine({
-      el         : '#valine-comments',
-      verify     : false,
-      notify     : true,
-      appId      : 'yhivNNDDoank7qFbmyEj9Ldq-gzGzoHsz',
-      appKey     : 'QuFu2ooibSzW1Q8eTrmPLyPw',
-      placeholder: "Just go go",
-      avatar     : 'mm',
-      meta       : guest,
-      pageSize   : '10' || 10,
-      visitor    : false,
-      lang       : '' || 'zh-cn',
-      path       : location.pathname,
-      recordIP   : true,
-      serverURLs : ''
-    });
-  }, window.Valine);
-});
-</script>
 
 </body>
 </html>

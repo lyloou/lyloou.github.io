@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"lyloou.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"lyloou.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="&#x2F;* Better than last best *&#x2F;">
@@ -201,10 +201,336 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/linux/%E8%BD%AF%E4%BB%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/images/avatar.png">
+      <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lyloou">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+              <span class="post-sticky-flag" title="置顶">
+                <i class="fa fa-thumbtack"></i>
+              </span>
+            <a href="/linux/%E8%BD%AF%E4%BB%B6/" class="post-title-link" itemprop="url">【Linux】软件</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-08-05 17:16:15" itemprop="dateCreated datePublished" datetime="2018-08-05T17:16:15+08:00">2018-08-05</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="wps"><a href="#wps" class="headerlink" title="wps"></a>wps</h2><p><a href="http://wps-community.org/downloads" target="_blank" rel="noopener">http://wps-community.org/downloads</a></p>
+<h2 id="gvim"><a href="#gvim" class="headerlink" title="gvim"></a>gvim</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">sudo apt update<br>sudo apt install vim-gnome<br></code></pre></td></tr></table></figure>
+
+<h2 id="synpase（快速启动）"><a href="#synpase（快速启动）" class="headerlink" title="synpase（快速启动）"></a>synpase（快速启动）</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">sudo add-apt-repository ppa:synapse-core/ppa<br>sudo apt-get update<br>sudo apt-get install synapse<br></code></pre></td></tr></table></figure>
+
+<h2 id="fcitx-五笔输入法"><a href="#fcitx-五笔输入法" class="headerlink" title="fcitx 五笔输入法"></a>fcitx 五笔输入法</h2><ul>
+<li><p>安装<br><code>sudo apt-get install fcitx fcitx-table-wubi fcitx-tools -y</code></p>
+</li>
+<li><p>启用自动调频<br>修改配置文件 /usr/share/fcitx/table/wbx.conf</p>
+</li>
+</ul>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">AdjustOrder</span>=AdjustFreq<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>不能正常打出中文标点<br>修改配置文件<br>/usr/share/fcitx/addon/fcitx-fullwidth-char.conf</li>
+</ul>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">Priority</span>=<span class="hljs-number">80</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><p>重启输入法<br><code>fcitx -r</code></p>
+</li>
+<li><p><a href="https://zhuanlan.zhihu.com/p/28586200" target="_blank" rel="noopener">linux 安装与配置 fcitx 五笔输入法</a></p>
+</li>
+</ul>
+<h2 id="git"><a href="#git" class="headerlink" title="git"></a>git</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">sudo apt-get update<br>sudo apt-get install git<br></code></pre></td></tr></table></figure>
+
+<h2 id="vlc（多媒体播放器）"><a href="#vlc（多媒体播放器）" class="headerlink" title="vlc（多媒体播放器）"></a>vlc（多媒体播放器）</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">sudo apt-get update<br>sudo apt install vlc<br></code></pre></td></tr></table></figure>
+
+<h2 id="wiz"><a href="#wiz" class="headerlink" title="wiz"></a>wiz</h2><figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs dts"><span class="hljs-symbol">http:</span><span class="hljs-comment">//www.wiz.cn/wiznote-linux.html</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="firefox"><a href="#firefox" class="headerlink" title="firefox"></a>firefox</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment">#</span><br><span class="hljs-comment"># https://www.computernetworkingnotes.com/ubuntu-linux-tutorials/how-to-update-firefox-in-ubuntu-linux.html</span><br><span class="hljs-comment"># install</span><br>sudo apt-get update<br>sudo apt-get install firefox<br><br><span class="hljs-comment"># update</span><br>sudo apt-get update<br>sudo apt-get install --only-upgrade firefox<br></code></pre></td></tr></table></figure>
+
+<h2 id="chrome"><a href="#chrome" class="headerlink" title="chrome"></a>chrome</h2><ul>
+<li>install</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># https://askubuntu.com/questions/510056/how-to-install-google-chrome</span><br><br><span class="hljs-comment"># 1. add key</span><br>wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -<br><span class="hljs-comment"># 2. set repository</span><br><span class="hljs-built_in">echo</span> <span class="hljs-string">'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main'</span> | sudo tee /etc/apt/sources.list.d/google-chrome.list<br><span class="hljs-comment"># 3. install package</span><br>sudo apt-get update<br>sudo apt-get install google-chrome-stable<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>config</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">https://github.com/FelisCatus/SwitchyOmega/releases/<br><br>https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt<br></code></pre></td></tr></table></figure>
+
+<h2 id="vscode"><a href="#vscode" class="headerlink" title="vscode"></a>vscode</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># https://code.visualstudio.com/docs/setup/linux</span><br><br>curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor &gt; microsoft.gpg<br>sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg<br>sudo sh -c <span class="hljs-string">'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" &gt; /etc/apt/sources.list.d/vscode.list'</span><br>sudo apt-get update<br>sudo apt-get install code <span class="hljs-comment"># or code-insiders</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="idea"><a href="#idea" class="headerlink" title="idea"></a>idea</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># https://www.jetbrains.com/help/idea/install-and-set-up-product.html</span><br>sudo snap install intellij-idea-ultimate --classic<br></code></pre></td></tr></table></figure>
+
+<h2 id="emacs"><a href="#emacs" class="headerlink" title="emacs"></a>emacs</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">sudo apt-get install emacs<br></code></pre></td></tr></table></figure>
+
+<h2 id="shadowsocks"><a href="#shadowsocks" class="headerlink" title="shadowsocks"></a><a href="https://blog.huihut.com/2017/08/25/LinuxInstallConfigShadowsocksClient/" target="_blank" rel="noopener">shadowsocks</a></h2><ul>
+<li>install</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># ubuntu</span><br>sudo apt-get install python-pip<br>pip install --upgrade pip<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">// sudo vim /usr/bin/pip<br><span class="hljs-keyword">from</span> pip <span class="hljs-keyword">import</span> __main__<br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:<br>    sys.exit(__main__._main())<br></code></pre></td></tr></table></figure>
+
+<p>sudo pip install shadowsocks</p>
+<ul>
+<li>config<br><code>sudo vi $HOME/p/shadowsocks.json</code></li>
+</ul>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-comment">// 在shadowsocks.json中加入以下内容：</span><br>&#123;<br>  <span class="hljs-attr">"server"</span>: <span class="hljs-string">"my_server_ip"</span>,<br>  <span class="hljs-attr">"local_address"</span>: <span class="hljs-string">"127.0.0.1"</span>,<br>  <span class="hljs-attr">"local_port"</span>: <span class="hljs-number">1080</span>,<br>  <span class="hljs-attr">"server_port"</span>: my_server_port,<br>  <span class="hljs-attr">"password"</span>: <span class="hljs-string">"my_password"</span>,<br>  <span class="hljs-attr">"timeout"</span>: <span class="hljs-number">300</span>,<br>  <span class="hljs-attr">"method"</span>: <span class="hljs-string">"aes-256-cfb"</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><code>sudo ln -s $HOME/p/shadowsocks.json /etc/shadowsocks.json</code></p>
+<ul>
+<li>start</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sh">- 前端启动： sudo sslocal -c /etc/shadowsocks.json<br>- 后端启动： sudo sslocal -c /etc/shadowsocks.json -d start<br>- 后端停止： sudo sslocal -c /etc/shadowsocks.json -d stop<br>- 重启(修改配置要重启才生效)： sudo sslocal -c /etc/shadowsocks.json -d restart<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>boot up<br><code>sudo vim /etc/systemd/system/shadowsocks.service</code></li>
+</ul>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-section">[Unit]</span><br><span class="hljs-attr">Description</span>=Shadowsocks Client Service<br><span class="hljs-attr">After</span>=network.target<br><br><span class="hljs-section">[Service]</span><br><span class="hljs-attr">Type</span>=simple<br><span class="hljs-attr">User</span>=root<br><span class="hljs-attr">ExecStart</span>=/usr/bin/sslocal -c /etc/shadowsocks.json<br><br><span class="hljs-section">[Install]</span><br><span class="hljs-attr">WantedBy</span>=multi-user.target<br></code></pre></td></tr></table></figure>
+
+<p><code>systemctl enable /etc/systemd/system/shadowsocks.service</code></p>
+<ul>
+<li>now you can reboot to check it~</li>
+</ul>
+<h2 id="proxychains"><a href="#proxychains" class="headerlink" title="proxychains"></a>proxychains</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># https://askubuntu.com/questions/610333/how-to-set-socks5-proxy-in-the-terminal</span><br><span class="hljs-comment"># install proxychains</span><br>sudo apt install proxychains<br>sudo proxychains apt-get update<br><br><span class="hljs-comment"># now you can config your proxy in /etc/proxychains.conf</span><br><span class="hljs-comment"># sudo vim /etc/proxychains.conf</span><br>socks5 127.0.0.1 1080<br></code></pre></td></tr></table></figure>
+
+<h2 id="privoxy"><a href="#privoxy" class="headerlink" title="privoxy"></a>privoxy</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># https://linoxide.com/linux-how-to/install-use-privoxy-ubuntu-16-04/</span><br><span class="hljs-comment"># install</span><br>sudo apt-get install privoxy<br><br><span class="hljs-comment"># sudo vim /etc/privoxy/config</span><br><span class="hljs-comment"># 添加下面这一行</span><br>forward-socks5 / 0.0.0.0:1080 .<br><br><span class="hljs-comment">#启动</span><br>/etc/init.d/privoxy restart<br><br><span class="hljs-comment"># 测试</span><br>curl  -x 127.0.0.1:8118 http://www.google.com<br></code></pre></td></tr></table></figure>
+
+<h2 id="caja（文件管理器）"><a href="#caja（文件管理器）" class="headerlink" title="caja（文件管理器）"></a>caja（文件管理器）</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># https://www.devmanuals.net/install/ubuntu/ubuntu-16-04-LTS-Xenial-Xerus/how-to-install-caja.html</span><br>sudo apt-get update<br>sudo apt-get install caja<br></code></pre></td></tr></table></figure>
+
+<h2 id="terminal"><a href="#terminal" class="headerlink" title="terminal"></a>terminal</h2><h3 id="terminator"><a href="#terminator" class="headerlink" title="terminator"></a>terminator</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># http://www.ubuntugeek.com/terminator-multiple-gnome-terminals-in-one-window.html</span><br><span class="hljs-comment"># https://linux.cn/article-2978-1.html</span><br>sudo apt-get install terminator<br></code></pre></td></tr></table></figure>
+
+<h3 id="PAC-Manager"><a href="#PAC-Manager" class="headerlink" title="PAC Manager"></a>PAC Manager</h3><h2 id="tmux"><a href="#tmux" class="headerlink" title="tmux"></a>tmux</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">sudo apt-get install tmux<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><a href="http://witkowskibartosz.com/blog/update-your-tmux-to-latest-version.html#.W2wMk87-iCo" target="_blank" rel="noopener">Update your tmux to latest version</a></li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs sh">VERSION=2.8<br>wget https://github.com/tmux/tmux/releases/download/<span class="hljs-variable">$&#123;VERSION&#125;</span>/tmux-<span class="hljs-variable">$&#123;VERSION&#125;</span>.tar.gz<br>tar xf tmux-<span class="hljs-variable">$&#123;VERSION&#125;</span>.tar.gz<br>rm -f tmux-<span class="hljs-variable">$&#123;VERSION&#125;</span>.tar.gz<br><span class="hljs-built_in">cd</span> tmux-<span class="hljs-variable">$&#123;VERSION&#125;</span><br><br>sudo apt-get install libevent-dev<br>sudo apt-get install ncurses-dev<br>./configure<br>make<br>sudo make install<br><span class="hljs-built_in">cd</span> -<br>sudo rm -rf /usr/<span class="hljs-built_in">local</span>/src/tmux-\*<br>sudo mv tmux-<span class="hljs-variable">$&#123;VERSION&#125;</span> /usr/<span class="hljs-built_in">local</span>/src<br></code></pre></td></tr></table></figure>
+
+<h2 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h2><ul>
+<li><a href="https://www.cnblogs.com/EasonJim/p/7863099.html" target="_blank" rel="noopener">https://www.cnblogs.com/EasonJim/p/7863099.html</a></li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># install</span><br>sudo apt-get install zsh<br><br><span class="hljs-comment"># change default shell to zsh</span><br>chsh -s /bin/zsh<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>oh my zsh</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># https://github.com/robbyrussell/oh-my-zsh</span><br>sh -c <span class="hljs-string">"<span class="hljs-variable">$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)</span>"</span><br>sh -c <span class="hljs-string">"<span class="hljs-variable">$(curl -fsSL https://gitee.com/mirrors/oh-my-zsh/raw/master/tools/install.sh)</span>"</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>autojump</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs sh">sudo apt-get install autojump<br><br>vim .zshrc<br><span class="hljs-comment">#在最后一行加入，注意点后面是一个空格</span><br>plugins=( [plugins...] autojump)<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>zsh-syntax-highlighting</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md</span><br><span class="hljs-comment"># 1. Clone this repository in oh-my-zsh's plugins directory:</span><br>git <span class="hljs-built_in">clone</span> https://github.com/zsh-users/zsh-syntax-highlighting.git <span class="hljs-variable">$&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;</span>/plugins/zsh-syntax-highlighting<br><span class="hljs-comment"># 2. Activate the plugin in ~/.zshrc:</span><br>plugins=( [plugins...] zsh-syntax-highlighting)<br><span class="hljs-comment"># 3. Source ~/.zshrc to take changes into account:</span><br><span class="hljs-built_in">source</span> ~/.zshrc<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>zsh-autosuggestions</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">git <span class="hljs-built_in">clone</span> git://github.com/zsh-users/zsh-autosuggestions <span class="hljs-variable">$ZSH_CUSTOM</span>/plugins/zsh-autosuggestions<br>plugins=( [plugins...] zsh-autosuggestions)<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>theme:</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sh">$ git <span class="hljs-built_in">clone</span> https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k<br><br>vi ~/.vimrc<br>ZSH_THEME=<span class="hljs-string">"powerlevel9k/powerlevel9k"</span><br></code></pre></td></tr></table></figure>
+<p><a href="https://travis.media/top-12-oh-my-zsh-themes-for-productive-developers/#20210921-eastwood" target="_blank" rel="noopener">https://travis.media/top-12-oh-my-zsh-themes-for-productive-developers/#20210921-eastwood</a></p>
+<h2 id="git-cola"><a href="#git-cola" class="headerlink" title="git-cola"></a>git-cola</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">apt-get install git-cola<br></code></pre></td></tr></table></figure>
+
+<h2 id="variety-壁纸切换"><a href="#variety-壁纸切换" class="headerlink" title="variety 壁纸切换"></a>variety 壁纸切换</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">sudo apt-get update<br>sudo apt-get install variety<br></code></pre></td></tr></table></figure>
+
+<h2 id="catfish-文件搜索"><a href="#catfish-文件搜索" class="headerlink" title="catfish 文件搜索"></a>catfish 文件搜索</h2><h2 id="calibre（电子书阅读器）"><a href="#calibre（电子书阅读器）" class="headerlink" title="calibre（电子书阅读器）"></a>calibre（电子书阅读器）</h2><h2 id="红移（色温调节工具）"><a href="#红移（色温调节工具）" class="headerlink" title="红移（色温调节工具）"></a>红移（色温调节工具）</h2><h2 id="workrave（定时提醒）"><a href="#workrave（定时提醒）" class="headerlink" title="workrave（定时提醒）"></a>workrave（定时提醒）</h2><h2 id="LibreOffice"><a href="#LibreOffice" class="headerlink" title="LibreOffice"></a>LibreOffice</h2><h2 id="Transmission-downloader"><a href="#Transmission-downloader" class="headerlink" title="Transmission (downloader)"></a>Transmission (downloader)</h2><h2 id="diodon"><a href="#diodon" class="headerlink" title="diodon"></a>diodon</h2><h2 id="截图软件-shutter"><a href="#截图软件-shutter" class="headerlink" title="截图软件 shutter"></a>截图软件 shutter</h2><ol>
+<li><code>sudo add-apt-repository ppa:shutter/ppa1</code></li>
+<li><code>sudo apt-get update</code></li>
+<li><code>sudo apt-get install shutter1</code></li>
+<li>设置快捷键 keyboard -&gt; shortcut -&gt; <code>shutter -s</code> -&gt; Ctrl+Alt+A -&gt; ok</li>
+</ol>
+<ul>
+<li><a href="http://www.linuxidc.com/Linux/2015-07/119753.htm" target="_blank" rel="noopener">Ubuntu 安装截图工具 Shutter，并设置快捷键 Ctrl+Alt+A_Linux 教程_Linux 公社-Linux 系统门户网站</a></li>
+</ul>
+<h2 id="卸载软件"><a href="#卸载软件" class="headerlink" title="卸载软件"></a>卸载软件</h2><ol>
+<li>查找安装名称：<code>dpkg -l | grep package_name</code></li>
+<li>卸载<code>sudo apt-get remove package_name</code>, 具体输入<code>apt-get</code>命令查看</li>
+</ol>
+<h2 id="本地安装"><a href="#本地安装" class="headerlink" title="本地安装"></a>本地安装</h2><p>以安装网易云音乐为例</p>
+<ol>
+<li>从官网下载 deb 安装文件</li>
+<li>执行下列命令</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">$ sudo dpkg -i netease*.dbg<br>$ sudo apt -f install<br></code></pre></td></tr></table></figure>
+
+<h2 id="去除-chrome-的输入密码以解锁密码环提示"><a href="#去除-chrome-的输入密码以解锁密码环提示" class="headerlink" title="去除 chrome 的输入密码以解锁密码环提示"></a>去除 chrome 的<code>输入密码以解锁密码环</code>提示</h2><ul>
+<li>终端输入<code>seahorse</code></li>
+<li>右键删除 <code>登录</code></li>
+<li>退出 chrome</li>
+<li>提示输入密码时，不输入任何内容，直接按下一步。<blockquote>
+<p><a href="http://blog.csdn.net/kangear/article/details/20789451" target="_blank" rel="noopener">解决打开 Chrome 出现 输入密码以解锁您的登录密钥环 - Android/Linux 的专栏 - 博客频道 - CSDN.NET</a></p>
+</blockquote>
+</li>
+</ul>
+<h2 id="安装-WenQuanYi-Zen-Hei-字体"><a href="#安装-WenQuanYi-Zen-Hei-字体" class="headerlink" title="安装 WenQuanYi Zen Hei 字体"></a>安装 WenQuanYi Zen Hei 字体</h2><ol>
+<li>download file: wqy-zenhei-0.9.45.deb</li>
+<li>install: dpkg -i wqy-zenhei-0.9.45.deb</li>
+</ol>
+<h2 id="sleep"><a href="#sleep" class="headerlink" title="sleep"></a><a href="https://medium.com/@jerilkuriakose/keyboard-shortcuts-for-custom-terminal-commands-in-ubuntu-17-10-aeb902f71869" target="_blank" rel="noopener">sleep</a></h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-meta">#!/bin/bash</span><br>dbus-send --system --<span class="hljs-built_in">print</span>-reply --dest=org.freedesktop.login1 /org/freedesktop/login1 <span class="hljs-string">"org.freedesktop.login1.Manager.Suspend"</span> boolean:<span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="wine"><a href="#wine" class="headerlink" title="wine"></a>wine</h2><p><a href="https://wiki.winehq.org/Ubuntu" target="_blank" rel="noopener">https://wiki.winehq.org/Ubuntu</a></p>
+<h2 id="add-C-env"><a href="#add-C-env" class="headerlink" title="add C env"></a>add C env</h2><p>apt-get install build-essential</p>
+<h2 id="rg"><a href="#rg" class="headerlink" title="rg"></a>rg</h2><p><a href="https://github.com/BurntSushi/ripgrep" target="_blank" rel="noopener">https://github.com/BurntSushi/ripgrep</a></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">curl -LO https://github.com/BurntSushi/ripgrep/releases/download/0.10.0/ripgrep_0.10.0_amd64.deb<br><br>sudo dpkg -i ripgrep_0.10.0_amd64.deb<br></code></pre></td></tr></table></figure>
+
+<h2 id="trash-cli"><a href="#trash-cli" class="headerlink" title="trash-cli"></a>trash-cli</h2><ul>
+<li><a href="https://github.com/andreafrancia/trash-cli" target="_blank" rel="noopener">andreafrancia/trash-cli: Command line interface to the freedesktop.org trashcan.</a></li>
+<li><a href="https://linux.cn/article-10029-1.html" target="_blank" rel="noopener">分享|Trash-Cli：Linux 上的命令行回收站工具</a></li>
+</ul>
+<h2 id="fzf"><a href="#fzf" class="headerlink" title="fzf"></a>fzf</h2><p>A command-line fuzzy finder</p>
+<p><a href="https://github.com/junegunn/fzf" target="_blank" rel="noopener">https://github.com/junegunn/fzf</a></p>
+<h2 id="v2ray"><a href="#v2ray" class="headerlink" title="v2ray"></a>v2ray</h2><p><strong>server</strong></p>
+<ul>
+<li><a href="https://github.com/233boy/v2ray/wiki/V2Ray%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85%E8%84%9A%E6%9C%AC" target="_blank" rel="noopener">V2Ray 一键安装脚本 · 233boy/v2ray Wiki · GitHub</a></li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">bash &lt;(curl -s -L https://git.io/v2ray.sh)<br>bash &lt;(curl -s -L https://git.io/v2ray-setup.sh)<br></code></pre></td></tr></table></figure>
+
+<p><strong>client</strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">bash &lt;(curl -L -s https://install.direct/go.sh)<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs ini">说明<br>此脚本会自动安装以下文件：<br>/usr/bin/v2ray/v2ray：V2Ray 程序；<br>/usr/bin/v2ray/v2ctl：V2Ray 工具；<br>/etc/v2ray/config.json：配置文件；<br>/usr/bin/v2ray/geoip.dat：IP 数据文件<br>/usr/bin/v2ray/geosite.dat：域名数据文件<br></code></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>修改配置<br><code>vi /etc/v2ray/config.json</code></p>
+</li>
+<li><p>启动和状态查看</p>
+</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">service v2ray start<br>service v2ray status<br>service v2ray restart<br></code></pre></td></tr></table></figure>
+
+<p>android 客户端：BifrostV</p>
+<h2 id="file-server"><a href="#file-server" class="headerlink" title="file server"></a>file server</h2><p><a href="https://www.ostechnix.com/how-to-quickly-serve-files-and-folders-over-http-in-linux/" target="_blank" rel="noopener">How To Quickly Serve Files And Folders Over HTTP In Linux - OSTechNix</a></p>
+<h2 id="How-do-I-modify-or-disable-the-HUD’s-use-of-the-Alt-key"><a href="#How-do-I-modify-or-disable-the-HUD’s-use-of-the-Alt-key" class="headerlink" title="How do I modify or disable the HUD’s use of the Alt key?"></a>How do I modify or disable the HUD’s use of the Alt key?</h2><ol>
+<li>open <code>System Settings</code></li>
+<li>Then go to Keyboard &gt; Shortcuts &gt; Launchers. You can redefine the HUD key with the Key to show the HUD option. Pressing Backspace will disable the HUD shortcut altogether.</li>
+<li>You can redefine the HUD key with the Key to show the HUD option. Pressing Backspace will disable the HUD shortcut altogether.</li>
+</ol>
+<ul>
+<li><a href="https://askubuntu.com/questions/122209/how-do-i-modify-or-disable-the-huds-use-of-the-alt-key" target="_blank" rel="noopener">unity - How do I modify or disable the HUD’s use of the Alt key? - Ask Ubuntu</a></li>
+</ul>
+<h2 id="Install-Fira-in-Ubuntu"><a href="#Install-Fira-in-Ubuntu" class="headerlink" title="Install Fira in Ubuntu"></a><a href="https://stevescott.ca/2015-09-28-installing-fira-in-ubuntu.html" target="_blank" rel="noopener">Install Fira in Ubuntu</a></h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sh">wget https://github.com/mozilla/Fira/archive/master.zip<br>unzip master.zip<br>sudo mkdir -p /usr/share/fonts/truetype/fira<br>sudo cp Fira-master/ttf/* /usr/share/fonts/truetype/fira<br></code></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/git/git%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/images/avatar.png">
+      <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lyloou">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/git/git%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86/" class="post-title-link" itemprop="url">Git分支管理</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-08-04 13:17:25" itemprop="dateCreated datePublished" datetime="2018-08-04T13:17:25+08:00">2018-08-04</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <ul>
+<li><p><a href="https://nvie.com/posts/a-successful-git-branching-model/" target="_blank" rel="noopener">A successful Git branching model » nvie.com</a><br><img src="https://nvie.com/img/git-model@2x.png" alt="A successful Git branching model"></p>
+</li>
+<li><p><a href="https://backlog.com/git-tutorial/cn/stepup/stepup1_5.html" target="_blank" rel="noopener">topic分支和merge分支的运用实例【分支】| 猴子都能懂的GIT入门| 贝格乐（Backlog）</a><br><img src="https://backlog.com/git-tutorial/cn/img/post/stepup/capture_stepup1_5_6.png" alt="topic分支和merge分支的运用实例"></p>
+</li>
+<li><p><a href="https://backlog.com/git-tutorial/cn/stepup/stepup2_8.html" target="_blank" rel="noopener">用rebase合并【教程1 操作分支】| 猴子都能懂的GIT入门 | 贝格乐（Backlog）</a></p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/android/%E5%9B%BE%E7%89%87%E8%A3%81%E5%89%AA%E5%92%8C%E4%B8%8A%E4%BC%A0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -229,20 +555,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/android/%E5%9B%BE%E7%89%87%E8%A3%81%E5%89%AA%E5%92%8C%E4%B8%8A%E4%BC%A0/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/android/%E5%9B%BE%E7%89%87%E8%A3%81%E5%89%AA%E5%92%8C%E4%B8%8A%E4%BC%A0/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -296,7 +608,7 @@
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/android/%E5%AE%89%E5%85%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -321,20 +633,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/android/%E5%AE%89%E5%85%A8/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/android/%E5%AE%89%E5%85%A8/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -374,7 +672,7 @@
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/sql/jooq/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -399,20 +697,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/sql/jooq/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/sql/jooq/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -455,7 +739,7 @@
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/android/%E5%90%AF%E5%8A%A8%E5%B1%8F%E5%92%8C%E5%BC%95%E5%AF%BC%E9%A1%B5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -480,20 +764,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/android/%E5%90%AF%E5%8A%A8%E5%B1%8F%E5%92%8C%E5%BC%95%E5%AF%BC%E9%A1%B5/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/android/%E5%90%AF%E5%8A%A8%E5%B1%8F%E5%92%8C%E5%BC%95%E5%AF%BC%E9%A1%B5/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -544,82 +814,10 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/linux/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="lyloou">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/linux/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99/" class="post-title-link" itemprop="url">学习资料</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-07-30 09:07:15" itemprop="dateCreated datePublished" datetime="2018-07-30T09:07:15+08:00">2018-07-30</time>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/linux/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/linux/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><a href="http://mingxinglai.com/cn/2013/01/skills-of-shell/" target="_blank" rel="noopener">一堆shell脚本技巧 | 赖明星</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/linux/vim/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -644,20 +842,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/linux/vim/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/linux/vim/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -701,10 +885,68 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/linux/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/images/avatar.png">
+      <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lyloou">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/linux/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99/" class="post-title-link" itemprop="url">学习资料</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-07-30 09:07:15" itemprop="dateCreated datePublished" datetime="2018-07-30T09:07:15+08:00">2018-07-30</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><a href="http://mingxinglai.com/cn/2013/01/skills-of-shell/" target="_blank" rel="noopener">一堆shell脚本技巧 | 赖明星</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/linux/%E9%85%8D%E7%BD%AE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -729,20 +971,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/linux/%E9%85%8D%E7%BD%AE/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/linux/%E9%85%8D%E7%BD%AE/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -816,7 +1044,7 @@
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/linux/tmux/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -841,20 +1069,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/linux/tmux/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/linux/tmux/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -875,190 +1089,6 @@
 <li><a href="https://superuser.com/questions/428016/how-do-i-rename-a-session-in-tmux" target="_blank" rel="noopener">How do I rename a session in tmux? - Super User</a><br><code>Ctrl</code> + <code>B</code>, <code>$</code></li>
 </ul>
 
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/linux/%E5%8E%8B%E7%BC%A9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="lyloou">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/linux/%E5%8E%8B%E7%BC%A9/" class="post-title-link" itemprop="url">Tar & Zip</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-07-26 17:16:15" itemprop="dateCreated datePublished" datetime="2018-07-26T17:16:15+08:00">2018-07-26</time>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/linux/%E5%8E%8B%E7%BC%A9/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/linux/%E5%8E%8B%E7%BC%A9/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <ul>
-<li><a href="https://unix.stackexchange.com/questions/85194/how-to-download-an-archive-and-extract-it-without-saving-the-archive-to-disk/85195" target="_blank" rel="noopener">shell - How to download an archive and extract it without saving the archive to disk? - Unix &amp; Linux Stack Exchange</a><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs 1c">wget -qO- your_link_here <span class="hljs-string">| tar xvz -C /target/directory</span><br></code></pre></td></tr></table></figure>
-
-
-</li>
-</ul>
-<h2 id="zip"><a href="#zip" class="headerlink" title="zip"></a>zip</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs stylus">https:<span class="hljs-comment">//unix.stackexchange.com/questions/46969/compress-a-folder-with-tar</span><br>To tar and gzip <span class="hljs-selector-tag">a</span> folder, the syntax is:<br>tar czf name_of_archive_file<span class="hljs-selector-class">.tar</span><span class="hljs-selector-class">.gz</span> name_of_directory_to_tar<br><br>tar -zcvf xxx<span class="hljs-selector-class">.tar</span><span class="hljs-selector-class">.gz</span> aaa bbb<br>tar -jcvf xxx<span class="hljs-selector-class">.tar</span><span class="hljs-selector-class">.bz2</span> aaa bbb<br>tar -Jcvf xxx<span class="hljs-selector-class">.tar</span><span class="hljs-selector-class">.xz</span> aaa bbb<br></code></pre></td></tr></table></figure>
-<h2 id="unzip"><a href="#unzip" class="headerlink" title="unzip"></a>unzip</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs sh">tar -xf xxx.tar.gz<br>tar -xf xxx.tar.bz2<br>tar -Jxf xxx.tar.xz<br><br>tar -xf xxx.tar.gz -C ./xxx<br></code></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/linux/%E7%B3%BB%E7%BB%9F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="lyloou">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/linux/%E7%B3%BB%E7%BB%9F/" class="post-title-link" itemprop="url">【Linux】系统</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-07-26 17:16:15" itemprop="dateCreated datePublished" datetime="2018-07-26T17:16:15+08:00">2018-07-26</time>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/linux/%E7%B3%BB%E7%BB%9F/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/linux/%E7%B3%BB%E7%BB%9F/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="制作-ubuntu-系统启动-u-盘"><a href="#制作-ubuntu-系统启动-u-盘" class="headerlink" title="制作 ubuntu 系统启动 u 盘"></a>制作 ubuntu 系统启动 u 盘</h2><h3 id="下载发行版镜像"><a href="#下载发行版镜像" class="headerlink" title="下载发行版镜像"></a>下载发行版镜像</h3><p>有这几个供参考：ubuntu、xbuntu、mate ubuntu</p>
-<h3 id="ubuntu"><a href="#ubuntu" class="headerlink" title="ubuntu"></a>ubuntu</h3><ul>
-<li>Startup Disk Creator(启动盘创建器)</li>
-</ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># install</span><br>sudo apt-get install usb-creator-gtk<br><span class="hljs-comment"># run</span><br>usb-creator-gtk<br></code></pre></td></tr></table></figure>
-
-<ul>
-<li><a href="https://tutorials.ubuntu.com/tutorial/tutorial-create-a-usb-stick-on-ubuntu" target="_blank" rel="noopener">https://tutorials.ubuntu.com/tutorial/tutorial-create-a-usb-stick-on-ubuntu</a></li>
-</ul>
-<h3 id="mac"><a href="#mac" class="headerlink" title="mac"></a>mac</h3><ul>
-<li>Disk Utility</li>
-<li><a href="https://tutorials.ubuntu.com/tutorial/tutorial-create-a-usb-stick-on-macos" target="_blank" rel="noopener">https://tutorials.ubuntu.com/tutorial/tutorial-create-a-usb-stick-on-macos</a></li>
-</ul>
-<h3 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h3><ul>
-<li><p>下载 Pen Drive Linux’s USB 安装器 （或：rufus）</p>
-</li>
-<li><p>从下拉选项中选择 Ubuntu 桌面版本。</p>
-</li>
-<li><p>点击‘浏览’然后打开已下载的 ISO 文件。</p>
-</li>
-<li><p>选择一个 USB 驱动器并点击‘创建’.</p>
-</li>
-<li><p><a href="http://www.ubuntu.org.cn/download/desktop/create-a-usb-stick-on-windows" target="_blank" rel="noopener">如何在 Windows 下创建一个可启动 USB 驱动器 | Ubuntu</a><br>注意：U 盘启动后，会出现提示<code>gfxboot.c32: not a com32r image</code>，这时按下 TAB，并输入<code>live</code>回车即可进入启动系统。</p>
-</li>
-<li><p><a href="https://tutorials.ubuntu.com/tutorial/tutorial-create-a-usb-stick-on-windows" target="_blank" rel="noopener">https://tutorials.ubuntu.com/tutorial/tutorial-create-a-usb-stick-on-windows</a></p>
-</li>
-</ul>
-<h2 id="如何找到-Linux-的版本号"><a href="#如何找到-Linux-的版本号" class="headerlink" title="如何找到 Linux 的版本号"></a><a href="https://linux.cn/article-9760-1.html" target="_blank" rel="noopener">如何找到 Linux 的版本号</a></h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">uname -srm<br><span class="hljs-comment"># uname --kernel-name --kernel-release --machine</span><br><span class="hljs-comment"># Linux 4.13.0-46-generic x86_64</span><br></code></pre></td></tr></table></figure>
-
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">cat /etc/os-release<br></code></pre></td></tr></table></figure>
-<h2 id="Checking-Your-Ubuntu-Version-From-the-Terminal"><a href="#Checking-Your-Ubuntu-Version-From-the-Terminal" class="headerlink" title="Checking Your Ubuntu Version From the Terminal"></a>Checking Your Ubuntu Version From the Terminal</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">lsb_release -a<br></code></pre></td></tr></table></figure>
-
-<h2 id="How-do-you-run-Ubuntu-Server-with-a-GUI"><a href="#How-do-you-run-Ubuntu-Server-with-a-GUI" class="headerlink" title="How do you run Ubuntu Server with a GUI?"></a><a href="https://askubuntu.com/questions/53822/how-do-you-run-ubuntu-server-with-a-gui" target="_blank" rel="noopener">How do you run Ubuntu Server with a GUI?</a></h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># Minimal GUI:</span><br>sudo apt install xorg<br>sudo apt install --no-install-recommends openbox<br><br><span class="hljs-comment"># Minimal GUI with display manager:</span><br>sudo apt install xorg<br>sudo apt install --no-install-recommends lightdm-gtk-greeter<br>sudo apt install --no-install-recommends lightdm<br>sudo apt install --no-install-recommends openbox<br><br><span class="hljs-comment"># A more functional minimal desktop environment (the one I use):</span><br>sudo apt install xorg<br>sudo apt install --no-install-recommends lightdm-gtk-greeter<br>sudo apt install --no-install-recommends lightdm<br>sudo apt install --no-install-recommends lxde-icon-theme<br>sudo apt install --no-install-recommends lxde-core<br>sudo apt install --no-install-recommends lxde-common<br>sudo apt install --no-install-recommends policykit-1 lxpolkit<br>sudo apt install --no-install-recommends lxsession-logout<br>sudo apt install --no-install-recommends gvfs-backends<br><br><span class="hljs-comment"># A full lightweight desktop environment:</span><br>sudo apt install xorg<br>sudo apt install --no-install-recommends xubuntu-core<br><span class="hljs-comment"># or</span><br>sudo apt install --no-install-recommends ubuntu-mate-core<br></code></pre></td></tr></table></figure>
-
-<h2 id="Can-I-access-Ubuntu-from-Windows-remotely"><a href="#Can-I-access-Ubuntu-from-Windows-remotely" class="headerlink" title="Can I access Ubuntu from Windows remotely?"></a><a href="https://askubuntu.com/questions/592537/can-i-access-ubuntu-from-windows-remotely" target="_blank" rel="noopener">Can I access Ubuntu from Windows remotely?</a></h2><p><a href="https://www.tweaking4all.com/software/linux-software/use-xrdp-remote-access-ubuntu-14-04/" target="_blank" rel="noopener">https://www.tweaking4all.com/software/linux-software/use-xrdp-remote-access-ubuntu-14-04/</a></p>
-<h2 id="vmware-esxi"><a href="#vmware-esxi" class="headerlink" title="vmware esxi"></a>vmware esxi</h2>
       
     </div>
 
@@ -1135,7 +1165,7 @@
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="lyloou"
-      src="/images/avatar.png">
+      src="/assets/images/avatar.png">
   <p class="site-author-name" itemprop="name">lyloou</p>
   <div class="site-description" itemprop="description">/* Better than last best */</div>
 </div>
@@ -1144,7 +1174,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">311</span>
+          <span class="site-state-item-count">313</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1315,34 +1345,6 @@ if (document.querySelectorAll('pre.mermaid').length) {
 
   
 
-
-<script>
-NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
-  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
-    var GUEST = ['nick', 'mail', 'link'];
-    var guest = 'nick,mail,link';
-    guest = guest.split(',').filter(item => {
-      return GUEST.includes(item);
-    });
-    new Valine({
-      el         : '#valine-comments',
-      verify     : false,
-      notify     : true,
-      appId      : 'yhivNNDDoank7qFbmyEj9Ldq-gzGzoHsz',
-      appKey     : 'QuFu2ooibSzW1Q8eTrmPLyPw',
-      placeholder: "Just go go",
-      avatar     : 'mm',
-      meta       : guest,
-      pageSize   : '10' || 10,
-      visitor    : false,
-      lang       : '' || 'zh-cn',
-      path       : location.pathname,
-      recordIP   : true,
-      serverURLs : ''
-    });
-  }, window.Valine);
-});
-</script>
 
 </body>
 </html>

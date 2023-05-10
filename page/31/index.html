@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"lyloou.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"lyloou.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="&#x2F;* Better than last best *&#x2F;">
@@ -201,10 +201,222 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/android/%E3%80%8AAndroid%E7%BE%A4%E8%8B%B1%E4%BC%A0%E3%80%8B%E7%AC%94%E8%AE%B0%E6%80%BB%E7%BB%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/images/avatar.png">
+      <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lyloou">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/android/%E3%80%8AAndroid%E7%BE%A4%E8%8B%B1%E4%BC%A0%E3%80%8B%E7%AC%94%E8%AE%B0%E6%80%BB%E7%BB%93/" class="post-title-link" itemprop="url">《Android群英传》读书笔记</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-06-26 09:46:04" itemprop="dateCreated datePublished" datetime="2016-06-26T09:46:04+08:00">2016-06-26</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="《Android群英传》-笔记"><a href="#《Android群英传》-笔记" class="headerlink" title="《Android群英传》 笔记"></a>《Android群英传》 笔记</h2><p>| apk 安装路径： –p220(q1)</p>
+<ul>
+<li><code>/system/app</code> : 系统及别的 apk;</li>
+<li><code>/data/app</code> : 用户安装的 apk;</li>
+</ul>
+<p>| android 管理器<br>  pm(package manager)： 主宰着应用的包管理；<br>  am(activity manager): 主宰着应用的活动管理； –p210(q1)</p>
+<p>| 如果说系统信息好比是国家的 GDP， 那么 Apk 应用信息则像是对个人的经济普查。 –p210(q1)</p>
+<p>| 一个 Task 中的 Activity 可以来自不同的 APP，<br>同一个 App 的  Activity 也可能不再一个 Task 中。 –p200(q1)</p>
+<p>| 一个合理的任务调度栈不仅是性能的保证，更是提供性能的基础。 –p200(q1)</p>
+<p>| 如果你得自定义 View 需要频繁刷新，或者刷新时数据处理量比较大，<br>那么就可以考虑使用 SurfaceView 来取代 View 了。 –p155(q1)</p>
+<p>| canvas 的方法： –p118(q1)</p>
+<ul>
+<li>save(): 保存画布；作用是将之前的所有已绘制图像保存起来，让后续的操作就好像在新图层上操作一样;</li>
+<li>restore(): 合并图层；作用是将 save 之后的和 save 之前的图像进行合并；</li>
+<li>translate(): 坐标系的平移；</li>
+<li>rotate(): 坐标系的翻转；</li>
+</ul>
+<p>| scrollTo、scrollBy 方法移动的是 View 的 content, 即让 View 的内容移动( content )，<br>如果在 ViewGroup 中使用 scrollTo、 scrollBy 方法，那么移动的将是所有子 View；<br>例如： TextView, content 就是它的文本; ImageView, content 就是它的 drawable. –p95(q1)</p>
+<p>| 形象的事件处理机制： –p62(q1)</p>
+<ul>
+<li>事件的传递顺序：<br>  总经理(MyViewGroupA) –&gt; 部长(MyViewGroupB) –&gt; 你(View)。<br>  事件传递的时候，先执行 dispatchTouchEvent() 方法，再执行 onInterceptTouchEvent()<br>  方法（注意：View 没有 onInterceptTouchEvent方法，只有 ViewGroup 有这个方法）。</li>
+<li>事件的处理顺序：<br>  你(View) –&gt; 部长(MyViewGroupB) –&gt; 总经理(MyViewGroupB)。<br>  事件处理都是执行 onTouchEvent() 方法。</li>
+<li>事件传递的返回值： true, 拦截；false, 不拦截, 继续流程；    </li>
+<li>事件处理的返回值： true, 处理了，不用审核； false, 给上级处理。</li>
+<li>初始情况下，返回值都是 false。</li>
+</ul>
+<p>| 动态控制UI模板的方法：接口回调、提供 public 方法。 –p48(q1)</p>
+<ul>
+<li>接口回调<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Ilistener</span> </span>&#123;<br>  <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">click</span><span class="hljs-params">(View v)</span></span>;  <br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">innerMethod</span><span class="hljs-params">(View v)</span> </span>&#123;<br>  mIlistener.click(v);<br>&#125;<br><br><span class="hljs-comment">// 声明和初始化</span><br>Ilistener mIlistener;<br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">register</span><span class="hljs-params">(Ilistener listener)</span></span>&#123;<br>  mIlistener = listener;<br>&#125;<br></code></pre></td></tr></table></figure></li>
+<li>提供 public 方法<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">private</span> String mStr;<br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">publicMethod</span><span class="hljs-params">(String str)</span> </span>&#123;<br>  mStr = str;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>| 解释 bitmap 和 Canvas  –p38(q1)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 装载画布：将 bitmap 装载到画布 canvas 上,</span><br><span class="hljs-comment">// 这个 bitmap 存储了所有绘制在 Canvas.drawXXX 方法的像素信息</span><br>Canvas canvas = <span class="hljs-keyword">new</span> Canvas(bitmap);<br></code></pre></td></tr></table></figure>
+<p>代码解释：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs java">Canvas canvas;<br>Bitmap bitmap1, bitmap2;<br><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">initBitmap</span><span class="hljs-params">()</span> </span>&#123;<br>  bitmap1 = <span class="hljs-keyword">new</span> Bitmap(...);<br>  bitmap2 = <span class="hljs-keyword">new</span> Bitmap(...);<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">initCanvas</span><span class="hljs-params">()</span> </span>&#123;<br>  <span class="hljs-keyword">this</span>.canvas = <span class="hljs-keyword">new</span> Canvas(bitmap2);<br>&#125;<br><br><span class="hljs-meta">@Override</span><br><span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onDraw</span><span class="hljs-params">(Canvas canvas)</span> </span>&#123;<br>  canvas.drawBitmap(bitmap1, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-keyword">null</span>);<br>  canvas.drawBitmap(bitmap2, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-keyword">null</span>);<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">changeBitmap2</span><span class="hljs-params">()</span></span>&#123;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+<p>| Canvas 就像一个画板，使用 Paint 就可以在上面作画了。 –p37(q1)</p>
+<p>| 其实，Android 就好像那个蒙着眼睛画画的人，你必须精确地告诉它如何去画，<br>它才能绘出你想要的图形；–p34(q1)|</p>
+<p>| Intent - Android上的信使，信息传递的载体；<br>–p5(q1)</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/android/%E8%B5%84%E6%BA%90%E6%96%87%E4%BB%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/images/avatar.png">
+      <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lyloou">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/android/%E8%B5%84%E6%BA%90%E6%96%87%E4%BB%B6/" class="post-title-link" itemprop="url">Android中资源文件相关</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-06-18 08:59:00" itemprop="dateCreated datePublished" datetime="2016-06-18T08:59:00+08:00">2016-06-18</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="resources标签"><a href="#resources标签" class="headerlink" title="resources标签"></a>resources标签</h2><ul>
+<li>所有的资源文件，都可以放在同一个<code>&lt;resources&gt;</code>标签下面；但放到不同的文件中，更方便查找<br>例如：<code>color</code>、<code>declare-styleable</code>、<code>dimen</code>、<code>integer</code>、<code>item</code>、<code>string</code>、<code>style</code>。</li>
+</ul>
+<h2 id="string标签translatable属性"><a href="#string标签translatable属性" class="headerlink" title="string标签translatable属性"></a>string标签translatable属性</h2><p>使用<code>translatable=&quot;false&quot;</code>属性可以让内容直接嵌入到引用的地方，而不做翻译处理。</p>
+<ul>
+<li><p>举例来说，下面的用法就可以将<code>android.support.design.widget.AppBarLayout$ScrollingViewBehavior</code>直接嵌入到了<code>ScrollView</code>。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">ScrollView</span></span><br><span class="hljs-tag">   <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span></span><br><span class="hljs-tag">   <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"match_parent"</span></span><br><span class="hljs-tag">   <span class="hljs-attr">app:layout_behavior</span>=<span class="hljs-string">"@string/appbar_scrolling_view_behavior"</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"appbar_scrolling_view_behavior"</span> <span class="hljs-attr">translatable</span>=<span class="hljs-string">"false"</span>&gt;</span>android.support.design.widget.AppBarLayout$ScrollingViewBehavior<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<ul>
+<li>另一种方案：<blockquote>
+<p>It’s the ignore attribute of the tools namespace in your strings file, as follows:</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">resources</span></span><br><span class="hljs-tag">  <span class="hljs-attr">xmlns:tools</span>=<span class="hljs-string">"http://schemas.android.com/tools"</span></span><br><span class="hljs-tag">  <span class="hljs-attr">tools:ignore</span>=<span class="hljs-string">"MissingTranslation"</span> &gt;</span><br>  <span class="hljs-comment">&lt;!-- your strings here; no need now for the translatable attribute --&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">resources</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="使用场合"><a href="#使用场合" class="headerlink" title="使用场合"></a>使用场合</h3><p>不希望字符串被翻译。</p>
+<h3 id="外部链接"><a href="#外部链接" class="headerlink" title="外部链接"></a>外部链接</h3><ul>
+<li><a href="http://tools.android.com/recent/non-translatablestrings" target="_blank" rel="noopener">Non-translatable Strings</a></li>
+<li><a href="http://stackoverflow.com/questions/3925072/what-is-the-purpose-of-using-translatable-in-android-strings/13688979" target="_blank" rel="noopener">What is the purpose of using translatable in Android strings?</a></li>
+<li><a href="http://stackoverflow.com/questions/12590739/avoid-android-lint-complains-about-not-translated-string" target="_blank" rel="noopener">Avoid Android Lint complains about not-translated string</a><blockquote>
+<p>If you don’t want a string to be translated, you should only define it in the “base values/folder”, which means do not enter the string in the translated values/folder.</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="string动态设置下划线文本的方案；"><a href="#string动态设置下划线文本的方案；" class="headerlink" title="string动态设置下划线文本的方案；"></a>string动态设置下划线文本的方案；</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- 还可以使用：&lt;b&gt;、&lt;i&gt;、&lt;u&gt;等html标签 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"nav_name"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">u</span>&gt;</span>%1$s<span class="hljs-tag">&lt;/<span class="hljs-name">u</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">TextView</span></span><br><span class="hljs-tag">    <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/tv_nav_name"</span></span><br><span class="hljs-tag">    <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"wrap_content"</span></span><br><span class="hljs-tag">    <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"wrap_content"</span></span><br><span class="hljs-tag">    <span class="hljs-attr">android:text</span>=<span class="hljs-string">"@string/nav_name"</span></span><br><span class="hljs-tag">    <span class="hljs-attr">android:textColor</span>=<span class="hljs-string">"@color/colorPrimary"</span></span><br><span class="hljs-tag">    <span class="hljs-attr">android:textSize</span>=<span class="hljs-string">"18sp"</span>/&gt;</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 动态控制带下划线的文本内容</span><br>String name = <span class="hljs-string">"昵称"</span>;<br>tvName.setText(mContext.getString(R.string.nav_name, name));<br></code></pre></td></tr></table></figure>
+
+<h2 id="使用string字符串资源的一些建议"><a href="#使用string字符串资源的一些建议" class="headerlink" title="使用string字符串资源的一些建议"></a>使用string字符串资源的一些建议</h2><ul>
+<li>不同模块相同的文字不要复用，最好每个模块都对应自己的字符串资源（否则，牵一发而动全身，除非你就想要这样）；</li>
+</ul>
+<h2 id="string字符串中的单复数"><a href="#string字符串中的单复数" class="headerlink" title="string字符串中的单复数"></a>string字符串中的单复数</h2><ul>
+<li>单纯引用<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">plurals</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"book"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">item</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"one"</span>&gt;</span>book<span class="hljs-tag">&lt;/<span class="hljs-name">item</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">item</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"others"</span>&gt;</span>books<span class="hljs-tag">&lt;/<span class="hljs-name">item</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">plurals</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">int</span> bookCount = <span class="hljs-number">4</span>;<br>mContext.gerResources().getQuantityString(R.plurals.book, bookCount);<br><span class="hljs-comment">//~ result: books</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">plurals</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"book"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">item</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"one"</span>&gt;</span>%d book found.<span class="hljs-tag">&lt;/<span class="hljs-name">item</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">item</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"others"</span>&gt;</span>%d books found.<span class="hljs-tag">&lt;/<span class="hljs-name">item</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">plurals</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">int</span> bookCount = <span class="hljs-number">4</span>;<br>mContext.gerResources().getQuantityString(R.plurals.book, bookCount, bookCount);<br><span class="hljs-comment">//~ result: 4 books found.</span><br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>When using the getQuantityString() method,<br>you need to pass the count twice if your string includes string formatting with a number.<br>For example, for the string %d songs found,<br>the first count parameter selects the appropriate plural string<br>and the second count parameter is inserted into the %d placeholder.<br>If your plural strings do not include string formatting,<br>you don’t need to pass the third parameter to getQuantityString.</p>
+</blockquote>
+<h3 id="外部链接-1"><a href="#外部链接-1" class="headerlink" title="外部链接"></a>外部链接</h3><ul>
+<li><a href="http://blog.jiguang.cn/android-strings/" target="_blank" rel="noopener">不可不知的 Android strings.xml 那些事</a></li>
+<li><a href="https://developer.android.com/guide/topics/resources/string-resource.html#StylingWithSpannables" target="_blank" rel="noopener">String Resources</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/android/%E5%B0%8F%E6%8A%80%E5%B7%A7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -229,20 +441,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/android/%E5%B0%8F%E6%8A%80%E5%B7%A7/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/android/%E5%B0%8F%E6%8A%80%E5%B7%A7/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -301,7 +499,7 @@
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/android/context/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -326,20 +524,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/android/context/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/android/context/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -394,7 +578,7 @@
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/android/%E5%B9%BF%E6%92%AD/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -419,20 +603,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/android/%E5%B9%BF%E6%92%AD/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/android/%E5%B9%BF%E6%92%AD/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -471,7 +641,7 @@
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/android/drawable/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -496,20 +666,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/android/drawable/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/android/drawable/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -576,7 +732,7 @@
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/android/view/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -601,20 +757,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/android/view/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/android/view/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -718,7 +860,7 @@
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/tool/chrome/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -743,20 +885,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/tool/chrome/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/tool/chrome/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -815,7 +943,7 @@
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/tool/as/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -840,20 +968,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/tool/as/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/tool/as/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -961,7 +1075,7 @@
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/android/%E3%80%8A%E7%AC%AC%E4%B8%80%E8%A1%8C%E4%BB%A3%E7%A0%81%E3%80%8B%E7%AC%94%E8%AE%B0%E6%80%BB%E7%BB%93/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -986,20 +1100,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/android/%E3%80%8A%E7%AC%AC%E4%B8%80%E8%A1%8C%E4%BB%A3%E7%A0%81%E3%80%8B%E7%AC%94%E8%AE%B0%E6%80%BB%E7%BB%93/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/android/%E3%80%8A%E7%AC%AC%E4%B8%80%E8%A1%8C%E4%BB%A3%E7%A0%81%E3%80%8B%E7%AC%94%E8%AE%B0%E6%80%BB%E7%BB%93/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -1443,204 +1543,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/tool/autohotkey/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="lyloou">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-              <span class="post-sticky-flag" title="置顶">
-                <i class="fa fa-thumbtack"></i>
-              </span>
-            <a href="/tool/autohotkey/" class="post-title-link" itemprop="url">Autohotkey定制</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-05-21 18:09:37" itemprop="dateCreated datePublished" datetime="2016-05-21T18:09:37+08:00">2016-05-21</time>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/tool/autohotkey/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/tool/autohotkey/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="摘要："><a href="#摘要：" class="headerlink" title="摘要："></a>摘要：</h2><p>这里介绍了个人的 AutoHotKey 配置，包括它的便利性、用法说明等。在文章最后提供配置代码；</p>
-<h2 id="简单介绍"><a href="#简单介绍" class="headerlink" title="简单介绍"></a>简单介绍</h2><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vim">只要是可以编辑的地方，都用像<span class="hljs-keyword">vim</span>一样的规则控制光标。<br></code></pre></td></tr></table></figure>
-
-<p>当我有了这样的想法时，我找到了<code>Autohotkey</code>。</p>
-<p><strong>使用 Autohotkey 带来其他便利：</strong></p>
-<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs angelscript">* 一次按键，在浏览器中用指定搜索引擎搜索选中的文字。<br>* 一次按键，打开指定的某一个软件或同时打开几个软件。（开机后，一个按键打开所有必备软件）<br>* 一次按键，可以输入自定义的模板：例如输入`.dta`，就能达到输入`<span class="hljs-number">2017</span><span class="hljs-number">-01</span><span class="hljs-number">-11</span> <span class="hljs-number">18</span>:<span class="hljs-number">57</span>:<span class="hljs-number">55</span>`的效果。<br>* 一次按键，快速输入特殊符号（●、★、×、√ 等等）。<br></code></pre></td></tr></table></figure>
-
-<h2 id="举例说明"><a href="#举例说明" class="headerlink" title="举例说明"></a>举例说明</h2><p><strong>光标控制</strong></p>
-<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs asciidoc"><span class="hljs-bullet">* </span>光标左移一次：Alt+h<br><span class="hljs-bullet">* </span>光标右移一次：Alt+l<br><span class="hljs-bullet">* </span>光标上移一次：Alt+,<br><span class="hljs-bullet">* </span>光标下移一次：Alt+i<br><span class="hljs-bullet">* </span>光标置于行首：Alt+0<br><span class="hljs-bullet">* </span>光标置于行尾：Alt+4<br><span class="hljs-bullet">* </span>选中光标位置到行首的文字：Shift<span class="hljs-code">+Alt+</span>0<br><span class="hljs-bullet">* </span>选中光标位置到行尾的文字：Shift<span class="hljs-code">+Alt+</span>4<br><span class="hljs-bullet">* </span>删除右侧一个字符（同<span class="hljs-string">`Delete`按键）：Alt+'</span><br><span class="hljs-bullet">* </span>无论光标在当前行何处，新起一行：Shift+Enter<br></code></pre></td></tr></table></figure>
-
-<p><strong>搜索</strong></p>
-<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs asciidoc"><span class="hljs-bullet">* </span>选中文字，用谷歌搜索：alt+g<br></code></pre></td></tr></table></figure>
-
-<p><strong>导航标签</strong></p>
-<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs asciidoc"><span class="hljs-bullet">* </span>下一个标签：Alt+k<br><span class="hljs-bullet">* </span>上一个标签：Alt+j<br><span class="hljs-bullet">* </span>新建标签：Alt+t<br></code></pre></td></tr></table></figure>
-
-<p><strong>控制窗口</strong><br>通过<code>MoveWindows.ahk</code>文件来启用。</p>
-<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs asciidoc"><span class="hljs-bullet">* </span>按住alt键，左键拖拽窗口任意地方可以移动窗口；（非最大化模式）<br><span class="hljs-bullet">* </span>按住alt键，右键拖拽窗口，可以调整窗口的对象；（非最大化模式）<br></code></pre></td></tr></table></figure>
-
-<h2 id="小技巧"><a href="#小技巧" class="headerlink" title="小技巧"></a>小技巧</h2><p>通过<code>#Include, MoveWindows.ahk</code>，这种方式可以加载配置文件。<br>这样就不用将所有文件都写在一个配置文件，而是放在不同的文件中，然后通过<code>#Include, MoveWindows.ahk</code>来加载。<br>模块化管理，更容易变更。（有些设置好像不能生效，让我又改回去了）</p>
-<h2 id="配置代码"><a href="#配置代码" class="headerlink" title="配置代码"></a>配置代码</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-comment">#Include, Plugins/MoveWindows.ahk</span><br><br><span class="hljs-comment">#!p::suspend ;挂起所有autohotkey按键</span><br><span class="hljs-comment">#!o::Edit ;打开配置文件</span><br>Capslock::Enter ;大小写按键替换成Enter键<br><br><span class="hljs-comment">;LWin &amp; WheelUp::Send ^#&#123;left&#125;</span><br><span class="hljs-comment">;LWin &amp; WheelDown::Send ^#&#123;right&#125;</span><br><br><span class="hljs-comment">#m::WinMinimize, A ; 最小化当前窗口</span><br><span class="hljs-comment">#`::WinMinimize, A ; 最小化当前窗口</span><br><br><span class="hljs-comment">; 启动指定的bat文件（可以在bat文件中启动其他程序）</span><br><span class="hljs-comment">#a::run win_a</span><br><span class="hljs-comment">#c::run win_c</span><br><span class="hljs-comment">#g::run win_g</span><br><span class="hljs-comment">#q::run win_q</span><br><span class="hljs-comment">#s::run win_s</span><br><span class="hljs-comment">#t::run win_t</span><br><span class="hljs-comment">#w::run win_w</span><br><br><span class="hljs-comment">#n::run notepad</span><br><br><span class="hljs-comment">;光标方向控制</span><br>!i::Send &#123;up&#125; ;光标上移<br>!,::Send &#123;down&#125; ;光标下移<br>!h::Send &#123;left&#125; ;光标左移<br>!l::Send &#123;right&#125; ;光标右移<br>!4::Send, &#123;end&#125;  ;到行末<br>!0::Send, &#123;home&#125;  ;到行首<br><br><br><br><span class="hljs-comment">;编辑区域操作</span><br>Shift &amp; enter::send &#123;end&#125;&#123;enter&#125; ;下起一行<br>+^!h::send,+^&#123;left&#125; ;选中左移一个单词<br>+^!l::send,+^&#123;right&#125; ;选中右移一个单词<br>+!i::send,&#123;shiftdown&#125;&#123;up&#125; ;选中上移<br>+!,::send,&#123;shiftdown&#125;&#123;down&#125; ;选中下移<br>+!h::send,&#123;shiftdown&#125;&#123;left&#125; ;选中左移<br>+!l::send,&#123;shiftdown&#125;&#123;right&#125; ;选中右移<br>+!4::send,+&#123;end&#125; ;选中当前光标位置到行末<br>+!0::send,+&#123;home&#125; ;选中当前光标位置到行首<br><br><span class="hljs-comment">;复制当前行到剪切板</span><br>+!c::<br>send,&#123;home&#125;&#123;shiftdown&#125;&#123;end&#125;&#123;ShiftUp&#125;<br>Send,^c<br>Send, &#123;end&#125;<br>Return<br><br><br><br><span class="hljs-comment">;替换按键</span><br>!n::Send ^n ;新建<br>!w::Send ^w ;关闭<br>!v::Send ^v ;粘贴<br>!x::Send ^x ;剪切<br>!c::Send ^c ;复制<br>!s::Send ^s ;保存<br>!'::Send &#123;delete&#125; ;删除光标后面的一个字母或汉字<br><br><span class="hljs-comment">;特殊符号</span><br><span class="hljs-comment">;「</span><br>![::<br><span class="hljs-attr">clipboard</span> = 「<br>send ^v<br>return<br><br><span class="hljs-comment">;</span><br>!]::<br><span class="hljs-attr">clipboard</span> = 」<br>send ^v<br>return<br><br><span class="hljs-comment">;时间输入</span><br><span class="hljs-comment">;如：14:19:59</span><br>::.tt::<br><span class="hljs-attr">d</span> = %A_Hour%:%A_Min%:%A_Sec%<br><span class="hljs-attr">clipboard</span> = %d%<br>Send ^v<br>return<br><br><span class="hljs-comment">;如：2016.01.16</span><br>::.dd::<br><span class="hljs-attr">d</span> = %A_YYYY%.%A_MM%.%A_DD%<br><span class="hljs-attr">clipboard</span> = %d%<br>Send ^v<br>return<br><br><span class="hljs-comment">;如：2016-05-08 17:09:10</span><br>::.dta::<br><span class="hljs-attr">d</span> = %A_YYYY%-%A_MM%-%A_DD% %A_Hour%:%A_Min%:%A_Sec%<br><span class="hljs-attr">clipboard</span> = %d%<br>Send ^v<br>return<br><br><span class="hljs-comment">;如：[01.06 14:00]</span><br>::.dt::<br><span class="hljs-attr">d</span> =  [%A_MM%.%A_DD% %A_Hour%:%A_Min%]<br><span class="hljs-attr">clipboard</span> = %d%<br>Send ^v<br>return<br><br><br><span class="hljs-comment">;用google搜索</span><br>!g::<br>Send ^c<br>Run http://www.google.com/search?q=%clipboard%<br>return<br><br><br><span class="hljs-comment">;for chrome</span><br><span class="hljs-comment">#IfWinActive ahk_class Chrome_WidgetWin_1</span><br>!j::Send ^+&#123;Tab&#125;<br>!k::Send ^&#123;Tab&#125;<br>!t::Send ^t<br>return<br></code></pre></td></tr></table></figure>
-
-<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p><strong>！！！</strong> 如果要通过剪切板输出中文，不要将配置文件设置为 <code>UTF-8</code>,而是要设置为 <code>GBK</code>（坑了我好长时间呢）</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
-<li><a href="https://blog.csdn.net/ly1414725328/article/details/49641503" target="_blank" rel="noopener">【Tool】使用 Autohotkey - 木子楼的专栏 - CSDN 博客</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/hexo/Hexo%E4%BD%BF%E7%94%A8%E5%92%8C%E9%85%8D%E7%BD%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="lyloou">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/hexo/Hexo%E4%BD%BF%E7%94%A8%E5%92%8C%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">Hexo使用和配置</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-05-09 22:18:18" itemprop="dateCreated datePublished" datetime="2016-05-09T22:18:18+08:00">2016-05-09</time>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/hexo/Hexo%E4%BD%BF%E7%94%A8%E5%92%8C%E9%85%8D%E7%BD%AE/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/hexo/Hexo%E4%BD%BF%E7%94%A8%E5%92%8C%E9%85%8D%E7%BD%AE/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="摘要："><a href="#摘要：" class="headerlink" title="摘要："></a>摘要：</h2><p>主要内容：<br>本文介绍我在搭建本博客平台时用到的工具、插件，以及遇到的问题；</p>
-<h2 id="文档管理工具"><a href="#文档管理工具" class="headerlink" title="文档管理工具"></a>文档管理工具</h2><p>Android Studio | IDEA</p>
-<h3 id="通过-template-方便创建文档"><a href="#通过-template-方便创建文档" class="headerlink" title="通过 template 方便创建文档"></a>通过 template 方便创建文档</h3><p><code>File -&gt; Setting -&gt; Editor -&gt; File and Code Templates</code><br><code>--- title: ${NAME} date: ${DATE} ${TIME} toc: true comments: true tags: - ${Tag} ---</code></p>
-<h2 id="教程、文档、API"><a href="#教程、文档、API" class="headerlink" title="教程、文档、API"></a>教程、文档、API</h2><p>网址：<code>https://hexo.io</code><br>安装 hexo 教程：<code>https://hexo.io/zh-cn/docs/</code></p>
-<h2 id="主题选择"><a href="#主题选择" class="headerlink" title="主题选择"></a>主题选择</h2><p>网址：<code>https://hexo.io/themes/</code></p>
-<h2 id="插入多媒体"><a href="#插入多媒体" class="headerlink" title="插入多媒体"></a>插入多媒体</h2><h4 id="插入图片："><a href="#插入图片：" class="headerlink" title="插入图片："></a>插入图片：</h4><pre><code><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs less"><span class="hljs-comment">// 方式1，加入本地图片：</span><br><span class="hljs-comment">// 首先需要在source中加入文件夹images，并放入图片smile01.gif;</span><br>!<span class="hljs-selector-attr">[]</span>(/images/smile01.gif)<br><br><span class="hljs-comment">// 方式2，加入图床中的图片地址：</span><br>!<span class="hljs-selector-attr">[]</span>(图片地址)<br><br><span class="hljs-comment">// 方式3，获取到github的raw图片网址；</span><br></code></pre></td></tr></table></figure></code></pre><h4 id="插入音乐："><a href="#插入音乐：" class="headerlink" title="插入音乐："></a>插入音乐：</h4><pre><code><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">iframe</span> <span class="hljs-attr">frameborder</span>=<span class="hljs-string">"no"</span> <span class="hljs-attr">border</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">marginwidth</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">marginheight</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">330</span> <span class="hljs-attr">height</span>=<span class="hljs-string">86</span></span><br><span class="hljs-tag">    <span class="hljs-attr">src</span>=<span class="hljs-string">"http://music.163.com/outchain/player?type=2&amp;id=25706282&amp;auto=0&amp;height=66"</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">iframe</span>&gt;</span><br></code></pre></td></tr></table></figure></code></pre><h4 id="插入视频："><a href="#插入视频：" class="headerlink" title="插入视频："></a>插入视频：</h4><pre><code><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">center</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">iframe</span> <span class="hljs-attr">frameborder</span>=<span class="hljs-string">"no"</span> <span class="hljs-attr">border</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">marginwidth</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">marginheight</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">330</span> <span class="hljs-attr">height</span>=<span class="hljs-string">86</span></span><br><span class="hljs-tag">    <span class="hljs-attr">src</span>=<span class="hljs-string">"http://music.163.com/outchain/player?type=2&amp;id=25706282&amp;auto=0&amp;height=66"</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">iframe</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">center</span>&gt;</span><br></code></pre></td></tr></table></figure></code></pre><p>外部链接：</p>
-<ul>
-<li><a href="http://blog.wleyuan.me/2015/07/18/Hexo-AddSoundPicMovie/" target="_blank" rel="noopener">Hexo 博客添加图片、音乐、视频</a></li>
-</ul>
-<h2 id="自动更新目录结构"><a href="#自动更新目录结构" class="headerlink" title="自动更新目录结构"></a>自动更新目录结构</h2><p>对于需要手动管理的目录，可以通过自动生成脚本来实现目录链接<br>参考：<code>https://lyloou.com/life/create_md_link.sh</code></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-meta">#!/bin/bash</span><br><span class="hljs-built_in">echo</span> <span class="hljs-string">""</span><span class="hljs-string">"</span><br><span class="hljs-string">自动更新目录文件：</span><br><span class="hljs-string">获取当前目录。</span><br><span class="hljs-string"></span><br><span class="hljs-string">获取所有文件，排序：目录、文件，</span><br><span class="hljs-string">1. 如果是目录：生成【目录名/index.html链接】</span><br><span class="hljs-string">2. 如果是文件：生成【文件名.html链接】</span><br><span class="hljs-string"></span><br><span class="hljs-string">将1、2拼接后，放入本目录的index.html中。</span><br><span class="hljs-string">如果是目录，递归操作。</span><br><span class="hljs-string">"</span><span class="hljs-string">""</span><br><span class="hljs-function"><span class="hljs-title">create_md_link</span></span>() &#123;<br>    path=$(<span class="hljs-built_in">pwd</span>)<br><br>    files=$(ls <span class="hljs-variable">$path</span>)<br><br>    <span class="hljs-comment"># 当前文件</span><br>    title=<span class="hljs-string">"#### <span class="hljs-variable">$&#123;path##*/&#125;</span>\n"</span><br>    <span class="hljs-built_in">echo</span> -e <span class="hljs-variable">$title</span> &gt;index.md<br><br>    <span class="hljs-built_in">echo</span> -e <span class="hljs-string">'\n###### 文件列表\n'</span> &gt;&gt;index.md<br><br>    <span class="hljs-comment"># 输出文件</span><br>    <span class="hljs-keyword">for</span> filename <span class="hljs-keyword">in</span> <span class="hljs-variable">$files</span>; <span class="hljs-keyword">do</span><br>        <span class="hljs-keyword">if</span> [[ -f <span class="hljs-string">"<span class="hljs-variable">$filename</span>"</span> &amp;&amp; <span class="hljs-variable">$filename</span> =~ .*md$ ]]; <span class="hljs-keyword">then</span><br>            md_link=$(<span class="hljs-built_in">echo</span> <span class="hljs-variable">$filename</span> | sed <span class="hljs-string">'s/\.[^.]*$//'</span>)<br>            md_link=<span class="hljs-string">"- [<span class="hljs-variable">$md_link</span>](<span class="hljs-variable">$md_link</span>.html)"</span><br>            <span class="hljs-built_in">echo</span> <span class="hljs-variable">$md_link</span> &gt;&gt;index.md<br>        <span class="hljs-keyword">fi</span><br>    <span class="hljs-keyword">done</span><br><br>    <span class="hljs-built_in">echo</span> -e <span class="hljs-string">'\n###### 子目录列表\n'</span> &gt;&gt;index.md<br><br>    <span class="hljs-comment"># 输出目录</span><br>    <span class="hljs-keyword">for</span> filename <span class="hljs-keyword">in</span> <span class="hljs-variable">$files</span>; <span class="hljs-keyword">do</span><br>        <span class="hljs-keyword">if</span> [ -d <span class="hljs-string">"<span class="hljs-variable">$filename</span>"</span> ]; <span class="hljs-keyword">then</span><br>            md_link=<span class="hljs-string">"- [<span class="hljs-variable">$filename</span>](./<span class="hljs-variable">$filename</span>/index.html)"</span><br>            <span class="hljs-built_in">echo</span> <span class="hljs-variable">$md_link</span> &gt;&gt;index.md<br>            <span class="hljs-built_in">cd</span> <span class="hljs-variable">$filename</span><br>            create_md_link<br>            <span class="hljs-built_in">cd</span> ..<br>        <span class="hljs-keyword">fi</span><br>    <span class="hljs-keyword">done</span><br>    <span class="hljs-built_in">echo</span> <span class="hljs-string">"create md_files link success: <span class="hljs-variable">$path</span>"</span><br>&#125;<br><br>create_md_link<br></code></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="问题列表"><a href="#问题列表" class="headerlink" title="问题列表"></a>问题列表</h2><h3 id="Error-Local-hexo-not-found"><a href="#Error-Local-hexo-not-found" class="headerlink" title="Error Local hexo not found"></a>Error Local hexo not found</h3><p>具体描述：从 github 上直接克隆下来的源码，执行<code>hexo s</code>会出现错误：</p>
-<figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs subunit"><span class="hljs-keyword">Error </span>Local hexo not found in /XXX<br><span class="hljs-keyword">Error </span>Try running: 'npm install hexo --save'<br></code></pre></td></tr></table></figure>
-
-<p>原因分析：<br><code>.gitignore</code>文件中忽略了<code>node_modules</code>文件夹，所以从 github 上的克隆的源码中不存在此文件夹；</p>
-<p>解决方案：<br>重新执行<code>npm install</code>命令即可；（用自带 CMD）<br>执行 <code>npm install</code>可能会出现失败的警告，有可能是 npm 版本问题：<br>执行下面命令来降低 npm 的版本：<br><code>npm install -g npm@3.3.12</code></p>
-<p>外部连接：</p>
-<ul>
-<li><a href="http://blog.csdn.net/burststar/article/details/45115905" target="_blank" rel="noopener">用 Hexo 写博客 - ERROR Local hexo not found in xxx</a></li>
-<li><a href="https://github.com/foreverjs/forever/issues/788" target="_blank" rel="noopener">npm WARN optional dep failed, continuing fsevents@1.0.6</a></li>
-</ul>
-<h3 id="add-Read-More"><a href="#add-Read-More" class="headerlink" title="add Read More"></a>add Read More</h3><p>方法：在需要截断的地方插入<code>&lt;!--more--&gt;</code>即可。<br>外部连接：<a href="http://twiceyuan.com/2014/05/25/hexo%E8%87%AA%E5%8A%A8%E6%B7%BB%E5%8A%A0readmore%E6%A0%87%E8%AE%B0/" target="_blank" rel="noopener">Hexo 自动添加 ReadMore 标记</a></p>
-<blockquote>
-<p>（解决问题的方法：将错误日志中的关键部分择取关键字交给 Google；）</p>
-</blockquote>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1703,7 +1605,7 @@
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="lyloou"
-      src="/images/avatar.png">
+      src="/assets/images/avatar.png">
   <p class="site-author-name" itemprop="name">lyloou</p>
   <div class="site-description" itemprop="description">/* Better than last best */</div>
 </div>
@@ -1712,7 +1614,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">311</span>
+          <span class="site-state-item-count">313</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1883,34 +1785,6 @@ if (document.querySelectorAll('pre.mermaid').length) {
 
   
 
-
-<script>
-NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
-  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
-    var GUEST = ['nick', 'mail', 'link'];
-    var guest = 'nick,mail,link';
-    guest = guest.split(',').filter(item => {
-      return GUEST.includes(item);
-    });
-    new Valine({
-      el         : '#valine-comments',
-      verify     : false,
-      notify     : true,
-      appId      : 'yhivNNDDoank7qFbmyEj9Ldq-gzGzoHsz',
-      appKey     : 'QuFu2ooibSzW1Q8eTrmPLyPw',
-      placeholder: "Just go go",
-      avatar     : 'mm',
-      meta       : guest,
-      pageSize   : '10' || 10,
-      visitor    : false,
-      lang       : '' || 'zh-cn',
-      path       : location.pathname,
-      recordIP   : true,
-      serverURLs : ''
-    });
-  }, window.Valine);
-});
-</script>
 
 </body>
 </html>

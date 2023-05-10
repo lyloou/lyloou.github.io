@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"lyloou.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"lyloou.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="&#x2F;* Better than last best *&#x2F;">
@@ -201,10 +201,132 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/android/lib-glide/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/images/avatar.png">
+      <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lyloou">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/android/lib-glide/" class="post-title-link" itemprop="url">Glide库</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-08-29 17:16:15" itemprop="dateCreated datePublished" datetime="2017-08-29T17:16:15+08:00">2017-08-29</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="根据图片的文件路径，显示给ImageView"><a href="#根据图片的文件路径，显示给ImageView" class="headerlink" title="根据图片的文件路径，显示给ImageView"></a>根据图片的文件路径，显示给ImageView</h2><p>原理：借助 Glide 库来实现；<br>    <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java">String pathname = <span class="hljs-string">"/storage/emulated/0/lyloou/image/hello_world.png"</span>;<br>File file = <span class="hljs-keyword">new</span> File(pathname);<br>Glide.with(mContext).load(file).asBitmap().into(mIvHi);<br></code></pre></td></tr></table></figure></p>
+<h2 id="通过图像-URL-设置圆角图像："><a href="#通过图像-URL-设置圆角图像：" class="headerlink" title="通过图像 URL 设置圆角图像："></a>通过图像 URL 设置圆角图像：</h2><pre><code><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setCircleIcon</span><span class="hljs-params">(ImageView view)</span> </span>&#123;<br>    String url = <span class="hljs-string">"https://img.gcall.com/dca5/M00/10/8E/wKhoNlggetaENWylAAAAAAAAAAA457.jpg"</span>;<br>    <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> w = Uscreen.dp2Px(mContext, <span class="hljs-number">48</span>);<br>    Glide.with(mContext)<br>            .load(url)<br>            .centerCrop()<br>            .fitCenter()<br>            .thumbnail(<span class="hljs-number">0.1f</span>)<br>            .placeholder(R.mipmap.ic_launcher)<br>            .crossFade()<br>            .override(w, w)<br>            .transform(<span class="hljs-keyword">new</span> BitmapTransformation(mContext) &#123;<br>                <span class="hljs-meta">@Override</span><br>                <span class="hljs-function"><span class="hljs-keyword">protected</span> Bitmap <span class="hljs-title">transform</span><span class="hljs-params">(BitmapPool pool, Bitmap toTransform, <span class="hljs-keyword">int</span> outWidth, <span class="hljs-keyword">int</span> outHeight)</span> </span>&#123;<br>                    <span class="hljs-keyword">return</span> Uview.getBitmapByXfermode(mContext, toTransform,<br>                            Color.parseColor(<span class="hljs-string">"#dddddd"</span>),<br>                            w,<br>                            w, PorterDuff.Mode.SRC_IN);<br>                &#125;<br><br>                <span class="hljs-meta">@Override</span><br>                <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getId</span><span class="hljs-params">()</span> </span>&#123;<br>                    <span class="hljs-keyword">return</span> getClass().getName();<br>                &#125;<br>            &#125;)<br>            .into(view);<br>&#125;<br></code></pre></td></tr></table></figure></code></pre>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/android/%E5%BC%B9%E7%AA%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/images/avatar.png">
+      <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lyloou">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/android/%E5%BC%B9%E7%AA%97/" class="post-title-link" itemprop="url">Android 弹窗</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-08-29 17:16:15" itemprop="dateCreated datePublished" datetime="2017-08-29T17:16:15+08:00">2017-08-29</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="弹出和隐藏进度条"><a href="#弹出和隐藏进度条" class="headerlink" title="弹出和隐藏进度条"></a>弹出和隐藏进度条</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">private</span> Dialog dialog;<br><br><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">showDialog</span><span class="hljs-params">(<span class="hljs-keyword">final</span> Context ctx)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (ctx <span class="hljs-keyword">instanceof</span> Activity) &#123;<br>        <span class="hljs-keyword">final</span> Activity context = (Activity) ctx;<br>        context.runOnUiThread(<span class="hljs-keyword">new</span> Runnable() &#123;<br>            <span class="hljs-meta">@Override</span><br>            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>&#123;<br>                <span class="hljs-keyword">int</span> spacing = Uscreen.dp2Px(context, <span class="hljs-number">16</span>);<br>                LinearLayout layout = <span class="hljs-keyword">new</span> LinearLayout(context);<br>                LinearLayout.LayoutParams layoutParams = <span class="hljs-keyword">new</span> LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);<br>                layout.setLayoutParams(layoutParams);<br>                layout.setGravity(Gravity.CENTER);<br>                layout.setPadding(spacing, spacing, spacing, spacing);<br>                <span class="hljs-comment">// add ProgressBar</span><br>                ProgressBar bar = <span class="hljs-keyword">new</span> ProgressBar(context);<br>                layout.addView(bar, layoutParams);<br><br>                dialog = <span class="hljs-keyword">new</span> Dialog(context, android.R.style.Theme_Holo_Dialog_NoActionBar);<br>                dialog.setCancelable(<span class="hljs-keyword">false</span>);<br>                dialog.getWindow().setDimAmount(<span class="hljs-number">0.3f</span>);<br>                dialog.setContentView(layout);<br>                dialog.show();<br>            &#125;<br>        &#125;);<br>    &#125;<br><br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">dismissDialog</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (dialog != <span class="hljs-keyword">null</span> &amp;&amp; dialog.isShowing()) &#123;<br>        dialog.dismiss();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="单个操作的-alert"><a href="#单个操作的-alert" class="headerlink" title="单个操作的 alert"></a>单个操作的 alert</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AlertOneItem</span> </span>&#123;<br>    <span class="hljs-keyword">private</span> Context context;<br>    <span class="hljs-keyword">private</span> String title;<br>    <span class="hljs-keyword">private</span> String message;<br>    <span class="hljs-keyword">private</span> Consumer&lt;Boolean&gt; consumer;<br>    <span class="hljs-keyword">private</span> String positiveTips = <span class="hljs-string">"确定"</span>;<br>    <span class="hljs-keyword">private</span> String negativeTips = <span class="hljs-string">"取消"</span>;<br><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">AlertOneItem</span><span class="hljs-params">(Context context, Consumer&lt;Boolean&gt; consumer)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.context = context;<br>        <span class="hljs-keyword">this</span>.consumer = consumer;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> AlertOneItem <span class="hljs-title">builder</span><span class="hljs-params">(Context context, Consumer&lt;Boolean&gt; consumer)</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> AlertOneItem(context, consumer);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> AlertOneItem <span class="hljs-title">title</span><span class="hljs-params">(String title)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.title = title;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> AlertOneItem <span class="hljs-title">message</span><span class="hljs-params">(String message)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.message = message;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> AlertOneItem <span class="hljs-title">positiveTips</span><span class="hljs-params">(String positiveTips)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.positiveTips = positiveTips;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> AlertOneItem <span class="hljs-title">negativeTips</span><span class="hljs-params">(String negativeTips)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.negativeTips = negativeTips;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;<br>    &#125;<br><br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">show</span><span class="hljs-params">()</span> </span>&#123;<br>        AlertDialog.Builder builder = <span class="hljs-keyword">new</span> AlertDialog.Builder(context);<br>        <span class="hljs-keyword">if</span> (!TextUtils.isEmpty(title)) &#123;<br>            builder.setTitle(title);<br>        &#125;<br>        <span class="hljs-keyword">if</span> (!TextUtils.isEmpty(message)) &#123;<br>            builder.setMessage(message);<br>        &#125;<br>        <span class="hljs-keyword">if</span> (!TextUtils.isEmpty(negativeTips)) &#123;<br>            builder.setNegativeButton(negativeTips, (dialog, which) -&gt; consumer.accept(<span class="hljs-keyword">false</span>));<br>        &#125;<br><br>        <span class="hljs-keyword">if</span> (!TextUtils.isEmpty(positiveTips)) &#123;<br>            builder.setPositiveButton(positiveTips, (dialog, which) -&gt; consumer.accept(<span class="hljs-keyword">true</span>));<br>        &#125;<br><br>        builder.setCancelable(<span class="hljs-keyword">true</span>);<br>        builder.create();<br>        builder.show();<br>    &#125;<br>&#125;<br><span class="hljs-comment">// 调用</span><br>Udialog.AlertOneItem.builder(context, result -&gt; &#123;<br>        <span class="hljs-keyword">if</span> (result) &#123;<br>            toSetWallpaperAsync(context, imageView, color);<br>        &#125;<br>    &#125;).message(<span class="hljs-string">"设置成壁纸?"</span>).show();<br></code></pre></td></tr></table></figure>
+
+<h2 id="多个操作的-alert-（方案-1）"><a href="#多个操作的-alert-（方案-1）" class="headerlink" title="多个操作的 alert （方案 1）"></a>多个操作的 alert （方案 1）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">enum</span> OperateType &#123;<br>    REFRESH(<span class="hljs-string">"刷新"</span>),<br>    COPY_LINK(<span class="hljs-string">"复制链接"</span>),<br>    COPY_MD_LINK(<span class="hljs-string">"复制md链接"</span>),<br>    OPEN_WITH_BROWSER(<span class="hljs-string">"在浏览器中打开"</span>),<br>    ;<br>    String title;<br><br>    OperateType(String title) &#123;<br>        <span class="hljs-keyword">this</span>.title = title;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> OperateType <span class="hljs-title">indexOf</span><span class="hljs-params">(<span class="hljs-keyword">int</span> index)</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> OperateType.values()[index];<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String[] toStrArray() &#123;<br>        OperateType[] values = OperateType.values();<br>        String[] result = <span class="hljs-keyword">new</span> String[values.length];<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; values.length; i++) &#123;<br>            result[i] = values[i].title;<br>        &#125;<br>        <span class="hljs-keyword">return</span> result;<br>    &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onMorePressed</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">new</span> AlertDialog.Builder(mContext)<br>            .setTitle(<span class="hljs-string">"操作"</span>)<br>            .setItems(OperateType.toStrArray(), (dialog, which) -&gt; &#123;<br>                <span class="hljs-keyword">switch</span> (OperateType.indexOf(which)) &#123;<br>                    <span class="hljs-keyword">case</span> REFRESH:<br>                        mWvContent.reload();<br>                        <span class="hljs-keyword">break</span>;<br>                    <span class="hljs-keyword">case</span> COPY_LINK:<br>                        copyToClipboard(mWvContent.getUrl(), <span class="hljs-string">"已复制到剪切板"</span>);<br>                        <span class="hljs-keyword">break</span>;<br>                    <span class="hljs-keyword">case</span> COPY_MD_LINK:<br>                        String title = mWvContent.getTitle();<br>                        String url = mWvContent.getUrl();<br>                        copyToClipboard(<span class="hljs-string">"- ["</span> + title + <span class="hljs-string">"]"</span> + <span class="hljs-string">"("</span> + url + <span class="hljs-string">")"</span>, <span class="hljs-string">"已复制到剪切板"</span>);<br>                        <span class="hljs-keyword">break</span>;<br>                    <span class="hljs-keyword">case</span> OPEN_WITH_BROWSER:<br>                        Uri uri = Uri.parse(mWvContent.getUrl());<br>                        Intent intent = <span class="hljs-keyword">new</span> Intent(Intent.ACTION_VIEW, uri);<br>                        startActivity(intent);<br>                        <span class="hljs-keyword">break</span>;<br>                    <span class="hljs-keyword">default</span>:<br>                &#125;<br>            &#125;)<br>            .create().show();<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="多个操作的-alert（方案-2）"><a href="#多个操作的-alert（方案-2）" class="headerlink" title="多个操作的 alert（方案 2）"></a>多个操作的 alert（方案 2）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AlertMultiItem</span> </span>&#123;<br>    <span class="hljs-keyword">private</span> List&lt;String&gt; nameList = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();<br>    <span class="hljs-keyword">private</span> List&lt;Runnable&gt; taskList = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();<br>    <span class="hljs-keyword">private</span> Context context;<br>    <span class="hljs-keyword">private</span> String title;<br><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">AlertMultiItem</span><span class="hljs-params">(Context context)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.context = context;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> AlertMultiItem <span class="hljs-title">builder</span><span class="hljs-params">(Context context)</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> AlertMultiItem(context);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> AlertMultiItem <span class="hljs-title">title</span><span class="hljs-params">(String title)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.title = title;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> AlertMultiItem <span class="hljs-title">add</span><span class="hljs-params">(String title, Runnable runnable)</span> </span>&#123;<br>        nameList.add(title);<br>        taskList.add(runnable);<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;<br>    &#125;<br><br>    <span class="hljs-keyword">private</span> String[] getItemNames() &#123;<br>        String[] result = <span class="hljs-keyword">new</span> String[nameList.size()];<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; nameList.size(); i++) &#123;<br>            result[i] = nameList.get(i);<br>        &#125;<br>        <span class="hljs-keyword">return</span> result;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">show</span><span class="hljs-params">()</span> </span>&#123;<br>        AlertDialog.Builder builder = <span class="hljs-keyword">new</span> AlertDialog.Builder(context);<br>        <span class="hljs-keyword">if</span> (!TextUtils.isEmpty(title)) &#123;<br>            builder.setTitle(title);<br>        &#125;<br>        builder.setItems(getItemNames(), (dialog, which) -&gt; taskList.get(which).run());<br>        builder.create();<br>        builder.show();<br>    &#125;<br>&#125;<br><br><span class="hljs-comment">// 调用</span><br>Udialog.AlertMultiItem.builder(mContext)<br>        .add(<span class="hljs-string">"复制内容"</span>, () -&gt; copyContent())<br>        .add(<span class="hljs-string">"复制全部"</span>, () -&gt; copyAll())<br>        .add(<span class="hljs-string">"删除此项"</span>, () -&gt; delete())<br>        .show();<br></code></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/android/%E5%8A%A0%E5%AF%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -229,20 +351,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/android/%E5%8A%A0%E5%AF%86/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/android/%E5%8A%A0%E5%AF%86/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -279,7 +387,7 @@
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/android/jni%E5%AE%9E%E7%8E%B0%E6%AD%A5%E9%AA%A4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -304,20 +412,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/android/jni%E5%AE%9E%E7%8E%B0%E6%AD%A5%E9%AA%A4/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/android/jni%E5%AE%9E%E7%8E%B0%E6%AD%A5%E9%AA%A4/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -387,7 +481,7 @@
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/android/%E4%B8%8B%E8%BD%BD%E7%BD%91%E7%BB%9C%E5%9B%BE%E7%89%87/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -412,20 +506,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/android/%E4%B8%8B%E8%BD%BD%E7%BD%91%E7%BB%9C%E5%9B%BE%E7%89%87/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/android/%E4%B8%8B%E8%BD%BD%E7%BD%91%E7%BB%9C%E5%9B%BE%E7%89%87/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -465,7 +545,7 @@
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/design-pattern/%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -490,20 +570,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/design-pattern/%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/design-pattern/%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -545,7 +611,7 @@
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/design-pattern/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -570,20 +636,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/design-pattern/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/design-pattern/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -626,7 +678,7 @@
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/design-pattern/%E5%8D%95%E4%BE%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -651,20 +703,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/design-pattern/%E5%8D%95%E4%BE%8B/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/design-pattern/%E5%8D%95%E4%BE%8B/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -697,7 +735,7 @@
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/http/HTTP%E7%AC%94%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -722,20 +760,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/http/HTTP%E7%AC%94%E8%AE%B0/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/http/HTTP%E7%AC%94%E8%AE%B0/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -789,7 +813,7 @@
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/http/HTTP%20The%20Definitive%20Guide/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -814,20 +838,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/http/HTTP%20The%20Definitive%20Guide/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/http/HTTP%20The%20Definitive%20Guide/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -1028,213 +1038,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/js/node/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="lyloou">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/js/node/" class="post-title-link" itemprop="url">Node相关</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2017-08-18 17:12:00" itemprop="dateCreated datePublished" datetime="2017-08-18T17:12:00+08:00">2017-08-18</time>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/js/node/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/js/node/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>| crypto模块：提供通用的加密和哈希算法。</p>
-<p>| 服务器案例（模块http、path、fs的运用）：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-meta">'use strict'</span><br><br><span class="hljs-keyword">var</span> http = <span class="hljs-built_in">require</span>(<span class="hljs-string">"http"</span>);<br><span class="hljs-keyword">var</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">"path"</span>);<br><span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">"fs"</span>);<br><br><span class="hljs-keyword">var</span> server = http.createServer(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">request, response</span>) </span>&#123;<br>  <span class="hljs-keyword">var</span> workDir = path.resolve(<span class="hljs-string">"."</span>); <span class="hljs-comment">// 获取当前目录</span><br>  <span class="hljs-keyword">var</span> filepath = path.join(workDir, <span class="hljs-string">"showdate.html"</span>); <span class="hljs-comment">// 定位showdate.html文件</span><br><br>  <span class="hljs-comment">// 将本地的文件作为响应返回</span><br>  response.writeHead(<span class="hljs-number">200</span>);<br>  fs.createReadStream(filepath).pipe(response);<br>&#125;);<br><br>server.listen(<span class="hljs-number">3000</span>);<br><span class="hljs-built_in">console</span>.log(<span class="hljs-string">"服务已开启，请登录：http://localhost:3000"</span>);<br></code></pre></td></tr></table></figure>
-
-<p>| pipe</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">"fs"</span>);<br><span class="hljs-keyword">var</span> rs = fs.createReadStream(<span class="hljs-string">"hello.js"</span>);<br><span class="hljs-keyword">var</span> ws = fs.createWriteStream(<span class="hljs-string">"copy.js"</span>);<br>rs.pipe(ws);<br></code></pre></td></tr></table></figure>
-
-<p>| stream 是node.js提供的仅在服务端可用的模块；<br>基于事件的、异步的方式：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">"fs"</span>);<br><span class="hljs-keyword">var</span> rs = fs.createReadStream(<span class="hljs-string">"hello.js"</span>, <span class="hljs-string">"utf-8"</span>);<br>rs.on(<span class="hljs-string">"data"</span>, f);<br>rs.on(<span class="hljs-string">"end"</span>, f);<br>rs.on(<span class="hljs-string">"error"</span>, f);<br></code></pre></td></tr></table></figure>
-
-<p>| 同步的写文件：<code>fs.writeFileSync()</code>；</p>
-<p>| 写文件：<code>fs.writeFile(&quot;output.txt&quot;, data, function(x){})</code>，如果data是String，默认<br>  编码是UTF-8；如果传入的是Buffer，则写入的是二进制文件；回调函数只关心成功与否。</p>
-<p>| 同步读文件使用<code>fs.readFileSync()</code>方法，不接受回调函数，函数直接返回结果。<br>通过<code>try...catch</code>来捕获同步获取文件时的错误。</p>
-<p>| <code>Buffer</code>对象可以和String做转换：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// Buffer -&gt; String</span><br><span class="hljs-keyword">var</span> text = data.toString(<span class="hljs-string">"utf-8"</span>);<br><span class="hljs-built_in">console</span>.log(text);<br><span class="hljs-comment">// String -&gt; Buffer</span><br><span class="hljs-keyword">var</span> buf = <span class="hljs-keyword">new</span> Buffer(text, <span class="hljs-string">"utf-8"</span>);<br><span class="hljs-built_in">console</span>.log(buf);<br></code></pre></td></tr></table></figure>
-
-<p>| fs模块</p>
-<ul>
-<li>读取文件编码是<code>utf-8</code>的文件；<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">"fs"</span>);<br>fs.readFile(<span class="hljs-string">"hello.js"</span>, <span class="hljs-string">"utf-8"</span>, <span class="hljs-built_in">console</span>.log);<br></code></pre></td></tr></table></figure></li>
-<li>读取二进制文件，不传入文件编码，回调函数将返回一个Buffer对象。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">fs.readFile(<span class="hljs-string">"hello.js"</span>, <span class="hljs-built_in">console</span>.log);<br></code></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<p>| 在需要使用回调函数的地方，传入<code>console.log</code>，可以打印出回调函数的参数信息。</p>
-<p>| 建议始终使用<code>module.exports</code>的方式，而不是省写的<code>exports</code>；</p>
-<p>| 如果要输出一个键值对象<code>{}</code>，可以利用<code>exports</code>这个已经存在的空对象<code>{}</code>，<br>  并继续在上面添加新的键值；</p>
-<blockquote>
-<p>var exported = load(module.exports, module);<br>  因为对exports重新赋值，对module.exports没有任何副作用。</p>
-</blockquote>
-<p>如果要输出一个函数或数组，必须直接对<code>module.exports</code>对象赋值；</p>
-<p>| 实现“模块”功能的奥妙就在于JavaScript是一种函数式编程语言，它支持闭包。</p>
-<p>| 引入的对象具体是什么，取决于引用模块输出的变量。（输出的变量可以是任意对象、函数、数组等等）</p>
-<p>| 一个模块想要对外暴露变量（函数也是变量），可以用<code>module.exports = variable;</code>；<br>  一个模块想要引用其他模块暴露的变量，用<code>var ref = require(&#39;module_name&#39;)</code>就拿到了引用模块变量；</p>
-<p>| 使用模块的好处：</p>
-<ul>
-<li>提高了代码的可维护性；</li>
-<li>代码重用；</li>
-<li>避免了函数名和变量名冲突；</li>
-</ul>
-<p>| 在Node环境中，一个.js文件就称之为一个模块（module）。</p>
-<p>| 让node直接为所有js文件都开启严格模式：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">node --use_strict myFile.js<br></code></pre></td></tr></table></figure>
-
-
-<p><a href="http://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000" target="_blank" rel="noopener">http://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/js/node%E9%85%8D%E7%BD%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="lyloou">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/js/node%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">Node配置</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2017-08-18 17:12:00" itemprop="dateCreated datePublished" datetime="2017-08-18T17:12:00+08:00">2017-08-18</time>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/js/node%E9%85%8D%E7%BD%AE/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/js/node%E9%85%8D%E7%BD%AE/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="国内优秀npm镜像推荐及使用"><a href="#国内优秀npm镜像推荐及使用" class="headerlink" title="国内优秀npm镜像推荐及使用"></a><a href="http://riny.net/2014/cnpm/" target="_blank" rel="noopener">国内优秀npm镜像推荐及使用</a></h2><p>淘宝npm镜像</p>
-<ul>
-<li>搜索地址：<a href="http://npm.taobao.org/" target="_blank" rel="noopener">http://npm.taobao.org/</a></li>
-<li>registry地址：<a href="http://registry.npm.taobao.org/" target="_blank" rel="noopener">http://registry.npm.taobao.org/</a><br>cnpmjs镜像</li>
-<li>搜索地址：<a href="http://cnpmjs.org/" target="_blank" rel="noopener">http://cnpmjs.org/</a></li>
-<li>registry地址：<a href="http://r.cnpmjs.org/" target="_blank" rel="noopener">http://r.cnpmjs.org/</a></li>
-</ul>
-<h3 id="临时使用"><a href="#临时使用" class="headerlink" title="临时使用"></a>临时使用</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">npm --registry https://registry.npm.taobao.org install express<br></code></pre></td></tr></table></figure>
-<h3 id="持久使用"><a href="#持久使用" class="headerlink" title="持久使用"></a>持久使用</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sh">npm config <span class="hljs-built_in">set</span> registry https://registry.npm.taobao.org<br><br>// 配置后可通过下面方式来验证是否成功<br>npm config get registry<br>// 或<br>npm info express<br></code></pre></td></tr></table></figure>
-<h3 id="通过cnpm使用"><a href="#通过cnpm使用" class="headerlink" title="通过cnpm使用"></a>通过cnpm使用</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sh">npm install -g cnpm --registry=https://registry.npm.taobao.org<br><br>// 使用<br>cnpm install express<br></code></pre></td></tr></table></figure>
-
-
-
-
-<h2 id="https-blog-niceue-com-front-end-development-using-domestic-npm-images-html"><a href="#https-blog-niceue-com-front-end-development-using-domestic-npm-images-html" class="headerlink" title="https://blog.niceue.com/front-end-development/using-domestic-npm-images.html"></a><a href="https://blog.niceue.com/front-end-development/using-domestic-npm-images.html" target="_blank" rel="noopener">https://blog.niceue.com/front-end-development/using-domestic-npm-images.html</a></h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># 配置 registry</span><br>npm config <span class="hljs-built_in">set</span> registry https://r.cnpmjs.org/<br><span class="hljs-comment"># 验证配置是否修改成功</span><br>npm config get registry<br></code></pre></td></tr></table></figure>
-
-<h2 id="npm-install"><a href="#npm-install" class="headerlink" title="npm install"></a>npm install</h2><blockquote>
-<p>If you have a package.json file in your directory and you run npm install,<br>then npm will look at the dependencies that are listed in that file and<br>download the latest versions satisfying semver rules for all of those.<br><a href="https://docs.npmjs.com/getting-started/using-a-package.json" target="_blank" rel="noopener">https://docs.npmjs.com/getting-started/using-a-package.json</a></p>
-</blockquote>
-<h2 id="修改npm-install-g-的安装目录"><a href="#修改npm-install-g-的安装目录" class="headerlink" title="修改npm install -g 的安装目录"></a>修改<code>npm install -g</code> 的安装目录</h2><p>查看： <code>npm root -g</code><br>修改：在配置文件中 <code>.npmrc</code> 中添加，<code>prefix = &quot;D:\\c\\nodejs\\node_modules\\npm&quot;</code></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1297,7 +1100,7 @@
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="lyloou"
-      src="/images/avatar.png">
+      src="/assets/images/avatar.png">
   <p class="site-author-name" itemprop="name">lyloou</p>
   <div class="site-description" itemprop="description">/* Better than last best */</div>
 </div>
@@ -1306,7 +1109,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">311</span>
+          <span class="site-state-item-count">313</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1477,34 +1280,6 @@ if (document.querySelectorAll('pre.mermaid').length) {
 
   
 
-
-<script>
-NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
-  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
-    var GUEST = ['nick', 'mail', 'link'];
-    var guest = 'nick,mail,link';
-    guest = guest.split(',').filter(item => {
-      return GUEST.includes(item);
-    });
-    new Valine({
-      el         : '#valine-comments',
-      verify     : false,
-      notify     : true,
-      appId      : 'yhivNNDDoank7qFbmyEj9Ldq-gzGzoHsz',
-      appKey     : 'QuFu2ooibSzW1Q8eTrmPLyPw',
-      placeholder: "Just go go",
-      avatar     : 'mm',
-      meta       : guest,
-      pageSize   : '10' || 10,
-      visitor    : false,
-      lang       : '' || 'zh-cn',
-      path       : location.pathname,
-      recordIP   : true,
-      serverURLs : ''
-    });
-  }, window.Valine);
-});
-</script>
 
 </body>
 </html>

@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="zh-CN,zh-HK,zh-TW,en,default">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"lyloou.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="https:&#x2F;&#x2F;docs.starrocks.io&#x2F;zh-cn&#x2F;latest&#x2F;introduction&#x2F;StarRocks_intro StarRocks 是一款高性能分析型的数据仓库。可实现多维、实时和高并发的数据分析。支持多种格式的离线和实时数据导入，兼容mysql协议（目前只能用mysql客户端或BI客户端操作使用，他们自己的客户端还在开发中…） 适用于实时数仓、OLAP、数据湖分析等场景。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="lyloou">
+<meta property="og:url" content="https://lyloou.github.io/topic/starrocks%E4%BD%BF%E7%94%A8%E6%A1%88%E4%BE%8B.html">
+<meta property="og:site_name" content="lyloou">
+<meta property="og:description" content="https:&#x2F;&#x2F;docs.starrocks.io&#x2F;zh-cn&#x2F;latest&#x2F;introduction&#x2F;StarRocks_intro StarRocks 是一款高性能分析型的数据仓库。可实现多维、实时和高并发的数据分析。支持多种格式的离线和实时数据导入，兼容mysql协议（目前只能用mysql客户端或BI客户端操作使用，他们自己的客户端还在开发中…） 适用于实时数仓、OLAP、数据湖分析等场景。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/lyloou/img/develop/v3/202304131527279.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/lyloou/img/develop/v3/202304131527428.png">
+<meta property="article:published_time" content="2023-04-13T07:34:32.161Z">
+<meta property="article:modified_time" content="2023-04-13T07:34:32.161Z">
+<meta property="article:author" content="lyloou">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/lyloou/img/develop/v3/202304131527279.png">
+
+<link rel="canonical" href="https://lyloou.github.io/topic/starrocks%E4%BD%BF%E7%94%A8%E6%A1%88%E4%BE%8B">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title> | lyloou
+</title>
+  
+    <script>
+      function sendPageView() {
+        if (CONFIG.hostname !== location.hostname) return;
+        var uid = localStorage.getItem('uid') || (Math.random() + '.' + Math.random());
+        localStorage.setItem('uid', uid);
+        navigator.sendBeacon('https://www.google-analytics.com/collect', new URLSearchParams({
+          v  : 1,
+          tid: 'UA-80542932-1',
+          cid: uid,
+          t  : 'pageview',
+          dp : encodeURIComponent(location.pathname)
+        }));
+      }
+      document.addEventListener('pjax:complete', sendPageView);
+      sendPageView();
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta custom-logo">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">lyloou</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+  
+  
+
+          <div class="content page posts-expand">
+            
+
+    
+    
+    
+    <div class="post-block" lang="zh-CN">
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline"><a href="https://github.com/lyloou/lyloou.github.io/edit/source/source/topic/starrocks%E4%BD%BF%E7%94%A8%E6%A1%88%E4%BE%8B.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil-alt"></i></a>
+</h1>
+
+<div class="post-meta">
+  
+
+</div>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+          <p><a href="https://docs.starrocks.io/zh-cn/latest/introduction/StarRocks_intro" target="_blank" rel="noopener">https://docs.starrocks.io/zh-cn/latest/introduction/StarRocks_intro</a></p>
+<p>StarRocks 是一款高性能分析型的数据仓库。可实现多维、实时和高并发的数据分析。支持多种格式的离线和实时数据导入，兼容mysql协议（目前只能用mysql客户端或BI客户端操作使用，他们自己的客户端还在开发中…）</p>
+<p>适用于实时数仓、OLAP、数据湖分析等场景。</p>
+<p>下面从使用者的角度来介绍一下导入和分析UGC的内容，还会提及一些注意事项。</p>
+<p>之所以使用这个仓库，主要有三个原因：</p>
+<ol>
+<li><p>ugc数据量大（5KW以上）；</p>
+</li>
+<li><p>需要快速的分析查询能力（如 like 左右查询）；</p>
+</li>
+<li><p>需要支持增量更新能力；</p>
+</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/lyloou/img/develop/v3/202304131527279.png" alt="image.png"></p>
+<h2 id="表结构设计"><a href="#表结构设计" class="headerlink" title="表结构设计"></a>表结构设计</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-comment">-- 建表的时候指定主键索引持久化</span><br><br><span class="hljs-keyword">show</span> <span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> ugc_movie_v3;<br><span class="hljs-keyword">show</span> <span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> ugc_video_v3;<br><br><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-string">`ugc_movie_v3`</span><br>(<br>    <span class="hljs-string">`avid`</span>         <span class="hljs-built_in">bigint</span>(<span class="hljs-number">14</span>)     <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">"稿件id"</span>,<br>    <span class="hljs-string">`cid`</span>          <span class="hljs-built_in">bigint</span>(<span class="hljs-number">14</span>)     <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">"视频id"</span>,<br>    <span class="hljs-string">`page`</span>         <span class="hljs-built_in">int</span>(<span class="hljs-number">11</span>)        <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">"稿件内顺序"</span>,<br>    <span class="hljs-string">`description`</span>  <span class="hljs-built_in">varchar</span>(<span class="hljs-number">65535</span>) <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">"描述"</span>,<br>    <span class="hljs-string">`title`</span>        <span class="hljs-built_in">varchar</span>(<span class="hljs-number">500</span>)   <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">"标题"</span>,<br>    <span class="hljs-string">`duration`</span>     <span class="hljs-built_in">int</span>(<span class="hljs-number">11</span>)        <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">"片长，秒"</span>,<br>    <span class="hljs-string">`autorised`</span>    <span class="hljs-built_in">int</span>(<span class="hljs-number">11</span>)        <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">"是否可播，1可播 0不可播"</span>,<br>    <span class="hljs-string">`mtime`</span>        <span class="hljs-built_in">bigint</span>(<span class="hljs-number">20</span>)     <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">"最近修改时间 时间戳"</span>,<br>    <span class="hljs-string">`deleted`</span>      <span class="hljs-built_in">int</span>(<span class="hljs-number">11</span>)        <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">"0为删除；1已删除"</span>,<br>    <span class="hljs-string">`created_time`</span> datetime       <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">"创建时间"</span>,<br>    <span class="hljs-string">`modify_time`</span>  datetime       <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">"更新时间"</span><br>) PRIMARY <span class="hljs-keyword">KEY</span>(<span class="hljs-string">`avid`</span>, <span class="hljs-string">`cid`</span>)<br><span class="hljs-keyword">COMMENT</span> <span class="hljs-string">" ugc movie"</span><br><span class="hljs-keyword">DISTRIBUTED</span> <span class="hljs-keyword">BY</span> <span class="hljs-keyword">HASH</span>(<span class="hljs-string">`cid`</span>) BUCKETS <span class="hljs-number">10</span><br>PROPERTIES (<br><span class="hljs-string">"replication_num"</span> = <span class="hljs-string">"3"</span>,<br><span class="hljs-string">"in_memory"</span> = <span class="hljs-string">"false"</span>,<br><span class="hljs-string">"storage_format"</span> = <span class="hljs-string">"DEFAULT"</span>,<br><span class="hljs-string">"enable_persistent_index"</span> = <span class="hljs-string">"true"</span><br>);<br><br><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-string">`ugc_video_v3`</span><br>(<br>    <span class="hljs-string">`avid`</span>         <span class="hljs-built_in">bigint</span>(<span class="hljs-number">14</span>)     <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">"稿件id"</span>,<br>    <span class="hljs-string">`cover`</span>        <span class="hljs-built_in">varchar</span>(<span class="hljs-number">500</span>)   <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">"封面"</span>,<br>    <span class="hljs-string">`description`</span>  <span class="hljs-built_in">varchar</span>(<span class="hljs-number">65535</span>) <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">"描述"</span>,<br>    <span class="hljs-string">`title`</span>        <span class="hljs-built_in">varchar</span>(<span class="hljs-number">500</span>)   <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">"标题"</span>,<br>    <span class="hljs-string">`play_time`</span>    <span class="hljs-built_in">varchar</span>(<span class="hljs-number">128</span>)   <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">"发布时间"</span>,<br>    <span class="hljs-string">`view`</span>         <span class="hljs-built_in">bigint</span>(<span class="hljs-number">20</span>)     <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">"展示次数"</span>,<br>    <span class="hljs-string">`category_1`</span>   <span class="hljs-built_in">varchar</span>(<span class="hljs-number">64</span>)    <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">"一级分区名"</span>,<br>    <span class="hljs-string">`category_2`</span>   <span class="hljs-built_in">varchar</span>(<span class="hljs-number">64</span>)    <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">"二级分区名"</span>,<br>    <span class="hljs-string">`hot`</span>          <span class="hljs-built_in">tinyint</span>(<span class="hljs-number">4</span>)     <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">"是否热片"</span>,<br>    <span class="hljs-string">`tag`</span>          <span class="hljs-built_in">varchar</span>(<span class="hljs-number">100</span>)   <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">"单一标签"</span>,<br>    <span class="hljs-string">`tags`</span>         <span class="hljs-built_in">varchar</span>(<span class="hljs-number">500</span>)   <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">"标签数组"</span>,<br>    <span class="hljs-string">`autorised`</span>    <span class="hljs-built_in">tinyint</span>(<span class="hljs-number">4</span>)     <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">"是否可播，1可播 0不可播"</span>,<br>    <span class="hljs-string">`mtime`</span>        <span class="hljs-built_in">bigint</span>(<span class="hljs-number">20</span>)     <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">"更新时间戳"</span>,<br>    <span class="hljs-string">`deleted`</span>      <span class="hljs-built_in">int</span>(<span class="hljs-number">11</span>)        <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">"0为删除；1已删除"</span>,<br>    <span class="hljs-string">`created_time`</span> datetime       <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">"创建时间"</span>,<br>    <span class="hljs-string">`modify_time`</span>  datetime       <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">"更新时间"</span><br>) PRIMARY <span class="hljs-keyword">KEY</span>(<span class="hljs-string">`avid`</span>)<br><span class="hljs-keyword">COMMENT</span> <span class="hljs-string">" ugc video"</span><br><span class="hljs-keyword">DISTRIBUTED</span> <span class="hljs-keyword">BY</span> <span class="hljs-keyword">HASH</span>(<span class="hljs-string">`avid`</span>) BUCKETS <span class="hljs-number">10</span><br>PROPERTIES (<br><span class="hljs-string">"replication_num"</span> = <span class="hljs-string">"3"</span>,<br><span class="hljs-string">"in_memory"</span> = <span class="hljs-string">"false"</span>,<br><span class="hljs-string">"storage_format"</span> = <span class="hljs-string">"DEFAULT"</span>,<br><span class="hljs-string">"enable_persistent_index"</span> = <span class="hljs-string">"true"</span><br>);<br></code></pre></td></tr></table></figure>
+
+<p>如果设置了主键模式，注意需要开启主键索引持久化功能，否则可能会导致占用内存较多（下图15点左右在跑数据，内存空闲量立即减少。后面停止任务开启主键索引持久化后逐渐恢复）</p>
+<p><img src="https://raw.githubusercontent.com/lyloou/img/develop/v3/202304131527428.png" alt="image.png"></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><span class="hljs-comment">-- 修改主键索引持久化的模式</span><br><span class="hljs-keyword">alter</span> <span class="hljs-keyword">table</span> table_name <span class="hljs-keyword">set</span> (<span class="hljs-string">"enable_persistent_index"</span>=<span class="hljs-string">"true"</span>)<br></code></pre></td></tr></table></figure>
+
+<h3 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h3><ul>
+<li><p><a href="https://forum.mirrorship.cn/t/topic/3075" target="_blank" rel="noopener">如何设置SR建表的默认属性？</a></p>
+</li>
+<li><p><a href="https://docs.starrocks.io/zh-cn/latest/table_design/Data_model#%E4%B8%BB%E9%94%AE%E6%A8%A1%E5%9E%8B" target="_blank" rel="noopener">数据模型 @ Data_model#主键模型</a></p>
+</li>
+</ul>
+<h2 id="StreamLoad同步步骤"><a href="#StreamLoad同步步骤" class="headerlink" title="StreamLoad同步步骤"></a>StreamLoad同步步骤</h2><ol>
+<li><p>将数据缓存起来（如：加入 redis queue）</p>
+</li>
+<li><p>每隔一段时间从缓存中获取一批数据（如：每隔30s获取20000）</p>
+</li>
+<li><p>将这批数据通过 stream load 导入到 starrocks</p>
+</li>
+</ol>
+<h3 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br><span class="line">396</span><br><span class="line">397</span><br><span class="line">398</span><br><span class="line">399</span><br><span class="line">400</span><br><span class="line">401</span><br><span class="line">402</span><br><span class="line">403</span><br><span class="line">404</span><br><span class="line">405</span><br><span class="line">406</span><br><span class="line">407</span><br><span class="line">408</span><br><span class="line">409</span><br><span class="line">410</span><br><span class="line">411</span><br><span class="line">412</span><br><span class="line">413</span><br><span class="line">414</span><br><span class="line">415</span><br><span class="line">416</span><br><span class="line">417</span><br><span class="line">418</span><br><span class="line">419</span><br><span class="line">420</span><br><span class="line">421</span><br><span class="line">422</span><br><span class="line">423</span><br><span class="line">424</span><br><span class="line">425</span><br><span class="line">426</span><br><span class="line">427</span><br><span class="line">428</span><br><span class="line">429</span><br><span class="line">430</span><br><span class="line">431</span><br><span class="line">432</span><br><span class="line">433</span><br><span class="line">434</span><br><span class="line">435</span><br><span class="line">436</span><br><span class="line">437</span><br><span class="line">438</span><br><span class="line">439</span><br><span class="line">440</span><br><span class="line">441</span><br><span class="line">442</span><br><span class="line">443</span><br><span class="line">444</span><br><span class="line">445</span><br><span class="line">446</span><br><span class="line">447</span><br><span class="line">448</span><br><span class="line">449</span><br><span class="line">450</span><br><span class="line">451</span><br><span class="line">452</span><br><span class="line">453</span><br><span class="line">454</span><br><span class="line">455</span><br><span class="line">456</span><br><span class="line">457</span><br><span class="line">458</span><br><span class="line">459</span><br><span class="line">460</span><br><span class="line">461</span><br><span class="line">462</span><br><span class="line">463</span><br><span class="line">464</span><br><span class="line">465</span><br><span class="line">466</span><br><span class="line">467</span><br><span class="line">468</span><br><span class="line">469</span><br><span class="line">470</span><br><span class="line">471</span><br><span class="line">472</span><br></pre></td><td class="code"><pre><code class="hljs Java"><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * stream load 的方式导入 starRocks中</span><br><span class="hljs-comment"> * https://www.cnblogs.com/Springmoon-venn/p/16723663.html</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@author</span> lilou</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@since</span> 2023/3/20 13:55</span><br><span class="hljs-comment"> */</span><br><br><span class="hljs-meta">@Slf</span>4j<br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">StarRocksStreamLoadService</span> </span>&#123;<br><br>    <span class="hljs-keyword">private</span> String labelPrefix = <span class="hljs-string">"label-"</span>;<br>    <span class="hljs-meta">@SuppressWarnings</span>(<span class="hljs-string">"HttpUrlsUsage"</span>)<br>    <span class="hljs-keyword">private</span> String url = <span class="hljs-string">"http://127.0.0.1:8030"</span>;<br>    <span class="hljs-keyword">private</span> String format = <span class="hljs-string">"json"</span>;<br>    <span class="hljs-keyword">private</span> String user = <span class="hljs-string">"root"</span>;<br>    <span class="hljs-keyword">private</span> String pass = <span class="hljs-string">"root"</span>;<br>    <span class="hljs-keyword">private</span> String rowSep = <span class="hljs-string">"\n"</span>;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">StarRocksStreamLoadService</span><span class="hljs-params">()</span> </span>&#123;<br><br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">StarRocksStreamLoadService</span><span class="hljs-params">(StarRocksProperties properties)</span> </span>&#123;<br>        initProperties(properties);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">initProperties</span><span class="hljs-params">(StarRocksProperties properties)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.labelPrefix = properties.getLabelPrefix();<br>        <span class="hljs-keyword">this</span>.url = properties.getUrl();<br>        <span class="hljs-keyword">this</span>.format = properties.getFormat();<br>        <span class="hljs-keyword">this</span>.user = properties.getUser();<br>        <span class="hljs-keyword">this</span>.pass = properties.getPass();<br>        <span class="hljs-keyword">this</span>.rowSep = properties.getRowSep();<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Map&lt;String, Object&gt; <span class="hljs-title">write</span><span class="hljs-params">(String database, String table, List&lt;String&gt; records, String columns)</span> <span class="hljs-keyword">throws</span> Exception </span>&#123;<br><br>        <span class="hljs-comment">// 转 byte</span><br>        StarRocksSinkBufferEntity bufferEntity = <span class="hljs-keyword">new</span> StarRocksSinkBufferEntity(database, table, labelPrefix);<br>        <span class="hljs-keyword">for</span> (String record : records) &#123;<br>            <span class="hljs-keyword">byte</span>[] bts = record.getBytes(StandardCharsets.UTF_8);<br>            bufferEntity.addToBuffer(bts);<br>        &#125;<br><br>        <span class="hljs-comment">// 多行合并</span><br>        <span class="hljs-keyword">byte</span>[] data = joinRows(bufferEntity.getBuffer(), (<span class="hljs-keyword">int</span>) bufferEntity.getBatchSize());<br><br>        <span class="hljs-comment">// 导入的 url</span><br>        String loadUrl = <span class="hljs-keyword">new</span> StringBuilder(url)<br>                .append(<span class="hljs-string">"/api/"</span>)<br>                .append(bufferEntity.getDatabase())<br>                .append(<span class="hljs-string">"/"</span>)<br>                .append(bufferEntity.getTable())<br>                .append(<span class="hljs-string">"/_stream_load"</span>)<br>                .toString();<br><br>        <span class="hljs-comment">// random load label</span><br>        String label = createBatchLabel();<br><br>        <span class="hljs-comment">// do http</span><br>        Map&lt;String, Object&gt; map = <span class="hljs-keyword">null</span>;<br>        <span class="hljs-keyword">try</span> &#123;<br>            map = RetryUtil.call(StrUtil.format(<span class="hljs-string">"StarRocksStreamLoadService-&#123;&#125;-&#123;&#125;"</span>, database, table),<br>                    () -&gt; doHttpPut(loadUrl, label, data, columns));<br>        &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;<br>            <span class="hljs-keyword">final</span> String message = StrUtil.format(<span class="hljs-string">"[StarRocksStreamLoadService#write]: 请求发生异常, database:&#123;&#125;, table:&#123;&#125;, records:&#123;&#125;"</span>,<br>                    database, table, records);<br>            log.warn(message, e);<br>            RobotNotifyService.send(message, e);<br>        &#125;<br><br>        <span class="hljs-keyword">if</span> (Objects.isNull(map)) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;<br>        &#125;<br><br>        <span class="hljs-keyword">return</span> map;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isSuccess</span><span class="hljs-params">(Map&lt;String, Object&gt; map)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (Objects.isNull(map)) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;<br>        &#125;<br><br>        <span class="hljs-keyword">return</span> Objects.equals(map.get(<span class="hljs-string">"Status"</span>), <span class="hljs-string">"Success"</span>);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">protected</span> String <span class="hljs-title">createBatchLabel</span><span class="hljs-params">()</span> </span>&#123;<br>        StringBuilder sb = <span class="hljs-keyword">new</span> StringBuilder();<br>        <span class="hljs-keyword">if</span> (!Strings.isNullOrEmpty(labelPrefix)) &#123;<br>            sb.append(labelPrefix);<br>        &#125;<br>        <span class="hljs-keyword">return</span> sb.append(UUID.randomUUID()).toString();<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">protected</span> Map&lt;String, Object&gt; <span class="hljs-title">doHttpPut</span><span class="hljs-params">(String loadUrl, String label, <span class="hljs-keyword">byte</span>[] data, String columns)</span> <span class="hljs-keyword">throws</span> IOException </span>&#123;<br>        log.debug(String.format(<span class="hljs-string">"Executing stream load to: '%s', size: '%s', thread: %d"</span>,<br>                loadUrl, data.length, Thread.currentThread().getId()));<br>        <span class="hljs-keyword">final</span> HttpClientBuilder httpClientBuilder = HttpClients.custom()<br>                .setRedirectStrategy(<span class="hljs-keyword">new</span> DefaultRedirectStrategy() &#123;<br>                    <span class="hljs-meta">@Override</span><br>                    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isRedirectable</span><span class="hljs-params">(String method)</span> </span>&#123;<br>                        <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;<br>                    &#125;<br>                &#125;)<br>                <span class="hljs-comment">// 解决 Content-Length bug : Caused by: org.apache.http.ProtocolException: Content-Length header already present at</span><br>                .addInterceptorFirst(<span class="hljs-keyword">new</span> ContentLengthHeaderRemover());<br>        <span class="hljs-keyword">try</span> (CloseableHttpClient httpclient = httpClientBuilder.build()) &#123;<br>            HttpPut httpPut = <span class="hljs-keyword">new</span> HttpPut(loadUrl);<br>            <span class="hljs-comment">// 指定列名</span><br>            httpPut.setHeader(<span class="hljs-string">"columns"</span>, columns);<br><br>            <span class="hljs-keyword">if</span> (!httpPut.containsHeader(<span class="hljs-string">"timeout"</span>)) &#123;<br>                httpPut.setHeader(<span class="hljs-string">"timeout"</span>, <span class="hljs-string">"60"</span>);<br>            &#125;<br>            <span class="hljs-keyword">if</span> (<span class="hljs-string">"json"</span>.equals(format)) &#123;<br>                httpPut.setHeader(<span class="hljs-string">"strip_outer_array"</span>, <span class="hljs-string">"true"</span>);<br>                httpPut.setHeader(<span class="hljs-string">"format"</span>, <span class="hljs-string">"json"</span>);<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                <span class="hljs-comment">// 行、列分隔符</span><br>                httpPut.setHeader(<span class="hljs-string">"row_delimiter"</span>, <span class="hljs-string">"\\\\x02"</span>);<br>                httpPut.setHeader(<span class="hljs-string">"column_separator"</span>, <span class="hljs-string">"\\\\x01"</span>);<br>            &#125;<br>            httpPut.setHeader(<span class="hljs-string">"Expect"</span>, <span class="hljs-string">"100-continue"</span>);<br>            httpPut.setHeader(<span class="hljs-string">"label"</span>, label);<br><br>            <span class="hljs-comment">// 用户名、密码</span><br>            httpPut.setHeader(<span class="hljs-string">"Authorization"</span>, getBasicAuthHeader(user, pass));<br>            httpPut.setEntity(<span class="hljs-keyword">new</span> ByteArrayEntity(data));<br>            httpPut.setConfig(RequestConfig.custom().setRedirectsEnabled(<span class="hljs-keyword">true</span>).build());<br>            <span class="hljs-keyword">try</span> (CloseableHttpResponse resp = httpclient.execute(httpPut)) &#123;<br>                HttpEntity respEntity = getHttpEntity(resp);<br>                <span class="hljs-keyword">if</span> (respEntity == <span class="hljs-keyword">null</span>)<br>                    <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;<br>                <span class="hljs-keyword">return</span> JSON.parseObject(EntityUtils.toString(respEntity));<br>            &#125;<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">protected</span> String <span class="hljs-title">getBasicAuthHeader</span><span class="hljs-params">(String username, String password)</span> </span>&#123;<br>        String auth = username + <span class="hljs-string">":"</span> + password;<br>        <span class="hljs-keyword">byte</span>[] encodedAuth = Base64.encodeBase64(auth.getBytes(StandardCharsets.UTF_8));<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">"Basic "</span> + <span class="hljs-keyword">new</span> String(encodedAuth);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">protected</span> HttpEntity <span class="hljs-title">getHttpEntity</span><span class="hljs-params">(CloseableHttpResponse resp)</span> </span>&#123;<br>        <span class="hljs-keyword">int</span> code = resp.getStatusLine().getStatusCode();<br>        <span class="hljs-keyword">if</span> (<span class="hljs-number">200</span> != code) &#123;<br>            log.warn(<span class="hljs-string">"Request failed with code:&#123;&#125;"</span>, code);<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;<br>        &#125;<br>        HttpEntity respEntity = resp.getEntity();<br>        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">null</span> == respEntity) &#123;<br>            log.warn(<span class="hljs-string">"Request failed with empty response."</span>);<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;<br>        &#125;<br>        <span class="hljs-keyword">return</span> respEntity;<br>    &#125;<br><br>    <span class="hljs-keyword">protected</span> <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ContentLengthHeaderRemover</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">HttpRequestInterceptor</span> </span>&#123;<br>        <span class="hljs-meta">@Override</span><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">process</span><span class="hljs-params">(HttpRequest request, HttpContext context)</span> <span class="hljs-keyword">throws</span> HttpException, IOException </span>&#123;<br>            <span class="hljs-comment">// fighting org.apache.http.protocol.RequestContent's ProtocolException("Content-Length header already present");</span><br>            request.removeHeaders(HTTP.CONTENT_LEN);<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-keyword">protected</span> <span class="hljs-keyword">byte</span>[] joinRows(List&lt;<span class="hljs-keyword">byte</span>[]&gt; rows, <span class="hljs-keyword">int</span> totalBytes) &#123;<br>        <span class="hljs-keyword">if</span> (<span class="hljs-string">"csv"</span>.equals(format)) &#123;<br>            <span class="hljs-comment">// csv</span><br>            <span class="hljs-keyword">byte</span>[] lineDelimiter = rowSep.getBytes(StandardCharsets.UTF_8);<br>            ByteBuffer bos = ByteBuffer.allocate(totalBytes + rows.size() * lineDelimiter.length);<br><br>            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">byte</span>[] row : rows) &#123;<br>                bos.put(row);<br>                bos.put(lineDelimiter);<br>            &#125;<br><br>            <span class="hljs-keyword">return</span> bos.array();<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-comment">// json</span><br>            ByteBuffer bos = ByteBuffer.allocate(totalBytes + (rows.isEmpty() ? <span class="hljs-number">2</span> : rows.size() + <span class="hljs-number">1</span>));<br>            bos.put(<span class="hljs-string">"["</span>.getBytes(StandardCharsets.UTF_8));<br>            <span class="hljs-keyword">byte</span>[] jsonDelimiter = <span class="hljs-string">","</span>.getBytes(StandardCharsets.UTF_8);<br>            <span class="hljs-keyword">boolean</span> isFirstElement = <span class="hljs-keyword">true</span>;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">byte</span>[] row : rows) &#123;<br>                <span class="hljs-keyword">if</span> (!isFirstElement) &#123;<br>                    bos.put(jsonDelimiter);<br>                &#125;<br>                bos.put(row);<br>                isFirstElement = <span class="hljs-keyword">false</span>;<br>            &#125;<br>            bos.put(<span class="hljs-string">"]"</span>.getBytes(StandardCharsets.UTF_8));<br>            <span class="hljs-keyword">return</span> bos.array();<br>        &#125;<br><br>    &#125;<br><br><br>&#125;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> *  ugc starRocks 通过 stream load 的方式批量导入数据</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@author</span> lilou</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@since</span> 2023/3/22 10:38</span><br><span class="hljs-comment"> */</span><br><span class="hljs-meta">@Service</span><br><span class="hljs-meta">@Slf</span>4j<br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UgcStarRocksStreamLoadService</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">StarRocksStreamLoadService</span> </span>&#123;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 从缓存拉取周期</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> POLL_PERIOD = <span class="hljs-number">30</span>;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 每次从缓存拉取数量</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> POLL_LIMIT = <span class="hljs-number">20000</span>;<br><br>    <span class="hljs-meta">@Autowired</span><br>    <span class="hljs-keyword">private</span> RedissonClient redissonClient;<br><br>    <span class="hljs-keyword">private</span> RQueue&lt;String&gt; movieDataQueue;<br>    <span class="hljs-keyword">private</span> RQueue&lt;String&gt; videoDataQueue;<br><br>    <span class="hljs-meta">@PostConstruct</span><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">init</span><span class="hljs-params">()</span> </span>&#123;<br>        initProperties(<span class="hljs-keyword">new</span> StarRocksProperties());<br><br>        movieDataQueue = redissonClient.getQueue(<span class="hljs-string">"UgcStarRocksStreamLoadService::movieData"</span>);<br>        videoDataQueue = redissonClient.getQueue(<span class="hljs-string">"UgcStarRocksStreamLoadService::videoData"</span>);<br><br>        ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor(runnable -&gt; &#123;<br>            Thread thread = <span class="hljs-keyword">new</span> Thread(runnable, <span class="hljs-string">"starrocks-streamload"</span>);<br>            thread.setDaemon(<span class="hljs-keyword">true</span>);<br>            <span class="hljs-keyword">return</span> thread;<br>        &#125;);<br><br>        scheduler.scheduleAtFixedRate(() -&gt; &#123;<br>            <span class="hljs-keyword">if</span> (scheduler.isShutdown()) &#123;<br>                log.warn(<span class="hljs-string">"[UgcStarRocksStreamLoadService#init]: 定时注册延迟消费者线程池已中断"</span>);<br>                <span class="hljs-keyword">return</span>;<br>            &#125;<br>            writeFromCacheToStarRocks();<br>        &#125;, <span class="hljs-number">5</span>, POLL_PERIOD, TimeUnit.SECONDS);<br>    &#125;<br><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> AtomicBoolean isWriting = <span class="hljs-keyword">new</span> AtomicBoolean(<span class="hljs-keyword">false</span>);<br><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">writeFromCacheToStarRocks</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (isWriting.get()) &#123;<br>            log.info(<span class="hljs-string">"[UgcStarRocksStreamLoadService#writeFromCacheToStarRocks]: 正在写，稍等片刻"</span>);<br>            <span class="hljs-keyword">return</span>;<br>        &#125;<br><br>        isWriting.set(<span class="hljs-keyword">true</span>);<br><br>        <span class="hljs-keyword">try</span> &#123;<br>            writeMovieListFromCacheToStarRocks();<br>            writeVideoListFromCacheToStarRocks();<br>        &#125; <span class="hljs-keyword">finally</span> &#123;<br>            isWriting.set(<span class="hljs-keyword">false</span>);<br>        &#125;<br><br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">writeMovieListFromCacheToStarRocks</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">final</span> List&lt;String&gt; result = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();<br>        List&lt;String&gt; wrapperList = <span class="hljs-keyword">null</span>;<br>        <span class="hljs-keyword">try</span> &#123;<br>            wrapperList = movieDataQueue.poll(POLL_LIMIT);<br>        &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;<br>            <span class="hljs-keyword">final</span> String message = <span class="hljs-string">"[UgcStarRocksStreamLoadService#writeMovieListFromCacheToStarRocks]: 从缓存中获取数据发生异常"</span>;<br>            log.warn(message, e);<br>            RobotNotifyService.send(message, e);<br>        &#125;<br><br>        <span class="hljs-keyword">if</span> (CollUtil.isEmpty(wrapperList)) &#123;<br>            <span class="hljs-keyword">return</span>;<br>        &#125;<br><br>        <span class="hljs-keyword">try</span> &#123;<br><br>            <span class="hljs-keyword">for</span> (String movieAll : wrapperList) &#123;<br>                <span class="hljs-keyword">final</span> List&lt;String&gt; itemList = JSON.parseArray(movieAll, String<span class="hljs-class">.<span class="hljs-keyword">class</span>)</span>;<br>                result.addAll(itemList);<br>            &#125;<br>            <span class="hljs-keyword">final</span> String database = <span class="hljs-string">"gaoqi_test"</span>;<br>            <span class="hljs-keyword">final</span> String table = <span class="hljs-string">"ugc_movie_v3"</span>;<br>            <span class="hljs-keyword">final</span> String columns = <span class="hljs-string">"`avid`,`cid`,`page`,`description`,`title`,`duration`,`autorised`,`mtime`,`deleted`,`created_time`,`modify_time`"</span>;<br>            <span class="hljs-keyword">final</span> Map&lt;String, Object&gt; map = write(database, table, result, columns);<br>            <span class="hljs-keyword">if</span> (isSuccess(map)) &#123;<br>                log.info(<span class="hljs-string">"[UgcStarRocksStreamLoadService#writeMovieListFromCacheToStarRocks]: 插入movie成功 ==&gt; 数量："</span> + wrapperList.size());<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                movieDataQueue.addAll(wrapperList);<br>                <span class="hljs-keyword">final</span> String message = StrUtil.format(<span class="hljs-string">"[UgcStarRocksStreamLoadService#writeMovieListFromCacheToStarRocks]: 插入movie异常 ==&gt;:size-&#123;&#125;, result:&#123;&#125;"</span>, wrapperList.size(), map);<br>                log.warn(message);<br>                RobotNotifyService.send(message);<br>            &#125;<br>        &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;<br>            <span class="hljs-keyword">final</span> String message = <span class="hljs-string">"[UgcStarRocksStreamLoadService#writeMovieListFromCacheToStarRocks]: 添加到 starrocks 仓库异常，data-size："</span> + result.size();<br>            log.error(message, e);<br>            RobotNotifyService.send(message, e);<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">writeVideoListFromCacheToStarRocks</span><span class="hljs-params">()</span> </span>&#123;<br><br>        <span class="hljs-keyword">final</span> List&lt;String&gt; result = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();<br>        List&lt;String&gt; wrapperList = <span class="hljs-keyword">null</span>;<br>        <span class="hljs-keyword">try</span> &#123;<br>            wrapperList = videoDataQueue.poll(POLL_LIMIT);<br>        &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;<br>            <span class="hljs-keyword">final</span> String message = <span class="hljs-string">"[UgcStarRocksStreamLoadService#writeVideoListFromCacheToStarRocks]: 从缓存中获取数据发生异常"</span>;<br>            log.warn(message, e);<br>            RobotNotifyService.send(message, e);<br>        &#125;<br><br>        <span class="hljs-keyword">if</span> (CollUtil.isEmpty(wrapperList)) &#123;<br>            <span class="hljs-keyword">return</span>;<br>        &#125;<br><br>        <span class="hljs-keyword">try</span> &#123;<br><br><br>            <span class="hljs-keyword">for</span> (String wrapper : wrapperList) &#123;<br>                <span class="hljs-keyword">final</span> List&lt;String&gt; itemList = JSON.parseArray(wrapper, String<span class="hljs-class">.<span class="hljs-keyword">class</span>)</span>;<br>                result.addAll(itemList);<br>            &#125;<br>            <span class="hljs-keyword">final</span> String database = <span class="hljs-string">"gaoqi_test"</span>;<br>            <span class="hljs-keyword">final</span> String table = <span class="hljs-string">"ugc_video_v3"</span>;<br>            <span class="hljs-keyword">final</span> String columns = <span class="hljs-string">"`avid`,`cover`,`description`,`title`,`play_time`,`view`,`category_1`,`category_2`,`hot`,`tag`,`tags`,`autorised`,`mtime`,`deleted`,`created_time`,`modify_time`"</span>;<br>            <span class="hljs-keyword">final</span> Map&lt;String, Object&gt; map = write(database, table, result, columns);<br>            <span class="hljs-keyword">if</span> (isSuccess(map)) &#123;<br>                log.info(<span class="hljs-string">"[UgcStarRocksStreamLoadService#writeVideoListFromCacheToStarRocks]: 插入video成功 ==&gt;"</span> + wrapperList.size());<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                <span class="hljs-comment">// 失败后，回填到队列</span><br>                videoDataQueue.addAll(wrapperList);<br>                <span class="hljs-keyword">final</span> String message = StrUtil.format(<span class="hljs-string">"[UgcStarRocksStreamLoadService#writeVideoListFromCacheToStarRocks]: 插入video异常 ==&gt;:size-&#123;&#125;, result:&#123;&#125;"</span>, wrapperList, map);<br>                log.warn(message);<br>                RobotNotifyService.send(message);<br>            &#125;<br>        &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;<br>            <span class="hljs-keyword">final</span> String message = <span class="hljs-string">"[UgcStarRocksStreamLoadService#writeVideoListFromCacheToStarRocks]: 添加到 starrocks 仓库异常，data-size："</span> + result.size();<br>            log.error(message, e);<br>            RobotNotifyService.send(message, e);<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">writeMovieListToCache</span><span class="hljs-params">(List&lt;UgcMovieEntity&gt; list)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (CollUtil.isEmpty(list)) &#123;<br>            <span class="hljs-keyword">return</span>;<br>        &#125;<br><br>        <span class="hljs-keyword">final</span> List&lt;String&gt; itemList = list.stream()<br>                .map(JSON::toJSONString)<br>                .collect(Collectors.toList());<br>        <span class="hljs-keyword">final</span> String wrapper = JSON.toJSONString(itemList);<br>        movieDataQueue.add(wrapper);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">writeVideoListToCache</span><span class="hljs-params">(List&lt;UgcVideoEntity&gt; list)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (CollUtil.isEmpty(list)) &#123;<br>            <span class="hljs-keyword">return</span>;<br>        &#125;<br><br>        <span class="hljs-keyword">final</span> List&lt;String&gt; itemList = list.stream()<br>                .map(JSON::toJSONString)<br>                .collect(Collectors.toList());<br>        <span class="hljs-keyword">final</span> String wrapper = JSON.toJSONString(itemList);<br>        videoDataQueue.add(wrapper);<br>    &#125;<br>&#125;<br><br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">StarRocksSinkBufferEntity</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Serializable</span> </span>&#123;<br><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">long</span> serialVersionUID = <span class="hljs-number">1L</span>;<br><br>    <span class="hljs-keyword">private</span> ArrayList&lt;<span class="hljs-keyword">byte</span>[]&gt; buffer = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> batchCount = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">long</span> batchSize = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">private</span> String label;<br>    <span class="hljs-keyword">private</span> String database;<br>    <span class="hljs-keyword">private</span> String table;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">boolean</span> EOF;<br>    <span class="hljs-keyword">private</span> String labelPrefix;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">StarRocksSinkBufferEntity</span><span class="hljs-params">(String database, String table, String labelPrefix)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.database = database;<br>        <span class="hljs-keyword">this</span>.table = table;<br>        <span class="hljs-keyword">this</span>.labelPrefix = labelPrefix;<br>        label = createBatchLabel();<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> StarRocksSinkBufferEntity <span class="hljs-title">asEOF</span><span class="hljs-params">()</span> </span>&#123;<br>        EOF = <span class="hljs-keyword">true</span>;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">EOF</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> EOF;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getDatabase</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> database;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setDatabase</span><span class="hljs-params">(String database)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.database = database;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getTable</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> table;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setTable</span><span class="hljs-params">(String table)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.table = table;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getLabel</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> label;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> ArrayList&lt;<span class="hljs-keyword">byte</span>[]&gt; getBuffer() &#123;<br>        <span class="hljs-keyword">return</span> buffer;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">addToBuffer</span><span class="hljs-params">(<span class="hljs-keyword">byte</span>[] bts)</span> </span>&#123;<br>        incBatchCount();<br>        incBatchSize(bts.length);<br>        buffer.add(bts);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getBatchCount</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> batchCount;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">incBatchCount</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.batchCount += <span class="hljs-number">1</span>;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">long</span> <span class="hljs-title">getBatchSize</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> batchSize;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">incBatchSize</span><span class="hljs-params">(<span class="hljs-keyword">long</span> batchSize)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.batchSize += batchSize;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">synchronized</span> <span class="hljs-keyword">void</span> <span class="hljs-title">clear</span><span class="hljs-params">()</span> </span>&#123;<br>        buffer.clear();<br>        batchCount = <span class="hljs-number">0</span>;<br>        batchSize = <span class="hljs-number">0</span>;<br>        label = createBatchLabel();<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">reGenerateLabel</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> label = createBatchLabel();<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">createBatchLabel</span><span class="hljs-params">()</span> </span>&#123;<br>        StringBuilder sb = <span class="hljs-keyword">new</span> StringBuilder();<br>        <span class="hljs-keyword">if</span> (!Strings.isNullOrEmpty(labelPrefix)) &#123;<br>            sb.append(labelPrefix);<br>        &#125;<br>        <span class="hljs-keyword">return</span> sb.append(UUID.randomUUID()).toString();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="Kafka同步步骤"><a href="#Kafka同步步骤" class="headerlink" title="Kafka同步步骤"></a>Kafka同步步骤</h2><h3 id="添加监控"><a href="#添加监控" class="headerlink" title="添加监控"></a>添加监控</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><code class="hljs SQL"><br><span class="hljs-comment">-- 显示全部 LOAD</span><br><span class="hljs-keyword">SHOW</span> <span class="hljs-keyword">ALL</span> ROUTINE <span class="hljs-keyword">LOAD</span>;<br><br><span class="hljs-comment">-- 显示指定表的 LOAD</span><br><span class="hljs-keyword">SHOW</span> <span class="hljs-keyword">ALL</span> ROUTINE <span class="hljs-keyword">LOAD</span><br> <span class="hljs-keyword">FOR</span> routine_load_stream_test_v3;<br><br><span class="hljs-keyword">STOP</span> ROUTINE <span class="hljs-keyword">LOAD</span> <span class="hljs-keyword">FOR</span> routine_load_stream_test_v5;<br><br><span class="hljs-comment">-- 创建 csv 序列化的主题</span><br><span class="hljs-keyword">CREATE</span> ROUTINE <span class="hljs-keyword">LOAD</span> routine_load_stream_test_v4 <span class="hljs-keyword">ON</span> stream_test<br><span class="hljs-keyword">COLUMNS</span> <span class="hljs-keyword">TERMINATED</span> <span class="hljs-keyword">BY</span> <span class="hljs-string">","</span>,<br><span class="hljs-keyword">COLUMNS</span> (<span class="hljs-keyword">id</span>, id2, username)<br>PROPERTIES<br>(<br>    <span class="hljs-string">"desired_concurrent_number"</span> = <span class="hljs-string">"5"</span><br>)<br><span class="hljs-keyword">FROM</span> KAFKA<br>(<br>    <span class="hljs-string">"kafka_broker_list"</span>= <span class="hljs-string">"172.20.154.101:9092,172.20.154.103:9092,172.20.154.104:9092"</span>,<br>    <span class="hljs-string">"kafka_topic"</span> = <span class="hljs-string">"topic_starrocks_stream_test4"</span> ,<br>    <span class="hljs-string">"kafka_partitions"</span> =<span class="hljs-string">"0,1,2,3,4,5,6,7,8,9"</span>,<br>    <span class="hljs-string">"property.kafka_default_offsets"</span> = <span class="hljs-string">"OFFSET_BEGINNING"</span><br>);<br><br><span class="hljs-comment">-- 创建 json 序列化的主题</span><br><span class="hljs-keyword">CREATE</span> ROUTINE <span class="hljs-keyword">LOAD</span> routine_load_stream_test_v5 <span class="hljs-keyword">ON</span> stream_test<br><span class="hljs-keyword">COLUMNS</span> (<span class="hljs-keyword">id</span>, id2, username)<br>PROPERTIES (<br>    <span class="hljs-string">"desired_concurrent_number"</span>=<span class="hljs-string">"5"</span>,<br>    <span class="hljs-string">"format"</span>=<span class="hljs-string">"json"</span>,<br>    <span class="hljs-string">"jsonpaths"</span> =<span class="hljs-string">"[\"</span>$.id\<span class="hljs-string">",\"</span>$.id2\<span class="hljs-string">",\"</span>$.username\<span class="hljs-string">"]"</span>,<br>    <span class="hljs-string">"max_error_number"</span>=<span class="hljs-string">"1000"</span><br>)<br><span class="hljs-keyword">FROM</span> KAFKA (<br>    <span class="hljs-string">"kafka_broker_list"</span>= <span class="hljs-string">"172.20.154.101:9092,172.20.154.103:9092,172.20.154.104:9092"</span>,<br>    <span class="hljs-string">"kafka_topic"</span> = <span class="hljs-string">"topic_starrocks_stream_test5"</span> ,<br>    <span class="hljs-string">"kafka_partitions"</span> =<span class="hljs-string">"0,1,2,3,4,5,6,7,8,9"</span>,<br>    <span class="hljs-string">"property.kafka_default_offsets"</span> = <span class="hljs-string">"OFFSET_BEGINNING"</span><br>);<br></code></pre></td></tr></table></figure>
+
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ul>
+<li><a href="https://docs.starrocks.io/zh-cn/latest/loading/RoutineLoad" target="_blank" rel="noopener">从 Apache Kafka® 持续导入 @ RoutineLoad</a></li>
+</ul>
+<h3 id="测试发送"><a href="#测试发送" class="headerlink" title="测试发送"></a>测试发送</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><code class="hljs Java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@author</span> lilou</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@since</span> 2023/3/20 15:14</span><br><span class="hljs-comment"> */</span><br><span class="hljs-meta">@Component</span><br><span class="hljs-meta">@Profile</span>(&#123;<span class="hljs-string">"dev"</span>, <span class="hljs-string">"beta"</span>&#125;)<br><span class="hljs-meta">@Slf</span>4j<br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">StarRocksKafkaApi</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Api</span> </span>&#123;<br>    <span class="hljs-meta">@Autowired</span><br>    <span class="hljs-keyword">private</span> KafkaTemplate&lt;String, String&gt; kafkaTemplate;<br><br>    <span class="hljs-comment">// http://localhost:8084/api/starRocksKafka/sendJsonMessage/invoke?id=13</span><br>    <span class="hljs-meta">@ApiOperation</span>(value = <span class="hljs-string">"发送测试接口"</span>, notes = <span class="hljs-string">""</span>)<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Map&lt;String, Object&gt; <span class="hljs-title">sendJsonMessage</span><span class="hljs-params">(Map&lt;String, Object&gt; parameterMap)</span> <span class="hljs-keyword">throws</span> ExecutionException, InterruptedException </span>&#123;<br>        <span class="hljs-keyword">final</span> Integer id = requestParamValueByParameterMap(parameterMap, <span class="hljs-string">"id"</span>, Integer<span class="hljs-class">.<span class="hljs-keyword">class</span>)</span>;<br>        <span class="hljs-keyword">final</span> ListenableFuture&lt;SendResult&lt;String, String&gt;&gt; future = kafkaTemplate.send(<span class="hljs-string">"topic_starrocks_stream_test5"</span>, <span class="hljs-number">0</span>, <span class="hljs-string">"id1"</span>, getJsonData(id, <span class="hljs-number">2</span>, <span class="hljs-string">"username:"</span> + id));<br>        <span class="hljs-keyword">final</span> SendResult&lt;String, String&gt; stringStringSendResult = future.get();<br>        <span class="hljs-keyword">return</span> MapUtil.&lt;String, Object&gt;builder()<br>                .put(<span class="hljs-string">"value"</span>, stringStringSendResult.getRecordMetadata().toString())<br>                .build();<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> String <span class="hljs-title">getJsonData</span><span class="hljs-params">(<span class="hljs-keyword">int</span> id, <span class="hljs-keyword">int</span> id2, String username)</span> </span>&#123;<br>        <span class="hljs-keyword">final</span> JSONObject jsonObject = <span class="hljs-keyword">new</span> JSONObject();<br>        jsonObject.put(<span class="hljs-string">"id"</span>, id);<br>        jsonObject.put(<span class="hljs-string">"id2"</span>, id2);<br>        jsonObject.put(<span class="hljs-string">"username"</span>, username);<br>        <span class="hljs-keyword">return</span> jsonObject.toString();<br>    &#125;<br><br>    <span class="hljs-meta">@KafkaListener</span>(topicPartitions = &#123;<span class="hljs-meta">@TopicPartition</span>(topic = <span class="hljs-string">"topic_starrocks_stream_test5"</span>, partitions = &#123;<span class="hljs-string">"0"</span>&#125;)&#125;)<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">consumeJsonMessage</span><span class="hljs-params">(ConsumerRecord&lt;String, String&gt; record, Acknowledgment ack)</span> </span>&#123;<br>        log.info(<span class="hljs-string">"[StarRocksKafkaApi#consumerDownVideoFinish]: 5 ==&gt;"</span> + record.value());<br>        ack.acknowledge();<br>    &#125;<br><br>    <span class="hljs-comment">// http://localhost:8084/api/starRocksKafka/sendCsvMessage/invoke?id=13</span><br>    <span class="hljs-meta">@ApiOperation</span>(value = <span class="hljs-string">"发送测试接口"</span>, notes = <span class="hljs-string">""</span>)<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Map&lt;String, Object&gt; <span class="hljs-title">sendCsvMessage</span><span class="hljs-params">(Map&lt;String, Object&gt; parameterMap)</span> <span class="hljs-keyword">throws</span> ExecutionException, InterruptedException </span>&#123;<br>        <span class="hljs-keyword">final</span> Integer id = requestParamValueByParameterMap(parameterMap, <span class="hljs-string">"id"</span>, Integer<span class="hljs-class">.<span class="hljs-keyword">class</span>)</span>;<br>        <span class="hljs-keyword">final</span> ListenableFuture&lt;SendResult&lt;String, String&gt;&gt; future = kafkaTemplate.send(<span class="hljs-string">"topic_starrocks_stream_test4"</span>, <span class="hljs-number">0</span>, <span class="hljs-string">"id1"</span>, getData(id, <span class="hljs-number">2</span>, <span class="hljs-string">"username:"</span> + id));<br>        <span class="hljs-keyword">final</span> SendResult&lt;String, String&gt; stringStringSendResult = future.get();<br>        <span class="hljs-keyword">return</span> MapUtil.&lt;String, Object&gt;builder()<br>                .put(<span class="hljs-string">"value"</span>, stringStringSendResult.getRecordMetadata().toString())<br>                .build();<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> String <span class="hljs-title">getData</span><span class="hljs-params">(<span class="hljs-keyword">int</span> id, <span class="hljs-keyword">int</span> id2, String username)</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> StrUtil.format(<span class="hljs-string">"&#123;&#125;,&#123;&#125;,&#123;&#125;"</span>, id, id2, username);<br>    &#125;<br><br>    <span class="hljs-meta">@KafkaListener</span>(topicPartitions = &#123;<span class="hljs-meta">@TopicPartition</span>(topic = <span class="hljs-string">"topic_starrocks_stream_test4"</span>, partitions = &#123;<span class="hljs-string">"0"</span>&#125;)&#125;)<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">consumerDownVideoFinish</span><span class="hljs-params">(ConsumerRecord&lt;String, String&gt; record, Acknowledgment ack)</span> </span>&#123;<br>        log.info(<span class="hljs-string">"[StarRocksKafkaApi#consumerDownVideoFinish]: 4 ==&gt;"</span> + record.value());<br>        ack.acknowledge();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>starrocks 监控链接：<a href="http://123.207.16.222:8081/screen/1705?start=-10800" target="_blank" rel="noopener">http://123.207.16.222:8081/screen/1705?start=-10800</a></p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="https://www.cnblogs.com/Springmoon-venn/p/16723663.html" target="_blank" rel="noopener">https://www.cnblogs.com/Springmoon-venn/p/16723663.html</a></p>
+<p><a href="https://www.cnblogs.com/itxiaoshen/p/16290641.html" target="_blank" rel="noopener">https://www.cnblogs.com/itxiaoshen/p/16290641.html</a></p>
+
+      </div>
+      
+      
+      
+    </div>
+    
+
+    
+    
+    
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#表结构设计"><span class="nav-number">1.</span> <span class="nav-text">表结构设计</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#参考资料："><span class="nav-number">1.1.</span> <span class="nav-text">参考资料：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#StreamLoad同步步骤"><span class="nav-number">2.</span> <span class="nav-text">StreamLoad同步步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#示例："><span class="nav-number">2.1.</span> <span class="nav-text">示例：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Kafka同步步骤"><span class="nav-number">3.</span> <span class="nav-text">Kafka同步步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加监控"><span class="nav-number">3.1.</span> <span class="nav-text">添加监控</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考资料"><span class="nav-number">3.2.</span> <span class="nav-text">参考资料</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试发送"><span class="nav-number">3.3.</span> <span class="nav-text">测试发送</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考链接"><span class="nav-number">4.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="lyloou"
+      src="/assets/images/avatar.png">
+  <p class="site-author-name" itemprop="name">lyloou</p>
+  <div class="site-description" itemprop="description">/* Better than last best */</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">313</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">56</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/lyloou" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;lyloou" rel="noopener" target="_blank">GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:lyloou6@gmail.com" title="E-Mail → mailto:lyloou6@gmail.com" rel="noopener" target="_blank">E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/lyloou" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;lyloou" rel="noopener" target="_blank">Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/ly1414725328" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;ly1414725328" rel="noopener" target="_blank">CSDN</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">粤ICP备18151128号 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lyloou</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '5776a56ec2a831d83dfc',
+      clientSecret: '9dd4fdd607d831f375f6d8b2e1efb5afef185784',
+      repo        : 'lyloou.github.io',
+      owner       : 'lyloou',
+      admin       : ['lyloou'],
+      id          : '947b42b3be813506acafe300e189a0cd',
+        language: '',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>

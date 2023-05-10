@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"lyloou.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"lyloou.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="&#x2F;* Better than last best *&#x2F;">
@@ -201,10 +201,188 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/android/build.gradle%E9%85%8D%E7%BD%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/images/avatar.png">
+      <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lyloou">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/android/build.gradle%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">build.gradle配置</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-11-16 15:24:55" itemprop="dateCreated datePublished" datetime="2016-11-16T15:24:55+08:00">2016-11-16</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="bulid-gradle-文件"><a href="#bulid-gradle-文件" class="headerlink" title="bulid.gradle 文件"></a>bulid.gradle 文件</h1><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><code class="hljs groovy">  signingConfigs &#123;<br>    renrenDebug &#123;<br>        keyAlias <span class="hljs-string">'test'</span><br>        keyPassword <span class="hljs-string">'test'</span><br>        storeFile file(<span class="hljs-string">'../tool/test.key'</span>)<br>        storePassword <span class="hljs-string">'test'</span><br>    &#125;<br>  &#125;<br>  sourceSets &#123;<br>      main &#123;<br>          manifest.srcFile <span class="hljs-string">'AndroidManifest.xml'</span><br>          java.srcDirs = [<span class="hljs-string">'src'</span>]<br>          resources.srcDirs = [<span class="hljs-string">'src'</span>]<br>          aidl.srcDirs = [<span class="hljs-string">'src'</span>]<br>          renderscript.srcDirs = [<span class="hljs-string">'src'</span>]<br>          res.srcDirs = [<span class="hljs-string">'res'</span>]<br>          assets.srcDirs = [<span class="hljs-string">'assets'</span>]<br>          jniLibs.srcDirs = [<span class="hljs-string">'libs'</span>]<br>      &#125;<br>  &#125;<br><br>  lintOptions &#123;<br>      abortOnError <span class="hljs-literal">false</span>;<br>  &#125;<br>  buildTypes &#123;<br>    debug &#123;<br>        signingConfig signingConfigs.debug<br>        shrinkResources <span class="hljs-literal">false</span><br>        zipAlignEnabled <span class="hljs-literal">false</span><br>        minifyEnabled <span class="hljs-literal">false</span><br><br>        <span class="hljs-comment">// 测试</span><br>        buildConfigField <span class="hljs-string">"boolean"</span>, <span class="hljs-string">"TEST_ENV"</span>, <span class="hljs-string">"true"</span><br>        manifestPlaceholders = [<span class="hljs-string">WECHATAPPID:</span> <span class="hljs-string">"wxea2b67dxxxxxx"</span>]<br>    &#125;<br><br>    release &#123;<br>        signingConfig signingConfigs.release <span class="hljs-comment">// 密钥配置</span><br>        shrinkResources <span class="hljs-literal">true</span> <span class="hljs-comment">// 删除不必要的源文件</span><br>        zipAlignEnabled <span class="hljs-literal">true</span> <span class="hljs-comment">// 压缩对齐</span><br>        minifyEnabled <span class="hljs-literal">true</span><br>        proguardFiles getDefaultProguardFile(<span class="hljs-string">'proguard-android-optimize.txt'</span>), <span class="hljs-string">'proguard-rules.pro'</span><br><br>        <span class="hljs-comment">// 正式</span><br>        buildConfigField <span class="hljs-string">"boolean"</span>, <span class="hljs-string">"TEST_ENV"</span>, <span class="hljs-string">"false"</span><br>        manifestPlaceholders = [<span class="hljs-string">WECHATAPPID:</span> <span class="hljs-string">"wxb093774eaxxxxxx"</span>]<br><br>        applicationVariants.all &#123; variant -&gt;<br>            variant.outputs.each &#123; output -&gt;<br>                <span class="hljs-keyword">def</span> outputFile = output.outputFile<br>                <span class="hljs-keyword">if</span> (outputFile != <span class="hljs-literal">null</span> &amp;&amp; outputFile.name.endsWith(<span class="hljs-string">'.apk'</span>)) &#123;<br>                    <span class="hljs-comment">// 输出apk名称为 LOU_20161101_V0.2.0.apk</span><br>                    <span class="hljs-keyword">def</span> fileName = <span class="hljs-string">"LOU_$&#123;releaseTime()&#125;_V$&#123;defaultConfig.versionName&#125;.apk"</span><br>                    output.outputFile = <span class="hljs-keyword">new</span> File(outputFile.parent, fileName)<br>                &#125;<br><br>            &#125;<br><br>        &#125;<br>    &#125;<br>  &#125;<br><br><span class="hljs-comment">//    AndroidManifest的application标签下添加： &lt;meta-data android:name="UMENG_CHANNEL" android:value="$&#123;UMENG_CHANNEL_VALUE&#125;" /&gt;</span><br><br><span class="hljs-comment">//    productFlavors &#123;</span><br><span class="hljs-comment">//        yingyongbao &#123;&#125;</span><br><span class="hljs-comment">//        wandoujia &#123;&#125;</span><br><span class="hljs-comment">//        xiaomi &#123;&#125;</span><br><span class="hljs-comment">//        qihu360 &#123;&#125;</span><br><span class="hljs-comment">//        baidu &#123;&#125;</span><br><span class="hljs-comment">//        meizu &#123;&#125;</span><br><span class="hljs-comment">//    &#125;</span><br><span class="hljs-comment">//</span><br><span class="hljs-comment">//    productFlavors.all &#123;</span><br><span class="hljs-comment">//        flavor -&gt; flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]</span><br><span class="hljs-comment">//    &#125;</span><br>&#125;<br><br><span class="hljs-keyword">def</span> releaseTime() &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Date().format(<span class="hljs-string">"yyyMMdd"</span>, TimeZone.getTimeZone(<span class="hljs-string">"UTC"</span>))<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h1 id="proguard-混淆配置"><a href="#proguard-混淆配置" class="headerlink" title="proguard 混淆配置"></a>proguard 混淆配置</h1><h2 id="为什么要过滤混淆"><a href="#为什么要过滤混淆" class="headerlink" title="为什么要过滤混淆"></a>为什么要过滤混淆</h2><blockquote>
+<p>（<a href="http://blog.csdn.net/fengyuzhengfan/article/details/43876197）" target="_blank" rel="noopener">http://blog.csdn.net/fengyuzhengfan/article/details/43876197）</a><br>ProGuard 默认会对第三方库也进行混淆的，而第三方库有的已经混淆过了，有的使用了 Java 反射技术，所以我们在进行代码混淆的时候要排除这些第三方库。排除对第三方库的混淆需要在混淆规则文件（通常是：proguard-project.txt 或 proguard.cfg 或 proguard-rules.pro 或 proguard-rules.txt 也可以是其它的文件名只要在配置文件中将含有混淆规则的文件名配置进去就行了）中添加如下规则： 1.如果使用了 Gson 之类的工具要使 JavaBean 类即实体类不被混淆。 2.如果使用了自定义控件那么要保证它们不参与混淆。 3.如果使用了枚举要保证枚举不被混淆。 4.对第三方库中的类不进行混淆</p>
+</blockquote>
+<h2 id="proguard-rules-pro-文件"><a href="#proguard-rules-pro-文件" class="headerlink" title="proguard-rules.pro 文件"></a>proguard-rules.pro 文件</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-comment"># If your project uses WebView with JS, uncomment the following</span><br><span class="hljs-comment"># and specify the fully qualified class name to the JavaScript interface</span><br><span class="hljs-comment"># class:</span><br>-keepclassmembers class fqcn.of.javascript.interface.for.webview &#123;<br>  public *;<br>&#125;<br><br><span class="hljs-comment"># 忽略警告</span><br>-ignorewarning<br><br><span class="hljs-comment"># 移除日志</span><br>-assumenosideeffects class android.util.Log &#123;<br>    public static *** d(...);<br>    public static *** i(...);<br>    public static *** w(...);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a href="https://as.quanke.name/代码混淆规则配置文件proguard-rulespro.html" target="_blank" rel="noopener">代码混淆规则配置文件:proguard-rules.pro</a></li>
+</ul>
+<h1 id="Avoid-Maven-dynamic-dependency-resolution-such-as-2-1"><a href="#Avoid-Maven-dynamic-dependency-resolution-such-as-2-1" class="headerlink" title="Avoid Maven dynamic dependency resolution. (such as 2.1.+)"></a>Avoid Maven dynamic dependency resolution. (such as <code>2.1.+</code>)</h1><p>this result in different and unstable builds or subtle, untracked difference<br>in behavior between builds.</p>
+<h1 id="在配置-build-gradle-的时候，避免直接写入敏感信息（例如：密码），而是写入到版本控制工具"><a href="#在配置-build-gradle-的时候，避免直接写入敏感信息（例如：密码），而是写入到版本控制工具" class="headerlink" title="在配置 build.gradle 的时候，避免直接写入敏感信息（例如：密码），而是写入到版本控制工具"></a>在配置 <code>build.gradle</code> 的时候，避免直接写入敏感信息（例如：密码），而是写入到版本控制工具</h1><p>忽略的文件<code>gradle.properties</code>中。</p>
+<blockquote>
+<p><a href="https://github.com/futurice/android-best-practices#gradle-configuration" target="_blank" rel="noopener">https://github.com/futurice/android-best-practices#gradle-configuration</a></p>
+</blockquote>
+<h1 id="针对测试版本和发布版本使用不同的-appId-这样两个版本就可以同时存在在一个设备上了。"><a href="#针对测试版本和发布版本使用不同的-appId-这样两个版本就可以同时存在在一个设备上了。" class="headerlink" title="针对测试版本和发布版本使用不同的 appId, 这样两个版本就可以同时存在在一个设备上了。"></a>针对测试版本和发布版本使用不同的 appId, 这样两个版本就可以同时存在在一个设备上了。</h1><p>可以通过前缀或后缀的方式来区分。</p>
+<blockquote>
+<p><a href="https://github.com/futurice/android-best-practices#gradle-configuration" target="_blank" rel="noopener">https://github.com/futurice/android-best-practices#gradle-configuration</a></p>
+</blockquote>
+<h1 id="使用-Maven-依赖方案代替使用导入-jar-包方案"><a href="#使用-Maven-依赖方案代替使用导入-jar-包方案" class="headerlink" title="使用 Maven 依赖方案代替使用导入 jar 包方案"></a>使用 Maven 依赖方案代替使用导入 jar 包方案</h1><p>如果在你的项目中你明确使用率 jar 文件，那么它们可能成为永久的版本，如 2.1.1.下载 jar 包更新他们是很繁琐的， 这个问题 Maven 很好的解决了，这在 Android Gradle 构建中也是推荐的方法。你可以指定版本的一个范围，如 2.1.+,然后 Maven 会自动升级到制定的最新版本，例如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs js">dependencies &#123;<br>    compile <span class="hljs-string">'com.netflix.rxjava:rxjava-core:0.19.+'</span><br>    compile <span class="hljs-string">'com.netflix.rxjava:rxjava-android:0.19.+'</span><br>    compile <span class="hljs-string">'com.fasterxml.jackson.core:jackson-databind:2.4.+'</span><br>    compile <span class="hljs-string">'com.fasterxml.jackson.core:jackson-core:2.4.+'</span><br>    compile <span class="hljs-string">'com.fasterxml.jackson.core:jackson-annotations:2.4.+'</span><br>    compile <span class="hljs-string">'com.squareup.okhttp:okhttp:2.0.+'</span><br>    compile <span class="hljs-string">'com.squareup.okhttp:okhttp-urlconnection:2.0.+'</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="参考资料-1"><a href="#参考资料-1" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a href="https://www.kancloud.cn/thinkphp/android-best-practices/42169" target="_blank" rel="noopener">Gradle 配置</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/gradle/Gradle%E5%AD%A6%E4%B9%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/images/avatar.png">
+      <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lyloou">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/gradle/Gradle%E5%AD%A6%E4%B9%A0/" class="post-title-link" itemprop="url">Gradle学习</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-11-11 11:43:52" itemprop="dateCreated datePublished" datetime="2016-11-11T11:43:52+08:00">2016-11-11</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>Gradle 是以 Groovy 语言为基础，面向 Java 应用为主，基于 DSL 语法的自动化构建工具。</p>
+<h1 id="如何自动化打包（含签名的）"><a href="#如何自动化打包（含签名的）" class="headerlink" title="如何自动化打包（含签名的）"></a>如何自动化打包（含签名的）</h1><h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><p>1、将准备好的<code>keystore</code>签名文件放在根目录下；（目的是待会儿配置 build.gradle 文件时，可以直接通过指定路径引用）<br>2、在 module 级别的 build.gradle 中添加如下配置代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs js">android &#123;<br>    <span class="hljs-comment">// ...</span><br>    signingConfigs &#123;<br>        myConfig &#123;<br>            storeFile file(<span class="hljs-string">"lyloou.keystore"</span>)<br>            storePassword <span class="hljs-string">"lyloou"</span><br>            keyAlias <span class="hljs-string">"lyloou"</span><br>            keyPassword <span class="hljs-string">"lyloou"</span><br>        &#125;<br>    &#125;<br><br>    buildTypes &#123;<br>        release &#123;<br>            signingConfig signingConfigs.myConfig<br>            minifyEnabled <span class="hljs-literal">false</span><br>            proguardFiles getDefaultProguardFile(<span class="hljs-string">'proguard-android.txt'</span>), <span class="hljs-string">'proguard-rules.pro'</span><br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>3、执行<code>gradle clean</code>清理之前的自动生成文件；<br>4、执行<code>gradle build</code>开始生成文件；<br>5、在<code>build/outputs/apk/</code>文件夹中可以看到生成成功的 apk 文件；</p>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>通过执行<code>gradle build</code>自动生成的文件包含：</p>
+<ul>
+<li>[项目名]-debug-unaligned.apk：指的是调试模式，没有优化的 apk（可直接安装）</li>
+<li>[项目名]-release-unsigned.apk：指的是没有签名的 apk（不可直接安装）</li>
+<li>[项目名]-debug.apk：指的是已经签名过的调试版 apk；</li>
+<li>[项目名]-release.apk：指的是已经签名过的发布版 apk；</li>
+</ul>
+<h2 id="扩展技巧"><a href="#扩展技巧" class="headerlink" title="扩展技巧"></a>扩展技巧</h2><ul>
+<li>敏感信息保存到<code>gradle.properties</code>文件中，具体参考 <a href="https://www.kancloud.cn/thinkphp/android-best-practices/42169" target="_blank" rel="noopener">Gradle 配置</a></li>
+<li>自动化命名并输出 apk，具体参考<a href="https://github.com/lyloou/hexo/blob/master/source/_posts/tech/build.gradle%E9%85%8D%E7%BD%AE.md" target="_blank" rel="noopener">build.gradle 配置</a></li>
+</ul>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a href="http://stormzhang.com/android/2014/02/28/android-gradle/" target="_blank" rel="noopener">ANDROID GRADLE</a></li>
+</ul>
+<h1 id="如何根据环境自动选择-key-或其他配置信息"><a href="#如何根据环境自动选择-key-或其他配置信息" class="headerlink" title="如何根据环境自动选择 key 或其他配置信息"></a>如何根据环境自动选择 key 或其他配置信息</h1><h2 id="动态替换AndroidManifest-xml中的-key-信息"><a href="#动态替换AndroidManifest-xml中的-key-信息" class="headerlink" title="动态替换AndroidManifest.xml中的 key 信息"></a>动态替换<code>AndroidManifest.xml</code>中的 key 信息</h2><ol>
+<li>在<code>AndroidManifest</code>中添加占位符</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">data</span> <span class="hljs-attr">android:scheme</span>=<span class="hljs-string">"$&#123;WECHATAPPID&#125;"</span> /&gt;</span><br></code></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>在<code>build.gradle</code>中的<code>defaultConfig</code>标签或者<code>buildTypes</code>的 debug 和 release 标签下定义具体 value</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js">defaultConfig &#123;<br>    manifestPlaceholders = [WECHATAPPID: <span class="hljs-string">"wxea2xxxxxxxxxxxxxxx"</span>]<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs js">debug &#123;<br>    manifestPlaceholders = [WECHATAPPID: <span class="hljs-string">"wxea2xxxxxxxxxxxxxxx1"</span>]<br>&#125;<br><br>release &#123;<br>    manifestPlaceholders = [WECHATAPPID: <span class="hljs-string">"wxea2xxxxxxxxxxxxxxx2"</span>]<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="通过BuildConfig定义值"><a href="#通过BuildConfig定义值" class="headerlink" title="通过BuildConfig定义值"></a>通过<code>BuildConfig</code>定义值</h2><p>在不同的环境中设置不同的值，这样在打包（测试环境或正式环境）的时候就会有不同的值。注意定义完成后，要重新编译下环境，这样才能在 BuildConfig.java 中生效；</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs js">debug &#123;<br>    buildConfigField <span class="hljs-string">"boolean"</span>, <span class="hljs-string">"TEST_ENV"</span>, <span class="hljs-string">"true"</span><br>&#125;<br><br>release &#123;<br>    buildConfigField <span class="hljs-string">"boolean"</span>, <span class="hljs-string">"TEST_ENV"</span>, <span class="hljs-string">"false"</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>在代码中引用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">boolean</span> TEST_ENV = BuildConfig.TEST_ENV;<br></code></pre></td></tr></table></figure>
+
+<h2 id="在编译之前执行脚本"><a href="#在编译之前执行脚本" class="headerlink" title="在编译之前执行脚本"></a>在编译之前执行脚本</h2><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs groovy"><span class="hljs-comment">// 在 settings.gradle 最上方添加</span><br><span class="hljs-keyword">def</span> updateDependencies()&#123;<br>    <span class="hljs-keyword">def</span> command = <span class="hljs-string">"sh install.sh"</span><br>    exec &#123;<br>        executable <span class="hljs-string">"bash"</span><br>        args <span class="hljs-string">"-c"</span>, command<br>    &#125;<br>&#125;<br><br>updateDependencies()<br></code></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/android/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -229,20 +407,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/android/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/android/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -289,7 +453,7 @@
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/java/java%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -314,20 +478,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/java/java%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/java/java%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -386,7 +536,7 @@
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/java/%E5%8F%AA%E6%9C%89%E4%B8%80%E4%B8%AA%E6%97%B6%E9%97%B4%E6%88%B3%20/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -411,20 +561,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/java/%E5%8F%AA%E6%9C%89%E4%B8%80%E4%B8%AA%E6%97%B6%E9%97%B4%E6%88%B3%20/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/java/%E5%8F%AA%E6%9C%89%E4%B8%80%E4%B8%AA%E6%97%B6%E9%97%B4%E6%88%B3%20/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -461,7 +597,7 @@
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/java/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -486,20 +622,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/java/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/java/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -550,7 +672,7 @@
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/java/%E6%8C%89%E5%80%BC%E8%B0%83%E7%94%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -575,20 +697,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/java/%E6%8C%89%E5%80%BC%E8%B0%83%E7%94%A8/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/java/%E6%8C%89%E5%80%BC%E8%B0%83%E7%94%A8/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -637,7 +745,7 @@
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/tool/vscode/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -662,20 +770,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/tool/vscode/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/tool/vscode/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -737,7 +831,7 @@
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/tool/atom/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -762,20 +856,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/tool/atom/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/tool/atom/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -813,7 +893,7 @@
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/tool/eclipse/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -838,20 +918,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/tool/eclipse/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/tool/eclipse/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -865,253 +931,6 @@
           <h2 id="当光标移到到元素上，别处相同元素高亮显示"><a href="#当光标移到到元素上，别处相同元素高亮显示" class="headerlink" title="当光标移到到元素上，别处相同元素高亮显示"></a>当光标移到到元素上，别处相同元素高亮显示</h2><p>该功能默认是打开的，但是有时候莫名奇妙的会被关闭，这时候通过下面的方式可以启用该功能。</p>
 <p>具体步骤是：<br>windows-&gt;preferences-&gt;java-&gt;editor-&gt;mark occurrences 勾选复选框</p>
 <p>更改颜色:<br>window-&gt;preferences-&gt;General-&gt;editors-&gt;text Editor-&gt;Annotations<br>右边选择–&gt;Occurrence</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/sql/%E9%85%8D%E7%BD%AE%E5%AE%89%E8%A3%85/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="lyloou">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/sql/%E9%85%8D%E7%BD%AE%E5%AE%89%E8%A3%85/" class="post-title-link" itemprop="url">Sql配置和安装</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-10-10 20:29:00" itemprop="dateCreated datePublished" datetime="2016-10-10T20:29:00+08:00">2016-10-10</time>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/sql/%E9%85%8D%E7%BD%AE%E5%AE%89%E8%A3%85/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/sql/%E9%85%8D%E7%BD%AE%E5%AE%89%E8%A3%85/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="linux-安装-mariadb"><a href="#linux-安装-mariadb" class="headerlink" title="linux 安装 mariadb"></a>linux 安装 mariadb</h2><ul>
-<li><p>打开 <a href="https://downloads.mariadb.org/mariadb/repositories/" target="_blank" rel="noopener">https://downloads.mariadb.org/mariadb/repositories/</a></p>
-</li>
-<li><p>查看自己的版本号，选择对应的 version</p>
-</li>
-</ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">lsb_release -a<br></code></pre></td></tr></table></figure>
-
-<ul>
-<li>添加源</li>
-</ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">sudo apt-get install software-properties-common<br>sudo apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xF1656F24C74CD1D8<br>sudo add-apt-repository <span class="hljs-string">'deb [arch=amd64,arm64,ppc64el] http://mirrors.neusoft.edu.cn/mariadb/repo/10.4/ubuntu bionic main'</span><br></code></pre></td></tr></table></figure>
-
-<ul>
-<li>更新和安装</li>
-</ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">sudo apt update<br>sudo apt install mariadb-server<br></code></pre></td></tr></table></figure>
-
-<ul>
-<li>查看安装状态</li>
-</ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">systemctl status mariadb<br></code></pre></td></tr></table></figure>
-
-<ul>
-<li>查看 mysql version</li>
-</ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">mysql -V<br></code></pre></td></tr></table></figure>
-
-<p><a href="https://linuxize.com/post/how-to-install-mariadb-on-ubuntu-18-04/" target="_blank" rel="noopener">https://linuxize.com/post/how-to-install-mariadb-on-ubuntu-18-04/</a></p>
-<h2 id="uninstall-mariadb"><a href="#uninstall-mariadb" class="headerlink" title="uninstall mariadb"></a>uninstall mariadb</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sh">apt-get remove --purge mysql*<br>apt-get remove --purge mysql<br>apt-get remove --purge mariadb<br>apt-get remove --purge mariadb*<br>apt-get --purge remove mariadb-server<br>apt-get --purge remove python-software-properties<br></code></pre></td></tr></table></figure>
-
-<h2 id="重置密码"><a href="#重置密码" class="headerlink" title="重置密码"></a>重置密码</h2><p><a href="https://linuxize.com/post/how-to-reset-a-mysql-root-password/" target="_blank" rel="noopener">How to reset a MySQL root password | Linuxize</a></p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs sql">systemctl <span class="hljs-keyword">stop</span> mysql<br><br>sudo mysqld_safe <span class="hljs-comment">--skip-grant-tables &amp;</span><br><br>mysql -u root<br><br><span class="hljs-keyword">FLUSH</span> <span class="hljs-keyword">PRIVILEGES</span>;<br><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">USER</span> <span class="hljs-string">'root'</span>@<span class="hljs-string">'localhost'</span> <span class="hljs-keyword">IDENTIFIED</span> <span class="hljs-keyword">BY</span> <span class="hljs-string">'lyloou06'</span>;<br><span class="hljs-comment">-- SET PASSWORD FOR 'root'@'localhost' = PASSWORD('MY_NEW_PASSWORD');</span><br><span class="hljs-keyword">UPDATE</span> mysql.user <span class="hljs-keyword">SET</span> <span class="hljs-keyword">Password</span>=<span class="hljs-keyword">PASSWORD</span>(<span class="hljs-string">'rebate@2020'</span>) <span class="hljs-keyword">WHERE</span> <span class="hljs-keyword">User</span>=<span class="hljs-string">'root'</span>;<br><span class="hljs-keyword">FLUSH</span> <span class="hljs-keyword">PRIVILEGES</span>;<br><br><span class="hljs-comment">-- restart</span><br>mysqladmin -u root -p shutdown<br>sudo systemctl <span class="hljs-keyword">start</span> mariadb<br><br><span class="hljs-comment">-- login again</span><br>mysql -u root -p<br></code></pre></td></tr></table></figure>
-
-<h3 id="外网登录常见问题"><a href="#外网登录常见问题" class="headerlink" title="外网登录常见问题"></a>外网登录常见问题</h3><p>Q: ERROR 2003 (HY000): Can’t connect to MySQL server on (111 “Connection refused”)<br>A: <a href="https://blog.csdn.net/ssj901217/article/details/74490803" target="_blank" rel="noopener">mysql 远程连接数据库报 111 错误 - ssj901217 的博客 - CSDN 博客</a></p>
-<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs angelscript">vi /etc/mysql/my.cnf<br>找到<br>[mysqld]<br>bind-address            = <span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span><br>注释掉bind-address<br>重启 mysql, systemctl restart mysql;<br></code></pre></td></tr></table></figure>
-
-<p>Q: ERROR 1130 (HY000): Host is not allowed to connect to this MariaDB server<br>A: <a href="https://blog.csdn.net/HJULKK/article/details/52563044" target="_blank" rel="noopener">解决 MySQL ERROR 1130 (HY000): Host ‘XXXX’ is not allowed to connect to this MySQL server - HJULKK 的专栏 - CSDN 博客</a></p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs sql">mysql -u root -p<br><span class="hljs-keyword">use</span> mysql;<br><span class="hljs-keyword">update</span> <span class="hljs-keyword">user</span> <span class="hljs-keyword">set</span> host = <span class="hljs-string">'%'</span> <span class="hljs-keyword">where</span> <span class="hljs-keyword">user</span> = <span class="hljs-string">'root'</span>;<br><span class="hljs-keyword">flush</span> <span class="hljs-keyword">privileges</span>;<br><span class="hljs-keyword">select</span> host, <span class="hljs-keyword">user</span> <span class="hljs-keyword">from</span> <span class="hljs-keyword">user</span>;<br>quit<br><span class="hljs-comment">-- 步骤2：重启mysql,</span><br>systemctl restart mysql;<br></code></pre></td></tr></table></figure>
-
-<p>Q: <a href="https://stackoverflow.com/questions/39281594/error-1698-28000-access-denied-for-user-rootlocalhost" target="_blank" rel="noopener">mysql - ERROR 1698 (28000): Access denied for user ‘root’@’localhost’ - Stack Overflow</a><br>A: see below code</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs sql">sudo service mysql restart<br>sudo mysql <span class="hljs-comment"># logs in automatically into MariaDB</span><br><span class="hljs-keyword">use</span> mysql;<br><span class="hljs-keyword">update</span> <span class="hljs-keyword">user</span> <span class="hljs-keyword">set</span> <span class="hljs-keyword">plugin</span>=<span class="hljs-string">''</span> <span class="hljs-keyword">where</span> <span class="hljs-keyword">user</span>=<span class="hljs-string">'your_user_name'</span>;<br><span class="hljs-keyword">flush</span> <span class="hljs-keyword">privileges</span>;<br>exit;<br>sudo service mysql restart <span class="hljs-comment"># restarts the mysql service</span><br></code></pre></td></tr></table></figure>
-
-<p><a href="https://javen.blog.csdn.net/article/details/70949596#comments_15461007" target="_blank" rel="noopener">Centos7.3 安装 Mysql5.7 并修改初始密码_酷玩时刻-By Javen-CSDN 博客_centos7 修改 mysql 密码</a></p>
-<h2 id="linux-安装-mysql"><a href="#linux-安装-mysql" class="headerlink" title="linux 安装 mysql"></a>linux 安装 mysql</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">sudo apt-get update<br>sudo apt-get install mysql-server<br>sudo mysql_secure_installation<br></code></pre></td></tr></table></figure>
-
-<p><a href="https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-16-04?comment=53320" target="_blank" rel="noopener">https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-16-04?comment=53320</a><br>If it occurs error because of broken MySQL package on Ubuntu 16.04. Just do this trick</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># Purge all MySQL packages</span><br>sudo apt purge mysql*<br>sudo rm -rf /var/lib/mysql<br>sudo rm -rf /etc/mysql<br><br><span class="hljs-comment"># Reinstall MySQL</span><br>sudo apt install mysql-server mysql-client<br></code></pre></td></tr></table></figure>
-
-<p><strong>centos</strong></p>
-<p><a href="https://developer.aliyun.com/article/654596" target="_blank" rel="noopener">CentOS 7 - 安装 MySQL 5.7-阿里云开发者社区</a></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># 添加Mysql5.7仓库</span><br>sudo rpm -ivh https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm<br><br><span class="hljs-comment"># 确认Mysql仓库成功添加</span><br>sudo yum repolist all | grep mysql | grep enabled<br><span class="hljs-comment"># 开始安装</span><br>sudo yum -y install mysql-community-server<br><br><span class="hljs-comment"># 启动Mysql</span><br>sudo systemctl start mysqld<br><br><span class="hljs-comment"># 系统启动时自动启动</span><br>sudo systemctl <span class="hljs-built_in">enable</span> mysqld<br><br><span class="hljs-comment"># 查看启动状态</span><br>sudo systemctl status mysqld<br><br><span class="hljs-comment"># CentOS上的root默认密码可以在文件/var/log/mysqld.log找到，通过下面命令可以打印出来</span><br>cat /var/<span class="hljs-built_in">log</span>/mysqld.log | grep -i <span class="hljs-string">'temporary password'</span><br><br><span class="hljs-comment"># 执行下面命令进行安全设置，这个命令会进行设置root密码设置，移除匿名用户，禁止root用户远程连接等</span><br>mysql_secure_installation<br></code></pre></td></tr></table></figure>
-
-<p>解决：conflicts between attempted installs of MariaDB-common</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">yum shell<br>remove mariadb-libs<br></code></pre></td></tr></table></figure>
-
-<p>由于 5.7 版本在安装的时候就设置好了，不需要额外设置，但是 5.6 版本建议从安全角度完善下，运行官方脚本即可</p>
-<pre><code>设置 root 密码
-禁止 root 账号远程登录
-禁止匿名账号（anonymous）登录
-删除测试库
-是否确认修改</code></pre><h2 id="默认配置"><a href="#默认配置" class="headerlink" title="默认配置"></a>默认配置</h2><ul>
-<li>端口：3306</li>
-</ul>
-<h2 id="其它软件"><a href="#其它软件" class="headerlink" title="其它软件"></a>其它软件</h2><ul>
-<li>mycli</li>
-</ul>
-<h2 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h2><ul>
-<li>[How To Install MySQL on Ubuntu 16.04](error 1045 access denied for user using password no)</li>
-<li><a href="https://stackoverflow.com/questions/10299148/mysql-error-1045-28000-access-denied-for-user-billlocalhost-using-passw" target="_blank" rel="noopener">MySQL ERROR 1045 (28000): Access denied for user ‘bill’@’localhost’ (using password: YES) - Stack Overflow</a></li>
-</ul>
-<h2 id="新建用户"><a href="#新建用户" class="headerlink" title="新建用户"></a>新建用户</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-comment">-- 创建用户</span><br><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">USER</span> <span class="hljs-string">'bob'</span>@<span class="hljs-string">'%'</span><br>    <span class="hljs-keyword">IDENTIFIED</span> <span class="hljs-keyword">BY</span> <span class="hljs-string">'password'</span>;<br><br><span class="hljs-comment">-- 授权1</span><br><span class="hljs-keyword">GRANT</span> <span class="hljs-keyword">ALL</span> <br>    <span class="hljs-keyword">ON</span> *.*<br>    <span class="hljs-keyword">TO</span> <span class="hljs-string">'bob'</span>@<span class="hljs-string">'%'</span><br>    <span class="hljs-keyword">WITH</span> <span class="hljs-keyword">GRANT</span> <span class="hljs-keyword">OPTION</span>;<br><br><span class="hljs-comment">-- 授权2</span><br><span class="hljs-keyword">GRANT</span> <span class="hljs-keyword">privileges</span> <span class="hljs-keyword">on</span> databasename.tablename <span class="hljs-keyword">TO</span> <span class="hljs-string">'username'</span>@<span class="hljs-string">'host'</span>;<br><br><span class="hljs-comment">-- 修改密码</span><br><span class="hljs-keyword">SET</span> <span class="hljs-keyword">PASSWORD</span> <span class="hljs-keyword">FOR</span> <span class="hljs-string">'bob'</span>@<span class="hljs-string">'%'</span> = <span class="hljs-keyword">PASSWORD</span>(<span class="hljs-string">'bob'</span>);<br><br><span class="hljs-comment">-- 刷新</span><br><span class="hljs-keyword">flush</span> <span class="hljs-keyword">privileges</span>;<br></code></pre></td></tr></table></figure>
-
-<p><a href="https://dev.mysql.com/doc/refman/8.0/en/creating-accounts.html" target="_blank" rel="noopener">MySQL :: MySQL 8.0 Reference Manual :: 6.2.8 Adding Accounts, Assigning Privileges, and Dropping Accounts</a></p>
-<p><a href="https://serverfault.com/questions/186057/mysql-creating-a-user-that-can-connect-from-multiple-hosts" target="_blank" rel="noopener">networking - MySQL: creating a user that can connect from multiple hosts - Server Fault</a></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs sh">mysql root@120.123.232.2:mysql&gt; GRANT all PRIVILEGES ON *.* to <span class="hljs-string">'root'</span>@<span class="hljs-string">'localhost'</span>;<br>(1133, <span class="hljs-string">"Can't find any matching row in the user table"</span>)<br><br>mysql root@120.123.232.2:mysql&gt; GRANT all PRIVILEGES ON *.* to <span class="hljs-string">'root'</span>@<span class="hljs-string">'localhost'</span> IDENTIFIED by <span class="hljs-string">'localhost'</span>;<br>Query OK, 0 rows affected<br>Time: 0.002s<br><br>grant all privileges on testDB.* to <span class="hljs-string">'test'</span>@<span class="hljs-string">'1.1.1.1'</span>identified by <span class="hljs-string">'pswd'</span>;<br></code></pre></td></tr></table></figure>
-
-<h2 id="mac-install-mariadb"><a href="#mac-install-mariadb" class="headerlink" title="mac install mariadb"></a>mac install mariadb</h2><ul>
-<li><a href="https://mariadb.com/resources/blog/installing-mariadb-10-1-16-on-mac-os-x-with-homebrew/" target="_blank" rel="noopener">Installing MariaDB 10.1.16 on Mac OS X with Homebrew | MariaDB</a></li>
-</ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs sh">xcode-select –install<br>ruby -e “$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)”<br>brew doctor<br><br>brew update<br>brew info mariadb<br>brew install mariadb<br>mysql_install_db<br>mysql.server start<br>mysql_secure_installation<br>mysql -u root -p<br></code></pre></td></tr></table></figure>
-
-<h2 id="mysql-创建数据库-添加用户-用户授权实操方法"><a href="#mysql-创建数据库-添加用户-用户授权实操方法" class="headerlink" title="mysql 创建数据库,添加用户,用户授权实操方法"></a>mysql 创建数据库,添加用户,用户授权实操方法</h2><p><a href="https://www.jb51.net/article/172998.htm" target="_blank" rel="noopener">https://www.jb51.net/article/172998.htm</a></p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-comment">--创建名称为“testdb”数据库，并设定编码集为utf8</span><br><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">DATABASE</span> <span class="hljs-keyword">IF</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">EXISTS</span> testdb <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">CHARSET</span> utf8 <span class="hljs-keyword">COLLATE</span> utf8_general_ci;<br><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">DATABASE</span> <span class="hljs-keyword">IF</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">EXISTS</span> testdb <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">CHARSET</span> utf8mb4 <span class="hljs-keyword">COLLATE</span> utf8mb4_general_ci;<br><br> <span class="hljs-comment">--创建了一个名为：test 密码为：1234 的用户</span><br> <span class="hljs-keyword">create</span> <span class="hljs-keyword">user</span> <span class="hljs-string">'test'</span>@<span class="hljs-string">'localhost'</span> <span class="hljs-keyword">identified</span> <span class="hljs-keyword">by</span> <span class="hljs-string">'1234'</span>;<br> <span class="hljs-keyword">create</span> <span class="hljs-keyword">user</span> <span class="hljs-string">'rebate'</span>@<span class="hljs-string">'%'</span> <span class="hljs-keyword">identified</span> <span class="hljs-keyword">by</span> <span class="hljs-string">'rebate1234'</span>;<br><span class="hljs-comment">-- 注意：</span><br><span class="hljs-comment">-- 此处的"localhost"，是指该用户只能在本地登录，不能在另外一台机器上远程登录。如果想远程登录的话，将"localhost"改为"%"，表示在任何一台电脑上都可以登录。也可以指定某台机器可以远程登录。</span><br><br><span class="hljs-comment">--查询用户</span><br><span class="hljs-keyword">select</span> <span class="hljs-keyword">user</span>,host <span class="hljs-keyword">from</span> mysql.user;<br><br><span class="hljs-comment">--删除用户“test”</span><br><span class="hljs-keyword">drop</span> <span class="hljs-keyword">user</span> <span class="hljs-keyword">test</span>@localhost ;<br><span class="hljs-comment">--若创建的用户允许任何电脑登陆，删除用户如下</span><br><span class="hljs-keyword">drop</span> <span class="hljs-keyword">user</span> <span class="hljs-keyword">test</span>@<span class="hljs-string">'%'</span>;<br><br><br><span class="hljs-comment">--方法1，密码实时更新；修改用户“test”的密码为“1122”</span><br><span class="hljs-keyword">set</span> <span class="hljs-keyword">password</span> <span class="hljs-keyword">for</span> <span class="hljs-keyword">test</span> =<span class="hljs-keyword">password</span>(<span class="hljs-string">'1122'</span>);<br><span class="hljs-comment">--方法2，需要刷新；修改用户“test”的密码为“1234”</span><br><span class="hljs-keyword">update</span> mysql.user <span class="hljs-keyword">set</span> <span class="hljs-keyword">password</span>=<span class="hljs-keyword">password</span>(<span class="hljs-string">'1234'</span>) <span class="hljs-keyword">where</span> <span class="hljs-keyword">user</span>=<span class="hljs-string">'test'</span><br><span class="hljs-comment">--刷新</span><br><span class="hljs-keyword">flush</span> <span class="hljs-keyword">privileges</span>;<br><br><br><span class="hljs-comment">--授予用户test通过外网IP对数据库“testdb”的全部权限</span><br><span class="hljs-keyword">grant</span> <span class="hljs-keyword">all</span> <span class="hljs-keyword">privileges</span> <span class="hljs-keyword">on</span> rebate.* <span class="hljs-keyword">to</span> <span class="hljs-string">'test'</span>@<span class="hljs-string">'%'</span> <span class="hljs-keyword">identified</span> <span class="hljs-keyword">by</span> <span class="hljs-string">'1234'</span>;<br><span class="hljs-keyword">grant</span> <span class="hljs-keyword">all</span> <span class="hljs-keyword">on</span> rebate.* <span class="hljs-keyword">to</span> rebate@<span class="hljs-string">'%'</span> <span class="hljs-keyword">identified</span> <span class="hljs-keyword">by</span> <span class="hljs-string">'rebate1234'</span>;<br><br><span class="hljs-comment">--刷新权限</span><br><span class="hljs-keyword">flush</span> <span class="hljs-keyword">privileges</span>;<br><br><span class="hljs-comment">--授予用户“test”通过外网IP对于该数据库“testdb”中表的创建、修改、删除权限,以及表数据的增删查改权限</span><br><span class="hljs-keyword">grant</span> <span class="hljs-keyword">create</span>,<span class="hljs-keyword">alter</span>,<span class="hljs-keyword">drop</span>,<span class="hljs-keyword">select</span>,<span class="hljs-keyword">insert</span>,<span class="hljs-keyword">update</span>,<span class="hljs-keyword">delete</span> <span class="hljs-keyword">on</span> testdb.* <span class="hljs-keyword">to</span> <span class="hljs-keyword">test</span>@<span class="hljs-string">'%'</span>;<br><br><span class="hljs-keyword">GRANT</span> process <span class="hljs-keyword">ON</span> . <span class="hljs-keyword">TO</span> <span class="hljs-string">'test'</span>@<span class="hljs-string">'%'</span>;<br><span class="hljs-keyword">flush</span> <span class="hljs-keyword">privileges</span>;<br><br><span class="hljs-comment">--查看用户“test”</span><br><span class="hljs-keyword">show</span> <span class="hljs-keyword">grants</span> <span class="hljs-keyword">for</span> <span class="hljs-keyword">test</span>;<br><span class="hljs-keyword">show</span> <span class="hljs-keyword">grants</span> <span class="hljs-keyword">for</span> rebate;<br></code></pre></td></tr></table></figure>
-
-<h2 id="简易版本"><a href="#简易版本" class="headerlink" title="简易版本"></a>简易版本</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">DATABASE</span> <span class="hljs-keyword">IF</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">EXISTS</span> db_movie <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">CHARSET</span> utf8mb4 <span class="hljs-keyword">COLLATE</span> utf8mb4_general_ci;<br><span class="hljs-keyword">create</span> <span class="hljs-keyword">user</span> <span class="hljs-string">'admin'</span>@<span class="hljs-string">'%'</span> <span class="hljs-keyword">identified</span> <span class="hljs-keyword">by</span> <span class="hljs-string">'123456'</span>;<br><span class="hljs-keyword">grant</span> <span class="hljs-keyword">all</span> <span class="hljs-keyword">privileges</span> <span class="hljs-keyword">on</span> db_movie.* <span class="hljs-keyword">to</span> <span class="hljs-string">'admin'</span>@<span class="hljs-string">'%'</span> <span class="hljs-keyword">identified</span> <span class="hljs-keyword">by</span> <span class="hljs-string">'123456'</span>;<br><span class="hljs-keyword">grant</span> <span class="hljs-keyword">all</span> <span class="hljs-keyword">on</span> db_movie.* <span class="hljs-keyword">to</span> <span class="hljs-string">'admin'</span>@<span class="hljs-string">'%'</span> <span class="hljs-keyword">identified</span> <span class="hljs-keyword">by</span> <span class="hljs-string">'123456'</span>;<br><br><span class="hljs-keyword">grant</span> <span class="hljs-keyword">create</span>,<span class="hljs-keyword">alter</span>,<span class="hljs-keyword">drop</span>,<span class="hljs-keyword">select</span>,<span class="hljs-keyword">insert</span>,<span class="hljs-keyword">update</span>,<span class="hljs-keyword">delete</span> <span class="hljs-keyword">on</span> db_movie.* <span class="hljs-keyword">to</span> <span class="hljs-string">'admin'</span>@<span class="hljs-string">'%'</span>;<br><span class="hljs-keyword">GRANT</span> process <span class="hljs-keyword">ON</span> *.* <span class="hljs-keyword">TO</span> <span class="hljs-string">'admin'</span>@<span class="hljs-string">'%'</span> <span class="hljs-keyword">identified</span> <span class="hljs-keyword">by</span> <span class="hljs-string">'123456'</span>;<br><span class="hljs-keyword">flush</span> <span class="hljs-keyword">privileges</span>;<br><br><span class="hljs-keyword">show</span> <span class="hljs-keyword">grants</span> <span class="hljs-keyword">for</span> db_movie;<br></code></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/android/%E9%9D%A2%E8%AF%95%E9%A2%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="lyloou">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/android/%E9%9D%A2%E8%AF%95%E9%A2%98/" class="post-title-link" itemprop="url">Android面试题</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-10-10 07:20:00" itemprop="dateCreated datePublished" datetime="2016-10-10T07:20:00+08:00">2016-10-10</time>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/android/%E9%9D%A2%E8%AF%95%E9%A2%98/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/android/%E9%9D%A2%E8%AF%95%E9%A2%98/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>看了那么多书，真心发现一个道理：看懂了并不表示会说会用。</p>
-</blockquote>
-<h1 id="怎样改变-int-的第二个字节；"><a href="#怎样改变-int-的第二个字节；" class="headerlink" title="怎样改变 int 的第二个字节；"></a>怎样改变 int 的第二个字节；</h1><p>答：一种是采用位运算。<br>还可以通过将 int 转换成二进制的字符串，针对字符串进行操作。<br>（可我当时是什么情况呢，我忘了 int 有几个字节了）<br><img src="http://cdn.lyloou.com/img/%E9%9D%A2%E8%AF%95%E9%A2%98-2021-08-23-14-18-06.png" alt="面试题-2021-08-23-14-18-06"></p>
-<h1 id="Java-怎么实现乘以-2-的操作；"><a href="#Java-怎么实现乘以-2-的操作；" class="headerlink" title="Java 怎么实现乘以 2 的操作；"></a>Java 怎么实现乘以 2 的操作；</h1><p>答：通过移位操作的左移运算；（这个也要忘掉？）</p>
-<h1 id="介绍下二叉树"><a href="#介绍下二叉树" class="headerlink" title="介绍下二叉树"></a>介绍下<code>二叉树</code></h1><p>答： 每个节点最多有 2 个子树的树结构。<br>使用场景：常被用于实现二叉查找树和二元堆积。<br>存储表示：通过数组和链接串列来存储。<br>访问二叉树的方法：前序遍历，中序遍历，后序遍历。<br>参考资料： <a href="https://zh.wikipedia.org/wiki/%E4%BA%8C%E5%8F%89%E6%A0%91" target="_blank" rel="noopener">二叉树-维基百科</a><br>（还是将数据结构和算法恶补下吧，基础太薄弱了）</p>
-<h1 id="view-中的draw-和onDraw-区别"><a href="#view-中的draw-和onDraw-区别" class="headerlink" title="view 中的draw()和onDraw()区别"></a>view 中的<code>draw()</code>和<code>onDraw()</code>区别</h1><p>答：</p>
-<ul>
-<li><code>onDraw()</code>是<code>draw()</code>方法的一部分；</li>
-<li>自定义 View 时只需要重写<code>onDraw()</code>方法；<br>（通过源码<code>public void draw(Canvas canvas)</code>,<br>发现在<code>draw()</code>方法中，对<code>onDraw</code>进行了调用）</li>
-</ul>
-<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs asciidoc">/<span class="hljs-strong">*</span><br><span class="hljs-strong">*</span> Draw traversal performs several drawing steps which must be executed<br><span class="hljs-bullet">* </span>in the appropriate order:<br><span class="hljs-strong">*</span><br><span class="hljs-strong">*</span>      1. Draw the background<br><span class="hljs-bullet">*      </span>2. If necessary, save the canvas' layers to prepare for fading<br><span class="hljs-bullet">*      </span>3. Draw view's content<br><span class="hljs-bullet">*      </span>4. Draw children<br><span class="hljs-bullet">*      </span>5. If necessary, draw the fading edges and restore layers<br><span class="hljs-bullet">*      </span>6. Draw decorations (scrollbars for instance)<br><span class="hljs-strong">*/</span><br></code></pre></td></tr></table></figure>
-
-<p>When implementing a view, implement onDraw instead of draw(Canvas)</p>
-<p>参考资料：</p>
-<ul>
-<li>View.java 源码的 draw(Canvas)方法；</li>
-<li><a href="http://www.eoeandroid.com/thread-98648-1-1.html" target="_blank" rel="noopener">[Android 界面] 请教一下 View 中的 draw 和 onDraw 有什么区别</a></li>
-</ul>
 
       
     </div>
@@ -1189,7 +1008,7 @@
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="lyloou"
-      src="/images/avatar.png">
+      src="/assets/images/avatar.png">
   <p class="site-author-name" itemprop="name">lyloou</p>
   <div class="site-description" itemprop="description">/* Better than last best */</div>
 </div>
@@ -1198,7 +1017,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">311</span>
+          <span class="site-state-item-count">313</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1369,34 +1188,6 @@ if (document.querySelectorAll('pre.mermaid').length) {
 
   
 
-
-<script>
-NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
-  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
-    var GUEST = ['nick', 'mail', 'link'];
-    var guest = 'nick,mail,link';
-    guest = guest.split(',').filter(item => {
-      return GUEST.includes(item);
-    });
-    new Valine({
-      el         : '#valine-comments',
-      verify     : false,
-      notify     : true,
-      appId      : 'yhivNNDDoank7qFbmyEj9Ldq-gzGzoHsz',
-      appKey     : 'QuFu2ooibSzW1Q8eTrmPLyPw',
-      placeholder: "Just go go",
-      avatar     : 'mm',
-      meta       : guest,
-      pageSize   : '10' || 10,
-      visitor    : false,
-      lang       : '' || 'zh-cn',
-      path       : location.pathname,
-      recordIP   : true,
-      serverURLs : ''
-    });
-  }, window.Valine);
-});
-</script>
 
 </body>
 </html>

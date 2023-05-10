@@ -1,0 +1,28 @@
+{
+	"nodes":[
+		{"type":"group","id":"2962fa549bdc043a","x":-380,"y":-100,"width":265,"height":120,"label":"分类任务"},
+		{"type":"text","text":"生成新任务1：s00->sx0","id":"9ba3920af697d381","x":-40,"y":-75,"width":250,"height":60},
+		{"type":"text","text":"任务类型2：细分任务1，带具体id的查询视频分页","id":"931ddcf424a4ccbe","x":-365,"y":-75,"width":250,"height":60},
+		{"type":"text","text":"任务类型3：由分类1和id查询演员信息","id":"e3a8fe724115c2fa","x":-365,"y":80,"width":250,"height":60},
+		{"type":"text","text":"**爬虫流程分析**","id":"d647c4c922ed82ec","x":-365,"y":-560,"width":250,"height":80,"color":"6"},
+		{"type":"text","text":"任务类型1","id":"253cb9be56a4f618","x":-365,"y":-215,"width":250,"height":60},
+		{"type":"text","text":"首页url:无输入，解析后添加任务类型2","id":"23e02a1e9f9f53bc","x":-40,"y":-215,"width":250,"height":60},
+		{"type":"text","text":"生成新任务2：s00->sx0","id":"62ddfa13348cb394","x":280,"y":-75,"width":250,"height":60},
+		{"type":"text","text":"入库：新增、更新和删除","id":"74ca351ad3c89686","x":-365,"y":360,"width":250,"height":60},
+		{"type":"text","text":"转换为数据库实体","id":"48ff3ab1b1102ef2","x":-365,"y":220,"width":250,"height":60},
+		{"type":"text","text":"结束条件由本页对应的列表条目是否为空决定","id":"9ccabf4f87cee6d1","x":765,"y":-75,"width":250,"height":60},
+		{"type":"text","text":"....","id":"b51ce6f063c32350","x":600,"y":-70,"width":110,"height":50},
+		{"id":"0cd51a291d9270f8","x":280,"y":-580,"width":250,"height":200,"type":"text","text":"1. 给首页url\n2. 爬取底部的一级分类和二级分类（过滤掉无角色的分类链接）\n3. 处理分类页面\n4. 处理完后，生成一个新的任务 s00-> sx0"}
+	],
+	"edges":[
+		{"id":"5d86240ad665765e","fromNode":"e3a8fe724115c2fa","fromSide":"bottom","toNode":"74ca351ad3c89686","toSide":"top"},
+		{"id":"27e09b4a76ab66ca","fromNode":"253cb9be56a4f618","fromSide":"bottom","toNode":"931ddcf424a4ccbe","toSide":"top"},
+		{"id":"a3d3630a521da6b1","fromNode":"931ddcf424a4ccbe","fromSide":"bottom","toNode":"e3a8fe724115c2fa","toSide":"top"},
+		{"id":"03b7655a40f940e2","fromNode":"253cb9be56a4f618","fromSide":"right","toNode":"23e02a1e9f9f53bc","toSide":"left"},
+		{"id":"06a9103e0478fa18","fromNode":"931ddcf424a4ccbe","fromSide":"right","toNode":"9ba3920af697d381","toSide":"left"},
+		{"id":"d21f93f269285cef","fromNode":"9ba3920af697d381","fromSide":"right","toNode":"62ddfa13348cb394","toSide":"left"},
+		{"id":"9b86f5a66aa7b2e7","fromNode":"62ddfa13348cb394","fromSide":"right","toNode":"b51ce6f063c32350","toSide":"left"},
+		{"id":"2bf57ccab05bbbf3","fromNode":"b51ce6f063c32350","fromSide":"right","toNode":"9ccabf4f87cee6d1","toSide":"left"},
+		{"id":"559878b3cfca42fc","fromNode":"74ca351ad3c89686","fromSide":"top","toNode":"48ff3ab1b1102ef2","toSide":"top"}
+	]
+}

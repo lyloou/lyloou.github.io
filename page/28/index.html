@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"lyloou.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"lyloou.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="&#x2F;* Better than last best *&#x2F;">
@@ -201,10 +201,229 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/sql/%E9%85%8D%E7%BD%AE%E5%AE%89%E8%A3%85/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/images/avatar.png">
+      <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lyloou">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/sql/%E9%85%8D%E7%BD%AE%E5%AE%89%E8%A3%85/" class="post-title-link" itemprop="url">Sql配置和安装</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-10-10 20:29:00" itemprop="dateCreated datePublished" datetime="2016-10-10T20:29:00+08:00">2016-10-10</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="linux-安装-mariadb"><a href="#linux-安装-mariadb" class="headerlink" title="linux 安装 mariadb"></a>linux 安装 mariadb</h2><ul>
+<li><p>打开 <a href="https://downloads.mariadb.org/mariadb/repositories/" target="_blank" rel="noopener">https://downloads.mariadb.org/mariadb/repositories/</a></p>
+</li>
+<li><p>查看自己的版本号，选择对应的 version</p>
+</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">lsb_release -a<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>添加源</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">sudo apt-get install software-properties-common<br>sudo apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xF1656F24C74CD1D8<br>sudo add-apt-repository <span class="hljs-string">'deb [arch=amd64,arm64,ppc64el] http://mirrors.neusoft.edu.cn/mariadb/repo/10.4/ubuntu bionic main'</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>更新和安装</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">sudo apt update<br>sudo apt install mariadb-server<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>查看安装状态</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">systemctl status mariadb<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>查看 mysql version</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">mysql -V<br></code></pre></td></tr></table></figure>
+
+<p><a href="https://linuxize.com/post/how-to-install-mariadb-on-ubuntu-18-04/" target="_blank" rel="noopener">https://linuxize.com/post/how-to-install-mariadb-on-ubuntu-18-04/</a></p>
+<h2 id="uninstall-mariadb"><a href="#uninstall-mariadb" class="headerlink" title="uninstall mariadb"></a>uninstall mariadb</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sh">apt-get remove --purge mysql*<br>apt-get remove --purge mysql<br>apt-get remove --purge mariadb<br>apt-get remove --purge mariadb*<br>apt-get --purge remove mariadb-server<br>apt-get --purge remove python-software-properties<br></code></pre></td></tr></table></figure>
+
+<h2 id="重置密码"><a href="#重置密码" class="headerlink" title="重置密码"></a>重置密码</h2><p><a href="https://linuxize.com/post/how-to-reset-a-mysql-root-password/" target="_blank" rel="noopener">How to reset a MySQL root password | Linuxize</a></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs sql">systemctl <span class="hljs-keyword">stop</span> mysql<br><br>sudo mysqld_safe <span class="hljs-comment">--skip-grant-tables &amp;</span><br><br>mysql -u root<br><br><span class="hljs-keyword">FLUSH</span> <span class="hljs-keyword">PRIVILEGES</span>;<br><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">USER</span> <span class="hljs-string">'root'</span>@<span class="hljs-string">'localhost'</span> <span class="hljs-keyword">IDENTIFIED</span> <span class="hljs-keyword">BY</span> <span class="hljs-string">'lyloou06'</span>;<br><span class="hljs-comment">-- SET PASSWORD FOR 'root'@'localhost' = PASSWORD('MY_NEW_PASSWORD');</span><br><span class="hljs-keyword">UPDATE</span> mysql.user <span class="hljs-keyword">SET</span> <span class="hljs-keyword">Password</span>=<span class="hljs-keyword">PASSWORD</span>(<span class="hljs-string">'rebate@2020'</span>) <span class="hljs-keyword">WHERE</span> <span class="hljs-keyword">User</span>=<span class="hljs-string">'root'</span>;<br><span class="hljs-keyword">FLUSH</span> <span class="hljs-keyword">PRIVILEGES</span>;<br><br><span class="hljs-comment">-- restart</span><br>mysqladmin -u root -p shutdown<br>sudo systemctl <span class="hljs-keyword">start</span> mariadb<br><br><span class="hljs-comment">-- login again</span><br>mysql -u root -p<br></code></pre></td></tr></table></figure>
+
+<h3 id="外网登录常见问题"><a href="#外网登录常见问题" class="headerlink" title="外网登录常见问题"></a>外网登录常见问题</h3><p>Q: ERROR 2003 (HY000): Can’t connect to MySQL server on (111 “Connection refused”)<br>A: <a href="https://blog.csdn.net/ssj901217/article/details/74490803" target="_blank" rel="noopener">mysql 远程连接数据库报 111 错误 - ssj901217 的博客 - CSDN 博客</a></p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs angelscript">vi /etc/mysql/my.cnf<br>找到<br>[mysqld]<br>bind-address            = <span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span><br>注释掉bind-address<br>重启 mysql, systemctl restart mysql;<br></code></pre></td></tr></table></figure>
+
+<p>Q: ERROR 1130 (HY000): Host is not allowed to connect to this MariaDB server<br>A: <a href="https://blog.csdn.net/HJULKK/article/details/52563044" target="_blank" rel="noopener">解决 MySQL ERROR 1130 (HY000): Host ‘XXXX’ is not allowed to connect to this MySQL server - HJULKK 的专栏 - CSDN 博客</a></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs sql">mysql -u root -p<br><span class="hljs-keyword">use</span> mysql;<br><span class="hljs-keyword">update</span> <span class="hljs-keyword">user</span> <span class="hljs-keyword">set</span> host = <span class="hljs-string">'%'</span> <span class="hljs-keyword">where</span> <span class="hljs-keyword">user</span> = <span class="hljs-string">'root'</span>;<br><span class="hljs-keyword">flush</span> <span class="hljs-keyword">privileges</span>;<br><span class="hljs-keyword">select</span> host, <span class="hljs-keyword">user</span> <span class="hljs-keyword">from</span> <span class="hljs-keyword">user</span>;<br>quit<br><span class="hljs-comment">-- 步骤2：重启mysql,</span><br>systemctl restart mysql;<br></code></pre></td></tr></table></figure>
+
+<p>Q: <a href="https://stackoverflow.com/questions/39281594/error-1698-28000-access-denied-for-user-rootlocalhost" target="_blank" rel="noopener">mysql - ERROR 1698 (28000): Access denied for user ‘root’@’localhost’ - Stack Overflow</a><br>A: see below code</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs sql">sudo service mysql restart<br>sudo mysql <span class="hljs-comment"># logs in automatically into MariaDB</span><br><span class="hljs-keyword">use</span> mysql;<br><span class="hljs-keyword">update</span> <span class="hljs-keyword">user</span> <span class="hljs-keyword">set</span> <span class="hljs-keyword">plugin</span>=<span class="hljs-string">''</span> <span class="hljs-keyword">where</span> <span class="hljs-keyword">user</span>=<span class="hljs-string">'your_user_name'</span>;<br><span class="hljs-keyword">flush</span> <span class="hljs-keyword">privileges</span>;<br>exit;<br>sudo service mysql restart <span class="hljs-comment"># restarts the mysql service</span><br></code></pre></td></tr></table></figure>
+
+<p><a href="https://javen.blog.csdn.net/article/details/70949596#comments_15461007" target="_blank" rel="noopener">Centos7.3 安装 Mysql5.7 并修改初始密码_酷玩时刻-By Javen-CSDN 博客_centos7 修改 mysql 密码</a></p>
+<h2 id="linux-安装-mysql"><a href="#linux-安装-mysql" class="headerlink" title="linux 安装 mysql"></a>linux 安装 mysql</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">sudo apt-get update<br>sudo apt-get install mysql-server<br>sudo mysql_secure_installation<br></code></pre></td></tr></table></figure>
+
+<p><a href="https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-16-04?comment=53320" target="_blank" rel="noopener">https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-16-04?comment=53320</a><br>If it occurs error because of broken MySQL package on Ubuntu 16.04. Just do this trick</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># Purge all MySQL packages</span><br>sudo apt purge mysql*<br>sudo rm -rf /var/lib/mysql<br>sudo rm -rf /etc/mysql<br><br><span class="hljs-comment"># Reinstall MySQL</span><br>sudo apt install mysql-server mysql-client<br></code></pre></td></tr></table></figure>
+
+<p><strong>centos</strong></p>
+<p><a href="https://developer.aliyun.com/article/654596" target="_blank" rel="noopener">CentOS 7 - 安装 MySQL 5.7-阿里云开发者社区</a></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># 添加Mysql5.7仓库</span><br>sudo rpm -ivh https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm<br><br><span class="hljs-comment"># 确认Mysql仓库成功添加</span><br>sudo yum repolist all | grep mysql | grep enabled<br><span class="hljs-comment"># 开始安装</span><br>sudo yum -y install mysql-community-server<br><br><span class="hljs-comment"># 启动Mysql</span><br>sudo systemctl start mysqld<br><br><span class="hljs-comment"># 系统启动时自动启动</span><br>sudo systemctl <span class="hljs-built_in">enable</span> mysqld<br><br><span class="hljs-comment"># 查看启动状态</span><br>sudo systemctl status mysqld<br><br><span class="hljs-comment"># CentOS上的root默认密码可以在文件/var/log/mysqld.log找到，通过下面命令可以打印出来</span><br>cat /var/<span class="hljs-built_in">log</span>/mysqld.log | grep -i <span class="hljs-string">'temporary password'</span><br><br><span class="hljs-comment"># 执行下面命令进行安全设置，这个命令会进行设置root密码设置，移除匿名用户，禁止root用户远程连接等</span><br>mysql_secure_installation<br></code></pre></td></tr></table></figure>
+
+<p>解决：conflicts between attempted installs of MariaDB-common</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">yum shell<br>remove mariadb-libs<br></code></pre></td></tr></table></figure>
+
+<p>由于 5.7 版本在安装的时候就设置好了，不需要额外设置，但是 5.6 版本建议从安全角度完善下，运行官方脚本即可</p>
+<pre><code>设置 root 密码
+禁止 root 账号远程登录
+禁止匿名账号（anonymous）登录
+删除测试库
+是否确认修改</code></pre><h2 id="默认配置"><a href="#默认配置" class="headerlink" title="默认配置"></a>默认配置</h2><ul>
+<li>端口：3306</li>
+</ul>
+<h2 id="其它软件"><a href="#其它软件" class="headerlink" title="其它软件"></a>其它软件</h2><ul>
+<li>mycli</li>
+</ul>
+<h2 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h2><ul>
+<li>[How To Install MySQL on Ubuntu 16.04](error 1045 access denied for user using password no)</li>
+<li><a href="https://stackoverflow.com/questions/10299148/mysql-error-1045-28000-access-denied-for-user-billlocalhost-using-passw" target="_blank" rel="noopener">MySQL ERROR 1045 (28000): Access denied for user ‘bill’@’localhost’ (using password: YES) - Stack Overflow</a></li>
+</ul>
+<h2 id="新建用户"><a href="#新建用户" class="headerlink" title="新建用户"></a>新建用户</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-comment">-- 创建用户</span><br><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">USER</span> <span class="hljs-string">'bob'</span>@<span class="hljs-string">'%'</span><br>    <span class="hljs-keyword">IDENTIFIED</span> <span class="hljs-keyword">BY</span> <span class="hljs-string">'password'</span>;<br><br><span class="hljs-comment">-- 授权1</span><br><span class="hljs-keyword">GRANT</span> <span class="hljs-keyword">ALL</span> <br>    <span class="hljs-keyword">ON</span> *.*<br>    <span class="hljs-keyword">TO</span> <span class="hljs-string">'bob'</span>@<span class="hljs-string">'%'</span><br>    <span class="hljs-keyword">WITH</span> <span class="hljs-keyword">GRANT</span> <span class="hljs-keyword">OPTION</span>;<br><br><span class="hljs-comment">-- 授权2</span><br><span class="hljs-keyword">GRANT</span> <span class="hljs-keyword">privileges</span> <span class="hljs-keyword">on</span> databasename.tablename <span class="hljs-keyword">TO</span> <span class="hljs-string">'username'</span>@<span class="hljs-string">'host'</span>;<br><br><span class="hljs-comment">-- 修改密码</span><br><span class="hljs-keyword">SET</span> <span class="hljs-keyword">PASSWORD</span> <span class="hljs-keyword">FOR</span> <span class="hljs-string">'bob'</span>@<span class="hljs-string">'%'</span> = <span class="hljs-keyword">PASSWORD</span>(<span class="hljs-string">'bob'</span>);<br><br><span class="hljs-comment">-- 刷新</span><br><span class="hljs-keyword">flush</span> <span class="hljs-keyword">privileges</span>;<br></code></pre></td></tr></table></figure>
+
+<p><a href="https://dev.mysql.com/doc/refman/8.0/en/creating-accounts.html" target="_blank" rel="noopener">MySQL :: MySQL 8.0 Reference Manual :: 6.2.8 Adding Accounts, Assigning Privileges, and Dropping Accounts</a></p>
+<p><a href="https://serverfault.com/questions/186057/mysql-creating-a-user-that-can-connect-from-multiple-hosts" target="_blank" rel="noopener">networking - MySQL: creating a user that can connect from multiple hosts - Server Fault</a></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs sh">mysql root@120.123.232.2:mysql&gt; GRANT all PRIVILEGES ON *.* to <span class="hljs-string">'root'</span>@<span class="hljs-string">'localhost'</span>;<br>(1133, <span class="hljs-string">"Can't find any matching row in the user table"</span>)<br><br>mysql root@120.123.232.2:mysql&gt; GRANT all PRIVILEGES ON *.* to <span class="hljs-string">'root'</span>@<span class="hljs-string">'localhost'</span> IDENTIFIED by <span class="hljs-string">'localhost'</span>;<br>Query OK, 0 rows affected<br>Time: 0.002s<br><br>grant all privileges on testDB.* to <span class="hljs-string">'test'</span>@<span class="hljs-string">'1.1.1.1'</span>identified by <span class="hljs-string">'pswd'</span>;<br></code></pre></td></tr></table></figure>
+
+<h2 id="mac-install-mariadb"><a href="#mac-install-mariadb" class="headerlink" title="mac install mariadb"></a>mac install mariadb</h2><ul>
+<li><a href="https://mariadb.com/resources/blog/installing-mariadb-10-1-16-on-mac-os-x-with-homebrew/" target="_blank" rel="noopener">Installing MariaDB 10.1.16 on Mac OS X with Homebrew | MariaDB</a></li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs sh">xcode-select –install<br>ruby -e “$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)”<br>brew doctor<br><br>brew update<br>brew info mariadb<br>brew install mariadb<br>mysql_install_db<br>mysql.server start<br>mysql_secure_installation<br>mysql -u root -p<br></code></pre></td></tr></table></figure>
+
+<h2 id="mysql-创建数据库-添加用户-用户授权实操方法"><a href="#mysql-创建数据库-添加用户-用户授权实操方法" class="headerlink" title="mysql 创建数据库,添加用户,用户授权实操方法"></a>mysql 创建数据库,添加用户,用户授权实操方法</h2><p><a href="https://www.jb51.net/article/172998.htm" target="_blank" rel="noopener">https://www.jb51.net/article/172998.htm</a></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-comment">--创建名称为“testdb”数据库，并设定编码集为utf8</span><br><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">DATABASE</span> <span class="hljs-keyword">IF</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">EXISTS</span> testdb <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">CHARSET</span> utf8 <span class="hljs-keyword">COLLATE</span> utf8_general_ci;<br><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">DATABASE</span> <span class="hljs-keyword">IF</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">EXISTS</span> testdb <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">CHARSET</span> utf8mb4 <span class="hljs-keyword">COLLATE</span> utf8mb4_general_ci;<br><br> <span class="hljs-comment">--创建了一个名为：test 密码为：1234 的用户</span><br> <span class="hljs-keyword">create</span> <span class="hljs-keyword">user</span> <span class="hljs-string">'test'</span>@<span class="hljs-string">'localhost'</span> <span class="hljs-keyword">identified</span> <span class="hljs-keyword">by</span> <span class="hljs-string">'1234'</span>;<br> <span class="hljs-keyword">create</span> <span class="hljs-keyword">user</span> <span class="hljs-string">'rebate'</span>@<span class="hljs-string">'%'</span> <span class="hljs-keyword">identified</span> <span class="hljs-keyword">by</span> <span class="hljs-string">'rebate1234'</span>;<br><span class="hljs-comment">-- 注意：</span><br><span class="hljs-comment">-- 此处的"localhost"，是指该用户只能在本地登录，不能在另外一台机器上远程登录。如果想远程登录的话，将"localhost"改为"%"，表示在任何一台电脑上都可以登录。也可以指定某台机器可以远程登录。</span><br><br><span class="hljs-comment">--查询用户</span><br><span class="hljs-keyword">select</span> <span class="hljs-keyword">user</span>,host <span class="hljs-keyword">from</span> mysql.user;<br><br><span class="hljs-comment">--删除用户“test”</span><br><span class="hljs-keyword">drop</span> <span class="hljs-keyword">user</span> <span class="hljs-keyword">test</span>@localhost ;<br><span class="hljs-comment">--若创建的用户允许任何电脑登陆，删除用户如下</span><br><span class="hljs-keyword">drop</span> <span class="hljs-keyword">user</span> <span class="hljs-keyword">test</span>@<span class="hljs-string">'%'</span>;<br><br><br><span class="hljs-comment">--方法1，密码实时更新；修改用户“test”的密码为“1122”</span><br><span class="hljs-keyword">set</span> <span class="hljs-keyword">password</span> <span class="hljs-keyword">for</span> <span class="hljs-keyword">test</span> =<span class="hljs-keyword">password</span>(<span class="hljs-string">'1122'</span>);<br><span class="hljs-comment">--方法2，需要刷新；修改用户“test”的密码为“1234”</span><br><span class="hljs-keyword">update</span> mysql.user <span class="hljs-keyword">set</span> <span class="hljs-keyword">password</span>=<span class="hljs-keyword">password</span>(<span class="hljs-string">'1234'</span>) <span class="hljs-keyword">where</span> <span class="hljs-keyword">user</span>=<span class="hljs-string">'test'</span><br><span class="hljs-comment">--刷新</span><br><span class="hljs-keyword">flush</span> <span class="hljs-keyword">privileges</span>;<br><br><br><span class="hljs-comment">--授予用户test通过外网IP对数据库“testdb”的全部权限</span><br><span class="hljs-keyword">grant</span> <span class="hljs-keyword">all</span> <span class="hljs-keyword">privileges</span> <span class="hljs-keyword">on</span> rebate.* <span class="hljs-keyword">to</span> <span class="hljs-string">'test'</span>@<span class="hljs-string">'%'</span> <span class="hljs-keyword">identified</span> <span class="hljs-keyword">by</span> <span class="hljs-string">'1234'</span>;<br><span class="hljs-keyword">grant</span> <span class="hljs-keyword">all</span> <span class="hljs-keyword">on</span> rebate.* <span class="hljs-keyword">to</span> rebate@<span class="hljs-string">'%'</span> <span class="hljs-keyword">identified</span> <span class="hljs-keyword">by</span> <span class="hljs-string">'rebate1234'</span>;<br><br><span class="hljs-comment">--刷新权限</span><br><span class="hljs-keyword">flush</span> <span class="hljs-keyword">privileges</span>;<br><br><span class="hljs-comment">--授予用户“test”通过外网IP对于该数据库“testdb”中表的创建、修改、删除权限,以及表数据的增删查改权限</span><br><span class="hljs-keyword">grant</span> <span class="hljs-keyword">create</span>,<span class="hljs-keyword">alter</span>,<span class="hljs-keyword">drop</span>,<span class="hljs-keyword">select</span>,<span class="hljs-keyword">insert</span>,<span class="hljs-keyword">update</span>,<span class="hljs-keyword">delete</span> <span class="hljs-keyword">on</span> testdb.* <span class="hljs-keyword">to</span> <span class="hljs-keyword">test</span>@<span class="hljs-string">'%'</span>;<br><br><span class="hljs-keyword">GRANT</span> process <span class="hljs-keyword">ON</span> . <span class="hljs-keyword">TO</span> <span class="hljs-string">'test'</span>@<span class="hljs-string">'%'</span>;<br><span class="hljs-keyword">flush</span> <span class="hljs-keyword">privileges</span>;<br><br><span class="hljs-comment">--查看用户“test”</span><br><span class="hljs-keyword">show</span> <span class="hljs-keyword">grants</span> <span class="hljs-keyword">for</span> <span class="hljs-keyword">test</span>;<br><span class="hljs-keyword">show</span> <span class="hljs-keyword">grants</span> <span class="hljs-keyword">for</span> rebate;<br></code></pre></td></tr></table></figure>
+
+<h2 id="简易版本"><a href="#简易版本" class="headerlink" title="简易版本"></a>简易版本</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">DATABASE</span> <span class="hljs-keyword">IF</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">EXISTS</span> db_movie <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">CHARSET</span> utf8mb4 <span class="hljs-keyword">COLLATE</span> utf8mb4_general_ci;<br><span class="hljs-keyword">create</span> <span class="hljs-keyword">user</span> <span class="hljs-string">'admin'</span>@<span class="hljs-string">'%'</span> <span class="hljs-keyword">identified</span> <span class="hljs-keyword">by</span> <span class="hljs-string">'123456'</span>;<br><span class="hljs-keyword">grant</span> <span class="hljs-keyword">all</span> <span class="hljs-keyword">privileges</span> <span class="hljs-keyword">on</span> db_movie.* <span class="hljs-keyword">to</span> <span class="hljs-string">'admin'</span>@<span class="hljs-string">'%'</span> <span class="hljs-keyword">identified</span> <span class="hljs-keyword">by</span> <span class="hljs-string">'123456'</span>;<br><span class="hljs-keyword">grant</span> <span class="hljs-keyword">all</span> <span class="hljs-keyword">on</span> db_movie.* <span class="hljs-keyword">to</span> <span class="hljs-string">'admin'</span>@<span class="hljs-string">'%'</span> <span class="hljs-keyword">identified</span> <span class="hljs-keyword">by</span> <span class="hljs-string">'123456'</span>;<br><br><span class="hljs-keyword">grant</span> <span class="hljs-keyword">create</span>,<span class="hljs-keyword">alter</span>,<span class="hljs-keyword">drop</span>,<span class="hljs-keyword">select</span>,<span class="hljs-keyword">insert</span>,<span class="hljs-keyword">update</span>,<span class="hljs-keyword">delete</span> <span class="hljs-keyword">on</span> db_movie.* <span class="hljs-keyword">to</span> <span class="hljs-string">'admin'</span>@<span class="hljs-string">'%'</span>;<br><span class="hljs-keyword">GRANT</span> process <span class="hljs-keyword">ON</span> *.* <span class="hljs-keyword">TO</span> <span class="hljs-string">'admin'</span>@<span class="hljs-string">'%'</span> <span class="hljs-keyword">identified</span> <span class="hljs-keyword">by</span> <span class="hljs-string">'123456'</span>;<br><span class="hljs-keyword">flush</span> <span class="hljs-keyword">privileges</span>;<br><br><span class="hljs-keyword">show</span> <span class="hljs-keyword">grants</span> <span class="hljs-keyword">for</span> db_movie;<br></code></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/android/%E9%9D%A2%E8%AF%95%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/images/avatar.png">
+      <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lyloou">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/android/%E9%9D%A2%E8%AF%95%E9%A2%98/" class="post-title-link" itemprop="url">Android面试题</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-10-10 07:20:00" itemprop="dateCreated datePublished" datetime="2016-10-10T07:20:00+08:00">2016-10-10</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>看了那么多书，真心发现一个道理：看懂了并不表示会说会用。</p>
+</blockquote>
+<h1 id="怎样改变-int-的第二个字节；"><a href="#怎样改变-int-的第二个字节；" class="headerlink" title="怎样改变 int 的第二个字节；"></a>怎样改变 int 的第二个字节；</h1><p>答：一种是采用位运算。<br>还可以通过将 int 转换成二进制的字符串，针对字符串进行操作。<br>（可我当时是什么情况呢，我忘了 int 有几个字节了）<br><img src="http://cdn.lyloou.com/img/%E9%9D%A2%E8%AF%95%E9%A2%98-2021-08-23-14-18-06.png" alt="面试题-2021-08-23-14-18-06"></p>
+<h1 id="Java-怎么实现乘以-2-的操作；"><a href="#Java-怎么实现乘以-2-的操作；" class="headerlink" title="Java 怎么实现乘以 2 的操作；"></a>Java 怎么实现乘以 2 的操作；</h1><p>答：通过移位操作的左移运算；（这个也要忘掉？）</p>
+<h1 id="介绍下二叉树"><a href="#介绍下二叉树" class="headerlink" title="介绍下二叉树"></a>介绍下<code>二叉树</code></h1><p>答： 每个节点最多有 2 个子树的树结构。<br>使用场景：常被用于实现二叉查找树和二元堆积。<br>存储表示：通过数组和链接串列来存储。<br>访问二叉树的方法：前序遍历，中序遍历，后序遍历。<br>参考资料： <a href="https://zh.wikipedia.org/wiki/%E4%BA%8C%E5%8F%89%E6%A0%91" target="_blank" rel="noopener">二叉树-维基百科</a><br>（还是将数据结构和算法恶补下吧，基础太薄弱了）</p>
+<h1 id="view-中的draw-和onDraw-区别"><a href="#view-中的draw-和onDraw-区别" class="headerlink" title="view 中的draw()和onDraw()区别"></a>view 中的<code>draw()</code>和<code>onDraw()</code>区别</h1><p>答：</p>
+<ul>
+<li><code>onDraw()</code>是<code>draw()</code>方法的一部分；</li>
+<li>自定义 View 时只需要重写<code>onDraw()</code>方法；<br>（通过源码<code>public void draw(Canvas canvas)</code>,<br>发现在<code>draw()</code>方法中，对<code>onDraw</code>进行了调用）</li>
+</ul>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs asciidoc">/<span class="hljs-strong">*</span><br><span class="hljs-strong">*</span> Draw traversal performs several drawing steps which must be executed<br><span class="hljs-bullet">* </span>in the appropriate order:<br><span class="hljs-strong">*</span><br><span class="hljs-strong">*</span>      1. Draw the background<br><span class="hljs-bullet">*      </span>2. If necessary, save the canvas' layers to prepare for fading<br><span class="hljs-bullet">*      </span>3. Draw view's content<br><span class="hljs-bullet">*      </span>4. Draw children<br><span class="hljs-bullet">*      </span>5. If necessary, draw the fading edges and restore layers<br><span class="hljs-bullet">*      </span>6. Draw decorations (scrollbars for instance)<br><span class="hljs-strong">*/</span><br></code></pre></td></tr></table></figure>
+
+<p>When implementing a view, implement onDraw instead of draw(Canvas)</p>
+<p>参考资料：</p>
+<ul>
+<li>View.java 源码的 draw(Canvas)方法；</li>
+<li><a href="http://www.eoeandroid.com/thread-98648-1-1.html" target="_blank" rel="noopener">[Android 界面] 请教一下 View 中的 draw 和 onDraw 有什么区别</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -229,20 +448,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -281,7 +486,7 @@
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/%E7%AE%97%E6%B3%95/%E5%B0%8F%E6%98%8E%E4%B8%80%E5%AE%B6%E5%A4%9C%E9%87%8C%E8%BF%87%E6%B2%B3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -306,20 +511,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/%E7%AE%97%E6%B3%95/%E5%B0%8F%E6%98%8E%E4%B8%80%E5%AE%B6%E5%A4%9C%E9%87%8C%E8%BF%87%E6%B2%B3/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/%E7%AE%97%E6%B3%95/%E5%B0%8F%E6%98%8E%E4%B8%80%E5%AE%B6%E5%A4%9C%E9%87%8C%E8%BF%87%E6%B2%B3/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -361,7 +552,7 @@
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/sql/sql%E5%B8%B8%E8%A7%81%E6%93%8D%E4%BD%9C/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -386,20 +577,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/sql/sql%E5%B8%B8%E8%A7%81%E6%93%8D%E4%BD%9C/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/sql/sql%E5%B8%B8%E8%A7%81%E6%93%8D%E4%BD%9C/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -508,7 +685,7 @@
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/java/%E5%AD%98%E5%82%A8%E5%8D%95%E4%BD%8D/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -533,20 +710,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/java/%E5%AD%98%E5%82%A8%E5%8D%95%E4%BD%8D/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/java/%E5%AD%98%E5%82%A8%E5%8D%95%E4%BD%8D/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -611,7 +774,7 @@
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/android/%E5%B8%83%E5%B1%80%E6%8A%80%E5%B7%A7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -636,20 +799,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/android/%E5%B8%83%E5%B1%80%E6%8A%80%E5%B7%A7/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/android/%E5%B8%83%E5%B1%80%E6%8A%80%E5%B7%A7/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -686,7 +835,7 @@
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/android/%E9%80%82%E9%85%8D/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -711,20 +860,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/android/%E9%80%82%E9%85%8D/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/android/%E9%80%82%E9%85%8D/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -807,7 +942,7 @@
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/android/manifest/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -832,20 +967,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/android/manifest/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/android/manifest/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -904,7 +1025,7 @@
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/android/fragment/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -929,20 +1050,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/android/fragment/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/android/fragment/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -962,216 +1069,6 @@
 <li><code>isAdded()</code>文档：Return true if the fragment is currently added to its activity.</li>
 </ul>
 <h2 id="How-to-implement-onBackPressed-in-Fragments"><a href="#How-to-implement-onBackPressed-in-Fragments" class="headerlink" title="How to implement onBackPressed() in Fragments?"></a><a href="https://stackoverflow.com/questions/5448653/how-to-implement-onbackpressed-in-fragments" target="_blank" rel="noopener">How to implement onBackPressed() in Fragments?</a></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">OnBackPressedListener</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">doBack</span><span class="hljs-params">()</span></span>;<br>&#125;<br><br><span class="hljs-comment">// create method to set listener in CustomActivity</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setOnBackPressedListener</span><span class="hljs-params">(OnBackPressedListener onBackPressedListener)</span> </span>&#123;<br>    <span class="hljs-keyword">this</span>.onBackPressedListener = onBackPressedListener;<br>&#125;<br><br><span class="hljs-comment">// in override onBackPressed implement something like that</span><br><span class="hljs-meta">@Override</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onBackPressed</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (onBackPressedListener != <span class="hljs-keyword">null</span>)<br>        onBackPressedListener.doBack();<br>    <span class="hljs-keyword">else</span><br>        <span class="hljs-keyword">super</span>.onBackPressed();<br>&#125;<br><br><span class="hljs-comment">// in your fragment in onCreateView you should add our listener</span><br><span class="hljs-meta">@Override</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> View <span class="hljs-title">onCreateView</span><span class="hljs-params">(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)</span> </span>&#123;<br>    activity = getActivity();<br>    ((CustomActivity)activity).setOnBackPressedListener(<span class="hljs-keyword">new</span> OnBackPressedListener()&#123;<br>        <span class="hljs-meta">@override</span><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">doBack</span><span class="hljs-params">()</span></span>&#123;<br>            <span class="hljs-comment">// do your logic</span><br>        &#125;<br>    &#125;);<br>    <span class="hljs-keyword">return</span> view;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/android/view-webview/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="lyloou">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/android/view-webview/" class="post-title-link" itemprop="url">Webview相关</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-08-04 08:42:57" itemprop="dateCreated datePublished" datetime="2016-08-04T08:42:57+08:00">2016-08-04</time>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/android/view-webview/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/android/view-webview/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Android-7-0-webview-不自动刷新"><a href="#Android-7-0-webview-不自动刷新" class="headerlink" title="Android 7.0 webview 不自动刷新"></a>Android 7.0 webview 不自动刷新</h1><p>当 webview 所在的 activity 采用了以下主题时，Android7.0 设备将无法正常运行：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"WelcomeBg"</span> <span class="hljs-attr">parent</span>=<span class="hljs-string">"@android:style/Theme.DeviceDefault.NoActionBar"</span>&gt;</span><br><span class="xml">    <span class="hljs-tag">&lt;<span class="hljs-name">item</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"android:windowIsTranslucent"</span>&gt;</span>false<span class="hljs-tag">&lt;/<span class="hljs-name">item</span>&gt;</span></span><br><span class="xml">    <span class="hljs-tag">&lt;<span class="hljs-name">item</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"android:windowNoTitle"</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">item</span>&gt;</span></span><br><span class="xml">    <span class="hljs-tag">&lt;<span class="hljs-name">item</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"android:windowActionBar"</span>&gt;</span>false<span class="hljs-tag">&lt;/<span class="hljs-name">item</span>&gt;</span></span><br><span class="xml">    <span class="hljs-tag">&lt;<span class="hljs-name">item</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"android:windowBackground"</span>&gt;</span>@null<span class="hljs-tag">&lt;/<span class="hljs-name">item</span>&gt;</span></span><br><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span><br></code></pre></td></tr></table></figure>
-
-<p>之所以有这样的改变，目的是想要提升启动 Activity 的性能，哪里知道 7.0 之后会遇到无法正常渲染 WebView 的问题。</p>
-<p>解决办法是：<br>直接使用默认主题，而不再对其包装：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml">@android:style/Theme.DeviceDefault.NoActionBar<br></code></pre></td></tr></table></figure>
-
-<h1 id="获取-WebView-的点击元素"><a href="#获取-WebView-的点击元素" class="headerlink" title="获取 WebView 的点击元素"></a>获取 WebView 的点击元素</h1><p>可以通过搜索关键字：<code>HitTestResult getHitTestResult</code>来知道更多内容；</p>
-<p>注意：X5WebView，来源于腾讯 TBS 系统，是另外一个继承体系（可以通过打印<code>view.getClass()</code>的方式查看其继承体系）</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setLongClick</span><span class="hljs-params">(<span class="hljs-keyword">final</span> View view)</span> </span>&#123;<br>    <span class="hljs-comment">//长按点击事件</span><br>    view.setOnLongClickListener(<span class="hljs-keyword">new</span> View.OnLongClickListener() &#123;<br>        <span class="hljs-meta">@Override</span><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">onLongClick</span><span class="hljs-params">(View v)</span> </span>&#123;<br>            <span class="hljs-comment">//响应长按事件（如果webview继承自安卓原生系统）</span><br>            <span class="hljs-keyword">if</span> (view <span class="hljs-keyword">instanceof</span> WebView) &#123;<br>                WebView.HitTestResult result = ((WebView) view).getHitTestResult();<br>                <span class="hljs-keyword">if</span> (result != <span class="hljs-keyword">null</span>) &#123;<br>                    <span class="hljs-keyword">int</span> type = result.getType();<br>                    <span class="hljs-comment">//判断点击类型如果是图片</span><br>                    <span class="hljs-keyword">if</span> (type == WebView.HitTestResult.IMAGE_TYPE || type == WebView.HitTestResult.SRC_IMAGE_ANCHOR_TYPE) &#123;<br>                        <span class="hljs-comment">//弹出对话框</span><br>                        showDialog(result.getExtra());<br>                    &#125;<br>                &#125;<br>            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (view <span class="hljs-keyword">instanceof</span> X5WebView) &#123;<br>                <span class="hljs-comment">//响应长按事件（如果webview继承自腾讯的TBS系统）</span><br>                Log.i(TAG, <span class="hljs-string">"onLongClick: x5"</span>);<br>                com.tencent.smtt.sdk.WebView.HitTestResult hitTestResult = ((X5WebView) view).getHitTestResult();<br>                <span class="hljs-keyword">if</span> (hitTestResult != <span class="hljs-keyword">null</span>) &#123;<br>                    <span class="hljs-keyword">int</span> type = hitTestResult.getType();<br>                    <span class="hljs-keyword">if</span> (type == X5WebView.HitTestResult.IMAGE_TYPE || type == X5WebView.HitTestResult.SRC_IMAGE_ANCHOR_TYPE) &#123;<br>                        showDialog(hitTestResult.getExtra());<br>                    &#125;<br>                &#125;<br>            &#125;<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;<br>        &#125;<br>    &#125;);<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p><strong>参考资料</strong></p>
-<ul>
-<li><a href="http://www.cnblogs.com/classloader/p/5302784.html" target="_blank" rel="noopener">获取 Android webview 的点击元素</a></li>
-<li><a href="https://developer.android.com/reference/android/webkit/WebView.HitTestResult.html" target="_blank" rel="noopener">HitTestResult</a></li>
-</ul>
-<h1 id="需要登录网页授权的页面处理"><a href="#需要登录网页授权的页面处理" class="headerlink" title="需要登录网页授权的页面处理"></a>需要登录网页授权的页面处理</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><code class="hljs java">webSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NARROW_COLUMNS);<br>webSettings.setUseWideViewPort(<span class="hljs-keyword">true</span>);<br>webSettings.setJavaScriptEnabled(<span class="hljs-keyword">true</span>);<br>webSettings.setDomStorageEnabled(<span class="hljs-keyword">true</span>);<br>webSettings.setLoadWithOverviewMode(<span class="hljs-keyword">true</span>);<br>webview.setWebViewClient(getWebViewClient());<br><br><span class="hljs-function"><span class="hljs-keyword">private</span> WebViewClient <span class="hljs-title">getWebViewClient</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> WebViewClient() &#123;<br>        <span class="hljs-meta">@Override</span><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onReceivedHttpAuthRequest</span><span class="hljs-params">(WebView view, HttpAuthHandler handler, String host, String realm)</span> </span>&#123;<br>            <span class="hljs-comment">// [Android-WebView's onReceivedHttpAuthRequest() not called again - Stack Overflow](https://stackoverflow.com/questions/20399339/android-webviews-onreceivedhttpauthrequest-not-called-again)</span><br>            <span class="hljs-keyword">final</span> EditText usernameInput = <span class="hljs-keyword">new</span> EditText(mContext);<br>            usernameInput.setHint(<span class="hljs-string">"Username"</span>);<br><br>            <span class="hljs-keyword">final</span> EditText passwordInput = <span class="hljs-keyword">new</span> EditText(mContext);<br>            passwordInput.setHint(<span class="hljs-string">"Password"</span>);<br>            passwordInput.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);<br><br>            LinearLayout ll = <span class="hljs-keyword">new</span> LinearLayout(mContext);<br>            ll.setOrientation(LinearLayout.VERTICAL);<br>            ll.addView(usernameInput);<br>            ll.addView(passwordInput);<br><br>            AlertDialog.Builder authDialog = <span class="hljs-keyword">new</span> AlertDialog<br>                    .Builder(mContext)<br>                    .setTitle(<span class="hljs-string">"Authentication"</span>)<br>                    .setView(ll)<br>                    .setCancelable(<span class="hljs-keyword">false</span>)<br>                    .setPositiveButton(<span class="hljs-string">"OK"</span>, (dialog, whichButton) -&gt; &#123;<br>                        String username = usernameInput.getText().toString();<br>                        String password = passwordInput.getText().toString();<br>                        handler.proceed(username, password);<br>                        Toast.makeText(mContext, username + <span class="hljs-string">":"</span> + password, Toast.LENGTH_LONG).show();<br>                        dialog.dismiss();<br>                    &#125;)<br>                    .setNegativeButton(<span class="hljs-string">"Cancel"</span>, (dialog, whichButton) -&gt; &#123;<br>                        dialog.dismiss();<br>                        view.stopLoading();<br>                    &#125;);<br><br>            authDialog.show();<br>        &#125;<br>    &#125;;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/android/%E5%AF%BC%E8%88%AA/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="lyloou">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/android/%E5%AF%BC%E8%88%AA/" class="post-title-link" itemprop="url">Android中巧用官方自带View —— 导航</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-08-04 08:42:57" itemprop="dateCreated datePublished" datetime="2016-08-04T08:42:57+08:00">2016-08-04</time>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/android/%E5%AF%BC%E8%88%AA/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/android/%E5%AF%BC%E8%88%AA/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="TabLayout"><a href="#TabLayout" class="headerlink" title="TabLayout"></a>TabLayout</h2><ul>
-<li>步骤：<ol>
-<li>布局（TabLayout和ViewPager位置关系）；</li>
-<li>自定义Adapter（继承自 FragmentPagerAdapter），并配置Fragment和tab标题内容；</li>
-<li>java代码中给ViewPager绑定Adapter；</li>
-</ol>
-</li>
-</ul>
-<ol>
-<li><p>布局</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">merge</span> <span class="hljs-attr">xmlns:android</span>=<span class="hljs-string">"http://schemas.android.com/apk/res/android"</span></span><br><span class="hljs-tag">              <span class="hljs-attr">xmlns:app</span>=<span class="hljs-string">"http://schemas.android.com/apk/res-auto"</span></span><br><span class="hljs-tag">              <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span></span><br><span class="hljs-tag">              <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"match_parent"</span></span><br><span class="hljs-tag">              <span class="hljs-attr">android:orientation</span>=<span class="hljs-string">"vertical"</span>&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">View</span></span><br><span class="hljs-tag">        <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span></span><br><span class="hljs-tag">        <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"0.1dp"</span></span><br><span class="hljs-tag">        <span class="hljs-attr">android:background</span>=<span class="hljs-string">"@color/tab_sep"</span>/&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">android.support.design.widget.TabLayout</span></span><br><span class="hljs-tag">        <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/sliding_tabs"</span></span><br><span class="hljs-tag">        <span class="hljs-attr">style</span>=<span class="hljs-string">"@style/MyCustomTabLayout"</span></span><br><span class="hljs-tag">        <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span></span><br><span class="hljs-tag">        <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"wrap_content"</span></span><br><span class="hljs-tag">        <span class="hljs-attr">app:tabMode</span>=<span class="hljs-string">"fixed"</span>/&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">View</span></span><br><span class="hljs-tag">        <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span></span><br><span class="hljs-tag">        <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"0.1dp"</span></span><br><span class="hljs-tag">        <span class="hljs-attr">android:background</span>=<span class="hljs-string">"@color/tab_sep"</span>/&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">android.support.v4.view.ViewPager</span></span><br><span class="hljs-tag">        <span class="hljs-attr">android:id</span>=<span class="hljs-string">"@+id/viewpager"</span></span><br><span class="hljs-tag">        <span class="hljs-attr">android:layout_width</span>=<span class="hljs-string">"match_parent"</span></span><br><span class="hljs-tag">        <span class="hljs-attr">android:layout_height</span>=<span class="hljs-string">"0px"</span></span><br><span class="hljs-tag">        <span class="hljs-attr">android:layout_weight</span>=<span class="hljs-string">"1"</span>/&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">merge</span>&gt;</span><br></code></pre></td></tr></table></figure>
-</li>
-<li><p>自定义Adapter</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs java"><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ModeListVpAdapter</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">FragmentPagerAdapter</span> </span>&#123;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> String mTabTitles[];<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> Mode.Position[] mPosition = Mode.Position.values();<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> PAGE_COUNT = mPosition.length;<br>    <span class="hljs-keyword">private</span> Context mContext;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">ModeListVpAdapter</span><span class="hljs-params">(FragmentManager fm, Context context)</span> </span>&#123;<br>        <span class="hljs-keyword">super</span>(fm);<br>        mContext = context;<br>        mTabTitles = context.getResources().getStringArray(R.array.main_tabs);<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getCount</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> PAGE_COUNT;<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Fragment <span class="hljs-title">getItem</span><span class="hljs-params">(<span class="hljs-keyword">int</span> position)</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> ModeListFragment.newInstance(position); <span class="hljs-comment">// 根据position返回对应的fragment</span><br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> CharSequence <span class="hljs-title">getPageTitle</span><span class="hljs-params">(<span class="hljs-keyword">int</span> position)</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> mTabTitles[position]; <span class="hljs-comment">// 根据position返回对应的tab标题</span><br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
-</li>
-<li><p>绑定</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java">ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);<br>viewPager.setAdapter(<span class="hljs-keyword">new</span> ModeListVpAdapter(getSupportFragmentManager(), mContext));<br><br>TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);<br>tabLayout.setupWithViewPager(viewPager);<br>viewPager.setCurrentItem(<span class="hljs-number">2</span>); <span class="hljs-comment">// 默认选中第二个tab</span><br></code></pre></td></tr></table></figure>
-</li>
-</ol>
-<ul>
-<li><a href="https://guides.codepath.com/android/google-play-style-tabs-using-tablayout" target="_blank" rel="noopener">Google Play Style Tabs using TabLayout</a></li>
-</ul>
-<h2 id="DrawerLayout-amp-NavigationView"><a href="#DrawerLayout-amp-NavigationView" class="headerlink" title="DrawerLayout &amp; NavigationView"></a>DrawerLayout &amp; NavigationView</h2><ul>
-<li>NavigationView隐藏menu：不使用app:menu属性即可；</li>
-<li>给NavigationView头部布局组件设置点击事件：可以通过<code>mNavView.getHeaderView(0)</code>获取根布局的view引用；</li>
-<li>禁用滑动<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// lock</span><br>mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);<br><span class="hljs-comment">// unlock</span><br>mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);<br></code></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h3 id="外部链接"><a href="#外部链接" class="headerlink" title="外部链接"></a>外部链接</h3><ul>
-<li><a href="http://stackoverflow.com/questions/17051104/disable-the-swipe-gesture-that-opens-the-navigation-drawer-in-android" target="_blank" rel="noopener">disable the swipe gesture that opens the navigation drawer in android</a></li>
-<li><a href="http://stackoverflow.com/questions/26440879/how-do-i-use-drawerlayout-to-display-over-the-actionbar-toolbar-and-under-the-st" target="_blank" rel="noopener">How do I use DrawerLayout to display over the ActionBar/Toolbar and under the status bar?</a></li>
-<li><a href="http://www.jianshu.com/p/3fe2acac0ddb" target="_blank" rel="noopener">使用 DrawerLayout 实现 Material Design风格的侧滑</a></li>
-</ul>
-<h2 id="ToolBar"><a href="#ToolBar" class="headerlink" title="ToolBar"></a>ToolBar</h2><ul>
-<li><p>切换fragment时对应显示不同的菜单：<br>通过控制自定义的标志，然后调用<code>invalidateOptionsMenu();</code>刷新菜单即可；</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Override</span><br><span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">onPrepareOptionsPanel</span><span class="hljs-params">(View view, Menu menu)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (mMode == DEVICE_FRAGMENT) &#123;<br>        menu.findItem(R.id.action_add).setVisible(<span class="hljs-keyword">true</span>);<br>        menu.findItem(R.id.action_ok).setVisible(<span class="hljs-keyword">false</span>);<br>    &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (mMode == SETTING_TIME_FRAGMENT) &#123;<br>        menu.findItem(R.id.action_add).setVisible(<span class="hljs-keyword">false</span>);<br>        menu.findItem(R.id.action_ok).setVisible(<span class="hljs-keyword">true</span>);<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">super</span>.onPrepareOptionsPanel(view, menu);<br>&#125;<br></code></pre></td></tr></table></figure>
-</li>
-<li><p>在Fragment中获取ToolBar对象，并监听点击事件；</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs java">Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);<br>TextView tvTitle = (TextView) toolbar.findViewById(R.id.tv_nav_title);<br>tvTitle.setText(<span class="hljs-string">"标题1"</span>);<br><br><span class="hljs-comment">// 处理toolbar上的菜单点击事件；</span><br>toolbar.setOnMenuItemClickListener(<span class="hljs-keyword">new</span> Toolbar.OnMenuItemClickListener() &#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">onMenuItemClick</span><span class="hljs-params">(MenuItem item)</span> </span>&#123;<br>        <span class="hljs-keyword">switch</span> (item.getItemId()) &#123;<br>            <span class="hljs-keyword">case</span> R.id.action_ok:<br>                Usp.init(mContext).putInt(CKeys.KEY_TS, indexInTIMES(mRgSettingTime.getCheckedRadioButtonId()));<br>                Utoast.toastOnMain(mContext, mContext.getString(R.string.time_setting_setted));<br>                <span class="hljs-keyword">break</span>;<br>        &#125;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;<br>    &#125;<br>&#125;);<br></code></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h2 id="适配"><a href="#适配" class="headerlink" title="适配"></a>适配</h2><blockquote>
-<p>Toolbar 里面有两个属性很关键:<br>android:minHeight=”?attr/actionBarSize”,这个表示引用系统 ActionBar 的高度.<br>android:paddingTop=”@dimen/tool_bar_top_padding”这个是来引用资源文件里面的tool_bar_top_padding的高度,这个高度主要是为了对5.0做适配,在5.0 上为24dp,其他版本为0dp</p>
-</blockquote>
-<h3 id="外部链接-1"><a href="#外部链接-1" class="headerlink" title="外部链接"></a>外部链接</h3><ul>
-<li><a href="http://stackoverflow.com/questions/26813991/actionbar-toolbar-not-showing-on-lollipop-version-of-app" target="_blank" rel="noopener">ActionBar/Toolbar not showing on Lollipop version of app</a></li>
-<li><a href="http://stackoverflow.com/questions/26440879/how-do-i-use-drawerlayout-to-display-over-the-actionbar-toolbar-and-under-the-st" target="_blank" rel="noopener">How do I use DrawerLayout to display over the ActionBar/Toolbar and under the status bar?</a></li>
-<li><a href="http://www.jianshu.com/p/3fe2acac0ddb" target="_blank" rel="noopener">使用 DrawerLayout 实现 Material Design风格的侧滑</a></li>
-</ul>
 
       
     </div>
@@ -1249,7 +1146,7 @@
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="lyloou"
-      src="/images/avatar.png">
+      src="/assets/images/avatar.png">
   <p class="site-author-name" itemprop="name">lyloou</p>
   <div class="site-description" itemprop="description">/* Better than last best */</div>
 </div>
@@ -1258,7 +1155,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">311</span>
+          <span class="site-state-item-count">313</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1429,34 +1326,6 @@ if (document.querySelectorAll('pre.mermaid').length) {
 
   
 
-
-<script>
-NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
-  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
-    var GUEST = ['nick', 'mail', 'link'];
-    var guest = 'nick,mail,link';
-    guest = guest.split(',').filter(item => {
-      return GUEST.includes(item);
-    });
-    new Valine({
-      el         : '#valine-comments',
-      verify     : false,
-      notify     : true,
-      appId      : 'yhivNNDDoank7qFbmyEj9Ldq-gzGzoHsz',
-      appKey     : 'QuFu2ooibSzW1Q8eTrmPLyPw',
-      placeholder: "Just go go",
-      avatar     : 'mm',
-      meta       : guest,
-      pageSize   : '10' || 10,
-      visitor    : false,
-      lang       : '' || 'zh-cn',
-      path       : location.pathname,
-      recordIP   : true,
-      serverURLs : ''
-    });
-  }, window.Valine);
-});
-</script>
 
 </body>
 </html>

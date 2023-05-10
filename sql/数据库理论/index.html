@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"lyloou.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"lyloou.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="三范式第一范式：消除属性值可再分（非原子的）；第二范式：消除非主属性对候选键的部分依赖。第三范式：消除非主属性对候选键的传递依赖。BC 范式：消除主属性对候选键的部分依赖和传递依赖。  分析  假设有属性集：{A、B、C、D、E、J}依赖集 {A-&gt;B, A-&gt;C, C-&gt;D, AJ-&gt;E}   候选键：AJ 主属性：A、J 非主属性：B、C、D、E   AJ是主属性，B">
@@ -212,7 +212,7 @@
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/sql/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%90%86%E8%AE%BA/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -243,20 +243,6 @@
               <span class="post-meta-item-text">阅读次数：</span>
               <span id="busuanzi_value_page_pv"></span>
             </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/sql/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%90%86%E8%AE%BA/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/sql/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%90%86%E8%AE%BA/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -284,6 +270,14 @@
 </ul>
 <p>对于 BC 范式，可以从下面图来理解<br><img src="http://cdn.lyloou.com/img/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%90%86%E8%AE%BA-2021-09-09-14-19-18.png" alt="数据库理论-2021-09-09-14-19-18"></p>
 <p>例题（答案：C、A）：<br><img src="http://cdn.lyloou.com/img/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%90%86%E8%AE%BA-2021-09-09-14-20-23.png" alt="数据库理论-2021-09-09-14-20-23"></p>
+<h2 id="多版本控制（MVCC）"><a href="#多版本控制（MVCC）" class="headerlink" title="多版本控制（MVCC）"></a>多版本控制（MVCC）</h2><p>读取优化策略，不使用锁，而是使用多个版本共存的思想，根据隔离级别确定使用哪个版本号。</p>
+<p>版本号的创建规则是：</p>
+<p>插入数据时：<code>CREATE_VERSION</code> 记录下当前的事务ID（事务 ID 是一个全局严格递增的数值），<code>DELETE_VERSION</code> 为空；</p>
+<p>删除数据时：<code>CREATE_VERSION</code> 为空，<code>DELETE_VERSION</code> 为当前事务ID；</p>
+<p>更新数据时：相当于“删除旧数据，插入新数据”，拷贝一份原始数据，将原始数据的 <code>CREATE_VERSION</code> 设为空，<code>DELETE_VERSION</code> 设为当前事务ID；再将拷贝后数据的 <code>CREATE_VERSION</code> 设为当前事务ID，<code>DELETE_VERSION</code> 设为空；</p>
+<p>根据隔离级别确定使用哪个版本号：</p>
+<p>如果隔离级别是<code>可重复读</code>：总是取 <code>CREATE_VERSION</code> 小于当前事务ID的记录，如果还存在多个版本，逆序取最新的一个；</p>
+<p>如果隔离级别是<code>读已提交</code>：总是取最新commit了的版本；<br>参考资料：<a href="https://icyfenix.cn/architect-perspective/general-architecture/transaction/local.html" target="_blank" rel="noopener">本地事务 | 凤凰架构 (icyfenix.cn)</a></p>
 
     </div>
 
@@ -300,13 +294,13 @@
       <div class="popular-posts-title"><a href="/sql/SQLite总结/" rel="bookmark">关于SQLite的总结</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/sql/mybatisplus/" rel="bookmark">Mybatisplus相关</a></div>
+      <div class="popular-posts-title"><a href="/sql/jooq/" rel="bookmark">Jooq相关</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/sql/mybatis/" rel="bookmark">Mybatis相关</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/sql/jooq/" rel="bookmark">Jooq相关</a></div>
+      <div class="popular-posts-title"><a href="/sql/mysql命令行实用程序/" rel="bookmark">Mysql命令行实用程序</a></div>
     </li>
   </ul>
 
@@ -360,7 +354,7 @@
 
           </div>
           
-    <div class="comments" id="valine-comments"></div>
+    <div class="comments" id="gitalk-container"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -407,14 +401,14 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#三范式"><span class="nav-number">1.</span> <span class="nav-text">三范式</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#三范式"><span class="nav-number">1.</span> <span class="nav-text">三范式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多版本控制（MVCC）"><span class="nav-number">2.</span> <span class="nav-text">多版本控制（MVCC）</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="lyloou"
-      src="/images/avatar.png">
+      src="/assets/images/avatar.png">
   <p class="site-author-name" itemprop="name">lyloou</p>
   <div class="site-description" itemprop="description">/* Better than last best */</div>
 </div>
@@ -423,7 +417,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">311</span>
+          <span class="site-state-item-count">313</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -594,32 +588,23 @@ if (document.querySelectorAll('pre.mermaid').length) {
 
   
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
 
 <script>
-NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
-  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
-    var GUEST = ['nick', 'mail', 'link'];
-    var guest = 'nick,mail,link';
-    guest = guest.split(',').filter(item => {
-      return GUEST.includes(item);
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '5776a56ec2a831d83dfc',
+      clientSecret: '9dd4fdd607d831f375f6d8b2e1efb5afef185784',
+      repo        : 'lyloou.github.io',
+      owner       : 'lyloou',
+      admin       : ['lyloou'],
+      id          : '4e8d7a76b22a793ff8e0732a7d546015',
+        language: '',
+      distractionFreeMode: true
     });
-    new Valine({
-      el         : '#valine-comments',
-      verify     : false,
-      notify     : true,
-      appId      : 'yhivNNDDoank7qFbmyEj9Ldq-gzGzoHsz',
-      appKey     : 'QuFu2ooibSzW1Q8eTrmPLyPw',
-      placeholder: "Just go go",
-      avatar     : 'mm',
-      meta       : guest,
-      pageSize   : '10' || 10,
-      visitor    : false,
-      lang       : '' || 'zh-cn',
-      path       : location.pathname,
-      recordIP   : true,
-      serverURLs : ''
-    });
-  }, window.Valine);
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
 });
 </script>
 

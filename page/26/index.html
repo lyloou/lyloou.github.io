@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"lyloou.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"lyloou.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="&#x2F;* Better than last best *&#x2F;">
@@ -201,10 +201,134 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/js/javascript%E7%9A%84%E5%85%A8%E9%80%89%E3%80%81%E5%85%A8%E4%B8%8D%E9%80%89%E3%80%81%E5%8F%8D%E9%80%89%E9%80%BB%E8%BE%91%E5%AE%9E%E7%8E%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/images/avatar.png">
+      <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lyloou">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/js/javascript%E7%9A%84%E5%85%A8%E9%80%89%E3%80%81%E5%85%A8%E4%B8%8D%E9%80%89%E3%80%81%E5%8F%8D%E9%80%89%E9%80%BB%E8%BE%91%E5%AE%9E%E7%8E%B0/" class="post-title-link" itemprop="url">Javascript的全选、全不选、反选逻辑实现</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-12-28 18:04:00" itemprop="dateCreated datePublished" datetime="2016-12-28T18:04:00+08:00">2016-12-28</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="实现目标"><a href="#实现目标" class="headerlink" title="实现目标"></a>实现目标</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs plain">当用户勾上“全选”时，自动选中所有语言，并把“全选”变成“全不选”；<br><br>当用户去掉“全不选”时，自动不选中所有语言；<br><br>当用户点击“反选”时，自动把所有语言状态反转（选中的变为未选，未选的变为选中）；<br><br>当用户把所有语言都手动勾上时，“全选”被自动勾上，并变为“全不选”；<br><br>当用户手动去掉选中至少一种语言时，“全不选”自动被去掉选中，并变为“全选”。<br></code></pre></td></tr></table></figure>
+
+<h1 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://code.jquery.com/jquery-3.1.1.js"</span>&gt;</span><br>	<span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span>&gt;</span><br><span class="javascript"><span class="hljs-meta">        'use strict'</span>;</span><br><span class="javascript">        $(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;</span><br><span class="actionscript">            <span class="hljs-keyword">var</span></span><br><span class="javascript">                form = $(<span class="hljs-string">'#test-form'</span>),</span><br><span class="actionscript">                langs = form.find(<span class="hljs-string">'[name=lang]'</span>),</span><br><span class="actionscript">                selectAll = form.find(<span class="hljs-string">'label.selectAll :checkbox'</span>),</span><br><span class="actionscript">                selectAllLabel = form.find(<span class="hljs-string">'label.selectAll span.selectAll'</span>),</span><br><span class="actionscript">                deselectAllLabel = form.find(<span class="hljs-string">'label.selectAll span.deselectAll'</span>),</span><br><span class="actionscript">                invertSelect = form.find(<span class="hljs-string">'a.invertSelect'</span>);</span><br><br><span class="actionscript">            <span class="hljs-comment">// 重置初始化状态:</span></span><br><span class="actionscript">            form.find(<span class="hljs-string">'*'</span>).show().off();</span><br><span class="actionscript">            form.find(<span class="hljs-string">':checkbox'</span>).prop(<span class="hljs-string">'checked'</span>, <span class="hljs-literal">false</span>).off();</span><br>            deselectAllLabel.hide();<br><span class="actionscript">            <span class="hljs-comment">// 拦截form提交事件:</span></span><br><span class="actionscript">            form.off().submit(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(e)</span> </span>&#123;</span><br>                e.preventDefault();<br>                alert(form.serialize());<br>            &#125;);<br><br><span class="actionscript">            selectAll.on(<span class="hljs-string">'change'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(e)</span></span>&#123;</span><br><br><span class="javascript">                langs.get().map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">x</span>)</span>&#123;$(x).prop(<span class="hljs-string">'checked'</span>, <span class="hljs-keyword">this</span>.checked);&#125;);</span><br><br><span class="actionscript">                <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.checked)&#123;</span><br>                    selectAllLabel.hide();<br>                    deselectAllLabel.show();<br><span class="actionscript">                &#125; <span class="hljs-keyword">else</span> &#123;</span><br>                    selectAllLabel.show();<br>                    deselectAllLabel.hide();<br>                &#125;<br>            &#125;);<br><br><span class="actionscript">            <span class="hljs-comment">// 校验所有的 input</span></span><br><span class="actionscript">            <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">checkAll</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="actionscript">              <span class="hljs-comment">// 获取所有input的checked个数</span></span><br><span class="actionscript">              <span class="hljs-keyword">var</span> count = <span class="hljs-number">0</span>;</span><br><span class="actionscript">              langs.get().map(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(x)</span></span>&#123;</span><br><span class="javascript">                <span class="hljs-keyword">if</span>($(x).prop(<span class="hljs-string">'checked'</span>))&#123;</span><br>                  count = count+1;<br>                &#125;<br>              &#125;);<br>              if(count === 0) &#123;<br><span class="actionscript">              &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (count === inputs.length)&#123;</span><br><span class="actionscript">                <span class="hljs-comment">// 当用户把所有语言都手动勾上时，“全选”被自动勾上，并变为“全不选”；</span></span><br><span class="actionscript">                selectAll.prop(<span class="hljs-string">'checked'</span>, <span class="hljs-literal">true</span>);</span><br><br>                selectAllLabel.hide();<br>                deselectAllLabel.show();<br><span class="actionscript">              &#125; <span class="hljs-keyword">else</span> &#123;</span><br><span class="actionscript">                <span class="hljs-comment">// 当用户手动去掉选中至少一种语言时，“全不选”自动被去掉选中，并变为“全选”。</span></span><br><span class="actionscript">                selectAll.prop(<span class="hljs-string">'checked'</span>, <span class="hljs-literal">false</span>);</span><br><br>                selectAllLabel.show();<br>                deselectAllLabel.hide();<br>              &#125;<br>            &#125;<br><span class="actionscript">            invertSelect.click(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(x)</span></span>&#123;</span><br><span class="actionscript">                langs.get().map(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(x)</span></span>&#123;</span><br><span class="javascript">                    $(x).prop(<span class="hljs-string">'checked'</span>, !($(x).prop(<span class="hljs-string">'checked'</span>)));</span><br>                    checkAll();<br>                &#125;);<br>            &#125;);<br><br><span class="actionscript">            <span class="hljs-comment">// 设置所有input的监听事件</span></span><br><span class="actionscript">            <span class="hljs-keyword">var</span> inputs = langs.get();</span><br><span class="actionscript">            inputs.map(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(x)</span></span>&#123;</span><br><span class="javascript">                $(x).change(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;</span><br>                  checkAll();<br>                &#125;);<br>            &#125;);<br><br>        &#125;);<br>    <span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>&gt;<br><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>  Hello, Lou!<br>  <span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span><br><br> <span class="hljs-comment">&lt;!-- HTML结构 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"test-form"</span> <span class="hljs-attr">action</span>=<span class="hljs-string">"test"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">legend</span>&gt;</span>请选择想要学习的编程语言：<span class="hljs-tag">&lt;/<span class="hljs-name">legend</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">fieldset</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"selectAll"</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"selectAll"</span>&gt;</span>全选<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"deselectAll"</span>&gt;</span>全不选<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#0"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"invertSelect"</span>&gt;</span>反选<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"lang"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"javascript"</span>&gt;</span> JavaScript<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"lang"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"python"</span>&gt;</span> Python<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"lang"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"ruby"</span>&gt;</span> Ruby<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"lang"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"haskell"</span>&gt;</span> Haskell<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"lang"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"scheme"</span>&gt;</span> Scheme<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"submit"</span>&gt;</span>Submit<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">fieldset</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span><br><br><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a href="http://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/00143564690172894383ccd7ab64669b4971f4b03fa342d000#0" target="_blank" rel="noopener">事件 - 廖雪峰的官方网站</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/shell/tips/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/images/avatar.png">
+      <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lyloou">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/shell/tips/" class="post-title-link" itemprop="url">Shell Tips</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-12-20 10:30:13" itemprop="dateCreated datePublished" datetime="2016-12-20T10:30:13+08:00">2016-12-20</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="help-tips"><a href="#help-tips" class="headerlink" title="help tips"></a>help tips</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-meta">#!/bin/bash</span><br><br><span class="hljs-function"><span class="hljs-title">help</span></span>()&#123;<br>cat &lt;&lt; HELP<br>usage: dd ddk <br>example: <span class="hljs-string">'wowo wowo'</span><br>HELP<br><span class="hljs-built_in">exit</span> 0<br>&#125;<br><br><span class="hljs-keyword">if</span> [[ <span class="hljs-variable">$1</span> == <span class="hljs-string">""</span> || <span class="hljs-variable">$1</span> == <span class="hljs-string">"-h"</span> ]]; <span class="hljs-keyword">then</span><br>    <span class="hljs-built_in">echo</span> <span class="hljs-string">'what?'</span><br>    <span class="hljs-built_in">help</span><br><span class="hljs-keyword">fi</span><br><br><span class="hljs-keyword">if</span> [[ <span class="hljs-variable">$1</span> != <span class="hljs-string">""</span> ]]; <span class="hljs-keyword">then</span><br>    <span class="hljs-built_in">echo</span> <span class="hljs-variable">$1</span><br><span class="hljs-keyword">fi</span><br><br><span class="hljs-built_in">echo</span> -e <span class="hljs-string">"\033]0;<span class="hljs-variable">$1</span>\007"</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="read-from-terminal"><a href="#read-from-terminal" class="headerlink" title="read from terminal"></a>read from terminal</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">echo</span> input your name:<br><span class="hljs-built_in">read</span> name<br><span class="hljs-built_in">echo</span> your name is <span class="hljs-variable">$&#123;name&#125;</span><br></code></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/shell/%E5%B8%B8%E7%94%A8%E7%9A%84shell%E5%91%BD%E4%BB%A4%EF%BC%88Windows%E5%B9%B3%E5%8F%B0%E4%B8%8A%EF%BC%89/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -229,20 +353,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/shell/%E5%B8%B8%E7%94%A8%E7%9A%84shell%E5%91%BD%E4%BB%A4%EF%BC%88Windows%E5%B9%B3%E5%8F%B0%E4%B8%8A%EF%BC%89/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/shell/%E5%B8%B8%E7%94%A8%E7%9A%84shell%E5%91%BD%E4%BB%A4%EF%BC%88Windows%E5%B9%B3%E5%8F%B0%E4%B8%8A%EF%BC%89/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -281,7 +391,7 @@
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/linux/command/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -306,20 +416,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/linux/command/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/linux/command/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -426,7 +522,7 @@
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/linux/ssh/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -451,20 +547,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/linux/ssh/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/linux/ssh/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -524,7 +606,7 @@
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/java/%E8%8E%B7%E5%8F%96%E7%BD%91%E7%BB%9C%E6%97%B6%E9%97%B4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -549,20 +631,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/java/%E8%8E%B7%E5%8F%96%E7%BD%91%E7%BB%9C%E6%97%B6%E9%97%B4/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/java/%E8%8E%B7%E5%8F%96%E7%BD%91%E7%BB%9C%E6%97%B6%E9%97%B4/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -614,7 +682,7 @@
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/java/%E9%83%A8%E7%BD%B2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -639,20 +707,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/java/%E9%83%A8%E7%BD%B2/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/java/%E9%83%A8%E7%BD%B2/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -665,95 +719,11 @@
       
           <p>服务器部署用到的JRE是server JRE，如下图的JAVA 8 JRE</p>
 <p><img src="https://github.com/lyloou/img/raw/develop/z/20190401154854.png" alt></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/android/%E6%94%AF%E4%BB%98%E5%AE%9DSDK%E6%94%AF%E4%BB%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="lyloou">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/android/%E6%94%AF%E4%BB%98%E5%AE%9DSDK%E6%94%AF%E4%BB%98/" class="post-title-link" itemprop="url">支付宝SDK支付</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-11-17 16:31:08" itemprop="dateCreated datePublished" datetime="2016-11-17T16:31:08+08:00">2016-11-17</time>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/android/%E6%94%AF%E4%BB%98%E5%AE%9DSDK%E6%94%AF%E4%BB%98/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/android/%E6%94%AF%E4%BB%98%E5%AE%9DSDK%E6%94%AF%E4%BB%98/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="通过本地安装的支付宝支付"><a href="#通过本地安装的支付宝支付" class="headerlink" title="通过本地安装的支付宝支付"></a>通过本地安装的支付宝支付</h1><p>Android端的实现比较简单，</p>
-<ol>
-<li><a href="https://doc.open.alipay.com/docs/doc.htm?spm=a219a.7629140.0.0.8MZxo2&treeId=59&articleId=103662&docType=1" target="_blank" rel="noopener">下载SDK和DEMO</a></li>
-<li>导入支付宝sdk后，需要注意权限、配置、混淆等；</li>
-<li>通过后台获取得到<code>orderInfo</code>字符串</li>
-<li>唤起支付宝：【需要在新线程中调用支付接口。（可参考alipay_demo实现）】</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">final</span> String orderInfo = <span class="hljs-string">"从后台获取得到的orderInfo"</span>;<br><br>PayTask alipay = <span class="hljs-keyword">new</span> PayTask(mActivity);<br>Map&lt;String, String&gt; result = alipay.payV2(orderInfo, <span class="hljs-keyword">true</span>);<br>PayResult payResult = <span class="hljs-keyword">new</span> PayResult(result);<br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> 对于支付结果，请商户依赖服务端的异步通知结果。同步通知结果，仅作为支付结束的通知。</span><br><span class="hljs-comment"> */</span><br>String resultInfo = payResult.getResult();<span class="hljs-comment">// 同步返回需要验证的信息</span><br>String resultStatus = payResult.getResultStatus();<br><br><span class="hljs-comment">// 判断resultStatus 为9000则代表支付成功</span><br><span class="hljs-keyword">if</span> (TextUtils.equals(resultStatus, <span class="hljs-string">"9000"</span>)) &#123;<br>    <span class="hljs-comment">// 该笔订单是否真实支付成功，需要依赖服务端的异步通知。</span><br>    Toast.makeText(mActivity, <span class="hljs-string">"支付成功"</span>, Toast.LENGTH_SHORT).show();<br>&#125; <span class="hljs-keyword">else</span> &#123;<br>    <span class="hljs-comment">// 该笔订单真实的支付结果，需要依赖服务端的异步通知。</span><br>    Toast.makeText(mActivity, <span class="hljs-string">"支付失败"</span>, Toast.LENGTH_SHORT).show();<br>&#125;<br></code></pre></td></tr></table></figure>
-
-
-<h1 id="如果本地没有安装支付宝，就跳转到wap支付"><a href="#如果本地没有安装支付宝，就跳转到wap支付" class="headerlink" title="如果本地没有安装支付宝，就跳转到wap支付"></a>如果本地没有安装支付宝，就跳转到wap支付</h1><p>我相信在<code>PayTask.payV2</code>中，有对是否安装支付宝做判断，<br>我们需要在<code>Manifest</code>中注册<code>H5PayActivity</code>：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">activity</span></span><br><span class="hljs-tag">    <span class="hljs-attr">android:name</span>=<span class="hljs-string">"com.alipay.sdk.app.H5PayActivity"</span></span><br><span class="hljs-tag">    <span class="hljs-attr">android:configChanges</span>=<span class="hljs-string">"orientation|keyboardHidden|navigation"</span></span><br><span class="hljs-tag">    <span class="hljs-attr">android:exported</span>=<span class="hljs-string">"false"</span></span><br><span class="hljs-tag">    <span class="hljs-attr">android:screenOrientation</span>=<span class="hljs-string">"behind"</span></span><br><span class="hljs-tag">    <span class="hljs-attr">android:windowSoftInputMode</span>=<span class="hljs-string">"adjustResize|stateHidden"</span> &gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">activity</span>&gt;</span><br></code></pre></td></tr></table></figure>
-
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
-<li><a href="http://blog.csdn.net/u013067184/article/details/46922997" target="_blank" rel="noopener">Android 支付宝 SDK 无法跳转到wap支付</a></li>
-<li><a href="https://doc.open.alipay.com/doc2/detail.htm?treeId=59&articleId=103682&docType=1" target="_blank" rel="noopener">蚂蚁金服-开发文档——修改Manifest</a></li>
-<li><a href="http://blog.csdn.net/ylbf_dev/article/details/50448727" target="_blank" rel="noopener">混淆出错-The same input jar is specified twice 解决办法</a></li>
-</ul>
+<h2 id="打包jar"><a href="#打包jar" class="headerlink" title="打包jar"></a>打包jar</h2><p>将Java程序打包成一个jar包</p>
+<p>点击File-&gt;Project Structure-&gt;Artifacts-&gt;Jar-&gt;From modules with dependencies</p>
+<p><img src="https://raw.githubusercontent.com/lyloou/img/develop/v3/2023-04/20230425094801dfcf279c1d1f4425ca265930e21e18a3.png" alt="image.png"></p>
+<p><img src="https://raw.githubusercontent.com/lyloou/img/develop/v3/2023-04/202304250948522b7bf1e29f81061aca98d7d93bc73d81.png" alt="image.png"></p>
+<p>参考：<a href="https://blog.csdn.net/vfdxvffd/article/details/113430701" target="_blank" rel="noopener">https://blog.csdn.net/vfdxvffd/article/details/113430701</a></p>
 
       
     </div>
@@ -776,7 +746,7 @@
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/android/%E6%89%93%E5%8C%85/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -801,20 +771,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/android/%E6%89%93%E5%8C%85/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/android/%E6%89%93%E5%8C%85/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -878,10 +834,85 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/android/%E6%94%AF%E4%BB%98%E5%AE%9DSDK%E6%94%AF%E4%BB%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/images/avatar.png">
+      <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lyloou">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/android/%E6%94%AF%E4%BB%98%E5%AE%9DSDK%E6%94%AF%E4%BB%98/" class="post-title-link" itemprop="url">支付宝SDK支付</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-11-17 16:31:08" itemprop="dateCreated datePublished" datetime="2016-11-17T16:31:08+08:00">2016-11-17</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="通过本地安装的支付宝支付"><a href="#通过本地安装的支付宝支付" class="headerlink" title="通过本地安装的支付宝支付"></a>通过本地安装的支付宝支付</h1><p>Android端的实现比较简单，</p>
+<ol>
+<li><a href="https://doc.open.alipay.com/docs/doc.htm?spm=a219a.7629140.0.0.8MZxo2&treeId=59&articleId=103662&docType=1" target="_blank" rel="noopener">下载SDK和DEMO</a></li>
+<li>导入支付宝sdk后，需要注意权限、配置、混淆等；</li>
+<li>通过后台获取得到<code>orderInfo</code>字符串</li>
+<li>唤起支付宝：【需要在新线程中调用支付接口。（可参考alipay_demo实现）】</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">final</span> String orderInfo = <span class="hljs-string">"从后台获取得到的orderInfo"</span>;<br><br>PayTask alipay = <span class="hljs-keyword">new</span> PayTask(mActivity);<br>Map&lt;String, String&gt; result = alipay.payV2(orderInfo, <span class="hljs-keyword">true</span>);<br>PayResult payResult = <span class="hljs-keyword">new</span> PayResult(result);<br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> 对于支付结果，请商户依赖服务端的异步通知结果。同步通知结果，仅作为支付结束的通知。</span><br><span class="hljs-comment"> */</span><br>String resultInfo = payResult.getResult();<span class="hljs-comment">// 同步返回需要验证的信息</span><br>String resultStatus = payResult.getResultStatus();<br><br><span class="hljs-comment">// 判断resultStatus 为9000则代表支付成功</span><br><span class="hljs-keyword">if</span> (TextUtils.equals(resultStatus, <span class="hljs-string">"9000"</span>)) &#123;<br>    <span class="hljs-comment">// 该笔订单是否真实支付成功，需要依赖服务端的异步通知。</span><br>    Toast.makeText(mActivity, <span class="hljs-string">"支付成功"</span>, Toast.LENGTH_SHORT).show();<br>&#125; <span class="hljs-keyword">else</span> &#123;<br>    <span class="hljs-comment">// 该笔订单真实的支付结果，需要依赖服务端的异步通知。</span><br>    Toast.makeText(mActivity, <span class="hljs-string">"支付失败"</span>, Toast.LENGTH_SHORT).show();<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+<h1 id="如果本地没有安装支付宝，就跳转到wap支付"><a href="#如果本地没有安装支付宝，就跳转到wap支付" class="headerlink" title="如果本地没有安装支付宝，就跳转到wap支付"></a>如果本地没有安装支付宝，就跳转到wap支付</h1><p>我相信在<code>PayTask.payV2</code>中，有对是否安装支付宝做判断，<br>我们需要在<code>Manifest</code>中注册<code>H5PayActivity</code>：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">activity</span></span><br><span class="hljs-tag">    <span class="hljs-attr">android:name</span>=<span class="hljs-string">"com.alipay.sdk.app.H5PayActivity"</span></span><br><span class="hljs-tag">    <span class="hljs-attr">android:configChanges</span>=<span class="hljs-string">"orientation|keyboardHidden|navigation"</span></span><br><span class="hljs-tag">    <span class="hljs-attr">android:exported</span>=<span class="hljs-string">"false"</span></span><br><span class="hljs-tag">    <span class="hljs-attr">android:screenOrientation</span>=<span class="hljs-string">"behind"</span></span><br><span class="hljs-tag">    <span class="hljs-attr">android:windowSoftInputMode</span>=<span class="hljs-string">"adjustResize|stateHidden"</span> &gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">activity</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li><a href="http://blog.csdn.net/u013067184/article/details/46922997" target="_blank" rel="noopener">Android 支付宝 SDK 无法跳转到wap支付</a></li>
+<li><a href="https://doc.open.alipay.com/doc2/detail.htm?treeId=59&articleId=103682&docType=1" target="_blank" rel="noopener">蚂蚁金服-开发文档——修改Manifest</a></li>
+<li><a href="http://blog.csdn.net/ylbf_dev/article/details/50448727" target="_blank" rel="noopener">混淆出错-The same input jar is specified twice 解决办法</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/android/%E6%8E%A8%E9%80%81%E6%96%B9%E6%A1%88%E9%80%89%E5%8F%96/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
       <meta itemprop="description" content="/* Better than last best */">
     </span>
@@ -906,20 +937,6 @@
             </span>
 
           
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/android/%E6%8E%A8%E9%80%81%E6%96%B9%E6%A1%88%E9%80%89%E5%8F%96/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/android/%E6%8E%A8%E9%80%81%E6%96%B9%E6%A1%88%E9%80%89%E5%8F%96/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -951,212 +968,6 @@
 <li><a href="https://mp.weixin.qq.com/s?__biz=MzA5OTMxMjQzMw==&mid=2648112527&idx=1&sn=b23c1b5f3e32e343ad96d705bd4d63ff" target="_blank" rel="noopener">国内Top500Android应用分析报告</a></li>
 </ul>
 <h1 id="渠道列表"><a href="#渠道列表" class="headerlink" title="渠道列表"></a>渠道列表</h1><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs angelscript"><span class="hljs-number">10086</span>com<br><span class="hljs-number">189</span>store<br><span class="hljs-number">360</span>mobile<br><span class="hljs-number">3</span>gcn<br><span class="hljs-number">91</span>market<br>anzhi<br>appchina<br>baidu<br>gfan<br>googleplay<br>hicloud<br>lenovomm<br>meizu<br>mumayi<br>myapp<br>nduoa<br>samsungapps<br>uc<br>wandoujia<br>wostore<br>xiaomi<br>yingyongbao<br>yingyonghui<br></code></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/android/build.gradle%E9%85%8D%E7%BD%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="lyloou">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/android/build.gradle%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">build.gradle配置</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-11-16 15:24:55" itemprop="dateCreated datePublished" datetime="2016-11-16T15:24:55+08:00">2016-11-16</time>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/android/build.gradle%E9%85%8D%E7%BD%AE/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/android/build.gradle%E9%85%8D%E7%BD%AE/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="bulid-gradle-文件"><a href="#bulid-gradle-文件" class="headerlink" title="bulid.gradle 文件"></a>bulid.gradle 文件</h1><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><code class="hljs groovy">  signingConfigs &#123;<br>    renrenDebug &#123;<br>        keyAlias <span class="hljs-string">'test'</span><br>        keyPassword <span class="hljs-string">'test'</span><br>        storeFile file(<span class="hljs-string">'../tool/test.key'</span>)<br>        storePassword <span class="hljs-string">'test'</span><br>    &#125;<br>  &#125;<br>  sourceSets &#123;<br>      main &#123;<br>          manifest.srcFile <span class="hljs-string">'AndroidManifest.xml'</span><br>          java.srcDirs = [<span class="hljs-string">'src'</span>]<br>          resources.srcDirs = [<span class="hljs-string">'src'</span>]<br>          aidl.srcDirs = [<span class="hljs-string">'src'</span>]<br>          renderscript.srcDirs = [<span class="hljs-string">'src'</span>]<br>          res.srcDirs = [<span class="hljs-string">'res'</span>]<br>          assets.srcDirs = [<span class="hljs-string">'assets'</span>]<br>          jniLibs.srcDirs = [<span class="hljs-string">'libs'</span>]<br>      &#125;<br>  &#125;<br><br>  lintOptions &#123;<br>      abortOnError <span class="hljs-literal">false</span>;<br>  &#125;<br>  buildTypes &#123;<br>    debug &#123;<br>        signingConfig signingConfigs.debug<br>        shrinkResources <span class="hljs-literal">false</span><br>        zipAlignEnabled <span class="hljs-literal">false</span><br>        minifyEnabled <span class="hljs-literal">false</span><br><br>        <span class="hljs-comment">// 测试</span><br>        buildConfigField <span class="hljs-string">"boolean"</span>, <span class="hljs-string">"TEST_ENV"</span>, <span class="hljs-string">"true"</span><br>        manifestPlaceholders = [<span class="hljs-string">WECHATAPPID:</span> <span class="hljs-string">"wxea2b67dxxxxxx"</span>]<br>    &#125;<br><br>    release &#123;<br>        signingConfig signingConfigs.release <span class="hljs-comment">// 密钥配置</span><br>        shrinkResources <span class="hljs-literal">true</span> <span class="hljs-comment">// 删除不必要的源文件</span><br>        zipAlignEnabled <span class="hljs-literal">true</span> <span class="hljs-comment">// 压缩对齐</span><br>        minifyEnabled <span class="hljs-literal">true</span><br>        proguardFiles getDefaultProguardFile(<span class="hljs-string">'proguard-android-optimize.txt'</span>), <span class="hljs-string">'proguard-rules.pro'</span><br><br>        <span class="hljs-comment">// 正式</span><br>        buildConfigField <span class="hljs-string">"boolean"</span>, <span class="hljs-string">"TEST_ENV"</span>, <span class="hljs-string">"false"</span><br>        manifestPlaceholders = [<span class="hljs-string">WECHATAPPID:</span> <span class="hljs-string">"wxb093774eaxxxxxx"</span>]<br><br>        applicationVariants.all &#123; variant -&gt;<br>            variant.outputs.each &#123; output -&gt;<br>                <span class="hljs-keyword">def</span> outputFile = output.outputFile<br>                <span class="hljs-keyword">if</span> (outputFile != <span class="hljs-literal">null</span> &amp;&amp; outputFile.name.endsWith(<span class="hljs-string">'.apk'</span>)) &#123;<br>                    <span class="hljs-comment">// 输出apk名称为 LOU_20161101_V0.2.0.apk</span><br>                    <span class="hljs-keyword">def</span> fileName = <span class="hljs-string">"LOU_$&#123;releaseTime()&#125;_V$&#123;defaultConfig.versionName&#125;.apk"</span><br>                    output.outputFile = <span class="hljs-keyword">new</span> File(outputFile.parent, fileName)<br>                &#125;<br><br>            &#125;<br><br>        &#125;<br>    &#125;<br>  &#125;<br><br><span class="hljs-comment">//    AndroidManifest的application标签下添加： &lt;meta-data android:name="UMENG_CHANNEL" android:value="$&#123;UMENG_CHANNEL_VALUE&#125;" /&gt;</span><br><br><span class="hljs-comment">//    productFlavors &#123;</span><br><span class="hljs-comment">//        yingyongbao &#123;&#125;</span><br><span class="hljs-comment">//        wandoujia &#123;&#125;</span><br><span class="hljs-comment">//        xiaomi &#123;&#125;</span><br><span class="hljs-comment">//        qihu360 &#123;&#125;</span><br><span class="hljs-comment">//        baidu &#123;&#125;</span><br><span class="hljs-comment">//        meizu &#123;&#125;</span><br><span class="hljs-comment">//    &#125;</span><br><span class="hljs-comment">//</span><br><span class="hljs-comment">//    productFlavors.all &#123;</span><br><span class="hljs-comment">//        flavor -&gt; flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]</span><br><span class="hljs-comment">//    &#125;</span><br>&#125;<br><br><span class="hljs-keyword">def</span> releaseTime() &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Date().format(<span class="hljs-string">"yyyMMdd"</span>, TimeZone.getTimeZone(<span class="hljs-string">"UTC"</span>))<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h1 id="proguard-混淆配置"><a href="#proguard-混淆配置" class="headerlink" title="proguard 混淆配置"></a>proguard 混淆配置</h1><h2 id="为什么要过滤混淆"><a href="#为什么要过滤混淆" class="headerlink" title="为什么要过滤混淆"></a>为什么要过滤混淆</h2><blockquote>
-<p>（<a href="http://blog.csdn.net/fengyuzhengfan/article/details/43876197）" target="_blank" rel="noopener">http://blog.csdn.net/fengyuzhengfan/article/details/43876197）</a><br>ProGuard 默认会对第三方库也进行混淆的，而第三方库有的已经混淆过了，有的使用了 Java 反射技术，所以我们在进行代码混淆的时候要排除这些第三方库。排除对第三方库的混淆需要在混淆规则文件（通常是：proguard-project.txt 或 proguard.cfg 或 proguard-rules.pro 或 proguard-rules.txt 也可以是其它的文件名只要在配置文件中将含有混淆规则的文件名配置进去就行了）中添加如下规则： 1.如果使用了 Gson 之类的工具要使 JavaBean 类即实体类不被混淆。 2.如果使用了自定义控件那么要保证它们不参与混淆。 3.如果使用了枚举要保证枚举不被混淆。 4.对第三方库中的类不进行混淆</p>
-</blockquote>
-<h2 id="proguard-rules-pro-文件"><a href="#proguard-rules-pro-文件" class="headerlink" title="proguard-rules.pro 文件"></a>proguard-rules.pro 文件</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-comment"># If your project uses WebView with JS, uncomment the following</span><br><span class="hljs-comment"># and specify the fully qualified class name to the JavaScript interface</span><br><span class="hljs-comment"># class:</span><br>-keepclassmembers class fqcn.of.javascript.interface.for.webview &#123;<br>  public *;<br>&#125;<br><br><span class="hljs-comment"># 忽略警告</span><br>-ignorewarning<br><br><span class="hljs-comment"># 移除日志</span><br>-assumenosideeffects class android.util.Log &#123;<br>    public static *** d(...);<br>    public static *** i(...);<br>    public static *** w(...);<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
-<li><a href="https://as.quanke.name/代码混淆规则配置文件proguard-rulespro.html" target="_blank" rel="noopener">代码混淆规则配置文件:proguard-rules.pro</a></li>
-</ul>
-<h1 id="Avoid-Maven-dynamic-dependency-resolution-such-as-2-1"><a href="#Avoid-Maven-dynamic-dependency-resolution-such-as-2-1" class="headerlink" title="Avoid Maven dynamic dependency resolution. (such as 2.1.+)"></a>Avoid Maven dynamic dependency resolution. (such as <code>2.1.+</code>)</h1><p>this result in different and unstable builds or subtle, untracked difference<br>in behavior between builds.</p>
-<h1 id="在配置-build-gradle-的时候，避免直接写入敏感信息（例如：密码），而是写入到版本控制工具"><a href="#在配置-build-gradle-的时候，避免直接写入敏感信息（例如：密码），而是写入到版本控制工具" class="headerlink" title="在配置 build.gradle 的时候，避免直接写入敏感信息（例如：密码），而是写入到版本控制工具"></a>在配置 <code>build.gradle</code> 的时候，避免直接写入敏感信息（例如：密码），而是写入到版本控制工具</h1><p>忽略的文件<code>gradle.properties</code>中。</p>
-<blockquote>
-<p><a href="https://github.com/futurice/android-best-practices#gradle-configuration" target="_blank" rel="noopener">https://github.com/futurice/android-best-practices#gradle-configuration</a></p>
-</blockquote>
-<h1 id="针对测试版本和发布版本使用不同的-appId-这样两个版本就可以同时存在在一个设备上了。"><a href="#针对测试版本和发布版本使用不同的-appId-这样两个版本就可以同时存在在一个设备上了。" class="headerlink" title="针对测试版本和发布版本使用不同的 appId, 这样两个版本就可以同时存在在一个设备上了。"></a>针对测试版本和发布版本使用不同的 appId, 这样两个版本就可以同时存在在一个设备上了。</h1><p>可以通过前缀或后缀的方式来区分。</p>
-<blockquote>
-<p><a href="https://github.com/futurice/android-best-practices#gradle-configuration" target="_blank" rel="noopener">https://github.com/futurice/android-best-practices#gradle-configuration</a></p>
-</blockquote>
-<h1 id="使用-Maven-依赖方案代替使用导入-jar-包方案"><a href="#使用-Maven-依赖方案代替使用导入-jar-包方案" class="headerlink" title="使用 Maven 依赖方案代替使用导入 jar 包方案"></a>使用 Maven 依赖方案代替使用导入 jar 包方案</h1><p>如果在你的项目中你明确使用率 jar 文件，那么它们可能成为永久的版本，如 2.1.1.下载 jar 包更新他们是很繁琐的， 这个问题 Maven 很好的解决了，这在 Android Gradle 构建中也是推荐的方法。你可以指定版本的一个范围，如 2.1.+,然后 Maven 会自动升级到制定的最新版本，例如：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs js">dependencies &#123;<br>    compile <span class="hljs-string">'com.netflix.rxjava:rxjava-core:0.19.+'</span><br>    compile <span class="hljs-string">'com.netflix.rxjava:rxjava-android:0.19.+'</span><br>    compile <span class="hljs-string">'com.fasterxml.jackson.core:jackson-databind:2.4.+'</span><br>    compile <span class="hljs-string">'com.fasterxml.jackson.core:jackson-core:2.4.+'</span><br>    compile <span class="hljs-string">'com.fasterxml.jackson.core:jackson-annotations:2.4.+'</span><br>    compile <span class="hljs-string">'com.squareup.okhttp:okhttp:2.0.+'</span><br>    compile <span class="hljs-string">'com.squareup.okhttp:okhttp-urlconnection:2.0.+'</span><br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h2 id="参考资料-1"><a href="#参考资料-1" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
-<li><a href="https://www.kancloud.cn/thinkphp/android-best-practices/42169" target="_blank" rel="noopener">Gradle 配置</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/gradle/Gradle%E5%AD%A6%E4%B9%A0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="lyloou">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/gradle/Gradle%E5%AD%A6%E4%B9%A0/" class="post-title-link" itemprop="url">Gradle学习</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-11-11 11:43:52" itemprop="dateCreated datePublished" datetime="2016-11-11T11:43:52+08:00">2016-11-11</time>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/gradle/Gradle%E5%AD%A6%E4%B9%A0/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/gradle/Gradle%E5%AD%A6%E4%B9%A0/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>Gradle 是以 Groovy 语言为基础，面向 Java 应用为主，基于 DSL 语法的自动化构建工具。</p>
-<h1 id="如何自动化打包（含签名的）"><a href="#如何自动化打包（含签名的）" class="headerlink" title="如何自动化打包（含签名的）"></a>如何自动化打包（含签名的）</h1><h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><p>1、将准备好的<code>keystore</code>签名文件放在根目录下；（目的是待会儿配置 build.gradle 文件时，可以直接通过指定路径引用）<br>2、在 module 级别的 build.gradle 中添加如下配置代码：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs js">android &#123;<br>    <span class="hljs-comment">// ...</span><br>    signingConfigs &#123;<br>        myConfig &#123;<br>            storeFile file(<span class="hljs-string">"lyloou.keystore"</span>)<br>            storePassword <span class="hljs-string">"lyloou"</span><br>            keyAlias <span class="hljs-string">"lyloou"</span><br>            keyPassword <span class="hljs-string">"lyloou"</span><br>        &#125;<br>    &#125;<br><br>    buildTypes &#123;<br>        release &#123;<br>            signingConfig signingConfigs.myConfig<br>            minifyEnabled <span class="hljs-literal">false</span><br>            proguardFiles getDefaultProguardFile(<span class="hljs-string">'proguard-android.txt'</span>), <span class="hljs-string">'proguard-rules.pro'</span><br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p>3、执行<code>gradle clean</code>清理之前的自动生成文件；<br>4、执行<code>gradle build</code>开始生成文件；<br>5、在<code>build/outputs/apk/</code>文件夹中可以看到生成成功的 apk 文件；</p>
-<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>通过执行<code>gradle build</code>自动生成的文件包含：</p>
-<ul>
-<li>[项目名]-debug-unaligned.apk：指的是调试模式，没有优化的 apk（可直接安装）</li>
-<li>[项目名]-release-unsigned.apk：指的是没有签名的 apk（不可直接安装）</li>
-<li>[项目名]-debug.apk：指的是已经签名过的调试版 apk；</li>
-<li>[项目名]-release.apk：指的是已经签名过的发布版 apk；</li>
-</ul>
-<h2 id="扩展技巧"><a href="#扩展技巧" class="headerlink" title="扩展技巧"></a>扩展技巧</h2><ul>
-<li>敏感信息保存到<code>gradle.properties</code>文件中，具体参考 <a href="https://www.kancloud.cn/thinkphp/android-best-practices/42169" target="_blank" rel="noopener">Gradle 配置</a></li>
-<li>自动化命名并输出 apk，具体参考<a href="https://github.com/lyloou/hexo/blob/master/source/_posts/tech/build.gradle%E9%85%8D%E7%BD%AE.md" target="_blank" rel="noopener">build.gradle 配置</a></li>
-</ul>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
-<li><a href="http://stormzhang.com/android/2014/02/28/android-gradle/" target="_blank" rel="noopener">ANDROID GRADLE</a></li>
-</ul>
-<h1 id="如何根据环境自动选择-key-或其他配置信息"><a href="#如何根据环境自动选择-key-或其他配置信息" class="headerlink" title="如何根据环境自动选择 key 或其他配置信息"></a>如何根据环境自动选择 key 或其他配置信息</h1><h2 id="动态替换AndroidManifest-xml中的-key-信息"><a href="#动态替换AndroidManifest-xml中的-key-信息" class="headerlink" title="动态替换AndroidManifest.xml中的 key 信息"></a>动态替换<code>AndroidManifest.xml</code>中的 key 信息</h2><ol>
-<li>在<code>AndroidManifest</code>中添加占位符</li>
-</ol>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">data</span> <span class="hljs-attr">android:scheme</span>=<span class="hljs-string">"$&#123;WECHATAPPID&#125;"</span> /&gt;</span><br></code></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>在<code>build.gradle</code>中的<code>defaultConfig</code>标签或者<code>buildTypes</code>的 debug 和 release 标签下定义具体 value</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js">defaultConfig &#123;<br>    manifestPlaceholders = [WECHATAPPID: <span class="hljs-string">"wxea2xxxxxxxxxxxxxxx"</span>]<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p>或者</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs js">debug &#123;<br>    manifestPlaceholders = [WECHATAPPID: <span class="hljs-string">"wxea2xxxxxxxxxxxxxxx1"</span>]<br>&#125;<br><br>release &#123;<br>    manifestPlaceholders = [WECHATAPPID: <span class="hljs-string">"wxea2xxxxxxxxxxxxxxx2"</span>]<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h2 id="通过BuildConfig定义值"><a href="#通过BuildConfig定义值" class="headerlink" title="通过BuildConfig定义值"></a>通过<code>BuildConfig</code>定义值</h2><p>在不同的环境中设置不同的值，这样在打包（测试环境或正式环境）的时候就会有不同的值。注意定义完成后，要重新编译下环境，这样才能在 BuildConfig.java 中生效；</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs js">debug &#123;<br>    buildConfigField <span class="hljs-string">"boolean"</span>, <span class="hljs-string">"TEST_ENV"</span>, <span class="hljs-string">"true"</span><br>&#125;<br><br>release &#123;<br>    buildConfigField <span class="hljs-string">"boolean"</span>, <span class="hljs-string">"TEST_ENV"</span>, <span class="hljs-string">"false"</span><br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p>在代码中引用</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">boolean</span> TEST_ENV = BuildConfig.TEST_ENV;<br></code></pre></td></tr></table></figure>
-
-<h2 id="在编译之前执行脚本"><a href="#在编译之前执行脚本" class="headerlink" title="在编译之前执行脚本"></a>在编译之前执行脚本</h2><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs groovy"><span class="hljs-comment">// 在 settings.gradle 最上方添加</span><br><span class="hljs-keyword">def</span> updateDependencies()&#123;<br>    <span class="hljs-keyword">def</span> command = <span class="hljs-string">"sh install.sh"</span><br>    exec &#123;<br>        executable <span class="hljs-string">"bash"</span><br>        args <span class="hljs-string">"-c"</span>, command<br>    &#125;<br>&#125;<br><br>updateDependencies()<br></code></pre></td></tr></table></figure>
 
       
     </div>
@@ -1234,7 +1045,7 @@
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="lyloou"
-      src="/images/avatar.png">
+      src="/assets/images/avatar.png">
   <p class="site-author-name" itemprop="name">lyloou</p>
   <div class="site-description" itemprop="description">/* Better than last best */</div>
 </div>
@@ -1243,7 +1054,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">311</span>
+          <span class="site-state-item-count">313</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1414,34 +1225,6 @@ if (document.querySelectorAll('pre.mermaid').length) {
 
   
 
-
-<script>
-NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
-  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
-    var GUEST = ['nick', 'mail', 'link'];
-    var guest = 'nick,mail,link';
-    guest = guest.split(',').filter(item => {
-      return GUEST.includes(item);
-    });
-    new Valine({
-      el         : '#valine-comments',
-      verify     : false,
-      notify     : true,
-      appId      : 'yhivNNDDoank7qFbmyEj9Ldq-gzGzoHsz',
-      appKey     : 'QuFu2ooibSzW1Q8eTrmPLyPw',
-      placeholder: "Just go go",
-      avatar     : 'mm',
-      meta       : guest,
-      pageSize   : '10' || 10,
-      visitor    : false,
-      lang       : '' || 'zh-cn',
-      path       : location.pathname,
-      recordIP   : true,
-      serverURLs : ''
-    });
-  }, window.Valine);
-});
-</script>
 
 </body>
 </html>

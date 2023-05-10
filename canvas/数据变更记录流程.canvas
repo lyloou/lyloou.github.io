@@ -1,0 +1,21 @@
+{
+	"nodes":[
+		{"type":"text","text":"数据库","id":"13a3e4b46f192abf","x":-340,"y":-340,"width":250,"height":60},
+		{"type":"text","text":"Canal/FlinkCDC","id":"8b63ab017a79c560","x":-340,"y":-120,"width":250,"height":60},
+		{"type":"text","text":"redis queue","id":"aeb314e68b871244","x":-340,"y":100,"width":250,"height":60},
+		{"type":"text","text":"定时器","id":"f8a262d266abf4c5","x":160,"y":100,"width":250,"height":60},
+		{"type":"text","text":"ClickHouse","id":"6cfcb5fe0d5454b8","x":160,"y":-120,"width":250,"height":60},
+		{"type":"text","text":"后台接口","id":"0f464d33ef219666","x":160,"y":-340,"width":250,"height":60},
+		{"type":"text","text":"后台前端","id":"c4eda83cfdf378f8","x":160,"y":-480,"width":250,"height":60}
+	],
+	"edges":[
+		{"id":"7b13f56b43038ea3","fromNode":"aeb314e68b871244","fromSide":"right","toNode":"f8a262d266abf4c5","toSide":"left","label":"批量拉取"},
+		{"id":"82206ce2b8894e80","fromNode":"8b63ab017a79c560","fromSide":"bottom","toNode":"aeb314e68b871244","toSide":"top","label":"添加（缓冲）"},
+		{"id":"4ca61068738134d2","fromNode":"13a3e4b46f192abf","fromSide":"bottom","toNode":"8b63ab017a79c560","toSide":"top","label":"变更"},
+		{"id":"380798cab947ccbd","fromNode":"f8a262d266abf4c5","fromSide":"top","toNode":"6cfcb5fe0d5454b8","toSide":"bottom","label":"批量插入"},
+		{"id":"76d752477183ac6d","fromNode":"0f464d33ef219666","fromSide":"left","toNode":"6cfcb5fe0d5454b8","toSide":"left","label":"2查询数据"},
+		{"id":"39481d1d47061174","fromNode":"6cfcb5fe0d5454b8","fromSide":"right","toNode":"0f464d33ef219666","toSide":"right","label":"3返回数据"},
+		{"id":"d8bef496118d1485","fromNode":"c4eda83cfdf378f8","fromSide":"left","toNode":"0f464d33ef219666","toSide":"left","label":"1查询"},
+		{"id":"794fd0fb55153eef","fromNode":"0f464d33ef219666","fromSide":"right","toNode":"c4eda83cfdf378f8","toSide":"right","label":"4返回"}
+	]
+}
