@@ -17,13 +17,13 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"lyloou.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"lyloou.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="背景编写代码时，会经常需要编写两个对象是否相等的逻辑，一般会有如下做法  直接写在业务代码中； 单独写个方法，业务代码中调用； 重写 equals 方法；  上面这些做法，都比较复杂，如果属性太多或复杂点（如果是 list 和 map 就更复杂了），就需要编写更多的判断逻辑代码了。 想法如果能只需要提供比较的方法引用列表，有个地方能自动方法引用取值，并比较就好了。 思路 1 在 java8 中可以">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【Java】通过 Getter 方法引用，来比较两个对象是否相等">
-<meta property="og:url" content="https://lyloou.github.io/java/Equable/index.html">
+<meta property="og:url" content="https://lyloou.com/java/Equable/index.html">
 <meta property="og:site_name" content="lyloou">
 <meta property="og:description" content="背景编写代码时，会经常需要编写两个对象是否相等的逻辑，一般会有如下做法  直接写在业务代码中； 单独写个方法，业务代码中调用； 重写 equals 方法；  上面这些做法，都比较复杂，如果属性太多或复杂点（如果是 list 和 map 就更复杂了），就需要编写更多的判断逻辑代码了。 想法如果能只需要提供比较的方法引用列表，有个地方能自动方法引用取值，并比较就好了。 思路 1 在 java8 中可以">
 <meta property="og:locale" content="zh_CN">
@@ -36,7 +36,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/lyloou/img/develop/Equable_20220410103323_2022-04-10-10-33-24.png">
 
-<link rel="canonical" href="https://lyloou.github.io/java/Equable/">
+<link rel="canonical" href="https://lyloou.com/java/Equable/">
 
 
 <script id="page-configurations">
@@ -208,7 +208,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/java/Equable/">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.com/java/Equable/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/images/avatar.png">
@@ -298,19 +298,19 @@
   <div class="popular-posts-header">相关文章</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/android/学习资料/" rel="bookmark">Android学习资料</a></div>
-    </li>
-    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/business/Token身份认证设计/" rel="bookmark">基于 AOP 和 JWT 实现的 Token 身份认证组件</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/business/签名设计/" rel="bookmark">接口签名校验设计</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/java/Java8/" rel="bookmark">Java8</a></div>
+      <div class="popular-posts-title"><a href="/android/学习资料/" rel="bookmark">Android学习资料</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/java/exception和error/" rel="bookmark">Java 中的 Exception 和 Error</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/java/instanceof/" rel="bookmark">Java中instanceof-isInstanceOf-isAssignableFrom的区别</a></div>
     </li>
   </ul>
 
@@ -322,12 +322,12 @@
     <div class="social-list">
 
         <div class="social-item">
-          <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
+          <a target="_blank" class="social-link" href="/atom.xml">
             <span class="icon">
-              <i class="wechat"></i>
+              <i class="rss"></i>
             </span>
 
-            <span class="label">WeChat</span>
+            <span class="label">RSS</span>
           </a>
         </div>
     </div>

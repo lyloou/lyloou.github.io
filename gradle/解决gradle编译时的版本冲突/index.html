@@ -17,13 +17,13 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"lyloou.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"lyloou.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="方法 1：排除冲突的依赖12# 查看 app 模块所依赖的项目（通过 grep 来过滤冲突的模块名称）.&#x2F;gradlew -q app:dependencies | grep commons-codec  12345&#x2F;&#x2F; 针对某个冲突模块排除api(&quot;com.afollestad.material-dialogs:core:0.9.5.0&quot;) &amp;#123;    exclude group: &#39;c">
 <meta property="og:type" content="article">
 <meta property="og:title" content="解决Gradle编译时的版本冲突">
-<meta property="og:url" content="https://lyloou.github.io/gradle/%E8%A7%A3%E5%86%B3gradle%E7%BC%96%E8%AF%91%E6%97%B6%E7%9A%84%E7%89%88%E6%9C%AC%E5%86%B2%E7%AA%81/index.html">
+<meta property="og:url" content="https://lyloou.com/gradle/%E8%A7%A3%E5%86%B3gradle%E7%BC%96%E8%AF%91%E6%97%B6%E7%9A%84%E7%89%88%E6%9C%AC%E5%86%B2%E7%AA%81/index.html">
 <meta property="og:site_name" content="lyloou">
 <meta property="og:description" content="方法 1：排除冲突的依赖12# 查看 app 模块所依赖的项目（通过 grep 来过滤冲突的模块名称）.&#x2F;gradlew -q app:dependencies | grep commons-codec  12345&#x2F;&#x2F; 针对某个冲突模块排除api(&quot;com.afollestad.material-dialogs:core:0.9.5.0&quot;) &amp;#123;    exclude group: &#39;c">
 <meta property="og:locale" content="zh_CN">
@@ -33,7 +33,7 @@
 <meta property="article:tag" content="android">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://lyloou.github.io/gradle/%E8%A7%A3%E5%86%B3gradle%E7%BC%96%E8%AF%91%E6%97%B6%E7%9A%84%E7%89%88%E6%9C%AC%E5%86%B2%E7%AA%81/">
+<link rel="canonical" href="https://lyloou.com/gradle/%E8%A7%A3%E5%86%B3gradle%E7%BC%96%E8%AF%91%E6%97%B6%E7%9A%84%E7%89%88%E6%9C%AC%E5%86%B2%E7%AA%81/">
 
 
 <script id="page-configurations">
@@ -205,7 +205,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/gradle/%E8%A7%A3%E5%86%B3gradle%E7%BC%96%E8%AF%91%E6%97%B6%E7%9A%84%E7%89%88%E6%9C%AC%E5%86%B2%E7%AA%81/">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.com/gradle/%E8%A7%A3%E5%86%B3gradle%E7%BC%96%E8%AF%91%E6%97%B6%E7%9A%84%E7%89%88%E6%9C%AC%E5%86%B2%E7%AA%81/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/images/avatar.png">
@@ -271,19 +271,19 @@
   <div class="popular-posts-header">相关文章</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/android/ApplicationContext中弹出对话框/" rel="bookmark">Android中app响应浏览器链接</a></div>
+      <div class="popular-posts-title"><a href="/android/Android和JavaScript交互/" rel="bookmark">Android和JavaScript交互</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/android/Android和JavaScript交互/" rel="bookmark">Android和JavaScript交互</a></div>
+      <div class="popular-posts-title"><a href="/android/SharedPreference封装/" rel="bookmark">SharedPreference封装</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/android/UnsupportedOperationException/" rel="bookmark">UnsupportedOperationException at java.util.AbstractList.remove</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/android/IME输入法/" rel="bookmark">IME输入法</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/android/SQLite封装/" rel="bookmark">SQLite封装</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/android/SharedPreference封装/" rel="bookmark">SharedPreference封装</a></div>
     </li>
   </ul>
 
@@ -295,12 +295,12 @@
     <div class="social-list">
 
         <div class="social-item">
-          <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
+          <a target="_blank" class="social-link" href="/atom.xml">
             <span class="icon">
-              <i class="wechat"></i>
+              <i class="rss"></i>
             </span>
 
-            <span class="label">WeChat</span>
+            <span class="label">RSS</span>
           </a>
         </div>
     </div>

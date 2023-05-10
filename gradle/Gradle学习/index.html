@@ -17,13 +17,13 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"lyloou.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"lyloou.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="简介Gradle 是以 Groovy 语言为基础，面向 Java 应用为主，基于 DSL 语法的自动化构建工具。 如何自动化打包（含签名的）步骤1、将准备好的keystore签名文件放在根目录下；（目的是待会儿配置 build.gradle 文件时，可以直接通过指定路径引用）2、在 module 级别的 build.gradle 中添加如下配置代码： 12345678910111213141516">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Gradle学习">
-<meta property="og:url" content="https://lyloou.github.io/gradle/Gradle%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:url" content="https://lyloou.com/gradle/Gradle%E5%AD%A6%E4%B9%A0/index.html">
 <meta property="og:site_name" content="lyloou">
 <meta property="og:description" content="简介Gradle 是以 Groovy 语言为基础，面向 Java 应用为主，基于 DSL 语法的自动化构建工具。 如何自动化打包（含签名的）步骤1、将准备好的keystore签名文件放在根目录下；（目的是待会儿配置 build.gradle 文件时，可以直接通过指定路径引用）2、在 module 级别的 build.gradle 中添加如下配置代码： 12345678910111213141516">
 <meta property="og:locale" content="zh_CN">
@@ -34,7 +34,7 @@
 <meta property="article:tag" content="gradle">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://lyloou.github.io/gradle/Gradle%E5%AD%A6%E4%B9%A0/">
+<link rel="canonical" href="https://lyloou.com/gradle/Gradle%E5%AD%A6%E4%B9%A0/">
 
 
 <script id="page-configurations">
@@ -206,7 +206,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/gradle/Gradle%E5%AD%A6%E4%B9%A0/">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.com/gradle/Gradle%E5%AD%A6%E4%B9%A0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/images/avatar.png">
@@ -302,16 +302,16 @@
       <div class="popular-posts-title"><a href="/android/build.gradle配置/" rel="bookmark">build.gradle配置</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/android/ApplicationContext中弹出对话框/" rel="bookmark">Android中app响应浏览器链接</a></div>
-    </li>
-    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/android/Android和JavaScript交互/" rel="bookmark">Android和JavaScript交互</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/android/IME输入法/" rel="bookmark">IME输入法</a></div>
+      <div class="popular-posts-title"><a href="/android/SharedPreference封装/" rel="bookmark">SharedPreference封装</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/android/SQLite封装/" rel="bookmark">SQLite封装</a></div>
+      <div class="popular-posts-title"><a href="/android/UnsupportedOperationException/" rel="bookmark">UnsupportedOperationException at java.util.AbstractList.remove</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/android/IME输入法/" rel="bookmark">IME输入法</a></div>
     </li>
   </ul>
 
@@ -323,12 +323,12 @@
     <div class="social-list">
 
         <div class="social-item">
-          <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
+          <a target="_blank" class="social-link" href="/atom.xml">
             <span class="icon">
-              <i class="wechat"></i>
+              <i class="rss"></i>
             </span>
 
-            <span class="label">WeChat</span>
+            <span class="label">RSS</span>
           </a>
         </div>
     </div>

@@ -17,13 +17,13 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"lyloou.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"lyloou.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="三范式第一范式：消除属性值可再分（非原子的）；第二范式：消除非主属性对候选键的部分依赖。第三范式：消除非主属性对候选键的传递依赖。BC 范式：消除主属性对候选键的部分依赖和传递依赖。  分析  假设有属性集：{A、B、C、D、E、J}依赖集 {A-&gt;B, A-&gt;C, C-&gt;D, AJ-&gt;E}   候选键：AJ 主属性：A、J 非主属性：B、C、D、E   AJ是主属性，B">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据库理论">
-<meta property="og:url" content="https://lyloou.github.io/sql/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%90%86%E8%AE%BA/index.html">
+<meta property="og:url" content="https://lyloou.com/sql/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%90%86%E8%AE%BA/index.html">
 <meta property="og:site_name" content="lyloou">
 <meta property="og:description" content="三范式第一范式：消除属性值可再分（非原子的）；第二范式：消除非主属性对候选键的部分依赖。第三范式：消除非主属性对候选键的传递依赖。BC 范式：消除主属性对候选键的部分依赖和传递依赖。  分析  假设有属性集：{A、B、C、D、E、J}依赖集 {A-&gt;B, A-&gt;C, C-&gt;D, AJ-&gt;E}   候选键：AJ 主属性：A、J 非主属性：B、C、D、E   AJ是主属性，B">
 <meta property="og:locale" content="zh_CN">
@@ -37,7 +37,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://cdn.lyloou.com/img/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%90%86%E8%AE%BA-2021-09-09-14-08-58.png">
 
-<link rel="canonical" href="https://lyloou.github.io/sql/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%90%86%E8%AE%BA/">
+<link rel="canonical" href="https://lyloou.com/sql/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%90%86%E8%AE%BA/">
 
 
 <script id="page-configurations">
@@ -209,7 +209,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/sql/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%90%86%E8%AE%BA/">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.com/sql/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%90%86%E8%AE%BA/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/images/avatar.png">
@@ -294,13 +294,13 @@
       <div class="popular-posts-title"><a href="/sql/SQLite总结/" rel="bookmark">关于SQLite的总结</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/sql/jooq/" rel="bookmark">Jooq相关</a></div>
-    </li>
-    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/sql/mybatis/" rel="bookmark">Mybatis相关</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/sql/mysql命令行实用程序/" rel="bookmark">Mysql命令行实用程序</a></div>
+      <div class="popular-posts-title"><a href="/sql/jooq/" rel="bookmark">Jooq相关</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/sql/mybatisplus/" rel="bookmark">Mybatisplus相关</a></div>
     </li>
   </ul>
 
@@ -312,12 +312,12 @@
     <div class="social-list">
 
         <div class="social-item">
-          <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
+          <a target="_blank" class="social-link" href="/atom.xml">
             <span class="icon">
-              <i class="wechat"></i>
+              <i class="rss"></i>
             </span>
 
-            <span class="label">WeChat</span>
+            <span class="label">RSS</span>
           </a>
         </div>
     </div>

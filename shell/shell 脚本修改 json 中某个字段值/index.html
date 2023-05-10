@@ -17,13 +17,13 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"lyloou.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"lyloou.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="shell 脚本修改 json 中某个字段的值 思路：通过 awk 来找到旧数据，然后用 sed 来替换旧数据  源码config.json 1234567&amp;#123;  &quot;name&quot;: &quot;the_name&quot;,  &quot;id&quot;: &quot;132869&quot;,  &quot;content_url&quot;: &quot;https:&#x2F;&#x2F;hot.example.com&#x2F;&quot;,  &quot;enable_feature1&quot;: &quot;true&quot;,  &quot;ena">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Shell 脚本修改 Json 中某个字段值">
-<meta property="og:url" content="https://lyloou.github.io/shell/shell%20%E8%84%9A%E6%9C%AC%E4%BF%AE%E6%94%B9%20json%20%E4%B8%AD%E6%9F%90%E4%B8%AA%E5%AD%97%E6%AE%B5%E5%80%BC/index.html">
+<meta property="og:url" content="https://lyloou.com/shell/shell%20%E8%84%9A%E6%9C%AC%E4%BF%AE%E6%94%B9%20json%20%E4%B8%AD%E6%9F%90%E4%B8%AA%E5%AD%97%E6%AE%B5%E5%80%BC/index.html">
 <meta property="og:site_name" content="lyloou">
 <meta property="og:description" content="shell 脚本修改 json 中某个字段的值 思路：通过 awk 来找到旧数据，然后用 sed 来替换旧数据  源码config.json 1234567&amp;#123;  &quot;name&quot;: &quot;the_name&quot;,  &quot;id&quot;: &quot;132869&quot;,  &quot;content_url&quot;: &quot;https:&#x2F;&#x2F;hot.example.com&#x2F;&quot;,  &quot;enable_feature1&quot;: &quot;true&quot;,  &quot;ena">
 <meta property="og:locale" content="zh_CN">
@@ -33,7 +33,7 @@
 <meta property="article:tag" content="shell">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://lyloou.github.io/shell/shell%20%E8%84%9A%E6%9C%AC%E4%BF%AE%E6%94%B9%20json%20%E4%B8%AD%E6%9F%90%E4%B8%AA%E5%AD%97%E6%AE%B5%E5%80%BC/">
+<link rel="canonical" href="https://lyloou.com/shell/shell%20%E8%84%9A%E6%9C%AC%E4%BF%AE%E6%94%B9%20json%20%E4%B8%AD%E6%9F%90%E4%B8%AA%E5%AD%97%E6%AE%B5%E5%80%BC/">
 
 
 <script id="page-configurations">
@@ -205,7 +205,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lyloou.github.io/shell/shell%20%E8%84%9A%E6%9C%AC%E4%BF%AE%E6%94%B9%20json%20%E4%B8%AD%E6%9F%90%E4%B8%AA%E5%AD%97%E6%AE%B5%E5%80%BC/">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.com/shell/shell%20%E8%84%9A%E6%9C%AC%E4%BF%AE%E6%94%B9%20json%20%E4%B8%AD%E6%9F%90%E4%B8%AA%E5%AD%97%E6%AE%B5%E5%80%BC/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/images/avatar.png">
@@ -282,10 +282,10 @@
       <div class="popular-posts-title"><a href="/shell/常用的shell命令（Windows平台上）/" rel="bookmark">常用的shell命令（Windows平台上）</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/shell/awk_sed/awk/" rel="bookmark">Awk</a></div>
+      <div class="popular-posts-title"><a href="/shell/awk_sed/sed/" rel="bookmark">Sed</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/shell/awk_sed/sed/" rel="bookmark">Sed</a></div>
+      <div class="popular-posts-title"><a href="/shell/awk_sed/awk/" rel="bookmark">Awk</a></div>
     </li>
   </ul>
 
@@ -297,12 +297,12 @@
     <div class="social-list">
 
         <div class="social-item">
-          <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
+          <a target="_blank" class="social-link" href="/atom.xml">
             <span class="icon">
-              <i class="wechat"></i>
+              <i class="rss"></i>
             </span>
 
-            <span class="label">WeChat</span>
+            <span class="label">RSS</span>
           </a>
         </div>
     </div>
