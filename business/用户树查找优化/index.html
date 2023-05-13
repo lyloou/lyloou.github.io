@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="zh-CN,zh-HK,zh-TW,en,default">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
@@ -13,14 +13,13 @@
 <link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"lyloou.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
-  </script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-  <meta name="description" content="123456789    A                   B   &#x2F; \                 &#x2F;|\  C   D               E F G &#x2F; \                 &#x2F; \H   I               J   K   &#x2F; \  L   M     &#x2F; \    N   O  12345678910111213141516id  pid n">
+<script class="next-config" data-name="main" type="application/json">{"hostname":"lyloou.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"default"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="123456789    A                   B   &#x2F; \                 &#x2F;|\  C   D               E F G &#x2F; \                 &#x2F; \H   I               J   K   &#x2F; \  L   M     &#x2F; \    N   O  12345678910111213141516id  pid n">
 <meta property="og:type" content="article">
 <meta property="og:title" content="用户树查找优化">
 <meta property="og:url" content="https://lyloou.com/business/%E7%94%A8%E6%88%B7%E6%A0%91%E6%9F%A5%E6%89%BE%E4%BC%98%E5%8C%96/index.html">
@@ -33,37 +32,20 @@
 <meta property="article:tag" content="business">
 <meta name="twitter:card" content="summary">
 
+
 <link rel="canonical" href="https://lyloou.com/business/%E7%94%A8%E6%88%B7%E6%A0%91%E6%9F%A5%E6%89%BE%E4%BC%98%E5%8C%96/">
 
 
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : false,
-    isPost : true,
-    lang   : 'zh-CN'
-  };
-</script>
 
-  <title>用户树查找优化 | lyloou</title>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://lyloou.com/business/%E7%94%A8%E6%88%B7%E6%A0%91%E6%9F%A5%E6%89%BE%E4%BC%98%E5%8C%96/","path":"business/用户树查找优化/","title":"用户树查找优化"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>用户树查找优化 | lyloou</title>
   
-    <script>
-      function sendPageView() {
-        if (CONFIG.hostname !== location.hostname) return;
-        var uid = localStorage.getItem('uid') || (Math.random() + '.' + Math.random());
-        localStorage.setItem('uid', uid);
-        navigator.sendBeacon('https://www.google-analytics.com/collect', new URLSearchParams({
-          v  : 1,
-          tid: 'UA-80542932-1',
-          cid: uid,
-          t  : 'pageview',
-          dp : encodeURIComponent(location.pathname)
-        }));
-      }
-      document.addEventListener('pjax:complete', sendPageView);
-      sendPageView();
-    </script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-80542932-1","only_pageview":true}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
 
 
 
@@ -71,55 +53,35 @@
 
 
   <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container">
-    <div class="headband"></div>
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
 
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
-  <div class="site-meta custom-logo">
+  <div class="site-meta">
 
     <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">lyloou</h1>
-      <span class="logo-line-after"><i></i></span>
+      <i class="logo-line"></i>
+      <p class="site-title">lyloou</p>
+      <i class="logo-line"></i>
     </a>
   </div>
 
   <div class="site-nav-right">
-    <div class="toggle popup-trigger">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
         <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
@@ -127,29 +89,8 @@
 
 
 
-
 <nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签</a>
-
-  </li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -160,223 +101,35 @@
 
 
   <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
+    <div class="popup search-popup"><div class="search-header">
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off"
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
            placeholder="搜索..." spellcheck="false"
            type="search" class="search-input">
   </div>
-  <span class="popup-btn-close">
+  <span class="popup-btn-close" role="button">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
-<div id="search-result">
-  <div id="no-result">
-    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
   </div>
 </div>
 
     </div>
   </div>
 
-</div>
-    </header>
-
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content post posts-expand">
-            
-
-    
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lyloou.com/business/%E7%94%A8%E6%88%B7%E6%A0%91%E6%9F%A5%E6%89%BE%E4%BC%98%E5%8C%96/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/assets/images/avatar.png">
-      <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="lyloou">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          用户树查找优化<a href="https://github.com/lyloou/lyloou.github.io/edit/source/source/_posts/business/%E7%94%A8%E6%88%B7%E6%A0%91%E6%9F%A5%E6%89%BE%E4%BC%98%E5%8C%96.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil-alt"></i></a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-06-11 17:38:24" itemprop="dateCreated datePublished" datetime="2020-06-11T17:38:24+08:00">2020-06-11</time>
-            </span>
-
-          
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-        <figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs livescript">    A                   B<br>   / <span class="hljs-string">\</span>                 /|<span class="hljs-string">\</span><br>  C   D               E F G<br> / <span class="hljs-string">\</span>                 / <span class="hljs-string">\</span><br>H   I               J   K<br>   / <span class="hljs-string">\</span><br>  L   M<br>     / <span class="hljs-string">\</span><br>    N   O<br></code></pre></td></tr></table></figure>
-
-<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs angelscript">id  pid name age  email<br><span class="hljs-number">1</span>	<span class="hljs-number">0</span>	A	 <span class="hljs-number">18</span>	  <span class="hljs-symbol">A@</span>baomidou.com<br><span class="hljs-number">2</span>	<span class="hljs-number">0</span>	B	 <span class="hljs-number">20</span>	  <span class="hljs-symbol">B@</span>baomidou.com<br><span class="hljs-number">3</span>	<span class="hljs-number">1</span>	C	 <span class="hljs-number">28</span>	  <span class="hljs-symbol">C@</span>baomidou.com<br><span class="hljs-number">4</span>	<span class="hljs-number">1</span>	D	 <span class="hljs-number">21</span>	  <span class="hljs-symbol">D@</span>baomidou.com<br><span class="hljs-number">5</span>	<span class="hljs-number">2</span>	E	 <span class="hljs-number">24</span>	  <span class="hljs-symbol">E@</span>baomidou.com<br><span class="hljs-number">6</span>	<span class="hljs-number">2</span>	F	 <span class="hljs-number">18</span>	  <span class="hljs-symbol">F@</span>baomidou.com<br><span class="hljs-number">7</span>	<span class="hljs-number">2</span>	G	 <span class="hljs-number">10</span>	  <span class="hljs-symbol">G@</span>baomidou.com<br><span class="hljs-number">8</span>	<span class="hljs-number">3</span>	H	 <span class="hljs-number">35</span>	  <span class="hljs-symbol">H@</span>baomidou.com<br><span class="hljs-number">9</span>	<span class="hljs-number">3</span>	I	 <span class="hljs-number">21</span>	  <span class="hljs-symbol">I@</span>baomidou.com<br><span class="hljs-number">10</span>	<span class="hljs-number">5</span>	J	 <span class="hljs-number">18</span>	  <span class="hljs-symbol">J@</span>baomidou.com<br><span class="hljs-number">11</span>	<span class="hljs-number">5</span>	K	 <span class="hljs-number">23</span>	  <span class="hljs-symbol">K@</span>baomidou.com<br><span class="hljs-number">12</span>	<span class="hljs-number">9</span>	L	 <span class="hljs-number">18</span>	  <span class="hljs-symbol">L@</span>baomidou.com<br><span class="hljs-number">13</span>	<span class="hljs-number">9</span>	M	 <span class="hljs-number">33</span>	  <span class="hljs-symbol">M@</span>baomidou.com<br><span class="hljs-number">14</span>	<span class="hljs-number">13</span>	N	 <span class="hljs-number">22</span>	  <span class="hljs-symbol">N@</span>baomidou.com<br><span class="hljs-number">15</span>	<span class="hljs-number">13</span>	O	 <span class="hljs-number">11</span>	  <span class="hljs-symbol">O@</span>baomidou.com<br></code></pre></td></tr></table></figure>
-
-<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>节点和父节点之间只有 id 和 pid 上有关联；没有层级字段，没有当前所在的树高度字段，如何在不改变表的情况下，获取所有子节点？；</p>
-<p>如果数据库可以重新设计的话，可以用下面的链接介绍的方式来设计：<br><a href="https://segmentfault.com/a/1190000014284076" target="_blank" rel="noopener">在数据库中存储一棵树，实现无限级分类 - 个人文章 - SegmentFault 思否</a></p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><h3 id="递归的方式"><a href="#递归的方式" class="headerlink" title="递归的方式"></a>递归的方式</h3><p>找到自己的子节点，再找子子节点，再找子子子节点…<br>这种方式虽能实现，但是如果节点关系复杂越来，因为要每次都要从 sql 中建立连接并查询，就会越来越慢<br>(递归的方式 200 多个后代要 2s 左右才能查出来； 在同样的数据下，用下面介绍的迭代的方式来查不到 100ms)。</p>
-<h3 id="迭代的方式"><a href="#迭代的方式" class="headerlink" title="迭代的方式"></a>迭代的方式</h3><ol>
-<li>根据 id 查找后代节点时，拼成集合的方式 ids=set(id)，根据 <code>select id,pid from user where pid in (ids)</code> 获取到所有的子节点（拼成实体对象：如具有 id 和 pid 属性的 ParentChild），加入到 ParentChild 列表中；</li>
-<li>根据 1 获取的 id 拼成一组新的 ids 获取第二波数据的所有子节点；以此类推，直到 ids 为空为止，说明再无后代了；</li>
-<li>根据 ParentChild 列表来构建 map 结构（其中的 key 是节点 ID，value 是直属子节点 ID 列表）</li>
-<li>通过在第 3 步获取的 map 缓存，来进行更多的操作，如：查找直属子节点、 查找所有后代；</li>
-</ol>
-<p>通过迭代的方式，一波一波地获取后代再数据库中进行查询，如果有 10 代，只需要从数据库中，查 10 次即可<br>（用递归的话，可能得成千上万次了），当然如果用户量特别多的时候，就不要用这种只有 id 和 pid 的方式了，得重新设计表了；<br><a href="https://segmentfault.com/a/1190000014284076" target="_blank" rel="noopener">在数据库中存储一棵树，实现无限级分类 - 个人文章 - SegmentFault 思否</a></p>
-<h4 id="如何查找直属子节点"><a href="#如何查找直属子节点" class="headerlink" title="如何查找直属子节点"></a>如何查找直属子节点</h4><blockquote>
-<p>根据节点 id，直接从 map 缓存中获取即可；</p>
-</blockquote>
-<h4 id="如何查找所有后代"><a href="#如何查找所有后代" class="headerlink" title="如何查找所有后代"></a>如何查找所有后代</h4><blockquote>
-<p>第 1 步： 建 1 个 set 集合，用来存储所有的后代；<br>第 2 步： 根据节点 id，从 map 中先找到直属子节点列表，加入到 set 中；<br>第 3 步： 再根据第 2 步得到的子节点列表，遍历这些子节点，从 map 中获取这些子节点的子节点（递归到第 2 步）</p>
-</blockquote>
-<h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h4><p><strong>service 层实现</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Service</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserServiceImpl</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">ServiceImpl</span>&lt;<span class="hljs-title">UserMapper</span>, <span class="hljs-title">User</span>&gt; <span class="hljs-keyword">implements</span> <span class="hljs-title">UserService</span> </span>&#123;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;User&gt; <span class="hljs-title">listDirectChild</span><span class="hljs-params">(Integer userId)</span> </span>&#123;<br>        AbsUserTreeHelper helper = newUserTreeHelper(userId);<br>        <span class="hljs-keyword">return</span> getUsers(helper.getDirectChildIds(userId));<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> AbsUserTreeHelper <span class="hljs-title">newUserTreeHelper</span><span class="hljs-params">(Integer userId)</span> </span>&#123;<br>        checkUserId(userId);<br>        AbsUserTreeHelper helper = <span class="hljs-keyword">new</span> UserTreeHelper(<span class="hljs-keyword">this</span>.baseMapper);<br>        helper.init(userId);<br>        <span class="hljs-keyword">return</span> helper;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">checkUserId</span><span class="hljs-params">(Integer userId)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (userId == <span class="hljs-keyword">null</span>) &#123;<br>            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> ParamException(<span class="hljs-string">"参数无效：userId为"</span> + userId);<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserTreeHelper</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AbsUserTreeHelper</span> </span>&#123;<br>    UserMapper userMapper;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">UserTreeHelper</span><span class="hljs-params">(UserMapper userMapper)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.userMapper = userMapper;<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">protected</span> List&lt;ParentChild&gt; <span class="hljs-title">listParentChild</span><span class="hljs-params">(List&lt;Integer&gt; userIdList)</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.userMapper.listParentChild(userIdList);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p><strong>mapper 层实现</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">UserMapper</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">BaseMapper</span>&lt;<span class="hljs-title">User</span>&gt; </span>&#123;<br><br>    <span class="hljs-function">List&lt;ParentChild&gt; <span class="hljs-title">listParentChild</span><span class="hljs-params">(@Param(<span class="hljs-string">"userIdList"</span>)</span> List&lt;Integer&gt; userIdList)</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">mapper</span> <span class="hljs-meta-keyword">PUBLIC</span> <span class="hljs-meta-string">"-//mybatis.org//DTD Mapper 3.0//EN"</span> <span class="hljs-meta-string">"http://mybatis.org/dtd/mybatis-3-mapper.dtd"</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">mapper</span> <span class="hljs-attr">namespace</span>=<span class="hljs-string">"com.lyloou.demo.mapper.UserMapper"</span>&gt;</span><br><br>    <span class="hljs-comment">&lt;!-- 通用查询映射结果 --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">resultMap</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"BaseResultMap"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"com.lyloou.demo.model.User"</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">id</span> <span class="hljs-attr">column</span>=<span class="hljs-string">"id"</span> <span class="hljs-attr">property</span>=<span class="hljs-string">"id"</span>/&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">result</span> <span class="hljs-attr">column</span>=<span class="hljs-string">"name"</span> <span class="hljs-attr">property</span>=<span class="hljs-string">"name"</span>/&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">result</span> <span class="hljs-attr">column</span>=<span class="hljs-string">"age"</span> <span class="hljs-attr">property</span>=<span class="hljs-string">"age"</span>/&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">result</span> <span class="hljs-attr">column</span>=<span class="hljs-string">"email"</span> <span class="hljs-attr">property</span>=<span class="hljs-string">"email"</span>/&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">resultMap</span>&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"listParentChild"</span> <span class="hljs-attr">resultType</span>=<span class="hljs-string">"com.lyloou.demo.model.ParentChild"</span>&gt;</span><br>        select id as childId, pid as parentId from t_user where pid in<br>        <span class="hljs-tag">&lt;<span class="hljs-name">foreach</span> <span class="hljs-attr">item</span>=<span class="hljs-string">"item"</span> <span class="hljs-attr">index</span>=<span class="hljs-string">"index"</span> <span class="hljs-attr">collection</span>=<span class="hljs-string">"userIdList"</span></span><br><span class="hljs-tag">                 <span class="hljs-attr">open</span>=<span class="hljs-string">"("</span> <span class="hljs-attr">separator</span>=<span class="hljs-string">","</span> <span class="hljs-attr">close</span>=<span class="hljs-string">")"</span>&gt;</span><br>            #&#123;item&#125;<br>        <span class="hljs-tag">&lt;/<span class="hljs-name">foreach</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span><br><br><span class="hljs-tag">&lt;/<span class="hljs-name">mapper</span>&gt;</span><br></code></pre></td></tr></table></figure>
-
-<p><strong>UserTreeHelper 源码</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// UserTreeHelper.java</span><br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 获取用户的直接下属，或全部下属</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserTreeHelper</span> </span>&#123;<br><br>    <span class="hljs-keyword">private</span> Map&lt;Integer, List&lt;Integer&gt;&gt; parentToChildrenMap;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 获取map中的所有用户ID</span><br><span class="hljs-comment">     *</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@return</span> 用户ID集合</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Set&lt;Integer&gt; <span class="hljs-title">getAllIds</span><span class="hljs-params">()</span> </span>&#123;<br>        checkInit();<br>        Set&lt;Integer&gt; allIds = <span class="hljs-keyword">new</span> HashSet&lt;&gt;();<br>        Set&lt;Integer&gt; keySet = parentToChildrenMap.keySet();<br>        <span class="hljs-keyword">for</span> (Integer key : keySet) &#123;<br>            allIds.add(key);<br>            allIds.addAll(getAllChildIds(key));<br>        &#125;<br>        <span class="hljs-keyword">return</span> allIds;<br>    &#125;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 获取树上的全部用户ID列表（不包含自己）</span><br><span class="hljs-comment">     *</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> userId 用户ID</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@return</span> 全部用户ID</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Set&lt;Integer&gt; <span class="hljs-title">getAllChildIds</span><span class="hljs-params">(Integer userId)</span> </span>&#123;<br>        checkInit();<br>        <span class="hljs-keyword">return</span> getAllChildIds(userId, <span class="hljs-keyword">null</span>);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">checkInit</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (parentToChildrenMap == <span class="hljs-keyword">null</span>) &#123;<br>            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> RuntimeException(<span class="hljs-string">"没有调用初始化方法，请调用init方法初始化"</span>);<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> Set&lt;Integer&gt; <span class="hljs-title">getAllChildIds</span><span class="hljs-params">(Integer userId, Set&lt;Integer&gt; idSet)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (idSet == <span class="hljs-keyword">null</span>) &#123;<br>            idSet = <span class="hljs-keyword">new</span> HashSet&lt;&gt;();<br>        &#125;<br>        List&lt;Integer&gt; idList = parentToChildrenMap.getOrDefault(userId, Collections.emptyList());<br>        <span class="hljs-keyword">if</span> (idList.isEmpty()) &#123;<br>            <span class="hljs-keyword">return</span> idSet;<br>        &#125;<br>        idSet.addAll(idList);<br>        <span class="hljs-keyword">for</span> (Integer id : idList) &#123;<br>            getAllChildIds(id, idSet);<br>        &#125;<br>        <span class="hljs-keyword">return</span> idSet;<br>    &#125;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 获取直属用户ID列表 （不包含自己）</span><br><span class="hljs-comment">     *</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> userId 用户的ID</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@return</span> 直属用户ID列表</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Set&lt;Integer&gt; <span class="hljs-title">getDirectChildIds</span><span class="hljs-params">(Integer userId)</span> </span>&#123;<br>        checkInit();<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> HashSet&lt;&gt;(parentToChildrenMap.getOrDefault(userId, <span class="hljs-keyword">new</span> ArrayList&lt;&gt;()));<br>    &#125;<br><br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 根据用户ID来初始化 Helper</span><br><span class="hljs-comment">     *</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> userId 用户ID</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">init</span><span class="hljs-params">(Integer userId)</span> </span>&#123;<br>        init(Collections.singletonList(userId));<br>    &#125;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 把一组用户和它们的后代缓存起来</span><br><span class="hljs-comment">     * 后面可以通过map.get(userId) 的方式获取userId对应的直接子节点</span><br><span class="hljs-comment">     *</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> userIdList 用户列表</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">init</span><span class="hljs-params">(List&lt;Integer&gt; userIdList)</span> </span>&#123;<br>        parentToChildrenMap = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();<br>        iterateUser(userIdList);<br>    &#125;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 通过迭代的方式重新实现，一波一波地获取，而不是一个一个地获取</span><br><span class="hljs-comment">     *</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> userIdList 用户列表</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">iterateUser</span><span class="hljs-params">(List&lt;Integer&gt; userIdList)</span> </span>&#123;<br>        Set&lt;ParentChild&gt; allParentChildren = <span class="hljs-keyword">new</span> HashSet&lt;&gt;();<br>        List&lt;ParentChild&gt; parentChildren = listParentChild(userIdList);<br>        <span class="hljs-keyword">while</span> (!parentChildren.isEmpty()) &#123;<br>            allParentChildren.addAll(parentChildren);<br><br>            <span class="hljs-comment">// 获取这一波的id</span><br>            List&lt;Integer&gt; newRoundIds = parentChildren.stream().map(ParentChild::getChildId).collect(Collectors.toList());<br>            parentChildren = listParentChild(newRoundIds);<br>        &#125;<br><br>        <span class="hljs-keyword">for</span> (ParentChild parentChild : allParentChildren) &#123;<br>            List&lt;Integer&gt; oldList = parentToChildrenMap.getOrDefault(parentChild.getParentId(), <span class="hljs-keyword">new</span> ArrayList&lt;&gt;());<br>            oldList.add(parentChild.getChildId());<br>            parentToChildrenMap.put(parentChild.getParentId(), oldList);<br>        &#125;<br><br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;ParentChild&gt; <span class="hljs-title">listParentChild</span><span class="hljs-params">(List&lt;Integer&gt; userIdList)</span></span>&#123;<br>       <span class="hljs-comment">//伪代码 List&lt;ParentChild&gt; list = select id,pid from user where pid in (userIdList);</span><br>    &#125;<br><br>&#125;<br><br><span class="hljs-comment">// ParentChild.java</span><br><span class="hljs-meta">@Data</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ParentChild</span> </span>&#123;<br>    <span class="hljs-keyword">private</span> Integer id;<br>    <span class="hljs-keyword">private</span> Integer pid;<br>&#125;<br><br><span class="hljs-comment">// Main.java</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Main</span></span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        UserTreeHelper helper = <span class="hljs-keyword">new</span> UserTreeHelper();<br>        helper.init(<span class="hljs-number">1</span>);<br>        List&lt;Integer&gt; ids = helper.getAllChildIds(<span class="hljs-number">1</span>);<br>        System.out.println(ids);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h4 id="更多可查看源码实现"><a href="#更多可查看源码实现" class="headerlink" title="更多可查看源码实现"></a>更多可查看源码实现</h4><p><a href="https://github.com/lyloou/spring-boot-web/blob/v1.1.0/src/main/java/com/lyloou/demo/service/helper/AbsUserTreeHelper.java" target="_blank" rel="noopener">https://github.com/lyloou/spring-boot-web/blob/v1.1.0/src/main/java/com/lyloou/demo/service/helper/AbsUserTreeHelper.java</a></p>
-
-    </div>
-
-    
-    
-    
-      
-  <div class="popular-posts-header">相关文章</div>
-  <ul class="popular-posts">
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/business/ID设计/" rel="bookmark">【Business】 ID设计</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/business/Token身份认证设计/" rel="bookmark">基于 AOP 和 JWT 实现的 Token 身份认证组件</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/business/分布式事务/" rel="bookmark">分布式事务</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/business/取四个场次/" rel="bookmark">取四个场次</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/business/分佣设计/" rel="bookmark">【Business】 分佣设计</a></div>
-    </li>
-  </ul>
-
-
-      <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/business/" rel="tag"># business</a>
-          </div>
-
+</header>
         
-
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/ssm/%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86/" rel="prev" title="文件处理">
-      <i class="fa fa-chevron-left"></i> 文件处理
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/ssm/spring-security/" rel="next" title="Spring-Security">
-      Spring-Security <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
-    
-  </article>
   
-  
-  
-
-
-
-          </div>
-          
-    <div class="comments" id="gitalk-container"></div>
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
-
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
   <aside class="sidebar">
-    <div class="sidebar-inner">
 
-      <ul class="sidebar-nav motion-element">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
         </li>
@@ -385,212 +138,301 @@
         </li>
       </ul>
 
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思路"><span class="nav-number">2.</span> <span class="nav-text">思路</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#递归的方式"><span class="nav-number">2.1.</span> <span class="nav-text">递归的方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#迭代的方式"><span class="nav-number">2.2.</span> <span class="nav-text">迭代的方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#如何查找直属子节点"><span class="nav-number">2.2.1.</span> <span class="nav-text">如何查找直属子节点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何查找所有后代"><span class="nav-number">2.2.2.</span> <span class="nav-text">如何查找所有后代</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码实现"><span class="nav-number">2.2.3.</span> <span class="nav-text">代码实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更多可查看源码实现"><span class="nav-number">2.2.4.</span> <span class="nav-text">更多可查看源码实现</span></a></li></ol></li></ol></li></ol></div>
-      </div>
-      <!--/noindex-->
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF"><span class="nav-number">2.</span> <span class="nav-text">思路</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%92%E5%BD%92%E7%9A%84%E6%96%B9%E5%BC%8F"><span class="nav-number">2.1.</span> <span class="nav-text">递归的方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%AD%E4%BB%A3%E7%9A%84%E6%96%B9%E5%BC%8F"><span class="nav-number">2.2.</span> <span class="nav-text">迭代的方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E6%9F%A5%E6%89%BE%E7%9B%B4%E5%B1%9E%E5%AD%90%E8%8A%82%E7%82%B9"><span class="nav-number">2.2.1.</span> <span class="nav-text">如何查找直属子节点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E6%9F%A5%E6%89%BE%E6%89%80%E6%9C%89%E5%90%8E%E4%BB%A3"><span class="nav-number">2.2.2.</span> <span class="nav-text">如何查找所有后代</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-number">2.2.3.</span> <span class="nav-text">代码实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9B%B4%E5%A4%9A%E5%8F%AF%E6%9F%A5%E7%9C%8B%E6%BA%90%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-number">2.2.4.</span> <span class="nav-text">更多可查看源码实现</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
 
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="lyloou"
       src="/assets/images/avatar.png">
   <p class="site-author-name" itemprop="name">lyloou</p>
   <div class="site-description" itemprop="description">/* Better than last best */</div>
 </div>
-<div class="site-state-wrap motion-element">
+<div class="site-state-wrap animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
+        <a href="/archives/">
           <span class="site-state-item-count">312</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
+          <a href="/tags/">
         <span class="site-state-item-count">56</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
-  <div class="links-of-author motion-element">
+  <div class="links-of-author animated">
       <span class="links-of-author-item">
-        <a href="https://github.com/lyloou" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;lyloou" rel="noopener" target="_blank">GitHub</a>
+        <a href="https://github.com/lyloou" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;lyloou" rel="noopener me" target="_blank"><i class="github fa-fw"></i>GitHub</a>
       </span>
       <span class="links-of-author-item">
-        <a href="mailto:lyloou6@gmail.com" title="E-Mail → mailto:lyloou6@gmail.com" rel="noopener" target="_blank">E-Mail</a>
+        <a href="mailto:lyloou6@gmail.com" title="E-Mail → mailto:lyloou6@gmail.com" rel="noopener me" target="_blank"><i class="envelope fa-fw"></i>E-Mail</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://weibo.com/lyloou" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;lyloou" rel="noopener" target="_blank">Weibo</a>
+        <a href="https://weibo.com/lyloou" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;lyloou" rel="noopener me" target="_blank"><i class="weibo fa-fw"></i>Weibo</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://blog.csdn.net/ly1414725328" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;ly1414725328" rel="noopener" target="_blank">CSDN</a>
+        <a href="https://blog.csdn.net/ly1414725328" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;ly1414725328" rel="noopener me" target="_blank"><i class="csdn fa-fw"></i>CSDN</a>
       </span>
   </div>
-  <div class="cc-license motion-element" itemprop="license">
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
   </div>
 
-
-
+        </div>
       </div>
+    </div>
+
+    
+        <div class="pjax">
+        </div>
+  </aside>
+
 
     </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
+
+    <div class="main-inner post posts-expand">
 
 
-      </div>
-    </main>
+  
 
-    <footer class="footer">
-      <div class="footer-inner">
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.com/business/%E7%94%A8%E6%88%B7%E6%A0%91%E6%9F%A5%E6%89%BE%E4%BC%98%E5%8C%96/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/images/avatar.png">
+      <meta itemprop="name" content="lyloou">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="用户树查找优化 | lyloou">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          用户树查找优化
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-06-11 17:38:24" itemprop="dateCreated datePublished" datetime="2020-06-11T17:38:24+08:00">2020-06-11</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">    <span class="variable">A</span>                   <span class="variable">B</span></span><br><span class="line">   <span class="operator">/</span> \                 <span class="operator">/|</span>\</span><br><span class="line">  <span class="built_in">C</span>   <span class="built_in">D</span>               <span class="built_in">E</span> <span class="variable">F</span> <span class="variable">G</span></span><br><span class="line"> <span class="operator">/</span> \                 <span class="operator">/</span> \</span><br><span class="line"><span class="variable">H</span>   <span class="built_in">I</span>               <span class="variable">J</span>   <span class="built_in">K</span></span><br><span class="line">   <span class="operator">/</span> \</span><br><span class="line">  <span class="variable">L</span>   <span class="variable">M</span></span><br><span class="line">     <span class="operator">/</span> \</span><br><span class="line">    <span class="built_in">N</span>   <span class="built_in">O</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">id</span>  pid name age  email</span><br><span class="line"><span class="attribute">1</span>	<span class="number">0</span>	A	 <span class="number">18</span>	  A@baomidou.com</span><br><span class="line"><span class="attribute">2</span>	<span class="number">0</span>	B	 <span class="number">20</span>	  B@baomidou.com</span><br><span class="line"><span class="attribute">3</span>	<span class="number">1</span>	C	 <span class="number">28</span>	  C@baomidou.com</span><br><span class="line"><span class="attribute">4</span>	<span class="number">1</span>	D	 <span class="number">21</span>	  D@baomidou.com</span><br><span class="line"><span class="attribute">5</span>	<span class="number">2</span>	E	 <span class="number">24</span>	  E@baomidou.com</span><br><span class="line"><span class="attribute">6</span>	<span class="number">2</span>	F	 <span class="number">18</span>	  F@baomidou.com</span><br><span class="line"><span class="attribute">7</span>	<span class="number">2</span>	G	 <span class="number">10</span>	  G@baomidou.com</span><br><span class="line"><span class="attribute">8</span>	<span class="number">3</span>	H	 <span class="number">35</span>	  H@baomidou.com</span><br><span class="line"><span class="attribute">9</span>	<span class="number">3</span>	I	 <span class="number">21</span>	  I@baomidou.com</span><br><span class="line"><span class="attribute">10</span>	<span class="number">5</span>	J	 <span class="number">18</span>	  J@baomidou.com</span><br><span class="line"><span class="attribute">11</span>	<span class="number">5</span>	K	 <span class="number">23</span>	  K@baomidou.com</span><br><span class="line"><span class="attribute">12</span>	<span class="number">9</span>	L	 <span class="number">18</span>	  L@baomidou.com</span><br><span class="line"><span class="attribute">13</span>	<span class="number">9</span>	M	 <span class="number">33</span>	  M@baomidou.com</span><br><span class="line"><span class="attribute">14</span>	<span class="number">13</span>	N	 <span class="number">22</span>	  N@baomidou.com</span><br><span class="line"><span class="attribute">15</span>	<span class="number">13</span>	O	 <span class="number">11</span>	  O@baomidou.com</span><br></pre></td></tr></table></figure>
+
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>节点和父节点之间只有 id 和 pid 上有关联；没有层级字段，没有当前所在的树高度字段，如何在不改变表的情况下，获取所有子节点？；</p>
+<p>如果数据库可以重新设计的话，可以用下面的链接介绍的方式来设计：<br><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000014284076">在数据库中存储一棵树，实现无限级分类 - 个人文章 - SegmentFault 思否</a></p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><h3 id="递归的方式"><a href="#递归的方式" class="headerlink" title="递归的方式"></a>递归的方式</h3><p>找到自己的子节点，再找子子节点，再找子子子节点…<br>这种方式虽能实现，但是如果节点关系复杂越来，因为要每次都要从 sql 中建立连接并查询，就会越来越慢<br>(递归的方式 200 多个后代要 2s 左右才能查出来； 在同样的数据下，用下面介绍的迭代的方式来查不到 100ms)。</p>
+<h3 id="迭代的方式"><a href="#迭代的方式" class="headerlink" title="迭代的方式"></a>迭代的方式</h3><ol>
+<li>根据 id 查找后代节点时，拼成集合的方式 ids=set(id)，根据 <code>select id,pid from user where pid in (ids)</code> 获取到所有的子节点（拼成实体对象：如具有 id 和 pid 属性的 ParentChild），加入到 ParentChild 列表中；</li>
+<li>根据 1 获取的 id 拼成一组新的 ids 获取第二波数据的所有子节点；以此类推，直到 ids 为空为止，说明再无后代了；</li>
+<li>根据 ParentChild 列表来构建 map 结构（其中的 key 是节点 ID，value 是直属子节点 ID 列表）</li>
+<li>通过在第 3 步获取的 map 缓存，来进行更多的操作，如：查找直属子节点、 查找所有后代；</li>
+</ol>
+<p>通过迭代的方式，一波一波地获取后代再数据库中进行查询，如果有 10 代，只需要从数据库中，查 10 次即可<br>（用递归的话，可能得成千上万次了），当然如果用户量特别多的时候，就不要用这种只有 id 和 pid 的方式了，得重新设计表了；<br><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000014284076">在数据库中存储一棵树，实现无限级分类 - 个人文章 - SegmentFault 思否</a></p>
+<h4 id="如何查找直属子节点"><a href="#如何查找直属子节点" class="headerlink" title="如何查找直属子节点"></a>如何查找直属子节点</h4><blockquote>
+<p>根据节点 id，直接从 map 缓存中获取即可；</p>
+</blockquote>
+<h4 id="如何查找所有后代"><a href="#如何查找所有后代" class="headerlink" title="如何查找所有后代"></a>如何查找所有后代</h4><blockquote>
+<p>第 1 步： 建 1 个 set 集合，用来存储所有的后代；<br>第 2 步： 根据节点 id，从 map 中先找到直属子节点列表，加入到 set 中；<br>第 3 步： 再根据第 2 步得到的子节点列表，遍历这些子节点，从 map 中获取这些子节点的子节点（递归到第 2 步）</p>
+</blockquote>
+<h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h4><p><strong>service 层实现</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UserServiceImpl</span> <span class="keyword">extends</span> <span class="title class_">ServiceImpl</span>&lt;UserMapper, User&gt; <span class="keyword">implements</span> <span class="title class_">UserService</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> List&lt;User&gt; <span class="title function_">listDirectChild</span><span class="params">(Integer userId)</span> &#123;</span><br><span class="line">        <span class="type">AbsUserTreeHelper</span> <span class="variable">helper</span> <span class="operator">=</span> newUserTreeHelper(userId);</span><br><span class="line">        <span class="keyword">return</span> getUsers(helper.getDirectChildIds(userId));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> AbsUserTreeHelper <span class="title function_">newUserTreeHelper</span><span class="params">(Integer userId)</span> &#123;</span><br><span class="line">        checkUserId(userId);</span><br><span class="line">        <span class="type">AbsUserTreeHelper</span> <span class="variable">helper</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">UserTreeHelper</span>(<span class="built_in">this</span>.baseMapper);</span><br><span class="line">        helper.init(userId);</span><br><span class="line">        <span class="keyword">return</span> helper;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">checkUserId</span><span class="params">(Integer userId)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (userId == <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">ParamException</span>(<span class="string">&quot;参数无效：userId为&quot;</span> + userId);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UserTreeHelper</span> <span class="keyword">extends</span> <span class="title class_">AbsUserTreeHelper</span> &#123;</span><br><span class="line">    UserMapper userMapper;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">UserTreeHelper</span><span class="params">(UserMapper userMapper)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.userMapper = userMapper;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> List&lt;ParentChild&gt; <span class="title function_">listParentChild</span><span class="params">(List&lt;Integer&gt; userIdList)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.userMapper.listParentChild(userIdList);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>mapper 层实现</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">UserMapper</span> <span class="keyword">extends</span> <span class="title class_">BaseMapper</span>&lt;User&gt; &#123;</span><br><span class="line"></span><br><span class="line">    List&lt;ParentChild&gt; <span class="title function_">listParentChild</span><span class="params">(<span class="meta">@Param(&quot;userIdList&quot;)</span> List&lt;Integer&gt; userIdList)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">mapper</span> <span class="keyword">PUBLIC</span> <span class="string">&quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;</span> <span class="string">&quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">&quot;com.lyloou.demo.mapper.UserMapper&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 通用查询映射结果 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">resultMap</span> <span class="attr">id</span>=<span class="string">&quot;BaseResultMap&quot;</span> <span class="attr">type</span>=<span class="string">&quot;com.lyloou.demo.model.User&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">id</span> <span class="attr">column</span>=<span class="string">&quot;id&quot;</span> <span class="attr">property</span>=<span class="string">&quot;id&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">&quot;name&quot;</span> <span class="attr">property</span>=<span class="string">&quot;name&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">&quot;age&quot;</span> <span class="attr">property</span>=<span class="string">&quot;age&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">result</span> <span class="attr">column</span>=<span class="string">&quot;email&quot;</span> <span class="attr">property</span>=<span class="string">&quot;email&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">resultMap</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;listParentChild&quot;</span> <span class="attr">resultType</span>=<span class="string">&quot;com.lyloou.demo.model.ParentChild&quot;</span>&gt;</span></span><br><span class="line">        select id as childId, pid as parentId from t_user where pid in</span><br><span class="line">        <span class="tag">&lt;<span class="name">foreach</span> <span class="attr">item</span>=<span class="string">&quot;item&quot;</span> <span class="attr">index</span>=<span class="string">&quot;index&quot;</span> <span class="attr">collection</span>=<span class="string">&quot;userIdList&quot;</span></span></span><br><span class="line"><span class="tag">                 <span class="attr">open</span>=<span class="string">&quot;(&quot;</span> <span class="attr">separator</span>=<span class="string">&quot;,&quot;</span> <span class="attr">close</span>=<span class="string">&quot;)&quot;</span>&gt;</span></span><br><span class="line">            #&#123;item&#125;</span><br><span class="line">        <span class="tag">&lt;/<span class="name">foreach</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>UserTreeHelper 源码</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// UserTreeHelper.java</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 获取用户的直接下属，或全部下属</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UserTreeHelper</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Map&lt;Integer, List&lt;Integer&gt;&gt; parentToChildrenMap;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 获取map中的所有用户ID</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 用户ID集合</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> Set&lt;Integer&gt; <span class="title function_">getAllIds</span><span class="params">()</span> &#123;</span><br><span class="line">        checkInit();</span><br><span class="line">        Set&lt;Integer&gt; allIds = <span class="keyword">new</span> <span class="title class_">HashSet</span>&lt;&gt;();</span><br><span class="line">        Set&lt;Integer&gt; keySet = parentToChildrenMap.keySet();</span><br><span class="line">        <span class="keyword">for</span> (Integer key : keySet) &#123;</span><br><span class="line">            allIds.add(key);</span><br><span class="line">            allIds.addAll(getAllChildIds(key));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> allIds;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 获取树上的全部用户ID列表（不包含自己）</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> userId 用户ID</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 全部用户ID</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> Set&lt;Integer&gt; <span class="title function_">getAllChildIds</span><span class="params">(Integer userId)</span> &#123;</span><br><span class="line">        checkInit();</span><br><span class="line">        <span class="keyword">return</span> getAllChildIds(userId, <span class="literal">null</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">checkInit</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (parentToChildrenMap == <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(<span class="string">&quot;没有调用初始化方法，请调用init方法初始化&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Set&lt;Integer&gt; <span class="title function_">getAllChildIds</span><span class="params">(Integer userId, Set&lt;Integer&gt; idSet)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (idSet == <span class="literal">null</span>) &#123;</span><br><span class="line">            idSet = <span class="keyword">new</span> <span class="title class_">HashSet</span>&lt;&gt;();</span><br><span class="line">        &#125;</span><br><span class="line">        List&lt;Integer&gt; idList = parentToChildrenMap.getOrDefault(userId, Collections.emptyList());</span><br><span class="line">        <span class="keyword">if</span> (idList.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">return</span> idSet;</span><br><span class="line">        &#125;</span><br><span class="line">        idSet.addAll(idList);</span><br><span class="line">        <span class="keyword">for</span> (Integer id : idList) &#123;</span><br><span class="line">            getAllChildIds(id, idSet);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> idSet;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 获取直属用户ID列表 （不包含自己）</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> userId 用户的ID</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 直属用户ID列表</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> Set&lt;Integer&gt; <span class="title function_">getDirectChildIds</span><span class="params">(Integer userId)</span> &#123;</span><br><span class="line">        checkInit();</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">HashSet</span>&lt;&gt;(parentToChildrenMap.getOrDefault(userId, <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;()));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 根据用户ID来初始化 Helper</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> userId 用户ID</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">init</span><span class="params">(Integer userId)</span> &#123;</span><br><span class="line">        init(Collections.singletonList(userId));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 把一组用户和它们的后代缓存起来</span></span><br><span class="line"><span class="comment">     * 后面可以通过map.get(userId) 的方式获取userId对应的直接子节点</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> userIdList 用户列表</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">init</span><span class="params">(List&lt;Integer&gt; userIdList)</span> &#123;</span><br><span class="line">        parentToChildrenMap = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">        iterateUser(userIdList);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 通过迭代的方式重新实现，一波一波地获取，而不是一个一个地获取</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> userIdList 用户列表</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">iterateUser</span><span class="params">(List&lt;Integer&gt; userIdList)</span> &#123;</span><br><span class="line">        Set&lt;ParentChild&gt; allParentChildren = <span class="keyword">new</span> <span class="title class_">HashSet</span>&lt;&gt;();</span><br><span class="line">        List&lt;ParentChild&gt; parentChildren = listParentChild(userIdList);</span><br><span class="line">        <span class="keyword">while</span> (!parentChildren.isEmpty()) &#123;</span><br><span class="line">            allParentChildren.addAll(parentChildren);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 获取这一波的id</span></span><br><span class="line">            List&lt;Integer&gt; newRoundIds = parentChildren.stream().map(ParentChild::getChildId).collect(Collectors.toList());</span><br><span class="line">            parentChildren = listParentChild(newRoundIds);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (ParentChild parentChild : allParentChildren) &#123;</span><br><span class="line">            List&lt;Integer&gt; oldList = parentToChildrenMap.getOrDefault(parentChild.getParentId(), <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;());</span><br><span class="line">            oldList.add(parentChild.getChildId());</span><br><span class="line">            parentToChildrenMap.put(parentChild.getParentId(), oldList);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> List&lt;ParentChild&gt; <span class="title function_">listParentChild</span><span class="params">(List&lt;Integer&gt; userIdList)</span>&#123;</span><br><span class="line">       <span class="comment">//伪代码 List&lt;ParentChild&gt; list = select id,pid from user where pid in (userIdList);</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ParentChild.java</span></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ParentChild</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line">    <span class="keyword">private</span> Integer pid;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Main.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Main</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">UserTreeHelper</span> <span class="variable">helper</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">UserTreeHelper</span>();</span><br><span class="line">        helper.init(<span class="number">1</span>);</span><br><span class="line">        List&lt;Integer&gt; ids = helper.getAllChildIds(<span class="number">1</span>);</span><br><span class="line">        System.out.println(ids);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="更多可查看源码实现"><a href="#更多可查看源码实现" class="headerlink" title="更多可查看源码实现"></a>更多可查看源码实现</h4><p><a target="_blank" rel="noopener" href="https://github.com/lyloou/spring-boot-web/blob/v1.1.0/src/main/java/com/lyloou/demo/service/helper/AbsUserTreeHelper.java">https://github.com/lyloou/spring-boot-web/blob/v1.1.0/src/main/java/com/lyloou/demo/service/helper/AbsUserTreeHelper.java</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/business/" rel="tag"># business</a>
+          </div>
+
         
 
-        
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/ssm/%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86/" rel="prev" title="文件处理">
+                  <i class="fa fa-chevron-left"></i> 文件处理
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/ssm/spring-security/" rel="next" title="Spring-Security">
+                  Spring-Security <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  
+  <div class="comments giscus-container">
+  </div>
+  
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
   <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">粤ICP备18151128号 </a>
   </div>
 
 <div class="copyright">
-  
   &copy; 
   <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
-    <i class="user"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">lyloou</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
-  </div>
-
-        
 <div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
       <span class="post-meta-item-icon">
-        <i class="user"></i>
+        <i class="fa fa-user"></i>
       </span>
       <span class="site-uv" title="总访客量">
         <span id="busuanzi_value_site_uv"></span>
       </span>
     </span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
       <span class="post-meta-item-icon">
-        <i class="eye"></i>
+        <i class="fa fa-eye"></i>
       </span>
       <span class="site-pv" title="总访问量">
         <span id="busuanzi_value_site_pv"></span>
       </span>
     </span>
 </div>
-
-
-
-
-
-
-
-
-      </div>
-    </footer>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>
 
-  
-  <script src="/lib/anime.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-
-<script src="/js/schemes/muse.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
-
-
-
+    </div>
+  </footer>
 
   
-  <script>
-    (function(){
-      var canonicalURL, curProtocol;
-      //Get the <link> tag
-      var x=document.getElementsByTagName("link");
-		//Find the last canonical URL
-		if(x.length > 0){
-			for (i=0;i<x.length;i++){
-				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
-					canonicalURL=x[i].href;
-				}
-			}
-		}
-    //Get protocol
-	    if (!canonicalURL){
-	    	curProtocol = window.location.protocol.split(':')[0];
-	    }
-	    else{
-	    	curProtocol = canonicalURL.split(':')[0];
-	    }
-      //Get current URL if the canonical URL does not exist
-	    if (!canonicalURL) canonicalURL = window.location.href;
-	    //Assign script content. Replace current URL with the canonical URL
-      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
-  </script>
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
 
 
 
 
   
-<script src="/js/local-search.js"></script>
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 
 
-
-
-
-
-
-
+<script class="next-config" data-name="giscus" type="application/json">{"enable":true,"repo":"lyloou/lyloou.github.io","repo_id":"MDEwOlJlcG9zaXRvcnkxMDk1NzkyNzA=","category":"Announcements","category_id":"DIC_kwDOBogMBs4CWdfR","mapping":"pathname","reactions_enabled":1,"emit_metadata":1,"theme":"light","lang":"zh-CN","input_position":"bottom","loading":"lazy"}</script>
 
 <script>
-if (document.querySelectorAll('pre.mermaid').length) {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
-    mermaid.initialize({
-      theme    : 'forest',
-      logLevel : 3,
-      flowchart: { curve     : 'linear' },
-      gantt    : { axisFormat: '%m/%d/%Y' },
-      sequence : { actorMargin: 50 }
-    });
-  }, window.mermaid);
-}
-</script>
+document.addEventListener('page:loaded', () => {
+  if (!CONFIG.page.comments) return;
 
-
-  
-
-  
-
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
-
-<script>
-NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
-    var gitalk = new Gitalk({
-      clientID    : '5776a56ec2a831d83dfc',
-      clientSecret: '28440989ccf00f0ce8dbd425dc5d1eaa1eb24c7b',
-      repo        : 'lyloou.github.io',
-      owner       : 'lyloou',
-      admin       : ['lyloou'],
-      id          : '8c7f66a7eab1606b9ef0783d7f441448',
-        language: '',
-      distractionFreeMode: true
-    });
-    gitalk.render('gitalk-container');
-  }, window.Gitalk);
+  NexT.utils.loadComments('.giscus-container')
+    .then(() => NexT.utils.getScript('https://giscus.app/client.js', {
+      attributes: {
+        async                   : true,
+        crossOrigin             : 'anonymous',
+        'data-repo'             : CONFIG.giscus.repo,
+        'data-repo-id'          : CONFIG.giscus.repo_id,
+        'data-category'         : CONFIG.giscus.category,
+        'data-category-id'      : CONFIG.giscus.category_id,
+        'data-mapping'          : CONFIG.giscus.mapping,
+        'data-reactions-enabled': CONFIG.giscus.reactions_enabled,
+        'data-emit-metadata'    : CONFIG.giscus.emit_metadata,
+        'data-theme'            : CONFIG.giscus.theme,
+        'data-lang'             : CONFIG.giscus.lang,
+        'data-input-position'   : CONFIG.giscus.input_position,
+        'data-loading'          : CONFIG.giscus.loading
+      },
+      parentNode: document.querySelector('.giscus-container')
+    }));
 });
 </script>
 

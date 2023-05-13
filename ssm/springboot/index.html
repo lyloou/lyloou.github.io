@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="zh-CN,zh-HK,zh-TW,en,default">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
@@ -13,14 +13,13 @@
 <link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"lyloou.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
-  </script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-  <meta name="description" content="maven: http:&#x2F;&#x2F;wiki.jikexueyuan.com&#x2F;project&#x2F;maven&#x2F;spring: https:&#x2F;&#x2F;wiki.jikexueyuan.com&#x2F;project&#x2F;spring Spring注解仅仅是对类加上了一些元信息，如果不使用反射等 API 对其进行探测、处理，和不加注解没有任何区别。https:&#x2F;&#x2F;course.tianmaying.com&#x2F;web-developm">
+<script class="next-config" data-name="main" type="application/json">{"hostname":"lyloou.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"default"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="maven: http:&#x2F;&#x2F;wiki.jikexueyuan.com&#x2F;project&#x2F;maven&#x2F;spring: https:&#x2F;&#x2F;wiki.jikexueyuan.com&#x2F;project&#x2F;spring Spring注解仅仅是对类加上了一些元信息，如果不使用反射等 API 对其进行探测、处理，和不加注解没有任何区别。https:&#x2F;&#x2F;course.tianmaying.com&#x2F;web-developm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Springboot">
 <meta property="og:url" content="https://lyloou.com/ssm/springboot/index.html">
@@ -33,37 +32,20 @@
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
 
+
 <link rel="canonical" href="https://lyloou.com/ssm/springboot/">
 
 
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : false,
-    isPost : true,
-    lang   : 'zh-CN'
-  };
-</script>
 
-  <title>Springboot | lyloou</title>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://lyloou.com/ssm/springboot/","path":"ssm/springboot/","title":"Springboot"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Springboot | lyloou</title>
   
-    <script>
-      function sendPageView() {
-        if (CONFIG.hostname !== location.hostname) return;
-        var uid = localStorage.getItem('uid') || (Math.random() + '.' + Math.random());
-        localStorage.setItem('uid', uid);
-        navigator.sendBeacon('https://www.google-analytics.com/collect', new URLSearchParams({
-          v  : 1,
-          tid: 'UA-80542932-1',
-          cid: uid,
-          t  : 'pageview',
-          dp : encodeURIComponent(location.pathname)
-        }));
-      }
-      document.addEventListener('pjax:complete', sendPageView);
-      sendPageView();
-    </script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-80542932-1","only_pageview":true}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
 
 
 
@@ -71,55 +53,35 @@
 
 
   <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container">
-    <div class="headband"></div>
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
 
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
-  <div class="site-meta custom-logo">
+  <div class="site-meta">
 
     <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">lyloou</h1>
-      <span class="logo-line-after"><i></i></span>
+      <i class="logo-line"></i>
+      <p class="site-title">lyloou</p>
+      <i class="logo-line"></i>
     </a>
   </div>
 
   <div class="site-nav-right">
-    <div class="toggle popup-trigger">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
         <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
@@ -127,29 +89,8 @@
 
 
 
-
 <nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签</a>
-
-  </li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -160,226 +101,35 @@
 
 
   <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
+    <div class="popup search-popup"><div class="search-header">
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off"
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
            placeholder="搜索..." spellcheck="false"
            type="search" class="search-input">
   </div>
-  <span class="popup-btn-close">
+  <span class="popup-btn-close" role="button">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
-<div id="search-result">
-  <div id="no-result">
-    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
   </div>
 </div>
 
     </div>
   </div>
 
-</div>
-    </header>
-
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content post posts-expand">
-            
-
-    
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lyloou.com/ssm/springboot/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/assets/images/avatar.png">
-      <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="lyloou">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          Springboot<a href="https://github.com/lyloou/lyloou.github.io/edit/source/source/_posts/ssm/springboot.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil-alt"></i></a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-10-11 11:29:00" itemprop="dateCreated datePublished" datetime="2018-10-11T11:29:00+08:00">2018-10-11</time>
-            </span>
-
-          
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-        <p>maven: <a href="http://wiki.jikexueyuan.com/project/maven/" target="_blank" rel="noopener">http://wiki.jikexueyuan.com/project/maven/</a><br>spring: <a href="https://wiki.jikexueyuan.com/project/spring" target="_blank" rel="noopener">https://wiki.jikexueyuan.com/project/spring</a></p>
-<h2 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h2><p>注解仅仅是对类加上了一些元信息，如果不使用反射等 API 对其进行探测、处理，和不加注解没有任何区别。<br><a href="https://course.tianmaying.com/web-development+form-validation#" target="_blank" rel="noopener">https://course.tianmaying.com/web-development+form-validation#</a></p>
-<p>任何一个标注了@Bean 的方法，其返回值将作为一个 bean 定义注册到 Spring 的 IoC 容器，方法名将默认成该 bean 定义的 id。<br><a href="http://tengj.top/2017/03/09/springboot3/" target="_blank" rel="noopener">http://tengj.top/2017/03/09/springboot3/</a></p>
-<p>Spring Boot 常用注解（一） - 声明 Bean 的注解 - CSDN 博客<br><a href="https://blog.csdn.net/lipinganq/article/details/79155072" target="_blank" rel="noopener">https://blog.csdn.net/lipinganq/article/details/79155072</a></p>
-<h2 id="JOOQ"><a href="#JOOQ" class="headerlink" title="JOOQ"></a>JOOQ</h2><p><a href="https://www.jooq.org/doc/3.10/manual/" target="_blank" rel="noopener">https://www.jooq.org/doc/3.10/manual/</a></p>
-<p>JOOQ 3.8.2 使用 教程：从入门到提高<br><a href="https://amao12580.github.io/post/2016/04/JOOQ-from-entry-to-improve/" target="_blank" rel="noopener">https://amao12580.github.io/post/2016/04/JOOQ-from-entry-to-improve/</a></p>
-<h2 id="spring-boot-devtools"><a href="#spring-boot-devtools" class="headerlink" title="spring-boot-devtools"></a>spring-boot-devtools</h2><p>Spring Boot 1.3 has introduced devtools, a module to improve the development-time experience when working on Spring Boot applications. To enable it, just add the following dependency to your project:<br>(<a href="https://docs.spring.io/spring-boot/docs/current/maven-plugin/usage.html" target="_blank" rel="noopener">https://docs.spring.io/spring-boot/docs/current/maven-plugin/usage.html</a>)</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-devtools<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.1.1.RELEASE<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">optional</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">optional</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span><br></code></pre></td></tr></table></figure>
-
-<p>When devtools is running, it detects change when you recompile your application and automatically refreshes it. This works for not only resources but code as well. It also provides a LiveReload server so that it can automatically trigger a browser refresh whenever things change.<br>Devtools can also be configured to only refresh the browser whenever a static resource has changed (and ignore any change in the code). Just include the following property in your project:</p>
-<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">spring.devtools.remote.restart.enabled</span>=<span class="hljs-literal">false</span><br></code></pre></td></tr></table></figure>
-
-<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs sh">   _____<br>  /  _  \__  _  __ ____   __________   _____   ____<br> /  /_\  \ \/ \/ // __ \ /  ___/  _ \ /     \_/ __ \<br>/    |    \     /\  ___/ \___ (  &lt;_&gt; )  Y Y  \  ___/<br>\____|__  /\/\_/  \___  &gt;____  &gt;____/|__|_|  /\___  &gt;<br>        \/            \/     \/            \/     \/<br><br>// spring banner<br>// file name: src/main/resources/banner.txt<br>// design by http://patorjk.com/software/taag<br>// [18-SpringBoot——核心-基本配置 - https://github.com/Wang-Jun-Chao - CSDN博客](https://blog.csdn.net/DERRANTCM/article/details/77284924)<br></code></pre></td></tr></table></figure>
-
-<h2 id="下面这两种有什么区别呢"><a href="#下面这两种有什么区别呢" class="headerlink" title="下面这两种有什么区别呢"></a>下面这两种有什么区别呢</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- 1 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">parent</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-parent<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.3.1.RELEASE<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">relativePath</span>/&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">parent</span>&gt;</span><br></code></pre></td></tr></table></figure>
-
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- 2  --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependencyManagement</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-dependencies<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>$&#123;spring-boot.version&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">type</span>&gt;</span>pom<span class="hljs-tag">&lt;/<span class="hljs-name">type</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>import<span class="hljs-tag">&lt;/<span class="hljs-name">scope</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependencyManagement</span>&gt;</span><br></code></pre></td></tr></table></figure>
-
-<p>参照<a href="https://www.cnblogs.com/maohuidong/p/11507362.html" target="_blank" rel="noopener">spring.profiles.active=@profiles.active@的含义 - 毛会懂 - 博客园</a><br>在动态配置环境的过程中，如果用了 2（新建项目时自动生成的） 而没有用 1，就会导致报一个错误<br>@profiles.active@ IllegalStateException: Failed to load property source from spring.profile.active</p>
-<h2 id="参数验证"><a href="#参数验证" class="headerlink" title="参数验证"></a>参数验证</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// controller</span><br><span class="hljs-meta">@RestController</span><br><span class="hljs-meta">@Api</span>(tags = <span class="hljs-string">"[管理后台]-[放映厅]-片单管理API"</span>)<br><span class="hljs-meta">@RequestMapping</span>(<span class="hljs-string">"/playlist"</span>)<br><span class="hljs-meta">@RequiredArgsConstructor</span>(onConstructor = @__(<span class="hljs-meta">@Autowired</span>))<br><span class="hljs-meta">@Validated</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PlaylistController</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">BaseController</span> </span>&#123;<br>    <span class="hljs-comment">// ...</span><br>    <span class="hljs-meta">@ApiOperation</span>(value = <span class="hljs-string">"列出片单"</span>, notes = <span class="hljs-string">"根据参数列出符合要求的片单"</span>)<br>    <span class="hljs-meta">@GetMapping</span>(<span class="hljs-string">"list"</span>)<br>    <span class="hljs-keyword">public</span> ResultMsg&lt;PageInfo&lt;PlaylistCo&gt;&gt; listPlaylist(<span class="hljs-meta">@Valid</span> PlaylistListQry qry) &#123;<br>        <span class="hljs-keyword">return</span> renderSuccessData(playlistAdminService.listPlaylistByPage(qry));<br>    &#125;<br>&#125;<br><br><span class="hljs-comment">// PlaylistListQry.java</span><br><span class="hljs-meta">@EqualsAndHashCode</span>(callSuper = <span class="hljs-keyword">true</span>)<br><span class="hljs-meta">@Data</span><br><span class="hljs-meta">@ApiModel</span>(value = <span class="hljs-string">"列出片单列表参数实体"</span>)<br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PlaylistListQry</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">CommonCommand</span> </span>&#123;<br><br>    <span class="hljs-meta">@ApiModelProperty</span>(value = <span class="hljs-string">"放映状态"</span>)<br>    <span class="hljs-keyword">private</span> Integer playStatus;<br><br>    <span class="hljs-meta">@NotNull</span>(message = <span class="hljs-string">"页码不能为空"</span>) <span class="hljs-meta">@Min</span>(value = <span class="hljs-number">1</span>, message = <span class="hljs-string">"页码要大于0"</span>)<br>    Integer pageNo;<br><br>    <span class="hljs-meta">@NotNull</span>(message = <span class="hljs-string">"每页大小不能为空"</span>) <span class="hljs-meta">@Min</span>(value = <span class="hljs-number">1</span>, message = <span class="hljs-string">"每页大小要大于0"</span>)<br>    Integer pageSize;<br>&#125;<br><br><span class="hljs-comment">// 错误统一处理</span><br><span class="hljs-meta">@ControllerAdvice</span><br><span class="hljs-meta">@Order</span>(value = Ordered.HIGHEST_PRECEDENCE)<br><span class="hljs-meta">@Slf</span>4j<br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">GlobalExceptionHandler</span> </span>&#123;<br>    <span class="hljs-meta">@ExceptionHandler</span>(ValidationException<span class="hljs-class">.<span class="hljs-keyword">class</span>)</span><br><span class="hljs-class">    @<span class="hljs-title">ResponseBody</span></span><br><span class="hljs-class">    <span class="hljs-title">public</span> <span class="hljs-title">ResponseVO</span> <span class="hljs-title">handle</span>(<span class="hljs-title">ValidationException</span> <span class="hljs-title">exception</span>) </span>&#123;<br>        String message = <span class="hljs-keyword">null</span>;<br>        <span class="hljs-keyword">if</span> (exception <span class="hljs-keyword">instanceof</span> ConstraintViolationException) &#123;<br>            ConstraintViolationException exs = (ConstraintViolationException) exception;<br><br>            Set&lt;ConstraintViolation&lt;?&gt;&gt; violations = exs.getConstraintViolations();<br>            <span class="hljs-keyword">for</span> (ConstraintViolation&lt;?&gt; item : violations) &#123;<br>                <span class="hljs-comment">//打印验证不通过的信息</span><br>                message = item.getMessage();<br>                <span class="hljs-keyword">break</span>;<br>            &#125;<br>        &#125;<br><br>        <span class="hljs-comment">// 处理实体字段验证不通过异常</span><br>        <span class="hljs-keyword">if</span>( exception <span class="hljs-keyword">instanceof</span>  MethodArgumentNotValidException)&#123;<br>          message = getDefaultMessageStr((MethodArgumentNotValidException) e);<br>        &#125;<br><br>        <span class="hljs-keyword">return</span> ResponseVO.buildIllegalMsg(message);<br><br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> String <span class="hljs-title">getDefaultMessageStr</span><span class="hljs-params">(MethodArgumentNotValidException e)</span> </span>&#123;<br>        BindingResult result = e.getBindingResult();<br>        <span class="hljs-keyword">final</span> List&lt;FieldError&gt; fieldErrors = result.getFieldErrors();<br>        String defaultMessageStr = <span class="hljs-string">""</span>;<br>        <span class="hljs-keyword">if</span> (!CollectionUtil.isEmpty(fieldErrors)) &#123;<br>            <span class="hljs-keyword">final</span> List&lt;String&gt; msgList = fieldErrors.stream().map(FieldError::getDefaultMessage)<br>                    .collect(Collectors.toList());<br>            defaultMessageStr = StrUtil.join(<span class="hljs-string">", "</span>, msgList);<br>        &#125;<br>        <span class="hljs-keyword">return</span> defaultMessageStr;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h2 id="分页处理"><a href="#分页处理" class="headerlink" title="分页处理"></a>分页处理</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// controller</span><br>  <span class="hljs-meta">@ApiOperation</span>(value = <span class="hljs-string">"列出片单"</span>, notes = <span class="hljs-string">"根据参数列出符合要求的片单"</span>)<br>  <span class="hljs-meta">@GetMapping</span>(<span class="hljs-string">"list"</span>)<br>  <span class="hljs-keyword">public</span> ResultMsg&lt;PageInfo&lt;PlaylistCo&gt;&gt; listPlaylist(<span class="hljs-meta">@Valid</span> PlaylistListQry qry) &#123;<br>    <span class="hljs-keyword">return</span> renderSuccessData(playlistAdminService.listPlaylistByPage(qry));<br>  &#125;<br><span class="hljs-comment">// serviceImpl</span><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> PageInfo&lt;PlaylistCo&gt; <span class="hljs-title">listPlaylistByPage</span><span class="hljs-params">(PlaylistListQry qry)</span> </span>&#123;<br>        List&lt;PlaylistCo&gt; playlistCoList = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();<br>        <span class="hljs-comment">// https://pagehelper.github.io/docs/howtouse/</span><br>        <span class="hljs-comment">// https://github.com/pagehelper/Mybatis-PageHelper/blob/master/wikis/en/HowToUse.md</span><br>        <span class="hljs-comment">// com.github.pagehelper.PageHelper</span><br>        PageHelper.startPage(qry.getPageNo(), qry.getPageSize());<br>        <span class="hljs-comment">// 根据状态获取片单</span><br>        <span class="hljs-keyword">final</span> List&lt;PlaylistEntity&gt; playlistEntityList = playlistService.lambdaQuery()<br>                .eq(qry.getPlayStatus() != <span class="hljs-keyword">null</span>, PlaylistEntity::getPlayStatus, qry.getPlayStatus())<br>                .eq(PlaylistEntity::getDeleted, DeleteType.NOT_DELETE.getCode())<br>                .eq(PlaylistEntity::getCheckStatus, CheckStatusType.APPROVED.getCode())<br>                .list();<br><br>        <span class="hljs-keyword">if</span> (playlistEntityList.isEmpty()) &#123;<br>            <span class="hljs-keyword">return</span> PageHelpUtils.getPageInfoFromView(playlistEntityList, playlistCoList);<br>        &#125;<br>        <span class="hljs-comment">// 转换片单实体</span><br>        playlistCoList = playlistEntityList.stream().map(playlistConvertor::toCo).collect(Collectors.toList());<br>        <span class="hljs-keyword">return</span> PageHelpUtils.getPageInfoFromView(playlistEntityList, playlistCoList);<br>    &#125;<br><span class="hljs-comment">// [Mybatis3.4.x技术内幕（二十）：PageHelper分页插件源码及原理剖析 - 祖大俊的个人页面 - OSCHINA - 中文开源技术交流社区](https://my.oschina.net/zudajun/blog/745232)</span><br><span class="hljs-comment">// PageHelpUtils.java</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PageHelpUtils</span> </span>&#123;<br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 转换数据list为带分页格式</span><br><span class="hljs-comment">     *</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> dataList 数据list</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@return</span> pageinfo格式的数据list</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> &lt;T&gt; <span class="hljs-function">PageInfo&lt;T&gt; <span class="hljs-title">getPageInfo</span><span class="hljs-params">(List&lt;T&gt; dataList)</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> PageInfo&lt;T&gt;(dataList);<br>    &#125;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 转换数据list为带分页格式，并替换数据为viewlist</span><br><span class="hljs-comment">     *</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> sourceDataList 数据库对应list</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> viewList       展现层list</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@return</span> 带分页格式的展现层list</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-meta">@SuppressWarnings</span>(<span class="hljs-string">"all"</span>)<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> &lt;T&gt; <span class="hljs-function">PageInfo&lt;T&gt; <span class="hljs-title">getPageInfoFromView</span><span class="hljs-params">(List sourceDataList, List&lt;T&gt; viewList)</span> </span>&#123;<br>        PageInfo pageInfo = <span class="hljs-keyword">new</span> PageInfo(sourceDataList);<br>        pageInfo.setList(viewList);<br>        <span class="hljs-keyword">return</span> pageInfo;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p><strong>效果</strong></p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><code class="hljs json">&#123;<br>  <span class="hljs-attr">"code"</span>: <span class="hljs-string">"00000"</span>,<br>  <span class="hljs-attr">"msg"</span>: <span class="hljs-string">"success"</span>,<br>  <span class="hljs-attr">"data"</span>: &#123;<br>    <span class="hljs-attr">"total"</span>: <span class="hljs-number">12</span>,<br>    <span class="hljs-attr">"list"</span>: [<br>      &#123;<br>        <span class="hljs-attr">"id"</span>: <span class="hljs-number">2</span>,<br>        <span class="hljs-attr">"roomId"</span>: <span class="hljs-number">1</span>,<br>        <span class="hljs-attr">"playlistName"</span>: <span class="hljs-string">"片单2"</span>,<br>        <span class="hljs-attr">"playStatus"</span>: <span class="hljs-number">1</span>,<br>        <span class="hljs-attr">"memo"</span>: <span class="hljs-string">"备注"</span><br>      &#125;,<br>      &#123;<br>        <span class="hljs-attr">"id"</span>: <span class="hljs-number">3</span>,<br>        <span class="hljs-attr">"roomId"</span>: <span class="hljs-number">1</span>,<br>        <span class="hljs-attr">"playlistName"</span>: <span class="hljs-string">"片单3"</span>,<br>        <span class="hljs-attr">"playStatus"</span>: <span class="hljs-number">1</span>,<br>        <span class="hljs-attr">"memo"</span>: <span class="hljs-string">"备注"</span><br>      &#125;,<br>      &#123;<br>        <span class="hljs-attr">"id"</span>: <span class="hljs-number">4</span>,<br>        <span class="hljs-attr">"roomId"</span>: <span class="hljs-number">1</span>,<br>        <span class="hljs-attr">"playlistName"</span>: <span class="hljs-string">"片单4"</span>,<br>        <span class="hljs-attr">"playTime"</span>: <span class="hljs-string">"2021-03-18 17:53:38"</span>,<br>        <span class="hljs-attr">"playStatus"</span>: <span class="hljs-number">1</span>,<br>        <span class="hljs-attr">"checkStatus"</span>: <span class="hljs-number">1</span>,<br>        <span class="hljs-attr">"checkTime"</span>: <span class="hljs-string">"2021-03-25 16:18:56"</span><br>      &#125;,<br>      &#123;<br>        <span class="hljs-attr">"id"</span>: <span class="hljs-number">5</span>,<br>        <span class="hljs-attr">"roomId"</span>: <span class="hljs-number">1</span>,<br>        <span class="hljs-attr">"playlistName"</span>: <span class="hljs-string">"片单5"</span>,<br>        <span class="hljs-attr">"playStatus"</span>: <span class="hljs-number">1</span>,<br>        <span class="hljs-attr">"memo"</span>: <span class="hljs-string">"备注"</span><br>      &#125;<br>    ],<br>    <span class="hljs-attr">"pageNum"</span>: <span class="hljs-number">1</span>,<br>    <span class="hljs-attr">"pageSize"</span>: <span class="hljs-number">4</span>,<br>    <span class="hljs-attr">"size"</span>: <span class="hljs-number">4</span>,<br>    <span class="hljs-attr">"startRow"</span>: <span class="hljs-number">1</span>,<br>    <span class="hljs-attr">"endRow"</span>: <span class="hljs-number">4</span>,<br>    <span class="hljs-attr">"pages"</span>: <span class="hljs-number">3</span>,<br>    <span class="hljs-attr">"prePage"</span>: <span class="hljs-number">0</span>,<br>    <span class="hljs-attr">"nextPage"</span>: <span class="hljs-number">2</span>,<br>    <span class="hljs-attr">"isFirstPage"</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">"isLastPage"</span>: <span class="hljs-literal">false</span>,<br>    <span class="hljs-attr">"hasPreviousPage"</span>: <span class="hljs-literal">false</span>,<br>    <span class="hljs-attr">"hasNextPage"</span>: <span class="hljs-literal">true</span>,<br>    <span class="hljs-attr">"navigatePages"</span>: <span class="hljs-number">8</span>,<br>    <span class="hljs-attr">"navigatepageNums"</span>: [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>],<br>    <span class="hljs-attr">"navigateFirstPage"</span>: <span class="hljs-number">1</span>,<br>    <span class="hljs-attr">"navigateLastPage"</span>: <span class="hljs-number">3</span><br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h2 id="数据转换"><a href="#数据转换" class="headerlink" title="数据转换"></a>数据转换</h2><p><a href="https://www.javaer101.com/article/2490162.html" target="_blank" rel="noopener">RestTemplate 交换，未为带下划线的字段映射值 - Javaer101</a></p>
-<p>使用 <code>@JsonProperty</code> 注解</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@JsonProperty</span>(<span class="hljs-string">"Test_Id"</span>)<br><span class="hljs-keyword">private</span> String Test_Id; <span class="hljs-comment">// prefer rename to testId</span><br></code></pre></td></tr></table></figure>
-
-<h2 id="CROS-跨域处理"><a href="#CROS-跨域处理" class="headerlink" title="CROS 跨域处理"></a>CROS 跨域处理</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Configuration</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CorsConfiguration</span> </span>&#123;<br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> FilterRegistrationBean&lt;CorsFilter&gt; <span class="hljs-title">corsFilter</span><span class="hljs-params">()</span> </span>&#123;<br>        CorsConfiguration config = <span class="hljs-keyword">new</span> CorsConfiguration() &#123;&#123;<br>            setAllowCredentials(<span class="hljs-keyword">true</span>);<br>            addAllowedOrigin(<span class="hljs-string">"*"</span>);<br>            addAllowedHeader(<span class="hljs-string">"*"</span>);<br>            addAllowedMethod(<span class="hljs-string">"*"</span>);<br>        &#125;&#125;;<br><br>        <span class="hljs-keyword">final</span> CorsFilter corsFilter = <span class="hljs-keyword">new</span> CorsFilter(<span class="hljs-keyword">new</span> UrlBasedCorsConfigurationSource() &#123;&#123;<br>            registerCorsConfiguration(<span class="hljs-string">"/**"</span>, config);<br>        &#125;&#125;);<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> FilterRegistrationBean&lt;CorsFilter&gt;(corsFilter) &#123;&#123;<br>            setOrder(<span class="hljs-number">0</span>);<br>        &#125;&#125;;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h2 id="Spring-Boot-之-Enable-注解的工作原理-简书"><a href="#Spring-Boot-之-Enable-注解的工作原理-简书" class="headerlink" title="Spring-Boot 之@Enable*注解的工作原理 - 简书"></a><a href="https://www.jianshu.com/p/3da069bd865c" target="_blank" rel="noopener">Spring-Boot 之@Enable*注解的工作原理 - 简书</a></h2><h2 id="扫描"><a href="#扫描" class="headerlink" title="扫描"></a>扫描</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java">com.lyloou.*;<br>com.lyloou.**;<br></code></pre></td></tr></table></figure>
-
-<p><code>**</code>匹配当前包和子包：如 com.lyloou 包下的Bean可以识别，com.lyloou.demo 也可以识别。<br>而<code>*</code>只能匹配子包：如 com.lyloou 包下的Bean识别不了。com.lyloou.demo下面的可以识别。</p>
-<p><a href="https://blog.csdn.net/u012325167/article/details/75388990?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_paycolumn_v3&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1.pc_relevant_paycolumn_v3&utm_relevant_index=1" target="_blank" rel="noopener">关于component-scan中base-package包含通配符的问题探究_陈夏明的博客-CSDN博客_basepackages通配符</a></p>
-<p><a href="https://blog.csdn.net/SunnyDay87/article/details/106391759" target="_blank" rel="noopener">Spring boot basePackages 通配符* 找不到Bean_小小一只の蜗牛的博客-CSDN博客_basepackages通配符</a></p>
-
-    </div>
-
-    
-    
-    
-      
-  <div class="popular-posts-header">相关文章</div>
-  <ul class="popular-posts">
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/android/学习资料/" rel="bookmark">Android学习资料</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/business/Token身份认证设计/" rel="bookmark">基于 AOP 和 JWT 实现的 Token 身份认证组件</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/business/签名设计/" rel="bookmark">接口签名校验设计</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/java/Java8/" rel="bookmark">Java8</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/java/Equable/" rel="bookmark">【Java】通过 Getter 方法引用，来比较两个对象是否相等</a></div>
-    </li>
-  </ul>
-
-
-      <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/java/" rel="tag"># java</a>
-          </div>
-
+</header>
         
-
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/ssm/swagger/" rel="prev" title="【SSM】swagger相关">
-      <i class="fa fa-chevron-left"></i> 【SSM】swagger相关
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/js/npm-package.json/" rel="next" title="Npm-Package">
-      Npm-Package <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
-    
-  </article>
   
-  
-  
-
-
-
-          </div>
-          
-    <div class="comments" id="gitalk-container"></div>
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
-
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
   <aside class="sidebar">
-    <div class="sidebar-inner">
 
-      <ul class="sidebar-nav motion-element">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
         </li>
@@ -388,212 +138,304 @@
         </li>
       </ul>
 
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring"><span class="nav-number">1.</span> <span class="nav-text">Spring</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JOOQ"><span class="nav-number">2.</span> <span class="nav-text">JOOQ</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spring-boot-devtools"><span class="nav-number">3.</span> <span class="nav-text">spring-boot-devtools</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置"><span class="nav-number">4.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下面这两种有什么区别呢"><span class="nav-number">5.</span> <span class="nav-text">下面这两种有什么区别呢</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参数验证"><span class="nav-number">6.</span> <span class="nav-text">参数验证</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分页处理"><span class="nav-number">7.</span> <span class="nav-text">分页处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据转换"><span class="nav-number">8.</span> <span class="nav-text">数据转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CROS-跨域处理"><span class="nav-number">9.</span> <span class="nav-text">CROS 跨域处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-Boot-之-Enable-注解的工作原理-简书"><span class="nav-number">10.</span> <span class="nav-text">Spring-Boot 之@Enable*注解的工作原理 - 简书</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#扫描"><span class="nav-number">11.</span> <span class="nav-text">扫描</span></a></li></ol></div>
-      </div>
-      <!--/noindex-->
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring"><span class="nav-number">1.</span> <span class="nav-text">Spring</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JOOQ"><span class="nav-number">2.</span> <span class="nav-text">JOOQ</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spring-boot-devtools"><span class="nav-number">3.</span> <span class="nav-text">spring-boot-devtools</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE"><span class="nav-number">4.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E9%9D%A2%E8%BF%99%E4%B8%A4%E7%A7%8D%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%E5%91%A2"><span class="nav-number">5.</span> <span class="nav-text">下面这两种有什么区别呢</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E6%95%B0%E9%AA%8C%E8%AF%81"><span class="nav-number">6.</span> <span class="nav-text">参数验证</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E9%A1%B5%E5%A4%84%E7%90%86"><span class="nav-number">7.</span> <span class="nav-text">分页处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%BD%AC%E6%8D%A2"><span class="nav-number">8.</span> <span class="nav-text">数据转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CROS-%E8%B7%A8%E5%9F%9F%E5%A4%84%E7%90%86"><span class="nav-number">9.</span> <span class="nav-text">CROS 跨域处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-Boot-%E4%B9%8B-Enable-%E6%B3%A8%E8%A7%A3%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86-%E7%AE%80%E4%B9%A6"><span class="nav-number">10.</span> <span class="nav-text">Spring-Boot 之@Enable*注解的工作原理 - 简书</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%AB%E6%8F%8F"><span class="nav-number">11.</span> <span class="nav-text">扫描</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
 
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="lyloou"
       src="/assets/images/avatar.png">
   <p class="site-author-name" itemprop="name">lyloou</p>
   <div class="site-description" itemprop="description">/* Better than last best */</div>
 </div>
-<div class="site-state-wrap motion-element">
+<div class="site-state-wrap animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
+        <a href="/archives/">
           <span class="site-state-item-count">312</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
+          <a href="/tags/">
         <span class="site-state-item-count">56</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
-  <div class="links-of-author motion-element">
+  <div class="links-of-author animated">
       <span class="links-of-author-item">
-        <a href="https://github.com/lyloou" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;lyloou" rel="noopener" target="_blank">GitHub</a>
+        <a href="https://github.com/lyloou" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;lyloou" rel="noopener me" target="_blank"><i class="github fa-fw"></i>GitHub</a>
       </span>
       <span class="links-of-author-item">
-        <a href="mailto:lyloou6@gmail.com" title="E-Mail → mailto:lyloou6@gmail.com" rel="noopener" target="_blank">E-Mail</a>
+        <a href="mailto:lyloou6@gmail.com" title="E-Mail → mailto:lyloou6@gmail.com" rel="noopener me" target="_blank"><i class="envelope fa-fw"></i>E-Mail</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://weibo.com/lyloou" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;lyloou" rel="noopener" target="_blank">Weibo</a>
+        <a href="https://weibo.com/lyloou" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;lyloou" rel="noopener me" target="_blank"><i class="weibo fa-fw"></i>Weibo</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://blog.csdn.net/ly1414725328" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;ly1414725328" rel="noopener" target="_blank">CSDN</a>
+        <a href="https://blog.csdn.net/ly1414725328" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;ly1414725328" rel="noopener me" target="_blank"><i class="csdn fa-fw"></i>CSDN</a>
       </span>
   </div>
-  <div class="cc-license motion-element" itemprop="license">
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
   </div>
 
-
-
+        </div>
       </div>
+    </div>
+
+    
+        <div class="pjax">
+        </div>
+  </aside>
+
 
     </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
+
+    <div class="main-inner post posts-expand">
 
 
-      </div>
-    </main>
+  
 
-    <footer class="footer">
-      <div class="footer-inner">
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.com/ssm/springboot/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/images/avatar.png">
+      <meta itemprop="name" content="lyloou">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Springboot | lyloou">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Springboot
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-10-11 11:29:00" itemprop="dateCreated datePublished" datetime="2018-10-11T11:29:00+08:00">2018-10-11</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>maven: <a target="_blank" rel="noopener" href="http://wiki.jikexueyuan.com/project/maven/">http://wiki.jikexueyuan.com/project/maven/</a><br>spring: <a target="_blank" rel="noopener" href="https://wiki.jikexueyuan.com/project/spring">https://wiki.jikexueyuan.com/project/spring</a></p>
+<h2 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h2><p>注解仅仅是对类加上了一些元信息，如果不使用反射等 API 对其进行探测、处理，和不加注解没有任何区别。<br><a target="_blank" rel="noopener" href="https://course.tianmaying.com/web-development+form-validation#">https://course.tianmaying.com/web-development+form-validation#</a></p>
+<p>任何一个标注了@Bean 的方法，其返回值将作为一个 bean 定义注册到 Spring 的 IoC 容器，方法名将默认成该 bean 定义的 id。<br><a target="_blank" rel="noopener" href="http://tengj.top/2017/03/09/springboot3/">http://tengj.top/2017/03/09/springboot3/</a></p>
+<p>Spring Boot 常用注解（一） - 声明 Bean 的注解 - CSDN 博客<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/lipinganq/article/details/79155072">https://blog.csdn.net/lipinganq/article/details/79155072</a></p>
+<h2 id="JOOQ"><a href="#JOOQ" class="headerlink" title="JOOQ"></a>JOOQ</h2><p><a target="_blank" rel="noopener" href="https://www.jooq.org/doc/3.10/manual/">https://www.jooq.org/doc/3.10/manual/</a></p>
+<p>JOOQ 3.8.2 使用 教程：从入门到提高<br><a target="_blank" rel="noopener" href="https://amao12580.github.io/post/2016/04/JOOQ-from-entry-to-improve/">https://amao12580.github.io/post/2016/04/JOOQ-from-entry-to-improve/</a></p>
+<h2 id="spring-boot-devtools"><a href="#spring-boot-devtools" class="headerlink" title="spring-boot-devtools"></a>spring-boot-devtools</h2><p>Spring Boot 1.3 has introduced devtools, a module to improve the development-time experience when working on Spring Boot applications. To enable it, just add the following dependency to your project:<br>(<a target="_blank" rel="noopener" href="https://docs.spring.io/spring-boot/docs/current/maven-plugin/usage.html">https://docs.spring.io/spring-boot/docs/current/maven-plugin/usage.html</a>)</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-devtools<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.1.1.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">optional</span>&gt;</span>true<span class="tag">&lt;/<span class="name">optional</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>When devtools is running, it detects change when you recompile your application and automatically refreshes it. This works for not only resources but code as well. It also provides a LiveReload server so that it can automatically trigger a browser refresh whenever things change.<br>Devtools can also be configured to only refresh the browser whenever a static resource has changed (and ignore any change in the code). Just include the following property in your project:</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring.devtools.remote.restart.enabled</span>=<span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">   _____</span><br><span class="line">  /  _  \__  _  __ ____   __________   _____   ____</span><br><span class="line"> /  /_\  \ \/ \/ // __ \ /  ___/  _ \ /     \_/ __ \</span><br><span class="line">/    |    \     /\  ___/ \___ (  &lt;_&gt; )  Y Y  \  ___/</span><br><span class="line">\____|__  /\/\_/  \___  &gt;____  &gt;____/|__|_|  /\___  &gt;</span><br><span class="line">        \/            \/     \/            \/     \/</span><br><span class="line"></span><br><span class="line">// spring banner</span><br><span class="line">// file name: src/main/resources/banner.txt</span><br><span class="line">// design by http://patorjk.com/software/taag</span><br><span class="line">// [18-SpringBoot——核心-基本配置 - https://github.com/Wang-Jun-Chao - CSDN博客](https://blog.csdn.net/DERRANTCM/article/details/77284924)</span><br></pre></td></tr></table></figure>
+
+<h2 id="下面这两种有什么区别呢"><a href="#下面这两种有什么区别呢" class="headerlink" title="下面这两种有什么区别呢"></a>下面这两种有什么区别呢</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 1 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-parent<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.3.1.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">relativePath</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 2  --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependencyManagement</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-dependencies<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;spring-boot.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">type</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">type</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">scope</span>&gt;</span>import<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencyManagement</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>参照<a target="_blank" rel="noopener" href="https://www.cnblogs.com/maohuidong/p/11507362.html">spring.profiles.active=@profiles.active@的含义 - 毛会懂 - 博客园</a><br>在动态配置环境的过程中，如果用了 2（新建项目时自动生成的） 而没有用 1，就会导致报一个错误<br>@profiles.active@ IllegalStateException: Failed to load property source from spring.profile.active</p>
+<h2 id="参数验证"><a href="#参数验证" class="headerlink" title="参数验证"></a>参数验证</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// controller</span></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@Api(tags = &quot;[管理后台]-[放映厅]-片单管理API&quot;)</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/playlist&quot;)</span></span><br><span class="line"><span class="meta">@RequiredArgsConstructor(onConstructor = @__(@Autowired))</span></span><br><span class="line"><span class="meta">@Validated</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">PlaylistController</span> <span class="keyword">extends</span> <span class="title class_">BaseController</span> &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">    <span class="meta">@ApiOperation(value = &quot;列出片单&quot;, notes = &quot;根据参数列出符合要求的片单&quot;)</span></span><br><span class="line">    <span class="meta">@GetMapping(&quot;list&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> ResultMsg&lt;PageInfo&lt;PlaylistCo&gt;&gt; <span class="title function_">listPlaylist</span><span class="params">(<span class="meta">@Valid</span> PlaylistListQry qry)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> renderSuccessData(playlistAdminService.listPlaylistByPage(qry));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// PlaylistListQry.java</span></span><br><span class="line"><span class="meta">@EqualsAndHashCode(callSuper = true)</span></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@ApiModel(value = &quot;列出片单列表参数实体&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">PlaylistListQry</span> <span class="keyword">extends</span> <span class="title class_">CommonCommand</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiModelProperty(value = &quot;放映状态&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> Integer playStatus;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@NotNull(message = &quot;页码不能为空&quot;)</span> <span class="meta">@Min(value = 1, message = &quot;页码要大于0&quot;)</span></span><br><span class="line">    Integer pageNo;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@NotNull(message = &quot;每页大小不能为空&quot;)</span> <span class="meta">@Min(value = 1, message = &quot;每页大小要大于0&quot;)</span></span><br><span class="line">    Integer pageSize;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 错误统一处理</span></span><br><span class="line"><span class="meta">@ControllerAdvice</span></span><br><span class="line"><span class="meta">@Order(value = Ordered.HIGHEST_PRECEDENCE)</span></span><br><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">GlobalExceptionHandler</span> &#123;</span><br><span class="line">    <span class="meta">@ExceptionHandler(ValidationException.class)</span></span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="keyword">public</span> ResponseVO <span class="title function_">handle</span><span class="params">(ValidationException exception)</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">message</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">if</span> (exception <span class="keyword">instanceof</span> ConstraintViolationException) &#123;</span><br><span class="line">            <span class="type">ConstraintViolationException</span> <span class="variable">exs</span> <span class="operator">=</span> (ConstraintViolationException) exception;</span><br><span class="line"></span><br><span class="line">            Set&lt;ConstraintViolation&lt;?&gt;&gt; violations = exs.getConstraintViolations();</span><br><span class="line">            <span class="keyword">for</span> (ConstraintViolation&lt;?&gt; item : violations) &#123;</span><br><span class="line">                <span class="comment">//打印验证不通过的信息</span></span><br><span class="line">                message = item.getMessage();</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 处理实体字段验证不通过异常</span></span><br><span class="line">        <span class="keyword">if</span>( exception <span class="keyword">instanceof</span>  MethodArgumentNotValidException)&#123;</span><br><span class="line">          message = getDefaultMessageStr((MethodArgumentNotValidException) e);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> ResponseVO.buildIllegalMsg(message);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String <span class="title function_">getDefaultMessageStr</span><span class="params">(MethodArgumentNotValidException e)</span> &#123;</span><br><span class="line">        <span class="type">BindingResult</span> <span class="variable">result</span> <span class="operator">=</span> e.getBindingResult();</span><br><span class="line">        <span class="keyword">final</span> List&lt;FieldError&gt; fieldErrors = result.getFieldErrors();</span><br><span class="line">        <span class="type">String</span> <span class="variable">defaultMessageStr</span> <span class="operator">=</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="keyword">if</span> (!CollectionUtil.isEmpty(fieldErrors)) &#123;</span><br><span class="line">            <span class="keyword">final</span> List&lt;String&gt; msgList = fieldErrors.stream().map(FieldError::getDefaultMessage)</span><br><span class="line">                    .collect(Collectors.toList());</span><br><span class="line">            defaultMessageStr = StrUtil.join(<span class="string">&quot;, &quot;</span>, msgList);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> defaultMessageStr;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="分页处理"><a href="#分页处理" class="headerlink" title="分页处理"></a>分页处理</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// controller</span></span><br><span class="line">  <span class="meta">@ApiOperation(value = &quot;列出片单&quot;, notes = &quot;根据参数列出符合要求的片单&quot;)</span></span><br><span class="line">  <span class="meta">@GetMapping(&quot;list&quot;)</span></span><br><span class="line">  <span class="keyword">public</span> ResultMsg&lt;PageInfo&lt;PlaylistCo&gt;&gt; <span class="title function_">listPlaylist</span><span class="params">(<span class="meta">@Valid</span> PlaylistListQry qry)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> renderSuccessData(playlistAdminService.listPlaylistByPage(qry));</span><br><span class="line">  &#125;</span><br><span class="line"><span class="comment">// serviceImpl</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> PageInfo&lt;PlaylistCo&gt; <span class="title function_">listPlaylistByPage</span><span class="params">(PlaylistListQry qry)</span> &#123;</span><br><span class="line">        List&lt;PlaylistCo&gt; playlistCoList = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        <span class="comment">// https://pagehelper.github.io/docs/howtouse/</span></span><br><span class="line">        <span class="comment">// https://github.com/pagehelper/Mybatis-PageHelper/blob/master/wikis/en/HowToUse.md</span></span><br><span class="line">        <span class="comment">// com.github.pagehelper.PageHelper</span></span><br><span class="line">        PageHelper.startPage(qry.getPageNo(), qry.getPageSize());</span><br><span class="line">        <span class="comment">// 根据状态获取片单</span></span><br><span class="line">        <span class="keyword">final</span> List&lt;PlaylistEntity&gt; playlistEntityList = playlistService.lambdaQuery()</span><br><span class="line">                .eq(qry.getPlayStatus() != <span class="literal">null</span>, PlaylistEntity::getPlayStatus, qry.getPlayStatus())</span><br><span class="line">                .eq(PlaylistEntity::getDeleted, DeleteType.NOT_DELETE.getCode())</span><br><span class="line">                .eq(PlaylistEntity::getCheckStatus, CheckStatusType.APPROVED.getCode())</span><br><span class="line">                .list();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (playlistEntityList.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">return</span> PageHelpUtils.getPageInfoFromView(playlistEntityList, playlistCoList);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 转换片单实体</span></span><br><span class="line">        playlistCoList = playlistEntityList.stream().map(playlistConvertor::toCo).collect(Collectors.toList());</span><br><span class="line">        <span class="keyword">return</span> PageHelpUtils.getPageInfoFromView(playlistEntityList, playlistCoList);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">// [Mybatis3.4.x技术内幕（二十）：PageHelper分页插件源码及原理剖析 - 祖大俊的个人页面 - OSCHINA - 中文开源技术交流社区](https://my.oschina.net/zudajun/blog/745232)</span></span><br><span class="line"><span class="comment">// PageHelpUtils.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">PageHelpUtils</span> &#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 转换数据list为带分页格式</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> dataList 数据list</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> pageinfo格式的数据list</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; PageInfo&lt;T&gt; <span class="title function_">getPageInfo</span><span class="params">(List&lt;T&gt; dataList)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">PageInfo</span>&lt;T&gt;(dataList);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 转换数据list为带分页格式，并替换数据为viewlist</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> sourceDataList 数据库对应list</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> viewList       展现层list</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 带分页格式的展现层list</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@SuppressWarnings(&quot;all&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; PageInfo&lt;T&gt; <span class="title function_">getPageInfoFromView</span><span class="params">(List sourceDataList, List&lt;T&gt; viewList)</span> &#123;</span><br><span class="line">        <span class="type">PageInfo</span> <span class="variable">pageInfo</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">PageInfo</span>(sourceDataList);</span><br><span class="line">        pageInfo.setList(viewList);</span><br><span class="line">        <span class="keyword">return</span> pageInfo;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>效果</strong></p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;code&quot;</span><span class="punctuation">:</span> <span class="string">&quot;00000&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;msg&quot;</span><span class="punctuation">:</span> <span class="string">&quot;success&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;data&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;total&quot;</span><span class="punctuation">:</span> <span class="number">12</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;list&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="number">2</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;roomId&quot;</span><span class="punctuation">:</span> <span class="number">1</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;playlistName&quot;</span><span class="punctuation">:</span> <span class="string">&quot;片单2&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;playStatus&quot;</span><span class="punctuation">:</span> <span class="number">1</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;memo&quot;</span><span class="punctuation">:</span> <span class="string">&quot;备注&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="number">3</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;roomId&quot;</span><span class="punctuation">:</span> <span class="number">1</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;playlistName&quot;</span><span class="punctuation">:</span> <span class="string">&quot;片单3&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;playStatus&quot;</span><span class="punctuation">:</span> <span class="number">1</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;memo&quot;</span><span class="punctuation">:</span> <span class="string">&quot;备注&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="number">4</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;roomId&quot;</span><span class="punctuation">:</span> <span class="number">1</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;playlistName&quot;</span><span class="punctuation">:</span> <span class="string">&quot;片单4&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;playTime&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2021-03-18 17:53:38&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;playStatus&quot;</span><span class="punctuation">:</span> <span class="number">1</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;checkStatus&quot;</span><span class="punctuation">:</span> <span class="number">1</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;checkTime&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2021-03-25 16:18:56&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="number">5</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;roomId&quot;</span><span class="punctuation">:</span> <span class="number">1</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;playlistName&quot;</span><span class="punctuation">:</span> <span class="string">&quot;片单5&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;playStatus&quot;</span><span class="punctuation">:</span> <span class="number">1</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;memo&quot;</span><span class="punctuation">:</span> <span class="string">&quot;备注&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;pageNum&quot;</span><span class="punctuation">:</span> <span class="number">1</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;pageSize&quot;</span><span class="punctuation">:</span> <span class="number">4</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;size&quot;</span><span class="punctuation">:</span> <span class="number">4</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;startRow&quot;</span><span class="punctuation">:</span> <span class="number">1</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;endRow&quot;</span><span class="punctuation">:</span> <span class="number">4</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;pages&quot;</span><span class="punctuation">:</span> <span class="number">3</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;prePage&quot;</span><span class="punctuation">:</span> <span class="number">0</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;nextPage&quot;</span><span class="punctuation">:</span> <span class="number">2</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;isFirstPage&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;isLastPage&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;hasPreviousPage&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;hasNextPage&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;navigatePages&quot;</span><span class="punctuation">:</span> <span class="number">8</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;navigatepageNums&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="number">1</span><span class="punctuation">,</span> <span class="number">2</span><span class="punctuation">,</span> <span class="number">3</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;navigateFirstPage&quot;</span><span class="punctuation">:</span> <span class="number">1</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;navigateLastPage&quot;</span><span class="punctuation">:</span> <span class="number">3</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="数据转换"><a href="#数据转换" class="headerlink" title="数据转换"></a>数据转换</h2><p><a target="_blank" rel="noopener" href="https://www.javaer101.com/article/2490162.html">RestTemplate 交换，未为带下划线的字段映射值 - Javaer101</a></p>
+<p>使用 <code>@JsonProperty</code> 注解</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@JsonProperty(&quot;Test_Id&quot;)</span></span><br><span class="line"><span class="keyword">private</span> String Test_Id; <span class="comment">// prefer rename to testId</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="CROS-跨域处理"><a href="#CROS-跨域处理" class="headerlink" title="CROS 跨域处理"></a>CROS 跨域处理</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CorsConfiguration</span> &#123;</span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> FilterRegistrationBean&lt;CorsFilter&gt; <span class="title function_">corsFilter</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="type">CorsConfiguration</span> <span class="variable">config</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">CorsConfiguration</span>() &#123;&#123;</span><br><span class="line">            setAllowCredentials(<span class="literal">true</span>);</span><br><span class="line">            addAllowedOrigin(<span class="string">&quot;*&quot;</span>);</span><br><span class="line">            addAllowedHeader(<span class="string">&quot;*&quot;</span>);</span><br><span class="line">            addAllowedMethod(<span class="string">&quot;*&quot;</span>);</span><br><span class="line">        &#125;&#125;;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">final</span> <span class="type">CorsFilter</span> <span class="variable">corsFilter</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">CorsFilter</span>(<span class="keyword">new</span> <span class="title class_">UrlBasedCorsConfigurationSource</span>() &#123;&#123;</span><br><span class="line">            registerCorsConfiguration(<span class="string">&quot;/**&quot;</span>, config);</span><br><span class="line">        &#125;&#125;);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">FilterRegistrationBean</span>&lt;CorsFilter&gt;(corsFilter) &#123;&#123;</span><br><span class="line">            setOrder(<span class="number">0</span>);</span><br><span class="line">        &#125;&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Spring-Boot-之-Enable-注解的工作原理-简书"><a href="#Spring-Boot-之-Enable-注解的工作原理-简书" class="headerlink" title="Spring-Boot 之@Enable*注解的工作原理 - 简书"></a><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/3da069bd865c">Spring-Boot 之@Enable*注解的工作原理 - 简书</a></h2><h2 id="扫描"><a href="#扫描" class="headerlink" title="扫描"></a>扫描</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">com.lyloou.*;</span><br><span class="line">com.lyloou.**;</span><br></pre></td></tr></table></figure>
+
+<p><code>**</code>匹配当前包和子包：如 com.lyloou 包下的Bean可以识别，com.lyloou.demo 也可以识别。<br>而<code>*</code>只能匹配子包：如 com.lyloou 包下的Bean识别不了。com.lyloou.demo下面的可以识别。</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u012325167/article/details/75388990?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2~default~CTRLIST~Rate-1.pc_relevant_paycolumn_v3&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2~default~CTRLIST~Rate-1.pc_relevant_paycolumn_v3&utm_relevant_index=1">关于component-scan中base-package包含通配符的问题探究_陈夏明的博客-CSDN博客_basepackages通配符</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/SunnyDay87/article/details/106391759">Spring boot basePackages 通配符* 找不到Bean_小小一只の蜗牛的博客-CSDN博客_basepackages通配符</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/java/" rel="tag"># java</a>
+          </div>
+
         
 
-        
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/ssm/swagger/" rel="prev" title="【SSM】swagger相关">
+                  <i class="fa fa-chevron-left"></i> 【SSM】swagger相关
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/js/npm-package.json/" rel="next" title="Npm-Package">
+                  Npm-Package <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  
+  <div class="comments giscus-container">
+  </div>
+  
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
   <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">粤ICP备18151128号 </a>
   </div>
 
 <div class="copyright">
-  
   &copy; 
   <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
-    <i class="user"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">lyloou</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
-  </div>
-
-        
 <div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
       <span class="post-meta-item-icon">
-        <i class="user"></i>
+        <i class="fa fa-user"></i>
       </span>
       <span class="site-uv" title="总访客量">
         <span id="busuanzi_value_site_uv"></span>
       </span>
     </span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
       <span class="post-meta-item-icon">
-        <i class="eye"></i>
+        <i class="fa fa-eye"></i>
       </span>
       <span class="site-pv" title="总访问量">
         <span id="busuanzi_value_site_pv"></span>
       </span>
     </span>
 </div>
-
-
-
-
-
-
-
-
-      </div>
-    </footer>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>
 
-  
-  <script src="/lib/anime.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-
-<script src="/js/schemes/muse.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
-
-
-
+    </div>
+  </footer>
 
   
-  <script>
-    (function(){
-      var canonicalURL, curProtocol;
-      //Get the <link> tag
-      var x=document.getElementsByTagName("link");
-		//Find the last canonical URL
-		if(x.length > 0){
-			for (i=0;i<x.length;i++){
-				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
-					canonicalURL=x[i].href;
-				}
-			}
-		}
-    //Get protocol
-	    if (!canonicalURL){
-	    	curProtocol = window.location.protocol.split(':')[0];
-	    }
-	    else{
-	    	curProtocol = canonicalURL.split(':')[0];
-	    }
-      //Get current URL if the canonical URL does not exist
-	    if (!canonicalURL) canonicalURL = window.location.href;
-	    //Assign script content. Replace current URL with the canonical URL
-      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
-  </script>
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
 
 
 
 
   
-<script src="/js/local-search.js"></script>
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 
 
-
-
-
-
-
-
+<script class="next-config" data-name="giscus" type="application/json">{"enable":true,"repo":"lyloou/lyloou.github.io","repo_id":"MDEwOlJlcG9zaXRvcnkxMDk1NzkyNzA=","category":"Announcements","category_id":"DIC_kwDOBogMBs4CWdfR","mapping":"pathname","reactions_enabled":1,"emit_metadata":1,"theme":"light","lang":"zh-CN","input_position":"bottom","loading":"lazy"}</script>
 
 <script>
-if (document.querySelectorAll('pre.mermaid').length) {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
-    mermaid.initialize({
-      theme    : 'forest',
-      logLevel : 3,
-      flowchart: { curve     : 'linear' },
-      gantt    : { axisFormat: '%m/%d/%Y' },
-      sequence : { actorMargin: 50 }
-    });
-  }, window.mermaid);
-}
-</script>
+document.addEventListener('page:loaded', () => {
+  if (!CONFIG.page.comments) return;
 
-
-  
-
-  
-
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
-
-<script>
-NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
-    var gitalk = new Gitalk({
-      clientID    : '5776a56ec2a831d83dfc',
-      clientSecret: '28440989ccf00f0ce8dbd425dc5d1eaa1eb24c7b',
-      repo        : 'lyloou.github.io',
-      owner       : 'lyloou',
-      admin       : ['lyloou'],
-      id          : 'd7247de9c23998c0b16d32dd9c4b08cd',
-        language: '',
-      distractionFreeMode: true
-    });
-    gitalk.render('gitalk-container');
-  }, window.Gitalk);
+  NexT.utils.loadComments('.giscus-container')
+    .then(() => NexT.utils.getScript('https://giscus.app/client.js', {
+      attributes: {
+        async                   : true,
+        crossOrigin             : 'anonymous',
+        'data-repo'             : CONFIG.giscus.repo,
+        'data-repo-id'          : CONFIG.giscus.repo_id,
+        'data-category'         : CONFIG.giscus.category,
+        'data-category-id'      : CONFIG.giscus.category_id,
+        'data-mapping'          : CONFIG.giscus.mapping,
+        'data-reactions-enabled': CONFIG.giscus.reactions_enabled,
+        'data-emit-metadata'    : CONFIG.giscus.emit_metadata,
+        'data-theme'            : CONFIG.giscus.theme,
+        'data-lang'             : CONFIG.giscus.lang,
+        'data-input-position'   : CONFIG.giscus.input_position,
+        'data-loading'          : CONFIG.giscus.loading
+      },
+      parentNode: document.querySelector('.giscus-container')
+    }));
 });
 </script>
 

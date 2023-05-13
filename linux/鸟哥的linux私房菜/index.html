@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="zh-CN,zh-HK,zh-TW,en,default">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
@@ -13,14 +13,13 @@
 <link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"lyloou.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
-  </script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-  <meta name="description" content="《鸟哥的 Linux 私房菜》读书笔记 逆序记录  | 使用 crontab 时需要注意： –p502  资源分配不均； 取消不要的输出选项； 安全的检验； 周与日、月不可同时并存；  | cron 这个服务的最低检测限制是“分钟”。（编辑保存后，cron 的设置就生效了，也有些例外情况，这时重启 crond 这个服务即可 &#x2F;etc&#x2F;init.d&#x2F;crond restart） –p500 | 需要">
+<script class="next-config" data-name="main" type="application/json">{"hostname":"lyloou.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"default"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="《鸟哥的 Linux 私房菜》读书笔记 逆序记录  | 使用 crontab 时需要注意： –p502  资源分配不均； 取消不要的输出选项； 安全的检验； 周与日、月不可同时并存；  | cron 这个服务的最低检测限制是“分钟”。（编辑保存后，cron 的设置就生效了，也有些例外情况，这时重启 crond 这个服务即可 &#x2F;etc&#x2F;init.d&#x2F;crond restart） –p500 | 需要">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《鸟哥的Linux私房菜》读书笔记">
 <meta property="og:url" content="https://lyloou.com/linux/%E9%B8%9F%E5%93%A5%E7%9A%84linux%E7%A7%81%E6%88%BF%E8%8F%9C/index.html">
@@ -34,37 +33,20 @@
 <meta property="article:tag" content="tool">
 <meta name="twitter:card" content="summary">
 
+
 <link rel="canonical" href="https://lyloou.com/linux/%E9%B8%9F%E5%93%A5%E7%9A%84linux%E7%A7%81%E6%88%BF%E8%8F%9C/">
 
 
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : false,
-    isPost : true,
-    lang   : 'zh-CN'
-  };
-</script>
 
-  <title>《鸟哥的Linux私房菜》读书笔记 | lyloou</title>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://lyloou.com/linux/%E9%B8%9F%E5%93%A5%E7%9A%84linux%E7%A7%81%E6%88%BF%E8%8F%9C/","path":"linux/鸟哥的linux私房菜/","title":"《鸟哥的Linux私房菜》读书笔记"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>《鸟哥的Linux私房菜》读书笔记 | lyloou</title>
   
-    <script>
-      function sendPageView() {
-        if (CONFIG.hostname !== location.hostname) return;
-        var uid = localStorage.getItem('uid') || (Math.random() + '.' + Math.random());
-        localStorage.setItem('uid', uid);
-        navigator.sendBeacon('https://www.google-analytics.com/collect', new URLSearchParams({
-          v  : 1,
-          tid: 'UA-80542932-1',
-          cid: uid,
-          t  : 'pageview',
-          dp : encodeURIComponent(location.pathname)
-        }));
-      }
-      document.addEventListener('pjax:complete', sendPageView);
-      sendPageView();
-    </script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-80542932-1","only_pageview":true}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
 
 
 
@@ -72,55 +54,35 @@
 
 
   <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container">
-    <div class="headband"></div>
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
 
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
-  <div class="site-meta custom-logo">
+  <div class="site-meta">
 
     <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">lyloou</h1>
-      <span class="logo-line-after"><i></i></span>
+      <i class="logo-line"></i>
+      <p class="site-title">lyloou</p>
+      <i class="logo-line"></i>
     </a>
   </div>
 
   <div class="site-nav-right">
-    <div class="toggle popup-trigger">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
         <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
@@ -128,29 +90,8 @@
 
 
 
-
 <nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签</a>
-
-  </li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -161,85 +102,154 @@
 
 
   <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
+    <div class="popup search-popup"><div class="search-header">
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off"
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
            placeholder="搜索..." spellcheck="false"
            type="search" class="search-input">
   </div>
-  <span class="popup-btn-close">
+  <span class="popup-btn-close" role="button">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
-<div id="search-result">
-  <div id="no-result">
-    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
   </div>
 </div>
 
     </div>
   </div>
 
-</div>
-    </header>
+</header>
+        
+  
+  <aside class="sidebar">
 
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E3%80%8A%E9%B8%9F%E5%93%A5%E7%9A%84-Linux-%E7%A7%81%E6%88%BF%E8%8F%9C%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0"><span class="nav-number">1.</span> <span class="nav-text">《鸟哥的 Linux 私房菜》读书笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC-16-%E7%AB%A0"><span class="nav-number">1.1.</span> <span class="nav-text">第 16 章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC-14-%E7%AB%A0-Linux-%E8%B4%A6%E5%8F%B7%E7%AE%A1%E7%90%86%E4%B8%8E-ACL-%E6%9D%83%E9%99%90%E8%AE%BE%E7%BD%AE"><span class="nav-number">1.2.</span> <span class="nav-text">第 14 章 Linux 账号管理与 ACL 权限设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC-13-%E7%AB%A0-%E5%AD%A6%E4%B9%A0-shell-script"><span class="nav-number">1.2.1.</span> <span class="nav-text">第 13 章 学习 shell script</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC-12-%E7%AB%A0-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%8E%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%A4%84%E7%90%86"><span class="nav-number">1.3.</span> <span class="nav-text">第 12 章 正则表达式与文件格式化处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC-11-%E7%AB%A0-%E8%AE%A4%E8%AF%86%E5%92%8C%E5%AD%A6%E4%B9%A0-bash"><span class="nav-number">1.4.</span> <span class="nav-text">第 11 章 认识和学习 bash</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC-10-%E7%AB%A0-vim-%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%BE%91%E5%99%A8"><span class="nav-number">1.5.</span> <span class="nav-text">第 10 章 vim 程序编辑器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC-9-%E7%AB%A0-%E6%96%87%E4%BB%B6%E4%B8%8E%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%8E%8B%E7%BC%A9%E4%B8%8E%E6%89%93%E5%8C%85"><span class="nav-number">1.6.</span> <span class="nav-text">第 9 章: 文件与文件系统的压缩与打包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC-8-%E7%AB%A0"><span class="nav-number">1.7.</span> <span class="nav-text">第 8 章</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="lyloou"
+      src="/assets/images/avatar.png">
+  <p class="site-author-name" itemprop="name">lyloou</p>
+  <div class="site-description" itemprop="description">/* Better than last best */</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">312</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">56</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/lyloou" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;lyloou" rel="noopener me" target="_blank"><i class="github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:lyloou6@gmail.com" title="E-Mail → mailto:lyloou6@gmail.com" rel="noopener me" target="_blank"><i class="envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/lyloou" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;lyloou" rel="noopener me" target="_blank"><i class="weibo fa-fw"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/ly1414725328" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;ly1414725328" rel="noopener me" target="_blank"><i class="csdn fa-fw"></i>CSDN</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
   </div>
 
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content post posts-expand">
-            
+        </div>
+      </div>
+    </div>
 
     
+        <div class="pjax">
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://lyloou.com/linux/%E9%B8%9F%E5%93%A5%E7%9A%84linux%E7%A7%81%E6%88%BF%E8%8F%9C/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="《鸟哥的Linux私房菜》读书笔记 | lyloou">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          《鸟哥的Linux私房菜》读书笔记<a href="https://github.com/lyloou/lyloou.github.io/edit/source/source/_posts/linux/%E9%B8%9F%E5%93%A5%E7%9A%84linux%E7%A7%81%E6%88%BF%E8%8F%9C.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil-alt"></i></a>
+          《鸟哥的Linux私房菜》读书笔记
         </h1>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2017-07-24 09:49:34" itemprop="dateCreated datePublished" datetime="2017-07-24T09:49:34+08:00">2017-07-24</time>
-            </span>
+      <time title="创建时间：2017-07-24 09:49:34" itemprop="dateCreated datePublished" datetime="2017-07-24T09:49:34+08:00">2017-07-24</time>
+    </span>
 
-          
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
 
         </div>
       </header>
@@ -247,10 +257,7 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
-
-      
-        <h1 id="《鸟哥的-Linux-私房菜》读书笔记"><a href="#《鸟哥的-Linux-私房菜》读书笔记" class="headerlink" title="《鸟哥的 Linux 私房菜》读书笔记"></a>《鸟哥的 Linux 私房菜》读书笔记</h1><blockquote>
+    <div class="post-body" itemprop="articleBody"><h1 id="《鸟哥的-Linux-私房菜》读书笔记"><a href="#《鸟哥的-Linux-私房菜》读书笔记" class="headerlink" title="《鸟哥的 Linux 私房菜》读书笔记"></a>《鸟哥的 Linux 私房菜》读书笔记</h1><blockquote>
 <p>逆序记录</p>
 </blockquote>
 <p>| 使用 crontab 时需要注意： –p502</p>
@@ -269,10 +276,10 @@
 <p>| 利用 atq 来查询设置的 at 任务，<br>利用 atrm 来删除设置的 at 任务。 –p497</p>
 <p>| 对 atd 程序施加限制：<br>利用 <code>/etc/at.allow</code> 与 <code>/etc/at.deny</code> 这两个文件来进行 at 的使用限制。 –p495</p>
 <p>| 设置 atd 开机启动： –p495</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">chkconfig atd on<br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chkconfig atd on</span><br></pre></td></tr></table></figure>
 
 <p>| 手动启动 atd： –p494</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">/etc/init.d/atd restart<br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/atd restart</span><br></pre></td></tr></table></figure>
 
 <p>| Linux 上常见的例行性工作 –p493</p>
 <ul>
@@ -319,7 +326,7 @@
 </ul>
 <p>| Education is :</p>
 <blockquote>
-<p>Education is what, when, and why to do things.<br>Training is how to do it. Most your courses have been Training.<br>I am trying to talk about the Education part.<br>–Richard W. Hamming (<a href="http://mat.uc.pt/~zhang/teaching.html" target="_blank" rel="noopener">http://mat.uc.pt/~zhang/teaching.html</a>)</p>
+<p>Education is what, when, and why to do things.<br>Training is how to do it. Most your courses have been Training.<br>I am trying to talk about the Education part.<br>–Richard W. Hamming (<a target="_blank" rel="noopener" href="http://mat.uc.pt/~zhang/teaching.html">http://mat.uc.pt/~zhang/teaching.html</a>)</p>
 </blockquote>
 <p>| api 使用步骤：(this is how)</p>
 <ul>
@@ -337,7 +344,7 @@
 </ul>
 <p>| 开始看不懂了，心里发毛了。</p>
 <blockquote>
-<p>底下的幾篇文章是學習 Linux 的基礎文件，這些文件是基礎中的基礎，如果您能將其中的文件都看完並且消化過，那麼未來在管理 Linux 主機以及架設網站方面，就能夠達到『事半功倍』的成效，請不要忽略這部份了！否則，再怎麼討論都是枉然的啦！因為 Linux 的資料非常的多，每份資料彼此的相關性都很強，要單獨的一項一項講解並不容易， 所以底下的文件該怎麼看呢？建議先按照順序將內容大致瀏覽過一次，看不懂的地方也可以先略過不要緊。 全部看完之後，再從頭開始『仔細』的實際操作過一遍，那應該就能夠進入 Linux 的世界囉～<br>另外，每篇文章底下的日期，指的是重大改版日期而非最新日期，每篇文章的最新日期請以該篇文章最下方的工作日誌為主的喔！<br><a href="http://linux.vbird.org/linux_basic/" target="_blank" rel="noopener">http://linux.vbird.org/linux_basic/</a></p>
+<p>底下的幾篇文章是學習 Linux 的基礎文件，這些文件是基礎中的基礎，如果您能將其中的文件都看完並且消化過，那麼未來在管理 Linux 主機以及架設網站方面，就能夠達到『事半功倍』的成效，請不要忽略這部份了！否則，再怎麼討論都是枉然的啦！因為 Linux 的資料非常的多，每份資料彼此的相關性都很強，要單獨的一項一項講解並不容易， 所以底下的文件該怎麼看呢？建議先按照順序將內容大致瀏覽過一次，看不懂的地方也可以先略過不要緊。 全部看完之後，再從頭開始『仔細』的實際操作過一遍，那應該就能夠進入 Linux 的世界囉～<br>另外，每篇文章底下的日期，指的是重大改版日期而非最新日期，每篇文章的最新日期請以該篇文章最下方的工作日誌為主的喔！<br><a target="_blank" rel="noopener" href="http://linux.vbird.org/linux_basic/">http://linux.vbird.org/linux_basic/</a></p>
 </blockquote>
 <p>| Quota(磁盘配额), 就字面上的意思来看，就是有多少“限额”的意思。如果是用在零用钱上面，就是类似<br>“有多少零用钱一个月”的意思。在 Linux 系统中，由于是多用户、多任务的环境，所以会有多用户<br>使用一个硬盘空间的情况发生，如果其中有少数几个用户大量占掉了硬盘空间的话，那肯定影响其他用户<br>的使用权限。因此管理员应该适当限制硬盘的空间给用户，以妥善分配系统资源。 –p452</p>
 <p>| 特殊账号的手工新建：–p445</p>
@@ -372,7 +379,7 @@
 <p>| 可以使用 sudo 的用户是通过输入用户自己的密码来执行后续的命令串。 –p430</p>
 <p>| sudo<br>并非所有用户都可以执行 sudo , 而是仅有 /etc/sudoers 内的用户才能够执行 sudo 这个命令。<br>–p429</p>
 <p>| 只执行一个只有 root 才能进行的命令，且执行完毕就恢复原本的身份。–p429</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">su - -c <span class="hljs-string">"head -n 3 /etc/shadow"</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">su - -c <span class="string">&quot;head -n 3 /etc/shadow&quot;</span></span><br></pre></td></tr></table></figure>
 
 <p>| 使用“su -”切换成 root 的身份，以 login shell 的方式。 –p428</p>
 <p>| 单纯使用“su”切换成 root 的身份，读取的变量设置方式为 non-login shell 的方式，<br>这种方式下很多原本的变量不会被改变。–p428</p>
@@ -383,10 +390,10 @@
 <li>以 “sudo 命令” 执行 root 的命令串。</li>
 </ul>
 <p>| 针对新创建的文件，设置默认的 acl; –p426</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">setfacl -m d:u:myuser1:rx /srv/projecta <span class="hljs-comment"># 这样在 projecta目录中新创建的文件，就默认有 rx 权限了。</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setfacl -m d:u:myuser1:rx /srv/projecta <span class="comment"># 这样在 projecta目录中新创建的文件，就默认有 rx 权限了。</span></span><br></pre></td></tr></table></figure>
 
 <p>| 针对某个用户具体设置权限： –p424</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">setfacl -m u:vbird1:rx test.txt <span class="hljs-comment"># 对于文件 test.txt，给用户 vbird1 设置权限 rx</span><br>setfacl -m g:mygroup1:rx test.txt <span class="hljs-comment"># 同上，设置用户组权限</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">setfacl -m u:vbird1:rx test.txt <span class="comment"># 对于文件 test.txt，给用户 vbird1 设置权限 rx</span></span><br><span class="line">setfacl -m g:mygroup1:rx test.txt <span class="comment"># 同上，设置用户组权限</span></span><br></pre></td></tr></table></figure>
 
 <p>| acl 的设置：getfacl, setfacl –p424</p>
 <p>| ACL (Access Control List), 提供传统的 owner、 group、 others 的 read、<br>write、 execute 权限之外的具体权限设置； –p423</p>
@@ -410,14 +417,14 @@
 <p>| 用户修改与删除: usermod userdel –p416</p>
 <p>| 对于 root 用户，唉～要帮一般账号新设密码需要使用 <code>passwd 账号</code> 的格式，使用 <code>passwd</code><br>表示修改自己的密码。–p414</p>
 <p>| 使用 useradd 来创建 Linux 上的账号时至少会参考： –p413</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs groovy"><span class="hljs-regexp">/etc/</span><span class="hljs-keyword">default</span>/useradd<br><span class="hljs-regexp">/etc/</span>login.defs<br><span class="hljs-regexp">/etc/</span>skel<span class="hljs-comment">/*</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/etc/</span><span class="keyword">default</span>/useradd</span><br><span class="line"><span class="regexp">/etc/</span>login.defs</span><br><span class="line"><span class="regexp">/etc/</span>skel<span class="comment">/*</span></span><br></pre></td></tr></table></figure>
 
 <p>| 在通过 useradd 来创建用户时，默认设置： –p411</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">useradd -D<br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">useradd -D</span><br></pre></td></tr></table></figure>
 
 <p>| 系统账号默认都不会主动创建主文件夹(可以通过参数 <code>-m</code> 强制添加)； –p410</p>
 <p>| 添加用户: –p410</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">useradd vlou<br>passwd vlou<br>grep vlou /etc/passwd /etc/shadow /etc/group /home/vlou <span class="hljs-comment"># 查看创建后的属性</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">useradd vlou</span><br><span class="line">passwd vlou</span><br><span class="line">grep vlou /etc/passwd /etc/shadow /etc/group /home/vlou <span class="comment"># 查看创建后的属性</span></span><br></pre></td></tr></table></figure>
 
 <p>| 加入用户组： –p408</p>
 <ul>
@@ -427,9 +434,7 @@
 <p>| 有效用户组： –p408</p>
 <ul>
 <li>也就是使用<code>groups</code>命令得到的第一个用户组；</li>
-<li>通过 <code>newgrp</code> 可以切换有效用户组；（首先必须要成为这个用户组的成员才可以执行）,<br>另外，执行了 <code>newgrp</code> 相当于启用了新的 shell, 可以 exit 退出。<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs sh">groups <span class="hljs-comment"># 查看用户所属组</span><br>newgrp adm <span class="hljs-comment">#  切换到 adm 组, 以新 shell 进入</span><br><span class="hljs-comment"># ...</span><br><span class="hljs-built_in">exit</span> <span class="hljs-comment"># 退出刚才切换的 shell</span><br>groups <span class="hljs-comment"># 此时恢复到之前的用户组</span><br></code></pre></td></tr></table></figure>
-
-</li>
+<li>通过 <code>newgrp</code> 可以切换有效用户组；（首先必须要成为这个用户组的成员才可以执行）,<br>另外，执行了 <code>newgrp</code> 相当于启用了新的 shell, 可以 exit 退出。<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">groups</span> <span class="comment"># 查看用户所属组</span></span><br><span class="line">newgrp adm <span class="comment">#  切换到 adm 组, 以新 shell 进入</span></span><br><span class="line"><span class="comment"># ...</span></span><br><span class="line"><span class="built_in">exit</span> <span class="comment"># 退出刚才切换的 shell</span></span><br><span class="line"><span class="built_in">groups</span> <span class="comment"># 此时恢复到之前的用户组</span></span><br></pre></td></tr></table></figure></li>
 </ul>
 <p>| 一个用户可以有多个用户组，那么用户在作业的时候，到底以哪个用户组为标准？ –p407<br>这个涉及到有效用户组（effective group） 和 初始用户组 （initial group）</p>
 <p>| 忘记 root 密码： –p406</p>
@@ -439,7 +444,7 @@
 </ul>
 <p>| 一般用户密码忘记了：这个最容易解决，请系统管理员帮忙，他会重新设置好你的密码而不需要知道你的旧密码<br>(利用 root 身份 使用 passwd 命令) –p406</p>
 <p>| shadow 文件结构: –p403</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs sh">lou@Lou:~$ sudo head -n 4 /etc/shadow<br>root:<span class="hljs-variable">$6</span><span class="hljs-variable">$ExVgN6IF</span><span class="hljs-variable">$GzxieFmtydKzA6pCaIjd1k</span>/wIhQmfqSDNQ6vrnCXZ4UkpgAQ5mdCu3Y4DS2DsnBkku4IzwW2HV4CxB2.I1.Oz.:17215:0:99999:7:::<br>daemon:*:16911:0:99999:7:::<br>bin:*:16911:0:99999:7:::<br>sys:*:16911:0:99999:7:::<br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">lou@Lou:~$ sudo <span class="built_in">head</span> -n 4 /etc/shadow</span><br><span class="line">root:$6$ExVgN6IF<span class="variable">$GzxieFmtydKzA6pCaIjd1k</span>/wIhQmfqSDNQ6vrnCXZ4UkpgAQ5mdCu3Y4DS2DsnBkku4IzwW2HV4CxB2.I1.Oz.:17215:0:99999:7:::</span><br><span class="line">daemon:*:16911:0:99999:7:::</span><br><span class="line">bin:*:16911:0:99999:7:::</span><br><span class="line">sys:*:16911:0:99999:7:::</span><br></pre></td></tr></table></figure>
 
 <ol>
 <li>账号名称</li>
@@ -453,7 +458,7 @@
 <li>保留</li>
 </ol>
 <p>| passwd 的文件结构： –p403</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs sh">lou@Lou:~$ head -n 4 /etc/passwd<br>root:x:0:0:root:/root:/bin/bash<br>daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin<br>bin:x:2:2:bin:/bin:/usr/sbin/nologin<br>sys:x:3:3:sys:/dev:/usr/sbin/nologin<br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">lou@Lou:~$ <span class="built_in">head</span> -n 4 /etc/passwd</span><br><span class="line">root:x:0:0:root:/root:/bin/bash</span><br><span class="line">daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin</span><br><span class="line">bin:x:2:2:bin:/bin:/usr/sbin/nologin</span><br><span class="line">sys:x:3:3:sys:/dev:/usr/sbin/nologin</span><br></pre></td></tr></table></figure>
 
 <ol>
 <li>账号名称</li>
@@ -467,25 +472,25 @@
 <p>| 计算机认识 0 与 1, 人们认识账号；文件属性中的所有者实际上存储的是数字。 –p401</p>
 <h2 id="第-14-章-Linux-账号管理与-ACL-权限设置"><a href="#第-14-章-Linux-账号管理与-ACL-权限设置" class="headerlink" title="第 14 章 Linux 账号管理与 ACL 权限设置"></a>第 14 章 Linux 账号管理与 ACL 权限设置</h2><p>| 睡不着觉：20170407, 起来看看。</p>
 <p>| shell script 的追踪与调试： –p397</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sh">sh [-nvx] scripts.sh<br>-n: 不要执行 script, 仅查询语法的问题；<br>-v: 在执行 script 前，现将script的内容输出到屏幕上；<br>-x: 将使用到的 script 内容显示到屏幕上。<br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sh [-nvx] scripts.sh</span><br><span class="line">-n: 不要执行 script, 仅查询语法的问题；</span><br><span class="line">-v: 在执行 script 前，现将script的内容输出到屏幕上；</span><br><span class="line">-x: 将使用到的 script 内容显示到屏幕上。</span><br></pre></td></tr></table></figure>
 
 <p>| 运行程序时出现错误：通过以下方案解决。</p>
 <ul>
-<li><a href="https://my.oschina.net/zphj1987/blog/77884" target="_blank" rel="noopener">syntax error: Bad for loop variable 解决办法(ubuntu)</a></li>
-<li><a href="https://wiki.ubuntu.com/DashAsBinSh" target="_blank" rel="noopener">DashAsBinSh</a><blockquote>
-<p>错误为 Syntax error: Bad for loop variable<br>解决办法：sudo dpkg-reconfigure dash<br>在选择项中选 No<br>从 ubuntu 6.10 开始，ubuntu 就将先前默认的 bash shell 更换成了 dash shell；其表现为 /bin/sh 链接倒了/bin/dash 而不是传统的/bin/bash。<br>ubuntu edgy 是第一个将 dash 作为默认 shell 来发行的版本，这似乎是受了 debian 的影响。wiki 里面有官方的解释，<a href="https://wiki.ubuntu.com/DashAsBinSh，主要原因是dash更小，运行更快，还与POSIX兼容。" target="_blank" rel="noopener">https://wiki.ubuntu.com/DashAsBinSh，主要原因是dash更小，运行更快，还与POSIX兼容。</a><br>但 目前存在的问题是，由于 shell 的更换，致使很多脚本出错，毕竟现在的很多脚本不是 100%POSIX 兼容。<br>在 wiki 里面也说到，如 何将默认的 shell 改回 bash，方法就是<br>在终端执行 sudo dpkg-reconfigure dash<br>然后选 择 no</p>
+<li><a target="_blank" rel="noopener" href="https://my.oschina.net/zphj1987/blog/77884">syntax error: Bad for loop variable 解决办法(ubuntu)</a></li>
+<li><a target="_blank" rel="noopener" href="https://wiki.ubuntu.com/DashAsBinSh">DashAsBinSh</a><blockquote>
+<p>错误为 Syntax error: Bad for loop variable<br>解决办法：sudo dpkg-reconfigure dash<br>在选择项中选 No<br>从 ubuntu 6.10 开始，ubuntu 就将先前默认的 bash shell 更换成了 dash shell；其表现为 /bin/sh 链接倒了/bin/dash 而不是传统的/bin/bash。<br>ubuntu edgy 是第一个将 dash 作为默认 shell 来发行的版本，这似乎是受了 debian 的影响。wiki 里面有官方的解释，<a target="_blank" rel="noopener" href="https://wiki.ubuntu.com/DashAsBinSh%EF%BC%8C%E4%B8%BB%E8%A6%81%E5%8E%9F%E5%9B%A0%E6%98%AFdash%E6%9B%B4%E5%B0%8F%EF%BC%8C%E8%BF%90%E8%A1%8C%E6%9B%B4%E5%BF%AB%EF%BC%8C%E8%BF%98%E4%B8%8EPOSIX%E5%85%BC%E5%AE%B9%E3%80%82">https://wiki.ubuntu.com/DashAsBinSh，主要原因是dash更小，运行更快，还与POSIX兼容。</a><br>但 目前存在的问题是，由于 shell 的更换，致使很多脚本出错，毕竟现在的很多脚本不是 100%POSIX 兼容。<br>在 wiki 里面也说到，如 何将默认的 shell 改回 bash，方法就是<br>在终端执行 sudo dpkg-reconfigure dash<br>然后选 择 no</p>
 </blockquote>
 </li>
 </ul>
 <p>| 在 for 循环中如何表示一段连续的范围：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-keyword">for</span> sitenu <span class="hljs-keyword">in</span> $(seq 1 100)<br><span class="hljs-keyword">do</span><br>  <span class="hljs-comment">#statements</span><br><span class="hljs-keyword">done</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> sitenu <span class="keyword">in</span> $(<span class="built_in">seq</span> 1 100)</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">  <span class="comment">#statements</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
 
 <p>| while 条件成立时执行条件；util 条件成立时退出条件； –p394</p>
 <p>| 直到型（util）: 满足条件，就终止循环；</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">until [[ condition ]]; <span class="hljs-keyword">do</span><br>  <span class="hljs-comment">#statements</span><br><span class="hljs-keyword">done</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">until</span> [[ condition ]]; <span class="keyword">do</span></span><br><span class="line">  <span class="comment">#statements</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
 
 <p>| 当型(while)：满足条件时，就进行循环；</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-keyword">while</span> [condition]<br><span class="hljs-keyword">do</span><br>  程序段落<br><span class="hljs-keyword">done</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> [condition]</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">  程序段落</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
 
 <p>| 循环 –p393</p>
 <ul>
@@ -494,10 +499,10 @@
 </ul>
 <p>| 利用 <code>function</code> 来重用轮子<br>在 shell script 当中的 function 的设置一定要在程序的最前面，这样才能够在执行时被找到<br>可用的程序段。<br>function 不但可以简化程序代码，而且可以做成类似“模块”的玩意儿。–p392</p>
 <p>| 条件判断语句：<br><strong>if</strong> –p386</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-keyword">if</span> [条件判断式1]; <span class="hljs-keyword">then</span><br>  <span class="hljs-comment"># 条件1成立时的逻辑</span><br><span class="hljs-keyword">elif</span> [条件判断式2]; <span class="hljs-keyword">then</span><br>  <span class="hljs-comment">#  条件2成立的逻辑</span><br><span class="hljs-keyword">else</span><br>  <span class="hljs-comment"># 其他情况下的逻辑</span><br><span class="hljs-keyword">fi</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> [条件判断式1]; <span class="keyword">then</span></span><br><span class="line">  <span class="comment"># 条件1成立时的逻辑</span></span><br><span class="line"><span class="keyword">elif</span> [条件判断式2]; <span class="keyword">then</span></span><br><span class="line">  <span class="comment">#  条件2成立的逻辑</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">  <span class="comment"># 其他情况下的逻辑</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
 
 <p><strong>case</strong> –p390</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-keyword">case</span> $变量名称 <span class="hljs-keyword">in</span><br>  <span class="hljs-string">"第1个变量的内容"</span>)<br>  程序段<br>  ;;<br>  <span class="hljs-string">"第2个变量的内容"</span>)<br>  程序段<br>  ;;<br>  * )<br>  程序段<br>  ;;<br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">case</span> $变量名称 <span class="keyword">in</span></span><br><span class="line">  <span class="string">&quot;第1个变量的内容&quot;</span>)</span><br><span class="line">  程序段</span><br><span class="line">  ;;</span><br><span class="line">  <span class="string">&quot;第2个变量的内容&quot;</span>)</span><br><span class="line">  程序段</span><br><span class="line">  ;;</span><br><span class="line">  * )</span><br><span class="line">  程序段</span><br><span class="line">  ;;</span><br></pre></td></tr></table></figure>
 
 <p>| <code>shift</code> 会移动变量，而且 shift 后面可以接数字，代表拿掉最前面的几个参数的意思。–p385<br>(左移)</p>
 <p>| 在脚本文件中的较特殊的变量： –p384</p>
@@ -562,7 +567,7 @@
 </ul>
 <p>| cmp 也用来比较两个文件，利用“字节”单位去比较。还可以用来比较非纯文本文件；–p367</p>
 <p>| diff 还可以来比较两个目录：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">diff /etc/rc3.d/ /etc/rc5.d<br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">diff /etc/rc3.d/ /etc/rc5.d</span><br></pre></td></tr></table></figure>
 
 <p>| diff 一般用来比较文本文件，并且以行为单位来比较。<br>diff 通常是用在同一文件的新旧版本区别上。 –p367</p>
 <p>| awk 主要是处理每一行的字段内的数据，而默认的字段的分隔符为空格键或[tab]键。 –p364</p>
@@ -571,28 +576,28 @@
 <p>| 特别注意 <code>!</code> 在正则表达式中并不是特殊字符。 –p361</p>
 <p>| 扩展型正则表达式可以通过组功能 “|” 来进行一次查找。 –p361</p>
 <p>| <code>sed</code> 的查找和替换类似于 <code>vi</code> –p359</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">sed <span class="hljs-string">'s/要被替换的字符串/新的字符串/g'</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed <span class="string">&#x27;s/要被替换的字符串/新的字符串/g&#x27;</span></span><br></pre></td></tr></table></figure>
 
 <p>| <code>sed</code> 后面的动作，务必要以 <code>&#39;&#39;</code> 两个单引号括住； –p358</p>
 <p>| <code>sed</code> 本身是一个管道命令，可以分析 standard input<br>而且还可以将数据进行替换、删除、新增、选取特定行等的功能。 –p357</p>
-<p>| 限定字符重复数:<code>{}</code> –p355<br>两个 o： <code>&#39;o\{2\}&#39;</code><br>两个 o 以上： <code>&#39;o\{2,\}&#39;</code><br>两-五个 o： <code>&#39;o\{2,5\}&#39;</code></p>
+<p>| 限定字符重复数:<code>&#123;&#125;</code> –p355<br>两个 o： <code>&#39;o\&#123;2\&#125;&#39;</code><br>两个 o 以上： <code>&#39;o\&#123;2,\&#125;&#39;</code><br>两-五个 o： <code>&#39;o\&#123;2,5\&#125;&#39;</code></p>
 <p>| 去掉空白行和去掉以<code>#</code>开头的行：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">grep <span class="hljs-string">'^$'</span> -v regular_express.txt | grep -v <span class="hljs-string">'^#'</span> -n<br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep <span class="string">&#x27;^$&#x27;</span> -v regular_express.txt | grep -v <span class="string">&#x27;^#&#x27;</span> -n</span><br></pre></td></tr></table></figure>
 
 <p>| 找到空白行： –p354</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">grep <span class="hljs-string">'^$'</span> -n regular_express.txt<br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep <span class="string">&#x27;^$&#x27;</span> -n regular_express.txt</span><br></pre></td></tr></table></figure>
 
 <p>| 特殊字符若在正则表达式中有特殊含义，需要用转义字符<code>\</code>来加以修饰。 –p353</p>
 <p>| 不想要开头是英文字母： –p353</p>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs gradle"><span class="hljs-keyword">grep</span> -n <span class="hljs-string">'^[^a-zA-Z]'</span> regular_express.txt<br></code></pre></td></tr></table></figure>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">grep</span> -n <span class="string">&#x27;^[^a-zA-Z]&#x27;</span> regular_express.txt</span><br></pre></td></tr></table></figure>
 
 <p>| 以<code>.</code>结尾的那一行的表示：<code>\.$</code> –p353</p>
 <p>| 注意 –p353<br><code>[^a-z]</code> 和<code>^[a-z]</code>这两个是不一样的意思；<br>在<code>[]</code>内表示“反向选择”,<br>在<code>[]</code>外表示“定位在行首”。</p>
 <p>| 下面的例子是一样的：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">grep -n <span class="hljs-string">'[[:digit:]]'</span> regular_express.txt<br>grep -n <span class="hljs-string">'[0-9]'</span> regular_express.txt<br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">grep -n <span class="string">&#x27;[[:digit:]]&#x27;</span> regular_express.txt</span><br><span class="line">grep -n <span class="string">&#x27;[0-9]&#x27;</span> regular_express.txt</span><br></pre></td></tr></table></figure>
 
 <p>| 练习：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">grep -n <span class="hljs-string">'t[ea]st'</span> regular_express.txt<br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -n <span class="string">&#x27;t[ea]st&#x27;</span> regular_express.txt</span><br></pre></td></tr></table></figure>
 
 <p>注意：<code>[]</code>里面不论有几个字符，它都只代表某“一个”字符。<br>所以匹配了 tast 和 test。–p352</p>
 <p>| 使用正则表达式，要注意语系的不同（编码） –p349</p>
@@ -620,31 +625,31 @@
 <li>通过 $PATH 这个变量的顺序找到的第一个命令来执行；</li>
 </ul>
 <p>| alias 设置别名为什么要用单引号？<br>单引号、双引号、不用引号其实都可以，但是有些是有空格的，就需要用单引号或双引号：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">alias</span> lm=<span class="hljs-string">'ls -al | more'</span><br><span class="hljs-built_in">alias</span> h=<span class="hljs-built_in">history</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">alias</span> lm=<span class="string">&#x27;ls -al | more&#x27;</span></span><br><span class="line"><span class="built_in">alias</span> h=<span class="built_in">history</span></span><br></pre></td></tr></table></figure>
 
 <p>| 命令别名与变量有什么不同？<br>命令别名是新创的一个新的命令，你可以直接执行该命令。<br>至于变量则需要使用类似 <code>echo</code> 命令才能调用变量的内容。</p>
 <p>| 添加别名： <code>alias vi=&#39;vim&#39;</code><br>删除别名： <code>unalias vi</code></p>
 <p>| 注意： alias 的定义规则与变量定义规则几乎相同，所以你只要在 alias 后面加上你的{“别名”=’命令参数…’}.<br>eg. <code>alias lm=&#39;ls -l | more&#39;</code> –p317</p>
 <p>| <code>read</code> 想要跟用户对谈？用这个命令就对了。 –p310</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">read</span> -p <span class="hljs-string">"Please keyin your name:"</span> -t 30 named<br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">read</span> -p <span class="string">&quot;Please keyin your name:&quot;</span> -t 30 named</span><br></pre></td></tr></table></figure>
 
 <p>| 被 export 后的变量，我们可以称为“环境变量”。环境变量可以被子进程所引用，<br>但是其他的自定义变量内容就不会存在于子进程中。 –p309</p>
 <p>| 可以将父进程的自定义变量变成环境变量，就可以让该变量值继续存在于子进程。–p308</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">export</span> 变量名称<br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> 变量名称</span><br></pre></td></tr></table></figure>
 
 <p>| 子进程仅会记录父进程的环境变量，子进程不会继承父进程的自定义变量。 –p307</p>
 <p>| 留意：较高级的硬件通常会向下兼容旧有的软件，但较高级的软件可能无法在旧机器上面安装。 –p307<br>举例来说：你可以在 x86_64 的硬件上安装 i386 的 Linux 操作系统，但是你无法在 i686 的硬件<br>上安装 x86_64 的 Linux 操作系统。</p>
 <p>| <code>?</code> 上一个命令的回传码。 –p307</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">echo</span> $?<br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> $?</span><br></pre></td></tr></table></figure>
 
 <p>| <code>$</code> 符号本身也是一个变量。这个代表的是目前这个 Shell 的线程代号，即是所谓的 PID。<br>想要知道外贸的 shell 的 PID， 用 “echo $$“ 即可，出现的数字就是你的 PID 号码。<br>（另外通过<code>bash</code> 命令来新建子进程，通过 <code>exit</code> 来推出子进程。） –p306</p>
 <p>| 基本上，在 Linux 默认的情况下，使用{大写的字母}来设置的变量一般为系统内定需要的变量。–p306</p>
 <p>| 自定义一个范围的随机数生成变量：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">declare</span> -i number=<span class="hljs-variable">$RANDOM</span>*10/32768;<br><span class="hljs-built_in">echo</span> <span class="hljs-variable">$number</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">declare</span> -i number=<span class="variable">$RANDOM</span>*10/32768;</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$number</span></span><br></pre></td></tr></table></figure>
 
 <p>| 使用 <code>$(uname -r)</code> 来代替 ```;因为反单引号容易打错或看错。 –p304</p>
 <p>| 给常用的目录设置变量： –p304</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># 1. 进入到一个很长的目录中;</span><br><span class="hljs-built_in">cd</span> /lib/modules/$(uname -r)/kernel<br><span class="hljs-comment"># 2. 给当前目录设置变量：</span><br>work=$(<span class="hljs-built_in">pwd</span>)<br><span class="hljs-comment"># 3. 在其他地方进入到这个常用目录：</span><br><span class="hljs-built_in">cd</span> <span class="hljs-variable">$work</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. 进入到一个很长的目录中;</span></span><br><span class="line"><span class="built_in">cd</span> /lib/modules/$(<span class="built_in">uname</span> -r)/kernel</span><br><span class="line"><span class="comment"># 2. 给当前目录设置变量：</span></span><br><span class="line">work=$(<span class="built_in">pwd</span>)</span><br><span class="line"><span class="comment"># 3. 在其他地方进入到这个常用目录：</span></span><br><span class="line"><span class="built_in">cd</span> <span class="variable">$work</span></span><br></pre></td></tr></table></figure>
 
 <p>| 反单引号(`) 这个符号代表的意义为何？<br>在一串命令中，在 （`）之内的命令将会被先执行，而其执行出来的结果将作为外部的输入信息。<br>–p303</p>
 <p>| 使用了单引号的时候，$name 将失去原有的变量内容，仅为一般字符的显示类型而已。 –p303</p>
@@ -671,9 +676,9 @@
 <h2 id="第-11-章-认识和学习-bash"><a href="#第-11-章-认识和学习-bash" class="headerlink" title="第 11 章 认识和学习 bash"></a>第 11 章 认识和学习 bash</h2><p>| 格式转换：<br><code>iconv -f big5 -t utf8 vi.big5 -o vi.utf8</code></p>
 <p>| 尽可能使用 utf-8 来编码； -p289</p>
 <p>| vim 记录操作的文件：<code>.viminfo</code></p>
-<p>| 多窗口编辑：<br><code>:sp{filename}</code><br>如果想要在新窗口启动另一个文件，就添加文件名，否则仅输入 :sp 时，出现的则是同一个文件在两个<br>窗口间。</p>
+<p>| 多窗口编辑：<br><code>:sp&#123;filename&#125;</code><br>如果想要在新窗口启动另一个文件，就添加文件名，否则仅输入 :sp 时，出现的则是同一个文件在两个<br>窗口间。</p>
 <p>| 多文件编辑 –p286</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">vim hosts /etc/hosts<br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim hosts /etc/hosts</span><br></pre></td></tr></table></figure>
 
 <p>| 块选择：<br>可以以块为单位，而不是以行为单位来处理你的整份文件。<br>借助 <code>[ctrl]+v</code> 来进行块选择； –p285</p>
 <p>| 为什么要用 vim 呢？<br>因为 vim 具有颜色显示的功能，并且还支持许多的程序语法。 –p284</p>
@@ -748,13 +753,13 @@
 <p>| 挂载点是什么？一定是目录。 –p235</p>
 <p>| 开机挂载<br><code>/etc/fstab (file system table)</code>就是将我们利用 mount 命令进行挂载时，<br>将所有的参数写入到这个文件中就可以了。</p>
 <p>| 使用<code>hdparm</code> 在 sata 上做测试：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">hdparm -Tt /dev/sda<br>hdparm -Tt /dev/sdb<br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hdparm -Tt /dev/sda</span><br><span class="line">hdparm -Tt /dev/sdb</span><br></pre></td></tr></table></figure>
 
 <p>| 可以通过 Label 的方式进行挂载： –p231</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">mount -L <span class="hljs-string">"vbird_logical"</span> /mnt/ccc<br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount -L <span class="string">&quot;vbird_logical&quot;</span> /mnt/ccc</span><br></pre></td></tr></table></figure>
 
 <p>| e.g., 挂载一个 iso 文件到<code>/mnt/ccc</code></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">mount xxxx.iso /mnt/ccc<br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount xxxx.iso /mnt/ccc</span><br></pre></td></tr></table></figure>
 
 <p>一般这种 iso 文件都是只读形式的，因此可能会有下面这种提示：<br><code>mount: /dev/loop0 is write-protected, mounting read-only</code><br>镜像文件不刻录就挂载使用。</p>
 <p>| 进入到挂载目录中，进行卸载操作是不成功的。<br><code>umount: /media/cdrome: device is busy</code><br>解决办法是退出挂载目录，重新<code>umount</code><br>–p230</p>
@@ -763,10 +768,10 @@
 <p>| 磁盘分区完成后，进行格式化操作：<code>mkfs</code></p>
 <p>| fdisk 没有办法处理大于 2TB 以上的磁盘分区。（可以使用 parted 这个命令） –p223</p>
 <p>| fdisk<br>需要以管理员身份运行</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">fdisk /dev/sda<br>fdisk /dev/sdb <span class="hljs-comment"># 注意不需要带具体数值</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fdisk /dev/sda</span><br><span class="line">fdisk /dev/sdb <span class="comment"># 注意不需要带具体数值</span></span><br></pre></td></tr></table></figure>
 
 <p>| 要制作连接文件必须要使用<code>ln</code>这个命令；–p215</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">ln [-sf] 源文件 目标文件<br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ln</span> [-sf] 源文件 目标文件</span><br></pre></td></tr></table></figure>
 
 <p>| <code>symbolic link</code>符号连接；（类似于 windows 上的快捷方式）</p>
 <p>| hard link 连接有限制：</p>
@@ -828,28 +833,8 @@
     
     
     
-      
-  <div class="popular-posts-header">相关文章</div>
-  <ul class="popular-posts">
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/linux/curl/" rel="bookmark">Curl</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/linux/tmux/" rel="bookmark">Tmux</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/linux/压缩/" rel="bookmark">Tar & Zip</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/android/图片裁剪和上传/" rel="bookmark">Android图片裁剪和上传服务器（含：拍照、图库选取）</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/devops/nginx/" rel="bookmark">Nginx</a></div>
-    </li>
-  </ul>
 
-
-      <footer class="post-footer">
+    <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/linux/" rel="tag"># linux</a>
               <a href="/tags/tool/" rel="tag"># tool</a>
@@ -857,280 +842,135 @@
 
         
 
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/tool/virtualbox/" rel="prev" title="Virtualbox定制">
-      <i class="fa fa-chevron-left"></i> Virtualbox定制
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/android/adb/" rel="next" title="Adb相关">
-      Adb相关 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
-    
-  </article>
-  
-  
-  
-
-
-
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/tool/virtualbox/" rel="prev" title="Virtualbox定制">
+                  <i class="fa fa-chevron-left"></i> Virtualbox定制
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/android/adb/" rel="next" title="Adb相关">
+                  Adb相关 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
           </div>
-          
-    <div class="comments" id="gitalk-container"></div>
+    </footer>
+  </article>
+</div>
 
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
 
-        </div>
-          
+
+
+
+
+    
   
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
+  <div class="comments giscus-container">
   </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#《鸟哥的-Linux-私房菜》读书笔记"><span class="nav-number">1.</span> <span class="nav-text">《鸟哥的 Linux 私房菜》读书笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第-16-章"><span class="nav-number">1.1.</span> <span class="nav-text">第 16 章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第-14-章-Linux-账号管理与-ACL-权限设置"><span class="nav-number">1.2.</span> <span class="nav-text">第 14 章 Linux 账号管理与 ACL 权限设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第-13-章-学习-shell-script"><span class="nav-number">1.2.1.</span> <span class="nav-text">第 13 章 学习 shell script</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第-12-章-正则表达式与文件格式化处理"><span class="nav-number">1.3.</span> <span class="nav-text">第 12 章 正则表达式与文件格式化处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第-11-章-认识和学习-bash"><span class="nav-number">1.4.</span> <span class="nav-text">第 11 章 认识和学习 bash</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第-10-章-vim-程序编辑器"><span class="nav-number">1.5.</span> <span class="nav-text">第 10 章 vim 程序编辑器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第-9-章-文件与文件系统的压缩与打包"><span class="nav-number">1.6.</span> <span class="nav-text">第 9 章: 文件与文件系统的压缩与打包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第-8-章"><span class="nav-number">1.7.</span> <span class="nav-text">第 8 章</span></a></li></ol></li></ol></div>
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="lyloou"
-      src="/assets/images/avatar.png">
-  <p class="site-author-name" itemprop="name">lyloou</p>
-  <div class="site-description" itemprop="description">/* Better than last best */</div>
+  
+  
 </div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">312</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
-        <span class="site-state-item-count">56</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
-</div>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-        <a href="https://github.com/lyloou" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;lyloou" rel="noopener" target="_blank">GitHub</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="mailto:lyloou6@gmail.com" title="E-Mail → mailto:lyloou6@gmail.com" rel="noopener" target="_blank">E-Mail</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://weibo.com/lyloou" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;lyloou" rel="noopener" target="_blank">Weibo</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://blog.csdn.net/ly1414725328" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;ly1414725328" rel="noopener" target="_blank">CSDN</a>
-      </span>
-  </div>
-  <div class="cc-license motion-element" itemprop="license">
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
-  </div>
+  </main>
 
+  <footer class="footer">
+    <div class="footer-inner">
 
-
-      </div>
-
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-        
   <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">粤ICP备18151128号 </a>
   </div>
 
 <div class="copyright">
-  
   &copy; 
   <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
-    <i class="user"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">lyloou</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
-  </div>
-
-        
 <div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
       <span class="post-meta-item-icon">
-        <i class="user"></i>
+        <i class="fa fa-user"></i>
       </span>
       <span class="site-uv" title="总访客量">
         <span id="busuanzi_value_site_uv"></span>
       </span>
     </span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
       <span class="post-meta-item-icon">
-        <i class="eye"></i>
+        <i class="fa fa-eye"></i>
       </span>
       <span class="site-pv" title="总访问量">
         <span id="busuanzi_value_site_pv"></span>
       </span>
     </span>
 </div>
-
-
-
-
-
-
-
-
-      </div>
-    </footer>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>
 
-  
-  <script src="/lib/anime.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-
-<script src="/js/schemes/muse.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
-
-
-
+    </div>
+  </footer>
 
   
-  <script>
-    (function(){
-      var canonicalURL, curProtocol;
-      //Get the <link> tag
-      var x=document.getElementsByTagName("link");
-		//Find the last canonical URL
-		if(x.length > 0){
-			for (i=0;i<x.length;i++){
-				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
-					canonicalURL=x[i].href;
-				}
-			}
-		}
-    //Get protocol
-	    if (!canonicalURL){
-	    	curProtocol = window.location.protocol.split(':')[0];
-	    }
-	    else{
-	    	curProtocol = canonicalURL.split(':')[0];
-	    }
-      //Get current URL if the canonical URL does not exist
-	    if (!canonicalURL) canonicalURL = window.location.href;
-	    //Assign script content. Replace current URL with the canonical URL
-      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
-  </script>
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
 
 
 
 
   
-<script src="/js/local-search.js"></script>
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 
 
-
-
-
-
-
-
+<script class="next-config" data-name="giscus" type="application/json">{"enable":true,"repo":"lyloou/lyloou.github.io","repo_id":"MDEwOlJlcG9zaXRvcnkxMDk1NzkyNzA=","category":"Announcements","category_id":"DIC_kwDOBogMBs4CWdfR","mapping":"pathname","reactions_enabled":1,"emit_metadata":1,"theme":"light","lang":"zh-CN","input_position":"bottom","loading":"lazy"}</script>
 
 <script>
-if (document.querySelectorAll('pre.mermaid').length) {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
-    mermaid.initialize({
-      theme    : 'forest',
-      logLevel : 3,
-      flowchart: { curve     : 'linear' },
-      gantt    : { axisFormat: '%m/%d/%Y' },
-      sequence : { actorMargin: 50 }
-    });
-  }, window.mermaid);
-}
-</script>
+document.addEventListener('page:loaded', () => {
+  if (!CONFIG.page.comments) return;
 
-
-  
-
-  
-
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
-
-<script>
-NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
-    var gitalk = new Gitalk({
-      clientID    : '5776a56ec2a831d83dfc',
-      clientSecret: '28440989ccf00f0ce8dbd425dc5d1eaa1eb24c7b',
-      repo        : 'lyloou.github.io',
-      owner       : 'lyloou',
-      admin       : ['lyloou'],
-      id          : '66d412b46dafeeabc779e2989c620b37',
-        language: '',
-      distractionFreeMode: true
-    });
-    gitalk.render('gitalk-container');
-  }, window.Gitalk);
+  NexT.utils.loadComments('.giscus-container')
+    .then(() => NexT.utils.getScript('https://giscus.app/client.js', {
+      attributes: {
+        async                   : true,
+        crossOrigin             : 'anonymous',
+        'data-repo'             : CONFIG.giscus.repo,
+        'data-repo-id'          : CONFIG.giscus.repo_id,
+        'data-category'         : CONFIG.giscus.category,
+        'data-category-id'      : CONFIG.giscus.category_id,
+        'data-mapping'          : CONFIG.giscus.mapping,
+        'data-reactions-enabled': CONFIG.giscus.reactions_enabled,
+        'data-emit-metadata'    : CONFIG.giscus.emit_metadata,
+        'data-theme'            : CONFIG.giscus.theme,
+        'data-lang'             : CONFIG.giscus.lang,
+        'data-input-position'   : CONFIG.giscus.input_position,
+        'data-loading'          : CONFIG.giscus.loading
+      },
+      parentNode: document.querySelector('.giscus-container')
+    }));
 });
 </script>
 

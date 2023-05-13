@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="zh-CN,zh-HK,zh-TW,en,default">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
@@ -13,14 +13,13 @@
 <link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"lyloou.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
-  </script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-  <meta name="description" content="需求，将一个表的内容同步到另一个表中，只同步从某个时间段到现在有更新的记录； 解决思路是：  如果可以修改表结构，可以加一个 【sync_status（同步状态）】 字段：同步完成后，修改下这个记录；有修改时恢复这个记录；  如果无法修改表结构，但是可以通过【update_time（修改时间）】字段来过滤，数据量太多可以分批处理  建立一个任务配置表（t_job_config），在这个配置表中，保">
+<script class="next-config" data-name="main" type="application/json">{"hostname":"lyloou.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"default"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="需求，将一个表的内容同步到另一个表中，只同步从某个时间段到现在有更新的记录； 解决思路是：  如果可以修改表结构，可以加一个 【sync_status（同步状态）】 字段：同步完成后，修改下这个记录；有修改时恢复这个记录；  如果无法修改表结构，但是可以通过【update_time（修改时间）】字段来过滤，数据量太多可以分批处理  建立一个任务配置表（t_job_config），在这个配置表中，保">
 <meta property="og:type" content="article">
 <meta property="og:title" content="定时任务同步设计">
 <meta property="og:url" content="https://lyloou.com/business/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E5%90%8C%E6%AD%A5%E8%AE%BE%E8%AE%A1/index.html">
@@ -33,37 +32,20 @@
 <meta property="article:tag" content="business">
 <meta name="twitter:card" content="summary">
 
+
 <link rel="canonical" href="https://lyloou.com/business/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E5%90%8C%E6%AD%A5%E8%AE%BE%E8%AE%A1/">
 
 
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : false,
-    isPost : true,
-    lang   : 'zh-CN'
-  };
-</script>
 
-  <title>定时任务同步设计 | lyloou</title>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://lyloou.com/business/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E5%90%8C%E6%AD%A5%E8%AE%BE%E8%AE%A1/","path":"business/定时任务同步设计/","title":"定时任务同步设计"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>定时任务同步设计 | lyloou</title>
   
-    <script>
-      function sendPageView() {
-        if (CONFIG.hostname !== location.hostname) return;
-        var uid = localStorage.getItem('uid') || (Math.random() + '.' + Math.random());
-        localStorage.setItem('uid', uid);
-        navigator.sendBeacon('https://www.google-analytics.com/collect', new URLSearchParams({
-          v  : 1,
-          tid: 'UA-80542932-1',
-          cid: uid,
-          t  : 'pageview',
-          dp : encodeURIComponent(location.pathname)
-        }));
-      }
-      document.addEventListener('pjax:complete', sendPageView);
-      sendPageView();
-    </script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-80542932-1","only_pageview":true}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
 
 
 
@@ -71,55 +53,35 @@
 
 
   <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container">
-    <div class="headband"></div>
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
 
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
-  <div class="site-meta custom-logo">
+  <div class="site-meta">
 
     <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">lyloou</h1>
-      <span class="logo-line-after"><i></i></span>
+      <i class="logo-line"></i>
+      <p class="site-title">lyloou</p>
+      <i class="logo-line"></i>
     </a>
   </div>
 
   <div class="site-nav-right">
-    <div class="toggle popup-trigger">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
         <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
@@ -127,29 +89,8 @@
 
 
 
-
 <nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签</a>
-
-  </li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -160,85 +101,153 @@
 
 
   <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
+    <div class="popup search-popup"><div class="search-header">
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off"
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
            placeholder="搜索..." spellcheck="false"
            type="search" class="search-input">
   </div>
-  <span class="popup-btn-close">
+  <span class="popup-btn-close" role="button">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
-<div id="search-result">
-  <div id="no-result">
-    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
   </div>
 </div>
 
     </div>
   </div>
 
-</div>
-    </header>
+</header>
+        
+  
+  <aside class="sidebar">
 
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="lyloou"
+      src="/assets/images/avatar.png">
+  <p class="site-author-name" itemprop="name">lyloou</p>
+  <div class="site-description" itemprop="description">/* Better than last best */</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">312</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">56</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/lyloou" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;lyloou" rel="noopener me" target="_blank"><i class="github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:lyloou6@gmail.com" title="E-Mail → mailto:lyloou6@gmail.com" rel="noopener me" target="_blank"><i class="envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/lyloou" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;lyloou" rel="noopener me" target="_blank"><i class="weibo fa-fw"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/ly1414725328" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;ly1414725328" rel="noopener me" target="_blank"><i class="csdn fa-fw"></i>CSDN</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
   </div>
 
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content post posts-expand">
-            
+        </div>
+      </div>
+    </div>
 
     
+        <div class="pjax">
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://lyloou.com/business/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E5%90%8C%E6%AD%A5%E8%AE%BE%E8%AE%A1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="定时任务同步设计 | lyloou">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          定时任务同步设计<a href="https://github.com/lyloou/lyloou.github.io/edit/source/source/_posts/business/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E5%90%8C%E6%AD%A5%E8%AE%BE%E8%AE%A1.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil-alt"></i></a>
+          定时任务同步设计
         </h1>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-12-27 16:06:41" itemprop="dateCreated datePublished" datetime="2020-12-27T16:06:41+08:00">2020-12-27</time>
-            </span>
+      <time title="创建时间：2020-12-27 16:06:41" itemprop="dateCreated datePublished" datetime="2020-12-27T16:06:41+08:00">2020-12-27</time>
+    </span>
 
-          
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
 
         </div>
       </header>
@@ -246,10 +255,7 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
-
-      
-        <p>需求，将一个表的内容同步到另一个表中，<br>只同步从某个时间段到现在有更新的记录；</p>
+    <div class="post-body" itemprop="articleBody"><p>需求，将一个表的内容同步到另一个表中，<br>只同步从某个时间段到现在有更新的记录；</p>
 <p>解决思路是：</p>
 <ul>
 <li><p>如果可以修改表结构，可以加一个 【sync_status（同步状态）】 字段：同步完成后，修改下这个记录；有修改时恢复这个记录；</p>
@@ -261,10 +267,9 @@
 <li>记录下当前时间；作为结束时间</li>
 <li>取一个最大条数 MAX；从数据库中根据修改时间和 id 获取记录，对这批数据做处理；<br>记录不为空，取上次获得的最后一条 id 做为下次查询的开始 id，如下面代码所示</li>
 </ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Component</span><br><span class="hljs-meta">@Slf</span>4j<br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SyncStudentJob</span> </span>&#123;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">volatile</span> <span class="hljs-keyword">boolean</span> isSync = <span class="hljs-keyword">false</span>;<br>    <span class="hljs-meta">@Autowired</span><br>    StudentService studentService;<br><br>    <span class="hljs-meta">@Autowired</span><br>    JobConfigService jobConfigService;<br><br>    <span class="hljs-meta">@Scheduled</span>(cron = <span class="hljs-string">"0/10 * * * * *"</span>)<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">syncStudent</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (isSync) &#123;<br>            log.info(<span class="hljs-string">"上次还没同步完成"</span>);<br>            <span class="hljs-keyword">return</span>;<br>        &#125;<br><br>        <span class="hljs-keyword">try</span> &#123;<br>            isSync = <span class="hljs-keyword">true</span>;<br>            <span class="hljs-keyword">final</span> <span class="hljs-keyword">long</span> t1 = System.currentTimeMillis();<br>            log.info(<span class="hljs-string">"【Job syncStudent】， 开始同步"</span>);<br>            AtomicLong count = doSyncStudent();<br>            <span class="hljs-keyword">final</span> <span class="hljs-keyword">long</span> t2 = System.currentTimeMillis();<br>            log.info(<span class="hljs-string">"【Job syncStudent】， 完成全部同步，耗时：&#123;&#125;ms，数量：&#123;&#125; "</span>, (t2 - t1) / <span class="hljs-number">1000</span>, count.get());<br>        &#125; <span class="hljs-keyword">finally</span> &#123;<br>            isSync = <span class="hljs-keyword">false</span>;<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> AtomicLong <span class="hljs-title">doSyncStudent</span><span class="hljs-params">()</span> </span>&#123;<br>        AtomicLong count = <span class="hljs-keyword">new</span> AtomicLong();<br>        <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> max = <span class="hljs-number">500</span>;<br>        <span class="hljs-keyword">final</span> JobConfigEntity jobConfig = getOrCreateJobConfig();<br>        Objects.requireNonNull(jobConfig, <span class="hljs-string">"获取或创建jobConfig失败"</span>);<br><br>        <span class="hljs-keyword">final</span> LocalDateTime endTime = LocalDateTime.now();<br>        <span class="hljs-keyword">final</span> LocalDateTime lastUpdateTime = getLastUpdateTime(jobConfig);<br>        String lastUpdateId = getLastUpdateId(jobConfig);<br>        List&lt;StudentEntity&gt; list;<br><br>        <span class="hljs-keyword">do</span> &#123;<br>            <span class="hljs-keyword">final</span> <span class="hljs-keyword">long</span> start = System.currentTimeMillis();<br>            list = studentService.lambdaQuery()<br>                    .gt(lastUpdateTime != <span class="hljs-keyword">null</span>, StudentEntity::getGmtModified, lastUpdateTime)<br>                    .lt(StudentEntity::getGmtModified, endTime)<br>                    .gt(StudentEntity::getId, lastUpdateId)<br>                    .orderByAsc(StudentEntity::getId)<br>                    .last(String.format(<span class="hljs-string">"limit %s"</span>, max))<br>                    .list();<br>            <span class="hljs-keyword">if</span> (list.isEmpty()) &#123;<br>                <span class="hljs-keyword">break</span>;<br>            &#125;<br><br>            doList(list);<br>            count.addAndGet(list.size());<br><br>            <span class="hljs-keyword">final</span> StudentEntity lastStudent = list.get(list.size() - <span class="hljs-number">1</span>);<br>            lastUpdateId = String.valueOf(lastStudent.getId());<br>            updateJobConfig(jobConfig, lastUpdateTime, lastUpdateId);<br><br>            <span class="hljs-keyword">final</span> <span class="hljs-keyword">long</span> end = System.currentTimeMillis();<br>            log.info(<span class="hljs-string">"【Job syncStudent】， 完成一组同步，耗时：&#123;&#125;ms，数量：&#123;&#125; "</span>, (end - start) / <span class="hljs-number">1000</span>, count.get());<br>        &#125; <span class="hljs-keyword">while</span> (list.size() &gt;= max);<br><br>        <span class="hljs-comment">// 更新成新的时间</span><br>        updateJobConfig(jobConfig, endTime, <span class="hljs-keyword">null</span>);<br>        <span class="hljs-keyword">return</span> count;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">updateJobConfig</span><span class="hljs-params">(JobConfigEntity configEntity, LocalDateTime lastUpdateTime, String lastUpdateId)</span> </span>&#123;<br>        jobConfigService.lambdaUpdate()<br>                .set(JobConfigEntity::getLastUpdateTime, lastUpdateTime)<br>                .set(JobConfigEntity::getLastUpdateId, lastUpdateId)<br>                .eq(JobConfigEntity::getId, configEntity.getId())<br>                .update();<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">doList</span><span class="hljs-params">(List&lt;StudentEntity&gt; list)</span> </span>&#123;<br>        log.info(<span class="hljs-string">"(&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;"</span>);<br>        log.info(list.toString());<br>        <span class="hljs-keyword">try</span> &#123;<br>            TimeUnit.SECONDS.sleep(<span class="hljs-number">1</span>);<br>        &#125; <span class="hljs-keyword">catch</span> (InterruptedException ignored) &#123;<br>        &#125;<br>        log.info(<span class="hljs-string">"&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;)"</span>);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> LocalDateTime <span class="hljs-title">getLastUpdateTime</span><span class="hljs-params">(JobConfigEntity jobConfig)</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> jobConfig.getLastUpdateTime();<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> String <span class="hljs-title">getLastUpdateId</span><span class="hljs-params">(JobConfigEntity jobConfig)</span> </span>&#123;<br>        <span class="hljs-keyword">final</span> String lastUpdateId = jobConfig.getLastUpdateId();<br>        <span class="hljs-keyword">if</span> (Strings.isEmpty(lastUpdateId)) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-string">"0"</span>;<br>        &#125;<br>        <span class="hljs-keyword">return</span> lastUpdateId;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> JobConfigEntity <span class="hljs-title">getOrCreateJobConfig</span><span class="hljs-params">()</span> </span>&#123;<br>        String jobName = <span class="hljs-string">"sync.student.name"</span>;<br>        <span class="hljs-keyword">final</span> Optional&lt;JobConfigEntity&gt; configEntityOptional = jobConfigService.lambdaQuery()<br>                .eq(JobConfigEntity::getName, jobName)<br>                .oneOpt();<br>        <span class="hljs-keyword">if</span> (configEntityOptional.isPresent()) &#123;<br>            <span class="hljs-keyword">return</span> configEntityOptional.get();<br>        &#125;<br>        <span class="hljs-keyword">final</span> JobConfigEntity configEntity = <span class="hljs-keyword">new</span> JobConfigEntity();<br>        configEntity.setName(jobName);<br>        jobConfigService.save(configEntity);<br>        <span class="hljs-keyword">return</span> configEntity;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SyncStudentJob</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">volatile</span> <span class="type">boolean</span> <span class="variable">isSync</span> <span class="operator">=</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    StudentService studentService;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    JobConfigService jobConfigService;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Scheduled(cron = &quot;0/10 * * * * *&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">syncStudent</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (isSync) &#123;</span><br><span class="line">            log.info(<span class="string">&quot;上次还没同步完成&quot;</span>);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            isSync = <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">final</span> <span class="type">long</span> <span class="variable">t1</span> <span class="operator">=</span> System.currentTimeMillis();</span><br><span class="line">            log.info(<span class="string">&quot;【Job syncStudent】， 开始同步&quot;</span>);</span><br><span class="line">            <span class="type">AtomicLong</span> <span class="variable">count</span> <span class="operator">=</span> doSyncStudent();</span><br><span class="line">            <span class="keyword">final</span> <span class="type">long</span> <span class="variable">t2</span> <span class="operator">=</span> System.currentTimeMillis();</span><br><span class="line">            log.info(<span class="string">&quot;【Job syncStudent】， 完成全部同步，耗时：&#123;&#125;ms，数量：&#123;&#125; &quot;</span>, (t2 - t1) / <span class="number">1000</span>, count.get());</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            isSync = <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> AtomicLong <span class="title function_">doSyncStudent</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="type">AtomicLong</span> <span class="variable">count</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">AtomicLong</span>();</span><br><span class="line">        <span class="keyword">final</span> <span class="type">int</span> <span class="variable">max</span> <span class="operator">=</span> <span class="number">500</span>;</span><br><span class="line">        <span class="keyword">final</span> <span class="type">JobConfigEntity</span> <span class="variable">jobConfig</span> <span class="operator">=</span> getOrCreateJobConfig();</span><br><span class="line">        Objects.requireNonNull(jobConfig, <span class="string">&quot;获取或创建jobConfig失败&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">final</span> <span class="type">LocalDateTime</span> <span class="variable">endTime</span> <span class="operator">=</span> LocalDateTime.now();</span><br><span class="line">        <span class="keyword">final</span> <span class="type">LocalDateTime</span> <span class="variable">lastUpdateTime</span> <span class="operator">=</span> getLastUpdateTime(jobConfig);</span><br><span class="line">        <span class="type">String</span> <span class="variable">lastUpdateId</span> <span class="operator">=</span> getLastUpdateId(jobConfig);</span><br><span class="line">        List&lt;StudentEntity&gt; list;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">do</span> &#123;</span><br><span class="line">            <span class="keyword">final</span> <span class="type">long</span> <span class="variable">start</span> <span class="operator">=</span> System.currentTimeMillis();</span><br><span class="line">            list = studentService.lambdaQuery()</span><br><span class="line">                    .gt(lastUpdateTime != <span class="literal">null</span>, StudentEntity::getGmtModified, lastUpdateTime)</span><br><span class="line">                    .lt(StudentEntity::getGmtModified, endTime)</span><br><span class="line">                    .gt(StudentEntity::getId, lastUpdateId)</span><br><span class="line">                    .orderByAsc(StudentEntity::getId)</span><br><span class="line">                    .last(String.format(<span class="string">&quot;limit %s&quot;</span>, max))</span><br><span class="line">                    .list();</span><br><span class="line">            <span class="keyword">if</span> (list.isEmpty()) &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            doList(list);</span><br><span class="line">            count.addAndGet(list.size());</span><br><span class="line"></span><br><span class="line">            <span class="keyword">final</span> <span class="type">StudentEntity</span> <span class="variable">lastStudent</span> <span class="operator">=</span> list.get(list.size() - <span class="number">1</span>);</span><br><span class="line">            lastUpdateId = String.valueOf(lastStudent.getId());</span><br><span class="line">            updateJobConfig(jobConfig, lastUpdateTime, lastUpdateId);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">final</span> <span class="type">long</span> <span class="variable">end</span> <span class="operator">=</span> System.currentTimeMillis();</span><br><span class="line">            log.info(<span class="string">&quot;【Job syncStudent】， 完成一组同步，耗时：&#123;&#125;ms，数量：&#123;&#125; &quot;</span>, (end - start) / <span class="number">1000</span>, count.get());</span><br><span class="line">        &#125; <span class="keyword">while</span> (list.size() &gt;= max);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 更新成新的时间</span></span><br><span class="line">        updateJobConfig(jobConfig, endTime, <span class="literal">null</span>);</span><br><span class="line">        <span class="keyword">return</span> count;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">updateJobConfig</span><span class="params">(JobConfigEntity configEntity, LocalDateTime lastUpdateTime, String lastUpdateId)</span> &#123;</span><br><span class="line">        jobConfigService.lambdaUpdate()</span><br><span class="line">                .set(JobConfigEntity::getLastUpdateTime, lastUpdateTime)</span><br><span class="line">                .set(JobConfigEntity::getLastUpdateId, lastUpdateId)</span><br><span class="line">                .eq(JobConfigEntity::getId, configEntity.getId())</span><br><span class="line">                .update();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">doList</span><span class="params">(List&lt;StudentEntity&gt; list)</span> &#123;</span><br><span class="line">        log.info(<span class="string">&quot;(&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&quot;</span>);</span><br><span class="line">        log.info(list.toString());</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            TimeUnit.SECONDS.sleep(<span class="number">1</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException ignored) &#123;</span><br><span class="line">        &#125;</span><br><span class="line">        log.info(<span class="string">&quot;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;)&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> LocalDateTime <span class="title function_">getLastUpdateTime</span><span class="params">(JobConfigEntity jobConfig)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> jobConfig.getLastUpdateTime();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String <span class="title function_">getLastUpdateId</span><span class="params">(JobConfigEntity jobConfig)</span> &#123;</span><br><span class="line">        <span class="keyword">final</span> <span class="type">String</span> <span class="variable">lastUpdateId</span> <span class="operator">=</span> jobConfig.getLastUpdateId();</span><br><span class="line">        <span class="keyword">if</span> (Strings.isEmpty(lastUpdateId)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;0&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> lastUpdateId;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> JobConfigEntity <span class="title function_">getOrCreateJobConfig</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">jobName</span> <span class="operator">=</span> <span class="string">&quot;sync.student.name&quot;</span>;</span><br><span class="line">        <span class="keyword">final</span> Optional&lt;JobConfigEntity&gt; configEntityOptional = jobConfigService.lambdaQuery()</span><br><span class="line">                .eq(JobConfigEntity::getName, jobName)</span><br><span class="line">                .oneOpt();</span><br><span class="line">        <span class="keyword">if</span> (configEntityOptional.isPresent()) &#123;</span><br><span class="line">            <span class="keyword">return</span> configEntityOptional.get();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">final</span> <span class="type">JobConfigEntity</span> <span class="variable">configEntity</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JobConfigEntity</span>();</span><br><span class="line">        configEntity.setName(jobName);</span><br><span class="line">        jobConfigService.save(configEntity);</span><br><span class="line">        <span class="keyword">return</span> configEntity;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><code class="hljs sql"><br><br>Source Server : 127.0.0.1<br>Source Server Type : MySQL<br>Source Server Version : 50731<br>Source Host : 127.0.0.1:3306<br>Source Schema : school<br><br>Target Server Type : MySQL<br>Target Server Version : 50731<br>File Encoding : 65001<br><br>Date: 28/12/2020 18:37:34<br>\*/<br><br><span class="hljs-keyword">SET</span> <span class="hljs-keyword">NAMES</span> utf8mb4;<br><span class="hljs-keyword">SET</span> FOREIGN_KEY_CHECKS = <span class="hljs-number">0</span>;<br><br><span class="hljs-comment">---</span><br><br><span class="hljs-comment">-- Table structure for t_job_config</span><br><br><span class="hljs-comment">---</span><br><br><span class="hljs-keyword">DROP</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-keyword">IF</span> <span class="hljs-keyword">EXISTS</span> <span class="hljs-string">`t_job_config`</span>;<br><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-string">`t_job_config`</span> (<br><span class="hljs-string">`id`</span> <span class="hljs-built_in">bigint</span>(<span class="hljs-number">11</span>) <span class="hljs-keyword">UNSIGNED</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> AUTO_INCREMENT <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">'主键 ID'</span>,<br><span class="hljs-string">`name`</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">100</span>) <span class="hljs-built_in">CHARACTER</span> <span class="hljs-keyword">SET</span> utf8mb4 <span class="hljs-keyword">COLLATE</span> utf8mb4_general_ci <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">'要同步的业务名称'</span>,<br><span class="hljs-string">`last_update_time`</span> datetime(<span class="hljs-number">0</span>) <span class="hljs-literal">NULL</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">'上次同步时间'</span>,<br><span class="hljs-string">`last_update_id`</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">100</span>) <span class="hljs-built_in">CHARACTER</span> <span class="hljs-keyword">SET</span> utf8mb4 <span class="hljs-keyword">COLLATE</span> utf8mb4_general_ci <span class="hljs-literal">NULL</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">'上次同步到了哪里(排序的 id 才有意义，结合 last_update_time 使用)'</span>,<br><span class="hljs-string">`memo`</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) <span class="hljs-built_in">CHARACTER</span> <span class="hljs-keyword">SET</span> utf8mb4 <span class="hljs-keyword">COLLATE</span> utf8mb4_general_ci <span class="hljs-literal">NULL</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">'备注'</span>,<br><span class="hljs-string">`ext`</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>) <span class="hljs-built_in">CHARACTER</span> <span class="hljs-keyword">SET</span> utf8mb4 <span class="hljs-keyword">COLLATE</span> utf8mb4_general_ci <span class="hljs-literal">NULL</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">'备用字段'</span>,<br><span class="hljs-string">`gmt_create`</span> datetime(<span class="hljs-number">0</span>) <span class="hljs-literal">NULL</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">CURRENT_TIMESTAMP</span>(<span class="hljs-number">0</span>) <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">'创建时间'</span>,<br><span class="hljs-string">`gmt_modified`</span> datetime(<span class="hljs-number">0</span>) <span class="hljs-literal">NULL</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">CURRENT_TIMESTAMP</span>(<span class="hljs-number">0</span>) <span class="hljs-keyword">ON</span> <span class="hljs-keyword">UPDATE</span> <span class="hljs-keyword">CURRENT_TIMESTAMP</span>(<span class="hljs-number">0</span>) <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">'修改时间'</span>,<br><span class="hljs-string">`disabled`</span> <span class="hljs-built_in">tinyint</span>(<span class="hljs-number">1</span>) <span class="hljs-literal">NULL</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-number">0</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">'是否已经禁用'</span>,<br>PRIMARY <span class="hljs-keyword">KEY</span> (<span class="hljs-string">`id`</span>) <span class="hljs-keyword">USING</span> BTREE,<br><span class="hljs-keyword">UNIQUE</span> <span class="hljs-keyword">INDEX</span> <span class="hljs-string">`idx_name`</span>(<span class="hljs-string">`name`</span>) <span class="hljs-keyword">USING</span> BTREE<br>) <span class="hljs-keyword">ENGINE</span> = MyISAM AUTO_INCREMENT = <span class="hljs-number">7</span> <span class="hljs-built_in">CHARACTER</span> <span class="hljs-keyword">SET</span> = utf8mb4 <span class="hljs-keyword">COLLATE</span> = utf8mb4_general_ci ROW_FORMAT = Dynamic;<br><br><span class="hljs-comment">---</span><br><br><span class="hljs-comment">-- Table structure for t_student</span><br><br><span class="hljs-comment">---</span><br><br><span class="hljs-keyword">DROP</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-keyword">IF</span> <span class="hljs-keyword">EXISTS</span> <span class="hljs-string">`t_student`</span>;<br><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-string">`t_student`</span> (<br><span class="hljs-string">`id`</span> <span class="hljs-built_in">bigint</span>(<span class="hljs-number">20</span>) <span class="hljs-keyword">UNSIGNED</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> AUTO_INCREMENT <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">'学生 ID'</span>,<br><span class="hljs-string">`name`</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">32</span>) <span class="hljs-built_in">CHARACTER</span> <span class="hljs-keyword">SET</span> utf8mb4 <span class="hljs-keyword">COLLATE</span> utf8mb4_unicode_ci <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">'学生名称'</span>,<br><span class="hljs-string">`nick_name`</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">32</span>) <span class="hljs-built_in">CHARACTER</span> <span class="hljs-keyword">SET</span> utf8mb4 <span class="hljs-keyword">COLLATE</span> utf8mb4_general_ci <span class="hljs-literal">NULL</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">'学生昵称'</span>,<br><span class="hljs-string">`class_id`</span> <span class="hljs-built_in">int</span>(<span class="hljs-number">11</span>) <span class="hljs-literal">NULL</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">'班级 ID'</span>,<br><span class="hljs-string">`email`</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">32</span>) <span class="hljs-built_in">CHARACTER</span> <span class="hljs-keyword">SET</span> utf8mb4 <span class="hljs-keyword">COLLATE</span> utf8mb4_unicode_ci <span class="hljs-literal">NULL</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">'电子邮件'</span>,<br><span class="hljs-string">`phone`</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">20</span>) <span class="hljs-built_in">CHARACTER</span> <span class="hljs-keyword">SET</span> utf8mb4 <span class="hljs-keyword">COLLATE</span> utf8mb4_general_ci <span class="hljs-literal">NULL</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">'手机号'</span>,<br><span class="hljs-string">`avatar`</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">128</span>) <span class="hljs-built_in">CHARACTER</span> <span class="hljs-keyword">SET</span> utf8mb4 <span class="hljs-keyword">COLLATE</span> utf8mb4_unicode_ci <span class="hljs-literal">NULL</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">'大头贴'</span>,<br><span class="hljs-string">`gmt_create`</span> datetime(<span class="hljs-number">0</span>) <span class="hljs-literal">NULL</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">CURRENT_TIMESTAMP</span>(<span class="hljs-number">0</span>) <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">'创建时间'</span>,<br><span class="hljs-string">`gmt_modified`</span> datetime(<span class="hljs-number">0</span>) <span class="hljs-literal">NULL</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">CURRENT_TIMESTAMP</span>(<span class="hljs-number">0</span>) <span class="hljs-keyword">ON</span> <span class="hljs-keyword">UPDATE</span> <span class="hljs-keyword">CURRENT_TIMESTAMP</span>(<span class="hljs-number">0</span>) <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">'修改时间'</span>,<br><span class="hljs-string">`disabled`</span> <span class="hljs-built_in">tinyint</span>(<span class="hljs-number">1</span>) <span class="hljs-literal">NULL</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-number">0</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">'是否已经禁用'</span>,<br>PRIMARY <span class="hljs-keyword">KEY</span> (<span class="hljs-string">`id`</span>) <span class="hljs-keyword">USING</span> BTREE,<br><span class="hljs-keyword">INDEX</span> <span class="hljs-string">`idx_name`</span>(<span class="hljs-string">`name`</span>) <span class="hljs-keyword">USING</span> BTREE<br>) <span class="hljs-keyword">ENGINE</span> = MyISAM AUTO_INCREMENT = <span class="hljs-number">1000</span> <span class="hljs-built_in">CHARACTER</span> <span class="hljs-keyword">SET</span> = utf8mb4 <span class="hljs-keyword">COLLATE</span> = utf8mb4_general_ci <span class="hljs-keyword">COMMENT</span> = <span class="hljs-string">'学生表'</span> ROW_FORMAT = Dynamic;<br><br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> <span class="hljs-string">`school`</span>.<span class="hljs-string">`t_student`</span>(<span class="hljs-string">`id`</span>, <span class="hljs-string">`name`</span>, <span class="hljs-string">`nick_name`</span>, <span class="hljs-string">`class_id`</span>, <span class="hljs-string">`email`</span>, <span class="hljs-string">`phone`</span>, <span class="hljs-string">`avatar`</span>, <span class="hljs-string">`gmt_create`</span>, <span class="hljs-string">`gmt_modified`</span>, <span class="hljs-string">`disabled`</span>) <span class="hljs-keyword">VALUES</span> (<span class="hljs-number">1</span>, <span class="hljs-string">'student001'</span>, <span class="hljs-string">'学生 001'</span>, <span class="hljs-number">2</span>, <span class="hljs-string">'student001@coocaa.com'</span>, <span class="hljs-string">'15212345001'</span>, <span class="hljs-string">'http://bpic.588ku.com/element_pic/20/06/30/e510dda05e0b09e44cec4e474546a014.jpg'</span>, <span class="hljs-string">'2020-12-22 09:33:35'</span>, <span class="hljs-string">'2020-12-28 15:56:56'</span>, <span class="hljs-number">0</span>);<br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> <span class="hljs-string">`school`</span>.<span class="hljs-string">`t_student`</span>(<span class="hljs-string">`id`</span>, <span class="hljs-string">`name`</span>, <span class="hljs-string">`nick_name`</span>, <span class="hljs-string">`class_id`</span>, <span class="hljs-string">`email`</span>, <span class="hljs-string">`phone`</span>, <span class="hljs-string">`avatar`</span>, <span class="hljs-string">`gmt_create`</span>, <span class="hljs-string">`gmt_modified`</span>, <span class="hljs-string">`disabled`</span>) <span class="hljs-keyword">VALUES</span> (<span class="hljs-number">2</span>, <span class="hljs-string">'student002'</span>, <span class="hljs-string">'学生 002'</span>, <span class="hljs-number">2</span>, <span class="hljs-string">'student002@coocaa.com'</span>, <span class="hljs-string">'15212345002'</span>, <span class="hljs-string">'http://bpic.588ku.com/element_pic/20/06/30/e510dda05e0b09e44cec4e474546a014.jpg'</span>, <span class="hljs-string">'2020-12-22 09:33:35'</span>, <span class="hljs-string">'2020-12-22 09:33:35'</span>, <span class="hljs-number">0</span>);<br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> <span class="hljs-string">`school`</span>.<span class="hljs-string">`t_student`</span>(<span class="hljs-string">`id`</span>, <span class="hljs-string">`name`</span>, <span class="hljs-string">`nick_name`</span>, <span class="hljs-string">`class_id`</span>, <span class="hljs-string">`email`</span>, <span class="hljs-string">`phone`</span>, <span class="hljs-string">`avatar`</span>, <span class="hljs-string">`gmt_create`</span>, <span class="hljs-string">`gmt_modified`</span>, <span class="hljs-string">`disabled`</span>) <span class="hljs-keyword">VALUES</span> (<span class="hljs-number">3</span>, <span class="hljs-string">'student003'</span>, <span class="hljs-string">'学生 003'</span>, <span class="hljs-number">1</span>, <span class="hljs-string">'student003@coocaa.com'</span>, <span class="hljs-string">'15212345003'</span>, <span class="hljs-string">'http://bpic.588ku.com/element_pic/20/06/30/e510dda05e0b09e44cec4e474546a014.jpg'</span>, <span class="hljs-string">'2020-12-22 09:33:35'</span>, <span class="hljs-string">'2020-12-22 09:33:35'</span>, <span class="hljs-number">0</span>);<br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> <span class="hljs-string">`school`</span>.<span class="hljs-string">`t_student`</span>(<span class="hljs-string">`id`</span>, <span class="hljs-string">`name`</span>, <span class="hljs-string">`nick_name`</span>, <span class="hljs-string">`class_id`</span>, <span class="hljs-string">`email`</span>, <span class="hljs-string">`phone`</span>, <span class="hljs-string">`avatar`</span>, <span class="hljs-string">`gmt_create`</span>, <span class="hljs-string">`gmt_modified`</span>, <span class="hljs-string">`disabled`</span>) <span class="hljs-keyword">VALUES</span> (<span class="hljs-number">4</span>, <span class="hljs-string">'student004'</span>, <span class="hljs-string">'学生 004'</span>, <span class="hljs-number">9</span>, <span class="hljs-string">'student004@coocaa.com'</span>, <span class="hljs-string">'15212345004'</span>, <span class="hljs-string">'http://bpic.588ku.com/element_pic/20/06/30/e510dda05e0b09e44cec4e474546a014.jpg'</span>, <span class="hljs-string">'2020-12-22 09:33:35'</span>, <span class="hljs-string">'2020-12-22 09:33:35'</span>, <span class="hljs-number">0</span>);<br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> <span class="hljs-string">`school`</span>.<span class="hljs-string">`t_student`</span>(<span class="hljs-string">`id`</span>, <span class="hljs-string">`name`</span>, <span class="hljs-string">`nick_name`</span>, <span class="hljs-string">`class_id`</span>, <span class="hljs-string">`email`</span>, <span class="hljs-string">`phone`</span>, <span class="hljs-string">`avatar`</span>, <span class="hljs-string">`gmt_create`</span>, <span class="hljs-string">`gmt_modified`</span>, <span class="hljs-string">`disabled`</span>) <span class="hljs-keyword">VALUES</span> (<span class="hljs-number">5</span>, <span class="hljs-string">'student005'</span>, <span class="hljs-string">'学生 005'</span>, <span class="hljs-number">8</span>, <span class="hljs-string">'student005@coocaa.com'</span>, <span class="hljs-string">'15212345005'</span>, <span class="hljs-string">'http://bpic.588ku.com/element_pic/20/06/30/e510dda05e0b09e44cec4e474546a014.jpg'</span>, <span class="hljs-string">'2020-12-22 09:33:35'</span>, <span class="hljs-string">'2020-12-22 09:33:35'</span>, <span class="hljs-number">0</span>);<br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> <span class="hljs-string">`school`</span>.<span class="hljs-string">`t_student`</span>(<span class="hljs-string">`id`</span>, <span class="hljs-string">`name`</span>, <span class="hljs-string">`nick_name`</span>, <span class="hljs-string">`class_id`</span>, <span class="hljs-string">`email`</span>, <span class="hljs-string">`phone`</span>, <span class="hljs-string">`avatar`</span>, <span class="hljs-string">`gmt_create`</span>, <span class="hljs-string">`gmt_modified`</span>, <span class="hljs-string">`disabled`</span>) <span class="hljs-keyword">VALUES</span> (<span class="hljs-number">6</span>, <span class="hljs-string">'student006'</span>, <span class="hljs-string">'学生 006'</span>, <span class="hljs-number">7</span>, <span class="hljs-string">'student006@coocaa.com'</span>, <span class="hljs-string">'15212345006'</span>, <span class="hljs-string">'http://bpic.588ku.com/element_pic/20/06/30/e510dda05e0b09e44cec4e474546a014.jpg'</span>, <span class="hljs-string">'2020-12-22 09:33:35'</span>, <span class="hljs-string">'2020-12-22 09:33:35'</span>, <span class="hljs-number">0</span>);<br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> <span class="hljs-string">`school`</span>.<span class="hljs-string">`t_student`</span>(<span class="hljs-string">`id`</span>, <span class="hljs-string">`name`</span>, <span class="hljs-string">`nick_name`</span>, <span class="hljs-string">`class_id`</span>, <span class="hljs-string">`email`</span>, <span class="hljs-string">`phone`</span>, <span class="hljs-string">`avatar`</span>, <span class="hljs-string">`gmt_create`</span>, <span class="hljs-string">`gmt_modified`</span>, <span class="hljs-string">`disabled`</span>) <span class="hljs-keyword">VALUES</span> (<span class="hljs-number">7</span>, <span class="hljs-string">'student007'</span>, <span class="hljs-string">'学生 007'</span>, <span class="hljs-number">6</span>, <span class="hljs-string">'student007@coocaa.com'</span>, <span class="hljs-string">'15212345007'</span>, <span class="hljs-string">'http://bpic.588ku.com/element_pic/20/06/30/e510dda05e0b09e44cec4e474546a014.jpg'</span>, <span class="hljs-string">'2020-12-22 09:33:35'</span>, <span class="hljs-string">'2020-12-22 09:33:35'</span>, <span class="hljs-number">0</span>);<br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> <span class="hljs-string">`school`</span>.<span class="hljs-string">`t_student`</span>(<span class="hljs-string">`id`</span>, <span class="hljs-string">`name`</span>, <span class="hljs-string">`nick_name`</span>, <span class="hljs-string">`class_id`</span>, <span class="hljs-string">`email`</span>, <span class="hljs-string">`phone`</span>, <span class="hljs-string">`avatar`</span>, <span class="hljs-string">`gmt_create`</span>, <span class="hljs-string">`gmt_modified`</span>, <span class="hljs-string">`disabled`</span>) <span class="hljs-keyword">VALUES</span> (<span class="hljs-number">8</span>, <span class="hljs-string">'student008'</span>, <span class="hljs-string">'学生 008'</span>, <span class="hljs-number">5</span>, <span class="hljs-string">'student008@coocaa.com'</span>, <span class="hljs-string">'15212345008'</span>, <span class="hljs-string">'http://bpic.588ku.com/element_pic/20/06/30/e510dda05e0b09e44cec4e474546a014.jpg'</span>, <span class="hljs-string">'2020-12-22 09:33:35'</span>, <span class="hljs-string">'2020-12-22 09:33:35'</span>, <span class="hljs-number">0</span>);<br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> <span class="hljs-string">`school`</span>.<span class="hljs-string">`t_student`</span>(<span class="hljs-string">`id`</span>, <span class="hljs-string">`name`</span>, <span class="hljs-string">`nick_name`</span>, <span class="hljs-string">`class_id`</span>, <span class="hljs-string">`email`</span>, <span class="hljs-string">`phone`</span>, <span class="hljs-string">`avatar`</span>, <span class="hljs-string">`gmt_create`</span>, <span class="hljs-string">`gmt_modified`</span>, <span class="hljs-string">`disabled`</span>) <span class="hljs-keyword">VALUES</span> (<span class="hljs-number">9</span>, <span class="hljs-string">'student009'</span>, <span class="hljs-string">'学生 009'</span>, <span class="hljs-number">4</span>, <span class="hljs-string">'student009@coocaa.com'</span>, <span class="hljs-string">'15212345009'</span>, <span class="hljs-string">'http://bpic.588ku.com/element_pic/20/06/30/e510dda05e0b09e44cec4e474546a014.jpg'</span>, <span class="hljs-string">'2020-12-22 09:33:35'</span>, <span class="hljs-string">'2020-12-22 09:33:35'</span>, <span class="hljs-number">0</span>);<br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> <span class="hljs-string">`school`</span>.<span class="hljs-string">`t_student`</span>(<span class="hljs-string">`id`</span>, <span class="hljs-string">`name`</span>, <span class="hljs-string">`nick_name`</span>, <span class="hljs-string">`class_id`</span>, <span class="hljs-string">`email`</span>, <span class="hljs-string">`phone`</span>, <span class="hljs-string">`avatar`</span>, <span class="hljs-string">`gmt_create`</span>, <span class="hljs-string">`gmt_modified`</span>, <span class="hljs-string">`disabled`</span>) <span class="hljs-keyword">VALUES</span> (<span class="hljs-number">10</span>, <span class="hljs-string">'student010'</span>, <span class="hljs-string">'学生 010'</span>, <span class="hljs-number">9</span>, <span class="hljs-string">'student010@coocaa.com'</span>, <span class="hljs-string">'15212345010'</span>, <span class="hljs-string">'http://bpic.588ku.com/element_pic/20/06/30/e510dda05e0b09e44cec4e474546a014.jpg'</span>, <span class="hljs-string">'2020-12-22 09:33:35'</span>, <span class="hljs-string">'2020-12-22 09:33:35'</span>, <span class="hljs-number">0</span>);<br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> <span class="hljs-string">`school`</span>.<span class="hljs-string">`t_student`</span>(<span class="hljs-string">`id`</span>, <span class="hljs-string">`name`</span>, <span class="hljs-string">`nick_name`</span>, <span class="hljs-string">`class_id`</span>, <span class="hljs-string">`email`</span>, <span class="hljs-string">`phone`</span>, <span class="hljs-string">`avatar`</span>, <span class="hljs-string">`gmt_create`</span>, <span class="hljs-string">`gmt_modified`</span>, <span class="hljs-string">`disabled`</span>) <span class="hljs-keyword">VALUES</span> (<span class="hljs-number">11</span>, <span class="hljs-string">'student011'</span>, <span class="hljs-string">'学生 011'</span>, <span class="hljs-number">8</span>, <span class="hljs-string">'student011@coocaa.com'</span>, <span class="hljs-string">'15212345011'</span>, <span class="hljs-string">'http://bpic.588ku.com/element_pic/20/06/30/e510dda05e0b09e44cec4e474546a014.jpg'</span>, <span class="hljs-string">'2020-12-22 09:33:35'</span>, <span class="hljs-string">'2020-12-22 09:33:35'</span>, <span class="hljs-number">0</span>);<br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> <span class="hljs-string">`school`</span>.<span class="hljs-string">`t_student`</span>(<span class="hljs-string">`id`</span>, <span class="hljs-string">`name`</span>, <span class="hljs-string">`nick_name`</span>, <span class="hljs-string">`class_id`</span>, <span class="hljs-string">`email`</span>, <span class="hljs-string">`phone`</span>, <span class="hljs-string">`avatar`</span>, <span class="hljs-string">`gmt_create`</span>, <span class="hljs-string">`gmt_modified`</span>, <span class="hljs-string">`disabled`</span>) <span class="hljs-keyword">VALUES</span> (<span class="hljs-number">12</span>, <span class="hljs-string">'student012'</span>, <span class="hljs-string">'学生 012'</span>, <span class="hljs-number">7</span>, <span class="hljs-string">'student012@coocaa.com'</span>, <span class="hljs-string">'15212345012'</span>, <span class="hljs-string">'http://bpic.588ku.com/element_pic/20/06/30/e510dda05e0b09e44cec4e474546a014.jpg'</span>, <span class="hljs-string">'2020-12-22 09:33:35'</span>, <span class="hljs-string">'2020-12-22 09:33:35'</span>, <span class="hljs-number">0</span>);<br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> <span class="hljs-string">`school`</span>.<span class="hljs-string">`t_student`</span>(<span class="hljs-string">`id`</span>, <span class="hljs-string">`name`</span>, <span class="hljs-string">`nick_name`</span>, <span class="hljs-string">`class_id`</span>, <span class="hljs-string">`email`</span>, <span class="hljs-string">`phone`</span>, <span class="hljs-string">`avatar`</span>, <span class="hljs-string">`gmt_create`</span>, <span class="hljs-string">`gmt_modified`</span>, <span class="hljs-string">`disabled`</span>) <span class="hljs-keyword">VALUES</span> (<span class="hljs-number">13</span>, <span class="hljs-string">'student013'</span>, <span class="hljs-string">'学生 013'</span>, <span class="hljs-number">6</span>, <span class="hljs-string">'student013@coocaa.com'</span>, <span class="hljs-string">'15212345013'</span>, <span class="hljs-string">'http://bpic.588ku.com/element_pic/20/06/30/e510dda05e0b09e44cec4e474546a014.jpg'</span>, <span class="hljs-string">'2020-12-22 09:33:35'</span>, <span class="hljs-string">'2020-12-22 09:33:35'</span>, <span class="hljs-number">0</span>);<br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> <span class="hljs-string">`school`</span>.<span class="hljs-string">`t_student`</span>(<span class="hljs-string">`id`</span>, <span class="hljs-string">`name`</span>, <span class="hljs-string">`nick_name`</span>, <span class="hljs-string">`class_id`</span>, <span class="hljs-string">`email`</span>, <span class="hljs-string">`phone`</span>, <span class="hljs-string">`avatar`</span>, <span class="hljs-string">`gmt_create`</span>, <span class="hljs-string">`gmt_modified`</span>, <span class="hljs-string">`disabled`</span>) <span class="hljs-keyword">VALUES</span> (<span class="hljs-number">14</span>, <span class="hljs-string">'student014'</span>, <span class="hljs-string">'学生 014'</span>, <span class="hljs-number">5</span>, <span class="hljs-string">'student014@coocaa.com'</span>, <span class="hljs-string">'15212345014'</span>, <span class="hljs-string">'http://bpic.588ku.com/element_pic/20/06/30/e510dda05e0b09e44cec4e474546a014.jpg'</span>, <span class="hljs-string">'2020-12-22 09:33:35'</span>, <span class="hljs-string">'2020-12-22 09:33:35'</span>, <span class="hljs-number">0</span>);<br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> <span class="hljs-string">`school`</span>.<span class="hljs-string">`t_student`</span>(<span class="hljs-string">`id`</span>, <span class="hljs-string">`name`</span>, <span class="hljs-string">`nick_name`</span>, <span class="hljs-string">`class_id`</span>, <span class="hljs-string">`email`</span>, <span class="hljs-string">`phone`</span>, <span class="hljs-string">`avatar`</span>, <span class="hljs-string">`gmt_create`</span>, <span class="hljs-string">`gmt_modified`</span>, <span class="hljs-string">`disabled`</span>) <span class="hljs-keyword">VALUES</span> (<span class="hljs-number">15</span>, <span class="hljs-string">'student015'</span>, <span class="hljs-string">'学生 015'</span>, <span class="hljs-number">4</span>, <span class="hljs-string">'student015@coocaa.com'</span>, <span class="hljs-string">'15212345015'</span>, <span class="hljs-string">'http://bpic.588ku.com/element_pic/20/06/30/e510dda05e0b09e44cec4e474546a014.jpg'</span>, <span class="hljs-string">'2020-12-22 09:33:35'</span>, <span class="hljs-string">'2020-12-22 09:33:35'</span>, <span class="hljs-number">0</span>);<br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> <span class="hljs-string">`school`</span>.<span class="hljs-string">`t_student`</span>(<span class="hljs-string">`id`</span>, <span class="hljs-string">`name`</span>, <span class="hljs-string">`nick_name`</span>, <span class="hljs-string">`class_id`</span>, <span class="hljs-string">`email`</span>, <span class="hljs-string">`phone`</span>, <span class="hljs-string">`avatar`</span>, <span class="hljs-string">`gmt_create`</span>, <span class="hljs-string">`gmt_modified`</span>, <span class="hljs-string">`disabled`</span>) <span class="hljs-keyword">VALUES</span> (<span class="hljs-number">16</span>, <span class="hljs-string">'student016'</span>, <span class="hljs-string">'学生 016'</span>, <span class="hljs-number">3</span>, <span class="hljs-string">'student016@coocaa.com'</span>, <span class="hljs-string">'15212345016'</span>, <span class="hljs-string">'http://bpic.588ku.com/element_pic/20/06/30/e510dda05e0b09e44cec4e474546a014.jpg'</span>, <span class="hljs-string">'2020-12-22 09:33:35'</span>, <span class="hljs-string">'2020-12-22 09:33:35'</span>, <span class="hljs-number">0</span>);<br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> <span class="hljs-string">`school`</span>.<span class="hljs-string">`t_student`</span>(<span class="hljs-string">`id`</span>, <span class="hljs-string">`name`</span>, <span class="hljs-string">`nick_name`</span>, <span class="hljs-string">`class_id`</span>, <span class="hljs-string">`email`</span>, <span class="hljs-string">`phone`</span>, <span class="hljs-string">`avatar`</span>, <span class="hljs-string">`gmt_create`</span>, <span class="hljs-string">`gmt_modified`</span>, <span class="hljs-string">`disabled`</span>) <span class="hljs-keyword">VALUES</span> (<span class="hljs-number">17</span>, <span class="hljs-string">'student017'</span>, <span class="hljs-string">'学生 017'</span>, <span class="hljs-number">2</span>, <span class="hljs-string">'student017@coocaa.com'</span>, <span class="hljs-string">'15212345017'</span>, <span class="hljs-string">'http://bpic.588ku.com/element_pic/20/06/30/e510dda05e0b09e44cec4e474546a014.jpg'</span>, <span class="hljs-string">'2020-12-22 09:33:35'</span>, <span class="hljs-string">'2020-12-22 09:33:35'</span>, <span class="hljs-number">0</span>);<br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> <span class="hljs-string">`school`</span>.<span class="hljs-string">`t_student`</span>(<span class="hljs-string">`id`</span>, <span class="hljs-string">`name`</span>, <span class="hljs-string">`nick_name`</span>, <span class="hljs-string">`class_id`</span>, <span class="hljs-string">`email`</span>, <span class="hljs-string">`phone`</span>, <span class="hljs-string">`avatar`</span>, <span class="hljs-string">`gmt_create`</span>, <span class="hljs-string">`gmt_modified`</span>, <span class="hljs-string">`disabled`</span>) <span class="hljs-keyword">VALUES</span> (<span class="hljs-number">18</span>, <span class="hljs-string">'student018'</span>, <span class="hljs-string">'学生 018'</span>, <span class="hljs-number">1</span>, <span class="hljs-string">'student018@coocaa.com'</span>, <span class="hljs-string">'15212345018'</span>, <span class="hljs-string">'http://bpic.588ku.com/element_pic/20/06/30/e510dda05e0b09e44cec4e474546a014.jpg'</span>, <span class="hljs-string">'2020-12-22 09:33:35'</span>, <span class="hljs-string">'2020-12-22 09:33:35'</span>, <span class="hljs-number">0</span>);<br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> <span class="hljs-string">`school`</span>.<span class="hljs-string">`t_student`</span>(<span class="hljs-string">`id`</span>, <span class="hljs-string">`name`</span>, <span class="hljs-string">`nick_name`</span>, <span class="hljs-string">`class_id`</span>, <span class="hljs-string">`email`</span>, <span class="hljs-string">`phone`</span>, <span class="hljs-string">`avatar`</span>, <span class="hljs-string">`gmt_create`</span>, <span class="hljs-string">`gmt_modified`</span>, <span class="hljs-string">`disabled`</span>) <span class="hljs-keyword">VALUES</span> (<span class="hljs-number">19</span>, <span class="hljs-string">'student019'</span>, <span class="hljs-string">'学生 019'</span>, <span class="hljs-number">9</span>, <span class="hljs-string">'student019@coocaa.com'</span>, <span class="hljs-string">'15212345019'</span>, <span class="hljs-string">'http://bpic.588ku.com/element_pic/20/06/30/e510dda05e0b09e44cec4e474546a014.jpg'</span>, <span class="hljs-string">'2020-12-22 09:33:35'</span>, <span class="hljs-string">'2020-12-22 09:33:35'</span>, <span class="hljs-number">0</span>);<br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> <span class="hljs-string">`school`</span>.<span class="hljs-string">`t_student`</span>(<span class="hljs-string">`id`</span>, <span class="hljs-string">`name`</span>, <span class="hljs-string">`nick_name`</span>, <span class="hljs-string">`class_id`</span>, <span class="hljs-string">`email`</span>, <span class="hljs-string">`phone`</span>, <span class="hljs-string">`avatar`</span>, <span class="hljs-string">`gmt_create`</span>, <span class="hljs-string">`gmt_modified`</span>, <span class="hljs-string">`disabled`</span>) <span class="hljs-keyword">VALUES</span> (<span class="hljs-number">20</span>, <span class="hljs-string">'student020'</span>, <span class="hljs-string">'学生 020'</span>, <span class="hljs-number">5</span>, <span class="hljs-string">'student020@coocaa.com'</span>, <span class="hljs-string">'15212345020'</span>, <span class="hljs-string">'http://bpic.588ku.com/element_pic/20/06/30/e510dda05e0b09e44cec4e474546a014.jpg'</span>, <span class="hljs-string">'2020-12-22 09:33:35'</span>, <span class="hljs-string">'2020-12-22 09:33:35'</span>, <span class="hljs-number">0</span>);<br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> <span class="hljs-string">`school`</span>.<span class="hljs-string">`t_student`</span>(<span class="hljs-string">`id`</span>, <span class="hljs-string">`name`</span>, <span class="hljs-string">`nick_name`</span>, <span class="hljs-string">`class_id`</span>, <span class="hljs-string">`email`</span>, <span class="hljs-string">`phone`</span>, <span class="hljs-string">`avatar`</span>, <span class="hljs-string">`gmt_create`</span>, <span class="hljs-string">`gmt_modified`</span>, <span class="hljs-string">`disabled`</span>) <span class="hljs-keyword">VALUES</span> (<span class="hljs-number">21</span>, <span class="hljs-string">'student021'</span>, <span class="hljs-string">'学生 021'</span>, <span class="hljs-number">4</span>, <span class="hljs-string">'student021@coocaa.com'</span>, <span class="hljs-string">'15212345021'</span>, <span class="hljs-string">'http://bpic.588ku.com/element_pic/20/06/30/e510dda05e0b09e44cec4e474546a014.jpg'</span>, <span class="hljs-string">'2020-12-22 09:33:35'</span>, <span class="hljs-string">'2020-12-22 09:33:35'</span>, <span class="hljs-number">0</span>);<br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> <span class="hljs-string">`school`</span>.<span class="hljs-string">`t_student`</span>(<span class="hljs-string">`id`</span>, <span class="hljs-string">`name`</span>, <span class="hljs-string">`nick_name`</span>, <span class="hljs-string">`class_id`</span>, <span class="hljs-string">`email`</span>, <span class="hljs-string">`phone`</span>, <span class="hljs-string">`avatar`</span>, <span class="hljs-string">`gmt_create`</span>, <span class="hljs-string">`gmt_modified`</span>, <span class="hljs-string">`disabled`</span>) <span class="hljs-keyword">VALUES</span> (<span class="hljs-number">22</span>, <span class="hljs-string">'student022'</span>, <span class="hljs-string">'学生 022'</span>, <span class="hljs-number">3</span>, <span class="hljs-string">'student022@coocaa.com'</span>, <span class="hljs-string">'15212345022'</span>, <span class="hljs-string">'http://bpic.588ku.com/element_pic/20/06/30/e510dda05e0b09e44cec4e474546a014.jpg'</span>, <span class="hljs-string">'2020-12-22 09:33:35'</span>, <span class="hljs-string">'2020-12-22 09:33:35'</span>, <span class="hljs-number">0</span>);<br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> <span class="hljs-string">`school`</span>.<span class="hljs-string">`t_student`</span>(<span class="hljs-string">`id`</span>, <span class="hljs-string">`name`</span>, <span class="hljs-string">`nick_name`</span>, <span class="hljs-string">`class_id`</span>, <span class="hljs-string">`email`</span>, <span class="hljs-string">`phone`</span>, <span class="hljs-string">`avatar`</span>, <span class="hljs-string">`gmt_create`</span>, <span class="hljs-string">`gmt_modified`</span>, <span class="hljs-string">`disabled`</span>) <span class="hljs-keyword">VALUES</span> (<span class="hljs-number">23</span>, <span class="hljs-string">'student023'</span>, <span class="hljs-string">'学生 023'</span>, <span class="hljs-number">2</span>, <span class="hljs-string">'student023@coocaa.com'</span>, <span class="hljs-string">'15212345023'</span>, <span class="hljs-string">'http://bpic.588ku.com/element_pic/20/06/30/e510dda05e0b09e44cec4e474546a014.jpg'</span>, <span class="hljs-string">'2020-12-22 09:33:35'</span>, <span class="hljs-string">'2020-12-22 09:33:35'</span>, <span class="hljs-number">0</span>);<br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> <span class="hljs-string">`school`</span>.<span class="hljs-string">`t_student`</span>(<span class="hljs-string">`id`</span>, <span class="hljs-string">`name`</span>, <span class="hljs-string">`nick_name`</span>, <span class="hljs-string">`class_id`</span>, <span class="hljs-string">`email`</span>, <span class="hljs-string">`phone`</span>, <span class="hljs-string">`avatar`</span>, <span class="hljs-string">`gmt_create`</span>, <span class="hljs-string">`gmt_modified`</span>, <span class="hljs-string">`disabled`</span>) <span class="hljs-keyword">VALUES</span> (<span class="hljs-number">24</span>, <span class="hljs-string">'student024'</span>, <span class="hljs-string">'学生 024'</span>, <span class="hljs-number">1</span>, <span class="hljs-string">'student024@coocaa.com'</span>, <span class="hljs-string">'15212345024'</span>, <span class="hljs-string">'http://bpic.588ku.com/element_pic/20/06/30/e510dda05e0b09e44cec4e474546a014.jpg'</span>, <span class="hljs-string">'2020-12-22 09:33:35'</span>, <span class="hljs-string">'2020-12-22 09:33:35'</span>, <span class="hljs-number">0</span>);<br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> <span class="hljs-string">`school`</span>.<span class="hljs-string">`t_student`</span>(<span class="hljs-string">`id`</span>, <span class="hljs-string">`name`</span>, <span class="hljs-string">`nick_name`</span>, <span class="hljs-string">`class_id`</span>, <span class="hljs-string">`email`</span>, <span class="hljs-string">`phone`</span>, <span class="hljs-string">`avatar`</span>, <span class="hljs-string">`gmt_create`</span>, <span class="hljs-string">`gmt_modified`</span>, <span class="hljs-string">`disabled`</span>) <span class="hljs-keyword">VALUES</span> (<span class="hljs-number">25</span>, <span class="hljs-string">'student025'</span>, <span class="hljs-string">'学生 025'</span>, <span class="hljs-number">9</span>, <span class="hljs-string">'student025@coocaa.com'</span>, <span class="hljs-string">'15212345025'</span>, <span class="hljs-string">'http://bpic.588ku.com/element_pic/20/06/30/e510dda05e0b09e44cec4e474546a014.jpg'</span>, <span class="hljs-string">'2020-12-22 09:33:35'</span>, <span class="hljs-string">'2020-12-22 09:33:35'</span>, <span class="hljs-number">0</span>);<br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> <span class="hljs-string">`school`</span>.<span class="hljs-string">`t_student`</span>(<span class="hljs-string">`id`</span>, <span class="hljs-string">`name`</span>, <span class="hljs-string">`nick_name`</span>, <span class="hljs-string">`class_id`</span>, <span class="hljs-string">`email`</span>, <span class="hljs-string">`phone`</span>, <span class="hljs-string">`avatar`</span>, <span class="hljs-string">`gmt_create`</span>, <span class="hljs-string">`gmt_modified`</span>, <span class="hljs-string">`disabled`</span>) <span class="hljs-keyword">VALUES</span> (<span class="hljs-number">26</span>, <span class="hljs-string">'student026'</span>, <span class="hljs-string">'学生 026'</span>, <span class="hljs-number">8</span>, <span class="hljs-string">'student026@coocaa.com'</span>, <span class="hljs-string">'15212345026'</span>, <span class="hljs-string">'http://bpic.588ku.com/element_pic/20/06/30/e510dda05e0b09e44cec4e474546a014.jpg'</span>, <span class="hljs-string">'2020-12-22 09:33:35'</span>, <span class="hljs-string">'2020-12-22 09:33:35'</span>, <span class="hljs-number">0</span>);<br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> <span class="hljs-string">`school`</span>.<span class="hljs-string">`t_student`</span>(<span class="hljs-string">`id`</span>, <span class="hljs-string">`name`</span>, <span class="hljs-string">`nick_name`</span>, <span class="hljs-string">`class_id`</span>, <span class="hljs-string">`email`</span>, <span class="hljs-string">`phone`</span>, <span class="hljs-string">`avatar`</span>, <span class="hljs-string">`gmt_create`</span>, <span class="hljs-string">`gmt_modified`</span>, <span class="hljs-string">`disabled`</span>) <span class="hljs-keyword">VALUES</span> (<span class="hljs-number">27</span>, <span class="hljs-string">'student027'</span>, <span class="hljs-string">'学生 027'</span>, <span class="hljs-number">7</span>, <span class="hljs-string">'student027@coocaa.com'</span>, <span class="hljs-string">'15212345027'</span>, <span class="hljs-string">'http://bpic.588ku.com/element_pic/20/06/30/e510dda05e0b09e44cec4e474546a014.jpg'</span>, <span class="hljs-string">'2020-12-22 09:33:35'</span>, <span class="hljs-string">'2020-12-22 09:33:35'</span>, <span class="hljs-number">0</span>);<br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> <span class="hljs-string">`school`</span>.<span class="hljs-string">`t_student`</span>(<span class="hljs-string">`id`</span>, <span class="hljs-string">`name`</span>, <span class="hljs-string">`nick_name`</span>, <span class="hljs-string">`class_id`</span>, <span class="hljs-string">`email`</span>, <span class="hljs-string">`phone`</span>, <span class="hljs-string">`avatar`</span>, <span class="hljs-string">`gmt_create`</span>, <span class="hljs-string">`gmt_modified`</span>, <span class="hljs-string">`disabled`</span>) <span class="hljs-keyword">VALUES</span> (<span class="hljs-number">28</span>, <span class="hljs-string">'student028'</span>, <span class="hljs-string">'学生 028'</span>, <span class="hljs-number">6</span>, <span class="hljs-string">'student028@coocaa.com'</span>, <span class="hljs-string">'15212345028'</span>, <span class="hljs-string">'http://bpic.588ku.com/element_pic/20/06/30/e510dda05e0b09e44cec4e474546a014.jpg'</span>, <span class="hljs-string">'2020-12-22 09:33:35'</span>, <span class="hljs-string">'2020-12-22 09:33:35'</span>, <span class="hljs-number">0</span>);<br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> <span class="hljs-string">`school`</span>.<span class="hljs-string">`t_student`</span>(<span class="hljs-string">`id`</span>, <span class="hljs-string">`name`</span>, <span class="hljs-string">`nick_name`</span>, <span class="hljs-string">`class_id`</span>, <span class="hljs-string">`email`</span>, <span class="hljs-string">`phone`</span>, <span class="hljs-string">`avatar`</span>, <span class="hljs-string">`gmt_create`</span>, <span class="hljs-string">`gmt_modified`</span>, <span class="hljs-string">`disabled`</span>) <span class="hljs-keyword">VALUES</span> (<span class="hljs-number">29</span>, <span class="hljs-string">'student029'</span>, <span class="hljs-string">'学生 029'</span>, <span class="hljs-number">5</span>, <span class="hljs-string">'student029@coocaa.com'</span>, <span class="hljs-string">'15212345029'</span>, <span class="hljs-string">'http://bpic.588ku.com/element_pic/20/06/30/e510dda05e0b09e44cec4e474546a014.jpg'</span>, <span class="hljs-string">'2020-12-22 09:33:35'</span>, <span class="hljs-string">'2020-12-22 09:33:35'</span>, <span class="hljs-number">0</span>);<br><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> <span class="hljs-string">`school`</span>.<span class="hljs-string">`t_student`</span>(<span class="hljs-string">`id`</span>, <span class="hljs-string">`name`</span>, <span class="hljs-string">`nick_name`</span>, <span class="hljs-string">`class_id`</span>, <span class="hljs-string">`email`</span>, <span class="hljs-string">`phone`</span>, <span class="hljs-string">`avatar`</span>, <span class="hljs-string">`gmt_create`</span>, <span class="hljs-string">`gmt_modified`</span>, <span class="hljs-string">`disabled`</span>) <span class="hljs-keyword">VALUES</span> (<span class="hljs-number">30</span>, <span class="hljs-string">'student030'</span>, <span class="hljs-string">'学生 030'</span>, <span class="hljs-number">1</span>, <span class="hljs-string">'student030@coocaa.com'</span>, <span class="hljs-string">'15212345030'</span>, <span class="hljs-string">'http://bpic.588ku.com/element_pic/20/06/30/e510dda05e0b09e44cec4e474546a014.jpg'</span>, <span class="hljs-string">'2020-12-22 09:33:35'</span>, <span class="hljs-string">'2020-12-22 09:33:35'</span>, <span class="hljs-number">0</span>);<br><br><span class="hljs-keyword">SET</span> FOREIGN_KEY_CHECKS = <span class="hljs-number">1</span>;<br></code></pre></td></tr></table></figure>
-</li>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">Source Server : <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span></span><br><span class="line">Source Server Type : MySQL</span><br><span class="line">Source Server Version : <span class="number">50731</span></span><br><span class="line">Source Host : <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">3306</span></span><br><span class="line">Source Schema : school</span><br><span class="line"></span><br><span class="line">Target Server Type : MySQL</span><br><span class="line">Target Server Version : <span class="number">50731</span></span><br><span class="line">File Encoding : <span class="number">65001</span></span><br><span class="line"></span><br><span class="line"><span class="type">Date</span>: <span class="number">28</span><span class="operator">/</span><span class="number">12</span><span class="operator">/</span><span class="number">2020</span> <span class="number">18</span>:<span class="number">37</span>:<span class="number">34</span></span><br><span class="line">\<span class="operator">*</span><span class="operator">/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SET</span> NAMES utf8mb4;</span><br><span class="line"><span class="keyword">SET</span> FOREIGN_KEY_CHECKS <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">---</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- Table structure for t_job_config</span></span><br><span class="line"></span><br><span class="line"><span class="comment">---</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> IF <span class="keyword">EXISTS</span> `t_job_config`;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `t_job_config` (</span><br><span class="line">`id` <span class="type">bigint</span>(<span class="number">11</span>) UNSIGNED <span class="keyword">NOT</span> <span class="keyword">NULL</span> AUTO_INCREMENT COMMENT <span class="string">&#x27;主键 ID&#x27;</span>,</span><br><span class="line">`name` <span class="type">varchar</span>(<span class="number">100</span>) <span class="type">CHARACTER</span> <span class="keyword">SET</span> utf8mb4 <span class="keyword">COLLATE</span> utf8mb4_general_ci <span class="keyword">NOT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;要同步的业务名称&#x27;</span>,</span><br><span class="line">`last_update_time` datetime(<span class="number">0</span>) <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;上次同步时间&#x27;</span>,</span><br><span class="line">`last_update_id` <span class="type">varchar</span>(<span class="number">100</span>) <span class="type">CHARACTER</span> <span class="keyword">SET</span> utf8mb4 <span class="keyword">COLLATE</span> utf8mb4_general_ci <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;上次同步到了哪里(排序的 id 才有意义，结合 last_update_time 使用)&#x27;</span>,</span><br><span class="line">`memo` <span class="type">varchar</span>(<span class="number">255</span>) <span class="type">CHARACTER</span> <span class="keyword">SET</span> utf8mb4 <span class="keyword">COLLATE</span> utf8mb4_general_ci <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;备注&#x27;</span>,</span><br><span class="line">`ext` <span class="type">varchar</span>(<span class="number">255</span>) <span class="type">CHARACTER</span> <span class="keyword">SET</span> utf8mb4 <span class="keyword">COLLATE</span> utf8mb4_general_ci <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;备用字段&#x27;</span>,</span><br><span class="line">`gmt_create` datetime(<span class="number">0</span>) <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="built_in">CURRENT_TIMESTAMP</span>(<span class="number">0</span>) COMMENT <span class="string">&#x27;创建时间&#x27;</span>,</span><br><span class="line">`gmt_modified` datetime(<span class="number">0</span>) <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="built_in">CURRENT_TIMESTAMP</span>(<span class="number">0</span>) <span class="keyword">ON</span> <span class="keyword">UPDATE</span> <span class="built_in">CURRENT_TIMESTAMP</span>(<span class="number">0</span>) COMMENT <span class="string">&#x27;修改时间&#x27;</span>,</span><br><span class="line">`disabled` tinyint(<span class="number">1</span>) <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="number">0</span> COMMENT <span class="string">&#x27;是否已经禁用&#x27;</span>,</span><br><span class="line"><span class="keyword">PRIMARY</span> KEY (`id`) <span class="keyword">USING</span> BTREE,</span><br><span class="line"><span class="keyword">UNIQUE</span> INDEX `idx_name`(`name`) <span class="keyword">USING</span> BTREE</span><br><span class="line">) ENGINE <span class="operator">=</span> MyISAM AUTO_INCREMENT <span class="operator">=</span> <span class="number">7</span> <span class="type">CHARACTER</span> <span class="keyword">SET</span> <span class="operator">=</span> utf8mb4 <span class="keyword">COLLATE</span> <span class="operator">=</span> utf8mb4_general_ci ROW_FORMAT <span class="operator">=</span> <span class="keyword">Dynamic</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">---</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- Table structure for t_student</span></span><br><span class="line"></span><br><span class="line"><span class="comment">---</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> IF <span class="keyword">EXISTS</span> `t_student`;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `t_student` (</span><br><span class="line">`id` <span class="type">bigint</span>(<span class="number">20</span>) UNSIGNED <span class="keyword">NOT</span> <span class="keyword">NULL</span> AUTO_INCREMENT COMMENT <span class="string">&#x27;学生 ID&#x27;</span>,</span><br><span class="line">`name` <span class="type">varchar</span>(<span class="number">32</span>) <span class="type">CHARACTER</span> <span class="keyword">SET</span> utf8mb4 <span class="keyword">COLLATE</span> utf8mb4_unicode_ci <span class="keyword">NOT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;学生名称&#x27;</span>,</span><br><span class="line">`nick_name` <span class="type">varchar</span>(<span class="number">32</span>) <span class="type">CHARACTER</span> <span class="keyword">SET</span> utf8mb4 <span class="keyword">COLLATE</span> utf8mb4_general_ci <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;学生昵称&#x27;</span>,</span><br><span class="line">`class_id` <span class="type">int</span>(<span class="number">11</span>) <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;班级 ID&#x27;</span>,</span><br><span class="line">`email` <span class="type">varchar</span>(<span class="number">32</span>) <span class="type">CHARACTER</span> <span class="keyword">SET</span> utf8mb4 <span class="keyword">COLLATE</span> utf8mb4_unicode_ci <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;电子邮件&#x27;</span>,</span><br><span class="line">`phone` <span class="type">varchar</span>(<span class="number">20</span>) <span class="type">CHARACTER</span> <span class="keyword">SET</span> utf8mb4 <span class="keyword">COLLATE</span> utf8mb4_general_ci <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;手机号&#x27;</span>,</span><br><span class="line">`avatar` <span class="type">varchar</span>(<span class="number">128</span>) <span class="type">CHARACTER</span> <span class="keyword">SET</span> utf8mb4 <span class="keyword">COLLATE</span> utf8mb4_unicode_ci <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;大头贴&#x27;</span>,</span><br><span class="line">`gmt_create` datetime(<span class="number">0</span>) <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="built_in">CURRENT_TIMESTAMP</span>(<span class="number">0</span>) COMMENT <span class="string">&#x27;创建时间&#x27;</span>,</span><br><span class="line">`gmt_modified` datetime(<span class="number">0</span>) <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="built_in">CURRENT_TIMESTAMP</span>(<span class="number">0</span>) <span class="keyword">ON</span> <span class="keyword">UPDATE</span> <span class="built_in">CURRENT_TIMESTAMP</span>(<span class="number">0</span>) COMMENT <span class="string">&#x27;修改时间&#x27;</span>,</span><br><span class="line">`disabled` tinyint(<span class="number">1</span>) <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="number">0</span> COMMENT <span class="string">&#x27;是否已经禁用&#x27;</span>,</span><br><span class="line"><span class="keyword">PRIMARY</span> KEY (`id`) <span class="keyword">USING</span> BTREE,</span><br><span class="line">INDEX `idx_name`(`name`) <span class="keyword">USING</span> BTREE</span><br><span class="line">) ENGINE <span class="operator">=</span> MyISAM AUTO_INCREMENT <span class="operator">=</span> <span class="number">1000</span> <span class="type">CHARACTER</span> <span class="keyword">SET</span> <span class="operator">=</span> utf8mb4 <span class="keyword">COLLATE</span> <span class="operator">=</span> utf8mb4_general_ci COMMENT <span class="operator">=</span> <span class="string">&#x27;学生表&#x27;</span> ROW_FORMAT <span class="operator">=</span> <span class="keyword">Dynamic</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `school`.`t_student`(`id`, `name`, `nick_name`, `class_id`, `email`, `phone`, `avatar`, `gmt_create`, `gmt_modified`, `disabled`) <span class="keyword">VALUES</span> (<span class="number">1</span>, <span class="string">&#x27;student001&#x27;</span>, <span class="string">&#x27;学生 001&#x27;</span>, <span class="number">2</span>, <span class="string">&#x27;student001@coocaa.com&#x27;</span>, <span class="string">&#x27;15212345001&#x27;</span>, <span class="string">&#x27;http://bpic.588ku.com/element_pic/20/06/30/e510dda05e0b09e44cec4e474546a014.jpg&#x27;</span>, <span class="string">&#x27;2020-12-22 09:33:35&#x27;</span>, <span class="string">&#x27;2020-12-28 15:56:56&#x27;</span>, <span class="number">0</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `school`.`t_student`(`id`, `name`, `nick_name`, `class_id`, `email`, `phone`, `avatar`, `gmt_create`, `gmt_modified`, `disabled`) <span class="keyword">VALUES</span> (<span class="number">2</span>, <span class="string">&#x27;student002&#x27;</span>, <span class="string">&#x27;学生 002&#x27;</span>, <span class="number">2</span>, <span class="string">&#x27;student002@coocaa.com&#x27;</span>, <span class="string">&#x27;15212345002&#x27;</span>, <span class="string">&#x27;http://bpic.588ku.com/element_pic/20/06/30/e510dda05e0b09e44cec4e474546a014.jpg&#x27;</span>, <span class="string">&#x27;2020-12-22 09:33:35&#x27;</span>, <span class="string">&#x27;2020-12-22 09:33:35&#x27;</span>, <span class="number">0</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `school`.`t_student`(`id`, `name`, `nick_name`, `class_id`, `email`, `phone`, `avatar`, `gmt_create`, `gmt_modified`, `disabled`) <span class="keyword">VALUES</span> (<span class="number">3</span>, <span class="string">&#x27;student003&#x27;</span>, <span class="string">&#x27;学生 003&#x27;</span>, <span class="number">1</span>, <span class="string">&#x27;student003@coocaa.com&#x27;</span>, <span class="string">&#x27;15212345003&#x27;</span>, <span class="string">&#x27;http://bpic.588ku.com/element_pic/20/06/30/e510dda05e0b09e44cec4e474546a014.jpg&#x27;</span>, <span class="string">&#x27;2020-12-22 09:33:35&#x27;</span>, <span class="string">&#x27;2020-12-22 09:33:35&#x27;</span>, <span class="number">0</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `school`.`t_student`(`id`, `name`, `nick_name`, `class_id`, `email`, `phone`, `avatar`, `gmt_create`, `gmt_modified`, `disabled`) <span class="keyword">VALUES</span> (<span class="number">4</span>, <span class="string">&#x27;student004&#x27;</span>, <span class="string">&#x27;学生 004&#x27;</span>, <span class="number">9</span>, <span class="string">&#x27;student004@coocaa.com&#x27;</span>, <span class="string">&#x27;15212345004&#x27;</span>, <span class="string">&#x27;http://bpic.588ku.com/element_pic/20/06/30/e510dda05e0b09e44cec4e474546a014.jpg&#x27;</span>, <span class="string">&#x27;2020-12-22 09:33:35&#x27;</span>, <span class="string">&#x27;2020-12-22 09:33:35&#x27;</span>, <span class="number">0</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `school`.`t_student`(`id`, `name`, `nick_name`, `class_id`, `email`, `phone`, `avatar`, `gmt_create`, `gmt_modified`, `disabled`) <span class="keyword">VALUES</span> (<span class="number">5</span>, <span class="string">&#x27;student005&#x27;</span>, <span class="string">&#x27;学生 005&#x27;</span>, <span class="number">8</span>, <span class="string">&#x27;student005@coocaa.com&#x27;</span>, <span class="string">&#x27;15212345005&#x27;</span>, <span class="string">&#x27;http://bpic.588ku.com/element_pic/20/06/30/e510dda05e0b09e44cec4e474546a014.jpg&#x27;</span>, <span class="string">&#x27;2020-12-22 09:33:35&#x27;</span>, <span class="string">&#x27;2020-12-22 09:33:35&#x27;</span>, <span class="number">0</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `school`.`t_student`(`id`, `name`, `nick_name`, `class_id`, `email`, `phone`, `avatar`, `gmt_create`, `gmt_modified`, `disabled`) <span class="keyword">VALUES</span> (<span class="number">6</span>, <span class="string">&#x27;student006&#x27;</span>, <span class="string">&#x27;学生 006&#x27;</span>, <span class="number">7</span>, <span class="string">&#x27;student006@coocaa.com&#x27;</span>, <span class="string">&#x27;15212345006&#x27;</span>, <span class="string">&#x27;http://bpic.588ku.com/element_pic/20/06/30/e510dda05e0b09e44cec4e474546a014.jpg&#x27;</span>, <span class="string">&#x27;2020-12-22 09:33:35&#x27;</span>, <span class="string">&#x27;2020-12-22 09:33:35&#x27;</span>, <span class="number">0</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `school`.`t_student`(`id`, `name`, `nick_name`, `class_id`, `email`, `phone`, `avatar`, `gmt_create`, `gmt_modified`, `disabled`) <span class="keyword">VALUES</span> (<span class="number">7</span>, <span class="string">&#x27;student007&#x27;</span>, <span class="string">&#x27;学生 007&#x27;</span>, <span class="number">6</span>, <span class="string">&#x27;student007@coocaa.com&#x27;</span>, <span class="string">&#x27;15212345007&#x27;</span>, <span class="string">&#x27;http://bpic.588ku.com/element_pic/20/06/30/e510dda05e0b09e44cec4e474546a014.jpg&#x27;</span>, <span class="string">&#x27;2020-12-22 09:33:35&#x27;</span>, <span class="string">&#x27;2020-12-22 09:33:35&#x27;</span>, <span class="number">0</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `school`.`t_student`(`id`, `name`, `nick_name`, `class_id`, `email`, `phone`, `avatar`, `gmt_create`, `gmt_modified`, `disabled`) <span class="keyword">VALUES</span> (<span class="number">8</span>, <span class="string">&#x27;student008&#x27;</span>, <span class="string">&#x27;学生 008&#x27;</span>, <span class="number">5</span>, <span class="string">&#x27;student008@coocaa.com&#x27;</span>, <span class="string">&#x27;15212345008&#x27;</span>, <span class="string">&#x27;http://bpic.588ku.com/element_pic/20/06/30/e510dda05e0b09e44cec4e474546a014.jpg&#x27;</span>, <span class="string">&#x27;2020-12-22 09:33:35&#x27;</span>, <span class="string">&#x27;2020-12-22 09:33:35&#x27;</span>, <span class="number">0</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `school`.`t_student`(`id`, `name`, `nick_name`, `class_id`, `email`, `phone`, `avatar`, `gmt_create`, `gmt_modified`, `disabled`) <span class="keyword">VALUES</span> (<span class="number">9</span>, <span class="string">&#x27;student009&#x27;</span>, <span class="string">&#x27;学生 009&#x27;</span>, <span class="number">4</span>, <span class="string">&#x27;student009@coocaa.com&#x27;</span>, <span class="string">&#x27;15212345009&#x27;</span>, <span class="string">&#x27;http://bpic.588ku.com/element_pic/20/06/30/e510dda05e0b09e44cec4e474546a014.jpg&#x27;</span>, <span class="string">&#x27;2020-12-22 09:33:35&#x27;</span>, <span class="string">&#x27;2020-12-22 09:33:35&#x27;</span>, <span class="number">0</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `school`.`t_student`(`id`, `name`, `nick_name`, `class_id`, `email`, `phone`, `avatar`, `gmt_create`, `gmt_modified`, `disabled`) <span class="keyword">VALUES</span> (<span class="number">10</span>, <span class="string">&#x27;student010&#x27;</span>, <span class="string">&#x27;学生 010&#x27;</span>, <span class="number">9</span>, <span class="string">&#x27;student010@coocaa.com&#x27;</span>, <span class="string">&#x27;15212345010&#x27;</span>, <span class="string">&#x27;http://bpic.588ku.com/element_pic/20/06/30/e510dda05e0b09e44cec4e474546a014.jpg&#x27;</span>, <span class="string">&#x27;2020-12-22 09:33:35&#x27;</span>, <span class="string">&#x27;2020-12-22 09:33:35&#x27;</span>, <span class="number">0</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `school`.`t_student`(`id`, `name`, `nick_name`, `class_id`, `email`, `phone`, `avatar`, `gmt_create`, `gmt_modified`, `disabled`) <span class="keyword">VALUES</span> (<span class="number">11</span>, <span class="string">&#x27;student011&#x27;</span>, <span class="string">&#x27;学生 011&#x27;</span>, <span class="number">8</span>, <span class="string">&#x27;student011@coocaa.com&#x27;</span>, <span class="string">&#x27;15212345011&#x27;</span>, <span class="string">&#x27;http://bpic.588ku.com/element_pic/20/06/30/e510dda05e0b09e44cec4e474546a014.jpg&#x27;</span>, <span class="string">&#x27;2020-12-22 09:33:35&#x27;</span>, <span class="string">&#x27;2020-12-22 09:33:35&#x27;</span>, <span class="number">0</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `school`.`t_student`(`id`, `name`, `nick_name`, `class_id`, `email`, `phone`, `avatar`, `gmt_create`, `gmt_modified`, `disabled`) <span class="keyword">VALUES</span> (<span class="number">12</span>, <span class="string">&#x27;student012&#x27;</span>, <span class="string">&#x27;学生 012&#x27;</span>, <span class="number">7</span>, <span class="string">&#x27;student012@coocaa.com&#x27;</span>, <span class="string">&#x27;15212345012&#x27;</span>, <span class="string">&#x27;http://bpic.588ku.com/element_pic/20/06/30/e510dda05e0b09e44cec4e474546a014.jpg&#x27;</span>, <span class="string">&#x27;2020-12-22 09:33:35&#x27;</span>, <span class="string">&#x27;2020-12-22 09:33:35&#x27;</span>, <span class="number">0</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `school`.`t_student`(`id`, `name`, `nick_name`, `class_id`, `email`, `phone`, `avatar`, `gmt_create`, `gmt_modified`, `disabled`) <span class="keyword">VALUES</span> (<span class="number">13</span>, <span class="string">&#x27;student013&#x27;</span>, <span class="string">&#x27;学生 013&#x27;</span>, <span class="number">6</span>, <span class="string">&#x27;student013@coocaa.com&#x27;</span>, <span class="string">&#x27;15212345013&#x27;</span>, <span class="string">&#x27;http://bpic.588ku.com/element_pic/20/06/30/e510dda05e0b09e44cec4e474546a014.jpg&#x27;</span>, <span class="string">&#x27;2020-12-22 09:33:35&#x27;</span>, <span class="string">&#x27;2020-12-22 09:33:35&#x27;</span>, <span class="number">0</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `school`.`t_student`(`id`, `name`, `nick_name`, `class_id`, `email`, `phone`, `avatar`, `gmt_create`, `gmt_modified`, `disabled`) <span class="keyword">VALUES</span> (<span class="number">14</span>, <span class="string">&#x27;student014&#x27;</span>, <span class="string">&#x27;学生 014&#x27;</span>, <span class="number">5</span>, <span class="string">&#x27;student014@coocaa.com&#x27;</span>, <span class="string">&#x27;15212345014&#x27;</span>, <span class="string">&#x27;http://bpic.588ku.com/element_pic/20/06/30/e510dda05e0b09e44cec4e474546a014.jpg&#x27;</span>, <span class="string">&#x27;2020-12-22 09:33:35&#x27;</span>, <span class="string">&#x27;2020-12-22 09:33:35&#x27;</span>, <span class="number">0</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `school`.`t_student`(`id`, `name`, `nick_name`, `class_id`, `email`, `phone`, `avatar`, `gmt_create`, `gmt_modified`, `disabled`) <span class="keyword">VALUES</span> (<span class="number">15</span>, <span class="string">&#x27;student015&#x27;</span>, <span class="string">&#x27;学生 015&#x27;</span>, <span class="number">4</span>, <span class="string">&#x27;student015@coocaa.com&#x27;</span>, <span class="string">&#x27;15212345015&#x27;</span>, <span class="string">&#x27;http://bpic.588ku.com/element_pic/20/06/30/e510dda05e0b09e44cec4e474546a014.jpg&#x27;</span>, <span class="string">&#x27;2020-12-22 09:33:35&#x27;</span>, <span class="string">&#x27;2020-12-22 09:33:35&#x27;</span>, <span class="number">0</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `school`.`t_student`(`id`, `name`, `nick_name`, `class_id`, `email`, `phone`, `avatar`, `gmt_create`, `gmt_modified`, `disabled`) <span class="keyword">VALUES</span> (<span class="number">16</span>, <span class="string">&#x27;student016&#x27;</span>, <span class="string">&#x27;学生 016&#x27;</span>, <span class="number">3</span>, <span class="string">&#x27;student016@coocaa.com&#x27;</span>, <span class="string">&#x27;15212345016&#x27;</span>, <span class="string">&#x27;http://bpic.588ku.com/element_pic/20/06/30/e510dda05e0b09e44cec4e474546a014.jpg&#x27;</span>, <span class="string">&#x27;2020-12-22 09:33:35&#x27;</span>, <span class="string">&#x27;2020-12-22 09:33:35&#x27;</span>, <span class="number">0</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `school`.`t_student`(`id`, `name`, `nick_name`, `class_id`, `email`, `phone`, `avatar`, `gmt_create`, `gmt_modified`, `disabled`) <span class="keyword">VALUES</span> (<span class="number">17</span>, <span class="string">&#x27;student017&#x27;</span>, <span class="string">&#x27;学生 017&#x27;</span>, <span class="number">2</span>, <span class="string">&#x27;student017@coocaa.com&#x27;</span>, <span class="string">&#x27;15212345017&#x27;</span>, <span class="string">&#x27;http://bpic.588ku.com/element_pic/20/06/30/e510dda05e0b09e44cec4e474546a014.jpg&#x27;</span>, <span class="string">&#x27;2020-12-22 09:33:35&#x27;</span>, <span class="string">&#x27;2020-12-22 09:33:35&#x27;</span>, <span class="number">0</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `school`.`t_student`(`id`, `name`, `nick_name`, `class_id`, `email`, `phone`, `avatar`, `gmt_create`, `gmt_modified`, `disabled`) <span class="keyword">VALUES</span> (<span class="number">18</span>, <span class="string">&#x27;student018&#x27;</span>, <span class="string">&#x27;学生 018&#x27;</span>, <span class="number">1</span>, <span class="string">&#x27;student018@coocaa.com&#x27;</span>, <span class="string">&#x27;15212345018&#x27;</span>, <span class="string">&#x27;http://bpic.588ku.com/element_pic/20/06/30/e510dda05e0b09e44cec4e474546a014.jpg&#x27;</span>, <span class="string">&#x27;2020-12-22 09:33:35&#x27;</span>, <span class="string">&#x27;2020-12-22 09:33:35&#x27;</span>, <span class="number">0</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `school`.`t_student`(`id`, `name`, `nick_name`, `class_id`, `email`, `phone`, `avatar`, `gmt_create`, `gmt_modified`, `disabled`) <span class="keyword">VALUES</span> (<span class="number">19</span>, <span class="string">&#x27;student019&#x27;</span>, <span class="string">&#x27;学生 019&#x27;</span>, <span class="number">9</span>, <span class="string">&#x27;student019@coocaa.com&#x27;</span>, <span class="string">&#x27;15212345019&#x27;</span>, <span class="string">&#x27;http://bpic.588ku.com/element_pic/20/06/30/e510dda05e0b09e44cec4e474546a014.jpg&#x27;</span>, <span class="string">&#x27;2020-12-22 09:33:35&#x27;</span>, <span class="string">&#x27;2020-12-22 09:33:35&#x27;</span>, <span class="number">0</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `school`.`t_student`(`id`, `name`, `nick_name`, `class_id`, `email`, `phone`, `avatar`, `gmt_create`, `gmt_modified`, `disabled`) <span class="keyword">VALUES</span> (<span class="number">20</span>, <span class="string">&#x27;student020&#x27;</span>, <span class="string">&#x27;学生 020&#x27;</span>, <span class="number">5</span>, <span class="string">&#x27;student020@coocaa.com&#x27;</span>, <span class="string">&#x27;15212345020&#x27;</span>, <span class="string">&#x27;http://bpic.588ku.com/element_pic/20/06/30/e510dda05e0b09e44cec4e474546a014.jpg&#x27;</span>, <span class="string">&#x27;2020-12-22 09:33:35&#x27;</span>, <span class="string">&#x27;2020-12-22 09:33:35&#x27;</span>, <span class="number">0</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `school`.`t_student`(`id`, `name`, `nick_name`, `class_id`, `email`, `phone`, `avatar`, `gmt_create`, `gmt_modified`, `disabled`) <span class="keyword">VALUES</span> (<span class="number">21</span>, <span class="string">&#x27;student021&#x27;</span>, <span class="string">&#x27;学生 021&#x27;</span>, <span class="number">4</span>, <span class="string">&#x27;student021@coocaa.com&#x27;</span>, <span class="string">&#x27;15212345021&#x27;</span>, <span class="string">&#x27;http://bpic.588ku.com/element_pic/20/06/30/e510dda05e0b09e44cec4e474546a014.jpg&#x27;</span>, <span class="string">&#x27;2020-12-22 09:33:35&#x27;</span>, <span class="string">&#x27;2020-12-22 09:33:35&#x27;</span>, <span class="number">0</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `school`.`t_student`(`id`, `name`, `nick_name`, `class_id`, `email`, `phone`, `avatar`, `gmt_create`, `gmt_modified`, `disabled`) <span class="keyword">VALUES</span> (<span class="number">22</span>, <span class="string">&#x27;student022&#x27;</span>, <span class="string">&#x27;学生 022&#x27;</span>, <span class="number">3</span>, <span class="string">&#x27;student022@coocaa.com&#x27;</span>, <span class="string">&#x27;15212345022&#x27;</span>, <span class="string">&#x27;http://bpic.588ku.com/element_pic/20/06/30/e510dda05e0b09e44cec4e474546a014.jpg&#x27;</span>, <span class="string">&#x27;2020-12-22 09:33:35&#x27;</span>, <span class="string">&#x27;2020-12-22 09:33:35&#x27;</span>, <span class="number">0</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `school`.`t_student`(`id`, `name`, `nick_name`, `class_id`, `email`, `phone`, `avatar`, `gmt_create`, `gmt_modified`, `disabled`) <span class="keyword">VALUES</span> (<span class="number">23</span>, <span class="string">&#x27;student023&#x27;</span>, <span class="string">&#x27;学生 023&#x27;</span>, <span class="number">2</span>, <span class="string">&#x27;student023@coocaa.com&#x27;</span>, <span class="string">&#x27;15212345023&#x27;</span>, <span class="string">&#x27;http://bpic.588ku.com/element_pic/20/06/30/e510dda05e0b09e44cec4e474546a014.jpg&#x27;</span>, <span class="string">&#x27;2020-12-22 09:33:35&#x27;</span>, <span class="string">&#x27;2020-12-22 09:33:35&#x27;</span>, <span class="number">0</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `school`.`t_student`(`id`, `name`, `nick_name`, `class_id`, `email`, `phone`, `avatar`, `gmt_create`, `gmt_modified`, `disabled`) <span class="keyword">VALUES</span> (<span class="number">24</span>, <span class="string">&#x27;student024&#x27;</span>, <span class="string">&#x27;学生 024&#x27;</span>, <span class="number">1</span>, <span class="string">&#x27;student024@coocaa.com&#x27;</span>, <span class="string">&#x27;15212345024&#x27;</span>, <span class="string">&#x27;http://bpic.588ku.com/element_pic/20/06/30/e510dda05e0b09e44cec4e474546a014.jpg&#x27;</span>, <span class="string">&#x27;2020-12-22 09:33:35&#x27;</span>, <span class="string">&#x27;2020-12-22 09:33:35&#x27;</span>, <span class="number">0</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `school`.`t_student`(`id`, `name`, `nick_name`, `class_id`, `email`, `phone`, `avatar`, `gmt_create`, `gmt_modified`, `disabled`) <span class="keyword">VALUES</span> (<span class="number">25</span>, <span class="string">&#x27;student025&#x27;</span>, <span class="string">&#x27;学生 025&#x27;</span>, <span class="number">9</span>, <span class="string">&#x27;student025@coocaa.com&#x27;</span>, <span class="string">&#x27;15212345025&#x27;</span>, <span class="string">&#x27;http://bpic.588ku.com/element_pic/20/06/30/e510dda05e0b09e44cec4e474546a014.jpg&#x27;</span>, <span class="string">&#x27;2020-12-22 09:33:35&#x27;</span>, <span class="string">&#x27;2020-12-22 09:33:35&#x27;</span>, <span class="number">0</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `school`.`t_student`(`id`, `name`, `nick_name`, `class_id`, `email`, `phone`, `avatar`, `gmt_create`, `gmt_modified`, `disabled`) <span class="keyword">VALUES</span> (<span class="number">26</span>, <span class="string">&#x27;student026&#x27;</span>, <span class="string">&#x27;学生 026&#x27;</span>, <span class="number">8</span>, <span class="string">&#x27;student026@coocaa.com&#x27;</span>, <span class="string">&#x27;15212345026&#x27;</span>, <span class="string">&#x27;http://bpic.588ku.com/element_pic/20/06/30/e510dda05e0b09e44cec4e474546a014.jpg&#x27;</span>, <span class="string">&#x27;2020-12-22 09:33:35&#x27;</span>, <span class="string">&#x27;2020-12-22 09:33:35&#x27;</span>, <span class="number">0</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `school`.`t_student`(`id`, `name`, `nick_name`, `class_id`, `email`, `phone`, `avatar`, `gmt_create`, `gmt_modified`, `disabled`) <span class="keyword">VALUES</span> (<span class="number">27</span>, <span class="string">&#x27;student027&#x27;</span>, <span class="string">&#x27;学生 027&#x27;</span>, <span class="number">7</span>, <span class="string">&#x27;student027@coocaa.com&#x27;</span>, <span class="string">&#x27;15212345027&#x27;</span>, <span class="string">&#x27;http://bpic.588ku.com/element_pic/20/06/30/e510dda05e0b09e44cec4e474546a014.jpg&#x27;</span>, <span class="string">&#x27;2020-12-22 09:33:35&#x27;</span>, <span class="string">&#x27;2020-12-22 09:33:35&#x27;</span>, <span class="number">0</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `school`.`t_student`(`id`, `name`, `nick_name`, `class_id`, `email`, `phone`, `avatar`, `gmt_create`, `gmt_modified`, `disabled`) <span class="keyword">VALUES</span> (<span class="number">28</span>, <span class="string">&#x27;student028&#x27;</span>, <span class="string">&#x27;学生 028&#x27;</span>, <span class="number">6</span>, <span class="string">&#x27;student028@coocaa.com&#x27;</span>, <span class="string">&#x27;15212345028&#x27;</span>, <span class="string">&#x27;http://bpic.588ku.com/element_pic/20/06/30/e510dda05e0b09e44cec4e474546a014.jpg&#x27;</span>, <span class="string">&#x27;2020-12-22 09:33:35&#x27;</span>, <span class="string">&#x27;2020-12-22 09:33:35&#x27;</span>, <span class="number">0</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `school`.`t_student`(`id`, `name`, `nick_name`, `class_id`, `email`, `phone`, `avatar`, `gmt_create`, `gmt_modified`, `disabled`) <span class="keyword">VALUES</span> (<span class="number">29</span>, <span class="string">&#x27;student029&#x27;</span>, <span class="string">&#x27;学生 029&#x27;</span>, <span class="number">5</span>, <span class="string">&#x27;student029@coocaa.com&#x27;</span>, <span class="string">&#x27;15212345029&#x27;</span>, <span class="string">&#x27;http://bpic.588ku.com/element_pic/20/06/30/e510dda05e0b09e44cec4e474546a014.jpg&#x27;</span>, <span class="string">&#x27;2020-12-22 09:33:35&#x27;</span>, <span class="string">&#x27;2020-12-22 09:33:35&#x27;</span>, <span class="number">0</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `school`.`t_student`(`id`, `name`, `nick_name`, `class_id`, `email`, `phone`, `avatar`, `gmt_create`, `gmt_modified`, `disabled`) <span class="keyword">VALUES</span> (<span class="number">30</span>, <span class="string">&#x27;student030&#x27;</span>, <span class="string">&#x27;学生 030&#x27;</span>, <span class="number">1</span>, <span class="string">&#x27;student030@coocaa.com&#x27;</span>, <span class="string">&#x27;15212345030&#x27;</span>, <span class="string">&#x27;http://bpic.588ku.com/element_pic/20/06/30/e510dda05e0b09e44cec4e474546a014.jpg&#x27;</span>, <span class="string">&#x27;2020-12-22 09:33:35&#x27;</span>, <span class="string">&#x27;2020-12-22 09:33:35&#x27;</span>, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">SET</span> FOREIGN_KEY_CHECKS <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
 </ul>
 
     </div>
@@ -272,307 +277,143 @@
     
     
     
-      
-  <div class="popular-posts-header">相关文章</div>
-  <ul class="popular-posts">
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/business/ID设计/" rel="bookmark">【Business】 ID设计</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/business/Token身份认证设计/" rel="bookmark">基于 AOP 和 JWT 实现的 Token 身份认证组件</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/business/分布式事务/" rel="bookmark">分布式事务</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/business/取四个场次/" rel="bookmark">取四个场次</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/business/分佣设计/" rel="bookmark">【Business】 分佣设计</a></div>
-    </li>
-  </ul>
 
-
-      <footer class="post-footer">
+    <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/business/" rel="tag"># business</a>
           </div>
 
         
 
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/%E7%BD%91%E7%BB%9C/%E4%B8%83%E5%B1%82%E6%A8%A1%E5%9E%8B/" rel="prev" title="七层模型">
-      <i class="fa fa-chevron-left"></i> 七层模型
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/sql/%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6%E5%92%8C%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB/" rel="next" title="主从复制和读写分离">
-      主从复制和读写分离 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
-    
-  </article>
-  
-  
-  
-
-
-
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/%E7%BD%91%E7%BB%9C/%E4%B8%83%E5%B1%82%E6%A8%A1%E5%9E%8B/" rel="prev" title="七层模型">
+                  <i class="fa fa-chevron-left"></i> 七层模型
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/sql/%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6%E5%92%8C%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB/" rel="next" title="主从复制和读写分离">
+                  主从复制和读写分离 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
           </div>
-          
-    <div class="comments" id="gitalk-container"></div>
+    </footer>
+  </article>
+</div>
 
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
 
-        </div>
-          
+
+
+
+
+    
   
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
+  <div class="comments giscus-container">
   </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="lyloou"
-      src="/assets/images/avatar.png">
-  <p class="site-author-name" itemprop="name">lyloou</p>
-  <div class="site-description" itemprop="description">/* Better than last best */</div>
+  
+  
 </div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">312</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
-        <span class="site-state-item-count">56</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
-</div>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-        <a href="https://github.com/lyloou" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;lyloou" rel="noopener" target="_blank">GitHub</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="mailto:lyloou6@gmail.com" title="E-Mail → mailto:lyloou6@gmail.com" rel="noopener" target="_blank">E-Mail</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://weibo.com/lyloou" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;lyloou" rel="noopener" target="_blank">Weibo</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://blog.csdn.net/ly1414725328" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;ly1414725328" rel="noopener" target="_blank">CSDN</a>
-      </span>
-  </div>
-  <div class="cc-license motion-element" itemprop="license">
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
-  </div>
+  </main>
 
+  <footer class="footer">
+    <div class="footer-inner">
 
-
-      </div>
-
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-        
   <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">粤ICP备18151128号 </a>
   </div>
 
 <div class="copyright">
-  
   &copy; 
   <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
-    <i class="user"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">lyloou</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
-  </div>
-
-        
 <div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
       <span class="post-meta-item-icon">
-        <i class="user"></i>
+        <i class="fa fa-user"></i>
       </span>
       <span class="site-uv" title="总访客量">
         <span id="busuanzi_value_site_uv"></span>
       </span>
     </span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
       <span class="post-meta-item-icon">
-        <i class="eye"></i>
+        <i class="fa fa-eye"></i>
       </span>
       <span class="site-pv" title="总访问量">
         <span id="busuanzi_value_site_pv"></span>
       </span>
     </span>
 </div>
-
-
-
-
-
-
-
-
-      </div>
-    </footer>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>
 
-  
-  <script src="/lib/anime.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-
-<script src="/js/schemes/muse.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
-
-
-
+    </div>
+  </footer>
 
   
-  <script>
-    (function(){
-      var canonicalURL, curProtocol;
-      //Get the <link> tag
-      var x=document.getElementsByTagName("link");
-		//Find the last canonical URL
-		if(x.length > 0){
-			for (i=0;i<x.length;i++){
-				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
-					canonicalURL=x[i].href;
-				}
-			}
-		}
-    //Get protocol
-	    if (!canonicalURL){
-	    	curProtocol = window.location.protocol.split(':')[0];
-	    }
-	    else{
-	    	curProtocol = canonicalURL.split(':')[0];
-	    }
-      //Get current URL if the canonical URL does not exist
-	    if (!canonicalURL) canonicalURL = window.location.href;
-	    //Assign script content. Replace current URL with the canonical URL
-      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
-  </script>
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
 
 
 
 
   
-<script src="/js/local-search.js"></script>
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 
 
-
-
-
-
-
-
+<script class="next-config" data-name="giscus" type="application/json">{"enable":true,"repo":"lyloou/lyloou.github.io","repo_id":"MDEwOlJlcG9zaXRvcnkxMDk1NzkyNzA=","category":"Announcements","category_id":"DIC_kwDOBogMBs4CWdfR","mapping":"pathname","reactions_enabled":1,"emit_metadata":1,"theme":"light","lang":"zh-CN","input_position":"bottom","loading":"lazy"}</script>
 
 <script>
-if (document.querySelectorAll('pre.mermaid').length) {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
-    mermaid.initialize({
-      theme    : 'forest',
-      logLevel : 3,
-      flowchart: { curve     : 'linear' },
-      gantt    : { axisFormat: '%m/%d/%Y' },
-      sequence : { actorMargin: 50 }
-    });
-  }, window.mermaid);
-}
-</script>
+document.addEventListener('page:loaded', () => {
+  if (!CONFIG.page.comments) return;
 
-
-  
-
-  
-
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
-
-<script>
-NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
-    var gitalk = new Gitalk({
-      clientID    : '5776a56ec2a831d83dfc',
-      clientSecret: '28440989ccf00f0ce8dbd425dc5d1eaa1eb24c7b',
-      repo        : 'lyloou.github.io',
-      owner       : 'lyloou',
-      admin       : ['lyloou'],
-      id          : '2fafea6c6cd08869784207f20198f162',
-        language: '',
-      distractionFreeMode: true
-    });
-    gitalk.render('gitalk-container');
-  }, window.Gitalk);
+  NexT.utils.loadComments('.giscus-container')
+    .then(() => NexT.utils.getScript('https://giscus.app/client.js', {
+      attributes: {
+        async                   : true,
+        crossOrigin             : 'anonymous',
+        'data-repo'             : CONFIG.giscus.repo,
+        'data-repo-id'          : CONFIG.giscus.repo_id,
+        'data-category'         : CONFIG.giscus.category,
+        'data-category-id'      : CONFIG.giscus.category_id,
+        'data-mapping'          : CONFIG.giscus.mapping,
+        'data-reactions-enabled': CONFIG.giscus.reactions_enabled,
+        'data-emit-metadata'    : CONFIG.giscus.emit_metadata,
+        'data-theme'            : CONFIG.giscus.theme,
+        'data-lang'             : CONFIG.giscus.lang,
+        'data-input-position'   : CONFIG.giscus.input_position,
+        'data-loading'          : CONFIG.giscus.loading
+      },
+      parentNode: document.querySelector('.giscus-container')
+    }));
 });
 </script>
 

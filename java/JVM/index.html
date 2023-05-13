@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="zh-CN,zh-HK,zh-TW,en,default">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
@@ -13,14 +13,13 @@
 <link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"lyloou.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
-  </script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-  <meta name="description" content="查看堆栈信息查看当前机器上运行的 java 进程JVM–查看堆栈信息u013891584 的博客-CSDN 博客如何查看堆栈信息 jps -lvm命令格式 jps [options][hostid]注：如果不指定 hostid 就默认为当前主机或服务器。命令行参数选项说明如下：-q 不输出类名、Jar 名和传入 main 方法的参数-m 输出传入 main 方法的参数-l 输出 main 类或 J">
+<script class="next-config" data-name="main" type="application/json">{"hostname":"lyloou.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"default"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="查看堆栈信息查看当前机器上运行的 java 进程JVM–查看堆栈信息u013891584 的博客-CSDN 博客如何查看堆栈信息 jps -lvm命令格式 jps [options][hostid]注：如果不指定 hostid 就默认为当前主机或服务器。命令行参数选项说明如下：-q 不输出类名、Jar 名和传入 main 方法的参数-m 输出传入 main 方法的参数-l 输出 main 类或 J">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JVM">
 <meta property="og:url" content="https://lyloou.com/java/JVM/index.html">
@@ -37,37 +36,20 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/lyloou/img/develop/img/20210702091905.png">
 
+
 <link rel="canonical" href="https://lyloou.com/java/JVM/">
 
 
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : false,
-    isPost : true,
-    lang   : 'zh-CN'
-  };
-</script>
 
-  <title>JVM | lyloou</title>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://lyloou.com/java/JVM/","path":"java/JVM/","title":"JVM"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>JVM | lyloou</title>
   
-    <script>
-      function sendPageView() {
-        if (CONFIG.hostname !== location.hostname) return;
-        var uid = localStorage.getItem('uid') || (Math.random() + '.' + Math.random());
-        localStorage.setItem('uid', uid);
-        navigator.sendBeacon('https://www.google-analytics.com/collect', new URLSearchParams({
-          v  : 1,
-          tid: 'UA-80542932-1',
-          cid: uid,
-          t  : 'pageview',
-          dp : encodeURIComponent(location.pathname)
-        }));
-      }
-      document.addEventListener('pjax:complete', sendPageView);
-      sendPageView();
-    </script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-80542932-1","only_pageview":true}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
 
 
 
@@ -75,55 +57,35 @@
 
 
   <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container">
-    <div class="headband"></div>
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
 
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
-  <div class="site-meta custom-logo">
+  <div class="site-meta">
 
     <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">lyloou</h1>
-      <span class="logo-line-after"><i></i></span>
+      <i class="logo-line"></i>
+      <p class="site-title">lyloou</p>
+      <i class="logo-line"></i>
     </a>
   </div>
 
   <div class="site-nav-right">
-    <div class="toggle popup-trigger">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
         <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
@@ -131,29 +93,8 @@
 
 
 
-
 <nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签</a>
-
-  </li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -164,210 +105,35 @@
 
 
   <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
+    <div class="popup search-popup"><div class="search-header">
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off"
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
            placeholder="搜索..." spellcheck="false"
            type="search" class="search-input">
   </div>
-  <span class="popup-btn-close">
+  <span class="popup-btn-close" role="button">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
-<div id="search-result">
-  <div id="no-result">
-    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
   </div>
 </div>
 
     </div>
   </div>
 
-</div>
-    </header>
-
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content post posts-expand">
-            
-
-    
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lyloou.com/java/JVM/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/assets/images/avatar.png">
-      <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="lyloou">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          JVM<a href="https://github.com/lyloou/lyloou.github.io/edit/source/source/_posts/java/JVM.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil-alt"></i></a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-04-01 16:41:34" itemprop="dateCreated datePublished" datetime="2019-04-01T16:41:34+08:00">2019-04-01</time>
-            </span>
-
-          
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-        <h2 id="查看堆栈信息"><a href="#查看堆栈信息" class="headerlink" title="查看堆栈信息"></a>查看堆栈信息</h2><h3 id="查看当前机器上运行的-java-进程"><a href="#查看当前机器上运行的-java-进程" class="headerlink" title="查看当前机器上运行的 java 进程"></a>查看当前机器上运行的 java 进程</h3><p><a href="https://blog.csdn.net/u013891584/article/details/80983494" target="_blank" rel="noopener">JVM–查看堆栈信息<em>u013891584 的博客-CSDN 博客</em>如何查看堆栈信息</a></p>
-<p><code>jps -lvm</code><br>命令格式 jps [options][hostid]<br>注：如果不指定 hostid 就默认为当前主机或服务器。<br>命令行参数选项说明如下：<br>-q 不输出类名、Jar 名和传入 main 方法的参数<br>-m 输出传入 main 方法的参数<br>-l 输出 main 类或 Jar 的全限名<br>-v 输出传入 JVM 的参数</p>
-<p><code>jstat -gc 21275</code><br>-gc 垃圾回收堆的行为统计，常用命令<br><img src="https://raw.githubusercontent.com/lyloou/img/develop/img/20210702091905.png" alt="JVM_2020-08-11-15-37-17"><br>C 即 Capacity 总容量，U 即 Used 已使用的容量<br>S0C : survivor0 区的总容量<br>S1C : survivor1 区的总容量<br>S0U : survivor0 区已使用的容量<br>S1C : survivor1 区已使用的容量<br>EC : Eden 区的总容量<br>EU : Eden 区已使用的容量<br>OC : Old 区的总容量<br>OU : Old 区已使用的容量<br>MC：方法区大小<br>MU：方法区使用大小<br>CCSC:压缩类空间大小<br>CCSU:压缩类空间使用大小<br>YGC : 新生代垃圾回收次数<br>YGCT : 新生代垃圾回收时间<br>FGC : 老年代垃圾回收次数<br>FGCT : 老年代垃圾回收时间<br>GCT : 垃圾回收总消耗时间</p>
-<p><code>jstat -gc 1262 2000 20</code><br>这个命令意思就是每隔 2000ms 输出 1262 的 gc 情况，一共输出 20 次</p>
-<p><a href="https://blog.csdn.net/Daybreak1209/article/details/80540360" target="_blank" rel="noopener">JVM 堆、栈信息监测<em>Think In JAVA—Max-CSDN 博客</em>查看 jvm 堆栈信息</a><br><img src="https://raw.githubusercontent.com/lyloou/img/develop/img/20210702091918.png" alt="JVM_2020-08-11-15-45-17"></p>
-<h2 id="Class-文件字节码结构示意图"><a href="#Class-文件字节码结构示意图" class="headerlink" title="Class 文件字节码结构示意图"></a>Class 文件字节码结构示意图</h2><p><img src="https://github.com/lyloou/img/raw/develop/z/20191023193030.png" alt="this is an image"></p>
-<h2 id="visualvm-plugin"><a href="#visualvm-plugin" class="headerlink" title="visualvm plugin"></a>visualvm plugin</h2><p><a href="https://visualvm.github.io/pluginscenters.html" target="_blank" rel="noopener">https://visualvm.github.io/pluginscenters.html</a><br>(注意如果是用 jvisualvm，要选择<code>Java VisualVM</code>的地址))</p>
-<ul>
-<li><a href="https://howtodoinjava.com/java/basics/jdk-jre-jvm/" target="_blank" rel="noopener">What is Java JDK, JRE and JVM - In-depth Analysis - HowToDoInJava</a></li>
-<li><a href="https://www.ibm.com/support/knowledgecenter/en/SSYKE2_8.0.0/com.ibm.java.vm.80.doc/docs/jit_optimize.html" target="_blank" rel="noopener">How the JIT compiler optimizes code</a></li>
-</ul>
-<h2 id="JVM-相关问题"><a href="#JVM-相关问题" class="headerlink" title="JVM 相关问题"></a>JVM 相关问题</h2><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-comment">; vi /etc/supervisord.conf</span><br><span class="hljs-section">[program:xxl-job-admin-7005]</span><br><span class="hljs-attr">command</span>=java -XX:-UseGCOverheadLimit -jar /data/www/xxl-job-admin/xxl-job-admin-<span class="hljs-number">7005</span>.jar --server.port=<span class="hljs-number">7005</span><br><span class="hljs-attr">autostart</span> = <span class="hljs-literal">true</span><br><span class="hljs-attr">autorestart</span> = <span class="hljs-literal">true</span><br><span class="hljs-attr">user</span> = omadmin<br><span class="hljs-attr">redirect_stderr</span> = <span class="hljs-literal">true</span><br><span class="hljs-attr">stdout_logfile_maxbytes</span>=<span class="hljs-number">100</span>MB<br><span class="hljs-attr">stdout_logfile</span> = /data/log/xxl-job-admin/xxl-job-admin.log<br></code></pre></td></tr></table></figure>
-
-<p><a href="https://blog.csdn.net/casablancaagnes_3sdf/article/details/52299100" target="_blank" rel="noopener">-XX:-UseGCOverheadLimit 参数 java.lang.OutOfMemoryError：GC overhead limit exceeded 填坑心得_cas3$#%nca%6nes_3sdf 的博客-CSDN 博客_usegcoverheadlimit 有什么作用</a></p>
-<h2 id="JVM-垃圾回收-之-强引用、弱引用、软引用、虚引用-cyt-CSDN-博客"><a href="#JVM-垃圾回收-之-强引用、弱引用、软引用、虚引用-cyt-CSDN-博客" class="headerlink" title="JVM 垃圾回收 之 强引用、弱引用、软引用、虚引用_cyt-CSDN 博客"></a><a href="https://blog.csdn.net/qq_41291945/article/details/108549120" target="_blank" rel="noopener">JVM 垃圾回收 之 强引用、弱引用、软引用、虚引用_cyt-CSDN 博客</a></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs java"><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Strong</span> </span>&#123;<br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 强引用 是最常见的引用， 首先用 new 关键字创建对象的时候</span><br><span class="hljs-comment">     * 这个对象就是一个强引用也就是默认的引用类型。 只要强引用的对象</span><br><span class="hljs-comment">     * 是可触及的， 那么他就不会被回收！如果强引用对象超过了他的作用范围</span><br><span class="hljs-comment">     * 或者被设置为 null  那就可以被回收了。</span><br><span class="hljs-comment">     *</span><br><span class="hljs-comment">     * 只要有强引用在， 当内存不足的时候jvm就算抛出OOM也不会回收掉它！</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        String test_strong_reference = <span class="hljs-keyword">new</span> String(<span class="hljs-string">"test strong reference"</span>);<br>        String test = test_strong_reference;<br>        test_strong_reference = <span class="hljs-keyword">null</span>;<br>        System.gc();<br><br>        <span class="hljs-keyword">try</span> &#123;<br>            TimeUnit.SECONDS.sleep(<span class="hljs-number">2</span>);<br>        &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;<br>            e.printStackTrace();<br>        &#125;<br>        System.out.println(<span class="hljs-string">"test_strong_reference - &gt; "</span>+ test_strong_reference);<br>        System.out.println(<span class="hljs-string">"test - &gt; "</span>+test);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs java"><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Soft</span> </span>&#123;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 软引用， 用来描述那些还有用， 但是不是必须用的对象， 只被软引用关联着的对象</span><br><span class="hljs-comment">     * 在系统内存溢出之前，会把这些对象列进入回收范围之内进行二次回收， 如果回收之后</span><br><span class="hljs-comment">     * 内存还不够的话， 就抛出内存溢出的异常.</span><br><span class="hljs-comment">     * &lt;p&gt;</span><br><span class="hljs-comment">     * 可以在一些内存敏感的地方 进行使用, 高速缓存之类的</span><br><span class="hljs-comment">     * &lt;p&gt;</span><br><span class="hljs-comment">     * 内存够用的时候就保留软引用的可达对象</span><br><span class="hljs-comment">     * 内存不够的时候就回收可达对象</span><br><span class="hljs-comment">     *</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> args</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        User cuiyt = <span class="hljs-keyword">new</span> User(<span class="hljs-number">1</span>, <span class="hljs-string">"cuiyt"</span>);<br>        SoftReference&lt;User&gt; reference = <span class="hljs-keyword">new</span> SoftReference&lt;User&gt;(cuiyt);<br>        cuiyt = <span class="hljs-keyword">null</span>;<br><br>        System.out.println(reference.get().toString());<br>        System.gc();<br>        System.out.println(<span class="hljs-string">"after - &gt; "</span> + reference.get().toString());<br><br>        <span class="hljs-keyword">try</span> &#123;<br>            TimeUnit.SECONDS.sleep(<span class="hljs-number">3</span>);<br>            <span class="hljs-keyword">byte</span>[] bytes = <span class="hljs-keyword">new</span> <span class="hljs-keyword">byte</span>[<span class="hljs-number">1024</span> * <span class="hljs-number">1024</span> * <span class="hljs-number">7</span>];<br>        &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;<br>            e.printStackTrace();<br>        &#125; <span class="hljs-keyword">finally</span> &#123;<br>            System.out.println(reference.get());<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs java"><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Weak</span> </span>&#123;<br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 弱引用， 发送GC就会被回收掉！ 不管内存够不够</span><br><span class="hljs-comment">     *</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> args</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br><br>        WeakReference&lt;User&gt; test = <span class="hljs-keyword">new</span> WeakReference&lt;User&gt;(<span class="hljs-keyword">new</span> User(<span class="hljs-number">1</span>, <span class="hljs-string">"@cuiyut"</span>));<br>        System.out.println(test.get());<br>        System.gc();<br>        System.out.println(test.get());<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Empty</span> </span>&#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Empty empty;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> PhantomReference&lt;Empty&gt; reference;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> ReferenceQueue&lt;Empty&gt; queue;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">finalize</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Throwable </span>&#123;<br>        <span class="hljs-keyword">super</span>.finalize();<br>        System.out.println(<span class="hljs-string">"调用 finalize"</span>);<br>        empty = <span class="hljs-keyword">this</span>;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Check</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Thread</span> </span>&#123;<br>        <span class="hljs-meta">@Override</span><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>&#123;<br>            <span class="hljs-keyword">while</span> (<span class="hljs-keyword">true</span>) &#123;<br>                <span class="hljs-keyword">super</span>.run();<br>                <span class="hljs-keyword">if</span> (reference != <span class="hljs-keyword">null</span>) &#123;<br>                    PhantomReference&lt;Empty&gt; test = <span class="hljs-keyword">null</span>;<br>                    <span class="hljs-keyword">try</span> &#123;<br>                        test = (PhantomReference&lt;Empty&gt;) queue.remove();<br>                    &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;<br><br>                    &#125;<br>                    <span class="hljs-keyword">if</span> (test != <span class="hljs-keyword">null</span>) &#123;<br>                        System.out.println(<span class="hljs-string">"跟踪垃圾回收过程， Empty 被GC"</span>);<br>                    &#125;<br>                &#125;<br>            &#125;<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 形同虚设的一个引用类型， 当试图从虚引用中获得对象的时候</span><br><span class="hljs-comment">     * 它总是空的 ！ 为一个对象设置虚引用关联的唯一目的是跟踪垃圾回收的过程</span><br><span class="hljs-comment">     * 比如: 能在这个对象被回收的时候发出一个通知</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        Check check = <span class="hljs-keyword">new</span> Check();<br>        check.setDaemon(<span class="hljs-keyword">true</span>);<br>        check.start();<br><br>        queue = <span class="hljs-keyword">new</span> ReferenceQueue&lt;&gt;();<br>        empty = <span class="hljs-keyword">new</span> Empty();<br>        reference = <span class="hljs-keyword">new</span> PhantomReference&lt;&gt;(empty, queue);<br>        <span class="hljs-comment">// 取消强引用</span><br>        empty = <span class="hljs-keyword">null</span>;<br>        System.out.println(reference.get());<br><br>        System.out.println(<span class="hljs-string">"第一次GC"</span>);<br>        <span class="hljs-comment">// 把回收的对象， 放到引用队列中</span><br>        System.gc();<br>        <span class="hljs-keyword">try</span> &#123;<br>            TimeUnit.SECONDS.sleep(<span class="hljs-number">3</span>);<br>        &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;<br>            e.printStackTrace();<br>        &#125;<br><br>        System.out.println(<span class="hljs-string">"after 第一次GC"</span>);<br>        <span class="hljs-keyword">if</span> (empty != <span class="hljs-keyword">null</span>) &#123;<br>            System.out.println(<span class="hljs-string">"empty 可用"</span>);<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            System.out.println(<span class="hljs-string">"empty 不可用"</span>);<br>        &#125;<br>        System.out.println(<span class="hljs-string">"第二次GC"</span>);<br><br>        <span class="hljs-comment">// 取消强引用</span><br>        empty = <span class="hljs-keyword">null</span>;<br>        System.gc();<br><br>        System.out.println(<span class="hljs-string">"after 第二次GC"</span>);<br>        <span class="hljs-keyword">if</span> (empty != <span class="hljs-keyword">null</span>) &#123;<br>            System.out.println(<span class="hljs-string">"empty 可用"</span>);<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            System.out.println(<span class="hljs-string">"empty 不可用"</span>);<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-    </div>
-
-    
-    
-    
-      
-  <div class="popular-posts-header">相关文章</div>
-  <ul class="popular-posts">
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/android/学习资料/" rel="bookmark">Android学习资料</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/business/Token身份认证设计/" rel="bookmark">基于 AOP 和 JWT 实现的 Token 身份认证组件</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/business/签名设计/" rel="bookmark">接口签名校验设计</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/java/Java8/" rel="bookmark">Java8</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/java/Equable/" rel="bookmark">【Java】通过 Getter 方法引用，来比较两个对象是否相等</a></div>
-    </li>
-  </ul>
-
-
-      <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/java/" rel="tag"># java</a>
-          </div>
-
+</header>
         
-
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/java/zookeeper/" rel="prev" title="Zookeeper">
-      <i class="fa fa-chevron-left"></i> Zookeeper
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/linux/sftp/" rel="next" title="Sftp">
-      Sftp <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
-    
-  </article>
   
-  
-  
-
-
-
-          </div>
-          
-    <div class="comments" id="gitalk-container"></div>
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
-
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
   <aside class="sidebar">
-    <div class="sidebar-inner">
 
-      <ul class="sidebar-nav motion-element">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
         </li>
@@ -376,212 +142,288 @@
         </li>
       </ul>
 
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#查看堆栈信息"><span class="nav-number">1.</span> <span class="nav-text">查看堆栈信息</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查看当前机器上运行的-java-进程"><span class="nav-number">1.1.</span> <span class="nav-text">查看当前机器上运行的 java 进程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Class-文件字节码结构示意图"><span class="nav-number">2.</span> <span class="nav-text">Class 文件字节码结构示意图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#visualvm-plugin"><span class="nav-number">3.</span> <span class="nav-text">visualvm plugin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JVM-相关问题"><span class="nav-number">4.</span> <span class="nav-text">JVM 相关问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JVM-垃圾回收-之-强引用、弱引用、软引用、虚引用-cyt-CSDN-博客"><span class="nav-number">5.</span> <span class="nav-text">JVM 垃圾回收 之 强引用、弱引用、软引用、虚引用_cyt-CSDN 博客</span></a></li></ol></div>
-      </div>
-      <!--/noindex-->
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E5%A0%86%E6%A0%88%E4%BF%A1%E6%81%AF"><span class="nav-number">1.</span> <span class="nav-text">查看堆栈信息</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E6%9C%BA%E5%99%A8%E4%B8%8A%E8%BF%90%E8%A1%8C%E7%9A%84-java-%E8%BF%9B%E7%A8%8B"><span class="nav-number">1.1.</span> <span class="nav-text">查看当前机器上运行的 java 进程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Class-%E6%96%87%E4%BB%B6%E5%AD%97%E8%8A%82%E7%A0%81%E7%BB%93%E6%9E%84%E7%A4%BA%E6%84%8F%E5%9B%BE"><span class="nav-number">2.</span> <span class="nav-text">Class 文件字节码结构示意图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#visualvm-plugin"><span class="nav-number">3.</span> <span class="nav-text">visualvm plugin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JVM-%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98"><span class="nav-number">4.</span> <span class="nav-text">JVM 相关问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JVM-%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6-%E4%B9%8B-%E5%BC%BA%E5%BC%95%E7%94%A8%E3%80%81%E5%BC%B1%E5%BC%95%E7%94%A8%E3%80%81%E8%BD%AF%E5%BC%95%E7%94%A8%E3%80%81%E8%99%9A%E5%BC%95%E7%94%A8-cyt-CSDN-%E5%8D%9A%E5%AE%A2"><span class="nav-number">5.</span> <span class="nav-text">JVM 垃圾回收 之 强引用、弱引用、软引用、虚引用_cyt-CSDN 博客</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
 
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="lyloou"
       src="/assets/images/avatar.png">
   <p class="site-author-name" itemprop="name">lyloou</p>
   <div class="site-description" itemprop="description">/* Better than last best */</div>
 </div>
-<div class="site-state-wrap motion-element">
+<div class="site-state-wrap animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
+        <a href="/archives/">
           <span class="site-state-item-count">312</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
+          <a href="/tags/">
         <span class="site-state-item-count">56</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
-  <div class="links-of-author motion-element">
+  <div class="links-of-author animated">
       <span class="links-of-author-item">
-        <a href="https://github.com/lyloou" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;lyloou" rel="noopener" target="_blank">GitHub</a>
+        <a href="https://github.com/lyloou" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;lyloou" rel="noopener me" target="_blank"><i class="github fa-fw"></i>GitHub</a>
       </span>
       <span class="links-of-author-item">
-        <a href="mailto:lyloou6@gmail.com" title="E-Mail → mailto:lyloou6@gmail.com" rel="noopener" target="_blank">E-Mail</a>
+        <a href="mailto:lyloou6@gmail.com" title="E-Mail → mailto:lyloou6@gmail.com" rel="noopener me" target="_blank"><i class="envelope fa-fw"></i>E-Mail</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://weibo.com/lyloou" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;lyloou" rel="noopener" target="_blank">Weibo</a>
+        <a href="https://weibo.com/lyloou" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;lyloou" rel="noopener me" target="_blank"><i class="weibo fa-fw"></i>Weibo</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://blog.csdn.net/ly1414725328" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;ly1414725328" rel="noopener" target="_blank">CSDN</a>
+        <a href="https://blog.csdn.net/ly1414725328" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;ly1414725328" rel="noopener me" target="_blank"><i class="csdn fa-fw"></i>CSDN</a>
       </span>
   </div>
-  <div class="cc-license motion-element" itemprop="license">
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
   </div>
 
-
-
+        </div>
       </div>
+    </div>
+
+    
+        <div class="pjax">
+        </div>
+  </aside>
+
 
     </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
+
+    <div class="main-inner post posts-expand">
 
 
-      </div>
-    </main>
+  
 
-    <footer class="footer">
-      <div class="footer-inner">
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.com/java/JVM/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/images/avatar.png">
+      <meta itemprop="name" content="lyloou">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="JVM | lyloou">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          JVM
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-04-01 16:41:34" itemprop="dateCreated datePublished" datetime="2019-04-01T16:41:34+08:00">2019-04-01</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="查看堆栈信息"><a href="#查看堆栈信息" class="headerlink" title="查看堆栈信息"></a>查看堆栈信息</h2><h3 id="查看当前机器上运行的-java-进程"><a href="#查看当前机器上运行的-java-进程" class="headerlink" title="查看当前机器上运行的 java 进程"></a>查看当前机器上运行的 java 进程</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u013891584/article/details/80983494">JVM–查看堆栈信息<em>u013891584 的博客-CSDN 博客</em>如何查看堆栈信息</a></p>
+<p><code>jps -lvm</code><br>命令格式 jps [options][hostid]<br>注：如果不指定 hostid 就默认为当前主机或服务器。<br>命令行参数选项说明如下：<br>-q 不输出类名、Jar 名和传入 main 方法的参数<br>-m 输出传入 main 方法的参数<br>-l 输出 main 类或 Jar 的全限名<br>-v 输出传入 JVM 的参数</p>
+<p><code>jstat -gc 21275</code><br>-gc 垃圾回收堆的行为统计，常用命令<br><img src="https://raw.githubusercontent.com/lyloou/img/develop/img/20210702091905.png" alt="JVM_2020-08-11-15-37-17"><br>C 即 Capacity 总容量，U 即 Used 已使用的容量<br>S0C : survivor0 区的总容量<br>S1C : survivor1 区的总容量<br>S0U : survivor0 区已使用的容量<br>S1C : survivor1 区已使用的容量<br>EC : Eden 区的总容量<br>EU : Eden 区已使用的容量<br>OC : Old 区的总容量<br>OU : Old 区已使用的容量<br>MC：方法区大小<br>MU：方法区使用大小<br>CCSC:压缩类空间大小<br>CCSU:压缩类空间使用大小<br>YGC : 新生代垃圾回收次数<br>YGCT : 新生代垃圾回收时间<br>FGC : 老年代垃圾回收次数<br>FGCT : 老年代垃圾回收时间<br>GCT : 垃圾回收总消耗时间</p>
+<p><code>jstat -gc 1262 2000 20</code><br>这个命令意思就是每隔 2000ms 输出 1262 的 gc 情况，一共输出 20 次</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Daybreak1209/article/details/80540360">JVM 堆、栈信息监测<em>Think In JAVA—Max-CSDN 博客</em>查看 jvm 堆栈信息</a><br><img src="https://raw.githubusercontent.com/lyloou/img/develop/img/20210702091918.png" alt="JVM_2020-08-11-15-45-17"></p>
+<h2 id="Class-文件字节码结构示意图"><a href="#Class-文件字节码结构示意图" class="headerlink" title="Class 文件字节码结构示意图"></a>Class 文件字节码结构示意图</h2><p><img src="https://github.com/lyloou/img/raw/develop/z/20191023193030.png" alt="this is an image"></p>
+<h2 id="visualvm-plugin"><a href="#visualvm-plugin" class="headerlink" title="visualvm plugin"></a>visualvm plugin</h2><p><a target="_blank" rel="noopener" href="https://visualvm.github.io/pluginscenters.html">https://visualvm.github.io/pluginscenters.html</a><br>(注意如果是用 jvisualvm，要选择<code>Java VisualVM</code>的地址))</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://howtodoinjava.com/java/basics/jdk-jre-jvm/">What is Java JDK, JRE and JVM - In-depth Analysis - HowToDoInJava</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ibm.com/support/knowledgecenter/en/SSYKE2_8.0.0/com.ibm.java.vm.80.doc/docs/jit_optimize.html">How the JIT compiler optimizes code</a></li>
+</ul>
+<h2 id="JVM-相关问题"><a href="#JVM-相关问题" class="headerlink" title="JVM 相关问题"></a>JVM 相关问题</h2><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">; vi /etc/supervisord.conf</span></span><br><span class="line"><span class="section">[program:xxl-job-admin-7005]</span></span><br><span class="line"><span class="attr">command</span>=java -XX:-UseGCOverheadLimit -jar /data/www/xxl-job-admin/xxl-job-admin-<span class="number">7005</span>.jar --server.port=<span class="number">7005</span></span><br><span class="line"><span class="attr">autostart</span> = <span class="literal">true</span></span><br><span class="line"><span class="attr">autorestart</span> = <span class="literal">true</span></span><br><span class="line"><span class="attr">user</span> = omadmin</span><br><span class="line"><span class="attr">redirect_stderr</span> = <span class="literal">true</span></span><br><span class="line"><span class="attr">stdout_logfile_maxbytes</span>=<span class="number">100</span>MB</span><br><span class="line"><span class="attr">stdout_logfile</span> = /data/log/xxl-job-admin/xxl-job-admin.log</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/casablancaagnes_3sdf/article/details/52299100">-XX:-UseGCOverheadLimit 参数 java.lang.OutOfMemoryError：GC overhead limit exceeded 填坑心得_cas3$#%nca%6nes_3sdf 的博客-CSDN 博客_usegcoverheadlimit 有什么作用</a></p>
+<h2 id="JVM-垃圾回收-之-强引用、弱引用、软引用、虚引用-cyt-CSDN-博客"><a href="#JVM-垃圾回收-之-强引用、弱引用、软引用、虚引用-cyt-CSDN-博客" class="headerlink" title="JVM 垃圾回收 之 强引用、弱引用、软引用、虚引用_cyt-CSDN 博客"></a><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41291945/article/details/108549120">JVM 垃圾回收 之 强引用、弱引用、软引用、虚引用_cyt-CSDN 博客</a></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Strong</span> &#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 强引用 是最常见的引用， 首先用 new 关键字创建对象的时候</span></span><br><span class="line"><span class="comment">     * 这个对象就是一个强引用也就是默认的引用类型。 只要强引用的对象</span></span><br><span class="line"><span class="comment">     * 是可触及的， 那么他就不会被回收！如果强引用对象超过了他的作用范围</span></span><br><span class="line"><span class="comment">     * 或者被设置为 null  那就可以被回收了。</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * 只要有强引用在， 当内存不足的时候jvm就算抛出OOM也不会回收掉它！</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">test_strong_reference</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;test strong reference&quot;</span>);</span><br><span class="line">        <span class="type">String</span> <span class="variable">test</span> <span class="operator">=</span> test_strong_reference;</span><br><span class="line">        test_strong_reference = <span class="literal">null</span>;</span><br><span class="line">        System.gc();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            TimeUnit.SECONDS.sleep(<span class="number">2</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">&quot;test_strong_reference - &gt; &quot;</span>+ test_strong_reference);</span><br><span class="line">        System.out.println(<span class="string">&quot;test - &gt; &quot;</span>+test);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Soft</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 软引用， 用来描述那些还有用， 但是不是必须用的对象， 只被软引用关联着的对象</span></span><br><span class="line"><span class="comment">     * 在系统内存溢出之前，会把这些对象列进入回收范围之内进行二次回收， 如果回收之后</span></span><br><span class="line"><span class="comment">     * 内存还不够的话， 就抛出内存溢出的异常.</span></span><br><span class="line"><span class="comment">     * &lt;p&gt;</span></span><br><span class="line"><span class="comment">     * 可以在一些内存敏感的地方 进行使用, 高速缓存之类的</span></span><br><span class="line"><span class="comment">     * &lt;p&gt;</span></span><br><span class="line"><span class="comment">     * 内存够用的时候就保留软引用的可达对象</span></span><br><span class="line"><span class="comment">     * 内存不够的时候就回收可达对象</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> args</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">User</span> <span class="variable">cuiyt</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">User</span>(<span class="number">1</span>, <span class="string">&quot;cuiyt&quot;</span>);</span><br><span class="line">        SoftReference&lt;User&gt; reference = <span class="keyword">new</span> <span class="title class_">SoftReference</span>&lt;User&gt;(cuiyt);</span><br><span class="line">        cuiyt = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">        System.out.println(reference.get().toString());</span><br><span class="line">        System.gc();</span><br><span class="line">        System.out.println(<span class="string">&quot;after - &gt; &quot;</span> + reference.get().toString());</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            TimeUnit.SECONDS.sleep(<span class="number">3</span>);</span><br><span class="line">            <span class="type">byte</span>[] bytes = <span class="keyword">new</span> <span class="title class_">byte</span>[<span class="number">1024</span> * <span class="number">1024</span> * <span class="number">7</span>];</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            System.out.println(reference.get());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Weak</span> &#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 弱引用， 发送GC就会被回收掉！ 不管内存够不够</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> args</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line"></span><br><span class="line">        WeakReference&lt;User&gt; test = <span class="keyword">new</span> <span class="title class_">WeakReference</span>&lt;User&gt;(<span class="keyword">new</span> <span class="title class_">User</span>(<span class="number">1</span>, <span class="string">&quot;@cuiyut&quot;</span>));</span><br><span class="line">        System.out.println(test.get());</span><br><span class="line">        System.gc();</span><br><span class="line">        System.out.println(test.get());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Empty</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Empty empty;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> PhantomReference&lt;Empty&gt; reference;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> ReferenceQueue&lt;Empty&gt; queue;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">finalize</span><span class="params">()</span> <span class="keyword">throws</span> Throwable &#123;</span><br><span class="line">        <span class="built_in">super</span>.finalize();</span><br><span class="line">        System.out.println(<span class="string">&quot;调用 finalize&quot;</span>);</span><br><span class="line">        empty = <span class="built_in">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">Check</span> <span class="keyword">extends</span> <span class="title class_">Thread</span> &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">            <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">                <span class="built_in">super</span>.run();</span><br><span class="line">                <span class="keyword">if</span> (reference != <span class="literal">null</span>) &#123;</span><br><span class="line">                    PhantomReference&lt;Empty&gt; test = <span class="literal">null</span>;</span><br><span class="line">                    <span class="keyword">try</span> &#123;</span><br><span class="line">                        test = (PhantomReference&lt;Empty&gt;) queue.remove();</span><br><span class="line">                    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line"></span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">if</span> (test != <span class="literal">null</span>) &#123;</span><br><span class="line">                        System.out.println(<span class="string">&quot;跟踪垃圾回收过程， Empty 被GC&quot;</span>);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 形同虚设的一个引用类型， 当试图从虚引用中获得对象的时候</span></span><br><span class="line"><span class="comment">     * 它总是空的 ！ 为一个对象设置虚引用关联的唯一目的是跟踪垃圾回收的过程</span></span><br><span class="line"><span class="comment">     * 比如: 能在这个对象被回收的时候发出一个通知</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Check</span> <span class="variable">check</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Check</span>();</span><br><span class="line">        check.setDaemon(<span class="literal">true</span>);</span><br><span class="line">        check.start();</span><br><span class="line"></span><br><span class="line">        queue = <span class="keyword">new</span> <span class="title class_">ReferenceQueue</span>&lt;&gt;();</span><br><span class="line">        empty = <span class="keyword">new</span> <span class="title class_">Empty</span>();</span><br><span class="line">        reference = <span class="keyword">new</span> <span class="title class_">PhantomReference</span>&lt;&gt;(empty, queue);</span><br><span class="line">        <span class="comment">// 取消强引用</span></span><br><span class="line">        empty = <span class="literal">null</span>;</span><br><span class="line">        System.out.println(reference.get());</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">&quot;第一次GC&quot;</span>);</span><br><span class="line">        <span class="comment">// 把回收的对象， 放到引用队列中</span></span><br><span class="line">        System.gc();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            TimeUnit.SECONDS.sleep(<span class="number">3</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">&quot;after 第一次GC&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span> (empty != <span class="literal">null</span>) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;empty 可用&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;empty 不可用&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">&quot;第二次GC&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 取消强引用</span></span><br><span class="line">        empty = <span class="literal">null</span>;</span><br><span class="line">        System.gc();</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">&quot;after 第二次GC&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span> (empty != <span class="literal">null</span>) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;empty 可用&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;empty 不可用&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/java/" rel="tag"># java</a>
+          </div>
+
         
 
-        
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/java/zookeeper/" rel="prev" title="Zookeeper">
+                  <i class="fa fa-chevron-left"></i> Zookeeper
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/linux/sftp/" rel="next" title="Sftp">
+                  Sftp <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  
+  <div class="comments giscus-container">
+  </div>
+  
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
   <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">粤ICP备18151128号 </a>
   </div>
 
 <div class="copyright">
-  
   &copy; 
   <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
-    <i class="user"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">lyloou</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
-  </div>
-
-        
 <div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
       <span class="post-meta-item-icon">
-        <i class="user"></i>
+        <i class="fa fa-user"></i>
       </span>
       <span class="site-uv" title="总访客量">
         <span id="busuanzi_value_site_uv"></span>
       </span>
     </span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
       <span class="post-meta-item-icon">
-        <i class="eye"></i>
+        <i class="fa fa-eye"></i>
       </span>
       <span class="site-pv" title="总访问量">
         <span id="busuanzi_value_site_pv"></span>
       </span>
     </span>
 </div>
-
-
-
-
-
-
-
-
-      </div>
-    </footer>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>
 
-  
-  <script src="/lib/anime.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-
-<script src="/js/schemes/muse.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
-
-
-
+    </div>
+  </footer>
 
   
-  <script>
-    (function(){
-      var canonicalURL, curProtocol;
-      //Get the <link> tag
-      var x=document.getElementsByTagName("link");
-		//Find the last canonical URL
-		if(x.length > 0){
-			for (i=0;i<x.length;i++){
-				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
-					canonicalURL=x[i].href;
-				}
-			}
-		}
-    //Get protocol
-	    if (!canonicalURL){
-	    	curProtocol = window.location.protocol.split(':')[0];
-	    }
-	    else{
-	    	curProtocol = canonicalURL.split(':')[0];
-	    }
-      //Get current URL if the canonical URL does not exist
-	    if (!canonicalURL) canonicalURL = window.location.href;
-	    //Assign script content. Replace current URL with the canonical URL
-      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
-  </script>
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
 
 
 
 
   
-<script src="/js/local-search.js"></script>
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 
 
-
-
-
-
-
-
+<script class="next-config" data-name="giscus" type="application/json">{"enable":true,"repo":"lyloou/lyloou.github.io","repo_id":"MDEwOlJlcG9zaXRvcnkxMDk1NzkyNzA=","category":"Announcements","category_id":"DIC_kwDOBogMBs4CWdfR","mapping":"pathname","reactions_enabled":1,"emit_metadata":1,"theme":"light","lang":"zh-CN","input_position":"bottom","loading":"lazy"}</script>
 
 <script>
-if (document.querySelectorAll('pre.mermaid').length) {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
-    mermaid.initialize({
-      theme    : 'forest',
-      logLevel : 3,
-      flowchart: { curve     : 'linear' },
-      gantt    : { axisFormat: '%m/%d/%Y' },
-      sequence : { actorMargin: 50 }
-    });
-  }, window.mermaid);
-}
-</script>
+document.addEventListener('page:loaded', () => {
+  if (!CONFIG.page.comments) return;
 
-
-  
-
-  
-
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
-
-<script>
-NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
-    var gitalk = new Gitalk({
-      clientID    : '5776a56ec2a831d83dfc',
-      clientSecret: '28440989ccf00f0ce8dbd425dc5d1eaa1eb24c7b',
-      repo        : 'lyloou.github.io',
-      owner       : 'lyloou',
-      admin       : ['lyloou'],
-      id          : '3f9bbb66f12f92ac2f4680e2cc6246ba',
-        language: '',
-      distractionFreeMode: true
-    });
-    gitalk.render('gitalk-container');
-  }, window.Gitalk);
+  NexT.utils.loadComments('.giscus-container')
+    .then(() => NexT.utils.getScript('https://giscus.app/client.js', {
+      attributes: {
+        async                   : true,
+        crossOrigin             : 'anonymous',
+        'data-repo'             : CONFIG.giscus.repo,
+        'data-repo-id'          : CONFIG.giscus.repo_id,
+        'data-category'         : CONFIG.giscus.category,
+        'data-category-id'      : CONFIG.giscus.category_id,
+        'data-mapping'          : CONFIG.giscus.mapping,
+        'data-reactions-enabled': CONFIG.giscus.reactions_enabled,
+        'data-emit-metadata'    : CONFIG.giscus.emit_metadata,
+        'data-theme'            : CONFIG.giscus.theme,
+        'data-lang'             : CONFIG.giscus.lang,
+        'data-input-position'   : CONFIG.giscus.input_position,
+        'data-loading'          : CONFIG.giscus.loading
+      },
+      parentNode: document.querySelector('.giscus-container')
+    }));
 });
 </script>
 

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="zh-CN,zh-HK,zh-TW,en,default">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
@@ -13,14 +13,13 @@
 <link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"lyloou.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
-  </script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-  <meta name="description" content="&#x2F;* Better than last best *&#x2F;">
+<script class="next-config" data-name="main" type="application/json">{"hostname":"lyloou.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"default"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="&#x2F;* Better than last best *&#x2F;">
 <meta property="og:type" content="website">
 <meta property="og:title" content="lyloou">
 <meta property="og:url" content="https://lyloou.com/page/26/index.html">
@@ -30,37 +29,20 @@
 <meta property="article:author" content="lyloou">
 <meta name="twitter:card" content="summary">
 
+
 <link rel="canonical" href="https://lyloou.com/page/26/">
 
 
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : true,
-    isPost : false,
-    lang   : 'zh-CN'
-  };
-</script>
 
-  <title>lyloou</title>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"page/26/index.html","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>lyloou</title>
   
-    <script>
-      function sendPageView() {
-        if (CONFIG.hostname !== location.hostname) return;
-        var uid = localStorage.getItem('uid') || (Math.random() + '.' + Math.random());
-        localStorage.setItem('uid', uid);
-        navigator.sendBeacon('https://www.google-analytics.com/collect', new URLSearchParams({
-          v  : 1,
-          tid: 'UA-80542932-1',
-          cid: uid,
-          t  : 'pageview',
-          dp : encodeURIComponent(location.pathname)
-        }));
-      }
-      document.addEventListener('pjax:complete', sendPageView);
-      sendPageView();
-    </script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-80542932-1","only_pageview":true}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
 
 
 
@@ -68,55 +50,35 @@
 
 
   <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container">
-    <div class="headband"></div>
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
 
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
-  <div class="site-meta custom-logo">
+  <div class="site-meta">
 
     <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
+      <i class="logo-line"></i>
       <h1 class="site-title">lyloou</h1>
-      <span class="logo-line-after"><i></i></span>
+      <i class="logo-line"></i>
     </a>
   </div>
 
   <div class="site-nav-right">
-    <div class="toggle popup-trigger">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
         <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
@@ -124,29 +86,8 @@
 
 
 
-
 <nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签</a>
-
-  </li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -157,78 +98,145 @@
 
 
   <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
+    <div class="popup search-popup"><div class="search-header">
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off"
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
            placeholder="搜索..." spellcheck="false"
            type="search" class="search-input">
   </div>
-  <span class="popup-btn-close">
+  <span class="popup-btn-close" role="button">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
-<div id="search-result">
-  <div id="no-result">
-    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
   </div>
 </div>
 
     </div>
   </div>
 
-</div>
-    </header>
+</header>
+        
+  
+  <aside class="sidebar">
 
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="lyloou"
+      src="/assets/images/avatar.png">
+  <p class="site-author-name" itemprop="name">lyloou</p>
+  <div class="site-description" itemprop="description">/* Better than last best */</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">312</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">56</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/lyloou" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;lyloou" rel="noopener me" target="_blank"><i class="github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:lyloou6@gmail.com" title="E-Mail → mailto:lyloou6@gmail.com" rel="noopener me" target="_blank"><i class="envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/lyloou" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;lyloou" rel="noopener me" target="_blank"><i class="weibo fa-fw"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/ly1414725328" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;ly1414725328" rel="noopener me" target="_blank"><i class="csdn fa-fw"></i>CSDN</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
   </div>
 
+        </div>
+      </div>
+    </div>
 
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
+    
+        <div class="pjax">
+        </div>
+  </aside>
 
-          <div class="content index posts-expand">
-            
-      
+
+    </div>
+
+    <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://lyloou.com/shell/tips/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lyloou">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/shell/tips/" class="post-title-link" itemprop="url">Shell Tips</a>
+          <a href="/shell/tips/" class="post-title-link" itemprop="url">Shell Tips</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2016-12-20 10:30:13" itemprop="dateCreated datePublished" datetime="2016-12-20T10:30:13+08:00">2016-12-20</time>
-            </span>
+      <time title="创建时间：2016-12-20 10:30:13" itemprop="dateCreated datePublished" datetime="2016-12-20T10:30:13+08:00">2016-12-20</time>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -237,57 +245,68 @@
     
     
     <div class="post-body" itemprop="articleBody">
+          <h2 id="help-tips"><a href="#help-tips" class="headerlink" title="help tips"></a>help tips</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">help</span></span>()&#123;</span><br><span class="line"><span class="built_in">cat</span> &lt;&lt; <span class="string">HELP</span></span><br><span class="line"><span class="string">usage: dd ddk </span></span><br><span class="line"><span class="string">example: &#x27;wowo wowo&#x27;</span></span><br><span class="line"><span class="string">HELP</span></span><br><span class="line"><span class="built_in">exit</span> 0</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [[ <span class="variable">$1</span> == <span class="string">&quot;&quot;</span> || <span class="variable">$1</span> == <span class="string">&quot;-h&quot;</span> ]]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&#x27;what?&#x27;</span></span><br><span class="line">    <span class="built_in">help</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [[ <span class="variable">$1</span> != <span class="string">&quot;&quot;</span> ]]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="variable">$1</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">&quot;\033]0;<span class="variable">$1</span>\007&quot;</span></span><br></pre></td></tr></table></figure>
 
-      
-          <h2 id="help-tips"><a href="#help-tips" class="headerlink" title="help tips"></a>help tips</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-meta">#!/bin/bash</span><br><br><span class="hljs-function"><span class="hljs-title">help</span></span>()&#123;<br>cat &lt;&lt; HELP<br>usage: dd ddk <br>example: <span class="hljs-string">'wowo wowo'</span><br>HELP<br><span class="hljs-built_in">exit</span> 0<br>&#125;<br><br><span class="hljs-keyword">if</span> [[ <span class="hljs-variable">$1</span> == <span class="hljs-string">""</span> || <span class="hljs-variable">$1</span> == <span class="hljs-string">"-h"</span> ]]; <span class="hljs-keyword">then</span><br>    <span class="hljs-built_in">echo</span> <span class="hljs-string">'what?'</span><br>    <span class="hljs-built_in">help</span><br><span class="hljs-keyword">fi</span><br><br><span class="hljs-keyword">if</span> [[ <span class="hljs-variable">$1</span> != <span class="hljs-string">""</span> ]]; <span class="hljs-keyword">then</span><br>    <span class="hljs-built_in">echo</span> <span class="hljs-variable">$1</span><br><span class="hljs-keyword">fi</span><br><br><span class="hljs-built_in">echo</span> -e <span class="hljs-string">"\033]0;<span class="hljs-variable">$1</span>\007"</span><br></code></pre></td></tr></table></figure>
-
-<h2 id="read-from-terminal"><a href="#read-from-terminal" class="headerlink" title="read from terminal"></a>read from terminal</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">echo</span> input your name:<br><span class="hljs-built_in">read</span> name<br><span class="hljs-built_in">echo</span> your name is <span class="hljs-variable">$&#123;name&#125;</span><br></code></pre></td></tr></table></figure>
+<h2 id="read-from-terminal"><a href="#read-from-terminal" class="headerlink" title="read from terminal"></a>read from terminal</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> input your name:</span><br><span class="line"><span class="built_in">read</span> name</span><br><span class="line"><span class="built_in">echo</span> your name is <span class="variable">$&#123;name&#125;</span></span><br></pre></td></tr></table></figure>
       
     </div>
 
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://lyloou.com/shell/%E5%B8%B8%E7%94%A8%E7%9A%84shell%E5%91%BD%E4%BB%A4%EF%BC%88Windows%E5%B9%B3%E5%8F%B0%E4%B8%8A%EF%BC%89/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lyloou">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/shell/%E5%B8%B8%E7%94%A8%E7%9A%84shell%E5%91%BD%E4%BB%A4%EF%BC%88Windows%E5%B9%B3%E5%8F%B0%E4%B8%8A%EF%BC%89/" class="post-title-link" itemprop="url">常用的shell命令（Windows平台上）</a>
+          <a href="/shell/%E5%B8%B8%E7%94%A8%E7%9A%84shell%E5%91%BD%E4%BB%A4%EF%BC%88Windows%E5%B9%B3%E5%8F%B0%E4%B8%8A%EF%BC%89/" class="post-title-link" itemprop="url">常用的shell命令（Windows平台上）</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2016-12-20 10:30:13" itemprop="dateCreated datePublished" datetime="2016-12-20T10:30:13+08:00">2016-12-20</time>
-            </span>
+      <time title="创建时间：2016-12-20 10:30:13" itemprop="dateCreated datePublished" datetime="2016-12-20T10:30:13+08:00">2016-12-20</time>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -296,14 +315,12 @@
     
     
     <div class="post-body" itemprop="articleBody">
+          <h1 id="按任意键退出"><a href="#按任意键退出" class="headerlink" title="按任意键退出"></a>按任意键退出</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">read -n 1 -p &quot;按任意键退出，并打开apk目录...&quot;</span><br></pre></td></tr></table></figure>
 
-      
-          <h1 id="按任意键退出"><a href="#按任意键退出" class="headerlink" title="按任意键退出"></a>按任意键退出</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">read -n 1 -p "按任意键退出，并打开apk目录..."<br></code></pre></td></tr></table></figure>
-
-<h1 id="打开Windows资源管理器指定目录"><a href="#打开Windows资源管理器指定目录" class="headerlink" title="打开Windows资源管理器指定目录"></a>打开Windows资源管理器指定目录</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> 获取当前目录</span><br>rootpath=$(pwd)<br><span class="hljs-meta">#</span><span class="bash"> 打开当前目录下的/_apk/apk目录</span><br>start $rootpath'/_apk/apk'<br></code></pre></td></tr></table></figure>
+<h1 id="打开Windows资源管理器指定目录"><a href="#打开Windows资源管理器指定目录" class="headerlink" title="打开Windows资源管理器指定目录"></a>打开Windows资源管理器指定目录</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">获取当前目录</span></span><br><span class="line">rootpath=$(pwd)</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">打开当前目录下的/_apk/apk目录</span></span><br><span class="line">start $rootpath&#x27;/_apk/apk&#x27;</span><br></pre></td></tr></table></figure>
 
 
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="http://blog.csdn.net/zzban/article/details/8852655" target="_blank" rel="noopener">Linux Shell编程语法（变量及其赋值）</a><br><a href="http://blog.csdn.net/ithomer/article/details/5904632" target="_blank" rel="noopener">SHELL学习笔记—-IF条件判断，判断条件</a><br><a href="http://blog.csdn.net/liuxincumt/article/details/6202295" target="_blank" rel="noopener">shell的read方法使用介绍</a></p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a target="_blank" rel="noopener" href="http://blog.csdn.net/zzban/article/details/8852655">Linux Shell编程语法（变量及其赋值）</a><br><a target="_blank" rel="noopener" href="http://blog.csdn.net/ithomer/article/details/5904632">SHELL学习笔记—-IF条件判断，判断条件</a><br><a target="_blank" rel="noopener" href="http://blog.csdn.net/liuxincumt/article/details/6202295">shell的read方法使用介绍</a></p>
 
       
     </div>
@@ -311,46 +328,59 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://lyloou.com/linux/command/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lyloou">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/linux/command/" class="post-title-link" itemprop="url">Linux常用命令</a>
+          <a href="/linux/command/" class="post-title-link" itemprop="url">Linux常用命令</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2016-11-27 17:16:15" itemprop="dateCreated datePublished" datetime="2016-11-27T17:16:15+08:00">2016-11-27</time>
-            </span>
+      <time title="创建时间：2016-11-27 17:16:15" itemprop="dateCreated datePublished" datetime="2016-11-27T17:16:15+08:00">2016-11-27</time>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -359,129 +389,135 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
           <h2 id="设置管理员密码"><a href="#设置管理员密码" class="headerlink" title="设置管理员密码"></a>设置管理员密码</h2><p>首次使用管理员登录需要先设置密码</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">sudo passwd<br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo passwd</span><br></pre></td></tr></table></figure>
 
-<h2 id="定时关机"><a href="#定时关机" class="headerlink" title="定时关机"></a>定时关机</h2><p><a href="http://os.51cto.com/art/201108/287974.htm" target="_blank" rel="noopener">http://os.51cto.com/art/201108/287974.htm</a></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">shutdown -h 22:30 <span class="hljs-comment"># 在指定时间关机</span><br>shutdown -h 30 <span class="hljs-comment">#30分钟后关机</span><br></code></pre></td></tr></table></figure>
+<h2 id="定时关机"><a href="#定时关机" class="headerlink" title="定时关机"></a>定时关机</h2><p><a target="_blank" rel="noopener" href="http://os.51cto.com/art/201108/287974.htm">http://os.51cto.com/art/201108/287974.htm</a></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">shutdown -h 22:30 <span class="comment"># 在指定时间关机</span></span><br><span class="line">shutdown -h 30 <span class="comment">#30分钟后关机</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="history之后执行指定行的命令"><a href="#history之后执行指定行的命令" class="headerlink" title="history之后执行指定行的命令"></a>history之后执行指定行的命令</h2><blockquote>
 <p><code>$ history // 查看命令历史</code><br><code>$ !334  //表示执行第334行的命令</code></p>
 </blockquote>
-<h2 id="在命令行中用默认程序打开文件"><a href="#在命令行中用默认程序打开文件" class="headerlink" title="在命令行中用默认程序打开文件"></a>在命令行中用默认程序打开文件</h2><p><code>xdg-open { file | URL }</code></p>
+<h2 id="在命令行中用默认程序打开文件"><a href="#在命令行中用默认程序打开文件" class="headerlink" title="在命令行中用默认程序打开文件"></a>在命令行中用默认程序打开文件</h2><p><code>xdg-open &#123; file | URL &#125;</code></p>
 <blockquote>
-<p><a href="http://blog.chinaunix.net/uid-27025492-id-3376626.html" target="_blank" rel="noopener">Ubuntu下用命令行快速打开各类型文件(转)-bough22-ChinaUnix博客</a></p>
+<p><a target="_blank" rel="noopener" href="http://blog.chinaunix.net/uid-27025492-id-3376626.html">Ubuntu下用命令行快速打开各类型文件(转)-bough22-ChinaUnix博客</a></p>
 </blockquote>
 <h2 id="ps-查看运行的进程"><a href="#ps-查看运行的进程" class="headerlink" title="ps 查看运行的进程"></a>ps 查看运行的进程</h2><p><code>ps -aux | grep vim</code></p>
 <h2 id="Ubuntu-系统强制关闭进程。"><a href="#Ubuntu-系统强制关闭进程。" class="headerlink" title="Ubuntu 系统强制关闭进程。"></a>Ubuntu 系统强制关闭进程。</h2><blockquote>
 <p>$ps -aux | grep [应用名]  # 抓取指定应用的进程信息，几下 应用的pid<br>$kill -9 [应用的pid]</p>
 </blockquote>
 <h2 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h2><p>10行的上下文</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">cat file.txt | grep -C 10 key_word<br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> file.txt | grep -C 10 key_word</span><br></pre></td></tr></table></figure>
 
 <h2 id="tail"><a href="#tail" class="headerlink" title="tail"></a>tail</h2><p>查看实时日志： tail -fn 100 log_file_name.out</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">tail --<span class="hljs-built_in">help</span><br>-f: `--follow[HOW]` Output appended data as the file grows;<br>-n: `--lines=[+]NUM` Output the last NUM lines, instead of the last 10;<br></code></pre></td></tr></table></figure>
-<h2 id="sed"><a href="#sed" class="headerlink" title="sed"></a>sed</h2><p><a href="https://coolshell.cn/articles/9104.html" target="_blank" rel="noopener">https://coolshell.cn/articles/9104.html</a></p>
-<figure class="highlight scilab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs scilab">sed -i <span class="hljs-string">"s/'</span>proxy.*/<span class="hljs-string">'proxy'</span>: <span class="hljs-string">'http://proxy.lyloou.com'</span>/g<span class="hljs-string">" eros.dev.js</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">tail</span> --<span class="built_in">help</span></span><br><span class="line">-f: `--follow[HOW]` Output appended data as the file grows;</span><br><span class="line">-n: `--lines=[+]NUM` Output the last NUM lines, instead of the last 10;</span><br></pre></td></tr></table></figure>
+<h2 id="sed"><a href="#sed" class="headerlink" title="sed"></a>sed</h2><p><a target="_blank" rel="noopener" href="https://coolshell.cn/articles/9104.html">https://coolshell.cn/articles/9104.html</a></p>
+<figure class="highlight scilab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i <span class="string">&quot;s/&#x27;</span>proxy.*/<span class="string">&#x27;proxy&#x27;</span>: <span class="string">&#x27;http://proxy.lyloou.com&#x27;</span>/g<span class="string">&quot; eros.dev.js</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="nohup"><a href="#nohup" class="headerlink" title="nohup"></a>nohup</h2><p>用途：不挂断地运行命令。<br>语法：nohup Command [ Arg … ] [　&amp; ]<br>描述：nohup 命令运行由 Command 参数和任何相关的 Arg 参数指定的命令，忽略所有挂断（SIGHUP）信号。在注销后使用 nohup 命令运行后台中的程序。要运行后台中的 nohup 命令，添加 &amp; （ 表示”and”的符号）到命令的尾部。<br><a href="http://www.cnblogs.com/allenblogs/archive/2011/05/19/2051136.html" target="_blank" rel="noopener">http://www.cnblogs.com/allenblogs/archive/2011/05/19/2051136.html</a></p>
-<h3 id="nohup-不生成-nohup-out的方法"><a href="#nohup-不生成-nohup-out的方法" class="headerlink" title="nohup 不生成 nohup.out的方法"></a>nohup 不生成 nohup.out的方法</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">nohup java -jar /xxx/xxx/xxx.jar &gt;/dev/null 2&gt;&amp;1 &amp;<br></code></pre></td></tr></table></figure>
+<h2 id="nohup"><a href="#nohup" class="headerlink" title="nohup"></a>nohup</h2><p>用途：不挂断地运行命令。<br>语法：nohup Command [ Arg … ] [　&amp; ]<br>描述：nohup 命令运行由 Command 参数和任何相关的 Arg 参数指定的命令，忽略所有挂断（SIGHUP）信号。在注销后使用 nohup 命令运行后台中的程序。要运行后台中的 nohup 命令，添加 &amp; （ 表示”and”的符号）到命令的尾部。<br><a target="_blank" rel="noopener" href="http://www.cnblogs.com/allenblogs/archive/2011/05/19/2051136.html">http://www.cnblogs.com/allenblogs/archive/2011/05/19/2051136.html</a></p>
+<h3 id="nohup-不生成-nohup-out的方法"><a href="#nohup-不生成-nohup-out的方法" class="headerlink" title="nohup 不生成 nohup.out的方法"></a>nohup 不生成 nohup.out的方法</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">nohup</span> java -jar /xxx/xxx/xxx.jar &gt;/dev/null 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
 <p>关键在于最后的 &gt;/dev/null 2&gt;&amp;1 部分，/dev/null是一个虚拟的空设备（类似物理中的黑洞），任何输出信息被重定向到该设备后，将会石沉大海</p>
 <blockquote>
-<p>/dev/null 表示将标准输出信息重定向到”黑洞”<br>2&gt;&amp;1 表示将标准错误重定向到标准输出(由于标准输出已经定向到“黑洞”了，即：标准输出此时也是”黑洞”，再将标准错误输出定向到标准输出，相当于错误输出也被定向至“黑洞”)<br><a href="http://www.cnblogs.com/yjmyzz/p/4831182.html" target="_blank" rel="noopener">http://www.cnblogs.com/yjmyzz/p/4831182.html</a></p>
+<p>/dev/null 表示将标准输出信息重定向到”黑洞”<br>2&gt;&amp;1 表示将标准错误重定向到标准输出(由于标准输出已经定向到“黑洞”了，即：标准输出此时也是”黑洞”，再将标准错误输出定向到标准输出，相当于错误输出也被定向至“黑洞”)<br><a target="_blank" rel="noopener" href="http://www.cnblogs.com/yjmyzz/p/4831182.html">http://www.cnblogs.com/yjmyzz/p/4831182.html</a></p>
 </blockquote>
-<h2 id="在某目录及其子目录下所有文件的最前面添加几行文字"><a href="#在某目录及其子目录下所有文件的最前面添加几行文字" class="headerlink" title="在某目录及其子目录下所有文件的最前面添加几行文字"></a>在某目录及其子目录下所有文件的最前面添加几行文字</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">grep -rl <span class="hljs-string">''</span> tmpdir\ | xargs sed -i <span class="hljs-string">"1 i hi 你好吗\n 你知道我是谁吗\n 是的，是我\n"</span><br></code></pre></td></tr></table></figure>
+<h2 id="在某目录及其子目录下所有文件的最前面添加几行文字"><a href="#在某目录及其子目录下所有文件的最前面添加几行文字" class="headerlink" title="在某目录及其子目录下所有文件的最前面添加几行文字"></a>在某目录及其子目录下所有文件的最前面添加几行文字</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -rl <span class="string">&#x27;&#x27;</span> tmpdir\ | xargs sed -i <span class="string">&quot;1 i hi 你好吗\n 你知道我是谁吗\n 是的，是我\n&quot;</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li><a href="https://stackoverflow.com/questions/6758963/find-and-replace-with-sed-in-directory-and-sub-directories" target="_blank" rel="noopener">linux - Find and replace with sed in directory and sub directories - Stack Overflow</a></li>
+<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/6758963/find-and-replace-with-sed-in-directory-and-sub-directories">linux - Find and replace with sed in directory and sub directories - Stack Overflow</a></li>
 </ul>
 <h2 id="lsof-i-8088"><a href="#lsof-i-8088" class="headerlink" title="lsof -i 8088"></a>lsof -i 8088</h2><h2 id="通过域名查看ip"><a href="#通过域名查看ip" class="headerlink" title="通过域名查看ip"></a>通过域名查看ip</h2><ul>
 <li>ping的方式：<code>ping lyloou.com</code></li>
 <li>nslookup方式： <code>nslookup lyloou.com</code></li>
 </ul>
-<h2 id="拉取远程文件"><a href="#拉取远程文件" class="headerlink" title="拉取远程文件"></a>拉取远程文件</h2><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs elixir">scp root<span class="hljs-variable">@138</span>.<span class="hljs-number">128.208</span>.<span class="hljs-number">16</span><span class="hljs-symbol">:/root/go/src/github</span>.com/inconshreveable/ngrok/bin/ngrok <span class="hljs-symbol">D:</span>/dd/ngrok<br></code></pre></td></tr></table></figure>
+<h2 id="拉取远程文件"><a href="#拉取远程文件" class="headerlink" title="拉取远程文件"></a>拉取远程文件</h2><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp root@<span class="number">138.128</span>.<span class="number">208.16</span>:<span class="regexp">/root/g</span>o<span class="regexp">/src/gi</span>thub.com<span class="regexp">/inconshreveable/</span>ngrok<span class="regexp">/bin/</span>ngrok D:<span class="regexp">/dd/</span>ngrok</span><br></pre></td></tr></table></figure>
 <p>如果出现这个错误：<code>connect to xxxxxxx port 22: Connection refused</code></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sh">yum -y install openssh-server<br>service sshd start<br><span class="hljs-comment"># 首先使用命令：ss -lnt查询22号端口是否开启，如下图所示为正常开启，否则要开启22号端口。 如果要修改端口，查看或编辑SSH服务配置文件，使用命令 vi /etc/ssh/sshd.config，进入后把 port 后面默认的22端口改成别的端口即可.</span><br><span class="hljs-comment"># https://www.linuxidc.com/Linux/2017-11/148586.htm</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">yum -y install openssh-server</span><br><span class="line">service sshd start</span><br><span class="line"><span class="comment"># 首先使用命令：ss -lnt查询22号端口是否开启，如下图所示为正常开启，否则要开启22号端口。 如果要修改端口，查看或编辑SSH服务配置文件，使用命令 vi /etc/ssh/sshd.config，进入后把 port 后面默认的22端口改成别的端口即可.</span></span><br><span class="line"><span class="comment"># https://www.linuxidc.com/Linux/2017-11/148586.htm</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># http://wiki.ubuntu.org.cn/UbuntuSkills#.E9.80.9A.E8.BF.87ssh.E4.BC.A0.E8.BE.93.E6.96.87.E4.BB.B6</span><br>scp -rp /path/filename username@remoteIP:/path <span class="hljs-comment">#将本地文件拷贝到服务器上</span><br>scp -rp username@remoteIP:/path/filename /path <span class="hljs-comment">#将远程文件从服务器下载到本地</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># http://wiki.ubuntu.org.cn/UbuntuSkills#.E9.80.9A.E8.BF.87ssh.E4.BC.A0.E8.BE.93.E6.96.87.E4.BB.B6</span></span><br><span class="line">scp -rp /path/filename username@remoteIP:/path <span class="comment">#将本地文件拷贝到服务器上</span></span><br><span class="line">scp -rp username@remoteIP:/path/filename /path <span class="comment">#将远程文件从服务器下载到本地</span></span><br></pre></td></tr></table></figure>
 
 
-<h2 id="df查看硬盘容量"><a href="#df查看硬盘容量" class="headerlink" title="df查看硬盘容量"></a>df查看硬盘容量</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">df -h<br></code></pre></td></tr></table></figure>
+<h2 id="df查看硬盘容量"><a href="#df查看硬盘容量" class="headerlink" title="df查看硬盘容量"></a>df查看硬盘容量</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">df</span> -h</span><br></pre></td></tr></table></figure>
 
-<h2 id="how-to-automount-ntfs-partitions"><a href="#how-to-automount-ntfs-partitions" class="headerlink" title="how-to-automount-ntfs-partitions"></a><a href="https://askubuntu.com/questions/46588/how-to-automount-ntfs-partitions" target="_blank" rel="noopener">how-to-automount-ntfs-partitions</a></h2><ul>
+<h2 id="how-to-automount-ntfs-partitions"><a href="#how-to-automount-ntfs-partitions" class="headerlink" title="how-to-automount-ntfs-partitions"></a><a target="_blank" rel="noopener" href="https://askubuntu.com/questions/46588/how-to-automount-ntfs-partitions">how-to-automount-ntfs-partitions</a></h2><ul>
 <li><p><code>vi /etc/fstab</code> &amp; add below line</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment">#Windows-Partition</span><br>UUID=&lt;xxxxx&gt; /media/win ntfs rw,auto,users,<span class="hljs-built_in">exec</span>,nls=utf8,<span class="hljs-built_in">umask</span>=003,gid=46,uid=1000    0   0<br></code></pre></td></tr></table></figure>
-</li>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Windows-Partition</span></span><br><span class="line">UUID=&lt;xxxxx&gt; /media/win ntfs rw,auto,<span class="built_in">users</span>,<span class="built_in">exec</span>,nls=utf8,<span class="built_in">umask</span>=003,gid=46,uid=1000    0   0</span><br></pre></td></tr></table></figure></li>
 <li><p>Finding which disk you will set</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">sudo fdisk -l<br></code></pre></td></tr></table></figure>
-</li>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo fdisk -l</span><br></pre></td></tr></table></figure></li>
 <li><p>Finding the UUID</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">sudo blkid<br></code></pre></td></tr></table></figure>
-</li>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo blkid</span><br></pre></td></tr></table></figure></li>
 <li><p>Check it</p>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">sudo mount -a</span><br></code></pre></td></tr></table></figure>
-
-</li>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mount -<span class="selector-tag">a</span></span><br></pre></td></tr></table></figure></li>
 </ul>
-<h2 id="查看使用最多的10条命令"><a href="#查看使用最多的10条命令" class="headerlink" title="查看使用最多的10条命令"></a>查看使用最多的10条命令</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">history</span> | awk <span class="hljs-string">'&#123;print $2&#125;'</span> | sort | uniq -c | sort -k1,1nr | head -10<br></code></pre></td></tr></table></figure>
-<p><a href="https://coolshell.cn/articles/8619.html" target="_blank" rel="noopener">https://coolshell.cn/articles/8619.html</a><br><a href="http://blog.51cto.com/huanglianfeng/1381267" target="_blank" rel="noopener">http://blog.51cto.com/huanglianfeng/1381267</a></p>
-<h2 id="bash-How-to-use-arguments-from-previous-command-Stack-Overflow"><a href="#bash-How-to-use-arguments-from-previous-command-Stack-Overflow" class="headerlink" title="bash - How to use arguments from previous command? - Stack Overflow"></a><a href="https://stackoverflow.com/questions/4009412/how-to-use-arguments-from-previous-command" target="_blank" rel="noopener">bash - How to use arguments from previous command? - Stack Overflow</a></h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs sh">$ <span class="hljs-built_in">echo</span> a b c d e <br>a b c d e<br>$ <span class="hljs-built_in">echo</span> !^<br><span class="hljs-built_in">echo</span> a<br>a<br><br>$ <span class="hljs-built_in">echo</span> a b c d e <br>a b c d e<br>$ <span class="hljs-built_in">echo</span> !:1<br><span class="hljs-built_in">echo</span> a<br>a<br></code></pre></td></tr></table></figure>
+<h2 id="查看使用最多的10条命令"><a href="#查看使用最多的10条命令" class="headerlink" title="查看使用最多的10条命令"></a>查看使用最多的10条命令</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">history</span> | awk <span class="string">&#x27;&#123;print $2&#125;&#x27;</span> | <span class="built_in">sort</span> | <span class="built_in">uniq</span> -c | <span class="built_in">sort</span> -k1,1nr | <span class="built_in">head</span> -10</span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://coolshell.cn/articles/8619.html">https://coolshell.cn/articles/8619.html</a><br><a target="_blank" rel="noopener" href="http://blog.51cto.com/huanglianfeng/1381267">http://blog.51cto.com/huanglianfeng/1381267</a></p>
+<h2 id="bash-How-to-use-arguments-from-previous-command-Stack-Overflow"><a href="#bash-How-to-use-arguments-from-previous-command-Stack-Overflow" class="headerlink" title="bash - How to use arguments from previous command? - Stack Overflow"></a><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/4009412/how-to-use-arguments-from-previous-command">bash - How to use arguments from previous command? - Stack Overflow</a></h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> a b c d e </span><br><span class="line">a b c d e</span><br><span class="line">$ <span class="built_in">echo</span> !^</span><br><span class="line"><span class="built_in">echo</span> a</span><br><span class="line">a</span><br><span class="line"></span><br><span class="line">$ <span class="built_in">echo</span> a b c d e </span><br><span class="line">a b c d e</span><br><span class="line">$ <span class="built_in">echo</span> !:1</span><br><span class="line"><span class="built_in">echo</span> a</span><br><span class="line">a</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs sh">!^      first argument<br>!$      last argument<br>!*      all arguments<br>!:2     second argument<br><br>!:2-3   second to third arguments<br>!:2-$   second to last arguments<br>!:2*    second to last arguments<br>!:2-    second to next to last arguments<br><br>!:0     the <span class="hljs-built_in">command</span><br>!!      repeat the previous line<br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">!^      first argument</span><br><span class="line">!$      last argument</span><br><span class="line">!*      all arguments</span><br><span class="line">!:2     second argument</span><br><span class="line"></span><br><span class="line">!:2-3   second to third arguments</span><br><span class="line">!:2-$   second to last arguments</span><br><span class="line">!:2*    second to last arguments</span><br><span class="line">!:2-    second to next to last arguments</span><br><span class="line"></span><br><span class="line">!:0     the <span class="built_in">command</span></span><br><span class="line">!!      repeat the previous line</span><br></pre></td></tr></table></figure>
 
 <h2 id="kill"><a href="#kill" class="headerlink" title="kill"></a>kill</h2><ul>
-<li><a href="https://www.cnblogs.com/liuhouhou/p/5400540.html" target="_blank" rel="noopener">Linux kill -9 和 kill -15 的区别 - 妖老山黑 - 博客园</a></li>
-<li><a href="https://www.zhihu.com/question/23747655" target="_blank" rel="noopener">大家在kill -9前不会尝试kill -15么？ - 知乎</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/liuhouhou/p/5400540.html">Linux kill -9 和 kill -15 的区别 - 妖老山黑 - 博客园</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/23747655">大家在kill -9前不会尝试kill -15么？ - 知乎</a></li>
 </ul>
 <h2 id="grep"><a href="#grep" class="headerlink" title="grep"></a>grep</h2><p>查看包含部分文字的上下文</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># -E, --extended-regexp     PATTERN is an extended regular expression</span><br><span class="hljs-comment"># -i, --ignore-case         ignore case distinctions</span><br>-C, --context=NUM         <span class="hljs-built_in">print</span> NUM lines of output context<br>grep -E -i -C 10 <span class="hljs-string">"((exception) | (error))"</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -E, --extended-regexp     PATTERN is an extended regular expression</span></span><br><span class="line"><span class="comment"># -i, --ignore-case         ignore case distinctions</span></span><br><span class="line">-C, --context=NUM         <span class="built_in">print</span> NUM lines of output context</span><br><span class="line">grep -E -i -C 10 <span class="string">&quot;((exception) | (error))&quot;</span></span><br></pre></td></tr></table></figure>
       
     </div>
 
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://lyloou.com/linux/ssh/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lyloou">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/linux/ssh/" class="post-title-link" itemprop="url">【Shell】ssh</a>
+          <a href="/linux/ssh/" class="post-title-link" itemprop="url">【Shell】ssh</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2016-11-26 17:16:15" itemprop="dateCreated datePublished" datetime="2016-11-26T17:16:15+08:00">2016-11-26</time>
-            </span>
+      <time title="创建时间：2016-11-26 17:16:15" itemprop="dateCreated datePublished" datetime="2016-11-26T17:16:15+08:00">2016-11-26</time>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -490,20 +526,18 @@
     
     
     <div class="post-body" itemprop="articleBody">
+          <h2 id="connection-refused"><a href="#connection-refused" class="headerlink" title="connection refused"></a>connection refused</h2><p><a target="_blank" rel="noopener" href="https://askubuntu.com/questions/30080/how-to-solve-connection-refused-errors-in-ssh-connection">https://askubuntu.com/questions/30080/how-to-solve-connection-refused-errors-in-ssh-connection</a></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install openssh-server openssh-client</span><br></pre></td></tr></table></figure>
 
-      
-          <h2 id="connection-refused"><a href="#connection-refused" class="headerlink" title="connection refused"></a>connection refused</h2><p><a href="https://askubuntu.com/questions/30080/how-to-solve-connection-refused-errors-in-ssh-connection" target="_blank" rel="noopener">https://askubuntu.com/questions/30080/how-to-solve-connection-refused-errors-in-ssh-connection</a></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">sudo apt-get install openssh-server openssh-client<br></code></pre></td></tr></table></figure>
+<h2 id="将-ssh-keys-复制到-user-host-以启用无密码-SSH-登录。"><a href="#将-ssh-keys-复制到-user-host-以启用无密码-SSH-登录。" class="headerlink" title="将 ssh keys 复制到 user@host 以启用无密码 SSH 登录。"></a>将 ssh keys 复制到 user@host 以启用无密码 SSH 登录。</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ssh</span>-copy-id user@host</span><br></pre></td></tr></table></figure>
 
-<h2 id="将-ssh-keys-复制到-user-host-以启用无密码-SSH-登录。"><a href="#将-ssh-keys-复制到-user-host-以启用无密码-SSH-登录。" class="headerlink" title="将 ssh keys 复制到 user@host 以启用无密码 SSH 登录。"></a>将 ssh keys 复制到 user@host 以启用无密码 SSH 登录。</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-variable">$ssh</span>-copy-id user@host<br></code></pre></td></tr></table></figure>
-
-<h2 id="将本地的文本文件保存到远程服务端中"><a href="#将本地的文本文件保存到远程服务端中" class="headerlink" title="将本地的文本文件保存到远程服务端中"></a>将本地的文本文件保存到远程服务端中</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">cat ~/.ssh/id_rsa.pub | ssh user@123.45.56.78 <span class="hljs-string">"mkdir -p ~/.ssh &amp;&amp; cat &gt;&gt;  ~/.ssh/authorized_keys"</span><br>https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys--2<br></code></pre></td></tr></table></figure>
+<h2 id="将本地的文本文件保存到远程服务端中"><a href="#将本地的文本文件保存到远程服务端中" class="headerlink" title="将本地的文本文件保存到远程服务端中"></a>将本地的文本文件保存到远程服务端中</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> ~/.ssh/id_rsa.pub | ssh user@123.45.56.78 <span class="string">&quot;mkdir -p ~/.ssh &amp;&amp; cat &gt;&gt;  ~/.ssh/authorized_keys&quot;</span></span><br><span class="line">https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys--2</span><br></pre></td></tr></table></figure>
 <ul>
-<li><a href="https://www.howtogeek.com/168147/add-public-ssh-key-to-remote-server-in-a-single-command/" target="_blank" rel="noopener">Add Public SSH Key to Remote Server in a Single Command</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.howtogeek.com/168147/add-public-ssh-key-to-remote-server-in-a-single-command/">Add Public SSH Key to Remote Server in a Single Command</a></li>
 </ul>
-<h2 id="bash-How-can-I-ssh-directly-to-a-particular-directory-Stack-Overflow"><a href="#bash-How-can-I-ssh-directly-to-a-particular-directory-Stack-Overflow" class="headerlink" title="bash - How can I ssh directly to a particular directory? - Stack Overflow"></a><a href="https://stackoverflow.com/questions/626533/how-can-i-ssh-directly-to-a-particular-directory" target="_blank" rel="noopener">bash - How can I ssh directly to a particular directory? - Stack Overflow</a></h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">ssh -t xxx.xxx.xxx.xxx <span class="hljs-string">"cd /directory_wanted; bash"</span><br></code></pre></td></tr></table></figure>
+<h2 id="bash-How-can-I-ssh-directly-to-a-particular-directory-Stack-Overflow"><a href="#bash-How-can-I-ssh-directly-to-a-particular-directory-Stack-Overflow" class="headerlink" title="bash - How can I ssh directly to a particular directory? - Stack Overflow"></a><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/626533/how-can-i-ssh-directly-to-a-particular-directory">bash - How can I ssh directly to a particular directory? - Stack Overflow</a></h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -t xxx.xxx.xxx.xxx <span class="string">&quot;cd /directory_wanted; bash&quot;</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="How-to-enter-ssh-password-using-bash"><a href="#How-to-enter-ssh-password-using-bash" class="headerlink" title="How to enter ssh password using bash? "></a><a href="https://stackoverflow.com/questions/16928004/how-to-enter-ssh-password-using-bash" target="_blank" rel="noopener">How to enter ssh password using bash? </a></h2><blockquote>
+<h2 id="How-to-enter-ssh-password-using-bash"><a href="#How-to-enter-ssh-password-using-bash" class="headerlink" title="How to enter ssh password using bash? "></a><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/16928004/how-to-enter-ssh-password-using-bash">How to enter ssh password using bash? </a></h2><blockquote>
 <p>Create a new keypair: (go with the defaults)<br><code>ssh-keygen</code></p>
 </blockquote>
 <blockquote>
@@ -514,11 +548,11 @@
 </blockquote>
 <h2 id="设置ngrok域名"><a href="#设置ngrok域名" class="headerlink" title="设置ngrok域名"></a>设置ngrok域名</h2><ul>
 <li>ngrok -proto=tcp 22</li>
-<li>ssh -p 3894 <a href="mailto:lilou@ngrok.lyloou.com">lilou@ngrok.lyloou.com</a></li>
-<li><a href="https://www.zhihu.com/question/27771692" target="_blank" rel="noopener">如何远程登录家里的Ubuntu电脑(命令行模式)？</a></li>
-<li><a href="https://blog.csdn.net/sethqqq/article/details/77033154" target="_blank" rel="noopener">https://blog.csdn.net/sethqqq/article/details/77033154</a></li>
+<li>ssh -p 3894 <a href="mailto:&#x6c;&#x69;&#x6c;&#x6f;&#117;&#64;&#x6e;&#103;&#114;&#x6f;&#x6b;&#x2e;&#108;&#x79;&#x6c;&#111;&#111;&#x75;&#x2e;&#99;&#x6f;&#x6d;">&#x6c;&#x69;&#x6c;&#x6f;&#117;&#64;&#x6e;&#103;&#114;&#x6f;&#x6b;&#x2e;&#108;&#x79;&#x6c;&#111;&#111;&#x75;&#x2e;&#99;&#x6f;&#x6d;</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/27771692">如何远程登录家里的Ubuntu电脑(命令行模式)？</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/sethqqq/article/details/77033154">https://blog.csdn.net/sethqqq/article/details/77033154</a></li>
 </ul>
-<h2 id="ssh-connect-to-host-localhost-port-22-Connection-refused"><a href="#ssh-connect-to-host-localhost-port-22-Connection-refused" class="headerlink" title="ssh: connect to host localhost port 22: Connection refused"></a><a href="https://blog.csdn.net/jszhangyili/article/details/8881807" target="_blank" rel="noopener">ssh: connect to host localhost port 22: Connection refused</a></h2><p>错误原因：<br>1.sshd 未安装<br>2.sshd 未启动<br>3.防火墙<br>解决方法：<br>1.确定安装sshd:<br><code>$ sudo apt-get install openssh-server</code><br>2.启动sshd:<br><code>$ sudo net start sshd</code><br>3.检查防火墙设置,关闭防火墙：<br><code>$ sudo ufw disable</code><br>检验方法，输入命令：<br><code>$ ssh localhost</code><br>若成功，则表示安装成功，且连接通过；<br>但是有的时候虽然成功了但是还是会出现Connection refused 问题。<br>运行 ps -e | grep ssh，查看是否有sshd进程：<br>有时候虽然可以看到sshd 但是还是不能连接成功<br>这时候就要想到重新启动一下：sudo service ssh restart</p>
+<h2 id="ssh-connect-to-host-localhost-port-22-Connection-refused"><a href="#ssh-connect-to-host-localhost-port-22-Connection-refused" class="headerlink" title="ssh: connect to host localhost port 22: Connection refused"></a><a target="_blank" rel="noopener" href="https://blog.csdn.net/jszhangyili/article/details/8881807">ssh: connect to host localhost port 22: Connection refused</a></h2><p>错误原因：<br>1.sshd 未安装<br>2.sshd 未启动<br>3.防火墙<br>解决方法：<br>1.确定安装sshd:<br><code>$ sudo apt-get install openssh-server  </code><br>2.启动sshd:<br><code>$ sudo net start sshd  </code><br>3.检查防火墙设置,关闭防火墙：<br><code>$ sudo ufw disable   </code><br>检验方法，输入命令：<br><code>$ ssh localhost  </code><br>若成功，则表示安装成功，且连接通过；<br>但是有的时候虽然成功了但是还是会出现Connection refused 问题。<br>运行 ps -e | grep ssh，查看是否有sshd进程：<br>有时候虽然可以看到sshd 但是还是不能连接成功<br>这时候就要想到重新启动一下：sudo service ssh restart</p>
 <h2 id><a href="#" class="headerlink" title></a></h2>
       
     </div>
@@ -526,46 +560,59 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://lyloou.com/java/%E8%8E%B7%E5%8F%96%E7%BD%91%E7%BB%9C%E6%97%B6%E9%97%B4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lyloou">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/java/%E8%8E%B7%E5%8F%96%E7%BD%91%E7%BB%9C%E6%97%B6%E9%97%B4/" class="post-title-link" itemprop="url">Java获取网络时间</a>
+          <a href="/java/%E8%8E%B7%E5%8F%96%E7%BD%91%E7%BB%9C%E6%97%B6%E9%97%B4/" class="post-title-link" itemprop="url">Java获取网络时间</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2016-11-24 16:24:00" itemprop="dateCreated datePublished" datetime="2016-11-24T16:24:00+08:00">2016-11-24</time>
-            </span>
+      <time title="创建时间：2016-11-24 16:24:00" itemprop="dateCreated datePublished" datetime="2016-11-24T16:24:00+08:00">2016-11-24</time>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -574,26 +621,24 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="通过网页-Head-来获取"><a href="#通过网页-Head-来获取" class="headerlink" title="通过网页 Head 来获取"></a>通过网页 Head 来获取</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> String <span class="hljs-title">getWebsiteDatetime</span><span class="hljs-params">(String webUrl)</span></span>&#123;<br>    <span class="hljs-keyword">try</span> &#123;<br>        URL url = <span class="hljs-keyword">new</span> URL(webUrl);<span class="hljs-comment">// 取得资源对象</span><br>        URLConnection uc = url.openConnection();<span class="hljs-comment">// 生成连接对象</span><br>        uc.connect();<span class="hljs-comment">// 发出连接</span><br>        <span class="hljs-keyword">long</span> ld = uc.getDate();<span class="hljs-comment">// 读取网站日期时间</span><br>        Date date = <span class="hljs-keyword">new</span> Date(ld);<span class="hljs-comment">// 转换为标准时间对象</span><br>        SimpleDateFormat sdf = <span class="hljs-keyword">new</span> SimpleDateFormat(<span class="hljs-string">"yyyy-MM-dd HH:mm:ss"</span>, Locale.CHINA);<span class="hljs-comment">// 输出北京时间</span><br>        <span class="hljs-keyword">return</span> sdf.format(date);<br>    &#125; <span class="hljs-keyword">catch</span> (MalformedURLException e) &#123;<br>        e.printStackTrace();<br>    &#125; <span class="hljs-keyword">catch</span> (IOException e) &#123;<br>        e.printStackTrace();<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+          <h1 id="通过网页-Head-来获取"><a href="#通过网页-Head-来获取" class="headerlink" title="通过网页 Head 来获取"></a>通过网页 Head 来获取</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> String <span class="title function_">getWebsiteDatetime</span><span class="params">(String webUrl)</span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="type">URL</span> <span class="variable">url</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">URL</span>(webUrl);<span class="comment">// 取得资源对象</span></span><br><span class="line">        <span class="type">URLConnection</span> <span class="variable">uc</span> <span class="operator">=</span> url.openConnection();<span class="comment">// 生成连接对象</span></span><br><span class="line">        uc.connect();<span class="comment">// 发出连接</span></span><br><span class="line">        <span class="type">long</span> <span class="variable">ld</span> <span class="operator">=</span> uc.getDate();<span class="comment">// 读取网站日期时间</span></span><br><span class="line">        <span class="type">Date</span> <span class="variable">date</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Date</span>(ld);<span class="comment">// 转换为标准时间对象</span></span><br><span class="line">        <span class="type">SimpleDateFormat</span> <span class="variable">sdf</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">SimpleDateFormat</span>(<span class="string">&quot;yyyy-MM-dd HH:mm:ss&quot;</span>, Locale.CHINA);<span class="comment">// 输出北京时间</span></span><br><span class="line">        <span class="keyword">return</span> sdf.format(date);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (MalformedURLException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h1 id="获取网页时间戳"><a href="#获取网页时间戳" class="headerlink" title="获取网页时间戳"></a>获取网页时间戳</h1><p>（如果本地和网页时间相差不多，以后都以本地为主）</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String URL_CHECK_TIME = <span class="hljs-string">"http://www.taobao.com"</span>;<br><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">boolean</span> useLocal;<span class="hljs-comment">// 是否使用本地时间</span><br><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">long</span> deltaTime; <span class="hljs-comment">// 本机时间-网络时间；</span><br><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">resetTimeStamp</span><span class="hljs-params">()</span> </span>&#123;<br>    useLocal = <span class="hljs-keyword">false</span>;<br>    deltaTime = <span class="hljs-number">0</span>;<br>&#125;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 获取时间戳（首次从网上获取时间，和本地比较，如果相差在一定的范围内，以后的调用就直接使用本地的，如果相差很大，以后都以网页时间为准）</span><br><span class="hljs-comment">  *</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@return</span> 返回的是以秒为单位的时间字符串</span><br><span class="hljs-comment"> */</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String <span class="hljs-title">getTimeStamp</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">final</span> <span class="hljs-keyword">long</span> phoneTime = System.currentTimeMillis() / <span class="hljs-number">1000</span>;<br><br>    String result = String.valueOf(phoneTime);<br>    <span class="hljs-keyword">if</span> (!useLocal) &#123;<br>        <span class="hljs-comment">// 之所以使用线程，是因为在Android中不允许在主线程中开启网络请求（NetworkOnMainThreadException）</span><br>        <span class="hljs-keyword">new</span> Thread(<span class="hljs-keyword">new</span> Runnable() &#123;<br>            <span class="hljs-meta">@Override</span><br>            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>&#123;<br>                <span class="hljs-keyword">try</span> &#123;<br>                    URLConnection uc = <span class="hljs-keyword">new</span> URL(URL_CHECK_TIME).openConnection();<span class="hljs-comment">// 生成连接对象</span><br>                    uc.connect();<span class="hljs-comment">// 发出连接</span><br>                    <span class="hljs-keyword">long</span> webSiteTime = uc.getDate() / <span class="hljs-number">1000</span>;<span class="hljs-comment">// 读取网站日期时间</span><br><br>                    <span class="hljs-comment">// 获取到了网站时间，就进行比较</span><br>                    <span class="hljs-comment">// 如果在范围内，下一次直接使用本地手机时间；</span><br>                    <span class="hljs-keyword">long</span> currentTime = System.currentTimeMillis() / <span class="hljs-number">1000</span>;<br>                    useLocal = Math.abs(currentTime - webSiteTime) &lt; <span class="hljs-number">5</span> * <span class="hljs-number">60</span>;<br>                    deltaTime = currentTime - webSiteTime;<br><br>                &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;<br>                    Log.e(TAG, <span class="hljs-string">"getTimeStamp: "</span>, e);<br>                    resetTimeStamp();<br>                &#125;<br><br>            &#125;<br>        &#125;).start();<br><br>        result = String.valueOf(phoneTime - deltaTime);<br>    &#125;<br><br>    Log.i(TAG, <span class="hljs-string">"getTimeStamp: 本次使用了本机时间？"</span> + useLocal);<br>    <span class="hljs-keyword">return</span> result;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">URL_CHECK_TIME</span> <span class="operator">=</span> <span class="string">&quot;http://www.taobao.com&quot;</span>;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="type">boolean</span> useLocal;<span class="comment">// 是否使用本地时间</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="type">long</span> deltaTime; <span class="comment">// 本机时间-网络时间；</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">resetTimeStamp</span><span class="params">()</span> &#123;</span><br><span class="line">    useLocal = <span class="literal">false</span>;</span><br><span class="line">    deltaTime = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 获取时间戳（首次从网上获取时间，和本地比较，如果相差在一定的范围内，以后的调用就直接使用本地的，如果相差很大，以后都以网页时间为准）</span></span><br><span class="line"><span class="comment">  *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> 返回的是以秒为单位的时间字符串</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">getTimeStamp</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="keyword">final</span> <span class="type">long</span> <span class="variable">phoneTime</span> <span class="operator">=</span> System.currentTimeMillis() / <span class="number">1000</span>;</span><br><span class="line"></span><br><span class="line">    <span class="type">String</span> <span class="variable">result</span> <span class="operator">=</span> String.valueOf(phoneTime);</span><br><span class="line">    <span class="keyword">if</span> (!useLocal) &#123;</span><br><span class="line">        <span class="comment">// 之所以使用线程，是因为在Android中不允许在主线程中开启网络请求（NetworkOnMainThreadException）</span></span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Thread</span>(<span class="keyword">new</span> <span class="title class_">Runnable</span>() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    <span class="type">URLConnection</span> <span class="variable">uc</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">URL</span>(URL_CHECK_TIME).openConnection();<span class="comment">// 生成连接对象</span></span><br><span class="line">                    uc.connect();<span class="comment">// 发出连接</span></span><br><span class="line">                    <span class="type">long</span> <span class="variable">webSiteTime</span> <span class="operator">=</span> uc.getDate() / <span class="number">1000</span>;<span class="comment">// 读取网站日期时间</span></span><br><span class="line"></span><br><span class="line">                    <span class="comment">// 获取到了网站时间，就进行比较</span></span><br><span class="line">                    <span class="comment">// 如果在范围内，下一次直接使用本地手机时间；</span></span><br><span class="line">                    <span class="type">long</span> <span class="variable">currentTime</span> <span class="operator">=</span> System.currentTimeMillis() / <span class="number">1000</span>;</span><br><span class="line">                    useLocal = Math.abs(currentTime - webSiteTime) &lt; <span class="number">5</span> * <span class="number">60</span>;</span><br><span class="line">                    deltaTime = currentTime - webSiteTime;</span><br><span class="line"></span><br><span class="line">                &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                    Log.e(TAG, <span class="string">&quot;getTimeStamp: &quot;</span>, e);</span><br><span class="line">                    resetTimeStamp();</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;).start();</span><br><span class="line"></span><br><span class="line">        result = String.valueOf(phoneTime - deltaTime);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Log.i(TAG, <span class="string">&quot;getTimeStamp: 本次使用了本机时间？&quot;</span> + useLocal);</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h1 id="监听时间和日期变化"><a href="#监听时间和日期变化" class="headerlink" title="监听时间和日期变化"></a>监听时间和日期变化</h1><p><code>onCreate</code>中添加注册</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 监听用户对时间和日期的修改；</span><br>IntentFilter filter = <span class="hljs-keyword">new</span> IntentFilter();<br>filter.addAction(Intent.ACTION_TIME_CHANGED);<br>filter.addAction(Intent.ACTION_DATE_CHANGED);<br>registerReceiver(mReceiver, filter);<br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 监听用户对时间和日期的修改；</span></span><br><span class="line"><span class="type">IntentFilter</span> <span class="variable">filter</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">IntentFilter</span>();</span><br><span class="line">filter.addAction(Intent.ACTION_TIME_CHANGED);</span><br><span class="line">filter.addAction(Intent.ACTION_DATE_CHANGED);</span><br><span class="line">registerReceiver(mReceiver, filter);</span><br></pre></td></tr></table></figure>
 
 <p><code>onDestroy</code>中取消注册</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">unregisterReceiver(mReceiver);<br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unregisterReceiver(mReceiver);</span><br></pre></td></tr></table></figure>
 
 <p><code>mReceiver</code>实现</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java">BroadcastReceiver mReceiver = <span class="hljs-keyword">new</span> BroadcastReceiver() &#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onReceive</span><span class="hljs-params">(Context context, Intent intent)</span> </span>&#123;<br>        <span class="hljs-keyword">switch</span> (intent.getAction()) &#123;<br>            <span class="hljs-comment">// 时间发生变化后，重新设置时间戳</span><br>            <span class="hljs-keyword">case</span> Intent.ACTION_TIME_CHANGED:<br>            <span class="hljs-keyword">case</span> Intent.ACTION_DATE_CHANGED:<br>                Log.i(TAG, <span class="hljs-string">"onReceive: Time or Date changed"</span>);<br>                Utime.resetTimeStamp();<br>                Utime.getTimeStamp();<br>        &#125;<br>    &#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">BroadcastReceiver</span> <span class="variable">mReceiver</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BroadcastReceiver</span>() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onReceive</span><span class="params">(Context context, Intent intent)</span> &#123;</span><br><span class="line">        <span class="keyword">switch</span> (intent.getAction()) &#123;</span><br><span class="line">            <span class="comment">// 时间发生变化后，重新设置时间戳</span></span><br><span class="line">            <span class="keyword">case</span> Intent.ACTION_TIME_CHANGED:</span><br><span class="line">            <span class="keyword">case</span> Intent.ACTION_DATE_CHANGED:</span><br><span class="line">                Log.i(TAG, <span class="string">&quot;onReceive: Time or Date changed&quot;</span>);</span><br><span class="line">                Utime.resetTimeStamp();</span><br><span class="line">                Utime.getTimeStamp();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-<h1 id="直接获取"><a href="#直接获取" class="headerlink" title="直接获取"></a>直接获取</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Utime</span> </span>&#123;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String URL_BASE = <span class="hljs-string">"https://sj.qq.com/"</span>;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 根据url这个网址来获取时间戳（如果获取此网络时间失败，使用本地时间）</span><br><span class="hljs-comment">     * 返回的是以秒为单位的时间字符串</span><br><span class="hljs-comment">     *</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> url url</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String <span class="hljs-title">getTimeStamp</span><span class="hljs-params">(String url)</span> </span>&#123;<br><br>        <span class="hljs-keyword">final</span> String urlRrBase = getBaseUrl(url);<br>        <span class="hljs-keyword">final</span> <span class="hljs-keyword">long</span> currentTimeMillis = System.currentTimeMillis() / <span class="hljs-number">1000</span>;<br><br>        <span class="hljs-keyword">try</span> &#123;<br>            URLConnection uc = <span class="hljs-keyword">new</span> URL(urlRrBase).openConnection();<span class="hljs-comment">// 生成连接对象</span><br>            uc.connect();<span class="hljs-comment">// 发出连接</span><br>            <span class="hljs-keyword">long</span> webTimeMillis = uc.getDate();<br>            <span class="hljs-keyword">long</span> webTime = webTimeMillis / <span class="hljs-number">1000</span>;<span class="hljs-comment">// 读取网站日期时间</span><br>            <span class="hljs-keyword">return</span> String.valueOf(webTime);<br>        &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;<br>            <span class="hljs-keyword">return</span> String.valueOf(currentTimeMillis);<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> String <span class="hljs-title">getBaseUrl</span><span class="hljs-params">(String url)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (TextUtils.isEmpty(url)) &#123;<br>            <span class="hljs-keyword">return</span> URL_BASE;<br>        &#125;<br><br>        <span class="hljs-keyword">try</span> &#123;<br>            URI uri = <span class="hljs-keyword">new</span> URI(url);<br>            <span class="hljs-keyword">return</span> uri.getScheme() + <span class="hljs-string">"://"</span> + uri.getHost();<br>        &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;<br>            <span class="hljs-keyword">return</span> URL_BASE;<br>        &#125;<br><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h1 id="直接获取"><a href="#直接获取" class="headerlink" title="直接获取"></a>直接获取</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Utime</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">String</span> <span class="variable">URL_BASE</span> <span class="operator">=</span> <span class="string">&quot;https://sj.qq.com/&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 根据url这个网址来获取时间戳（如果获取此网络时间失败，使用本地时间）</span></span><br><span class="line"><span class="comment">     * 返回的是以秒为单位的时间字符串</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> url url</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">getTimeStamp</span><span class="params">(String url)</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">final</span> <span class="type">String</span> <span class="variable">urlRrBase</span> <span class="operator">=</span> getBaseUrl(url);</span><br><span class="line">        <span class="keyword">final</span> <span class="type">long</span> <span class="variable">currentTimeMillis</span> <span class="operator">=</span> System.currentTimeMillis() / <span class="number">1000</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="type">URLConnection</span> <span class="variable">uc</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">URL</span>(urlRrBase).openConnection();<span class="comment">// 生成连接对象</span></span><br><span class="line">            uc.connect();<span class="comment">// 发出连接</span></span><br><span class="line">            <span class="type">long</span> <span class="variable">webTimeMillis</span> <span class="operator">=</span> uc.getDate();</span><br><span class="line">            <span class="type">long</span> <span class="variable">webTime</span> <span class="operator">=</span> webTimeMillis / <span class="number">1000</span>;<span class="comment">// 读取网站日期时间</span></span><br><span class="line">            <span class="keyword">return</span> String.valueOf(webTime);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            <span class="keyword">return</span> String.valueOf(currentTimeMillis);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String <span class="title function_">getBaseUrl</span><span class="params">(String url)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (TextUtils.isEmpty(url)) &#123;</span><br><span class="line">            <span class="keyword">return</span> URL_BASE;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="type">URI</span> <span class="variable">uri</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">URI</span>(url);</span><br><span class="line">            <span class="keyword">return</span> uri.getScheme() + <span class="string">&quot;://&quot;</span> + uri.getHost();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            <span class="keyword">return</span> URL_BASE;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
-<li><a href="http://blog.csdn.net/catoop/article/details/50076879" target="_blank" rel="noopener">获取网络时间（国家标准时间）</a></li>
+<li><a target="_blank" rel="noopener" href="http://blog.csdn.net/catoop/article/details/50076879">获取网络时间（国家标准时间）</a></li>
 </ul>
 
       
@@ -602,46 +647,59 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://lyloou.com/java/%E9%83%A8%E7%BD%B2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lyloou">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/java/%E9%83%A8%E7%BD%B2/" class="post-title-link" itemprop="url">Java环境部署</a>
+          <a href="/java/%E9%83%A8%E7%BD%B2/" class="post-title-link" itemprop="url">Java环境部署</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2016-11-24 16:24:00" itemprop="dateCreated datePublished" datetime="2016-11-24T16:24:00+08:00">2016-11-24</time>
-            </span>
+      <time title="创建时间：2016-11-24 16:24:00" itemprop="dateCreated datePublished" datetime="2016-11-24T16:24:00+08:00">2016-11-24</time>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -650,15 +708,13 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
           <p>服务器部署用到的JRE是server JRE，如下图的JAVA 8 JRE</p>
-<p><img src="https://github.com/lyloou/img/raw/develop/z/20190401154854.png" alt></p>
+<p><img src="https://github.com/lyloou/img/raw/develop/z/20190401154854.png"></p>
 <h2 id="打包jar"><a href="#打包jar" class="headerlink" title="打包jar"></a>打包jar</h2><p>将Java程序打包成一个jar包</p>
 <p>点击File-&gt;Project Structure-&gt;Artifacts-&gt;Jar-&gt;From modules with dependencies</p>
 <p><img src="https://raw.githubusercontent.com/lyloou/img/develop/v3/2023-04/20230425094801dfcf279c1d1f4425ca265930e21e18a3.png" alt="image.png"></p>
 <p><img src="https://raw.githubusercontent.com/lyloou/img/develop/v3/2023-04/202304250948522b7bf1e29f81061aca98d7d93bc73d81.png" alt="image.png"></p>
-<p>参考：<a href="https://blog.csdn.net/vfdxvffd/article/details/113430701" target="_blank" rel="noopener">https://blog.csdn.net/vfdxvffd/article/details/113430701</a></p>
+<p>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/vfdxvffd/article/details/113430701">https://blog.csdn.net/vfdxvffd/article/details/113430701</a></p>
 
       
     </div>
@@ -666,46 +722,59 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://lyloou.com/android/%E6%89%93%E5%8C%85/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lyloou">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/android/%E6%89%93%E5%8C%85/" class="post-title-link" itemprop="url">Android渠道打包</a>
+          <a href="/android/%E6%89%93%E5%8C%85/" class="post-title-link" itemprop="url">Android渠道打包</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2016-11-17 16:31:08" itemprop="dateCreated datePublished" datetime="2016-11-17T16:31:08+08:00">2016-11-17</time>
-            </span>
+      <time title="创建时间：2016-11-17 16:31:08" itemprop="dateCreated datePublished" datetime="2016-11-17T16:31:08+08:00">2016-11-17</time>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -714,89 +783,99 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
           <h1 id="为什么需要渠道打包"><a href="#为什么需要渠道打包" class="headerlink" title="为什么需要渠道打包"></a>为什么需要渠道打包</h1><ul>
 <li>为了统计各市场的效果（活跃数、下单数等），需要用某种方式唯一标识它们。</li>
 <li>客户端访问API时会在请求参数中带上渠道号，以便后台接下来计算不同渠道的效果。</li>
 </ul>
 <h1 id="添加渠道方法"><a href="#添加渠道方法" class="headerlink" title="添加渠道方法"></a>添加渠道方法</h1><p>在<code>AndroidManifest.xml</code>中的<code>application</code>标签下添加：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- UMENG配置 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">meta-data</span></span><br><span class="hljs-tag">    <span class="hljs-attr">android:name</span>=<span class="hljs-string">"UMENG_CHANNEL"</span></span><br><span class="hljs-tag">    <span class="hljs-attr">android:value</span>=<span class="hljs-string">"$&#123;UMENG_CHANNEL_VALUE&#125;"</span>/&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- UMENG配置 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta-data</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:name</span>=<span class="string">&quot;UMENG_CHANNEL&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:value</span>=<span class="string">&quot;$&#123;UMENG_CHANNEL_VALUE&#125;&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>在<code>build.gradle</code>文件中的<code>android</code>标签下添加：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs js">productFlavors &#123;<br>    xiaomi &#123;&#125;<br>    qihu360 &#123;&#125;<br>    baidu &#123;&#125;<br>    wandoujia &#123;&#125;<br>    <span class="hljs-comment">// ...</span><br>&#125;<br><br>productFlavors.all &#123;<br>    flavor -&gt; flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">productFlavors &#123;</span><br><span class="line">    xiaomi &#123;&#125;</span><br><span class="line">    qihu360 &#123;&#125;</span><br><span class="line">    baidu &#123;&#125;</span><br><span class="line">    wandoujia &#123;&#125;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">productFlavors.<span class="property">all</span> &#123;</span><br><span class="line">    flavor -&gt; flavor.<span class="property">manifestPlaceholders</span> = [<span class="attr">UMENG_CHANNEL_VALUE</span>: name]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 <h1 id="获取渠道方法"><a href="#获取渠道方法" class="headerlink" title="获取渠道方法"></a>获取渠道方法</h1><p>在java代码中获取：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 调用方式</span><br>Utoast.show(<span class="hljs-keyword">this</span>, <span class="hljs-string">"渠道："</span> + getApplicationMetaValue(<span class="hljs-keyword">this</span>, <span class="hljs-string">"UMENG_CHANNEL"</span>));<br><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String <span class="hljs-title">getApplicationMetaValue</span><span class="hljs-params">(Context context, String name)</span> </span>&#123;<br>    String value = <span class="hljs-string">""</span>;<br>    <span class="hljs-keyword">try</span> &#123;<br>        ApplicationInfo appInfo = context.getPackageManager()<br>                .getApplicationInfo(context.getPackageName(),<br>                        PackageManager.GET_META_DATA);<br>        value = appInfo.metaData.getString(name);<br>    &#125; <span class="hljs-keyword">catch</span> (PackageManager.NameNotFoundException e) &#123;<br>        e.printStackTrace();<br>    &#125;<br>    <span class="hljs-keyword">return</span> value;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 调用方式</span></span><br><span class="line">Utoast.show(<span class="built_in">this</span>, <span class="string">&quot;渠道：&quot;</span> + getApplicationMetaValue(<span class="built_in">this</span>, <span class="string">&quot;UMENG_CHANNEL&quot;</span>));</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">getApplicationMetaValue</span><span class="params">(Context context, String name)</span> &#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">value</span> <span class="operator">=</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="type">ApplicationInfo</span> <span class="variable">appInfo</span> <span class="operator">=</span> context.getPackageManager()</span><br><span class="line">                .getApplicationInfo(context.getPackageName(),</span><br><span class="line">                        PackageManager.GET_META_DATA);</span><br><span class="line">        value = appInfo.metaData.getString(name);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (PackageManager.NameNotFoundException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h1 id="扩展（更快速的打包方式）："><a href="#扩展（更快速的打包方式）：" class="headerlink" title="扩展（更快速的打包方式）："></a>扩展（更快速的打包方式）：</h1><p>渠道打包的另一种解决方案：使用python脚本在<code>META-INFO</code>中添加<code>channel_&lt;渠道名&gt;</code>名称的空文件；</p>
 <ul>
-<li><a href="https://github.com/GavinCT/AndroidMultiChannelBuildTool" target="_blank" rel="noopener">AndroidMultiChannelBuildTool</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/GavinCT/AndroidMultiChannelBuildTool">AndroidMultiChannelBuildTool</a></li>
 </ul>
 <h1 id="友盟提供的设置渠道方案"><a href="#友盟提供的设置渠道方案" class="headerlink" title="友盟提供的设置渠道方案"></a>友盟提供的设置渠道方案</h1><ol>
 <li><p>就是上面的通过<code>AndroidManifest</code>配置</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">meta-data</span> <span class="hljs-attr">android:name</span>=<span class="hljs-string">"UMENG_CHANNEL"</span> <span class="hljs-attr">android:value</span>=<span class="hljs-string">"UMeng"</span> /&gt;</span><br></code></pre></td></tr></table></figure>
-</li>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta-data</span> <span class="attr">android:name</span>=<span class="string">&quot;UMENG_CHANNEL&quot;</span> <span class="attr">android:value</span>=<span class="string">&quot;UMeng&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure></li>
 <li><p>通过在代码中执行</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java">String channel = getApplicationMetaValue(<span class="hljs-keyword">this</span>, <span class="hljs-string">"UMENG_CHANNEL"</span>);<br>AnalyticsConfig.setChannel(channel);<br></code></pre></td></tr></table></figure></li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">channel</span> <span class="operator">=</span> getApplicationMetaValue(<span class="built_in">this</span>, <span class="string">&quot;UMENG_CHANNEL&quot;</span>);</span><br><span class="line">AnalyticsConfig.setChannel(channel);</span><br></pre></td></tr></table></figure></li>
 </ol>
 <p><strong>NOTE1:</strong> 坑，不能同时设置两种方式，友盟技术的解释是优先使用第一次取到了渠道名；如果采用java代码的方式，需要在<code>Application</code>中设置，而不是<code>Activity</code>；</p>
 <p><strong>NOTE2:</strong> 也可以通过url将渠道名传递给后台，由后台来做统计；</p>
 <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
-<li><a href="http://www.jianshu.com/p/a9ccdf67ca6c" target="_blank" rel="noopener">Android多渠道打包没你想的那么复杂</a></li>
-<li><a href="http://tech.meituan.com/mt-apk-packaging.html" target="_blank" rel="noopener">美团Android自动化之旅—生成渠道包</a></li>
-<li><a href="http://stormzhang.com/devtools/2015/01/15/android-studio-tutorial6/" target="_blank" rel="noopener">ANDROID STUDIO系列教程六–GRADLE多渠道打包</a></li>
-<li><a href="http://blog.csdn.net/yy1300326388/article/details/48296221" target="_blank" rel="noopener">［Android Studio 权威教程］多渠道打包和一键完成（全部产品）打包并签名</a></li>
-<li><a href="http://loody.github.io/2016/02/26/2016-02-26-android-multi-%20package/" target="_blank" rel="noopener">Android多渠道打包方案介绍</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.jianshu.com/p/a9ccdf67ca6c">Android多渠道打包没你想的那么复杂</a></li>
+<li><a target="_blank" rel="noopener" href="http://tech.meituan.com/mt-apk-packaging.html">美团Android自动化之旅—生成渠道包</a></li>
+<li><a target="_blank" rel="noopener" href="http://stormzhang.com/devtools/2015/01/15/android-studio-tutorial6/">ANDROID STUDIO系列教程六–GRADLE多渠道打包</a></li>
+<li><a target="_blank" rel="noopener" href="http://blog.csdn.net/yy1300326388/article/details/48296221">［Android Studio 权威教程］多渠道打包和一键完成（全部产品）打包并签名</a></li>
+<li><a target="_blank" rel="noopener" href="http://loody.github.io/2016/02/26/2016-02-26-android-multi-%20package/">Android多渠道打包方案介绍</a></li>
 </ul>
-<h1 id="从keystore中获取md5"><a href="#从keystore中获取md5" class="headerlink" title="从keystore中获取md5"></a>从keystore中获取md5</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">keytool.exe -v -list -keystore lyloou.jks<br></code></pre></td></tr></table></figure>
+<h1 id="从keystore中获取md5"><a href="#从keystore中获取md5" class="headerlink" title="从keystore中获取md5"></a>从keystore中获取md5</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">keytool.exe -v -list -keystore lyloou.jks</span><br></pre></td></tr></table></figure>
       
     </div>
 
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://lyloou.com/android/%E6%94%AF%E4%BB%98%E5%AE%9DSDK%E6%94%AF%E4%BB%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lyloou">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/android/%E6%94%AF%E4%BB%98%E5%AE%9DSDK%E6%94%AF%E4%BB%98/" class="post-title-link" itemprop="url">支付宝SDK支付</a>
+          <a href="/android/%E6%94%AF%E4%BB%98%E5%AE%9DSDK%E6%94%AF%E4%BB%98/" class="post-title-link" itemprop="url">支付宝SDK支付</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2016-11-17 16:31:08" itemprop="dateCreated datePublished" datetime="2016-11-17T16:31:08+08:00">2016-11-17</time>
-            </span>
+      <time title="创建时间：2016-11-17 16:31:08" itemprop="dateCreated datePublished" datetime="2016-11-17T16:31:08+08:00">2016-11-17</time>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -805,25 +884,23 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
           <h1 id="通过本地安装的支付宝支付"><a href="#通过本地安装的支付宝支付" class="headerlink" title="通过本地安装的支付宝支付"></a>通过本地安装的支付宝支付</h1><p>Android端的实现比较简单，</p>
 <ol>
-<li><a href="https://doc.open.alipay.com/docs/doc.htm?spm=a219a.7629140.0.0.8MZxo2&treeId=59&articleId=103662&docType=1" target="_blank" rel="noopener">下载SDK和DEMO</a></li>
+<li><a target="_blank" rel="noopener" href="https://doc.open.alipay.com/docs/doc.htm?spm=a219a.7629140.0.0.8MZxo2&treeId=59&articleId=103662&docType=1">下载SDK和DEMO</a></li>
 <li>导入支付宝sdk后，需要注意权限、配置、混淆等；</li>
 <li>通过后台获取得到<code>orderInfo</code>字符串</li>
 <li>唤起支付宝：【需要在新线程中调用支付接口。（可参考alipay_demo实现）】</li>
 </ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">final</span> String orderInfo = <span class="hljs-string">"从后台获取得到的orderInfo"</span>;<br><br>PayTask alipay = <span class="hljs-keyword">new</span> PayTask(mActivity);<br>Map&lt;String, String&gt; result = alipay.payV2(orderInfo, <span class="hljs-keyword">true</span>);<br>PayResult payResult = <span class="hljs-keyword">new</span> PayResult(result);<br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> 对于支付结果，请商户依赖服务端的异步通知结果。同步通知结果，仅作为支付结束的通知。</span><br><span class="hljs-comment"> */</span><br>String resultInfo = payResult.getResult();<span class="hljs-comment">// 同步返回需要验证的信息</span><br>String resultStatus = payResult.getResultStatus();<br><br><span class="hljs-comment">// 判断resultStatus 为9000则代表支付成功</span><br><span class="hljs-keyword">if</span> (TextUtils.equals(resultStatus, <span class="hljs-string">"9000"</span>)) &#123;<br>    <span class="hljs-comment">// 该笔订单是否真实支付成功，需要依赖服务端的异步通知。</span><br>    Toast.makeText(mActivity, <span class="hljs-string">"支付成功"</span>, Toast.LENGTH_SHORT).show();<br>&#125; <span class="hljs-keyword">else</span> &#123;<br>    <span class="hljs-comment">// 该笔订单真实的支付结果，需要依赖服务端的异步通知。</span><br>    Toast.makeText(mActivity, <span class="hljs-string">"支付失败"</span>, Toast.LENGTH_SHORT).show();<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> <span class="type">String</span> <span class="variable">orderInfo</span> <span class="operator">=</span> <span class="string">&quot;从后台获取得到的orderInfo&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">PayTask</span> <span class="variable">alipay</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">PayTask</span>(mActivity);</span><br><span class="line">Map&lt;String, String&gt; result = alipay.payV2(orderInfo, <span class="literal">true</span>);</span><br><span class="line"><span class="type">PayResult</span> <span class="variable">payResult</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">PayResult</span>(result);</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> 对于支付结果，请商户依赖服务端的异步通知结果。同步通知结果，仅作为支付结束的通知。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="type">String</span> <span class="variable">resultInfo</span> <span class="operator">=</span> payResult.getResult();<span class="comment">// 同步返回需要验证的信息</span></span><br><span class="line"><span class="type">String</span> <span class="variable">resultStatus</span> <span class="operator">=</span> payResult.getResultStatus();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 判断resultStatus 为9000则代表支付成功</span></span><br><span class="line"><span class="keyword">if</span> (TextUtils.equals(resultStatus, <span class="string">&quot;9000&quot;</span>)) &#123;</span><br><span class="line">    <span class="comment">// 该笔订单是否真实支付成功，需要依赖服务端的异步通知。</span></span><br><span class="line">    Toast.makeText(mActivity, <span class="string">&quot;支付成功&quot;</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// 该笔订单真实的支付结果，需要依赖服务端的异步通知。</span></span><br><span class="line">    Toast.makeText(mActivity, <span class="string">&quot;支付失败&quot;</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 <h1 id="如果本地没有安装支付宝，就跳转到wap支付"><a href="#如果本地没有安装支付宝，就跳转到wap支付" class="headerlink" title="如果本地没有安装支付宝，就跳转到wap支付"></a>如果本地没有安装支付宝，就跳转到wap支付</h1><p>我相信在<code>PayTask.payV2</code>中，有对是否安装支付宝做判断，<br>我们需要在<code>Manifest</code>中注册<code>H5PayActivity</code>：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">activity</span></span><br><span class="hljs-tag">    <span class="hljs-attr">android:name</span>=<span class="hljs-string">"com.alipay.sdk.app.H5PayActivity"</span></span><br><span class="hljs-tag">    <span class="hljs-attr">android:configChanges</span>=<span class="hljs-string">"orientation|keyboardHidden|navigation"</span></span><br><span class="hljs-tag">    <span class="hljs-attr">android:exported</span>=<span class="hljs-string">"false"</span></span><br><span class="hljs-tag">    <span class="hljs-attr">android:screenOrientation</span>=<span class="hljs-string">"behind"</span></span><br><span class="hljs-tag">    <span class="hljs-attr">android:windowSoftInputMode</span>=<span class="hljs-string">"adjustResize|stateHidden"</span> &gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">activity</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">activity</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:name</span>=<span class="string">&quot;com.alipay.sdk.app.H5PayActivity&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:configChanges</span>=<span class="string">&quot;orientation|keyboardHidden|navigation&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:exported</span>=<span class="string">&quot;false&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:screenOrientation</span>=<span class="string">&quot;behind&quot;</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:windowSoftInputMode</span>=<span class="string">&quot;adjustResize|stateHidden&quot;</span> &gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">activity</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
-<li><a href="http://blog.csdn.net/u013067184/article/details/46922997" target="_blank" rel="noopener">Android 支付宝 SDK 无法跳转到wap支付</a></li>
-<li><a href="https://doc.open.alipay.com/doc2/detail.htm?treeId=59&articleId=103682&docType=1" target="_blank" rel="noopener">蚂蚁金服-开发文档——修改Manifest</a></li>
-<li><a href="http://blog.csdn.net/ylbf_dev/article/details/50448727" target="_blank" rel="noopener">混淆出错-The same input jar is specified twice 解决办法</a></li>
+<li><a target="_blank" rel="noopener" href="http://blog.csdn.net/u013067184/article/details/46922997">Android 支付宝 SDK 无法跳转到wap支付</a></li>
+<li><a target="_blank" rel="noopener" href="https://doc.open.alipay.com/doc2/detail.htm?treeId=59&articleId=103682&docType=1">蚂蚁金服-开发文档——修改Manifest</a></li>
+<li><a target="_blank" rel="noopener" href="http://blog.csdn.net/ylbf_dev/article/details/50448727">混淆出错-The same input jar is specified twice 解决办法</a></li>
 </ul>
 
       
@@ -832,46 +909,59 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://lyloou.com/android/%E6%8E%A8%E9%80%81%E6%96%B9%E6%A1%88%E9%80%89%E5%8F%96/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lyloou">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/android/%E6%8E%A8%E9%80%81%E6%96%B9%E6%A1%88%E9%80%89%E5%8F%96/" class="post-title-link" itemprop="url">推送方案选取</a>
+          <a href="/android/%E6%8E%A8%E9%80%81%E6%96%B9%E6%A1%88%E9%80%89%E5%8F%96/" class="post-title-link" itemprop="url">推送方案选取</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2016-11-17 14:45:51" itemprop="dateCreated datePublished" datetime="2016-11-17T14:45:51+08:00">2016-11-17</time>
-            </span>
+      <time title="创建时间：2016-11-17 14:45:51" itemprop="dateCreated datePublished" datetime="2016-11-17T14:45:51+08:00">2016-11-17</time>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -880,8 +970,6 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
           <h1 id="免费"><a href="#免费" class="headerlink" title="免费"></a>免费</h1><ul>
 <li>信鸽</li>
 </ul>
@@ -892,17 +980,17 @@
 <h1 id="手机ROM厂商推送"><a href="#手机ROM厂商推送" class="headerlink" title="手机ROM厂商推送"></a>手机ROM厂商推送</h1><h2 id="Flyme"><a href="#Flyme" class="headerlink" title="Flyme"></a>Flyme</h2><p>Flyme推送目前支持哪些平台？<br>Flyme推送平台目前只支持魅族手机的flyme系统。</p>
 <p>Android推送中，多个app都使用推送时，他们会共享连接吗？<br>在Flyme系统（4.0，4.5，5）上，会直接使用系统长连接通道，所有app会和系统共享一个长连接；目前在其他Rom上，没有共享连接。</p>
 <p>Flyme推送收费吗？<br>Flyme推送平台的基础推送功能是免费的，但是某些定制功能会考虑收费，在功能和体验上会有不同。</p>
-<p>参考资料<br><a href="http://open-wiki.flyme.cn/index.php?title=魅族推送平台常见问题" target="_blank" rel="noopener">http://open-wiki.flyme.cn/index.php?title=魅族推送平台常见问题</a></p>
+<p>参考资料<br><a target="_blank" rel="noopener" href="http://open-wiki.flyme.cn/index.php?title=%E9%AD%85%E6%97%8F%E6%8E%A8%E9%80%81%E5%B9%B3%E5%8F%B0%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98">http://open-wiki.flyme.cn/index.php?title=魅族推送平台常见问题</a></p>
 <h2 id="MIUI"><a href="#MIUI" class="headerlink" title="MIUI"></a>MIUI</h2><p>小米消息推送服务在MIUI上为系统级通道，并且全<br>平台通用，可以为开发者提供稳定、可靠、高效的<br>推送服务</p>
 <p>参考资料</p>
 <ul>
-<li><a href="http://dev.xiaomi.com/console/appservice/push.html" target="_blank" rel="noopener">http://dev.xiaomi.com/console/appservice/push.html</a></li>
+<li><a target="_blank" rel="noopener" href="http://dev.xiaomi.com/console/appservice/push.html">http://dev.xiaomi.com/console/appservice/push.html</a></li>
 </ul>
 <h2 id="华为"><a href="#华为" class="headerlink" title="华为"></a>华为</h2><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
-<li><a href="http://blog.csdn.net/eclipsexys/article/details/52575602" target="_blank" rel="noopener">推送 从入门到放弃</a></li>
-<li><a href="https://mp.weixin.qq.com/s?__biz=MzA5OTMxMjQzMw==&mid=2648112527&idx=1&sn=b23c1b5f3e32e343ad96d705bd4d63ff" target="_blank" rel="noopener">国内Top500Android应用分析报告</a></li>
+<li><a target="_blank" rel="noopener" href="http://blog.csdn.net/eclipsexys/article/details/52575602">推送 从入门到放弃</a></li>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzA5OTMxMjQzMw==&mid=2648112527&idx=1&sn=b23c1b5f3e32e343ad96d705bd4d63ff">国内Top500Android应用分析报告</a></li>
 </ul>
-<h1 id="渠道列表"><a href="#渠道列表" class="headerlink" title="渠道列表"></a>渠道列表</h1><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs angelscript"><span class="hljs-number">10086</span>com<br><span class="hljs-number">189</span>store<br><span class="hljs-number">360</span>mobile<br><span class="hljs-number">3</span>gcn<br><span class="hljs-number">91</span>market<br>anzhi<br>appchina<br>baidu<br>gfan<br>googleplay<br>hicloud<br>lenovomm<br>meizu<br>mumayi<br>myapp<br>nduoa<br>samsungapps<br>uc<br>wandoujia<br>wostore<br>xiaomi<br>yingyongbao<br>yingyonghui<br></code></pre></td></tr></table></figure>
+<h1 id="渠道列表"><a href="#渠道列表" class="headerlink" title="渠道列表"></a>渠道列表</h1><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">10086</span><span class="keyword">com</span></span><br><span class="line"><span class="number">189</span>store</span><br><span class="line"><span class="number">360</span>mobile</span><br><span class="line"><span class="number">3</span>gcn</span><br><span class="line"><span class="number">91</span>market</span><br><span class="line">anzhi</span><br><span class="line">appchina</span><br><span class="line">baidu</span><br><span class="line">gfan</span><br><span class="line">googleplay</span><br><span class="line">hicloud</span><br><span class="line">lenovomm</span><br><span class="line">meizu</span><br><span class="line">mumayi</span><br><span class="line">myapp</span><br><span class="line">nduoa</span><br><span class="line">samsungapps</span><br><span class="line">uc</span><br><span class="line">wandoujia</span><br><span class="line">wostore</span><br><span class="line">xiaomi</span><br><span class="line">yingyongbao</span><br><span class="line">yingyonghui</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -910,46 +998,59 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://lyloou.com/android/build.gradle%E9%85%8D%E7%BD%AE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lyloou">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/android/build.gradle%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">build.gradle配置</a>
+          <a href="/android/build.gradle%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">build.gradle配置</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2016-11-16 15:24:55" itemprop="dateCreated datePublished" datetime="2016-11-16T15:24:55+08:00">2016-11-16</time>
-            </span>
+      <time title="创建时间：2016-11-16 15:24:55" itemprop="dateCreated datePublished" datetime="2016-11-16T15:24:55+08:00">2016-11-16</time>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -958,32 +1059,30 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="bulid-gradle-文件"><a href="#bulid-gradle-文件" class="headerlink" title="bulid.gradle 文件"></a>bulid.gradle 文件</h1><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><code class="hljs groovy">  signingConfigs &#123;<br>    renrenDebug &#123;<br>        keyAlias <span class="hljs-string">'test'</span><br>        keyPassword <span class="hljs-string">'test'</span><br>        storeFile file(<span class="hljs-string">'../tool/test.key'</span>)<br>        storePassword <span class="hljs-string">'test'</span><br>    &#125;<br>  &#125;<br>  sourceSets &#123;<br>      main &#123;<br>          manifest.srcFile <span class="hljs-string">'AndroidManifest.xml'</span><br>          java.srcDirs = [<span class="hljs-string">'src'</span>]<br>          resources.srcDirs = [<span class="hljs-string">'src'</span>]<br>          aidl.srcDirs = [<span class="hljs-string">'src'</span>]<br>          renderscript.srcDirs = [<span class="hljs-string">'src'</span>]<br>          res.srcDirs = [<span class="hljs-string">'res'</span>]<br>          assets.srcDirs = [<span class="hljs-string">'assets'</span>]<br>          jniLibs.srcDirs = [<span class="hljs-string">'libs'</span>]<br>      &#125;<br>  &#125;<br><br>  lintOptions &#123;<br>      abortOnError <span class="hljs-literal">false</span>;<br>  &#125;<br>  buildTypes &#123;<br>    debug &#123;<br>        signingConfig signingConfigs.debug<br>        shrinkResources <span class="hljs-literal">false</span><br>        zipAlignEnabled <span class="hljs-literal">false</span><br>        minifyEnabled <span class="hljs-literal">false</span><br><br>        <span class="hljs-comment">// 测试</span><br>        buildConfigField <span class="hljs-string">"boolean"</span>, <span class="hljs-string">"TEST_ENV"</span>, <span class="hljs-string">"true"</span><br>        manifestPlaceholders = [<span class="hljs-string">WECHATAPPID:</span> <span class="hljs-string">"wxea2b67dxxxxxx"</span>]<br>    &#125;<br><br>    release &#123;<br>        signingConfig signingConfigs.release <span class="hljs-comment">// 密钥配置</span><br>        shrinkResources <span class="hljs-literal">true</span> <span class="hljs-comment">// 删除不必要的源文件</span><br>        zipAlignEnabled <span class="hljs-literal">true</span> <span class="hljs-comment">// 压缩对齐</span><br>        minifyEnabled <span class="hljs-literal">true</span><br>        proguardFiles getDefaultProguardFile(<span class="hljs-string">'proguard-android-optimize.txt'</span>), <span class="hljs-string">'proguard-rules.pro'</span><br><br>        <span class="hljs-comment">// 正式</span><br>        buildConfigField <span class="hljs-string">"boolean"</span>, <span class="hljs-string">"TEST_ENV"</span>, <span class="hljs-string">"false"</span><br>        manifestPlaceholders = [<span class="hljs-string">WECHATAPPID:</span> <span class="hljs-string">"wxb093774eaxxxxxx"</span>]<br><br>        applicationVariants.all &#123; variant -&gt;<br>            variant.outputs.each &#123; output -&gt;<br>                <span class="hljs-keyword">def</span> outputFile = output.outputFile<br>                <span class="hljs-keyword">if</span> (outputFile != <span class="hljs-literal">null</span> &amp;&amp; outputFile.name.endsWith(<span class="hljs-string">'.apk'</span>)) &#123;<br>                    <span class="hljs-comment">// 输出apk名称为 LOU_20161101_V0.2.0.apk</span><br>                    <span class="hljs-keyword">def</span> fileName = <span class="hljs-string">"LOU_$&#123;releaseTime()&#125;_V$&#123;defaultConfig.versionName&#125;.apk"</span><br>                    output.outputFile = <span class="hljs-keyword">new</span> File(outputFile.parent, fileName)<br>                &#125;<br><br>            &#125;<br><br>        &#125;<br>    &#125;<br>  &#125;<br><br><span class="hljs-comment">//    AndroidManifest的application标签下添加： &lt;meta-data android:name="UMENG_CHANNEL" android:value="$&#123;UMENG_CHANNEL_VALUE&#125;" /&gt;</span><br><br><span class="hljs-comment">//    productFlavors &#123;</span><br><span class="hljs-comment">//        yingyongbao &#123;&#125;</span><br><span class="hljs-comment">//        wandoujia &#123;&#125;</span><br><span class="hljs-comment">//        xiaomi &#123;&#125;</span><br><span class="hljs-comment">//        qihu360 &#123;&#125;</span><br><span class="hljs-comment">//        baidu &#123;&#125;</span><br><span class="hljs-comment">//        meizu &#123;&#125;</span><br><span class="hljs-comment">//    &#125;</span><br><span class="hljs-comment">//</span><br><span class="hljs-comment">//    productFlavors.all &#123;</span><br><span class="hljs-comment">//        flavor -&gt; flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]</span><br><span class="hljs-comment">//    &#125;</span><br>&#125;<br><br><span class="hljs-keyword">def</span> releaseTime() &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Date().format(<span class="hljs-string">"yyyMMdd"</span>, TimeZone.getTimeZone(<span class="hljs-string">"UTC"</span>))<br>&#125;<br></code></pre></td></tr></table></figure>
+          <h1 id="bulid-gradle-文件"><a href="#bulid-gradle-文件" class="headerlink" title="bulid.gradle 文件"></a>bulid.gradle 文件</h1><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line">  signingConfigs &#123;</span><br><span class="line">    renrenDebug &#123;</span><br><span class="line">        keyAlias <span class="string">&#x27;test&#x27;</span></span><br><span class="line">        keyPassword <span class="string">&#x27;test&#x27;</span></span><br><span class="line">        storeFile file(<span class="string">&#x27;../tool/test.key&#x27;</span>)</span><br><span class="line">        storePassword <span class="string">&#x27;test&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  sourceSets &#123;</span><br><span class="line">      main &#123;</span><br><span class="line">          manifest.srcFile <span class="string">&#x27;AndroidManifest.xml&#x27;</span></span><br><span class="line">          java.srcDirs = [<span class="string">&#x27;src&#x27;</span>]</span><br><span class="line">          resources.srcDirs = [<span class="string">&#x27;src&#x27;</span>]</span><br><span class="line">          aidl.srcDirs = [<span class="string">&#x27;src&#x27;</span>]</span><br><span class="line">          renderscript.srcDirs = [<span class="string">&#x27;src&#x27;</span>]</span><br><span class="line">          res.srcDirs = [<span class="string">&#x27;res&#x27;</span>]</span><br><span class="line">          assets.srcDirs = [<span class="string">&#x27;assets&#x27;</span>]</span><br><span class="line">          jniLibs.srcDirs = [<span class="string">&#x27;libs&#x27;</span>]</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  lintOptions &#123;</span><br><span class="line">      abortOnError <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  buildTypes &#123;</span><br><span class="line">    debug &#123;</span><br><span class="line">        signingConfig signingConfigs.debug</span><br><span class="line">        shrinkResources <span class="literal">false</span></span><br><span class="line">        zipAlignEnabled <span class="literal">false</span></span><br><span class="line">        minifyEnabled <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 测试</span></span><br><span class="line">        buildConfigField <span class="string">&quot;boolean&quot;</span>, <span class="string">&quot;TEST_ENV&quot;</span>, <span class="string">&quot;true&quot;</span></span><br><span class="line">        manifestPlaceholders = [<span class="attr">WECHATAPPID:</span> <span class="string">&quot;wxea2b67dxxxxxx&quot;</span>]</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    release &#123;</span><br><span class="line">        signingConfig signingConfigs.release <span class="comment">// 密钥配置</span></span><br><span class="line">        shrinkResources <span class="literal">true</span> <span class="comment">// 删除不必要的源文件</span></span><br><span class="line">        zipAlignEnabled <span class="literal">true</span> <span class="comment">// 压缩对齐</span></span><br><span class="line">        minifyEnabled <span class="literal">true</span></span><br><span class="line">        proguardFiles getDefaultProguardFile(<span class="string">&#x27;proguard-android-optimize.txt&#x27;</span>), <span class="string">&#x27;proguard-rules.pro&#x27;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 正式</span></span><br><span class="line">        buildConfigField <span class="string">&quot;boolean&quot;</span>, <span class="string">&quot;TEST_ENV&quot;</span>, <span class="string">&quot;false&quot;</span></span><br><span class="line">        manifestPlaceholders = [<span class="attr">WECHATAPPID:</span> <span class="string">&quot;wxb093774eaxxxxxx&quot;</span>]</span><br><span class="line"></span><br><span class="line">        applicationVariants.all &#123; variant -&gt;</span><br><span class="line">            variant.outputs.each &#123; output -&gt;</span><br><span class="line">                <span class="keyword">def</span> outputFile = output.outputFile</span><br><span class="line">                <span class="keyword">if</span> (outputFile != <span class="literal">null</span> &amp;&amp; outputFile.name.endsWith(<span class="string">&#x27;.apk&#x27;</span>)) &#123;</span><br><span class="line">                    <span class="comment">// 输出apk名称为 LOU_20161101_V0.2.0.apk</span></span><br><span class="line">                    <span class="keyword">def</span> fileName = <span class="string">&quot;LOU_$&#123;releaseTime()&#125;_V$&#123;defaultConfig.versionName&#125;.apk&quot;</span></span><br><span class="line">                    output.outputFile = <span class="keyword">new</span> File(outputFile.parent, fileName)</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//    AndroidManifest的application标签下添加： &lt;meta-data android:name=&quot;UMENG_CHANNEL&quot; android:value=&quot;$&#123;UMENG_CHANNEL_VALUE&#125;&quot; /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//    productFlavors &#123;</span></span><br><span class="line"><span class="comment">//        yingyongbao &#123;&#125;</span></span><br><span class="line"><span class="comment">//        wandoujia &#123;&#125;</span></span><br><span class="line"><span class="comment">//        xiaomi &#123;&#125;</span></span><br><span class="line"><span class="comment">//        qihu360 &#123;&#125;</span></span><br><span class="line"><span class="comment">//        baidu &#123;&#125;</span></span><br><span class="line"><span class="comment">//        meizu &#123;&#125;</span></span><br><span class="line"><span class="comment">//    &#125;</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//    productFlavors.all &#123;</span></span><br><span class="line"><span class="comment">//        flavor -&gt; flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]</span></span><br><span class="line"><span class="comment">//    &#125;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> releaseTime() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Date().format(<span class="string">&quot;yyyMMdd&quot;</span>, TimeZone.getTimeZone(<span class="string">&quot;UTC&quot;</span>))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h1 id="proguard-混淆配置"><a href="#proguard-混淆配置" class="headerlink" title="proguard 混淆配置"></a>proguard 混淆配置</h1><h2 id="为什么要过滤混淆"><a href="#为什么要过滤混淆" class="headerlink" title="为什么要过滤混淆"></a>为什么要过滤混淆</h2><blockquote>
-<p>（<a href="http://blog.csdn.net/fengyuzhengfan/article/details/43876197）" target="_blank" rel="noopener">http://blog.csdn.net/fengyuzhengfan/article/details/43876197）</a><br>ProGuard 默认会对第三方库也进行混淆的，而第三方库有的已经混淆过了，有的使用了 Java 反射技术，所以我们在进行代码混淆的时候要排除这些第三方库。排除对第三方库的混淆需要在混淆规则文件（通常是：proguard-project.txt 或 proguard.cfg 或 proguard-rules.pro 或 proguard-rules.txt 也可以是其它的文件名只要在配置文件中将含有混淆规则的文件名配置进去就行了）中添加如下规则： 1.如果使用了 Gson 之类的工具要使 JavaBean 类即实体类不被混淆。 2.如果使用了自定义控件那么要保证它们不参与混淆。 3.如果使用了枚举要保证枚举不被混淆。 4.对第三方库中的类不进行混淆</p>
+<p>（<a target="_blank" rel="noopener" href="http://blog.csdn.net/fengyuzhengfan/article/details/43876197%EF%BC%89">http://blog.csdn.net/fengyuzhengfan/article/details/43876197）</a><br>ProGuard 默认会对第三方库也进行混淆的，而第三方库有的已经混淆过了，有的使用了 Java 反射技术，所以我们在进行代码混淆的时候要排除这些第三方库。排除对第三方库的混淆需要在混淆规则文件（通常是：proguard-project.txt 或 proguard.cfg 或 proguard-rules.pro 或 proguard-rules.txt 也可以是其它的文件名只要在配置文件中将含有混淆规则的文件名配置进去就行了）中添加如下规则： 1.如果使用了 Gson 之类的工具要使 JavaBean 类即实体类不被混淆。 2.如果使用了自定义控件那么要保证它们不参与混淆。 3.如果使用了枚举要保证枚举不被混淆。 4.对第三方库中的类不进行混淆</p>
 </blockquote>
-<h2 id="proguard-rules-pro-文件"><a href="#proguard-rules-pro-文件" class="headerlink" title="proguard-rules.pro 文件"></a>proguard-rules.pro 文件</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-comment"># If your project uses WebView with JS, uncomment the following</span><br><span class="hljs-comment"># and specify the fully qualified class name to the JavaScript interface</span><br><span class="hljs-comment"># class:</span><br>-keepclassmembers class fqcn.of.javascript.interface.for.webview &#123;<br>  public *;<br>&#125;<br><br><span class="hljs-comment"># 忽略警告</span><br>-ignorewarning<br><br><span class="hljs-comment"># 移除日志</span><br>-assumenosideeffects class android.util.Log &#123;<br>    public static *** d(...);<br>    public static *** i(...);<br>    public static *** w(...);<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="proguard-rules-pro-文件"><a href="#proguard-rules-pro-文件" class="headerlink" title="proguard-rules.pro 文件"></a>proguard-rules.pro 文件</h2><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># If your project uses WebView with JS, uncomment the following</span></span><br><span class="line"><span class="comment"># and specify the fully qualified class name to the JavaScript interface</span></span><br><span class="line"><span class="comment"># class:</span></span><br><span class="line">-keepclassmembers class fqcn.of.javascript.interface.for.webview &#123;</span><br><span class="line">  public *<span class="comment">;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 忽略警告</span></span><br><span class="line">-ignorewarning</span><br><span class="line"></span><br><span class="line"><span class="comment"># 移除日志</span></span><br><span class="line">-assumenosideeffects class android.util.Log &#123;</span><br><span class="line">    public static *** d(...)<span class="comment">;</span></span><br><span class="line">    public static *** i(...)<span class="comment">;</span></span><br><span class="line">    public static *** w(...)<span class="comment">;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
-<li><a href="https://as.quanke.name/代码混淆规则配置文件proguard-rulespro.html" target="_blank" rel="noopener">代码混淆规则配置文件:proguard-rules.pro</a></li>
+<li><a target="_blank" rel="noopener" href="https://as.quanke.name/%E4%BB%A3%E7%A0%81%E6%B7%B7%E6%B7%86%E8%A7%84%E5%88%99%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6proguard-rulespro.html">代码混淆规则配置文件:proguard-rules.pro</a></li>
 </ul>
 <h1 id="Avoid-Maven-dynamic-dependency-resolution-such-as-2-1"><a href="#Avoid-Maven-dynamic-dependency-resolution-such-as-2-1" class="headerlink" title="Avoid Maven dynamic dependency resolution. (such as 2.1.+)"></a>Avoid Maven dynamic dependency resolution. (such as <code>2.1.+</code>)</h1><p>this result in different and unstable builds or subtle, untracked difference<br>in behavior between builds.</p>
 <h1 id="在配置-build-gradle-的时候，避免直接写入敏感信息（例如：密码），而是写入到版本控制工具"><a href="#在配置-build-gradle-的时候，避免直接写入敏感信息（例如：密码），而是写入到版本控制工具" class="headerlink" title="在配置 build.gradle 的时候，避免直接写入敏感信息（例如：密码），而是写入到版本控制工具"></a>在配置 <code>build.gradle</code> 的时候，避免直接写入敏感信息（例如：密码），而是写入到版本控制工具</h1><p>忽略的文件<code>gradle.properties</code>中。</p>
 <blockquote>
-<p><a href="https://github.com/futurice/android-best-practices#gradle-configuration" target="_blank" rel="noopener">https://github.com/futurice/android-best-practices#gradle-configuration</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/futurice/android-best-practices#gradle-configuration">https://github.com/futurice/android-best-practices#gradle-configuration</a></p>
 </blockquote>
 <h1 id="针对测试版本和发布版本使用不同的-appId-这样两个版本就可以同时存在在一个设备上了。"><a href="#针对测试版本和发布版本使用不同的-appId-这样两个版本就可以同时存在在一个设备上了。" class="headerlink" title="针对测试版本和发布版本使用不同的 appId, 这样两个版本就可以同时存在在一个设备上了。"></a>针对测试版本和发布版本使用不同的 appId, 这样两个版本就可以同时存在在一个设备上了。</h1><p>可以通过前缀或后缀的方式来区分。</p>
 <blockquote>
-<p><a href="https://github.com/futurice/android-best-practices#gradle-configuration" target="_blank" rel="noopener">https://github.com/futurice/android-best-practices#gradle-configuration</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/futurice/android-best-practices#gradle-configuration">https://github.com/futurice/android-best-practices#gradle-configuration</a></p>
 </blockquote>
 <h1 id="使用-Maven-依赖方案代替使用导入-jar-包方案"><a href="#使用-Maven-依赖方案代替使用导入-jar-包方案" class="headerlink" title="使用 Maven 依赖方案代替使用导入 jar 包方案"></a>使用 Maven 依赖方案代替使用导入 jar 包方案</h1><p>如果在你的项目中你明确使用率 jar 文件，那么它们可能成为永久的版本，如 2.1.1.下载 jar 包更新他们是很繁琐的， 这个问题 Maven 很好的解决了，这在 Android Gradle 构建中也是推荐的方法。你可以指定版本的一个范围，如 2.1.+,然后 Maven 会自动升级到制定的最新版本，例如：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs js">dependencies &#123;<br>    compile <span class="hljs-string">'com.netflix.rxjava:rxjava-core:0.19.+'</span><br>    compile <span class="hljs-string">'com.netflix.rxjava:rxjava-android:0.19.+'</span><br>    compile <span class="hljs-string">'com.fasterxml.jackson.core:jackson-databind:2.4.+'</span><br>    compile <span class="hljs-string">'com.fasterxml.jackson.core:jackson-core:2.4.+'</span><br>    compile <span class="hljs-string">'com.fasterxml.jackson.core:jackson-annotations:2.4.+'</span><br>    compile <span class="hljs-string">'com.squareup.okhttp:okhttp:2.0.+'</span><br>    compile <span class="hljs-string">'com.squareup.okhttp:okhttp-urlconnection:2.0.+'</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">    compile <span class="string">&#x27;com.netflix.rxjava:rxjava-core:0.19.+&#x27;</span></span><br><span class="line">    compile <span class="string">&#x27;com.netflix.rxjava:rxjava-android:0.19.+&#x27;</span></span><br><span class="line">    compile <span class="string">&#x27;com.fasterxml.jackson.core:jackson-databind:2.4.+&#x27;</span></span><br><span class="line">    compile <span class="string">&#x27;com.fasterxml.jackson.core:jackson-core:2.4.+&#x27;</span></span><br><span class="line">    compile <span class="string">&#x27;com.fasterxml.jackson.core:jackson-annotations:2.4.+&#x27;</span></span><br><span class="line">    compile <span class="string">&#x27;com.squareup.okhttp:okhttp:2.0.+&#x27;</span></span><br><span class="line">    compile <span class="string">&#x27;com.squareup.okhttp:okhttp-urlconnection:2.0.+&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="参考资料-1"><a href="#参考资料-1" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
-<li><a href="https://www.kancloud.cn/thinkphp/android-best-practices/42169" target="_blank" rel="noopener">Gradle 配置</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.kancloud.cn/thinkphp/android-best-practices/42169">Gradle 配置</a></li>
 </ul>
 
       
@@ -992,256 +1091,125 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
-  
-  
+</div>
 
 
-  
+
+
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/25/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/25/">25</a><span class="page-number current">26</span><a class="page-number" href="/page/27/">27</a><span class="space">&hellip;</span><a class="page-number" href="/page/32/">32</a><a class="extend next" rel="next" href="/page/27/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/25/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/25/">25</a><span class="page-number current">26</span><a class="page-number" href="/page/27/">27</a><span class="space">&hellip;</span><a class="page-number" href="/page/32/">32</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/27/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
-
-
-          </div>
-          
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
-
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="lyloou"
-      src="/assets/images/avatar.png">
-  <p class="site-author-name" itemprop="name">lyloou</p>
-  <div class="site-description" itemprop="description">/* Better than last best */</div>
 </div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">312</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
-        <span class="site-state-item-count">56</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
-</div>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-        <a href="https://github.com/lyloou" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;lyloou" rel="noopener" target="_blank">GitHub</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="mailto:lyloou6@gmail.com" title="E-Mail → mailto:lyloou6@gmail.com" rel="noopener" target="_blank">E-Mail</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://weibo.com/lyloou" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;lyloou" rel="noopener" target="_blank">Weibo</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://blog.csdn.net/ly1414725328" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;ly1414725328" rel="noopener" target="_blank">CSDN</a>
-      </span>
-  </div>
-  <div class="cc-license motion-element" itemprop="license">
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
-  </div>
+  </main>
 
+  <footer class="footer">
+    <div class="footer-inner">
 
-
-      </div>
-
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-        
   <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">粤ICP备18151128号 </a>
   </div>
 
 <div class="copyright">
-  
   &copy; 
   <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
-    <i class="user"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">lyloou</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
-  </div>
-
-        
 <div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
       <span class="post-meta-item-icon">
-        <i class="user"></i>
+        <i class="fa fa-user"></i>
       </span>
       <span class="site-uv" title="总访客量">
         <span id="busuanzi_value_site_uv"></span>
       </span>
     </span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
       <span class="post-meta-item-icon">
-        <i class="eye"></i>
+        <i class="fa fa-eye"></i>
       </span>
       <span class="site-pv" title="总访问量">
         <span id="busuanzi_value_site_pv"></span>
       </span>
     </span>
 </div>
-
-
-
-
-
-
-
-
-      </div>
-    </footer>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>
 
-  
-  <script src="/lib/anime.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-
-<script src="/js/schemes/muse.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
-
-
-
+    </div>
+  </footer>
 
   
-  <script>
-    (function(){
-      var canonicalURL, curProtocol;
-      //Get the <link> tag
-      var x=document.getElementsByTagName("link");
-		//Find the last canonical URL
-		if(x.length > 0){
-			for (i=0;i<x.length;i++){
-				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
-					canonicalURL=x[i].href;
-				}
-			}
-		}
-    //Get protocol
-	    if (!canonicalURL){
-	    	curProtocol = window.location.protocol.split(':')[0];
-	    }
-	    else{
-	    	curProtocol = canonicalURL.split(':')[0];
-	    }
-      //Get current URL if the canonical URL does not exist
-	    if (!canonicalURL) canonicalURL = window.location.href;
-	    //Assign script content. Replace current URL with the canonical URL
-      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
-  </script>
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
 
 
 
 
   
-<script src="/js/local-search.js"></script>
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 
 
-
-
-
-
-
-
+<script class="next-config" data-name="giscus" type="application/json">{"enable":true,"repo":"lyloou/lyloou.github.io","repo_id":"MDEwOlJlcG9zaXRvcnkxMDk1NzkyNzA=","category":"Announcements","category_id":"DIC_kwDOBogMBs4CWdfR","mapping":"pathname","reactions_enabled":1,"emit_metadata":1,"theme":"light","lang":"zh-CN","input_position":"bottom","loading":"lazy"}</script>
 
 <script>
-if (document.querySelectorAll('pre.mermaid').length) {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
-    mermaid.initialize({
-      theme    : 'forest',
-      logLevel : 3,
-      flowchart: { curve     : 'linear' },
-      gantt    : { axisFormat: '%m/%d/%Y' },
-      sequence : { actorMargin: 50 }
-    });
-  }, window.mermaid);
-}
+document.addEventListener('page:loaded', () => {
+  if (!CONFIG.page.comments) return;
+
+  NexT.utils.loadComments('.giscus-container')
+    .then(() => NexT.utils.getScript('https://giscus.app/client.js', {
+      attributes: {
+        async                   : true,
+        crossOrigin             : 'anonymous',
+        'data-repo'             : CONFIG.giscus.repo,
+        'data-repo-id'          : CONFIG.giscus.repo_id,
+        'data-category'         : CONFIG.giscus.category,
+        'data-category-id'      : CONFIG.giscus.category_id,
+        'data-mapping'          : CONFIG.giscus.mapping,
+        'data-reactions-enabled': CONFIG.giscus.reactions_enabled,
+        'data-emit-metadata'    : CONFIG.giscus.emit_metadata,
+        'data-theme'            : CONFIG.giscus.theme,
+        'data-lang'             : CONFIG.giscus.lang,
+        'data-input-position'   : CONFIG.giscus.input_position,
+        'data-loading'          : CONFIG.giscus.loading
+      },
+      parentNode: document.querySelector('.giscus-container')
+    }));
+});
 </script>
-
-
-  
-
-  
-
 
 </body>
 </html>

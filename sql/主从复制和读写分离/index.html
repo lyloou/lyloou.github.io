@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="zh-CN,zh-HK,zh-TW,en,default">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
@@ -13,14 +13,13 @@
 <link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"lyloou.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
-  </script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-  <meta name="description" content="实战环境介绍    环境&amp;软件 版本    虚拟机 virtualbox 6.1   服务器 ubuntu 18.04   数据库 mysql 5.7.32   服务架构图    机器名称 IP 角色 权限和作用    master1 192.168.56.15 数据库 master 可读写、主库   slave1 192.168.56.16 数据库 Slave 只读、从库   slave">
+<script class="next-config" data-name="main" type="application/json">{"hostname":"lyloou.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"default"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="实战环境介绍    环境&amp;软件 版本    虚拟机 virtualbox 6.1   服务器 ubuntu 18.04   数据库 mysql 5.7.32   服务架构图    机器名称 IP 角色 权限和作用    master1 192.168.56.15 数据库 master 可读写、主库   slave1 192.168.56.16 数据库 Slave 只读、从库   slave">
 <meta property="og:type" content="article">
 <meta property="og:title" content="主从复制和读写分离">
 <meta property="og:url" content="https://lyloou.com/sql/%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6%E5%92%8C%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB/index.html">
@@ -36,37 +35,20 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://lyloou.com/.com//image-20201230150829936.png">
 
+
 <link rel="canonical" href="https://lyloou.com/sql/%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6%E5%92%8C%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB/">
 
 
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : false,
-    isPost : true,
-    lang   : 'zh-CN'
-  };
-</script>
 
-  <title>主从复制和读写分离 | lyloou</title>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://lyloou.com/sql/%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6%E5%92%8C%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB/","path":"sql/主从复制和读写分离/","title":"主从复制和读写分离"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>主从复制和读写分离 | lyloou</title>
   
-    <script>
-      function sendPageView() {
-        if (CONFIG.hostname !== location.hostname) return;
-        var uid = localStorage.getItem('uid') || (Math.random() + '.' + Math.random());
-        localStorage.setItem('uid', uid);
-        navigator.sendBeacon('https://www.google-analytics.com/collect', new URLSearchParams({
-          v  : 1,
-          tid: 'UA-80542932-1',
-          cid: uid,
-          t  : 'pageview',
-          dp : encodeURIComponent(location.pathname)
-        }));
-      }
-      document.addEventListener('pjax:complete', sendPageView);
-      sendPageView();
-    </script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-80542932-1","only_pageview":true}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
 
 
 
@@ -74,55 +56,35 @@
 
 
   <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container">
-    <div class="headband"></div>
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
 
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
-  <div class="site-meta custom-logo">
+  <div class="site-meta">
 
     <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">lyloou</h1>
-      <span class="logo-line-after"><i></i></span>
+      <i class="logo-line"></i>
+      <p class="site-title">lyloou</p>
+      <i class="logo-line"></i>
     </a>
   </div>
 
   <div class="site-nav-right">
-    <div class="toggle popup-trigger">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
         <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
@@ -130,29 +92,8 @@
 
 
 
-
 <nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签</a>
-
-  </li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -163,85 +104,154 @@
 
 
   <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
+    <div class="popup search-popup"><div class="search-header">
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off"
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
            placeholder="搜索..." spellcheck="false"
            type="search" class="search-input">
   </div>
-  <span class="popup-btn-close">
+  <span class="popup-btn-close" role="button">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
-<div id="search-result">
-  <div id="no-result">
-    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
   </div>
 </div>
 
     </div>
   </div>
 
-</div>
-    </header>
+</header>
+        
+  
+  <aside class="sidebar">
 
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E6%88%98"><span class="nav-number">1.</span> <span class="nav-text">实战</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bin-log-%E9%85%8D%E7%BD%AE-amp-relay-log-%E9%85%8D%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">bin_log 配置 &amp; relay_log 配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9-uuid"><span class="nav-number">3.</span> <span class="nav-text">修改 uuid</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E5%90%AF%E5%90%8C%E6%AD%A5%E9%85%8D%E7%BD%AE"><span class="nav-number">4.</span> <span class="nav-text">开启同步配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">5.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%AA%8C%E8%AF%81%E8%B5%84%E6%96%99"><span class="nav-number">6.</span> <span class="nav-text">验证资料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E7%AD%94"><span class="nav-number">7.</span> <span class="nav-text">解答</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE"><span class="nav-number">8.</span> <span class="nav-text">配置</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="lyloou"
+      src="/assets/images/avatar.png">
+  <p class="site-author-name" itemprop="name">lyloou</p>
+  <div class="site-description" itemprop="description">/* Better than last best */</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">312</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">56</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/lyloou" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;lyloou" rel="noopener me" target="_blank"><i class="github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:lyloou6@gmail.com" title="E-Mail → mailto:lyloou6@gmail.com" rel="noopener me" target="_blank"><i class="envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/lyloou" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;lyloou" rel="noopener me" target="_blank"><i class="weibo fa-fw"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/ly1414725328" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;ly1414725328" rel="noopener me" target="_blank"><i class="csdn fa-fw"></i>CSDN</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
   </div>
 
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content post posts-expand">
-            
+        </div>
+      </div>
+    </div>
 
     
+        <div class="pjax">
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://lyloou.com/sql/%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6%E5%92%8C%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="主从复制和读写分离 | lyloou">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          主从复制和读写分离<a href="https://github.com/lyloou/lyloou.github.io/edit/source/source/_posts/sql/%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6%E5%92%8C%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil-alt"></i></a>
+          主从复制和读写分离
         </h1>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-12-30 16:03:47" itemprop="dateCreated datePublished" datetime="2020-12-30T16:03:47+08:00">2020-12-30</time>
-            </span>
+      <time title="创建时间：2020-12-30 16:03:47" itemprop="dateCreated datePublished" datetime="2020-12-30T16:03:47+08:00">2020-12-30</time>
+    </span>
 
-          
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
 
         </div>
       </header>
@@ -249,10 +259,7 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
-
-      
-        <h2 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h2><p>环境介绍</p>
+    <div class="post-body" itemprop="articleBody"><h2 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h2><p>环境介绍</p>
 <table>
 <thead>
 <tr>
@@ -323,7 +330,7 @@
 <h2 id="bin-log-配置-amp-relay-log-配置"><a href="#bin-log-配置-amp-relay-log-配置" class="headerlink" title="bin_log 配置 &amp; relay_log 配置"></a>bin_log 配置 &amp; relay_log 配置</h2><p>vi /etc/mysql/mysql.conf.d/mysqld.cnf</p>
 <h2 id="修改-uuid"><a href="#修改-uuid" class="headerlink" title="修改 uuid"></a>修改 uuid</h2><p>show variables like ‘%server_uuid%’;</p>
 <p>通过 <code>select @@datadir</code> 找到 msyql 的数据目录在哪，在这个目录下会有一个 auto.cnf 的文件，修改里面的内容，然后重启即可解决。<br>vi /var/lib/mysql/auto.cnf<br>service mysql restart</p>
-<h2 id="开启同步配置"><a href="#开启同步配置" class="headerlink" title="开启同步配置"></a>开启同步配置</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-comment">-- 在master上运行，记录下file名称和position</span><br><span class="hljs-keyword">show</span> <span class="hljs-keyword">master</span> <span class="hljs-keyword">status</span>;<br><span class="hljs-keyword">change</span> <span class="hljs-keyword">master</span> <span class="hljs-keyword">to</span> master_host=<span class="hljs-string">'192.168.56.15'</span>,master_port=<span class="hljs-number">3306</span>,master_user=<span class="hljs-string">'root'</span>,master_password=<span class="hljs-string">'root'</span>,master_log_file=<span class="hljs-string">'mysql-bin.000018'</span>,master_log_pos=<span class="hljs-number">1731</span>;<br><br><span class="hljs-keyword">change</span> <span class="hljs-keyword">master</span> <span class="hljs-keyword">to</span> master_host=<span class="hljs-string">'192.168.56.25'</span>,master_port=<span class="hljs-number">3306</span>,master_user=<span class="hljs-string">'root'</span>,master_password=<span class="hljs-string">'root'</span>,master_log_file=<span class="hljs-string">'mysql-bin.000024'</span>,master_log_pos=<span class="hljs-number">154</span>;<br><br><span class="hljs-keyword">start</span> <span class="hljs-keyword">slave</span>; <span class="hljs-comment">-- 开启从模式</span><br><br><span class="hljs-keyword">show</span> <span class="hljs-keyword">slave</span> <span class="hljs-keyword">status</span>; <span class="hljs-comment">-- 查看slave状态</span><br><span class="hljs-keyword">stop</span> <span class="hljs-keyword">slave</span>; <span class="hljs-comment">-- 关闭从模式</span><br></code></pre></td></tr></table></figure>
+<h2 id="开启同步配置"><a href="#开启同步配置" class="headerlink" title="开启同步配置"></a>开启同步配置</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 在master上运行，记录下file名称和position</span></span><br><span class="line"><span class="keyword">show</span> master status;</span><br><span class="line">change master <span class="keyword">to</span> master_host<span class="operator">=</span><span class="string">&#x27;192.168.56.15&#x27;</span>,master_port<span class="operator">=</span><span class="number">3306</span>,master_user<span class="operator">=</span><span class="string">&#x27;root&#x27;</span>,master_password<span class="operator">=</span><span class="string">&#x27;root&#x27;</span>,master_log_file<span class="operator">=</span><span class="string">&#x27;mysql-bin.000018&#x27;</span>,master_log_pos<span class="operator">=</span><span class="number">1731</span>;</span><br><span class="line"></span><br><span class="line">change master <span class="keyword">to</span> master_host<span class="operator">=</span><span class="string">&#x27;192.168.56.25&#x27;</span>,master_port<span class="operator">=</span><span class="number">3306</span>,master_user<span class="operator">=</span><span class="string">&#x27;root&#x27;</span>,master_password<span class="operator">=</span><span class="string">&#x27;root&#x27;</span>,master_log_file<span class="operator">=</span><span class="string">&#x27;mysql-bin.000024&#x27;</span>,master_log_pos<span class="operator">=</span><span class="number">154</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">start</span> slave; <span class="comment">-- 开启从模式</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">show</span> slave status; <span class="comment">-- 查看slave状态</span></span><br><span class="line">stop slave; <span class="comment">-- 关闭从模式</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><pre><code>https://gitee.com/lagouedu/alltestfile/raw/master/MySQL/MySQL%E4%B8%8B%E4%BD%9C%E4%B8%9A.pdf
 
@@ -349,7 +356,9 @@ l  运行效果
 * 项目各个类作用介绍，重点代码进行介绍，启动
 * 演示基于user_id对c_order表进⾏数据分⽚，基于master1和master2主从集群实现读写分离
 * 添加数据，通过Navicat展示数据分片成功，通过代码控制台真实sql展示数据分别在master1和master2进行写入
-* 查询数据，通过代码控制台真实sql展示数据是通过4个从节点查询的</code></pre><h2 id="验证资料"><a href="#验证资料" class="headerlink" title="验证资料"></a>验证资料</h2><p><a href="../验证资料/Readme.md">作业讲解视频地址</a></p>
+* 查询数据，通过代码控制台真实sql展示数据是通过4个从节点查询的
+</code></pre>
+<h2 id="验证资料"><a href="#验证资料" class="headerlink" title="验证资料"></a>验证资料</h2><p><a href="../%E9%AA%8C%E8%AF%81%E8%B5%84%E6%96%99/Readme.md">作业讲解视频地址</a></p>
 <h2 id="解答"><a href="#解答" class="headerlink" title="解答"></a>解答</h2><p>环境介绍<br>|环境&amp;软件| 版本|<br>|—|—|<br>|虚拟机 virtualbox|6.1|<br>|服务器 ubuntu | 18.04|<br>|数据库 mysql | 5.7.32|</p>
 <p>服务架构图</p>
 <table>
@@ -399,20 +408,20 @@ l  运行效果
 </tr>
 </tbody></table>
 <h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p><strong>pom</strong></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">project</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://maven.apache.org/POM/4.0.0"</span> <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span></span><br><span class="hljs-tag">         <span class="hljs-attr">xsi:schemaLocation</span>=<span class="hljs-string">"http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">modelVersion</span>&gt;</span>4.0.0<span class="hljs-tag">&lt;/<span class="hljs-name">modelVersion</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">parent</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-parent<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.3.1.RELEASE<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">relativePath</span>/&gt;</span> <span class="hljs-comment">&lt;!-- lookup parent from repository --&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">parent</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.lyloou<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>practice-mysql<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>practice-mysql<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">description</span>&gt;</span>Demo project for Spring Boot<span class="hljs-tag">&lt;/<span class="hljs-name">description</span>&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">properties</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">java.version</span>&gt;</span>11<span class="hljs-tag">&lt;/<span class="hljs-name">java.version</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">properties</span>&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><br>        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.projectlombok<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>lombok<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">optional</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">optional</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-test<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>test<span class="hljs-tag">&lt;/<span class="hljs-name">scope</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><br>        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-jdbc<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><br>        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-data-jpa<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><br>        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>mysql<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>mysql-connector-java<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><br>        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.apache.shardingsphere<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>sharding-jdbc-spring-boot-starter<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>4.1.0<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">build</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">plugins</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">plugin</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>                <span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span><br>                    <span class="hljs-tag">&lt;<span class="hljs-name">excludes</span>&gt;</span><br>                        <span class="hljs-tag">&lt;<span class="hljs-name">exclude</span>&gt;</span><br>                            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.projectlombok<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>                            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>lombok<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>                        <span class="hljs-tag">&lt;/<span class="hljs-name">exclude</span>&gt;</span><br>                    <span class="hljs-tag">&lt;/<span class="hljs-name">excludes</span>&gt;</span><br>                <span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span><br>            <span class="hljs-tag">&lt;/<span class="hljs-name">plugin</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">plugins</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">build</span>&gt;</span><br><br><span class="hljs-tag">&lt;/<span class="hljs-name">project</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://maven.apache.org/POM/4.0.0&quot;</span> <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-parent<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.3.1.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">relativePath</span>/&gt;</span> <span class="comment">&lt;!-- lookup parent from repository --&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.lyloou<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>practice-mysql<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>practice-mysql<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">description</span>&gt;</span>Demo project for Spring Boot<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">java.version</span>&gt;</span>11<span class="tag">&lt;/<span class="name">java.version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.projectlombok<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>lombok<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">optional</span>&gt;</span>true<span class="tag">&lt;/<span class="name">optional</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-test<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-jdbc<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-data-jpa<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>mysql<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mysql-connector-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.shardingsphere<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>sharding-jdbc-spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.1.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">excludes</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">exclude</span>&gt;</span></span><br><span class="line">                            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.projectlombok<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>lombok<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;/<span class="name">exclude</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">excludes</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p><strong>数据库</strong></p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-comment">-- c_order_0 c_order_1</span><br><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-string">`c_order_0`</span> (<br>  <span class="hljs-string">`id`</span> <span class="hljs-built_in">bigint</span>(<span class="hljs-number">20</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> AUTO_INCREMENT,<br>  <span class="hljs-string">`is_del`</span> <span class="hljs-built_in">bit</span>(<span class="hljs-number">1</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">DEFAULT</span> b<span class="hljs-string">'0'</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">'是否被删除'</span>,<br>  <span class="hljs-string">`user_id`</span> <span class="hljs-built_in">int</span>(<span class="hljs-number">11</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">'用户id'</span>,<br>  <span class="hljs-string">`company_id`</span> <span class="hljs-built_in">int</span>(<span class="hljs-number">11</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">'公司id'</span>,<br>  <span class="hljs-string">`publish_user_id`</span> <span class="hljs-built_in">int</span>(<span class="hljs-number">11</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">'B端⽤户id'</span>,<br>  <span class="hljs-string">`position_id`</span> <span class="hljs-built_in">int</span>(<span class="hljs-number">11</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">'职位ID'</span>,<br>  <span class="hljs-string">`resume_type`</span> <span class="hljs-built_in">int</span>(<span class="hljs-number">2</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-string">'0'</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">'简历类型：0附件 1在线'</span>,<br>  <span class="hljs-string">`status`</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">256</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">'投递状态投递状态WAIT-待处理理 AUTO_FILTER-⾃自动过滤 PREPARE_CONTACT-待沟通 REFUSE-拒绝ARRANGE_INTERVIEW-通知⾯面试'</span>,<br>  <span class="hljs-string">`create_time`</span> datetime <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">'创建时间'</span>,<br>  <span class="hljs-string">`update_time`</span> datetime <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">'处理理时间'</span>,<br>  PRIMARY <span class="hljs-keyword">KEY</span> (<span class="hljs-string">`id`</span>),<br>  <span class="hljs-keyword">KEY</span> <span class="hljs-string">`index_userId_positionId`</span> (<span class="hljs-string">`user_id`</span>,<span class="hljs-string">`position_id`</span>),<br>  <span class="hljs-keyword">KEY</span> <span class="hljs-string">`idx_userId_operateTime`</span> (<span class="hljs-string">`user_id`</span>,<span class="hljs-string">`update_time`</span>)<br>) <span class="hljs-keyword">ENGINE</span>=<span class="hljs-keyword">InnoDB</span> AUTO_INCREMENT=<span class="hljs-number">551043954997460994</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">CHARSET</span>=utf8mb4;<br></code></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- c_order_0 c_order_1</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `c_order_0` (</span><br><span class="line">  `id` <span class="type">bigint</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> AUTO_INCREMENT,</span><br><span class="line">  `is_del` bit(<span class="number">1</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> b<span class="string">&#x27;0&#x27;</span> COMMENT <span class="string">&#x27;是否被删除&#x27;</span>,</span><br><span class="line">  `user_id` <span class="type">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;用户id&#x27;</span>,</span><br><span class="line">  `company_id` <span class="type">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;公司id&#x27;</span>,</span><br><span class="line">  `publish_user_id` <span class="type">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;B端⽤户id&#x27;</span>,</span><br><span class="line">  `position_id` <span class="type">int</span>(<span class="number">11</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;职位ID&#x27;</span>,</span><br><span class="line">  `resume_type` <span class="type">int</span>(<span class="number">2</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">&#x27;0&#x27;</span> COMMENT <span class="string">&#x27;简历类型：0附件 1在线&#x27;</span>,</span><br><span class="line">  `status` <span class="type">varchar</span>(<span class="number">256</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;投递状态投递状态WAIT-待处理理 AUTO_FILTER-⾃自动过滤 PREPARE_CONTACT-待沟通 REFUSE-拒绝ARRANGE_INTERVIEW-通知⾯面试&#x27;</span>,</span><br><span class="line">  `create_time` datetime <span class="keyword">NOT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;创建时间&#x27;</span>,</span><br><span class="line">  `update_time` datetime <span class="keyword">NOT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;处理理时间&#x27;</span>,</span><br><span class="line">  <span class="keyword">PRIMARY</span> KEY (`id`),</span><br><span class="line">  KEY `index_userId_positionId` (`user_id`,`position_id`),</span><br><span class="line">  KEY `idx_userId_operateTime` (`user_id`,`update_time`)</span><br><span class="line">) ENGINE<span class="operator">=</span>InnoDB AUTO_INCREMENT<span class="operator">=</span><span class="number">551043954997460994</span> <span class="keyword">DEFAULT</span> CHARSET<span class="operator">=</span>utf8mb4;</span><br></pre></td></tr></table></figure>
 
 <p><strong>sharding jdbc 配置</strong></p>
-<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-comment"># 显示sql语句</span><br><span class="hljs-attr">spring.shardingsphere.props.sql.show</span>=<span class="hljs-literal">true</span><br><br><span class="hljs-comment">#数据源</span><br><span class="hljs-attr">spring.shardingsphere.datasource.names</span>=master1,slave1,slave2,master2,slave3,slave4<br><br><span class="hljs-attr">spring.shardingsphere.datasource.master1.type</span>=com.zaxxer.hikari.HikariDataSource<br><span class="hljs-attr">spring.shardingsphere.datasource.master1.driver-class-name</span>=com.mysql.cj.jdbc.Driver<br><span class="hljs-attr">spring.shardingsphere.datasource.master1.jdbc-url</span>=jdbc:mysql://<span class="hljs-number">192.168</span>.<span class="hljs-number">56.15</span>:<span class="hljs-number">3306</span>/lagou?useUnicode=<span class="hljs-literal">true</span>&amp;characterEncoding=utf-<span class="hljs-number">8</span>&amp;useSSL=<span class="hljs-literal">false</span><br><span class="hljs-attr">spring.shardingsphere.datasource.master1.username</span>=root<br><span class="hljs-attr">spring.shardingsphere.datasource.master1.password</span>=root<br><br><span class="hljs-attr">spring.shardingsphere.datasource.slave1.type</span>=com.zaxxer.hikari.HikariDataSource<br><span class="hljs-attr">spring.shardingsphere.datasource.slave1.driver-class-name</span>=com.mysql.cj.jdbc.Driver<br><span class="hljs-attr">spring.shardingsphere.datasource.slave1.jdbc-url</span>=jdbc:mysql://<span class="hljs-number">192.168</span>.<span class="hljs-number">56.16</span>:<span class="hljs-number">3306</span>/lagou?useUnicode=<span class="hljs-literal">true</span>&amp;characterEncoding=utf-<span class="hljs-number">8</span>&amp;useSSL=<span class="hljs-literal">false</span><br><span class="hljs-attr">spring.shardingsphere.datasource.slave1.username</span>=root<br><span class="hljs-attr">spring.shardingsphere.datasource.slave1.password</span>=root<br><br><span class="hljs-attr">spring.shardingsphere.datasource.slave2.type</span>=com.zaxxer.hikari.HikariDataSource<br><span class="hljs-attr">spring.shardingsphere.datasource.slave2.driver-class-name</span>=com.mysql.cj.jdbc.Driver<br><span class="hljs-attr">spring.shardingsphere.datasource.slave2.jdbc-url</span>=jdbc:mysql://<span class="hljs-number">192.168</span>.<span class="hljs-number">56.17</span>:<span class="hljs-number">3306</span>/lagou?useUnicode=<span class="hljs-literal">true</span>&amp;characterEncoding=utf-<span class="hljs-number">8</span>&amp;useSSL=<span class="hljs-literal">false</span><br><span class="hljs-attr">spring.shardingsphere.datasource.slave2.username</span>=root<br><span class="hljs-attr">spring.shardingsphere.datasource.slave2.password</span>=root<br><br><span class="hljs-attr">spring.shardingsphere.datasource.master2.type</span>=com.zaxxer.hikari.HikariDataSource<br><span class="hljs-attr">spring.shardingsphere.datasource.master2.driver-class-name</span>=com.mysql.cj.jdbc.Driver<br><span class="hljs-attr">spring.shardingsphere.datasource.master2.jdbc-url</span>=jdbc:mysql://<span class="hljs-number">192.168</span>.<span class="hljs-number">56.25</span>:<span class="hljs-number">3306</span>/lagou?useUnicode=<span class="hljs-literal">true</span>&amp;characterEncoding=utf-<span class="hljs-number">8</span>&amp;useSSL=<span class="hljs-literal">false</span><br><span class="hljs-attr">spring.shardingsphere.datasource.master2.username</span>=root<br><span class="hljs-attr">spring.shardingsphere.datasource.master2.password</span>=root<br><br><span class="hljs-attr">spring.shardingsphere.datasource.slave3.type</span>=com.zaxxer.hikari.HikariDataSource<br><span class="hljs-attr">spring.shardingsphere.datasource.slave3.driver-class-name</span>=com.mysql.cj.jdbc.Driver<br><span class="hljs-attr">spring.shardingsphere.datasource.slave3.jdbc-url</span>=jdbc:mysql://<span class="hljs-number">192.168</span>.<span class="hljs-number">56.26</span>:<span class="hljs-number">3306</span>/lagou?useUnicode=<span class="hljs-literal">true</span>&amp;characterEncoding=utf-<span class="hljs-number">8</span>&amp;useSSL=<span class="hljs-literal">false</span><br><span class="hljs-attr">spring.shardingsphere.datasource.slave3.username</span>=root<br><span class="hljs-attr">spring.shardingsphere.datasource.slave3.password</span>=root<br><br><span class="hljs-attr">spring.shardingsphere.datasource.slave4.type</span>=com.zaxxer.hikari.HikariDataSource<br><span class="hljs-attr">spring.shardingsphere.datasource.slave4.driver-class-name</span>=com.mysql.cj.jdbc.Driver<br><span class="hljs-attr">spring.shardingsphere.datasource.slave4.jdbc-url</span>=jdbc:mysql://<span class="hljs-number">192.168</span>.<span class="hljs-number">56.27</span>:<span class="hljs-number">3306</span>/lagou?useUnicode=<span class="hljs-literal">true</span>&amp;characterEncoding=utf-<span class="hljs-number">8</span>&amp;useSSL=<span class="hljs-literal">false</span><br><span class="hljs-attr">spring.shardingsphere.datasource.slave4.username</span>=root<br><span class="hljs-attr">spring.shardingsphere.datasource.slave4.password</span>=root<br><br><span class="hljs-comment">#分库分表</span><br><span class="hljs-attr">spring.shardingsphere.sharding.tables.c_order.database-strategy.inline.sharding-column</span>=company_id<br><span class="hljs-attr">spring.shardingsphere.sharding.tables.c_order.database-strategy.inline.algorithm-expression</span>=master$-&gt;&#123;company_id%<span class="hljs-number">2</span> + <span class="hljs-number">1</span>&#125;<br><span class="hljs-attr">spring.shardingsphere.sharding.tables.c_order.actual-data-nodes</span>=master$-&gt;&#123;<span class="hljs-number">1</span>..<span class="hljs-number">2</span>&#125;.c_order_$-&gt;&#123;<span class="hljs-number">0</span>..<span class="hljs-number">1</span>&#125;<br><span class="hljs-attr">spring.shardingsphere.sharding.tables.c_order.table-strategy.inline.sharding-column</span>=user_id<br><span class="hljs-attr">spring.shardingsphere.sharding.tables.c_order.table-strategy.inline.algorithm-expression</span>=c_order_$-&gt;&#123;user_id % <span class="hljs-number">2</span>&#125;<br><span class="hljs-attr">spring.shardingsphere.sharding.tables.c_order.key-generator.column</span>=id<br><span class="hljs-attr">spring.shardingsphere.sharding.tables.c_order.key-generator.type</span>=SNOWFLAKE<br><br><span class="hljs-comment">#读写分离</span><br><span class="hljs-attr">spring.shardingsphere.sharding.master-slave-rules.master1.master-data-source-name</span>=master1<br><span class="hljs-attr">spring.shardingsphere.sharding.master-slave-rules.master1.slave-data-source-names</span>=slave1, slave2<br><span class="hljs-attr">spring.shardingsphere.sharding.master-slave-rules.master2.master-data-source-name</span>=master2<br><span class="hljs-attr">spring.shardingsphere.sharding.master-slave-rules.master2.slave-data-source-names</span>=slave3, slave4<br></code></pre></td></tr></table></figure>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 显示sql语句</span></span><br><span class="line"><span class="attr">spring.shardingsphere.props.sql.show</span>=<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#数据源</span></span><br><span class="line"><span class="attr">spring.shardingsphere.datasource.names</span>=master1,slave1,slave2,master2,slave3,slave4</span><br><span class="line"></span><br><span class="line"><span class="attr">spring.shardingsphere.datasource.master1.type</span>=com.zaxxer.hikari.HikariDataSource</span><br><span class="line"><span class="attr">spring.shardingsphere.datasource.master1.driver-class-name</span>=com.mysql.cj.jdbc.Driver</span><br><span class="line"><span class="attr">spring.shardingsphere.datasource.master1.jdbc-url</span>=jdbc:mysql://<span class="number">192.168</span>.<span class="number">56.15</span>:<span class="number">3306</span>/lagou?useUnicode=<span class="literal">true</span>&amp;characterEncoding=utf-<span class="number">8</span>&amp;useSSL=<span class="literal">false</span></span><br><span class="line"><span class="attr">spring.shardingsphere.datasource.master1.username</span>=root</span><br><span class="line"><span class="attr">spring.shardingsphere.datasource.master1.password</span>=root</span><br><span class="line"></span><br><span class="line"><span class="attr">spring.shardingsphere.datasource.slave1.type</span>=com.zaxxer.hikari.HikariDataSource</span><br><span class="line"><span class="attr">spring.shardingsphere.datasource.slave1.driver-class-name</span>=com.mysql.cj.jdbc.Driver</span><br><span class="line"><span class="attr">spring.shardingsphere.datasource.slave1.jdbc-url</span>=jdbc:mysql://<span class="number">192.168</span>.<span class="number">56.16</span>:<span class="number">3306</span>/lagou?useUnicode=<span class="literal">true</span>&amp;characterEncoding=utf-<span class="number">8</span>&amp;useSSL=<span class="literal">false</span></span><br><span class="line"><span class="attr">spring.shardingsphere.datasource.slave1.username</span>=root</span><br><span class="line"><span class="attr">spring.shardingsphere.datasource.slave1.password</span>=root</span><br><span class="line"></span><br><span class="line"><span class="attr">spring.shardingsphere.datasource.slave2.type</span>=com.zaxxer.hikari.HikariDataSource</span><br><span class="line"><span class="attr">spring.shardingsphere.datasource.slave2.driver-class-name</span>=com.mysql.cj.jdbc.Driver</span><br><span class="line"><span class="attr">spring.shardingsphere.datasource.slave2.jdbc-url</span>=jdbc:mysql://<span class="number">192.168</span>.<span class="number">56.17</span>:<span class="number">3306</span>/lagou?useUnicode=<span class="literal">true</span>&amp;characterEncoding=utf-<span class="number">8</span>&amp;useSSL=<span class="literal">false</span></span><br><span class="line"><span class="attr">spring.shardingsphere.datasource.slave2.username</span>=root</span><br><span class="line"><span class="attr">spring.shardingsphere.datasource.slave2.password</span>=root</span><br><span class="line"></span><br><span class="line"><span class="attr">spring.shardingsphere.datasource.master2.type</span>=com.zaxxer.hikari.HikariDataSource</span><br><span class="line"><span class="attr">spring.shardingsphere.datasource.master2.driver-class-name</span>=com.mysql.cj.jdbc.Driver</span><br><span class="line"><span class="attr">spring.shardingsphere.datasource.master2.jdbc-url</span>=jdbc:mysql://<span class="number">192.168</span>.<span class="number">56.25</span>:<span class="number">3306</span>/lagou?useUnicode=<span class="literal">true</span>&amp;characterEncoding=utf-<span class="number">8</span>&amp;useSSL=<span class="literal">false</span></span><br><span class="line"><span class="attr">spring.shardingsphere.datasource.master2.username</span>=root</span><br><span class="line"><span class="attr">spring.shardingsphere.datasource.master2.password</span>=root</span><br><span class="line"></span><br><span class="line"><span class="attr">spring.shardingsphere.datasource.slave3.type</span>=com.zaxxer.hikari.HikariDataSource</span><br><span class="line"><span class="attr">spring.shardingsphere.datasource.slave3.driver-class-name</span>=com.mysql.cj.jdbc.Driver</span><br><span class="line"><span class="attr">spring.shardingsphere.datasource.slave3.jdbc-url</span>=jdbc:mysql://<span class="number">192.168</span>.<span class="number">56.26</span>:<span class="number">3306</span>/lagou?useUnicode=<span class="literal">true</span>&amp;characterEncoding=utf-<span class="number">8</span>&amp;useSSL=<span class="literal">false</span></span><br><span class="line"><span class="attr">spring.shardingsphere.datasource.slave3.username</span>=root</span><br><span class="line"><span class="attr">spring.shardingsphere.datasource.slave3.password</span>=root</span><br><span class="line"></span><br><span class="line"><span class="attr">spring.shardingsphere.datasource.slave4.type</span>=com.zaxxer.hikari.HikariDataSource</span><br><span class="line"><span class="attr">spring.shardingsphere.datasource.slave4.driver-class-name</span>=com.mysql.cj.jdbc.Driver</span><br><span class="line"><span class="attr">spring.shardingsphere.datasource.slave4.jdbc-url</span>=jdbc:mysql://<span class="number">192.168</span>.<span class="number">56.27</span>:<span class="number">3306</span>/lagou?useUnicode=<span class="literal">true</span>&amp;characterEncoding=utf-<span class="number">8</span>&amp;useSSL=<span class="literal">false</span></span><br><span class="line"><span class="attr">spring.shardingsphere.datasource.slave4.username</span>=root</span><br><span class="line"><span class="attr">spring.shardingsphere.datasource.slave4.password</span>=root</span><br><span class="line"></span><br><span class="line"><span class="comment">#分库分表</span></span><br><span class="line"><span class="attr">spring.shardingsphere.sharding.tables.c_order.database-strategy.inline.sharding-column</span>=company_id</span><br><span class="line"><span class="attr">spring.shardingsphere.sharding.tables.c_order.database-strategy.inline.algorithm-expression</span>=master$-&gt;&#123;company_id%<span class="number">2</span> + <span class="number">1</span>&#125;</span><br><span class="line"><span class="attr">spring.shardingsphere.sharding.tables.c_order.actual-data-nodes</span>=master$-&gt;&#123;<span class="number">1</span>..<span class="number">2</span>&#125;.c_order_$-&gt;&#123;<span class="number">0</span>..<span class="number">1</span>&#125;</span><br><span class="line"><span class="attr">spring.shardingsphere.sharding.tables.c_order.table-strategy.inline.sharding-column</span>=user_id</span><br><span class="line"><span class="attr">spring.shardingsphere.sharding.tables.c_order.table-strategy.inline.algorithm-expression</span>=c_order_$-&gt;&#123;user_id % <span class="number">2</span>&#125;</span><br><span class="line"><span class="attr">spring.shardingsphere.sharding.tables.c_order.key-generator.column</span>=id</span><br><span class="line"><span class="attr">spring.shardingsphere.sharding.tables.c_order.key-generator.type</span>=SNOWFLAKE</span><br><span class="line"></span><br><span class="line"><span class="comment">#读写分离</span></span><br><span class="line"><span class="attr">spring.shardingsphere.sharding.master-slave-rules.master1.master-data-source-name</span>=master1</span><br><span class="line"><span class="attr">spring.shardingsphere.sharding.master-slave-rules.master1.slave-data-source-names</span>=slave1, slave2</span><br><span class="line"><span class="attr">spring.shardingsphere.sharding.master-slave-rules.master2.master-data-source-name</span>=master2</span><br><span class="line"><span class="attr">spring.shardingsphere.sharding.master-slave-rules.master2.slave-data-source-names</span>=slave3, slave4</span><br></pre></td></tr></table></figure>
 
 <p><strong>测试</strong><br>测试添加</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Test</span><br><span class="hljs-meta">@Repeat</span>(value = <span class="hljs-number">100</span>)<br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testAdd</span><span class="hljs-params">()</span> </span>&#123;<br>    Random random = <span class="hljs-keyword">new</span> Random();<br>    <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> companyId = random.nextInt(<span class="hljs-number">10</span>);<br>    <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> userId = random.nextInt(<span class="hljs-number">100</span>);<br>    <span class="hljs-keyword">final</span> Date now = <span class="hljs-keyword">new</span> Date();<br>    <span class="hljs-keyword">final</span> COrder cOrder = <span class="hljs-keyword">new</span> COrder();<br>    cOrder.setIsDel(<span class="hljs-keyword">false</span>);<br>    cOrder.setUserId(userId);<br>    cOrder.setCompanyId(companyId);<br>    cOrder.setPublishUserId(<span class="hljs-number">10</span>);<br>    cOrder.setPositionId(<span class="hljs-number">100</span>);<br>    cOrder.setResumeType(userId % <span class="hljs-number">2</span>);<br>    cOrder.setStatus(<span class="hljs-string">"AUTO_FILTER"</span>);<br>    cOrder.setCreateTime(now);<br>    cOrder.setUpdateTime(now);<br>    cOrderRepository.save(cOrder);<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="meta">@Repeat(value = 100)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testAdd</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">Random</span> <span class="variable">random</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Random</span>();</span><br><span class="line">    <span class="keyword">final</span> <span class="type">int</span> <span class="variable">companyId</span> <span class="operator">=</span> random.nextInt(<span class="number">10</span>);</span><br><span class="line">    <span class="keyword">final</span> <span class="type">int</span> <span class="variable">userId</span> <span class="operator">=</span> random.nextInt(<span class="number">100</span>);</span><br><span class="line">    <span class="keyword">final</span> <span class="type">Date</span> <span class="variable">now</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Date</span>();</span><br><span class="line">    <span class="keyword">final</span> <span class="type">COrder</span> <span class="variable">cOrder</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">COrder</span>();</span><br><span class="line">    cOrder.setIsDel(<span class="literal">false</span>);</span><br><span class="line">    cOrder.setUserId(userId);</span><br><span class="line">    cOrder.setCompanyId(companyId);</span><br><span class="line">    cOrder.setPublishUserId(<span class="number">10</span>);</span><br><span class="line">    cOrder.setPositionId(<span class="number">100</span>);</span><br><span class="line">    cOrder.setResumeType(userId % <span class="number">2</span>);</span><br><span class="line">    cOrder.setStatus(<span class="string">&quot;AUTO_FILTER&quot;</span>);</span><br><span class="line">    cOrder.setCreateTime(now);</span><br><span class="line">    cOrder.setUpdateTime(now);</span><br><span class="line">    cOrderRepository.save(cOrder);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p><img src="/.com//image-20201230150829936.png" alt="image-20201230150829936"></p>
 <p>测试查询</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Test</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testFind</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">final</span> List&lt;COrder&gt; allByUserId = cOrderRepository.findAllByUserId(<span class="hljs-number">24</span>);<br>    System.out.println(allByUserId);<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testFind</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="keyword">final</span> List&lt;COrder&gt; allByUserId = cOrderRepository.findAllByUserId(<span class="number">24</span>);</span><br><span class="line">    System.out.println(allByUserId);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p><img src="/.com//image-20201230151141903.png" alt="image-20201230151141903"></p>
 
@@ -421,308 +430,143 @@ l  运行效果
     
     
     
-      
-  <div class="popular-posts-header">相关文章</div>
-  <ul class="popular-posts">
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/android/SQLite封装/" rel="bookmark">SQLite封装</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/sql/SQLite总结/" rel="bookmark">关于SQLite的总结</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/sql/mybatis/" rel="bookmark">Mybatis相关</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/sql/mysql命令行实用程序/" rel="bookmark">Mysql命令行实用程序</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/sql/mysql字段类型/" rel="bookmark">【Mysql】字段类型</a></div>
-    </li>
-  </ul>
 
-
-      <footer class="post-footer">
+    <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/sql/" rel="tag"># sql</a>
           </div>
 
         
 
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/business/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E5%90%8C%E6%AD%A5%E8%AE%BE%E8%AE%A1/" rel="prev" title="定时任务同步设计">
-      <i class="fa fa-chevron-left"></i> 定时任务同步设计
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/ssm/springjpa/" rel="next" title="Spring Jpa">
-      Spring Jpa <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
-    
-  </article>
-  
-  
-  
-
-
-
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/business/%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1%E5%90%8C%E6%AD%A5%E8%AE%BE%E8%AE%A1/" rel="prev" title="定时任务同步设计">
+                  <i class="fa fa-chevron-left"></i> 定时任务同步设计
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/ssm/springjpa/" rel="next" title="Spring Jpa">
+                  Spring Jpa <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
           </div>
-          
-    <div class="comments" id="gitalk-container"></div>
+    </footer>
+  </article>
+</div>
 
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
 
-        </div>
-          
+
+
+
+
+    
   
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
+  <div class="comments giscus-container">
   </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#实战"><span class="nav-number">1.</span> <span class="nav-text">实战</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bin-log-配置-amp-relay-log-配置"><span class="nav-number">2.</span> <span class="nav-text">bin_log 配置 &amp; relay_log 配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改-uuid"><span class="nav-number">3.</span> <span class="nav-text">修改 uuid</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开启同步配置"><span class="nav-number">4.</span> <span class="nav-text">开启同步配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">5.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#验证资料"><span class="nav-number">6.</span> <span class="nav-text">验证资料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解答"><span class="nav-number">7.</span> <span class="nav-text">解答</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置"><span class="nav-number">8.</span> <span class="nav-text">配置</span></a></li></ol></div>
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="lyloou"
-      src="/assets/images/avatar.png">
-  <p class="site-author-name" itemprop="name">lyloou</p>
-  <div class="site-description" itemprop="description">/* Better than last best */</div>
+  
+  
 </div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">312</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
-        <span class="site-state-item-count">56</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
-</div>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-        <a href="https://github.com/lyloou" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;lyloou" rel="noopener" target="_blank">GitHub</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="mailto:lyloou6@gmail.com" title="E-Mail → mailto:lyloou6@gmail.com" rel="noopener" target="_blank">E-Mail</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://weibo.com/lyloou" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;lyloou" rel="noopener" target="_blank">Weibo</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://blog.csdn.net/ly1414725328" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;ly1414725328" rel="noopener" target="_blank">CSDN</a>
-      </span>
-  </div>
-  <div class="cc-license motion-element" itemprop="license">
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
-  </div>
+  </main>
 
+  <footer class="footer">
+    <div class="footer-inner">
 
-
-      </div>
-
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-        
   <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">粤ICP备18151128号 </a>
   </div>
 
 <div class="copyright">
-  
   &copy; 
   <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
-    <i class="user"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">lyloou</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
-  </div>
-
-        
 <div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
       <span class="post-meta-item-icon">
-        <i class="user"></i>
+        <i class="fa fa-user"></i>
       </span>
       <span class="site-uv" title="总访客量">
         <span id="busuanzi_value_site_uv"></span>
       </span>
     </span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
       <span class="post-meta-item-icon">
-        <i class="eye"></i>
+        <i class="fa fa-eye"></i>
       </span>
       <span class="site-pv" title="总访问量">
         <span id="busuanzi_value_site_pv"></span>
       </span>
     </span>
 </div>
-
-
-
-
-
-
-
-
-      </div>
-    </footer>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>
 
-  
-  <script src="/lib/anime.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-
-<script src="/js/schemes/muse.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
-
-
-
+    </div>
+  </footer>
 
   
-  <script>
-    (function(){
-      var canonicalURL, curProtocol;
-      //Get the <link> tag
-      var x=document.getElementsByTagName("link");
-		//Find the last canonical URL
-		if(x.length > 0){
-			for (i=0;i<x.length;i++){
-				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
-					canonicalURL=x[i].href;
-				}
-			}
-		}
-    //Get protocol
-	    if (!canonicalURL){
-	    	curProtocol = window.location.protocol.split(':')[0];
-	    }
-	    else{
-	    	curProtocol = canonicalURL.split(':')[0];
-	    }
-      //Get current URL if the canonical URL does not exist
-	    if (!canonicalURL) canonicalURL = window.location.href;
-	    //Assign script content. Replace current URL with the canonical URL
-      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
-  </script>
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
 
 
 
 
   
-<script src="/js/local-search.js"></script>
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 
 
-
-
-
-
-
-
+<script class="next-config" data-name="giscus" type="application/json">{"enable":true,"repo":"lyloou/lyloou.github.io","repo_id":"MDEwOlJlcG9zaXRvcnkxMDk1NzkyNzA=","category":"Announcements","category_id":"DIC_kwDOBogMBs4CWdfR","mapping":"pathname","reactions_enabled":1,"emit_metadata":1,"theme":"light","lang":"zh-CN","input_position":"bottom","loading":"lazy"}</script>
 
 <script>
-if (document.querySelectorAll('pre.mermaid').length) {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
-    mermaid.initialize({
-      theme    : 'forest',
-      logLevel : 3,
-      flowchart: { curve     : 'linear' },
-      gantt    : { axisFormat: '%m/%d/%Y' },
-      sequence : { actorMargin: 50 }
-    });
-  }, window.mermaid);
-}
-</script>
+document.addEventListener('page:loaded', () => {
+  if (!CONFIG.page.comments) return;
 
-
-  
-
-  
-
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
-
-<script>
-NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
-    var gitalk = new Gitalk({
-      clientID    : '5776a56ec2a831d83dfc',
-      clientSecret: '28440989ccf00f0ce8dbd425dc5d1eaa1eb24c7b',
-      repo        : 'lyloou.github.io',
-      owner       : 'lyloou',
-      admin       : ['lyloou'],
-      id          : '122e2dee53fe6d6565ed547a1756e1ff',
-        language: '',
-      distractionFreeMode: true
-    });
-    gitalk.render('gitalk-container');
-  }, window.Gitalk);
+  NexT.utils.loadComments('.giscus-container')
+    .then(() => NexT.utils.getScript('https://giscus.app/client.js', {
+      attributes: {
+        async                   : true,
+        crossOrigin             : 'anonymous',
+        'data-repo'             : CONFIG.giscus.repo,
+        'data-repo-id'          : CONFIG.giscus.repo_id,
+        'data-category'         : CONFIG.giscus.category,
+        'data-category-id'      : CONFIG.giscus.category_id,
+        'data-mapping'          : CONFIG.giscus.mapping,
+        'data-reactions-enabled': CONFIG.giscus.reactions_enabled,
+        'data-emit-metadata'    : CONFIG.giscus.emit_metadata,
+        'data-theme'            : CONFIG.giscus.theme,
+        'data-lang'             : CONFIG.giscus.lang,
+        'data-input-position'   : CONFIG.giscus.input_position,
+        'data-loading'          : CONFIG.giscus.loading
+      },
+      parentNode: document.querySelector('.giscus-container')
+    }));
 });
 </script>
 

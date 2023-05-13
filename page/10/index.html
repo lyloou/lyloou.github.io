@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="zh-CN,zh-HK,zh-TW,en,default">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
@@ -13,14 +13,13 @@
 <link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"lyloou.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
-  </script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-  <meta name="description" content="&#x2F;* Better than last best *&#x2F;">
+<script class="next-config" data-name="main" type="application/json">{"hostname":"lyloou.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"default"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="&#x2F;* Better than last best *&#x2F;">
 <meta property="og:type" content="website">
 <meta property="og:title" content="lyloou">
 <meta property="og:url" content="https://lyloou.com/page/10/index.html">
@@ -30,37 +29,20 @@
 <meta property="article:author" content="lyloou">
 <meta name="twitter:card" content="summary">
 
+
 <link rel="canonical" href="https://lyloou.com/page/10/">
 
 
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : true,
-    isPost : false,
-    lang   : 'zh-CN'
-  };
-</script>
 
-  <title>lyloou</title>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"page/10/index.html","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>lyloou</title>
   
-    <script>
-      function sendPageView() {
-        if (CONFIG.hostname !== location.hostname) return;
-        var uid = localStorage.getItem('uid') || (Math.random() + '.' + Math.random());
-        localStorage.setItem('uid', uid);
-        navigator.sendBeacon('https://www.google-analytics.com/collect', new URLSearchParams({
-          v  : 1,
-          tid: 'UA-80542932-1',
-          cid: uid,
-          t  : 'pageview',
-          dp : encodeURIComponent(location.pathname)
-        }));
-      }
-      document.addEventListener('pjax:complete', sendPageView);
-      sendPageView();
-    </script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-80542932-1","only_pageview":true}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
 
 
 
@@ -68,55 +50,35 @@
 
 
   <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container">
-    <div class="headband"></div>
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
 
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
-  <div class="site-meta custom-logo">
+  <div class="site-meta">
 
     <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
+      <i class="logo-line"></i>
       <h1 class="site-title">lyloou</h1>
-      <span class="logo-line-after"><i></i></span>
+      <i class="logo-line"></i>
     </a>
   </div>
 
   <div class="site-nav-right">
-    <div class="toggle popup-trigger">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
         <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
@@ -124,29 +86,8 @@
 
 
 
-
 <nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签</a>
-
-  </li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -157,78 +98,145 @@
 
 
   <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
+    <div class="popup search-popup"><div class="search-header">
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off"
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
            placeholder="搜索..." spellcheck="false"
            type="search" class="search-input">
   </div>
-  <span class="popup-btn-close">
+  <span class="popup-btn-close" role="button">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
-<div id="search-result">
-  <div id="no-result">
-    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
   </div>
 </div>
 
     </div>
   </div>
 
-</div>
-    </header>
+</header>
+        
+  
+  <aside class="sidebar">
 
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="lyloou"
+      src="/assets/images/avatar.png">
+  <p class="site-author-name" itemprop="name">lyloou</p>
+  <div class="site-description" itemprop="description">/* Better than last best */</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">312</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">56</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/lyloou" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;lyloou" rel="noopener me" target="_blank"><i class="github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:lyloou6@gmail.com" title="E-Mail → mailto:lyloou6@gmail.com" rel="noopener me" target="_blank"><i class="envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/lyloou" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;lyloou" rel="noopener me" target="_blank"><i class="weibo fa-fw"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/ly1414725328" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;ly1414725328" rel="noopener me" target="_blank"><i class="csdn fa-fw"></i>CSDN</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
   </div>
 
+        </div>
+      </div>
+    </div>
 
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
+    
+        <div class="pjax">
+        </div>
+  </aside>
 
-          <div class="content index posts-expand">
-            
-      
+
+    </div>
+
+    <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://lyloou.com/devops/ElasticSearch%E7%9B%B8%E5%85%B3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lyloou">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/devops/ElasticSearch%E7%9B%B8%E5%85%B3/" class="post-title-link" itemprop="url">ElasticSearch 相关</a>
+          <a href="/devops/ElasticSearch%E7%9B%B8%E5%85%B3/" class="post-title-link" itemprop="url">ElasticSearch 相关</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-07-24 15:30:56" itemprop="dateCreated datePublished" datetime="2019-07-24T15:30:56+08:00">2019-07-24</time>
-            </span>
+      <time title="创建时间：2019-07-24 15:30:56" itemprop="dateCreated datePublished" datetime="2019-07-24T15:30:56+08:00">2019-07-24</time>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -237,24 +245,22 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="字段类型"><a href="#字段类型" class="headerlink" title="字段类型"></a>字段类型</h2><p><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping-types.html" target="_blank" rel="noopener">https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping-types.html</a></p>
+          <h2 id="字段类型"><a href="#字段类型" class="headerlink" title="字段类型"></a>字段类型</h2><p><a target="_blank" rel="noopener" href="https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping-types.html">https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping-types.html</a></p>
 <h2 id="解决-ElasticSearch-ClusterBlockException-blocked-by-FORBIDDEN-12-index-read-only-allow-delete-api"><a href="#解决-ElasticSearch-ClusterBlockException-blocked-by-FORBIDDEN-12-index-read-only-allow-delete-api" class="headerlink" title="解决 ElasticSearch ClusterBlockException[blocked by: [FORBIDDEN/12/index read-only / allow delete (api)];"></a>解决 ElasticSearch ClusterBlockException[blocked by: [FORBIDDEN/12/index read-only / allow delete (api)];</h2><ol>
 <li>查看硬盘是否足够：<code>df -h</code></li>
 <li>如果不够的话：可以调整 es 设置：</li>
 </ol>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-comment"># 控制洪水阶段水印。它默认为95％</span><br>cluster.routing.allocation.disk.watermark.flood_stage: 99%<br><br>或者<br>cluster.routing.allocation.disk.threshold_enabled: false<br></code></pre></td></tr></table></figure>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 控制洪水阶段水印。它默认为95％</span></span><br><span class="line">cluster.routing.allocation.disk.watermark.flood_stage: 99%</span><br><span class="line"></span><br><span class="line">或者</span><br><span class="line">cluster.routing.allocation.disk.threshold_enabled: false</span><br></pre></td></tr></table></figure>
 
 <p>磁盘够了之后需要手动释放 3.</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">curl -XPUT -H <span class="hljs-string">"Content-Type: application/json"</span> http://node.com:9200/_all/_settings -d <span class="hljs-string">'&#123;"index.blocks.read_only_allow_delete": null&#125;'</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -XPUT -H <span class="string">&quot;Content-Type: application/json&quot;</span> http://node.com:9200/_all/_settings -d <span class="string">&#x27;&#123;&quot;index.blocks.read_only_allow_delete&quot;: null&#125;&#x27;</span></span><br></pre></td></tr></table></figure>
 
 <p>或者</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs ini">PUT /all/_settings<br>&#123;<br>  "index.blocks.read_only_allow_delete"：null<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">PUT /all/_settings</span><br><span class="line">&#123;</span><br><span class="line">  &quot;index.blocks.read_only_allow_delete&quot;：null</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li><a href="https://blog.csdn.net/mouday/article/details/86557744" target="_blank" rel="noopener">ElasticSearch 常见的报错及解决_彭世瑜的博客-CSDN 博客</a></li>
-<li>[解决：ElasticSearch ClusterBlockException<a href="https://www.cnblogs.com/hellxz/p/11532652.html" target="_blank" rel="noopener">blocked by: [FORBIDDEN/12/index read-only / allow delete (api)]; - 东北小狐狸 - 博客园</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/mouday/article/details/86557744">ElasticSearch 常见的报错及解决_彭世瑜的博客-CSDN 博客</a></li>
+<li>[解决：ElasticSearch ClusterBlockException<a target="_blank" rel="noopener" href="https://www.cnblogs.com/hellxz/p/11532652.html">blocked by: [FORBIDDEN/12/index read-only / allow delete (api)]; - 东北小狐狸 - 博客园</a></li>
 </ul>
 
       
@@ -263,46 +269,59 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://lyloou.com/ruby/tool/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lyloou">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/ruby/tool/" class="post-title-link" itemprop="url">【Ruby】 Tool</a>
+          <a href="/ruby/tool/" class="post-title-link" itemprop="url">【Ruby】 Tool</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-07-23 14:30:13" itemprop="dateCreated datePublished" datetime="2019-07-23T14:30:13+08:00">2019-07-23</time>
-            </span>
+      <time title="创建时间：2019-07-23 14:30:13" itemprop="dateCreated datePublished" datetime="2019-07-23T14:30:13+08:00">2019-07-23</time>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -311,20 +330,18 @@
     
     
     <div class="post-body" itemprop="articleBody">
+          <h2 id="HTTP-服务"><a href="#HTTP-服务" class="headerlink" title="HTTP 服务"></a>HTTP 服务</h2><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ruby -run -e httpd . -p <span class="number">5000</span></span><br></pre></td></tr></table></figure>
 
-      
-          <h2 id="HTTP-服务"><a href="#HTTP-服务" class="headerlink" title="HTTP 服务"></a>HTTP 服务</h2><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ruby">ruby -run -e httpd . -p <span class="hljs-number">5000</span><br></code></pre></td></tr></table></figure>
-
-<p>Q: [2019-07-23 17:21:43] ERROR Encoding::CompatibilityError: incompatible character encodings: ASCII-8BIT and UTF-8<br>A: 参考<a href="https://jhuthasach.com/skills/2018/03/21/Jekyll%E4%B8%AD%E6%96%87%E4%B8%8D%E8%83%BD%E6%AD%A3%E5%B8%B8%E7%BC%96%E7%A0%81%E9%A2%84%E8%A7%88/" target="_blank" rel="noopener">Jekyll 本地预览时路径中有中文不能编码无法预览 - Jhutha Sach</a></p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs ruby"><span class="hljs-comment"># vi /usr/lib/ruby/2.3.0/webrick/httpservlet/filehandler.rb</span><br><span class="hljs-number">520</span>           s =  <span class="hljs-string">"&lt;TR&gt;&lt;TD class=\"name\"&gt;&lt;A HREF=\"<span class="hljs-subst">#&#123;HTTPUtils::escape(name)&#125;</span><span class="hljs-subst">#&#123;query <span class="hljs-keyword">if</span> name.end_with?(<span class="hljs-string">'/'</span>)&#125;</span>\"&gt;<span class="hljs-subst">#&#123;HTMLUtils::escape(dname)&#125;</span>&lt;/A&gt;&lt;/TD&gt;"</span><br><span class="hljs-number">521</span>           s &lt;&lt; <span class="hljs-string">"&lt;TD class=\"mtime\"&gt;"</span> &lt;&lt; (time ? time.strftime(<span class="hljs-string">"%Y/%m/%d %H:%M"</span>) : <span class="hljs-string">""</span>) &lt;&lt; <span class="hljs-string">"&lt;/TD&gt;"</span><br><span class="hljs-number">522</span>           s &lt;&lt; <span class="hljs-string">"&lt;TD class=\"size\"&gt;"</span> &lt;&lt; (size &gt;= <span class="hljs-number">0</span> ? size.to_s : <span class="hljs-string">"-"</span>) &lt;&lt; <span class="hljs-string">"&lt;/TD&gt;&lt;/TR&gt;\n"</span><br><span class="hljs-number">523</span>           res.body.force_encoding(<span class="hljs-string">"UTF-8"</span>) <span class="hljs-comment"># ============&gt; add this line</span><br><span class="hljs-number">524</span>           res.body &lt;&lt; s<br><span class="hljs-number">525</span>         &#125;<br><span class="hljs-number">526</span>         res.body &lt;&lt; <span class="hljs-string">"&lt;/TBODY&gt;&lt;/TABLE&gt;"</span><br><span class="hljs-number">527</span>         res.body &lt;&lt; <span class="hljs-string">"&lt;HR&gt;"</span><br></code></pre></td></tr></table></figure>
+<p>Q: [2019-07-23 17:21:43] ERROR Encoding::CompatibilityError: incompatible character encodings: ASCII-8BIT and UTF-8<br>A: 参考<a target="_blank" rel="noopener" href="https://jhuthasach.com/skills/2018/03/21/Jekyll%E4%B8%AD%E6%96%87%E4%B8%8D%E8%83%BD%E6%AD%A3%E5%B8%B8%E7%BC%96%E7%A0%81%E9%A2%84%E8%A7%88/">Jekyll 本地预览时路径中有中文不能编码无法预览 - Jhutha Sach</a></p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># vi /usr/lib/ruby/2.3.0/webrick/httpservlet/filehandler.rb</span></span><br><span class="line"><span class="number">520</span>           s =  <span class="string">&quot;&lt;TR&gt;&lt;TD class=\&quot;name\&quot;&gt;&lt;A HREF=\&quot;<span class="subst">#&#123;<span class="title class_">HTTPUtils</span><span class="symbol">:</span><span class="symbol">:escape</span>(name)&#125;</span><span class="subst">#&#123;query <span class="keyword">if</span> name.end_with?(<span class="string">&#x27;/&#x27;</span>)&#125;</span>\&quot;&gt;<span class="subst">#&#123;<span class="title class_">HTMLUtils</span><span class="symbol">:</span><span class="symbol">:escape</span>(dname)&#125;</span>&lt;/A&gt;&lt;/TD&gt;&quot;</span></span><br><span class="line"><span class="number">521</span>           s &lt;&lt; <span class="string">&quot;&lt;TD class=\&quot;mtime\&quot;&gt;&quot;</span> &lt;&lt; (time ? time.strftime(<span class="string">&quot;%Y/%m/%d %H:%M&quot;</span>) : <span class="string">&quot;&quot;</span>) &lt;&lt; <span class="string">&quot;&lt;/TD&gt;&quot;</span></span><br><span class="line"><span class="number">522</span>           s &lt;&lt; <span class="string">&quot;&lt;TD class=\&quot;size\&quot;&gt;&quot;</span> &lt;&lt; (size &gt;= <span class="number">0</span> ? size.to_s : <span class="string">&quot;-&quot;</span>) &lt;&lt; <span class="string">&quot;&lt;/TD&gt;&lt;/TR&gt;\n&quot;</span></span><br><span class="line"><span class="number">523</span>           res.body.force_encoding(<span class="string">&quot;UTF-8&quot;</span>) <span class="comment"># ============&gt; add this line</span></span><br><span class="line"><span class="number">524</span>           res.body &lt;&lt; s</span><br><span class="line"><span class="number">525</span>         &#125;</span><br><span class="line"><span class="number">526</span>         res.body &lt;&lt; <span class="string">&quot;&lt;/TBODY&gt;&lt;/TABLE&gt;&quot;</span></span><br><span class="line"><span class="number">527</span>         res.body &lt;&lt; <span class="string">&quot;&lt;HR&gt;&quot;</span></span><br></pre></td></tr></table></figure>
 
 <ul>
-<li><a href="http://www.benjaminoakes.com/2013/09/13/ruby-simple-http-server-minimalist-rake/" target="_blank" rel="noopener">Ruby Simple HTTP Server, minimalist Rake | Benjamin Oakes</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.benjaminoakes.com/2013/09/13/ruby-simple-http-server-minimalist-rake/">Ruby Simple HTTP Server, minimalist Rake | Benjamin Oakes</a></li>
 </ul>
 <p><strong>tip: 快速重启脚本</strong></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># vi .bashrc</span><br><span class="hljs-comment"># add below line</span><br><span class="hljs-built_in">alias</span> xapk=<span class="hljs-string">'/usr/local/src/apk-server/restart.sh'</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># vi .bashrc</span></span><br><span class="line"><span class="comment"># add below line</span></span><br><span class="line"><span class="built_in">alias</span> xapk=<span class="string">&#x27;/usr/local/src/apk-server/restart.sh&#x27;</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># restart.sh</span><br><span class="hljs-built_in">echo</span> <span class="hljs-built_in">kill</span> service ...<br>ps -aux | grep ruby | grep 9090 | cut -c 9-15 | xargs <span class="hljs-built_in">kill</span> -15<br><span class="hljs-built_in">echo</span> start service ...<br><span class="hljs-comment"># cd /usr/local/src/apk-server/smbshare &amp;&amp; nohup python -m SimpleHTTPServer 9090 &gt; /dev/null 2&gt;&amp;1 &amp;</span><br><span class="hljs-built_in">cd</span> /usr/<span class="hljs-built_in">local</span>/src/apk-server/smbshare &amp;&amp; nohup ruby -run -e httpd . -p 9090 &gt; /dev/null 2&gt;&amp;1 &amp;<br><span class="hljs-built_in">echo</span> oked<br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># restart.sh</span></span><br><span class="line"><span class="built_in">echo</span> <span class="built_in">kill</span> service ...</span><br><span class="line">ps -aux | grep ruby | grep 9090 | <span class="built_in">cut</span> -c 9-15 | xargs <span class="built_in">kill</span> -15</span><br><span class="line"><span class="built_in">echo</span> start service ...</span><br><span class="line"><span class="comment"># cd /usr/local/src/apk-server/smbshare &amp;&amp; nohup python -m SimpleHTTPServer 9090 &gt; /dev/null 2&gt;&amp;1 &amp;</span></span><br><span class="line"><span class="built_in">cd</span> /usr/local/src/apk-server/smbshare &amp;&amp; <span class="built_in">nohup</span> ruby -run -e httpd . -p 9090 &gt; /dev/null 2&gt;&amp;1 &amp;</span><br><span class="line"><span class="built_in">echo</span> oked</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -332,46 +349,59 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://lyloou.com/business/ID%E8%AE%BE%E8%AE%A1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lyloou">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/business/ID%E8%AE%BE%E8%AE%A1/" class="post-title-link" itemprop="url">【Business】 ID设计</a>
+          <a href="/business/ID%E8%AE%BE%E8%AE%A1/" class="post-title-link" itemprop="url">【Business】 ID设计</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-07-18 17:00:10" itemprop="dateCreated datePublished" datetime="2019-07-18T17:00:10+08:00">2019-07-18</time>
-            </span>
+      <time title="创建时间：2019-07-18 17:00:10" itemprop="dateCreated datePublished" datetime="2019-07-18T17:00:10+08:00">2019-07-18</time>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -380,28 +410,26 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
           <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
-<li><a href="https://www.zhihu.com/question/20180484" target="_blank" rel="noopener">分布式系统里用户 ID 生成有什么好的方法和规则能满足“唯一、尽量短、不能直接看出规则”这几个条件? - 知乎</a></li>
-<li><a href="https://tech.meituan.com/2017/04/21/mt-leaf.html" target="_blank" rel="noopener">Leaf——美团点评分布式 ID 生成系统 - 美团技术团队</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/20180484">分布式系统里用户 ID 生成有什么好的方法和规则能满足“唯一、尽量短、不能直接看出规则”这几个条件? - 知乎</a></li>
+<li><a target="_blank" rel="noopener" href="https://tech.meituan.com/2017/04/21/mt-leaf.html">Leaf——美团点评分布式 ID 生成系统 - 美团技术团队</a></li>
 </ul>
 <h2 id="雪花生成器"><a href="#雪花生成器" class="headerlink" title="雪花生成器"></a>雪花生成器</h2><ul>
-<li><a href="https://www.cnblogs.com/relucent/p/4955340.html" target="_blank" rel="noopener">Twitter 的分布式自增 ID 算法 snowflake (Java 版) - relucent - 博客园</a></li>
-<li><a href="https://blog.csdn.net/weixin_38657051/article/details/94713695?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.nonecase" target="_blank" rel="noopener">Mybatis-Plus 雪花 id 的使用以及解析机器 ID 和数据标识 ID_摩羯座 de 杰杰陆的博客-CSDN 博客</a></li>
-<li><a href="https://github.com/lyloou/spring-boot-web/" target="_blank" rel="noopener">https://github.com/lyloou/spring-boot-web/</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/relucent/p/4955340.html">Twitter 的分布式自增 ID 算法 snowflake (Java 版) - relucent - 博客园</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_38657051/article/details/94713695?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.nonecase&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.nonecase">Mybatis-Plus 雪花 id 的使用以及解析机器 ID 和数据标识 ID_摩羯座 de 杰杰陆的博客-CSDN 博客</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/lyloou/spring-boot-web/">https://github.com/lyloou/spring-boot-web/</a></li>
 </ul>
-<h4 id="根据不同业务配置成多个生成器"><a href="#根据不同业务配置成多个生成器" class="headerlink" title="根据不同业务配置成多个生成器"></a>根据不同业务配置成多个生成器</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.lyloou.demo.config;<br><br><span class="hljs-keyword">import</span> com.lyloou.common.util.SnowflakeIdWorker;<br><span class="hljs-keyword">import</span> org.springframework.beans.factory.annotation.Value;<br><span class="hljs-keyword">import</span> org.springframework.context.annotation.Bean;<br><span class="hljs-keyword">import</span> org.springframework.context.annotation.Configuration;<br><br><span class="hljs-meta">@Configuration</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SnowflakeConfig</span> </span>&#123;<br><br>    <span class="hljs-meta">@Value</span>(<span class="hljs-string">"$&#123;snowflake.workerId&#125;"</span>)<br>    <span class="hljs-keyword">private</span> Long workerId;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">enum</span> Type &#123;<br>        ORDER(<span class="hljs-string">"ORD"</span>, <span class="hljs-number">0</span>),<br>        REFUND(<span class="hljs-string">"REF"</span>, <span class="hljs-number">1</span>),<br>        RETURN(<span class="hljs-string">"RET"</span>, <span class="hljs-number">2</span>);<br><br>        <span class="hljs-keyword">private</span> String prefix;<br>        <span class="hljs-keyword">private</span> <span class="hljs-keyword">long</span> datacenterId;<br><br>        Type(String prefix, <span class="hljs-keyword">long</span> datacenterId) &#123;<br>            <span class="hljs-keyword">this</span>.prefix = prefix;<br>            <span class="hljs-keyword">this</span>.datacenterId = datacenterId;<br>        &#125;<br><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getPrefix</span><span class="hljs-params">()</span> </span>&#123;<br>            <span class="hljs-keyword">return</span> prefix;<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-function">SnowflakeIdWorker <span class="hljs-title">orderWorker</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> SnowflakeIdWorker(workerId, Type.ORDER.datacenterId);<br>    &#125;<br><br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-function">SnowflakeIdWorker <span class="hljs-title">refundWorker</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> SnowflakeIdWorker(workerId, Type.REFUND.datacenterId);<br><br>    &#125;<br><br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-function">SnowflakeIdWorker <span class="hljs-title">returnWorker</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> SnowflakeIdWorker(workerId, Type.RETURN.datacenterId);<br><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h4 id="根据不同业务配置成多个生成器"><a href="#根据不同业务配置成多个生成器" class="headerlink" title="根据不同业务配置成多个生成器"></a>根据不同业务配置成多个生成器</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.lyloou.demo.config;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.lyloou.common.util.SnowflakeIdWorker;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Value;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Bean;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SnowflakeConfig</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Value(&quot;$&#123;snowflake.workerId&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> Long workerId;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">enum</span> <span class="title class_">Type</span> &#123;</span><br><span class="line">        ORDER(<span class="string">&quot;ORD&quot;</span>, <span class="number">0</span>),</span><br><span class="line">        REFUND(<span class="string">&quot;REF&quot;</span>, <span class="number">1</span>),</span><br><span class="line">        RETURN(<span class="string">&quot;RET&quot;</span>, <span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">private</span> String prefix;</span><br><span class="line">        <span class="keyword">private</span> <span class="type">long</span> datacenterId;</span><br><span class="line"></span><br><span class="line">        Type(String prefix, <span class="type">long</span> datacenterId) &#123;</span><br><span class="line">            <span class="built_in">this</span>.prefix = prefix;</span><br><span class="line">            <span class="built_in">this</span>.datacenterId = datacenterId;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> String <span class="title function_">getPrefix</span><span class="params">()</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> prefix;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    SnowflakeIdWorker <span class="title function_">orderWorker</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">SnowflakeIdWorker</span>(workerId, Type.ORDER.datacenterId);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    SnowflakeIdWorker <span class="title function_">refundWorker</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">SnowflakeIdWorker</span>(workerId, Type.REFUND.datacenterId);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    SnowflakeIdWorker <span class="title function_">returnWorker</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">SnowflakeIdWorker</span>(workerId, Type.RETURN.datacenterId);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <h4 id="生成器的生成逻辑"><a href="#生成器的生成逻辑" class="headerlink" title="生成器的生成逻辑"></a>生成器的生成逻辑</h4><p>依据类型来生成（如，订单流水 ID、退款流水 ID、退货流水 ID）<br>这里，将 dataCenterId 当做类型来使用（还可以再拆分下，适用不同场景）；</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.lyloou.demo.util;<br><br><span class="hljs-keyword">import</span> com.lyloou.common.exception.CommonException;<br><span class="hljs-keyword">import</span> com.lyloou.common.util.SnowflakeIdWorker;<br><span class="hljs-keyword">import</span> com.lyloou.demo.config.SnowflakeConfig;<br><span class="hljs-keyword">import</span> org.springframework.beans.factory.annotation.Autowired;<br><span class="hljs-keyword">import</span> org.springframework.stereotype.Component;<br><br><span class="hljs-meta">@Component</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SnowflakeIdGenerator</span> </span>&#123;<br>    <span class="hljs-meta">@Autowired</span><br>    SnowflakeIdWorker orderWorker;<br>    <span class="hljs-meta">@Autowired</span><br>    SnowflakeIdWorker refundWorker;<br>    <span class="hljs-meta">@Autowired</span><br>    SnowflakeIdWorker returnWorker;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">genId</span><span class="hljs-params">(SnowflakeConfig.Type type)</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> type.getPrefix() + getId(type);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">long</span> <span class="hljs-title">getId</span><span class="hljs-params">(SnowflakeConfig.Type type)</span> </span>&#123;<br>        <span class="hljs-keyword">switch</span> (type) &#123;<br>            <span class="hljs-keyword">case</span> ORDER:<br>                <span class="hljs-keyword">return</span> orderWorker.nextId();<br>            <span class="hljs-keyword">case</span> REFUND:<br>                <span class="hljs-keyword">return</span> refundWorker.nextId();<br>            <span class="hljs-keyword">case</span> RETURN:<br>                <span class="hljs-keyword">return</span> returnWorker.nextId();<br>            <span class="hljs-keyword">default</span>:<br>                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> CommonException(<span class="hljs-string">"无效的类型"</span>);<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.lyloou.demo.util;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.lyloou.common.exception.CommonException;</span><br><span class="line"><span class="keyword">import</span> com.lyloou.common.util.SnowflakeIdWorker;</span><br><span class="line"><span class="keyword">import</span> com.lyloou.demo.config.SnowflakeConfig;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Component;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SnowflakeIdGenerator</span> &#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    SnowflakeIdWorker orderWorker;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    SnowflakeIdWorker refundWorker;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    SnowflakeIdWorker returnWorker;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">genId</span><span class="params">(SnowflakeConfig.Type type)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> type.getPrefix() + getId(type);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="type">long</span> <span class="title function_">getId</span><span class="params">(SnowflakeConfig.Type type)</span> &#123;</span><br><span class="line">        <span class="keyword">switch</span> (type) &#123;</span><br><span class="line">            <span class="keyword">case</span> ORDER:</span><br><span class="line">                <span class="keyword">return</span> orderWorker.nextId();</span><br><span class="line">            <span class="keyword">case</span> REFUND:</span><br><span class="line">                <span class="keyword">return</span> refundWorker.nextId();</span><br><span class="line">            <span class="keyword">case</span> RETURN:</span><br><span class="line">                <span class="keyword">return</span> returnWorker.nextId();</span><br><span class="line">            <span class="keyword">default</span>:</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">CommonException</span>(<span class="string">&quot;无效的类型&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h4 id="配置-workerId"><a href="#配置-workerId" class="headerlink" title="配置 workerId"></a>配置 workerId</h4><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-comment"># application.yml</span><br><span class="hljs-attr">snowflake:</span><br>  <span class="hljs-attr">workerId:</span> <span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
+<h4 id="配置-workerId"><a href="#配置-workerId" class="headerlink" title="配置 workerId"></a>配置 workerId</h4><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># application.yml</span></span><br><span class="line"><span class="attr">snowflake:</span></span><br><span class="line">  <span class="attr">workerId:</span> <span class="number">1</span></span><br></pre></td></tr></table></figure>
 
 <p>或者配置成启动参数： -Dsnowflake.workerId=3</p>
-<h4 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 测试</span><br><span class="hljs-keyword">package</span> com.lyloou.demo;<br><br><span class="hljs-keyword">import</span> cn.hutool.core.util.RandomUtil;<br><span class="hljs-keyword">import</span> com.lyloou.demo.config.SnowflakeConfig;<br><span class="hljs-keyword">import</span> com.lyloou.demo.util.SnowflakeIdGenerator;<br><span class="hljs-keyword">import</span> org.junit.Test;<br><span class="hljs-keyword">import</span> org.junit.runner.RunWith;<br><span class="hljs-keyword">import</span> org.springframework.beans.factory.annotation.Autowired;<br><span class="hljs-keyword">import</span> org.springframework.boot.test.context.SpringBootTest;<br><span class="hljs-keyword">import</span> org.springframework.test.context.junit4.SpringRunner;<br><br><span class="hljs-meta">@RunWith</span>(SpringRunner<span class="hljs-class">.<span class="hljs-keyword">class</span>)</span><br><span class="hljs-class">@<span class="hljs-title">SpringBootTest</span></span><br><span class="hljs-class"><span class="hljs-title">public</span> <span class="hljs-title">class</span> <span class="hljs-title">ConfigTest</span> </span>&#123;<br><br>    <span class="hljs-meta">@Autowired</span><br>    SnowflakeIdGenerator generator;<br><br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">testSnowflake</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">1000</span>; i++) &#123;<br>            System.out.println(generator.genId(SnowflakeConfig.Type.values()[RandomUtil.randomInt(<span class="hljs-number">0</span>, <span class="hljs-number">3</span>)]));<br>        &#125;<br>    &#125;<br>&#125;<br><span class="hljs-comment">/**</span><br><span class="hljs-comment">REF722513947651084288</span><br><span class="hljs-comment">ORD722513947650953217</span><br><span class="hljs-comment">ORD722513947650953218</span><br><span class="hljs-comment">RET722513947651215361</span><br><span class="hljs-comment">REF722513947651084289</span><br><span class="hljs-comment">ORD722513947650953219</span><br><span class="hljs-comment">REF722513947651084290</span><br><span class="hljs-comment">RET722513947651215362</span><br><span class="hljs-comment">ORD722513947650953220</span><br><span class="hljs-comment">REF722513947651084291</span><br><span class="hljs-comment">ORD722513947650953221</span><br><span class="hljs-comment">RET722513947651215363</span><br><span class="hljs-comment">REF722513947651084292</span><br><span class="hljs-comment">*/</span><br></code></pre></td></tr></table></figure>
+<h4 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 测试</span></span><br><span class="line"><span class="keyword">package</span> com.lyloou.demo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cn.hutool.core.util.RandomUtil;</span><br><span class="line"><span class="keyword">import</span> com.lyloou.demo.config.SnowflakeConfig;</span><br><span class="line"><span class="keyword">import</span> com.lyloou.demo.util.SnowflakeIdGenerator;</span><br><span class="line"><span class="keyword">import</span> org.junit.Test;</span><br><span class="line"><span class="keyword">import</span> org.junit.runner.RunWith;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.test.context.SpringBootTest;</span><br><span class="line"><span class="keyword">import</span> org.springframework.test.context.junit4.SpringRunner;</span><br><span class="line"></span><br><span class="line"><span class="meta">@RunWith(SpringRunner.class)</span></span><br><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ConfigTest</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    SnowflakeIdGenerator generator;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testSnowflake</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">1000</span>; i++) &#123;</span><br><span class="line">            System.out.println(generator.genId(SnowflakeConfig.Type.values()[RandomUtil.randomInt(<span class="number">0</span>, <span class="number">3</span>)]));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">REF722513947651084288</span></span><br><span class="line"><span class="comment">ORD722513947650953217</span></span><br><span class="line"><span class="comment">ORD722513947650953218</span></span><br><span class="line"><span class="comment">RET722513947651215361</span></span><br><span class="line"><span class="comment">REF722513947651084289</span></span><br><span class="line"><span class="comment">ORD722513947650953219</span></span><br><span class="line"><span class="comment">REF722513947651084290</span></span><br><span class="line"><span class="comment">RET722513947651215362</span></span><br><span class="line"><span class="comment">ORD722513947650953220</span></span><br><span class="line"><span class="comment">REF722513947651084291</span></span><br><span class="line"><span class="comment">ORD722513947650953221</span></span><br><span class="line"><span class="comment">RET722513947651215363</span></span><br><span class="line"><span class="comment">REF722513947651084292</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="雪花算法实现"><a href="#雪花算法实现" class="headerlink" title="雪花算法实现"></a>雪花算法实现</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.lyloou.common.util;<br><br><span class="hljs-keyword">import</span> cn.hutool.json.JSONObject;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * Twitter_Snowflake&lt;br&gt;</span><br><span class="hljs-comment"> * SnowFlake的结构如下(每部分用-分开):&lt;br&gt;</span><br><span class="hljs-comment"> * 0 - 0000000000 0000000000 0000000000 0000000000 0 - 00000 - 00000 - 000000000000 &lt;br&gt;</span><br><span class="hljs-comment"> * 1位标识，由于long基本类型在Java中是带符号的，最高位是符号位，正数是0，负数是1，所以id一般是正数，最高位是0&lt;br&gt;</span><br><span class="hljs-comment"> * 41位时间截(毫秒级)，注意，41位时间截不是存储当前时间的时间截，而是存储时间截的差值（当前时间截 - 开始时间截)</span><br><span class="hljs-comment"> * 得到的值），这里的的开始时间截，一般是我们的id生成器开始使用的时间，由我们程序来指定的（如下下面程序IdWorker类的startTime属性）。41位的时间截，可以使用69年，年T = (1L &lt;&lt; 41) / (1000L * 60 * 60 * 24 * 365) = 69&lt;br&gt;</span><br><span class="hljs-comment"> * 10位的数据机器位，可以部署在1024个节点，包括5位datacenterId和5位workerId&lt;br&gt;</span><br><span class="hljs-comment"> * 12位序列，毫秒内的计数，12位的计数顺序号支持每个节点每毫秒(同一机器，同一时间截)产生4096个ID序号&lt;br&gt;</span><br><span class="hljs-comment"> * 加起来刚好64位，为一个Long型。&lt;br&gt;</span><br><span class="hljs-comment"> * SnowFlake的优点是，整体上按照时间自增排序，并且整个分布式系统内不会产生ID碰撞(由数据中心ID和机器ID作区分)，并且效率较高，经测试，SnowFlake每秒能够产生26万ID左右。</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SnowflakeIdWorker</span> </span>&#123;<br><br>    <span class="hljs-comment">// ==============================Fields===========================================</span><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 开始时间截 (2015-01-01)</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">long</span> twepoch = <span class="hljs-number">1420041600000L</span>;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 机器id所占的位数</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">long</span> workerIdBits = <span class="hljs-number">5L</span>;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 数据标识id所占的位数</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">long</span> datacenterIdBits = <span class="hljs-number">5L</span>;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 支持的最大机器id，结果是31 (这个移位算法可以很快的计算出几位二进制数所能表示的最大十进制数)</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">long</span> maxWorkerId = -<span class="hljs-number">1L</span> ^ (-<span class="hljs-number">1L</span> &lt;&lt; workerIdBits);<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 支持的最大数据标识id，结果是31</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">long</span> maxDatacenterId = -<span class="hljs-number">1L</span> ^ (-<span class="hljs-number">1L</span> &lt;&lt; datacenterIdBits);<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 序列在id中占的位数</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">long</span> sequenceBits = <span class="hljs-number">12L</span>;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 机器ID向左移12位</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">long</span> workerIdShift = sequenceBits;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 数据标识id向左移17位(12+5)</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">long</span> datacenterIdShift = sequenceBits + workerIdBits;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 时间截向左移22位(5+5+12)</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">long</span> timestampLeftShift = sequenceBits + workerIdBits + datacenterIdBits;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 生成序列的掩码，这里为4095 (0b111111111111=0xfff=4095)</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">long</span> sequenceMask = -<span class="hljs-number">1L</span> ^ (-<span class="hljs-number">1L</span> &lt;&lt; sequenceBits);<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 工作机器ID(0~31)</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">long</span> workerId;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 数据中心ID(0~31)</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">long</span> datacenterId;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 毫秒内序列(0~4095)</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">long</span> sequence = <span class="hljs-number">0L</span>;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 上次生成ID的时间截</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">long</span> lastTimestamp = -<span class="hljs-number">1L</span>;<br><br>    <span class="hljs-comment">//==============================Constructors=====================================</span><br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 构造函数</span><br><span class="hljs-comment">     *</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> workerId     工作ID (0~31)</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> datacenterId 数据中心ID (0~31)</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">SnowflakeIdWorker</span><span class="hljs-params">(<span class="hljs-keyword">long</span> workerId, <span class="hljs-keyword">long</span> datacenterId)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (workerId &gt; maxWorkerId || workerId &lt; <span class="hljs-number">0</span>) &#123;<br>            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> IllegalArgumentException(String.format(<span class="hljs-string">"worker Id can't be greater than %d or less than 0"</span>, maxWorkerId));<br>        &#125;<br>        <span class="hljs-keyword">if</span> (datacenterId &gt; maxDatacenterId || datacenterId &lt; <span class="hljs-number">0</span>) &#123;<br>            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> IllegalArgumentException(String.format(<span class="hljs-string">"datacenter Id can't be greater than %d or less than 0"</span>, maxDatacenterId));<br>        &#125;<br>        <span class="hljs-keyword">this</span>.workerId = workerId;<br>        <span class="hljs-keyword">this</span>.datacenterId = datacenterId;<br>    &#125;<br><br>    <span class="hljs-comment">// ==============================Methods==========================================</span><br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 获得下一个ID (该方法是线程安全的)</span><br><span class="hljs-comment">     *</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@return</span> SnowflakeId</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">synchronized</span> <span class="hljs-keyword">long</span> <span class="hljs-title">nextId</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">long</span> timestamp = timeGen();<br><br>        <span class="hljs-comment">//如果当前时间小于上一次ID生成的时间戳，说明系统时钟回退过这个时候应当抛出异常</span><br>        <span class="hljs-keyword">if</span> (timestamp &lt; lastTimestamp) &#123;<br>            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> RuntimeException(<br>                    String.format(<span class="hljs-string">"Clock moved backwards.  Refusing to generate id for %d milliseconds"</span>, lastTimestamp - timestamp));<br>        &#125;<br><br>        <span class="hljs-comment">//如果是同一时间生成的，则进行毫秒内序列</span><br>        <span class="hljs-keyword">if</span> (lastTimestamp == timestamp) &#123;<br>            sequence = (sequence + <span class="hljs-number">1</span>) &amp; sequenceMask;<br>            <span class="hljs-comment">//毫秒内序列溢出</span><br>            <span class="hljs-keyword">if</span> (sequence == <span class="hljs-number">0</span>) &#123;<br>                <span class="hljs-comment">//阻塞到下一个毫秒,获得新的时间戳</span><br>                timestamp = tilNextMillis(lastTimestamp);<br>            &#125;<br>        &#125;<br>        <span class="hljs-comment">//时间戳改变，毫秒内序列重置</span><br>        <span class="hljs-keyword">else</span> &#123;<br>            sequence = <span class="hljs-number">0L</span>;<br>        &#125;<br><br>        <span class="hljs-comment">//上次生成ID的时间截</span><br>        lastTimestamp = timestamp;<br><br>        <span class="hljs-comment">//移位并通过或运算拼到一起组成64位的ID</span><br>        <span class="hljs-keyword">return</span> ((timestamp - twepoch) &lt;&lt; timestampLeftShift) <span class="hljs-comment">//</span><br>                | (datacenterId &lt;&lt; datacenterIdShift) <span class="hljs-comment">//</span><br>                | (workerId &lt;&lt; workerIdShift) <span class="hljs-comment">//</span><br>                | sequence;<br>    &#125;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 阻塞到下一个毫秒，直到获得新的时间戳</span><br><span class="hljs-comment">     *</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> lastTimestamp 上次生成ID的时间截</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@return</span> 当前时间戳</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">long</span> <span class="hljs-title">tilNextMillis</span><span class="hljs-params">(<span class="hljs-keyword">long</span> lastTimestamp)</span> </span>&#123;<br>        <span class="hljs-keyword">long</span> timestamp = timeGen();<br>        <span class="hljs-keyword">while</span> (timestamp &lt;= lastTimestamp) &#123;<br>            timestamp = timeGen();<br>        &#125;<br>        <span class="hljs-keyword">return</span> timestamp;<br>    &#125;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 返回以毫秒为单位的当前时间</span><br><span class="hljs-comment">     *</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@return</span> 当前时间(毫秒)</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">long</span> <span class="hljs-title">timeGen</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> System.currentTimeMillis();<br>    &#125;<br><br>    <span class="hljs-comment">// 原文链接：https://blog.csdn.net/jiangzeyin_/article/details/80784979</span><br>    <span class="hljs-comment">// SELECT (1146667501642584065&gt;&gt;12)&amp;0x1f as workerId,(1146667501642584065&gt;&gt;17)&amp;0x1f as datacenterId;</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> JSONObject <span class="hljs-title">parseInfo</span><span class="hljs-params">(String id)</span> </span>&#123;<br>        id = Long.toBinaryString(Long.parseLong(id));<br>        <span class="hljs-keyword">int</span> len = id.length();<br>        JSONObject jsonObject = <span class="hljs-keyword">new</span> JSONObject();<br>        <span class="hljs-keyword">int</span> sequenceStart = len &lt; workerIdShift ? <span class="hljs-number">0</span> : (<span class="hljs-keyword">int</span>) (len - workerIdShift);<br>        <span class="hljs-keyword">int</span> workerStart = len &lt; datacenterIdShift ? <span class="hljs-number">0</span> : (<span class="hljs-keyword">int</span>) (len - datacenterIdShift);<br>        <span class="hljs-keyword">int</span> timeStart = len &lt; timestampLeftShift ? <span class="hljs-number">0</span> : (<span class="hljs-keyword">int</span>) (len - timestampLeftShift);<br>        String sequence = id.substring(sequenceStart, len);<br>        String workerId = sequenceStart == <span class="hljs-number">0</span> ? <span class="hljs-string">"0"</span> : id.substring(workerStart, sequenceStart);<br>        String dataCenterId = workerStart == <span class="hljs-number">0</span> ? <span class="hljs-string">"0"</span> : id.substring(timeStart, workerStart);<br>        String time = timeStart == <span class="hljs-number">0</span> ? <span class="hljs-string">"0"</span> : id.substring(<span class="hljs-number">0</span>, timeStart);<br>        <span class="hljs-keyword">int</span> sequenceInt = Integer.valueOf(sequence, <span class="hljs-number">2</span>);<br>        jsonObject.put(<span class="hljs-string">"sequence"</span>, sequenceInt);<br>        <span class="hljs-keyword">int</span> workerIdInt = Integer.valueOf(workerId, <span class="hljs-number">2</span>);<br>        jsonObject.put(<span class="hljs-string">"workerId"</span>, workerIdInt);<br>        <span class="hljs-keyword">int</span> dataCenterIdInt = Integer.valueOf(dataCenterId, <span class="hljs-number">2</span>);<br>        jsonObject.put(<span class="hljs-string">"dataCenter"</span>, dataCenterIdInt);<br>        <span class="hljs-keyword">long</span> diffTime = Long.parseLong(time, <span class="hljs-number">2</span>);<br>        <span class="hljs-keyword">long</span> timeLong = diffTime + timeStart;<br><br>        jsonObject.put(<span class="hljs-string">"date"</span>, timeLong);<br>        <span class="hljs-keyword">return</span> jsonObject;<br>    &#125;<br><br><br>    <span class="hljs-comment">//==============================Test=============================================</span><br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 测试</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        SnowflakeIdWorker idWorker = <span class="hljs-keyword">new</span> SnowflakeIdWorker(<span class="hljs-number">10</span>, <span class="hljs-number">20</span>);<br>        <span class="hljs-keyword">long</span> start = System.currentTimeMillis();<br>        <span class="hljs-keyword">int</span> count = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (; System.currentTimeMillis() - start &lt; <span class="hljs-number">1000</span>; ) &#123;<br>            idWorker.nextId();<br>            count++;<br>        &#125;<br>        System.out.println(count);<br>        <span class="hljs-keyword">long</span> nextId = idWorker.nextId();<br>        System.out.println(nextId);<br>        System.out.println(idWorker.parseInfo(nextId + <span class="hljs-string">""</span>));<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h4 id="雪花算法实现"><a href="#雪花算法实现" class="headerlink" title="雪花算法实现"></a>雪花算法实现</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.lyloou.common.util;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cn.hutool.json.JSONObject;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Twitter_Snowflake&lt;br&gt;</span></span><br><span class="line"><span class="comment"> * SnowFlake的结构如下(每部分用-分开):&lt;br&gt;</span></span><br><span class="line"><span class="comment"> * 0 - 0000000000 0000000000 0000000000 0000000000 0 - 00000 - 00000 - 000000000000 &lt;br&gt;</span></span><br><span class="line"><span class="comment"> * 1位标识，由于long基本类型在Java中是带符号的，最高位是符号位，正数是0，负数是1，所以id一般是正数，最高位是0&lt;br&gt;</span></span><br><span class="line"><span class="comment"> * 41位时间截(毫秒级)，注意，41位时间截不是存储当前时间的时间截，而是存储时间截的差值（当前时间截 - 开始时间截)</span></span><br><span class="line"><span class="comment"> * 得到的值），这里的的开始时间截，一般是我们的id生成器开始使用的时间，由我们程序来指定的（如下下面程序IdWorker类的startTime属性）。41位的时间截，可以使用69年，年T = (1L &lt;&lt; 41) / (1000L * 60 * 60 * 24 * 365) = 69&lt;br&gt;</span></span><br><span class="line"><span class="comment"> * 10位的数据机器位，可以部署在1024个节点，包括5位datacenterId和5位workerId&lt;br&gt;</span></span><br><span class="line"><span class="comment"> * 12位序列，毫秒内的计数，12位的计数顺序号支持每个节点每毫秒(同一机器，同一时间截)产生4096个ID序号&lt;br&gt;</span></span><br><span class="line"><span class="comment"> * 加起来刚好64位，为一个Long型。&lt;br&gt;</span></span><br><span class="line"><span class="comment"> * SnowFlake的优点是，整体上按照时间自增排序，并且整个分布式系统内不会产生ID碰撞(由数据中心ID和机器ID作区分)，并且效率较高，经测试，SnowFlake每秒能够产生26万ID左右。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SnowflakeIdWorker</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// ==============================Fields===========================================</span></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 开始时间截 (2015-01-01)</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="type">long</span> <span class="variable">twepoch</span> <span class="operator">=</span> <span class="number">1420041600000L</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 机器id所占的位数</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="type">long</span> <span class="variable">workerIdBits</span> <span class="operator">=</span> <span class="number">5L</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 数据标识id所占的位数</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="type">long</span> <span class="variable">datacenterIdBits</span> <span class="operator">=</span> <span class="number">5L</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 支持的最大机器id，结果是31 (这个移位算法可以很快的计算出几位二进制数所能表示的最大十进制数)</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="type">long</span> <span class="variable">maxWorkerId</span> <span class="operator">=</span> -<span class="number">1L</span> ^ (-<span class="number">1L</span> &lt;&lt; workerIdBits);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 支持的最大数据标识id，结果是31</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="type">long</span> <span class="variable">maxDatacenterId</span> <span class="operator">=</span> -<span class="number">1L</span> ^ (-<span class="number">1L</span> &lt;&lt; datacenterIdBits);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 序列在id中占的位数</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="type">long</span> <span class="variable">sequenceBits</span> <span class="operator">=</span> <span class="number">12L</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 机器ID向左移12位</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="type">long</span> <span class="variable">workerIdShift</span> <span class="operator">=</span> sequenceBits;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 数据标识id向左移17位(12+5)</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="type">long</span> <span class="variable">datacenterIdShift</span> <span class="operator">=</span> sequenceBits + workerIdBits;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 时间截向左移22位(5+5+12)</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="type">long</span> <span class="variable">timestampLeftShift</span> <span class="operator">=</span> sequenceBits + workerIdBits + datacenterIdBits;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 生成序列的掩码，这里为4095 (0b111111111111=0xfff=4095)</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="type">long</span> <span class="variable">sequenceMask</span> <span class="operator">=</span> -<span class="number">1L</span> ^ (-<span class="number">1L</span> &lt;&lt; sequenceBits);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 工作机器ID(0~31)</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">long</span> workerId;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 数据中心ID(0~31)</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">long</span> datacenterId;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 毫秒内序列(0~4095)</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">long</span> <span class="variable">sequence</span> <span class="operator">=</span> <span class="number">0L</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 上次生成ID的时间截</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">long</span> <span class="variable">lastTimestamp</span> <span class="operator">=</span> -<span class="number">1L</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//==============================Constructors=====================================</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 构造函数</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> workerId     工作ID (0~31)</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> datacenterId 数据中心ID (0~31)</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">SnowflakeIdWorker</span><span class="params">(<span class="type">long</span> workerId, <span class="type">long</span> datacenterId)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (workerId &gt; maxWorkerId || workerId &lt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">IllegalArgumentException</span>(String.format(<span class="string">&quot;worker Id can&#x27;t be greater than %d or less than 0&quot;</span>, maxWorkerId));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (datacenterId &gt; maxDatacenterId || datacenterId &lt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">IllegalArgumentException</span>(String.format(<span class="string">&quot;datacenter Id can&#x27;t be greater than %d or less than 0&quot;</span>, maxDatacenterId));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">this</span>.workerId = workerId;</span><br><span class="line">        <span class="built_in">this</span>.datacenterId = datacenterId;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// ==============================Methods==========================================</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 获得下一个ID (该方法是线程安全的)</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> SnowflakeId</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="type">long</span> <span class="title function_">nextId</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="type">long</span> <span class="variable">timestamp</span> <span class="operator">=</span> timeGen();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//如果当前时间小于上一次ID生成的时间戳，说明系统时钟回退过这个时候应当抛出异常</span></span><br><span class="line">        <span class="keyword">if</span> (timestamp &lt; lastTimestamp) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(</span><br><span class="line">                    String.format(<span class="string">&quot;Clock moved backwards.  Refusing to generate id for %d milliseconds&quot;</span>, lastTimestamp - timestamp));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//如果是同一时间生成的，则进行毫秒内序列</span></span><br><span class="line">        <span class="keyword">if</span> (lastTimestamp == timestamp) &#123;</span><br><span class="line">            sequence = (sequence + <span class="number">1</span>) &amp; sequenceMask;</span><br><span class="line">            <span class="comment">//毫秒内序列溢出</span></span><br><span class="line">            <span class="keyword">if</span> (sequence == <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="comment">//阻塞到下一个毫秒,获得新的时间戳</span></span><br><span class="line">                timestamp = tilNextMillis(lastTimestamp);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//时间戳改变，毫秒内序列重置</span></span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            sequence = <span class="number">0L</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//上次生成ID的时间截</span></span><br><span class="line">        lastTimestamp = timestamp;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//移位并通过或运算拼到一起组成64位的ID</span></span><br><span class="line">        <span class="keyword">return</span> ((timestamp - twepoch) &lt;&lt; timestampLeftShift) <span class="comment">//</span></span><br><span class="line">                | (datacenterId &lt;&lt; datacenterIdShift) <span class="comment">//</span></span><br><span class="line">                | (workerId &lt;&lt; workerIdShift) <span class="comment">//</span></span><br><span class="line">                | sequence;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 阻塞到下一个毫秒，直到获得新的时间戳</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> lastTimestamp 上次生成ID的时间截</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 当前时间戳</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="type">long</span> <span class="title function_">tilNextMillis</span><span class="params">(<span class="type">long</span> lastTimestamp)</span> &#123;</span><br><span class="line">        <span class="type">long</span> <span class="variable">timestamp</span> <span class="operator">=</span> timeGen();</span><br><span class="line">        <span class="keyword">while</span> (timestamp &lt;= lastTimestamp) &#123;</span><br><span class="line">            timestamp = timeGen();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> timestamp;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 返回以毫秒为单位的当前时间</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 当前时间(毫秒)</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="type">long</span> <span class="title function_">timeGen</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> System.currentTimeMillis();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 原文链接：https://blog.csdn.net/jiangzeyin_/article/details/80784979</span></span><br><span class="line">    <span class="comment">// SELECT (1146667501642584065&gt;&gt;12)&amp;0x1f as workerId,(1146667501642584065&gt;&gt;17)&amp;0x1f as datacenterId;</span></span><br><span class="line">    <span class="keyword">public</span> JSONObject <span class="title function_">parseInfo</span><span class="params">(String id)</span> &#123;</span><br><span class="line">        id = Long.toBinaryString(Long.parseLong(id));</span><br><span class="line">        <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> id.length();</span><br><span class="line">        <span class="type">JSONObject</span> <span class="variable">jsonObject</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JSONObject</span>();</span><br><span class="line">        <span class="type">int</span> <span class="variable">sequenceStart</span> <span class="operator">=</span> len &lt; workerIdShift ? <span class="number">0</span> : (<span class="type">int</span>) (len - workerIdShift);</span><br><span class="line">        <span class="type">int</span> <span class="variable">workerStart</span> <span class="operator">=</span> len &lt; datacenterIdShift ? <span class="number">0</span> : (<span class="type">int</span>) (len - datacenterIdShift);</span><br><span class="line">        <span class="type">int</span> <span class="variable">timeStart</span> <span class="operator">=</span> len &lt; timestampLeftShift ? <span class="number">0</span> : (<span class="type">int</span>) (len - timestampLeftShift);</span><br><span class="line">        <span class="type">String</span> <span class="variable">sequence</span> <span class="operator">=</span> id.substring(sequenceStart, len);</span><br><span class="line">        <span class="type">String</span> <span class="variable">workerId</span> <span class="operator">=</span> sequenceStart == <span class="number">0</span> ? <span class="string">&quot;0&quot;</span> : id.substring(workerStart, sequenceStart);</span><br><span class="line">        <span class="type">String</span> <span class="variable">dataCenterId</span> <span class="operator">=</span> workerStart == <span class="number">0</span> ? <span class="string">&quot;0&quot;</span> : id.substring(timeStart, workerStart);</span><br><span class="line">        <span class="type">String</span> <span class="variable">time</span> <span class="operator">=</span> timeStart == <span class="number">0</span> ? <span class="string">&quot;0&quot;</span> : id.substring(<span class="number">0</span>, timeStart);</span><br><span class="line">        <span class="type">int</span> <span class="variable">sequenceInt</span> <span class="operator">=</span> Integer.valueOf(sequence, <span class="number">2</span>);</span><br><span class="line">        jsonObject.put(<span class="string">&quot;sequence&quot;</span>, sequenceInt);</span><br><span class="line">        <span class="type">int</span> <span class="variable">workerIdInt</span> <span class="operator">=</span> Integer.valueOf(workerId, <span class="number">2</span>);</span><br><span class="line">        jsonObject.put(<span class="string">&quot;workerId&quot;</span>, workerIdInt);</span><br><span class="line">        <span class="type">int</span> <span class="variable">dataCenterIdInt</span> <span class="operator">=</span> Integer.valueOf(dataCenterId, <span class="number">2</span>);</span><br><span class="line">        jsonObject.put(<span class="string">&quot;dataCenter&quot;</span>, dataCenterIdInt);</span><br><span class="line">        <span class="type">long</span> <span class="variable">diffTime</span> <span class="operator">=</span> Long.parseLong(time, <span class="number">2</span>);</span><br><span class="line">        <span class="type">long</span> <span class="variable">timeLong</span> <span class="operator">=</span> diffTime + timeStart;</span><br><span class="line"></span><br><span class="line">        jsonObject.put(<span class="string">&quot;date&quot;</span>, timeLong);</span><br><span class="line">        <span class="keyword">return</span> jsonObject;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">//==============================Test=============================================</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 测试</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">SnowflakeIdWorker</span> <span class="variable">idWorker</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">SnowflakeIdWorker</span>(<span class="number">10</span>, <span class="number">20</span>);</span><br><span class="line">        <span class="type">long</span> <span class="variable">start</span> <span class="operator">=</span> System.currentTimeMillis();</span><br><span class="line">        <span class="type">int</span> <span class="variable">count</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (; System.currentTimeMillis() - start &lt; <span class="number">1000</span>; ) &#123;</span><br><span class="line">            idWorker.nextId();</span><br><span class="line">            count++;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(count);</span><br><span class="line">        <span class="type">long</span> <span class="variable">nextId</span> <span class="operator">=</span> idWorker.nextId();</span><br><span class="line">        System.out.println(nextId);</span><br><span class="line">        System.out.println(idWorker.parseInfo(nextId + <span class="string">&quot;&quot;</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -409,46 +437,59 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://lyloou.com/sql/mysql%E5%AD%97%E6%AE%B5%E7%B1%BB%E5%9E%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lyloou">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/sql/mysql%E5%AD%97%E6%AE%B5%E7%B1%BB%E5%9E%8B/" class="post-title-link" itemprop="url">【Mysql】字段类型</a>
+          <a href="/sql/mysql%E5%AD%97%E6%AE%B5%E7%B1%BB%E5%9E%8B/" class="post-title-link" itemprop="url">【Mysql】字段类型</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-07-18 15:31:11" itemprop="dateCreated datePublished" datetime="2019-07-18T15:31:11+08:00">2019-07-18</time>
-            </span>
+      <time title="创建时间：2019-07-18 15:31:11" itemprop="dateCreated datePublished" datetime="2019-07-18T15:31:11+08:00">2019-07-18</time>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -457,8 +498,6 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
           <h2 id="常用"><a href="#常用" class="headerlink" title="常用"></a>常用</h2><table>
 <thead>
 <tr>
@@ -499,8 +538,8 @@
 <td align="right">-</td>
 </tr>
 </tbody></table>
-<p>mysql 官方说明文档: <a href="https://dev.mysql.com/doc/refman/5.6/en/data-type-overview.html" target="_blank" rel="noopener">MySQL :: MySQL 5.6 Reference Manual :: 11.1 Data Type Overview</a></p>
-<h2 id="mysql-字段类型范围说明-int、bigint、smallint、tinyint-char、varchar、nvarchar-幻星宇-博客园"><a href="#mysql-字段类型范围说明-int、bigint、smallint、tinyint-char、varchar、nvarchar-幻星宇-博客园" class="headerlink" title="mysql 字段类型范围说明:int、bigint、smallint、tinyint,char、varchar、nvarchar - 幻星宇 - 博客园"></a><a href="https://www.cnblogs.com/xingmeng/archive/2012/10/24/2737455.html" target="_blank" rel="noopener">mysql 字段类型范围说明:int、bigint、smallint、tinyint,char、varchar、nvarchar - 幻星宇 - 博客园</a></h2><p>MySQL 的列类型主要有三种：数字、字串和日期。</p>
+<p>mysql 官方说明文档: <a target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/5.6/en/data-type-overview.html">MySQL :: MySQL 5.6 Reference Manual :: 11.1 Data Type Overview</a></p>
+<h2 id="mysql-字段类型范围说明-int、bigint、smallint、tinyint-char、varchar、nvarchar-幻星宇-博客园"><a href="#mysql-字段类型范围说明-int、bigint、smallint、tinyint-char、varchar、nvarchar-幻星宇-博客园" class="headerlink" title="mysql 字段类型范围说明:int、bigint、smallint、tinyint,char、varchar、nvarchar - 幻星宇 - 博客园"></a><a target="_blank" rel="noopener" href="https://www.cnblogs.com/xingmeng/archive/2012/10/24/2737455.html">mysql 字段类型范围说明:int、bigint、smallint、tinyint,char、varchar、nvarchar - 幻星宇 - 博客园</a></h2><p>MySQL 的列类型主要有三种：数字、字串和日期。</p>
 <p>下面来详细的说明,不一定准确不一定完整,请多包含或者提出您的建议,我很乐意倾听,呵呵.</p>
 <p>数字列类型 int、bigint、smallint、tinyint<br>　　数字列类型用于储存各种数字数据，如价格、年龄或者数量。数字列类型主要分为两种：整数型和浮点型。所有的数字列类型都允许有两个选 项：UNSIGNED 和 ZEROFILL。选择 UNSIGNED 的列不允许有负数，选择了 ZEROFILL 的列会为数值添加零。下面是 MySQL 中可用的 数字列类型<br>• TINYINT——一个微小的整数，支持 -128 到 127(SIGNED)，0 到 255(UNSIGNED)，需要 1 个字节存储<br>• BIT——同 TINYINT(1)<br>• BOOL——同 TINYINT(1)<br>• SMALLINT——一个小整数，支持 -32768 到 32767(SIGNED)，0 到 65535(UNSIGNED)，需要 2 个字节存储 MEDIUMINT——一个中等整数，支持 -8388608 到 8388607(SIGNED)，0 到 16777215(UNSIGNED)，需要 3 个字节存储<br>• INT——一个整数，支持 -2147493648 到 2147493647(SIGNED)，0 到 4294967295(UNSIGNED)，需要 4 个字节存储<br>• INTEGER——同 INT<br>• BIGINT——一个大整数，支持 -9223372036854775808 到 9223372036854775807(SIGNED)，0 到 18446744073709551615(UNSIGNED)，需要 8 个字节存储<br>• FLOAT(precision)——一个浮点数。precision&lt;=24 用于单精度浮点数；precision 在 25 和 53 之间，用于又精度 浮点数。FLOAT(X)与相诮的 FLOAT 和 DOUBLE 类型有差相同的范围，但是没有定义显示尺寸和小数位数。在 MySQL3.23 之前，这不是一个 真的浮点值，且总是有两位小数。MySQL 中的所有计算都用双精度，所以这会带来一些意想不到的问题。<br>• FLOAT——一个小的菜单精度浮点数。支持 -3.402823466E+38 到-1.175494351E-38，0 和 1.175494351E-38 to 3.402823466E+38，需要 4 个字节存储。如果是 UNSIGNED，正数的范围保持不变，但负数是不允许的。<br>• DOUBLE——一个双精度浮点数。支持 -1.7976931348623157E+308 到-2.2250738585072014E-308，0 和 2.2250738585072014E- 308 到 1.7976931348623157E+308。如果是 FLOAT，UNSIGNED 不会改变正数范围，但负数是不允许的。<br>• DOUBLE PRECISION——同 DOUBLE<br>• REAL——同 DOUBLE<br>• DECIMAL——将一个数像字符串那样存储，每个字符占一个字节<br>• DEC——同 DECIMAL<br>• NUMERIC——同 DECIMAL</p>
 <p>字符串列类型:char、varchar、nvarchar<br>　　字符串列类型用于存储任何类型的字符数据，如名字、地址或者报纸文章。下面是 MySQL 中可用的字符串列类型<br>• CHAR——字符。固定长度的字串，在右边补齐空格，达到指定的长度。支持从 0 到 155 个字符。搜索值时，后缀的空格将被删除。<br>• VARCHAR——可变长的字符。一个可变长度的字串，其中的后缀空格在存储值时被删除。支持从 0 到 255 字符<br>• TINYBLOB——微小的二进制对象。支持 255 个字符。需要长度+1 字节的存储。与 TINYTEXT 一样，只不过搜索时是区分大小写的。(0.25KB)<br>• TINYTEXT——支持 255 个字符。要求长度+1 字节的存储。与 TINYBLOB 一样，只不过搜索时会忽略大小写。(0.25KB)<br>• BLOB——二进制对象。支持 65535 个字符。需要长度+2 字节的存储。 (64KB)<br>• TEXT——支持 65535 个字符。要求长度+2 字节的存储。 (64KB)<br>• MEDIUMBLOB——中等大小的二进制对象。支持 16777215 个字符。需要长度+3 字节的存储。 (16M)<br>• MEDIUMTEXT——支持 16777215 个字符。需要长度+3 字节的存储。 (16M)<br>• LONGBLOB——大的的二进制对象。支持 4294967295 个字符。需要长度+4 字节的存储。 (4G)<br>• LONGTEXT——支持 4294967295 个字符。需要长度+4 字节的存储。(4G)<br>• ENUM——枚举。只能有一个指定的值，即 NULL 或””，最大有 65535 个值<br>• SET——一个集合。可以有 0 到 64 个值，均来自于指定清单.</p>
@@ -510,20 +549,20 @@
 <li>最大长度取决于类型是 int 还是 bigint ；</li>
 <li><code>int(5)</code>的 5 表示默认显示字符的宽度: 如果输入的是<code>10</code>默认给你显示为<code>00010</code>（加上 <code>zerofill</code>后可以看到）；</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-string">`test1`</span> (<br>  <span class="hljs-string">`id`</span> <span class="hljs-built_in">int</span>(<span class="hljs-number">5</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> AUTO_INCREMENT <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">'id'</span>,<br>  <span class="hljs-string">`id2`</span> <span class="hljs-built_in">int</span>(<span class="hljs-number">5</span>) <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-literal">NULL</span>,<br>  <span class="hljs-string">`id3`</span> <span class="hljs-built_in">int</span>(<span class="hljs-number">5</span>) <span class="hljs-keyword">unsigned</span> zerofill <span class="hljs-keyword">DEFAULT</span> <span class="hljs-literal">NULL</span>,<br>  PRIMARY <span class="hljs-keyword">KEY</span> (<span class="hljs-string">`id`</span>)<br>) <span class="hljs-keyword">ENGINE</span>=MyISAM AUTO_INCREMENT=<span class="hljs-number">17</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">CHARSET</span>=latin1;<br></code></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `test1` (</span><br><span class="line">  `id` <span class="type">int</span>(<span class="number">5</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> AUTO_INCREMENT COMMENT <span class="string">&#x27;id&#x27;</span>,</span><br><span class="line">  `id2` <span class="type">int</span>(<span class="number">5</span>) unsigned <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  `id3` <span class="type">int</span>(<span class="number">5</span>) unsigned zerofill <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  <span class="keyword">PRIMARY</span> KEY (`id`)</span><br><span class="line">) ENGINE<span class="operator">=</span>MyISAM AUTO_INCREMENT<span class="operator">=</span><span class="number">17</span> <span class="keyword">DEFAULT</span> CHARSET<span class="operator">=</span>latin1;</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://github.com/lyloou/img/raw/develop/z/20190718155452.png" alt></p>
-<p>参考： <a href="https://blog.csdn.net/allenjay11/article/details/76549503" target="_blank" rel="noopener">MySQL 中 int(11)最大长度是多少？ - 养码青年 - CSDN 博客</a></p>
+<p><img src="https://github.com/lyloou/img/raw/develop/z/20190718155452.png"></p>
+<p>参考： <a target="_blank" rel="noopener" href="https://blog.csdn.net/allenjay11/article/details/76549503">MySQL 中 int(11)最大长度是多少？ - 养码青年 - CSDN 博客</a></p>
 <blockquote>
 <p>在 SQL 语句中 int 代表你要创建字段的类型，int 代表整型，11 代表字段的长度。<br>　这个 11 代表显示宽度，整数列的显示宽度与 mysql 需要用多少个字符来显示该列数值，与该整数需要的存储空间的大小都没有关系，比如，不管设定了显示宽度是多少个字符，bigint 都要占用 8 个 字节。</p>
-<p>int 是整型，(11)是指显示字符的长度，但要加参数的，最大为 255，比如它是记录行数的 id,插入 10 笔资料，它就显示 00000000001 <del>~</del>00000000010，当字符的位数超过 11,它也只显示 11 位，如果你没有加那个让它未满 11 位就前面加 0 的参数，它不会在前面加 0</p>
+<p>int 是整型，(11)是指显示字符的长度，但要加参数的，最大为 255，比如它是记录行数的 id,插入 10 笔资料，它就显示 00000000001 ~~~00000000010，当字符的位数超过 11,它也只显示 11 位，如果你没有加那个让它未满 11 位就前面加 0 的参数，它不会在前面加 0</p>
 <p>声明整型数据列时，我们可以为它指定个显示宽度 M(1~255)，如 INT(5)，指定显示宽度为 5 个字符,如果没有给它指定显示宽度，MySQL 会为它指定一个默认值。显示宽度只用于显示，并不能 限制取值范围和占用空间，如：INT(3)会占用 4 个字节的存储空间，并且允许的最大值也不会是 999,而是 INT 整型所允许的最大值。</p>
 <p>MySQL 有五种整型数据列类型，即 TINYINT，SMALLINT，MEDIUMINT，INT 和 BIGINT。它们之间的区别是取值范围不同，存储空间也各不相同。<br>在整型数据列后加上 UNSIGNED 属性可以禁止负数，取值从 0 开始。</p>
 </blockquote>
 <h2 id="varchar-5-中的-5-又代表什么"><a href="#varchar-5-中的-5-又代表什么" class="headerlink" title="varchar(5)中的 5 又代表什么?"></a>varchar(5)中的 5 又代表什么?</h2><p>这里的<code>5</code>就真的是字符串的长度了</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-string">`test1`</span> (<br>  <span class="hljs-string">`id`</span> <span class="hljs-built_in">int</span>(<span class="hljs-number">5</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> AUTO_INCREMENT <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">'id'</span>,<br>  <span class="hljs-string">`id2`</span> <span class="hljs-built_in">int</span>(<span class="hljs-number">5</span>) <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-literal">NULL</span>,<br>  <span class="hljs-string">`id3`</span> <span class="hljs-built_in">int</span>(<span class="hljs-number">5</span>) <span class="hljs-keyword">unsigned</span> zerofill <span class="hljs-keyword">DEFAULT</span> <span class="hljs-literal">NULL</span>,<br>  <span class="hljs-string">`name1`</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">5</span>) <span class="hljs-keyword">DEFAULT</span> <span class="hljs-literal">NULL</span>,<br>  PRIMARY <span class="hljs-keyword">KEY</span> (<span class="hljs-string">`id`</span>)<br>) <span class="hljs-keyword">ENGINE</span>=MyISAM AUTO_INCREMENT=<span class="hljs-number">17</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">CHARSET</span>=latin1;<br></code></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `test1` (</span><br><span class="line">  `id` <span class="type">int</span>(<span class="number">5</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> AUTO_INCREMENT COMMENT <span class="string">&#x27;id&#x27;</span>,</span><br><span class="line">  `id2` <span class="type">int</span>(<span class="number">5</span>) unsigned <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  `id3` <span class="type">int</span>(<span class="number">5</span>) unsigned zerofill <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  `name1` <span class="type">varchar</span>(<span class="number">5</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  <span class="keyword">PRIMARY</span> KEY (`id`)</span><br><span class="line">) ENGINE<span class="operator">=</span>MyISAM AUTO_INCREMENT<span class="operator">=</span><span class="number">17</span> <span class="keyword">DEFAULT</span> CHARSET<span class="operator">=</span>latin1;</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://github.com/lyloou/img/raw/develop/z/20190718163004.png" alt></p>
+<p><img src="https://github.com/lyloou/img/raw/develop/z/20190718163004.png"></p>
 
       
     </div>
@@ -531,46 +570,59 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://lyloou.com/python/%E7%88%AC%E8%99%AB/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lyloou">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/python/%E7%88%AC%E8%99%AB/" class="post-title-link" itemprop="url">【Python】爬虫</a>
+          <a href="/python/%E7%88%AC%E8%99%AB/" class="post-title-link" itemprop="url">【Python】爬虫</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-07-17 18:22:36" itemprop="dateCreated datePublished" datetime="2019-07-17T18:22:36+08:00">2019-07-17</time>
-            </span>
+      <time title="创建时间：2019-07-17 18:22:36" itemprop="dateCreated datePublished" datetime="2019-07-17T18:22:36+08:00">2019-07-17</time>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -579,13 +631,11 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
           <ul>
-<li><a href="https://zhuanlan.zhihu.com/p/21479334" target="_blank" rel="noopener">如何学习 Python 爬虫[入门篇]？ - 知乎</a></li>
-<li><a href="https://www.jianshu.com/p/e084c2b2b66d" target="_blank" rel="noopener">lxml 学习笔记 - 简书</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/21479334">如何学习 Python 爬虫[入门篇]？ - 知乎</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/e084c2b2b66d">lxml 学习笔记 - 简书</a></li>
 </ul>
-<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm">pip3 <span class="hljs-keyword">install </span>lxml pandas <span class="hljs-keyword">bs4 </span>xlrd openpyxl<br></code></pre></td></tr></table></figure>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 <span class="keyword">install </span>lxml pandas <span class="keyword">bs4 </span>xlrd openpyxl</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -593,46 +643,59 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://lyloou.com/java/jfinal/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lyloou">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/java/jfinal/" class="post-title-link" itemprop="url">【Java】jfinal</a>
+          <a href="/java/jfinal/" class="post-title-link" itemprop="url">【Java】jfinal</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-07-17 17:04:56" itemprop="dateCreated datePublished" datetime="2019-07-17T17:04:56+08:00">2019-07-17</time>
-            </span>
+      <time title="创建时间：2019-07-17 17:04:56" itemprop="dateCreated datePublished" datetime="2019-07-17T17:04:56+08:00">2019-07-17</time>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -641,13 +704,11 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
           <h2 id="数据库数据保存后，随即用id作其他更新操作，导致无法更新成功问题"><a href="#数据库数据保存后，随即用id作其他更新操作，导致无法更新成功问题" class="headerlink" title="数据库数据保存后，随即用id作其他更新操作，导致无法更新成功问题"></a>数据库数据保存后，随即用id作其他更新操作，导致无法更新成功问题</h2><p>原因：因为是刚保存的，如果没有取回id，其id肯定还是默认的0；<br>解决办法：回传ID</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java">Record record = RecordUtils.toRecord(ps);<br>record.set(<span class="hljs-string">"id"</span>, <span class="hljs-keyword">null</span>);<br><br>ps.setCreated(Timestamp.from(Instant.now()));<br><span class="hljs-keyword">boolean</span> ret = Db.save(TABLE.PROXY_STOCKS, <span class="hljs-string">"id"</span>, record);<br><span class="hljs-comment">// 回传ID</span><br>ps.setId(record.getNumber(<span class="hljs-string">"id"</span>).longValue());<br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Record</span> <span class="variable">record</span> <span class="operator">=</span> RecordUtils.toRecord(ps);</span><br><span class="line">record.set(<span class="string">&quot;id&quot;</span>, <span class="literal">null</span>);</span><br><span class="line"></span><br><span class="line">ps.setCreated(Timestamp.from(Instant.now()));</span><br><span class="line"><span class="type">boolean</span> <span class="variable">ret</span> <span class="operator">=</span> Db.save(TABLE.PROXY_STOCKS, <span class="string">&quot;id&quot;</span>, record);</span><br><span class="line"><span class="comment">// 回传ID</span></span><br><span class="line">ps.setId(record.getNumber(<span class="string">&quot;id&quot;</span>).longValue());</span><br></pre></td></tr></table></figure>
 
-<p><a href="https://www.yeetrack.com/?p=1151" target="_blank" rel="noopener">Jfinal quartz动态的增、删、暂停、恢复job | 易踪网</a></p>
-<p><a href="https://www.jfinal.com/share/1618" target="_blank" rel="noopener">jfinal使用QuartzPlugin（定时任务插件）(上)</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.yeetrack.com/?p=1151">Jfinal quartz动态的增、删、暂停、恢复job | 易踪网</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.jfinal.com/share/1618">jfinal使用QuartzPlugin（定时任务插件）(上)</a></p>
 
       
     </div>
@@ -655,46 +716,59 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://lyloou.com/windows/%E7%B3%BB%E7%BB%9F%E4%BC%98%E5%8C%96/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lyloou">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/windows/%E7%B3%BB%E7%BB%9F%E4%BC%98%E5%8C%96/" class="post-title-link" itemprop="url">【Windows】系统优化</a>
+          <a href="/windows/%E7%B3%BB%E7%BB%9F%E4%BC%98%E5%8C%96/" class="post-title-link" itemprop="url">【Windows】系统优化</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-07-17 17:03:00" itemprop="dateCreated datePublished" datetime="2019-07-17T17:03:00+08:00">2019-07-17</time>
-            </span>
+      <time title="创建时间：2019-07-17 17:03:00" itemprop="dateCreated datePublished" datetime="2019-07-17T17:03:00+08:00">2019-07-17</time>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -703,12 +777,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
           <ul>
-<li><a href="https://www.xia1ge.com/compattelrunner-exe.html" target="_blank" rel="noopener">解决 Windows 10 的 CompatTelRunner.exe 占用磁盘高的方法 – 下 1 个好软件</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.xia1ge.com/compattelrunner-exe.html">解决 Windows 10 的 CompatTelRunner.exe 占用磁盘高的方法 – 下 1 个好软件</a></li>
 </ul>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-comment"># 禁用以下服务 (win+r --&gt; services.msc)</span><br>Diagnostic Policy Service<br>Diagnostic Service Host<br></code></pre></td></tr></table></figure>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 禁用以下服务 (win+r --&gt; services.msc)</span></span><br><span class="line">Diagnostic Policy Service</span><br><span class="line">Diagnostic Service Host</span><br></pre></td></tr></table></figure>
 
 <p>2.右键点开”这台电脑”，点”管理”，点”服务和应用程序”点”服务”，在右边框里把”superfetch”、”windows search”、”windows search”、”HomeGroupProvider”的启动类型设置成”禁用”<br>3.from 知乎：通过注册表（regedit）定位并修改了 HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\UnistoreSvc 等类似项的 start 值为 4，unistack 服务就不会开机运行，空闲时的硬盘占用下来了。</p>
 
@@ -718,46 +790,59 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://lyloou.com/java/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lyloou">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/java/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96/" class="post-title-link" itemprop="url">Java配置文件读取</a>
+          <a href="/java/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96/" class="post-title-link" itemprop="url">Java配置文件读取</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-07-16 18:10:43" itemprop="dateCreated datePublished" datetime="2019-07-16T18:10:43+08:00">2019-07-16</time>
-            </span>
+      <time title="创建时间：2019-07-16 18:10:43" itemprop="dateCreated datePublished" datetime="2019-07-16T18:10:43+08:00">2019-07-16</time>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -766,11 +851,9 @@
     
     
     <div class="post-body" itemprop="articleBody">
+          <figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># config/test.properties</span></span><br><span class="line"><span class="attr">key1</span>=<span class="number">2018</span></span><br><span class="line"><span class="attr">key2</span>=<span class="number">2019</span></span><br></pre></td></tr></table></figure>
 
-      
-          <figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-comment"># config/test.properties</span><br><span class="hljs-attr">key1</span>=<span class="hljs-number">2018</span><br><span class="hljs-attr">key2</span>=<span class="hljs-number">2019</span><br></code></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// TestProperties.java</span><br><span class="hljs-keyword">import</span> com.google.common.collect.ImmutableList;<br><span class="hljs-keyword">import</span> com.google.common.collect.ImmutableMap;<br><span class="hljs-keyword">import</span> com.google.common.collect.Maps;<br><br><span class="hljs-keyword">import</span> java.io.IOException;<br><span class="hljs-keyword">import</span> java.util.Arrays;<br><span class="hljs-keyword">import</span> java.util.Properties;<br><span class="hljs-keyword">import</span> java.util.stream.Collectors;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestProperties</span> </span>&#123;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Properties prop = <span class="hljs-keyword">new</span> Properties();<br><br>    <span class="hljs-keyword">static</span> &#123;<br>        <span class="hljs-keyword">try</span> &#123;<br>            prop.load(<span class="hljs-keyword">new</span> java.io.FileInputStream(System.getProperty(<span class="hljs-string">"user.dir"</span>).concat(<span class="hljs-string">"/config/test.properties"</span>)));<br>        &#125; <span class="hljs-keyword">catch</span> (IOException e) &#123;<br>            e.printStackTrace();<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">TestProperties</span><span class="hljs-params">()</span> </span>&#123;<br>    &#125;<br><br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String args[])</span> </span>&#123;<br><br>        <span class="hljs-comment">// value</span><br>        System.out.println(getValue(<span class="hljs-string">"key1"</span>));<br>        System.out.println(getValue(<span class="hljs-string">"key2"</span>));<br><br>        <span class="hljs-comment">// array</span><br>        System.out.println(Arrays<br>                .stream(getValues(ImmutableList.of(<br>                        <span class="hljs-string">"key1"</span>,<br>                        <span class="hljs-string">"key2"</span><br>                ).toArray()))<br>                .collect(Collectors.toList()));<br><br>        <span class="hljs-comment">// map</span><br>        ImmutableMap&lt;String, String&gt; map = Maps.fromProperties(prop);<br>        System.out.println(map);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String <span class="hljs-title">getValue</span><span class="hljs-params">(String key)</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> prop.getProperty(key).trim();<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Object[] getValues(Object[] key) &#123;<br>        <span class="hljs-keyword">int</span> length = key.length;<br>        Object[] objects = <span class="hljs-keyword">new</span> Object[length];<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; length; i++) &#123;<br>            objects[i] = prop.getProperty(key[i].toString()).trim();<br>        &#125;<br>        <span class="hljs-keyword">return</span> objects;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// TestProperties.java</span></span><br><span class="line"><span class="keyword">import</span> com.google.common.collect.ImmutableList;</span><br><span class="line"><span class="keyword">import</span> com.google.common.collect.ImmutableMap;</span><br><span class="line"><span class="keyword">import</span> com.google.common.collect.Maps;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"><span class="keyword">import</span> java.util.Properties;</span><br><span class="line"><span class="keyword">import</span> java.util.stream.Collectors;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">class</span> <span class="title class_">TestProperties</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">Properties</span> <span class="variable">prop</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Properties</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            prop.load(<span class="keyword">new</span> <span class="title class_">java</span>.io.FileInputStream(System.getProperty(<span class="string">&quot;user.dir&quot;</span>).concat(<span class="string">&quot;/config/test.properties&quot;</span>)));</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">TestProperties</span><span class="params">()</span> &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String args[])</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// value</span></span><br><span class="line">        System.out.println(getValue(<span class="string">&quot;key1&quot;</span>));</span><br><span class="line">        System.out.println(getValue(<span class="string">&quot;key2&quot;</span>));</span><br><span class="line"></span><br><span class="line">        <span class="comment">// array</span></span><br><span class="line">        System.out.println(Arrays</span><br><span class="line">                .stream(getValues(ImmutableList.of(</span><br><span class="line">                        <span class="string">&quot;key1&quot;</span>,</span><br><span class="line">                        <span class="string">&quot;key2&quot;</span></span><br><span class="line">                ).toArray()))</span><br><span class="line">                .collect(Collectors.toList()));</span><br><span class="line"></span><br><span class="line">        <span class="comment">// map</span></span><br><span class="line">        ImmutableMap&lt;String, String&gt; map = Maps.fromProperties(prop);</span><br><span class="line">        System.out.println(map);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">getValue</span><span class="params">(String key)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> prop.getProperty(key).trim();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Object[] getValues(Object[] key) &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">length</span> <span class="operator">=</span> key.length;</span><br><span class="line">        Object[] objects = <span class="keyword">new</span> <span class="title class_">Object</span>[length];</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; length; i++) &#123;</span><br><span class="line">            objects[i] = prop.getProperty(key[i].toString()).trim();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> objects;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -778,46 +861,59 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://lyloou.com/linux/manager/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lyloou">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/linux/manager/" class="post-title-link" itemprop="url">Linux管理工具</a>
+          <a href="/linux/manager/" class="post-title-link" itemprop="url">Linux管理工具</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-07-08 18:05:40" itemprop="dateCreated datePublished" datetime="2019-07-08T18:05:40+08:00">2019-07-08</time>
-            </span>
+      <time title="创建时间：2019-07-08 18:05:40" itemprop="dateCreated datePublished" datetime="2019-07-08T18:05:40+08:00">2019-07-08</time>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -826,51 +922,49 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
           <h1 id="进程管理"><a href="#进程管理" class="headerlink" title="进程管理"></a>进程管理</h1><h2 id="supervisor-进程管理工具"><a href="#supervisor-进程管理工具" class="headerlink" title="supervisor 进程管理工具"></a>supervisor 进程管理工具</h2><ul>
-<li><a href="http://supervisord.org/" target="_blank" rel="noopener">Supervisor: A Process Control System — Supervisor 4.0.3 documentation</a></li>
-<li><a href="https://blog.csdn.net/xyang81/article/details/51555473" target="_blank" rel="noopener">Supervisor 安装与配置（Linux/Unix 进程管理工具） - CSDN 博客</a></li>
-<li><a href="https://www.cnblogs.com/smail-bao/p/5673434.html" target="_blank" rel="noopener">supervisor - BigBao 的博客 - 博客园</a></li>
+<li><a target="_blank" rel="noopener" href="http://supervisord.org/">Supervisor: A Process Control System — Supervisor 4.0.3 documentation</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/xyang81/article/details/51555473">Supervisor 安装与配置（Linux/Unix 进程管理工具） - CSDN 博客</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/smail-bao/p/5673434.html">supervisor - BigBao 的博客 - 博客园</a></li>
 </ul>
-<h1 id="磁盘管理"><a href="#磁盘管理" class="headerlink" title="磁盘管理"></a>磁盘管理</h1><h2 id="空间"><a href="#空间" class="headerlink" title="空间"></a>空间</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">df -a <span class="hljs-comment">#  显示目前在Linux系统上的文件系统的磁盘使用情况统计</span><br>du -sh * <span class="hljs-comment"># 显示当前目录或文件所占用的磁盘空间. -s表示总计，-h是以K，M，G为单位，提高信息的可读性</span><br></code></pre></td></tr></table></figure>
+<h1 id="磁盘管理"><a href="#磁盘管理" class="headerlink" title="磁盘管理"></a>磁盘管理</h1><h2 id="空间"><a href="#空间" class="headerlink" title="空间"></a>空间</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">df</span> -a <span class="comment">#  显示目前在Linux系统上的文件系统的磁盘使用情况统计</span></span><br><span class="line"><span class="built_in">du</span> -sh * <span class="comment"># 显示当前目录或文件所占用的磁盘空间. -s表示总计，-h是以K，M，G为单位，提高信息的可读性</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sh">/var/<span class="hljs-built_in">log</span>/journal/<br>journalctl --vacuum-size=10M<br>journalctl --disk-usage<br><span class="hljs-comment"># https://blog.csdn.net/ithomer/article/details/89530790</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/var/log/journal/</span><br><span class="line">journalctl --vacuum-size=10M</span><br><span class="line">journalctl --disk-usage</span><br><span class="line"><span class="comment"># https://blog.csdn.net/ithomer/article/details/89530790</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># 查看某个目录的文件大小并排序（单位为MB）</span><br>du -hm --max-depth=1 /var/ | sort -n<br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看某个目录的文件大小并排序（单位为MB）</span></span><br><span class="line"><span class="built_in">du</span> -hm --max-depth=1 /var/ | <span class="built_in">sort</span> -n</span><br></pre></td></tr></table></figure>
 
-<h2 id="自动挂载-E-盘"><a href="#自动挂载-E-盘" class="headerlink" title="自动挂载 E 盘"></a><a href="https://askubuntu.com/questions/46588/how-to-automount-ntfs-partitions" target="_blank" rel="noopener">自动挂载 E 盘</a></h2><ul>
+<h2 id="自动挂载-E-盘"><a href="#自动挂载-E-盘" class="headerlink" title="自动挂载 E 盘"></a><a target="_blank" rel="noopener" href="https://askubuntu.com/questions/46588/how-to-automount-ntfs-partitions">自动挂载 E 盘</a></h2><ul>
 <li><code>vi /etc/fstab</code> &amp; add below line</li>
 </ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment">#Windows-Partition</span><br>UUID=0004D1FE0007434B /home/lou/e ntfs rw,auto,users,<span class="hljs-built_in">exec</span>,nls=utf8,<span class="hljs-built_in">umask</span>=003,gid=46,uid=1000    0   0<br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Windows-Partition</span></span><br><span class="line">UUID=0004D1FE0007434B /home/lou/e ntfs rw,auto,<span class="built_in">users</span>,<span class="built_in">exec</span>,nls=utf8,<span class="built_in">umask</span>=003,gid=46,uid=1000    0   0</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>Finding which disk you will set</li>
 </ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">sudo fdisk -l<br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo fdisk -l</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>Finding the UUID</li>
 </ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">sudo blkid<br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo blkid</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>Check it</li>
 </ul>
-<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">sudo mount -a</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mount -<span class="selector-tag">a</span></span><br></pre></td></tr></table></figure>
 
 <p>设置 image:</p>
-<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs dts"><span class="hljs-symbol">http:</span><span class="hljs-comment">//mirros.aliyun.com/ubuntu</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:<span class="regexp">//mi</span>rros.aliyun.com/ubuntu</span><br></pre></td></tr></table></figure>
 
 <h2 id="pm2"><a href="#pm2" class="headerlink" title="pm2"></a>pm2</h2><h1 id="权限管理"><a href="#权限管理" class="headerlink" title="权限管理"></a>权限管理</h1><ul>
 <li>修改文件的所有者和所属组：</li>
 </ul>
-<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">sudo chown -R OWNER:<span class="hljs-keyword">GROUP</span> <span class="hljs-title">/www</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chown -R OWNER:<span class="keyword">GROUP</span> <span class="title">/www</span></span><br></pre></td></tr></table></figure>
 
 <ul>
-<li><a href="http://blog.51cto.com/jschu/1722959" target="_blank" rel="noopener">修改用户所在组，group，usermod-J S Chu 的技术家园-51CTO 博客</a></li>
+<li><a target="_blank" rel="noopener" href="http://blog.51cto.com/jschu/1722959">修改用户所在组，group，usermod-J S Chu 的技术家园-51CTO 博客</a></li>
 </ul>
-<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs properties"><span class="hljs-attr">usermod</span> <span class="hljs-string">-g 用户组 用户名</span><br>    <span class="hljs-attr">强制修改用户所在组</span><br><span class="hljs-attr">usermod</span> <span class="hljs-string">-a -G 用户组 用户名</span><br>    <span class="hljs-attr">把某个用户添加进某个组</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">usermod -g 用户组 用户名</span><br><span class="line">    强制修改用户所在组</span><br><span class="line">usermod -<span class="selector-tag">a</span> -G 用户组 用户名</span><br><span class="line">    把某个用户添加进某个组</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -878,46 +972,59 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://lyloou.com/%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lyloou">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-title-link" itemprop="url">数据结构</a>
+          <a href="/%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-title-link" itemprop="url">数据结构</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-07-08 10:51:57" itemprop="dateCreated datePublished" datetime="2019-07-08T10:51:57+08:00">2019-07-08</time>
-            </span>
+      <time title="创建时间：2019-07-08 10:51:57" itemprop="dateCreated datePublished" datetime="2019-07-08T10:51:57+08:00">2019-07-08</time>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -926,30 +1033,28 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
           <h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><p><strong>定义</strong>：</p>
 <ul>
 <li>数据结构是相互之间存在一种或多种特定关系的数据元素的集合</li>
 </ul>
 <p><strong>分类</strong>：</p>
 <ul>
-<li><img src="https://github.com/lyloou/img/raw/develop/z/20190729111056.png" alt></li>
+<li><img src="https://github.com/lyloou/img/raw/develop/z/20190729111056.png"></li>
 </ul>
 <h2 id="数据结构和算法的关系"><a href="#数据结构和算法的关系" class="headerlink" title="数据结构和算法的关系"></a>数据结构和算法的关系</h2><p>数据结构就是一组数据的存储结构，<br>算法就是操作数据的一组方法。</p>
 <p>数据结构和算法是相辅相成的。<br>数据结构是为算法服务的，算法要作用在特定的数据结构之上。</p>
 <h2 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h2><p>得到算法的时间复杂度，并不是简单的数有多少个循环；因为，循环的步数是可能很少的或者很多的。<br>循环的时间复杂度等于循环体的复杂度乘以该循环运行的次数。</p>
 <p>如下图：</p>
 <ul>
-<li><img src="https://github.com/lyloou/img/raw/develop/z/20190729102735.png" alt></li>
+<li><img src="https://github.com/lyloou/img/raw/develop/z/20190729102735.png"></li>
 </ul>
 <p>常见时间复杂度</p>
 <ul>
-<li><img src="https://github.com/lyloou/img/raw/develop/z/20190729103929.png" alt></li>
+<li><img src="https://github.com/lyloou/img/raw/develop/z/20190729103929.png"></li>
 </ul>
 <p>最坏情况运行时间是一种保证，那就是运行时间将不会再坏了。在应用中，这是一种最重要的需求<br>通常，除非特别指定 我们提到的运行时间都是最坏情况的运行时间</p>
-<h2 id="推导大-O-阶："><a href="#推导大-O-阶：" class="headerlink" title="推导大 O 阶："></a>推导大 O 阶：</h2><p><img src="https://github.com/lyloou/img/raw/develop/z/20190708102115.png" alt></p>
-<h2 id="单链表结构与顺序存储结构优缺点"><a href="#单链表结构与顺序存储结构优缺点" class="headerlink" title="单链表结构与顺序存储结构优缺点"></a>单链表结构与顺序存储结构优缺点</h2><p><img src="https://github.com/lyloou/img/raw/develop/z/20190729113227.png" alt></p>
+<h2 id="推导大-O-阶："><a href="#推导大-O-阶：" class="headerlink" title="推导大 O 阶："></a>推导大 O 阶：</h2><p><img src="https://github.com/lyloou/img/raw/develop/z/20190708102115.png"></p>
+<h2 id="单链表结构与顺序存储结构优缺点"><a href="#单链表结构与顺序存储结构优缺点" class="headerlink" title="单链表结构与顺序存储结构优缺点"></a>单链表结构与顺序存储结构优缺点</h2><p><img src="https://github.com/lyloou/img/raw/develop/z/20190729113227.png"></p>
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
 <li>《大话数据结构》</li>
 </ul>
@@ -960,256 +1065,125 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
-  
-  
+</div>
 
 
-  
+
+
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/9/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/32/">32</a><a class="extend next" rel="next" href="/page/11/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/9/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/32/">32</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/11/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
-
-
-          </div>
-          
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
-
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="lyloou"
-      src="/assets/images/avatar.png">
-  <p class="site-author-name" itemprop="name">lyloou</p>
-  <div class="site-description" itemprop="description">/* Better than last best */</div>
 </div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">312</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
-        <span class="site-state-item-count">56</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
-</div>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-        <a href="https://github.com/lyloou" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;lyloou" rel="noopener" target="_blank">GitHub</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="mailto:lyloou6@gmail.com" title="E-Mail → mailto:lyloou6@gmail.com" rel="noopener" target="_blank">E-Mail</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://weibo.com/lyloou" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;lyloou" rel="noopener" target="_blank">Weibo</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://blog.csdn.net/ly1414725328" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;ly1414725328" rel="noopener" target="_blank">CSDN</a>
-      </span>
-  </div>
-  <div class="cc-license motion-element" itemprop="license">
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
-  </div>
+  </main>
 
+  <footer class="footer">
+    <div class="footer-inner">
 
-
-      </div>
-
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-        
   <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">粤ICP备18151128号 </a>
   </div>
 
 <div class="copyright">
-  
   &copy; 
   <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
-    <i class="user"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">lyloou</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
-  </div>
-
-        
 <div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
       <span class="post-meta-item-icon">
-        <i class="user"></i>
+        <i class="fa fa-user"></i>
       </span>
       <span class="site-uv" title="总访客量">
         <span id="busuanzi_value_site_uv"></span>
       </span>
     </span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
       <span class="post-meta-item-icon">
-        <i class="eye"></i>
+        <i class="fa fa-eye"></i>
       </span>
       <span class="site-pv" title="总访问量">
         <span id="busuanzi_value_site_pv"></span>
       </span>
     </span>
 </div>
-
-
-
-
-
-
-
-
-      </div>
-    </footer>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>
 
-  
-  <script src="/lib/anime.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-
-<script src="/js/schemes/muse.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
-
-
-
+    </div>
+  </footer>
 
   
-  <script>
-    (function(){
-      var canonicalURL, curProtocol;
-      //Get the <link> tag
-      var x=document.getElementsByTagName("link");
-		//Find the last canonical URL
-		if(x.length > 0){
-			for (i=0;i<x.length;i++){
-				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
-					canonicalURL=x[i].href;
-				}
-			}
-		}
-    //Get protocol
-	    if (!canonicalURL){
-	    	curProtocol = window.location.protocol.split(':')[0];
-	    }
-	    else{
-	    	curProtocol = canonicalURL.split(':')[0];
-	    }
-      //Get current URL if the canonical URL does not exist
-	    if (!canonicalURL) canonicalURL = window.location.href;
-	    //Assign script content. Replace current URL with the canonical URL
-      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
-  </script>
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
 
 
 
 
   
-<script src="/js/local-search.js"></script>
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 
 
-
-
-
-
-
-
+<script class="next-config" data-name="giscus" type="application/json">{"enable":true,"repo":"lyloou/lyloou.github.io","repo_id":"MDEwOlJlcG9zaXRvcnkxMDk1NzkyNzA=","category":"Announcements","category_id":"DIC_kwDOBogMBs4CWdfR","mapping":"pathname","reactions_enabled":1,"emit_metadata":1,"theme":"light","lang":"zh-CN","input_position":"bottom","loading":"lazy"}</script>
 
 <script>
-if (document.querySelectorAll('pre.mermaid').length) {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
-    mermaid.initialize({
-      theme    : 'forest',
-      logLevel : 3,
-      flowchart: { curve     : 'linear' },
-      gantt    : { axisFormat: '%m/%d/%Y' },
-      sequence : { actorMargin: 50 }
-    });
-  }, window.mermaid);
-}
+document.addEventListener('page:loaded', () => {
+  if (!CONFIG.page.comments) return;
+
+  NexT.utils.loadComments('.giscus-container')
+    .then(() => NexT.utils.getScript('https://giscus.app/client.js', {
+      attributes: {
+        async                   : true,
+        crossOrigin             : 'anonymous',
+        'data-repo'             : CONFIG.giscus.repo,
+        'data-repo-id'          : CONFIG.giscus.repo_id,
+        'data-category'         : CONFIG.giscus.category,
+        'data-category-id'      : CONFIG.giscus.category_id,
+        'data-mapping'          : CONFIG.giscus.mapping,
+        'data-reactions-enabled': CONFIG.giscus.reactions_enabled,
+        'data-emit-metadata'    : CONFIG.giscus.emit_metadata,
+        'data-theme'            : CONFIG.giscus.theme,
+        'data-lang'             : CONFIG.giscus.lang,
+        'data-input-position'   : CONFIG.giscus.input_position,
+        'data-loading'          : CONFIG.giscus.loading
+      },
+      parentNode: document.querySelector('.giscus-container')
+    }));
+});
 </script>
-
-
-  
-
-  
-
 
 </body>
 </html>

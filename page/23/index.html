@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="zh-CN,zh-HK,zh-TW,en,default">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
@@ -13,14 +13,13 @@
 <link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"lyloou.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
-  </script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-  <meta name="description" content="&#x2F;* Better than last best *&#x2F;">
+<script class="next-config" data-name="main" type="application/json">{"hostname":"lyloou.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"default"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="&#x2F;* Better than last best *&#x2F;">
 <meta property="og:type" content="website">
 <meta property="og:title" content="lyloou">
 <meta property="og:url" content="https://lyloou.com/page/23/index.html">
@@ -30,37 +29,20 @@
 <meta property="article:author" content="lyloou">
 <meta name="twitter:card" content="summary">
 
+
 <link rel="canonical" href="https://lyloou.com/page/23/">
 
 
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : true,
-    isPost : false,
-    lang   : 'zh-CN'
-  };
-</script>
 
-  <title>lyloou</title>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"page/23/index.html","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>lyloou</title>
   
-    <script>
-      function sendPageView() {
-        if (CONFIG.hostname !== location.hostname) return;
-        var uid = localStorage.getItem('uid') || (Math.random() + '.' + Math.random());
-        localStorage.setItem('uid', uid);
-        navigator.sendBeacon('https://www.google-analytics.com/collect', new URLSearchParams({
-          v  : 1,
-          tid: 'UA-80542932-1',
-          cid: uid,
-          t  : 'pageview',
-          dp : encodeURIComponent(location.pathname)
-        }));
-      }
-      document.addEventListener('pjax:complete', sendPageView);
-      sendPageView();
-    </script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-80542932-1","only_pageview":true}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
 
 
 
@@ -68,55 +50,35 @@
 
 
   <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container">
-    <div class="headband"></div>
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
 
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
-  <div class="site-meta custom-logo">
+  <div class="site-meta">
 
     <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
+      <i class="logo-line"></i>
       <h1 class="site-title">lyloou</h1>
-      <span class="logo-line-after"><i></i></span>
+      <i class="logo-line"></i>
     </a>
   </div>
 
   <div class="site-nav-right">
-    <div class="toggle popup-trigger">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
         <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
@@ -124,29 +86,8 @@
 
 
 
-
 <nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签</a>
-
-  </li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -157,78 +98,145 @@
 
 
   <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
+    <div class="popup search-popup"><div class="search-header">
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off"
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
            placeholder="搜索..." spellcheck="false"
            type="search" class="search-input">
   </div>
-  <span class="popup-btn-close">
+  <span class="popup-btn-close" role="button">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
-<div id="search-result">
-  <div id="no-result">
-    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
   </div>
 </div>
 
     </div>
   </div>
 
-</div>
-    </header>
+</header>
+        
+  
+  <aside class="sidebar">
 
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="lyloou"
+      src="/assets/images/avatar.png">
+  <p class="site-author-name" itemprop="name">lyloou</p>
+  <div class="site-description" itemprop="description">/* Better than last best */</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">312</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">56</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/lyloou" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;lyloou" rel="noopener me" target="_blank"><i class="github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:lyloou6@gmail.com" title="E-Mail → mailto:lyloou6@gmail.com" rel="noopener me" target="_blank"><i class="envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/lyloou" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;lyloou" rel="noopener me" target="_blank"><i class="weibo fa-fw"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/ly1414725328" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;ly1414725328" rel="noopener me" target="_blank"><i class="csdn fa-fw"></i>CSDN</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
   </div>
 
+        </div>
+      </div>
+    </div>
 
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
+    
+        <div class="pjax">
+        </div>
+  </aside>
 
-          <div class="content index posts-expand">
-            
-      
+
+    </div>
+
+    <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://lyloou.com/android/%E5%BC%B9%E7%AA%97/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lyloou">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/android/%E5%BC%B9%E7%AA%97/" class="post-title-link" itemprop="url">Android 弹窗</a>
+          <a href="/android/%E5%BC%B9%E7%AA%97/" class="post-title-link" itemprop="url">Android 弹窗</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2017-08-29 17:16:15" itemprop="dateCreated datePublished" datetime="2017-08-29T17:16:15+08:00">2017-08-29</time>
-            </span>
+      <time title="创建时间：2017-08-29 17:16:15" itemprop="dateCreated datePublished" datetime="2017-08-29T17:16:15+08:00">2017-08-29</time>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -237,15 +245,13 @@
     
     
     <div class="post-body" itemprop="articleBody">
+          <h2 id="弹出和隐藏进度条"><a href="#弹出和隐藏进度条" class="headerlink" title="弹出和隐藏进度条"></a>弹出和隐藏进度条</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> Dialog dialog;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">showDialog</span><span class="params">(<span class="keyword">final</span> Context ctx)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (ctx <span class="keyword">instanceof</span> Activity) &#123;</span><br><span class="line">        <span class="keyword">final</span> <span class="type">Activity</span> <span class="variable">context</span> <span class="operator">=</span> (Activity) ctx;</span><br><span class="line">        context.runOnUiThread(<span class="keyword">new</span> <span class="title class_">Runnable</span>() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">                <span class="type">int</span> <span class="variable">spacing</span> <span class="operator">=</span> Uscreen.dp2Px(context, <span class="number">16</span>);</span><br><span class="line">                <span class="type">LinearLayout</span> <span class="variable">layout</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">LinearLayout</span>(context);</span><br><span class="line">                LinearLayout.<span class="type">LayoutParams</span> <span class="variable">layoutParams</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">LinearLayout</span>.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);</span><br><span class="line">                layout.setLayoutParams(layoutParams);</span><br><span class="line">                layout.setGravity(Gravity.CENTER);</span><br><span class="line">                layout.setPadding(spacing, spacing, spacing, spacing);</span><br><span class="line">                <span class="comment">// add ProgressBar</span></span><br><span class="line">                <span class="type">ProgressBar</span> <span class="variable">bar</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ProgressBar</span>(context);</span><br><span class="line">                layout.addView(bar, layoutParams);</span><br><span class="line"></span><br><span class="line">                dialog = <span class="keyword">new</span> <span class="title class_">Dialog</span>(context, android.R.style.Theme_Holo_Dialog_NoActionBar);</span><br><span class="line">                dialog.setCancelable(<span class="literal">false</span>);</span><br><span class="line">                dialog.getWindow().setDimAmount(<span class="number">0.3f</span>);</span><br><span class="line">                dialog.setContentView(layout);</span><br><span class="line">                dialog.show();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">dismissDialog</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (dialog != <span class="literal">null</span> &amp;&amp; dialog.isShowing()) &#123;</span><br><span class="line">        dialog.dismiss();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-      
-          <h2 id="弹出和隐藏进度条"><a href="#弹出和隐藏进度条" class="headerlink" title="弹出和隐藏进度条"></a>弹出和隐藏进度条</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">private</span> Dialog dialog;<br><br><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">showDialog</span><span class="hljs-params">(<span class="hljs-keyword">final</span> Context ctx)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (ctx <span class="hljs-keyword">instanceof</span> Activity) &#123;<br>        <span class="hljs-keyword">final</span> Activity context = (Activity) ctx;<br>        context.runOnUiThread(<span class="hljs-keyword">new</span> Runnable() &#123;<br>            <span class="hljs-meta">@Override</span><br>            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">run</span><span class="hljs-params">()</span> </span>&#123;<br>                <span class="hljs-keyword">int</span> spacing = Uscreen.dp2Px(context, <span class="hljs-number">16</span>);<br>                LinearLayout layout = <span class="hljs-keyword">new</span> LinearLayout(context);<br>                LinearLayout.LayoutParams layoutParams = <span class="hljs-keyword">new</span> LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);<br>                layout.setLayoutParams(layoutParams);<br>                layout.setGravity(Gravity.CENTER);<br>                layout.setPadding(spacing, spacing, spacing, spacing);<br>                <span class="hljs-comment">// add ProgressBar</span><br>                ProgressBar bar = <span class="hljs-keyword">new</span> ProgressBar(context);<br>                layout.addView(bar, layoutParams);<br><br>                dialog = <span class="hljs-keyword">new</span> Dialog(context, android.R.style.Theme_Holo_Dialog_NoActionBar);<br>                dialog.setCancelable(<span class="hljs-keyword">false</span>);<br>                dialog.getWindow().setDimAmount(<span class="hljs-number">0.3f</span>);<br>                dialog.setContentView(layout);<br>                dialog.show();<br>            &#125;<br>        &#125;);<br>    &#125;<br><br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">dismissDialog</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (dialog != <span class="hljs-keyword">null</span> &amp;&amp; dialog.isShowing()) &#123;<br>        dialog.dismiss();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="单个操作的-alert"><a href="#单个操作的-alert" class="headerlink" title="单个操作的 alert"></a>单个操作的 alert</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">AlertOneItem</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> Context context;</span><br><span class="line">    <span class="keyword">private</span> String title;</span><br><span class="line">    <span class="keyword">private</span> String message;</span><br><span class="line">    <span class="keyword">private</span> Consumer&lt;Boolean&gt; consumer;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">String</span> <span class="variable">positiveTips</span> <span class="operator">=</span> <span class="string">&quot;确定&quot;</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">String</span> <span class="variable">negativeTips</span> <span class="operator">=</span> <span class="string">&quot;取消&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">AlertOneItem</span><span class="params">(Context context, Consumer&lt;Boolean&gt; consumer)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.context = context;</span><br><span class="line">        <span class="built_in">this</span>.consumer = consumer;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> AlertOneItem <span class="title function_">builder</span><span class="params">(Context context, Consumer&lt;Boolean&gt; consumer)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">AlertOneItem</span>(context, consumer);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> AlertOneItem <span class="title function_">title</span><span class="params">(String title)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.title = title;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> AlertOneItem <span class="title function_">message</span><span class="params">(String message)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.message = message;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> AlertOneItem <span class="title function_">positiveTips</span><span class="params">(String positiveTips)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.positiveTips = positiveTips;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> AlertOneItem <span class="title function_">negativeTips</span><span class="params">(String negativeTips)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.negativeTips = negativeTips;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">show</span><span class="params">()</span> &#123;</span><br><span class="line">        AlertDialog.<span class="type">Builder</span> <span class="variable">builder</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">AlertDialog</span>.Builder(context);</span><br><span class="line">        <span class="keyword">if</span> (!TextUtils.isEmpty(title)) &#123;</span><br><span class="line">            builder.setTitle(title);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (!TextUtils.isEmpty(message)) &#123;</span><br><span class="line">            builder.setMessage(message);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (!TextUtils.isEmpty(negativeTips)) &#123;</span><br><span class="line">            builder.setNegativeButton(negativeTips, (dialog, which) -&gt; consumer.accept(<span class="literal">false</span>));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (!TextUtils.isEmpty(positiveTips)) &#123;</span><br><span class="line">            builder.setPositiveButton(positiveTips, (dialog, which) -&gt; consumer.accept(<span class="literal">true</span>));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        builder.setCancelable(<span class="literal">true</span>);</span><br><span class="line">        builder.create();</span><br><span class="line">        builder.show();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 调用</span></span><br><span class="line">Udialog.AlertOneItem.builder(context, result -&gt; &#123;</span><br><span class="line">        <span class="keyword">if</span> (result) &#123;</span><br><span class="line">            toSetWallpaperAsync(context, imageView, color);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;).message(<span class="string">&quot;设置成壁纸?&quot;</span>).show();</span><br></pre></td></tr></table></figure>
 
-<h2 id="单个操作的-alert"><a href="#单个操作的-alert" class="headerlink" title="单个操作的 alert"></a>单个操作的 alert</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AlertOneItem</span> </span>&#123;<br>    <span class="hljs-keyword">private</span> Context context;<br>    <span class="hljs-keyword">private</span> String title;<br>    <span class="hljs-keyword">private</span> String message;<br>    <span class="hljs-keyword">private</span> Consumer&lt;Boolean&gt; consumer;<br>    <span class="hljs-keyword">private</span> String positiveTips = <span class="hljs-string">"确定"</span>;<br>    <span class="hljs-keyword">private</span> String negativeTips = <span class="hljs-string">"取消"</span>;<br><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">AlertOneItem</span><span class="hljs-params">(Context context, Consumer&lt;Boolean&gt; consumer)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.context = context;<br>        <span class="hljs-keyword">this</span>.consumer = consumer;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> AlertOneItem <span class="hljs-title">builder</span><span class="hljs-params">(Context context, Consumer&lt;Boolean&gt; consumer)</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> AlertOneItem(context, consumer);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> AlertOneItem <span class="hljs-title">title</span><span class="hljs-params">(String title)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.title = title;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> AlertOneItem <span class="hljs-title">message</span><span class="hljs-params">(String message)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.message = message;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> AlertOneItem <span class="hljs-title">positiveTips</span><span class="hljs-params">(String positiveTips)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.positiveTips = positiveTips;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> AlertOneItem <span class="hljs-title">negativeTips</span><span class="hljs-params">(String negativeTips)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.negativeTips = negativeTips;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;<br>    &#125;<br><br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">show</span><span class="hljs-params">()</span> </span>&#123;<br>        AlertDialog.Builder builder = <span class="hljs-keyword">new</span> AlertDialog.Builder(context);<br>        <span class="hljs-keyword">if</span> (!TextUtils.isEmpty(title)) &#123;<br>            builder.setTitle(title);<br>        &#125;<br>        <span class="hljs-keyword">if</span> (!TextUtils.isEmpty(message)) &#123;<br>            builder.setMessage(message);<br>        &#125;<br>        <span class="hljs-keyword">if</span> (!TextUtils.isEmpty(negativeTips)) &#123;<br>            builder.setNegativeButton(negativeTips, (dialog, which) -&gt; consumer.accept(<span class="hljs-keyword">false</span>));<br>        &#125;<br><br>        <span class="hljs-keyword">if</span> (!TextUtils.isEmpty(positiveTips)) &#123;<br>            builder.setPositiveButton(positiveTips, (dialog, which) -&gt; consumer.accept(<span class="hljs-keyword">true</span>));<br>        &#125;<br><br>        builder.setCancelable(<span class="hljs-keyword">true</span>);<br>        builder.create();<br>        builder.show();<br>    &#125;<br>&#125;<br><span class="hljs-comment">// 调用</span><br>Udialog.AlertOneItem.builder(context, result -&gt; &#123;<br>        <span class="hljs-keyword">if</span> (result) &#123;<br>            toSetWallpaperAsync(context, imageView, color);<br>        &#125;<br>    &#125;).message(<span class="hljs-string">"设置成壁纸?"</span>).show();<br></code></pre></td></tr></table></figure>
+<h2 id="多个操作的-alert-（方案-1）"><a href="#多个操作的-alert-（方案-1）" class="headerlink" title="多个操作的 alert （方案 1）"></a>多个操作的 alert （方案 1）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> <span class="title class_">OperateType</span> &#123;</span><br><span class="line">    REFRESH(<span class="string">&quot;刷新&quot;</span>),</span><br><span class="line">    COPY_LINK(<span class="string">&quot;复制链接&quot;</span>),</span><br><span class="line">    COPY_MD_LINK(<span class="string">&quot;复制md链接&quot;</span>),</span><br><span class="line">    OPEN_WITH_BROWSER(<span class="string">&quot;在浏览器中打开&quot;</span>),</span><br><span class="line">    ;</span><br><span class="line">    String title;</span><br><span class="line"></span><br><span class="line">    OperateType(String title) &#123;</span><br><span class="line">        <span class="built_in">this</span>.title = title;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> OperateType <span class="title function_">indexOf</span><span class="params">(<span class="type">int</span> index)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> OperateType.values()[index];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String[] toStrArray() &#123;</span><br><span class="line">        OperateType[] values = OperateType.values();</span><br><span class="line">        String[] result = <span class="keyword">new</span> <span class="title class_">String</span>[values.length];</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; values.length; i++) &#123;</span><br><span class="line">            result[i] = values[i].title;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">onMorePressed</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="keyword">new</span> <span class="title class_">AlertDialog</span>.Builder(mContext)</span><br><span class="line">            .setTitle(<span class="string">&quot;操作&quot;</span>)</span><br><span class="line">            .setItems(OperateType.toStrArray(), (dialog, which) -&gt; &#123;</span><br><span class="line">                <span class="keyword">switch</span> (OperateType.indexOf(which)) &#123;</span><br><span class="line">                    <span class="keyword">case</span> REFRESH:</span><br><span class="line">                        mWvContent.reload();</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    <span class="keyword">case</span> COPY_LINK:</span><br><span class="line">                        copyToClipboard(mWvContent.getUrl(), <span class="string">&quot;已复制到剪切板&quot;</span>);</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    <span class="keyword">case</span> COPY_MD_LINK:</span><br><span class="line">                        <span class="type">String</span> <span class="variable">title</span> <span class="operator">=</span> mWvContent.getTitle();</span><br><span class="line">                        <span class="type">String</span> <span class="variable">url</span> <span class="operator">=</span> mWvContent.getUrl();</span><br><span class="line">                        copyToClipboard(<span class="string">&quot;- [&quot;</span> + title + <span class="string">&quot;]&quot;</span> + <span class="string">&quot;(&quot;</span> + url + <span class="string">&quot;)&quot;</span>, <span class="string">&quot;已复制到剪切板&quot;</span>);</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    <span class="keyword">case</span> OPEN_WITH_BROWSER:</span><br><span class="line">                        <span class="type">Uri</span> <span class="variable">uri</span> <span class="operator">=</span> Uri.parse(mWvContent.getUrl());</span><br><span class="line">                        <span class="type">Intent</span> <span class="variable">intent</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Intent</span>(Intent.ACTION_VIEW, uri);</span><br><span class="line">                        startActivity(intent);</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    <span class="keyword">default</span>:</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">            .create().show();</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h2 id="多个操作的-alert-（方案-1）"><a href="#多个操作的-alert-（方案-1）" class="headerlink" title="多个操作的 alert （方案 1）"></a>多个操作的 alert （方案 1）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">enum</span> OperateType &#123;<br>    REFRESH(<span class="hljs-string">"刷新"</span>),<br>    COPY_LINK(<span class="hljs-string">"复制链接"</span>),<br>    COPY_MD_LINK(<span class="hljs-string">"复制md链接"</span>),<br>    OPEN_WITH_BROWSER(<span class="hljs-string">"在浏览器中打开"</span>),<br>    ;<br>    String title;<br><br>    OperateType(String title) &#123;<br>        <span class="hljs-keyword">this</span>.title = title;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> OperateType <span class="hljs-title">indexOf</span><span class="hljs-params">(<span class="hljs-keyword">int</span> index)</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> OperateType.values()[index];<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String[] toStrArray() &#123;<br>        OperateType[] values = OperateType.values();<br>        String[] result = <span class="hljs-keyword">new</span> String[values.length];<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; values.length; i++) &#123;<br>            result[i] = values[i].title;<br>        &#125;<br>        <span class="hljs-keyword">return</span> result;<br>    &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onMorePressed</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">new</span> AlertDialog.Builder(mContext)<br>            .setTitle(<span class="hljs-string">"操作"</span>)<br>            .setItems(OperateType.toStrArray(), (dialog, which) -&gt; &#123;<br>                <span class="hljs-keyword">switch</span> (OperateType.indexOf(which)) &#123;<br>                    <span class="hljs-keyword">case</span> REFRESH:<br>                        mWvContent.reload();<br>                        <span class="hljs-keyword">break</span>;<br>                    <span class="hljs-keyword">case</span> COPY_LINK:<br>                        copyToClipboard(mWvContent.getUrl(), <span class="hljs-string">"已复制到剪切板"</span>);<br>                        <span class="hljs-keyword">break</span>;<br>                    <span class="hljs-keyword">case</span> COPY_MD_LINK:<br>                        String title = mWvContent.getTitle();<br>                        String url = mWvContent.getUrl();<br>                        copyToClipboard(<span class="hljs-string">"- ["</span> + title + <span class="hljs-string">"]"</span> + <span class="hljs-string">"("</span> + url + <span class="hljs-string">")"</span>, <span class="hljs-string">"已复制到剪切板"</span>);<br>                        <span class="hljs-keyword">break</span>;<br>                    <span class="hljs-keyword">case</span> OPEN_WITH_BROWSER:<br>                        Uri uri = Uri.parse(mWvContent.getUrl());<br>                        Intent intent = <span class="hljs-keyword">new</span> Intent(Intent.ACTION_VIEW, uri);<br>                        startActivity(intent);<br>                        <span class="hljs-keyword">break</span>;<br>                    <span class="hljs-keyword">default</span>:<br>                &#125;<br>            &#125;)<br>            .create().show();<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h2 id="多个操作的-alert（方案-2）"><a href="#多个操作的-alert（方案-2）" class="headerlink" title="多个操作的 alert（方案 2）"></a>多个操作的 alert（方案 2）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AlertMultiItem</span> </span>&#123;<br>    <span class="hljs-keyword">private</span> List&lt;String&gt; nameList = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();<br>    <span class="hljs-keyword">private</span> List&lt;Runnable&gt; taskList = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();<br>    <span class="hljs-keyword">private</span> Context context;<br>    <span class="hljs-keyword">private</span> String title;<br><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">AlertMultiItem</span><span class="hljs-params">(Context context)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.context = context;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> AlertMultiItem <span class="hljs-title">builder</span><span class="hljs-params">(Context context)</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> AlertMultiItem(context);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> AlertMultiItem <span class="hljs-title">title</span><span class="hljs-params">(String title)</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.title = title;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> AlertMultiItem <span class="hljs-title">add</span><span class="hljs-params">(String title, Runnable runnable)</span> </span>&#123;<br>        nameList.add(title);<br>        taskList.add(runnable);<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;<br>    &#125;<br><br>    <span class="hljs-keyword">private</span> String[] getItemNames() &#123;<br>        String[] result = <span class="hljs-keyword">new</span> String[nameList.size()];<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; nameList.size(); i++) &#123;<br>            result[i] = nameList.get(i);<br>        &#125;<br>        <span class="hljs-keyword">return</span> result;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">show</span><span class="hljs-params">()</span> </span>&#123;<br>        AlertDialog.Builder builder = <span class="hljs-keyword">new</span> AlertDialog.Builder(context);<br>        <span class="hljs-keyword">if</span> (!TextUtils.isEmpty(title)) &#123;<br>            builder.setTitle(title);<br>        &#125;<br>        builder.setItems(getItemNames(), (dialog, which) -&gt; taskList.get(which).run());<br>        builder.create();<br>        builder.show();<br>    &#125;<br>&#125;<br><br><span class="hljs-comment">// 调用</span><br>Udialog.AlertMultiItem.builder(mContext)<br>        .add(<span class="hljs-string">"复制内容"</span>, () -&gt; copyContent())<br>        .add(<span class="hljs-string">"复制全部"</span>, () -&gt; copyAll())<br>        .add(<span class="hljs-string">"删除此项"</span>, () -&gt; delete())<br>        .show();<br></code></pre></td></tr></table></figure>
+<h2 id="多个操作的-alert（方案-2）"><a href="#多个操作的-alert（方案-2）" class="headerlink" title="多个操作的 alert（方案 2）"></a>多个操作的 alert（方案 2）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">AlertMultiItem</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> List&lt;String&gt; nameList = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">    <span class="keyword">private</span> List&lt;Runnable&gt; taskList = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">    <span class="keyword">private</span> Context context;</span><br><span class="line">    <span class="keyword">private</span> String title;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="title function_">AlertMultiItem</span><span class="params">(Context context)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.context = context;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> AlertMultiItem <span class="title function_">builder</span><span class="params">(Context context)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">AlertMultiItem</span>(context);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> AlertMultiItem <span class="title function_">title</span><span class="params">(String title)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.title = title;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> AlertMultiItem <span class="title function_">add</span><span class="params">(String title, Runnable runnable)</span> &#123;</span><br><span class="line">        nameList.add(title);</span><br><span class="line">        taskList.add(runnable);</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String[] getItemNames() &#123;</span><br><span class="line">        String[] result = <span class="keyword">new</span> <span class="title class_">String</span>[nameList.size()];</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; nameList.size(); i++) &#123;</span><br><span class="line">            result[i] = nameList.get(i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">show</span><span class="params">()</span> &#123;</span><br><span class="line">        AlertDialog.<span class="type">Builder</span> <span class="variable">builder</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">AlertDialog</span>.Builder(context);</span><br><span class="line">        <span class="keyword">if</span> (!TextUtils.isEmpty(title)) &#123;</span><br><span class="line">            builder.setTitle(title);</span><br><span class="line">        &#125;</span><br><span class="line">        builder.setItems(getItemNames(), (dialog, which) -&gt; taskList.get(which).run());</span><br><span class="line">        builder.create();</span><br><span class="line">        builder.show();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 调用</span></span><br><span class="line">Udialog.AlertMultiItem.builder(mContext)</span><br><span class="line">        .add(<span class="string">&quot;复制内容&quot;</span>, () -&gt; copyContent())</span><br><span class="line">        .add(<span class="string">&quot;复制全部&quot;</span>, () -&gt; copyAll())</span><br><span class="line">        .add(<span class="string">&quot;删除此项&quot;</span>, () -&gt; delete())</span><br><span class="line">        .show();</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -253,46 +259,59 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://lyloou.com/android/%E5%8A%A0%E5%AF%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lyloou">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/android/%E5%8A%A0%E5%AF%86/" class="post-title-link" itemprop="url">加密</a>
+          <a href="/android/%E5%8A%A0%E5%AF%86/" class="post-title-link" itemprop="url">加密</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2017-08-27 17:17:15" itemprop="dateCreated datePublished" datetime="2017-08-27T17:17:15+08:00">2017-08-27</time>
-            </span>
+      <time title="创建时间：2017-08-27 17:17:15" itemprop="dateCreated datePublished" datetime="2017-08-27T17:17:15+08:00">2017-08-27</time>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -301,11 +320,9 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
           <h2 id="加密"><a href="#加密" class="headerlink" title="加密"></a>加密</h2><ul>
-<li><a href="https://www.zhihu.com/question/35136485" target="_blank" rel="noopener">android开发如何保障本地加密密钥的安全？ - 知乎</a></li>
-<li><a href="http://leehong2005.com/2016/08/08/android-so-signature-check/" target="_blank" rel="noopener">Android so库防客户端破解的解决方案</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/35136485">android开发如何保障本地加密密钥的安全？ - 知乎</a></li>
+<li><a target="_blank" rel="noopener" href="http://leehong2005.com/2016/08/08/android-so-signature-check/">Android so库防客户端破解的解决方案</a></li>
 </ul>
 
       
@@ -314,46 +331,59 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://lyloou.com/android/jni%E5%AE%9E%E7%8E%B0%E6%AD%A5%E9%AA%A4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lyloou">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/android/jni%E5%AE%9E%E7%8E%B0%E6%AD%A5%E9%AA%A4/" class="post-title-link" itemprop="url">Jni实现步骤</a>
+          <a href="/android/jni%E5%AE%9E%E7%8E%B0%E6%AD%A5%E9%AA%A4/" class="post-title-link" itemprop="url">Jni实现步骤</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2017-08-27 17:16:15" itemprop="dateCreated datePublished" datetime="2017-08-27T17:16:15+08:00">2017-08-27</time>
-            </span>
+      <time title="创建时间：2017-08-27 17:16:15" itemprop="dateCreated datePublished" datetime="2017-08-27T17:16:15+08:00">2017-08-27</time>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -362,25 +392,19 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
           <h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ol>
 <li><p>配置ndk路径<br><code>ctrl+shift+alt+s</code>,ndk location</p>
 </li>
 <li><p>配置app下 build.gradle  </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 指定生成lib so文件的名称</span><br>defaultConfig&#123;<br>    ndk&#123;<br>        moduleName <span class="hljs-string">"MyJniLib"</span><br>    &#125;<br>&#125;<br><span class="hljs-comment">// 指定jni路径</span><br>sourceSets&#123;<br>    main&#123;<br>        jni.srcDirs = [<span class="hljs-string">'src/main/jni'</span>,<span class="hljs-string">'src/main/jni/'</span>]<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-</li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 指定生成lib so文件的名称</span></span><br><span class="line">defaultConfig&#123;</span><br><span class="line">    ndk&#123;</span><br><span class="line">        moduleName <span class="string">&quot;MyJniLib&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 指定jni路径</span></span><br><span class="line">sourceSets&#123;</span><br><span class="line">    main&#123;</span><br><span class="line">        jni.srcDirs = [<span class="string">&#x27;src/main/jni&#x27;</span>,<span class="string">&#x27;src/main/jni/&#x27;</span>]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li><p>修改gradle.properties文件</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">android.userDeprecatedNdk=<span class="hljs-keyword">true</span><br></code></pre></td></tr></table></figure>
-</li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">android.userDeprecatedNdk=<span class="literal">true</span></span><br></pre></td></tr></table></figure></li>
 <li><p>设置native接口</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.lyloou.secretjni;<br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Ujni</span> </span>&#123;<br>    <span class="hljs-keyword">static</span> &#123;<br>        System.loadLibrary(<span class="hljs-string">"MyJniLib"</span>);<span class="hljs-comment">//之前在build.gradle里面设置的so名字，必须一致</span><br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">native</span> String <span class="hljs-title">getSec</span><span class="hljs-params">(<span class="hljs-keyword">int</span> type, <span class="hljs-keyword">int</span> hashcode)</span></span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-</li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.lyloou.secretjni;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Ujni</span> &#123;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        System.loadLibrary(<span class="string">&quot;MyJniLib&quot;</span>);<span class="comment">//之前在build.gradle里面设置的so名字，必须一致</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">native</span> String <span class="title function_">getSec</span><span class="params">(<span class="type">int</span> type, <span class="type">int</span> hashcode)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li><p>build项目，生成Ujni.class文件</p>
 </li>
 <li><p>通过Ujni.class文件生成头文件</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">javah -d jni -classpath MyProject/app/build/intermediates/classes/debug/com.lyloou.secretjni.Ujni<br></code></pre></td></tr></table></figure>
-</li>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">javah -d jni -classpath MyProject/app/build/intermediates/classes/debug/com.lyloou.secretjni.Ujni</span><br></pre></td></tr></table></figure></li>
 <li><p>编写c文件<br>将上一步骤生成的头文件，放在main/jni文件夹下<br>另外新建一个cpp文件实现业务逻辑。</p>
 </li>
 <li><p>获取so文件<br>编译运行后，在build/intermediates/ndk/debug/lib文件夹下得到一系列包含so文件的文件夹。</p>
@@ -389,17 +413,17 @@
 </li>
 </ol>
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
-<li><p><a href="http://blog.csdn.net/feipeng_/article/details/73554777" target="_blank" rel="noopener">Android Studio jni开发之经典入门demo - FeiPeng_的博客 - CSDN博客</a></p>
+<li><p><a target="_blank" rel="noopener" href="http://blog.csdn.net/feipeng_/article/details/73554777">Android Studio jni开发之经典入门demo - FeiPeng_的博客 - CSDN博客</a></p>
 </li>
-<li><p><a href="http://wxmylife.com/2017/03/22/Android%E9%80%9A%E8%BF%87JNI%E5%8A%A0%E5%AF%86%EF%BC%8C%E5%B9%B6%E5%AE%9E%E7%8E%B0APP%E7%AD%BE%E5%90%8D%E9%AA%8C%E8%AF%81/" target="_blank" rel="noopener">Android通过JNI加密，并实现APP签名验证 | wxmylife</a></p>
+<li><p><a target="_blank" rel="noopener" href="http://wxmylife.com/2017/03/22/Android%E9%80%9A%E8%BF%87JNI%E5%8A%A0%E5%AF%86%EF%BC%8C%E5%B9%B6%E5%AE%9E%E7%8E%B0APP%E7%AD%BE%E5%90%8D%E9%AA%8C%E8%AF%81/">Android通过JNI加密，并实现APP签名验证 | wxmylife</a></p>
 </li>
-<li><p><a href="http://www.jianshu.com/p/2a27ad45e023" target="_blank" rel="noopener">Android 密钥保护 - 简书</a></p>
+<li><p><a target="_blank" rel="noopener" href="http://www.jianshu.com/p/2a27ad45e023">Android 密钥保护 - 简书</a></p>
 </li>
-<li><p><a href="https://www.zhihu.com/question/35136485" target="_blank" rel="noopener">android开发如何保障本地加密密钥的安全？ - 知乎</a></p>
+<li><p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/35136485">android开发如何保障本地加密密钥的安全？ - 知乎</a></p>
 </li>
-<li><p><a href="https://blog.csdn.net/yy1300326388/article/details/46291417" target="_blank" rel="noopener">Android NDK 运行错误：java.lang.UnsatisfiedLinkError: Couldn’t load XXX indLibrary returned null</a></p>
-<h3 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java">  <span class="hljs-comment">//目录结构一定要改成这个样子</span><br>|---src<br>     |---main<br>           |---jniLibs<br>                  |---arm64-v8a<br>                         |---libhello-jni.so<br>                  |---armeabi<br>                         |---libhello-jni.so<br>                  |---armeabi-v7a<br>                         |---libhello-jni.so<br>                  |---x86<br>                         |---libhello-jni.so<br>                  |---x86_64<br>                         |---libhello-jni.so<br>                  |---mips<br>                         |---libhello-jni.so<br>                  |---mips64<br>                         |---libhello-jni.so<br></code></pre></td></tr></table></figure>
-<h3 id="方法2［推荐］"><a href="#方法2［推荐］" class="headerlink" title="方法2［推荐］"></a>方法2［推荐］</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java">  android &#123;<br>    sourceSets &#123;<br>        main &#123;<br>            jniLibs.srcDirs = [<span class="hljs-string">'libs'</span>]<br>        &#125;<br>&#125;<br></code></pre></td></tr></table></figure></li>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/yy1300326388/article/details/46291417">Android NDK 运行错误：java.lang.UnsatisfiedLinkError: Couldn’t load XXX indLibrary returned null</a></p>
+<h3 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">  <span class="comment">//目录结构一定要改成这个样子</span></span><br><span class="line">|---src</span><br><span class="line">     |---main</span><br><span class="line">           |---jniLibs</span><br><span class="line">                  |---arm64-v8a</span><br><span class="line">                         |---libhello-jni.so</span><br><span class="line">                  |---armeabi</span><br><span class="line">                         |---libhello-jni.so</span><br><span class="line">                  |---armeabi-v7a</span><br><span class="line">                         |---libhello-jni.so</span><br><span class="line">                  |---x86</span><br><span class="line">                         |---libhello-jni.so</span><br><span class="line">                  |---x86_64</span><br><span class="line">                         |---libhello-jni.so</span><br><span class="line">                  |---mips</span><br><span class="line">                         |---libhello-jni.so</span><br><span class="line">                  |---mips64</span><br><span class="line">                         |---libhello-jni.so</span><br></pre></td></tr></table></figure>
+<h3 id="方法2［推荐］"><a href="#方法2［推荐］" class="headerlink" title="方法2［推荐］"></a>方法2［推荐］</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">  android &#123;</span><br><span class="line">    sourceSets &#123;</span><br><span class="line">        main &#123;</span><br><span class="line">            jniLibs.srcDirs = [<span class="string">&#x27;libs&#x27;</span>]</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
 
       
@@ -408,46 +432,59 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://lyloou.com/android/%E4%B8%8B%E8%BD%BD%E7%BD%91%E7%BB%9C%E5%9B%BE%E7%89%87/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lyloou">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/android/%E4%B8%8B%E8%BD%BD%E7%BD%91%E7%BB%9C%E5%9B%BE%E7%89%87/" class="post-title-link" itemprop="url">Android下载网络图片</a>
+          <a href="/android/%E4%B8%8B%E8%BD%BD%E7%BD%91%E7%BB%9C%E5%9B%BE%E7%89%87/" class="post-title-link" itemprop="url">Android下载网络图片</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2017-08-27 17:16:15" itemprop="dateCreated datePublished" datetime="2017-08-27T17:16:15+08:00">2017-08-27</time>
-            </span>
+      <time title="创建时间：2017-08-27 17:16:15" itemprop="dateCreated datePublished" datetime="2017-08-27T17:16:15+08:00">2017-08-27</time>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -456,128 +493,75 @@
     
     
     <div class="post-body" itemprop="articleBody">
+          <h2 id="下载网络图片"><a href="#下载网络图片" class="headerlink" title="下载网络图片"></a>下载网络图片</h2><pre><code><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 第一步：根据流得到bitmap</span></span><br><span class="line"><span class="comment">// 方案1</span></span><br><span class="line"><span class="type">Bitmap</span> <span class="variable">bitmap</span> <span class="operator">=</span> Glide.with(applicationContext)</span><br><span class="line">        .load(url)</span><br><span class="line">        .asBitmap()</span><br><span class="line">        .into(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL)</span><br><span class="line">        .get();</span><br><span class="line"><span class="comment">// 方案2</span></span><br><span class="line"><span class="type">Bitmap</span> <span class="variable">bitmap</span> <span class="operator">=</span> BitmapFactory.decodeStream(<span class="keyword">new</span> <span class="title class_">URL</span>(url).openStream());</span><br><span class="line"></span><br><span class="line"><span class="comment">// 压缩图片</span></span><br><span class="line"><span class="comment">// bitmap = Bitmap.createScaledBitmap(bitmap, 120, 120, true);</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 第二步：保存成文件</span></span><br><span class="line"><span class="comment">// 保存图片</span></span><br><span class="line"><span class="type">File</span> <span class="variable">imgDir</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(getDiskCacheDir(applicationContext), <span class="string">&quot;image_caches&quot;</span>);</span><br><span class="line"><span class="keyword">if</span> (!imgDir.exists()) &#123;</span><br><span class="line">    imgDir.mkdirs();</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">File</span> <span class="variable">imgFile</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(imgDir, fileName);</span><br><span class="line">fileOutputStream = <span class="keyword">new</span> <span class="title class_">FileOutputStream</span>(imgFile);</span><br><span class="line">Bitmap.<span class="type">CompressFormat</span> <span class="variable">compressFormat</span> <span class="operator">=</span> Bitmap.CompressFormat.PNG;</span><br><span class="line">bitmap.compress(compressFormat, <span class="number">100</span>, fileOutputStream);</span><br><span class="line">fileOutputStream.flush();</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</code></pre>
+<h2 id="Glide预加载图片"><a href="#Glide预加载图片" class="headerlink" title="Glide预加载图片"></a>Glide预加载图片</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">preloadImage</span><span class="params">(Context context, AdZone adZone)</span> &#123;</span><br><span class="line">    <span class="keyword">for</span> (AdZone.Item item : adZone.getItems()) &#123;</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Thread</span>(() -&gt; &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                Glide.with(context.getApplicationContext())</span><br><span class="line">                        .load(item.getPic())</span><br><span class="line">                        .downloadOnly(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL)</span><br><span class="line">                        .get();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (ExecutionException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;).start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-      
-          <h2 id="下载网络图片"><a href="#下载网络图片" class="headerlink" title="下载网络图片"></a>下载网络图片</h2><pre><code><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 第一步：根据流得到bitmap</span><br><span class="hljs-comment">// 方案1</span><br>Bitmap bitmap = Glide.with(applicationContext)<br>        .load(url)<br>        .asBitmap()<br>        .into(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL)<br>        .get();<br><span class="hljs-comment">// 方案2</span><br>Bitmap bitmap = BitmapFactory.decodeStream(<span class="hljs-keyword">new</span> URL(url).openStream());<br><br><span class="hljs-comment">// 压缩图片</span><br><span class="hljs-comment">// bitmap = Bitmap.createScaledBitmap(bitmap, 120, 120, true);</span><br><br><span class="hljs-comment">// 第二步：保存成文件</span><br><span class="hljs-comment">// 保存图片</span><br>File imgDir = <span class="hljs-keyword">new</span> File(getDiskCacheDir(applicationContext), <span class="hljs-string">"image_caches"</span>);<br><span class="hljs-keyword">if</span> (!imgDir.exists()) &#123;<br>    imgDir.mkdirs();<br>&#125;<br>File imgFile = <span class="hljs-keyword">new</span> File(imgDir, fileName);<br>fileOutputStream = <span class="hljs-keyword">new</span> FileOutputStream(imgFile);<br>Bitmap.CompressFormat compressFormat = Bitmap.CompressFormat.PNG;<br>bitmap.compress(compressFormat, <span class="hljs-number">100</span>, fileOutputStream);<br>fileOutputStream.flush();<br></code></pre></td></tr></table></figure></code></pre><h2 id="Glide预加载图片"><a href="#Glide预加载图片" class="headerlink" title="Glide预加载图片"></a>Glide预加载图片</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">preloadImage</span><span class="hljs-params">(Context context, AdZone adZone)</span> </span>&#123;<br>    <span class="hljs-keyword">for</span> (AdZone.Item item : adZone.getItems()) &#123;<br>        <span class="hljs-keyword">new</span> Thread(() -&gt; &#123;<br>            <span class="hljs-keyword">try</span> &#123;<br>                Glide.with(context.getApplicationContext())<br>                        .load(item.getPic())<br>                        .downloadOnly(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL)<br>                        .get();<br>            &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;<br>                e.printStackTrace();<br>            &#125; <span class="hljs-keyword">catch</span> (ExecutionException e) &#123;<br>                e.printStackTrace();<br>            &#125;<br>        &#125;).start();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs java">Glide.with(getApplicationContext())<br>    .load(pic)<br>    .diskCacheStrategy(DiskCacheStrategy.ALL)<br>    .into(<span class="hljs-keyword">new</span> GlideDrawableImageViewTarget(ivWelcome) &#123;<br>        <span class="hljs-meta">@Override</span><br>        <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setResource</span><span class="hljs-params">(GlideDrawable resource)</span> </span>&#123;<br>            <span class="hljs-comment">// https://github.com/bumptech/glide/issues/275</span><br>            <span class="hljs-keyword">super</span>.setResource(resource);<br><br>            ivWelcome.setOnClickListener(v -&gt; &#123;<br>                sendAdZoneItemBroadcast(item);<br>            &#125;);<br>            ivWelcome.setVisibility(View.VISIBLE);<br><br>            <span class="hljs-comment">// set countDown</span><br>            toCountDown();<br>        &#125;<br><br>        <span class="hljs-meta">@Override</span><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onLoadFailed</span><span class="hljs-params">(Exception e, Drawable errorDrawable)</span> </span>&#123;<br>            <span class="hljs-keyword">super</span>.onLoadFailed(e, errorDrawable);<br>        &#125;<br>    &#125;);<br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">Glide.with(getApplicationContext())</span><br><span class="line">    .load(pic)</span><br><span class="line">    .diskCacheStrategy(DiskCacheStrategy.ALL)</span><br><span class="line">    .into(<span class="keyword">new</span> <span class="title class_">GlideDrawableImageViewTarget</span>(ivWelcome) &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">setResource</span><span class="params">(GlideDrawable resource)</span> &#123;</span><br><span class="line">            <span class="comment">// https://github.com/bumptech/glide/issues/275</span></span><br><span class="line">            <span class="built_in">super</span>.setResource(resource);</span><br><span class="line"></span><br><span class="line">            ivWelcome.setOnClickListener(v -&gt; &#123;</span><br><span class="line">                sendAdZoneItemBroadcast(item);</span><br><span class="line">            &#125;);</span><br><span class="line">            ivWelcome.setVisibility(View.VISIBLE);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// set countDown</span></span><br><span class="line">            toCountDown();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onLoadFailed</span><span class="params">(Exception e, Drawable errorDrawable)</span> &#123;</span><br><span class="line">            <span class="built_in">super</span>.onLoadFailed(e, errorDrawable);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
 <ul>
-<li><a href="https://blog.csdn.net/qq_30740239/article/details/53466426" target="_blank" rel="noopener">Glide下载图片和缓存图片</a></li>
-<li><a href="https://stackoverflow.com/questions/37964187/preload-multiple-images-with-glide" target="_blank" rel="noopener">java - Preload multiple images with Glide - Stack Overflow</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_30740239/article/details/53466426">Glide下载图片和缓存图片</a></li>
+<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/37964187/preload-multiple-images-with-glide">java - Preload multiple images with Glide - Stack Overflow</a></li>
 </ul>
-<h2 id="主要介绍Android图片OutOfMemory异常bitmap-size-exceeds-VM-budget的原因及解决方法，顺带提及Dalvik-heap-size"><a href="#主要介绍Android图片OutOfMemory异常bitmap-size-exceeds-VM-budget的原因及解决方法，顺带提及Dalvik-heap-size" class="headerlink" title="主要介绍Android图片OutOfMemory异常bitmap size exceeds VM budget的原因及解决方法，顺带提及Dalvik heap size"></a><a href="http://www.trinea.cn/android/android-image-outofmemory-bitmap-size-exceeds-vm-budget/" target="_blank" rel="noopener">主要介绍Android图片OutOfMemory异常bitmap size exceeds VM budget的原因及解决方法，顺带提及Dalvik heap size</a></h2>
+<h2 id="主要介绍Android图片OutOfMemory异常bitmap-size-exceeds-VM-budget的原因及解决方法，顺带提及Dalvik-heap-size"><a href="#主要介绍Android图片OutOfMemory异常bitmap-size-exceeds-VM-budget的原因及解决方法，顺带提及Dalvik-heap-size" class="headerlink" title="主要介绍Android图片OutOfMemory异常bitmap size exceeds VM budget的原因及解决方法，顺带提及Dalvik heap size"></a><a target="_blank" rel="noopener" href="http://www.trinea.cn/android/android-image-outofmemory-bitmap-size-exceeds-vm-budget/">主要介绍Android图片OutOfMemory异常bitmap size exceeds VM budget的原因及解决方法，顺带提及Dalvik heap size</a></h2>
       
     </div>
 
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
-  
-  
+</div>
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lyloou.com/design-pattern/%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/assets/images/avatar.png">
-      <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
-    </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="lyloou">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/design-pattern/%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99/" class="post-title-link" itemprop="url">设计模式-参考资料</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2017-08-26 17:16:15" itemprop="dateCreated datePublished" datetime="2017-08-26T17:16:15+08:00">2017-08-26</time>
-            </span>
-
-          
-
-        </div>
-      </header>
 
     
-    
-    
-    <div class="post-body" itemprop="articleBody">
 
-      
-          <ul>
-<li><p><a href="https://github.com/iluwatar/java-design-patterns" target="_blank" rel="noopener">java-design-patterns</a></p>
-<blockquote>
-<p>Design patterns implemented in Java <a href="http://java-design-patterns.com" target="_blank" rel="noopener">http://java-design-patterns.com</a></p>
-</blockquote>
-</li>
-<li><p><a href="http://c.biancheng.net/design_pattern/" target="_blank" rel="noopener">http://c.biancheng.net/design_pattern/</a></p>
-</li>
-</ul>
 
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://lyloou.com/design-pattern/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lyloou">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/design-pattern/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/" class="post-title-link" itemprop="url">面向对象设计原则</a>
+          <a href="/design-pattern/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/" class="post-title-link" itemprop="url">面向对象设计原则</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2017-08-26 17:16:15" itemprop="dateCreated datePublished" datetime="2017-08-26T17:16:15+08:00">2017-08-26</time>
-            </span>
+      <time title="创建时间：2017-08-26 17:16:15" itemprop="dateCreated datePublished" datetime="2017-08-26T17:16:15+08:00">2017-08-26</time>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -586,8 +570,6 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
           <h2 id="面向对象设计原则"><a href="#面向对象设计原则" class="headerlink" title="面向对象设计原则"></a>面向对象设计原则</h2><p>（单开里依接组迪：把<code>蛋</code>打<code>开</code>，<code>里</code>面有 <code>一</code> <code>组</code> <code>姐</code> <code>弟</code> `花）</p>
 <ol>
 <li>单一职责原则：设计目的单一的类；</li>
@@ -605,46 +587,136 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.com/design-pattern/%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/images/avatar.png">
+      <meta itemprop="name" content="lyloou">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lyloou">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/design-pattern/%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99/" class="post-title-link" itemprop="url">设计模式-参考资料</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-08-26 17:16:15" itemprop="dateCreated datePublished" datetime="2017-08-26T17:16:15+08:00">2017-08-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <ul>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/iluwatar/java-design-patterns">java-design-patterns</a></p>
+<blockquote>
+<p>Design patterns implemented in Java <a target="_blank" rel="noopener" href="http://java-design-patterns.com/">http://java-design-patterns.com</a></p>
+</blockquote>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://c.biancheng.net/design_pattern/">http://c.biancheng.net/design_pattern/</a></p>
+</li>
+</ul>
+
       
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://lyloou.com/design-pattern/%E5%8D%95%E4%BE%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lyloou">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/design-pattern/%E5%8D%95%E4%BE%8B/" class="post-title-link" itemprop="url">设计模式-单例</a>
+          <a href="/design-pattern/%E5%8D%95%E4%BE%8B/" class="post-title-link" itemprop="url">设计模式-单例</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2017-08-25 18:28:15" itemprop="dateCreated datePublished" datetime="2017-08-25T18:28:15+08:00">2017-08-25</time>
-            </span>
+      <time title="创建时间：2017-08-25 18:28:15" itemprop="dateCreated datePublished" datetime="2017-08-25T18:28:15+08:00">2017-08-25</time>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -653,55 +725,66 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
-          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">P66</span></span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String []args)</span> </span>&#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10000</span>; i++) &#123;<br>            <span class="hljs-keyword">new</span> Thread(() -&gt; &#123;<br>                Singleton.getInstance().doSth(); <span class="hljs-comment">// ok, only create one instance</span><br><span class="hljs-comment">//                Singleton.getInstance2().doSth(); // error, will create more than one instance</span><br><span class="hljs-comment">//                Singleton.getInstance3().doSth(); // error, will create more than one instance, too</span><br><span class="hljs-comment">//                Singleton.getInstance4().doSth(); // error, maybe cause NullPointerException</span><br>            &#125;).start();<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Singleton</span> </span>&#123;<br>        <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> Singleton instance;<br>        <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> count;<br><br>        <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-title">Singleton</span><span class="hljs-params">()</span> </span>&#123;<br>            count = count + <span class="hljs-number">1</span>;<br>            <span class="hljs-keyword">if</span> (count &gt; <span class="hljs-number">0</span>) &#123;<br>                System.out.println(count);<br>            &#125;<br>        &#125;<br><br>        <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">doSth</span><span class="hljs-params">()</span> </span>&#123;<br>            <span class="hljs-comment">// do something</span><br>        &#125;<br><br>        <span class="hljs-comment">// double check</span><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Singleton <span class="hljs-title">getInstance</span><span class="hljs-params">()</span> </span>&#123;<br>            <span class="hljs-keyword">if</span> (instance == <span class="hljs-keyword">null</span>) &#123;<br>                <span class="hljs-keyword">try</span> &#123;<br>                    Thread.sleep(<span class="hljs-number">100</span>);<br>                &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;<br>                    e.printStackTrace();<br>                &#125;<br>                <span class="hljs-keyword">synchronized</span> (Singleton<span class="hljs-class">.<span class="hljs-keyword">class</span>) </span>&#123;<br>                    <span class="hljs-keyword">if</span> (instance == <span class="hljs-keyword">null</span>) &#123;<br>                        instance = <span class="hljs-keyword">new</span> Singleton();<br>                    &#125;<br>                &#125;<br>            &#125;<br>            <span class="hljs-keyword">return</span> instance;<br>        &#125;<br><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Singleton <span class="hljs-title">getInstance2</span><span class="hljs-params">()</span> </span>&#123;<br>            <span class="hljs-keyword">if</span> (instance == <span class="hljs-keyword">null</span>) &#123;<br>                <span class="hljs-keyword">try</span> &#123;<br>                    Thread.sleep(<span class="hljs-number">100</span>);<br>                &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;<br>                    e.printStackTrace();<br>                &#125;<br>                instance = <span class="hljs-keyword">new</span> Singleton();<br>            &#125;<br>            <span class="hljs-keyword">return</span> instance;<br>        &#125;<br><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Singleton <span class="hljs-title">getInstance3</span><span class="hljs-params">()</span> </span>&#123;<br>            <span class="hljs-keyword">if</span> (instance == <span class="hljs-keyword">null</span>) &#123;<br>                <span class="hljs-keyword">try</span> &#123;<br>                    Thread.sleep(<span class="hljs-number">100</span>);<br>                &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;<br>                    e.printStackTrace();<br>                &#125;<br>                <span class="hljs-keyword">synchronized</span> (Singleton<span class="hljs-class">.<span class="hljs-keyword">class</span>) </span>&#123;<br>                    instance = <span class="hljs-keyword">new</span> Singleton();<br>                &#125;<br>            &#125;<br>            <span class="hljs-keyword">return</span> instance;<br>        &#125;<br><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Singleton <span class="hljs-title">getInstance4</span><span class="hljs-params">()</span> </span>&#123;<br>            <span class="hljs-keyword">if</span> (instance == <span class="hljs-keyword">null</span>) &#123;<br>                <span class="hljs-keyword">try</span> &#123;<br>                    Thread.sleep(<span class="hljs-number">100</span>);<br>                &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;<br>                    e.printStackTrace();<br>                &#125;<br><br>                <span class="hljs-keyword">if</span> (count &gt; <span class="hljs-number">0</span>) &#123;<br>                    <span class="hljs-keyword">return</span> instance;<br>                &#125; <span class="hljs-keyword">else</span> &#123;<br>                    instance = <span class="hljs-keyword">new</span> Singleton();<br>                &#125;<br>            &#125;<br>            <span class="hljs-keyword">return</span> instance;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+          <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">P66</span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String []args)</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">10000</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">new</span> <span class="title class_">Thread</span>(() -&gt; &#123;</span><br><span class="line">                Singleton.getInstance().doSth(); <span class="comment">// ok, only create one instance</span></span><br><span class="line"><span class="comment">//                Singleton.getInstance2().doSth(); // error, will create more than one instance</span></span><br><span class="line"><span class="comment">//                Singleton.getInstance3().doSth(); // error, will create more than one instance, too</span></span><br><span class="line"><span class="comment">//                Singleton.getInstance4().doSth(); // error, maybe cause NullPointerException</span></span><br><span class="line">            &#125;).start();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">Singleton</span> &#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">static</span> Singleton instance;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">int</span> count;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">private</span> <span class="title function_">Singleton</span><span class="params">()</span> &#123;</span><br><span class="line">            count = count + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span> (count &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                System.out.println(count);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">doSth</span><span class="params">()</span> &#123;</span><br><span class="line">            <span class="comment">// do something</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// double check</span></span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title function_">getInstance</span><span class="params">()</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (instance == <span class="literal">null</span>) &#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    Thread.sleep(<span class="number">100</span>);</span><br><span class="line">                &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">synchronized</span> (Singleton.class) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (instance == <span class="literal">null</span>) &#123;</span><br><span class="line">                        instance = <span class="keyword">new</span> <span class="title class_">Singleton</span>();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> instance;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title function_">getInstance2</span><span class="params">()</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (instance == <span class="literal">null</span>) &#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    Thread.sleep(<span class="number">100</span>);</span><br><span class="line">                &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">                instance = <span class="keyword">new</span> <span class="title class_">Singleton</span>();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> instance;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title function_">getInstance3</span><span class="params">()</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (instance == <span class="literal">null</span>) &#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    Thread.sleep(<span class="number">100</span>);</span><br><span class="line">                &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">synchronized</span> (Singleton.class) &#123;</span><br><span class="line">                    instance = <span class="keyword">new</span> <span class="title class_">Singleton</span>();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> instance;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title function_">getInstance4</span><span class="params">()</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (instance == <span class="literal">null</span>) &#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    Thread.sleep(<span class="number">100</span>);</span><br><span class="line">                &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (count &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                    <span class="keyword">return</span> instance;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    instance = <span class="keyword">new</span> <span class="title class_">Singleton</span>();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> instance;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://lyloou.com/http/HTTP%E7%AC%94%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lyloou">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/http/HTTP%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">HTTP笔记</a>
+          <a href="/http/HTTP%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">HTTP笔记</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2017-08-25 09:49:34" itemprop="dateCreated datePublished" datetime="2017-08-25T09:49:34+08:00">2017-08-25</time>
-            </span>
+      <time title="创建时间：2017-08-25 09:49:34" itemprop="dateCreated datePublished" datetime="2017-08-25T09:49:34+08:00">2017-08-25</time>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -710,28 +793,26 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
           <h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><ul>
-<li><a href="http://www.cnblogs.com/TankXiao/archive/2012/02/06/2337728.html" target="_blank" rel="noopener">Fiddler 教程 - 小坦克 - 博客园</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.cnblogs.com/TankXiao/archive/2012/02/06/2337728.html">Fiddler 教程 - 小坦克 - 博客园</a></li>
 </ul>
 <h2 id="http"><a href="#http" class="headerlink" title="http"></a>http</h2><ul>
-<li><a href="http://www.cnblogs.com/TankXiao/archive/2012/02/13/2342672.html" target="_blank" rel="noopener">HTTP协议详解 - 小坦克 - 博客园</a></li>
-<li><a href="http://www.cnblogs.com/TankXiao/archive/2012/12/12/2794160.html" target="_blank" rel="noopener">HTTP协议 (五) 代理 - 小坦克 - 博客园</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.cnblogs.com/TankXiao/archive/2012/02/13/2342672.html">HTTP协议详解 - 小坦克 - 博客园</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.cnblogs.com/TankXiao/archive/2012/12/12/2794160.html">HTTP协议 (五) 代理 - 小坦克 - 博客园</a></li>
 </ul>
 <h2 id="post-amp-get"><a href="#post-amp-get" class="headerlink" title="post &amp; get"></a>post &amp; get</h2><ul>
-<li><a href="https://www.xuyimin.club/article/15" target="_blank" rel="noopener">Post与Get请求</a></li>
-<li><a href="http://uule.iteye.com/blog/2302713" target="_blank" rel="noopener">关于 HTTP GET/POST 请求参数长度最大值的一个理解误区</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.xuyimin.club/article/15">Post与Get请求</a></li>
+<li><a target="_blank" rel="noopener" href="http://uule.iteye.com/blog/2302713">关于 HTTP GET/POST 请求参数长度最大值的一个理解误区</a></li>
 </ul>
 <h2 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h2><ul>
-<li><a href="http://www.cnblogs.com/fish-li/archive/2011/07/03/2096903.html" target="_blank" rel="noopener">细说Cookie</a></li>
-<li><a href="http://www.cnblogs.com/TankXiao/archive/2013/04/15/2848906.html" target="_blank" rel="noopener">HTTP协议 (七) Cookie - 小坦克 - 博客园</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.cnblogs.com/fish-li/archive/2011/07/03/2096903.html">细说Cookie</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.cnblogs.com/TankXiao/archive/2013/04/15/2848906.html">HTTP协议 (七) Cookie - 小坦克 - 博客园</a></li>
 </ul>
 <h2 id="安全"><a href="#安全" class="headerlink" title="安全"></a>安全</h2><ul>
-<li><a href="https://zhuanlan.zhihu.com/p/25484889" target="_blank" rel="noopener">程序猿必读-防范CSRF跨站请求伪造</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/25484889">程序猿必读-防范CSRF跨站请求伪造</a></li>
 </ul>
 <h2 id="Oauth2-0"><a href="#Oauth2-0" class="headerlink" title="Oauth2.0"></a>Oauth2.0</h2><ul>
-<li><a href="http://www.ruanyifeng.com/blog/2014/05/oauth_2_0.html" target="_blank" rel="noopener">理解OAuth 2.0 - 阮一峰的网络日志</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2014/05/oauth_2_0.html">理解OAuth 2.0 - 阮一峰的网络日志</a></li>
 </ul>
 
       
@@ -740,46 +821,59 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://lyloou.com/http/HTTP%20The%20Definitive%20Guide/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lyloou">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/http/HTTP%20The%20Definitive%20Guide/" class="post-title-link" itemprop="url">HTTP the Definitive Guide 读书笔记</a>
+          <a href="/http/HTTP%20The%20Definitive%20Guide/" class="post-title-link" itemprop="url">HTTP the Definitive Guide 读书笔记</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2017-08-24 09:49:34" itemprop="dateCreated datePublished" datetime="2017-08-24T09:49:34+08:00">2017-08-24</time>
-            </span>
+      <time title="创建时间：2017-08-24 09:49:34" itemprop="dateCreated datePublished" datetime="2017-08-24T09:49:34+08:00">2017-08-24</time>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -788,8 +882,6 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
           <h1 id="HTTP-The-Definitive-Guide-读书笔记"><a href="#HTTP-The-Definitive-Guide-读书笔记" class="headerlink" title="HTTP The Definitive Guide 读书笔记"></a>HTTP The Definitive Guide 读书笔记</h1><blockquote>
 <p>逆序记录 </p>
 </blockquote>
@@ -842,10 +934,10 @@
 </ul>
 <p>| The headders are terminated by a blank line (CRLF), marking the<br>end of the list of headers and the beginning of the entity body.<br>–p47</p>
 <p>| messages –p46<br>request message:</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">method</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">request-URL</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">headers</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">entity-body</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">method</span>&gt;</span> <span class="tag">&lt;<span class="name">request-URL</span>&gt;</span> <span class="tag">&lt;<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">headers</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">entity-body</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>response message:</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">status</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">reason-phrase</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">headers</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">entity-body</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">version</span>&gt;</span> <span class="tag">&lt;<span class="name">status</span>&gt;</span> <span class="tag">&lt;<span class="name">reason-phrase</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">headers</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">entity-body</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>| Both request and response messages have the same basic message structure.<br>(start line; headers; body) –pp45</p>
 <p>| The Parts of a Message: –p44</p>
@@ -894,7 +986,7 @@
 <p>| Scheme names are case-insensitive –p27<br>(Scheme的名字不区分大小写：例如<code>http://</code>和<code>HTTP://</code>是等效的)</p>
 <p>| The scheme is really the main identifier of how to access a given resource.<br>–p27</p>
 <p>| Most URL schemes base their URL syntax on this nine-part general format: –p26</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs ruby">-------------------------------------------------------------------------<br>&lt;scheme&gt;<span class="hljs-symbol">://&lt;user&gt;</span><span class="hljs-symbol">:&lt;password&gt;</span>@&lt;host&gt;<span class="hljs-symbol">:&lt;port&gt;/&lt;path&gt;</span>;&lt;params&gt;<span class="hljs-string">?&lt;</span>query&gt;#&lt;frag&gt;<br>-------------------------------------------------------------------------<br>eg. <span class="hljs-symbol">http:</span>/<span class="hljs-regexp">/www.joes-hardware.com:80/index</span>.html<br></code></pre></td></tr></table></figure>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-------------------------------------------------------------------------</span><br><span class="line">&lt;scheme&gt;<span class="symbol">://&lt;user&gt;</span><span class="symbol">:&lt;password&gt;</span>@&lt;host&gt;<span class="symbol">:&lt;port&gt;/&lt;path&gt;</span>;&lt;params&gt;<span class="string">?&lt;</span>query&gt;#&lt;frag&gt;</span><br><span class="line">-------------------------------------------------------------------------</span><br><span class="line">eg. <span class="symbol">http:</span>/<span class="regexp">/www.joes-hardware.com:80/index</span>.html</span><br></pre></td></tr></table></figure>
 
 <p>| Urls give you and your browser all you need to find a piece of<br>information. They define the particular resource you want,<br>where it is located, and how to get it.</p>
 <p>| <img src="/.com//url_component.png" alt="URL Component"></p>
@@ -905,7 +997,7 @@
 <p>| Proxies<br>A proxy sits between a client and a server.<br>Proxies are often used for security, acting as trusted intermediaries<br>through which all web traffic flows. –p18</p>
 <h2 id="Architectrual-Components-of-the-Web"><a href="#Architectrual-Components-of-the-Web" class="headerlink" title="Architectrual Components of the Web"></a>Architectrual Components of the Web</h2><p>| Protocol Versions –p16<br>HTTP/0.9 supports only the GET method.<br>1.0 was the first version of HTTP that was widely deployed.</p>
 <p>| An HTTP transaction using telnet:</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs sh">[root@localhost ~]<span class="hljs-comment"># telnet www.lyloou.com 80</span><br>Trying 151.101.192.133...<br>Connected to www.lyloou.com.<br>Escape character is <span class="hljs-string">'^]'</span>.<br>GET /index.html HTTP/1.1  <span class="hljs-comment"># input this</span><br>Host: www.lyloou.com      <span class="hljs-comment"># input this</span><br>                          <span class="hljs-comment"># input this</span><br><br>HTTP/1.1 301 Moved Permanently<br>Server: GitHub.com<br>Content-Type: text/html<br>Location: http://lyloou.com/index.html<br>X-GitHub-Request-Id: 26A4:06EC:8E05E6C:B479C11:58CB8810<br>Content-Length: 178<br>Accept-Ranges: bytes<br>Date: Fri, 17 Mar 2017 06:54:08 GMT<br>Via: 1.1 varnish<br>Age: 0<br>Connection: keep-alive<br>X-Served-By: cache-lax8651-LAX<br>X-Cache: MISS<br>X-Cache-Hits: 0<br>X-Timer: S1489733648.903540,VS0,VE68<br>Vary: Accept-Encoding<br>X-Fastly-Request-ID: b8d3f5bbb2343450fd125b92f1dde483c5109377<br><br>&lt;html&gt;<br>&lt;head&gt;&lt;title&gt;301 Moved Permanently&lt;/title&gt;&lt;/head&gt;<br>&lt;body bgcolor=<span class="hljs-string">"white"</span>&gt;<br>&lt;center&gt;&lt;h1&gt;301 Moved Permanently&lt;/h1&gt;&lt;/center&gt;<br>&lt;hr&gt;&lt;center&gt;nginx&lt;/center&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;<br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># telnet www.lyloou.com 80</span></span><br><span class="line">Trying 151.101.192.133...</span><br><span class="line">Connected to www.lyloou.com.</span><br><span class="line">Escape character is <span class="string">&#x27;^]&#x27;</span>.</span><br><span class="line">GET /index.html HTTP/1.1  <span class="comment"># input this</span></span><br><span class="line">Host: www.lyloou.com      <span class="comment"># input this</span></span><br><span class="line">                          <span class="comment"># input this</span></span><br><span class="line"></span><br><span class="line">HTTP/1.1 301 Moved Permanently</span><br><span class="line">Server: GitHub.com</span><br><span class="line">Content-Type: text/html</span><br><span class="line">Location: http://lyloou.com/index.html</span><br><span class="line">X-GitHub-Request-Id: 26A4:06EC:8E05E6C:B479C11:58CB8810</span><br><span class="line">Content-Length: 178</span><br><span class="line">Accept-Ranges: bytes</span><br><span class="line">Date: Fri, 17 Mar 2017 06:54:08 GMT</span><br><span class="line">Via: 1.1 varnish</span><br><span class="line">Age: 0</span><br><span class="line">Connection: keep-alive</span><br><span class="line">X-Served-By: cache-lax8651-LAX</span><br><span class="line">X-Cache: MISS</span><br><span class="line">X-Cache-Hits: 0</span><br><span class="line">X-Timer: S1489733648.903540,VS0,VE68</span><br><span class="line">Vary: Accept-Encoding</span><br><span class="line">X-Fastly-Request-ID: b8d3f5bbb2343450fd125b92f1dde483c5109377</span><br><span class="line"></span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;<span class="built_in">head</span>&gt;&lt;title&gt;301 Moved Permanently&lt;/title&gt;&lt;/head&gt;</span><br><span class="line">&lt;body bgcolor=<span class="string">&quot;white&quot;</span>&gt;</span><br><span class="line">&lt;center&gt;&lt;h1&gt;301 Moved Permanently&lt;/h1&gt;&lt;/center&gt;</span><br><span class="line">&lt;hr&gt;&lt;center&gt;nginx&lt;/center&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
 
 <p>| Telnet is commonly used for remote terminal sessions, but it can<br>generally connect to any TCP server, including HTTP servers.</p>
 <p>| Establish a TCP/IP connection between the client and server:</p>
@@ -943,7 +1035,7 @@
 <p>| URLs<br>URLs describe the specific location of a resource on a particular server.<br>contains three main parts: –p7</p>
 <ul>
 <li>scheme: (e.g., http://)</li>
-<li>server Internet address (e.g., <a href="http://www.lyloou.com" target="_blank" rel="noopener">www.lyloou.com</a>)</li>
+<li>server Internet address (e.g., <a target="_blank" rel="noopener" href="http://www.lyloou.com/">www.lyloou.com</a>)</li>
 <li>names a resource on the web server (e.g., hello.gif)</li>
 </ul>
 <p>| URIs<br>URIs come in two flavors: URLs and URNs.</p>
@@ -954,7 +1046,7 @@
 <li>image/jpeg</li>
 <li>image/gif</li>
 <li>video/quicktime</li>
-<li>application/vnd.ms-powerpoint<br><a href="https://zh.wikipedia.org/wiki/多用途互聯網郵件擴展" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/多用途互聯網郵件擴展</a></li>
+<li>application/vnd.ms-powerpoint<br><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%A4%9A%E7%94%A8%E9%80%94%E4%BA%92%E8%81%AF%E7%B6%B2%E9%83%B5%E4%BB%B6%E6%93%B4%E5%B1%95">https://zh.wikipedia.org/wiki/多用途互聯網郵件擴展</a></li>
 </ul>
 <p>| Resources</p>
 <ul>
@@ -972,46 +1064,59 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lyloou.com/js/node%E9%85%8D%E7%BD%AE/">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.com/js/node/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lyloou">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/js/node%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">Node配置</a>
+          <a href="/js/node/" class="post-title-link" itemprop="url">Node相关</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2017-08-18 17:12:00" itemprop="dateCreated datePublished" datetime="2017-08-18T17:12:00+08:00">2017-08-18</time>
-            </span>
+      <time title="创建时间：2017-08-18 17:12:00" itemprop="dateCreated datePublished" datetime="2017-08-18T17:12:00+08:00">2017-08-18</time>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -1020,28 +1125,49 @@
     
     
     <div class="post-body" itemprop="articleBody">
+          <p>| crypto模块：提供通用的加密和哈希算法。</p>
+<p>| 服务器案例（模块http、path、fs的运用）：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">&quot;http&quot;</span>);</span><br><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">&quot;path&quot;</span>);</span><br><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">&quot;fs&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> server = http.<span class="title function_">createServer</span>(<span class="keyword">function</span>(<span class="params">request, response</span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> workDir = path.<span class="title function_">resolve</span>(<span class="string">&quot;.&quot;</span>); <span class="comment">// 获取当前目录</span></span><br><span class="line">  <span class="keyword">var</span> filepath = path.<span class="title function_">join</span>(workDir, <span class="string">&quot;showdate.html&quot;</span>); <span class="comment">// 定位showdate.html文件</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 将本地的文件作为响应返回</span></span><br><span class="line">  response.<span class="title function_">writeHead</span>(<span class="number">200</span>);</span><br><span class="line">  fs.<span class="title function_">createReadStream</span>(filepath).<span class="title function_">pipe</span>(response);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">server.<span class="title function_">listen</span>(<span class="number">3000</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;服务已开启，请登录：http://localhost:3000&quot;</span>);</span><br></pre></td></tr></table></figure>
 
-      
-          <h2 id="国内优秀npm镜像推荐及使用"><a href="#国内优秀npm镜像推荐及使用" class="headerlink" title="国内优秀npm镜像推荐及使用"></a><a href="http://riny.net/2014/cnpm/" target="_blank" rel="noopener">国内优秀npm镜像推荐及使用</a></h2><p>淘宝npm镜像</p>
+<p>| pipe</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">&quot;fs&quot;</span>);</span><br><span class="line"><span class="keyword">var</span> rs = fs.<span class="title function_">createReadStream</span>(<span class="string">&quot;hello.js&quot;</span>);</span><br><span class="line"><span class="keyword">var</span> ws = fs.<span class="title function_">createWriteStream</span>(<span class="string">&quot;copy.js&quot;</span>);</span><br><span class="line">rs.<span class="title function_">pipe</span>(ws);</span><br></pre></td></tr></table></figure>
+
+<p>| stream 是node.js提供的仅在服务端可用的模块；<br>基于事件的、异步的方式：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">&quot;fs&quot;</span>);</span><br><span class="line"><span class="keyword">var</span> rs = fs.<span class="title function_">createReadStream</span>(<span class="string">&quot;hello.js&quot;</span>, <span class="string">&quot;utf-8&quot;</span>);</span><br><span class="line">rs.<span class="title function_">on</span>(<span class="string">&quot;data&quot;</span>, f);</span><br><span class="line">rs.<span class="title function_">on</span>(<span class="string">&quot;end&quot;</span>, f);</span><br><span class="line">rs.<span class="title function_">on</span>(<span class="string">&quot;error&quot;</span>, f);</span><br></pre></td></tr></table></figure>
+
+<p>| 同步的写文件：<code>fs.writeFileSync()</code>；</p>
+<p>| 写文件：<code>fs.writeFile(&quot;output.txt&quot;, data, function(x)&#123;&#125;)</code>，如果data是String，默认<br>  编码是UTF-8；如果传入的是Buffer，则写入的是二进制文件；回调函数只关心成功与否。</p>
+<p>| 同步读文件使用<code>fs.readFileSync()</code>方法，不接受回调函数，函数直接返回结果。<br>通过<code>try...catch</code>来捕获同步获取文件时的错误。</p>
+<p>| <code>Buffer</code>对象可以和String做转换：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Buffer -&gt; String</span></span><br><span class="line"><span class="keyword">var</span> text = data.<span class="title function_">toString</span>(<span class="string">&quot;utf-8&quot;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(text);</span><br><span class="line"><span class="comment">// String -&gt; Buffer</span></span><br><span class="line"><span class="keyword">var</span> buf = <span class="keyword">new</span> <span class="title class_">Buffer</span>(text, <span class="string">&quot;utf-8&quot;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(buf);</span><br></pre></td></tr></table></figure>
+
+<p>| fs模块</p>
 <ul>
-<li>搜索地址：<a href="http://npm.taobao.org/" target="_blank" rel="noopener">http://npm.taobao.org/</a></li>
-<li>registry地址：<a href="http://registry.npm.taobao.org/" target="_blank" rel="noopener">http://registry.npm.taobao.org/</a><br>cnpmjs镜像</li>
-<li>搜索地址：<a href="http://cnpmjs.org/" target="_blank" rel="noopener">http://cnpmjs.org/</a></li>
-<li>registry地址：<a href="http://r.cnpmjs.org/" target="_blank" rel="noopener">http://r.cnpmjs.org/</a></li>
+<li>读取文件编码是<code>utf-8</code>的文件；<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">&quot;fs&quot;</span>);</span><br><span class="line">fs.<span class="title function_">readFile</span>(<span class="string">&quot;hello.js&quot;</span>, <span class="string">&quot;utf-8&quot;</span>, <span class="variable language_">console</span>.<span class="property">log</span>);</span><br></pre></td></tr></table></figure></li>
+<li>读取二进制文件，不传入文件编码，回调函数将返回一个Buffer对象。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fs.<span class="title function_">readFile</span>(<span class="string">&quot;hello.js&quot;</span>, <span class="variable language_">console</span>.<span class="property">log</span>);</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h3 id="临时使用"><a href="#临时使用" class="headerlink" title="临时使用"></a>临时使用</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">npm --registry https://registry.npm.taobao.org install express<br></code></pre></td></tr></table></figure>
-<h3 id="持久使用"><a href="#持久使用" class="headerlink" title="持久使用"></a>持久使用</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sh">npm config <span class="hljs-built_in">set</span> registry https://registry.npm.taobao.org<br><br>// 配置后可通过下面方式来验证是否成功<br>npm config get registry<br>// 或<br>npm info express<br></code></pre></td></tr></table></figure>
-<h3 id="通过cnpm使用"><a href="#通过cnpm使用" class="headerlink" title="通过cnpm使用"></a>通过cnpm使用</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sh">npm install -g cnpm --registry=https://registry.npm.taobao.org<br><br>// 使用<br>cnpm install express<br></code></pre></td></tr></table></figure>
-
-
-
-
-<h2 id="https-blog-niceue-com-front-end-development-using-domestic-npm-images-html"><a href="#https-blog-niceue-com-front-end-development-using-domestic-npm-images-html" class="headerlink" title="https://blog.niceue.com/front-end-development/using-domestic-npm-images.html"></a><a href="https://blog.niceue.com/front-end-development/using-domestic-npm-images.html" target="_blank" rel="noopener">https://blog.niceue.com/front-end-development/using-domestic-npm-images.html</a></h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># 配置 registry</span><br>npm config <span class="hljs-built_in">set</span> registry https://r.cnpmjs.org/<br><span class="hljs-comment"># 验证配置是否修改成功</span><br>npm config get registry<br></code></pre></td></tr></table></figure>
-
-<h2 id="npm-install"><a href="#npm-install" class="headerlink" title="npm install"></a>npm install</h2><blockquote>
-<p>If you have a package.json file in your directory and you run npm install,<br>then npm will look at the dependencies that are listed in that file and<br>download the latest versions satisfying semver rules for all of those.<br><a href="https://docs.npmjs.com/getting-started/using-a-package.json" target="_blank" rel="noopener">https://docs.npmjs.com/getting-started/using-a-package.json</a></p>
+<p>| 在需要使用回调函数的地方，传入<code>console.log</code>，可以打印出回调函数的参数信息。</p>
+<p>| 建议始终使用<code>module.exports</code>的方式，而不是省写的<code>exports</code>；</p>
+<p>| 如果要输出一个键值对象<code>&#123;&#125;</code>，可以利用<code>exports</code>这个已经存在的空对象<code>&#123;&#125;</code>，<br>  并继续在上面添加新的键值；</p>
+<blockquote>
+<p>var exported = load(module.exports, module);<br>  因为对exports重新赋值，对module.exports没有任何副作用。</p>
 </blockquote>
-<h2 id="修改npm-install-g-的安装目录"><a href="#修改npm-install-g-的安装目录" class="headerlink" title="修改npm install -g 的安装目录"></a>修改<code>npm install -g</code> 的安装目录</h2><p>查看： <code>npm root -g</code><br>修改：在配置文件中 <code>.npmrc</code> 中添加，<code>prefix = &quot;D:\\c\\nodejs\\node_modules\\npm&quot;</code></p>
+<p>如果要输出一个函数或数组，必须直接对<code>module.exports</code>对象赋值；</p>
+<p>| 实现“模块”功能的奥妙就在于JavaScript是一种函数式编程语言，它支持闭包。</p>
+<p>| 引入的对象具体是什么，取决于引用模块输出的变量。（输出的变量可以是任意对象、函数、数组等等）</p>
+<p>| 一个模块想要对外暴露变量（函数也是变量），可以用<code>module.exports = variable;</code>；<br>  一个模块想要引用其他模块暴露的变量，用<code>var ref = require(&#39;module_name&#39;)</code>就拿到了引用模块变量；</p>
+<p>| 使用模块的好处：</p>
+<ul>
+<li>提高了代码的可维护性；</li>
+<li>代码重用；</li>
+<li>避免了函数名和变量名冲突；</li>
+</ul>
+<p>| 在Node环境中，一个.js文件就称之为一个模块（module）。</p>
+<p>| 让node直接为所有js文件都开启严格模式：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node --use_strict myFile.<span class="property">js</span></span><br></pre></td></tr></table></figure>
+
+
+<p><a target="_blank" rel="noopener" href="http://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000">http://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000</a></p>
 
       
     </div>
@@ -1049,256 +1175,125 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
-  
-  
+</div>
 
 
-  
+
+
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/22/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><span class="page-number current">23</span><a class="page-number" href="/page/24/">24</a><span class="space">&hellip;</span><a class="page-number" href="/page/32/">32</a><a class="extend next" rel="next" href="/page/24/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/22/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><span class="page-number current">23</span><a class="page-number" href="/page/24/">24</a><span class="space">&hellip;</span><a class="page-number" href="/page/32/">32</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/24/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
-
-
-          </div>
-          
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
-
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="lyloou"
-      src="/assets/images/avatar.png">
-  <p class="site-author-name" itemprop="name">lyloou</p>
-  <div class="site-description" itemprop="description">/* Better than last best */</div>
 </div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">312</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
-        <span class="site-state-item-count">56</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
-</div>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-        <a href="https://github.com/lyloou" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;lyloou" rel="noopener" target="_blank">GitHub</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="mailto:lyloou6@gmail.com" title="E-Mail → mailto:lyloou6@gmail.com" rel="noopener" target="_blank">E-Mail</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://weibo.com/lyloou" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;lyloou" rel="noopener" target="_blank">Weibo</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://blog.csdn.net/ly1414725328" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;ly1414725328" rel="noopener" target="_blank">CSDN</a>
-      </span>
-  </div>
-  <div class="cc-license motion-element" itemprop="license">
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
-  </div>
+  </main>
 
+  <footer class="footer">
+    <div class="footer-inner">
 
-
-      </div>
-
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-        
   <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">粤ICP备18151128号 </a>
   </div>
 
 <div class="copyright">
-  
   &copy; 
   <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
-    <i class="user"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">lyloou</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
-  </div>
-
-        
 <div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
       <span class="post-meta-item-icon">
-        <i class="user"></i>
+        <i class="fa fa-user"></i>
       </span>
       <span class="site-uv" title="总访客量">
         <span id="busuanzi_value_site_uv"></span>
       </span>
     </span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
       <span class="post-meta-item-icon">
-        <i class="eye"></i>
+        <i class="fa fa-eye"></i>
       </span>
       <span class="site-pv" title="总访问量">
         <span id="busuanzi_value_site_pv"></span>
       </span>
     </span>
 </div>
-
-
-
-
-
-
-
-
-      </div>
-    </footer>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>
 
-  
-  <script src="/lib/anime.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-
-<script src="/js/schemes/muse.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
-
-
-
+    </div>
+  </footer>
 
   
-  <script>
-    (function(){
-      var canonicalURL, curProtocol;
-      //Get the <link> tag
-      var x=document.getElementsByTagName("link");
-		//Find the last canonical URL
-		if(x.length > 0){
-			for (i=0;i<x.length;i++){
-				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
-					canonicalURL=x[i].href;
-				}
-			}
-		}
-    //Get protocol
-	    if (!canonicalURL){
-	    	curProtocol = window.location.protocol.split(':')[0];
-	    }
-	    else{
-	    	curProtocol = canonicalURL.split(':')[0];
-	    }
-      //Get current URL if the canonical URL does not exist
-	    if (!canonicalURL) canonicalURL = window.location.href;
-	    //Assign script content. Replace current URL with the canonical URL
-      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
-  </script>
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
 
 
 
 
   
-<script src="/js/local-search.js"></script>
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 
 
-
-
-
-
-
-
+<script class="next-config" data-name="giscus" type="application/json">{"enable":true,"repo":"lyloou/lyloou.github.io","repo_id":"MDEwOlJlcG9zaXRvcnkxMDk1NzkyNzA=","category":"Announcements","category_id":"DIC_kwDOBogMBs4CWdfR","mapping":"pathname","reactions_enabled":1,"emit_metadata":1,"theme":"light","lang":"zh-CN","input_position":"bottom","loading":"lazy"}</script>
 
 <script>
-if (document.querySelectorAll('pre.mermaid').length) {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
-    mermaid.initialize({
-      theme    : 'forest',
-      logLevel : 3,
-      flowchart: { curve     : 'linear' },
-      gantt    : { axisFormat: '%m/%d/%Y' },
-      sequence : { actorMargin: 50 }
-    });
-  }, window.mermaid);
-}
+document.addEventListener('page:loaded', () => {
+  if (!CONFIG.page.comments) return;
+
+  NexT.utils.loadComments('.giscus-container')
+    .then(() => NexT.utils.getScript('https://giscus.app/client.js', {
+      attributes: {
+        async                   : true,
+        crossOrigin             : 'anonymous',
+        'data-repo'             : CONFIG.giscus.repo,
+        'data-repo-id'          : CONFIG.giscus.repo_id,
+        'data-category'         : CONFIG.giscus.category,
+        'data-category-id'      : CONFIG.giscus.category_id,
+        'data-mapping'          : CONFIG.giscus.mapping,
+        'data-reactions-enabled': CONFIG.giscus.reactions_enabled,
+        'data-emit-metadata'    : CONFIG.giscus.emit_metadata,
+        'data-theme'            : CONFIG.giscus.theme,
+        'data-lang'             : CONFIG.giscus.lang,
+        'data-input-position'   : CONFIG.giscus.input_position,
+        'data-loading'          : CONFIG.giscus.loading
+      },
+      parentNode: document.querySelector('.giscus-container')
+    }));
+});
 </script>
-
-
-  
-
-  
-
 
 </body>
 </html>

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="zh-CN,zh-HK,zh-TW,en,default">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
@@ -13,14 +13,13 @@
 <link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"lyloou.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
-  </script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-  <meta name="description" content="&#x2F;* Better than last best *&#x2F;">
+<script class="next-config" data-name="main" type="application/json">{"hostname":"lyloou.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"default"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="&#x2F;* Better than last best *&#x2F;">
 <meta property="og:type" content="website">
 <meta property="og:title" content="lyloou">
 <meta property="og:url" content="https://lyloou.com/page/9/index.html">
@@ -30,37 +29,20 @@
 <meta property="article:author" content="lyloou">
 <meta name="twitter:card" content="summary">
 
+
 <link rel="canonical" href="https://lyloou.com/page/9/">
 
 
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : true,
-    isPost : false,
-    lang   : 'zh-CN'
-  };
-</script>
 
-  <title>lyloou</title>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"page/9/index.html","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>lyloou</title>
   
-    <script>
-      function sendPageView() {
-        if (CONFIG.hostname !== location.hostname) return;
-        var uid = localStorage.getItem('uid') || (Math.random() + '.' + Math.random());
-        localStorage.setItem('uid', uid);
-        navigator.sendBeacon('https://www.google-analytics.com/collect', new URLSearchParams({
-          v  : 1,
-          tid: 'UA-80542932-1',
-          cid: uid,
-          t  : 'pageview',
-          dp : encodeURIComponent(location.pathname)
-        }));
-      }
-      document.addEventListener('pjax:complete', sendPageView);
-      sendPageView();
-    </script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-80542932-1","only_pageview":true}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
 
 
 
@@ -68,55 +50,35 @@
 
 
   <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container">
-    <div class="headband"></div>
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
 
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
-  <div class="site-meta custom-logo">
+  <div class="site-meta">
 
     <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
+      <i class="logo-line"></i>
       <h1 class="site-title">lyloou</h1>
-      <span class="logo-line-after"><i></i></span>
+      <i class="logo-line"></i>
     </a>
   </div>
 
   <div class="site-nav-right">
-    <div class="toggle popup-trigger">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
         <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
@@ -124,29 +86,8 @@
 
 
 
-
 <nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签</a>
-
-  </li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -157,78 +98,145 @@
 
 
   <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
+    <div class="popup search-popup"><div class="search-header">
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off"
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
            placeholder="搜索..." spellcheck="false"
            type="search" class="search-input">
   </div>
-  <span class="popup-btn-close">
+  <span class="popup-btn-close" role="button">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
-<div id="search-result">
-  <div id="no-result">
-    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
   </div>
 </div>
 
     </div>
   </div>
 
-</div>
-    </header>
+</header>
+        
+  
+  <aside class="sidebar">
 
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="lyloou"
+      src="/assets/images/avatar.png">
+  <p class="site-author-name" itemprop="name">lyloou</p>
+  <div class="site-description" itemprop="description">/* Better than last best */</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">312</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">56</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/lyloou" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;lyloou" rel="noopener me" target="_blank"><i class="github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:lyloou6@gmail.com" title="E-Mail → mailto:lyloou6@gmail.com" rel="noopener me" target="_blank"><i class="envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/lyloou" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;lyloou" rel="noopener me" target="_blank"><i class="weibo fa-fw"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/ly1414725328" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;ly1414725328" rel="noopener me" target="_blank"><i class="csdn fa-fw"></i>CSDN</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
   </div>
 
+        </div>
+      </div>
+    </div>
 
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
+    
+        <div class="pjax">
+        </div>
+  </aside>
 
-          <div class="content index posts-expand">
-            
-      
+
+    </div>
+
+    <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://lyloou.com/java/exception%E5%92%8Cerror/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lyloou">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/java/exception%E5%92%8Cerror/" class="post-title-link" itemprop="url">Java 中的 Exception 和 Error</a>
+          <a href="/java/exception%E5%92%8Cerror/" class="post-title-link" itemprop="url">Java 中的 Exception 和 Error</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-09-18 10:55:47" itemprop="dateCreated datePublished" datetime="2019-09-18T10:55:47+08:00">2019-09-18</time>
-            </span>
+      <time title="创建时间：2019-09-18 10:55:47" itemprop="dateCreated datePublished" datetime="2019-09-18T10:55:47+08:00">2019-09-18</time>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -237,9 +245,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="java-What’s-the-difference-between-StackOverflowError-and-OutOfMemoryError-Stack-Overflow"><a href="#java-What’s-the-difference-between-StackOverflowError-and-OutOfMemoryError-Stack-Overflow" class="headerlink" title="java - What’s the difference between StackOverflowError and OutOfMemoryError - Stack Overflow"></a><a href="https://stackoverflow.com/questions/11435613/whats-the-difference-between-stackoverflowerror-and-outofmemoryerror" target="_blank" rel="noopener">java - What’s the difference between StackOverflowError and OutOfMemoryError - Stack Overflow</a></h3><p>Short answer:</p>
+          <h3 id="java-What’s-the-difference-between-StackOverflowError-and-OutOfMemoryError-Stack-Overflow"><a href="#java-What’s-the-difference-between-StackOverflowError-and-OutOfMemoryError-Stack-Overflow" class="headerlink" title="java - What’s the difference between StackOverflowError and OutOfMemoryError - Stack Overflow"></a><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/11435613/whats-the-difference-between-stackoverflowerror-and-outofmemoryerror">java - What’s the difference between StackOverflowError and OutOfMemoryError - Stack Overflow</a></h3><p>Short answer:</p>
 <ul>
 <li>OutOfMemoryError is related to Heap.</li>
 <li>StackOverflowError is related to stack</li>
@@ -257,46 +263,59 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://lyloou.com/android/logcat/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lyloou">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/android/logcat/" class="post-title-link" itemprop="url">【Android】logcat</a>
+          <a href="/android/logcat/" class="post-title-link" itemprop="url">【Android】logcat</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-09-12 10:22:06" itemprop="dateCreated datePublished" datetime="2019-09-12T10:22:06+08:00">2019-09-12</time>
-            </span>
+      <time title="创建时间：2019-09-12 10:22:06" itemprop="dateCreated datePublished" datetime="2019-09-12T10:22:06+08:00">2019-09-12</time>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -305,16 +324,14 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
           <h2 id="android-调试时，logcat-错误信息一闪而过"><a href="#android-调试时，logcat-错误信息一闪而过" class="headerlink" title="android 调试时，logcat 错误信息一闪而过"></a>android 调试时，logcat 错误信息一闪而过</h2><ul>
-<li><p><a href="https://blog.csdn.net/liaoyi_/article/details/53377425" target="_blank" rel="noopener">Android 手机调试不输出错误日志与错误日志一闪而过的问题 - liaoyi 的博客 - CSDN 博客</a></p>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/liaoyi_/article/details/53377425">Android 手机调试不输出错误日志与错误日志一闪而过的问题 - liaoyi 的博客 - CSDN 博客</a></p>
 <blockquote>
 <p>原来是华为手机（有可能其他手机也有类似的问题）关闭了输出错误日志的功能。现在我们就需要打开这个功能</p>
 <ol>
-<li>进入拨号界面输入：<em>#</em>#2846579#*# （当你输入完了之后会自动打开 手机的另外一个设置的板块界面）</li>
-<li>依次选择 —&gt; 后台设置 —&gt; LOG 设置 —&gt; LOG 开关 点击打开（手机版本不同界面选项也不同，有的选择 AP 日志勾选，但是大致内容都一样）</li>
-<li>重新启动手机（比较新的版本不需要重启）</li>
+<li> 进入拨号界面输入：_#_#2846579#*# （当你输入完了之后会自动打开 手机的另外一个设置的板块界面）</li>
+<li> 依次选择 —&gt; 后台设置 —&gt; LOG 设置 —&gt; LOG 开关 点击打开（手机版本不同界面选项也不同，有的选择 AP 日志勾选，但是大致内容都一样）</li>
+<li> 重新启动手机（比较新的版本不需要重启）</li>
 </ol>
 </blockquote>
 <blockquote>
@@ -322,7 +339,7 @@
 <p>点击设置 —&gt; 进入手机开发者选项 —&gt; 打开手机 USB 调试功能 —&gt; （在此功能模块里面）选择日志记录器缓冲区大小<br>选择一个大一点的缓冲区（具体自己看手机情况选择）</p>
 </blockquote>
 </li>
-<li><p><a href="https://blog.csdn.net/z736232402/article/details/51576963" target="_blank" rel="noopener">android studio logcat 一闪而过 - z736232402 的博客 - CSDN 博客</a></p>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/z736232402/article/details/51576963">android studio logcat 一闪而过 - z736232402 的博客 - CSDN 博客</a></p>
 <blockquote>
 <p>as 默认选择当前进程，简单点说就是当前进程，我的理解是，如果崩溃了，进程就结束了，所以，就闪过了<br>解决也很简单，第一种就是出现的时候点击下鼠标，logcat 就会停留。第二种就是不要用选择当前的，选择 no filter，如果东西太多，就加过滤，加上包名即可。</p>
 </blockquote>
@@ -335,46 +352,59 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://lyloou.com/tool/firefox/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lyloou">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/tool/firefox/" class="post-title-link" itemprop="url">Firefox</a>
+          <a href="/tool/firefox/" class="post-title-link" itemprop="url">Firefox</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-09-04 22:29:25" itemprop="dateCreated datePublished" datetime="2019-09-04T22:29:25+08:00">2019-09-04</time>
-            </span>
+      <time title="创建时间：2019-09-04 22:29:25" itemprop="dateCreated datePublished" datetime="2019-09-04T22:29:25+08:00">2019-09-04</time>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -383,8 +413,6 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
           <h2 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h2><ul>
 <li>Adblock Plus<blockquote>
 <p>拦截广告</p>
@@ -444,46 +472,59 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://lyloou.com/business/%E7%99%BB%E5%BD%95%E8%AE%BE%E8%AE%A1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lyloou">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/business/%E7%99%BB%E5%BD%95%E8%AE%BE%E8%AE%A1/" class="post-title-link" itemprop="url">【Business】 登录设计</a>
+          <a href="/business/%E7%99%BB%E5%BD%95%E8%AE%BE%E8%AE%A1/" class="post-title-link" itemprop="url">【Business】 登录设计</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-08-26 14:51:47" itemprop="dateCreated datePublished" datetime="2019-08-26T14:51:47+08:00">2019-08-26</time>
-            </span>
+      <time title="创建时间：2019-08-26 14:51:47" itemprop="dateCreated datePublished" datetime="2019-08-26T14:51:47+08:00">2019-08-26</time>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -492,15 +533,13 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
           <h2 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h2><h3 id="token-过期重新登录后自动发起上个请求"><a href="#token-过期重新登录后自动发起上个请求" class="headerlink" title="token 过期重新登录后自动发起上个请求"></a>token 过期重新登录后自动发起上个请求</h3><p>举个获取用户的 vip 信息的例子</p>
 <h4 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h4><ol>
 <li>用户用带<code>token</code>的 Header 头来获取数据：<code>/user/vip/get_info</code>；</li>
 <li>后端返回 <code>606, token过期</code>；</li>
 <li>前端重新登录，并发起 <code>/user/vip/get_info</code> 来获取数据；（这个过程在 app 后台进行，不要显示给用户）</li>
 </ol>
-<h4 id="方案"><a href="#方案" class="headerlink" title="方案"></a>方案</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 伪代码</span><br><br><span class="hljs-comment">// reqBackup 可以也可以用 localStorage 来存储</span><br><span class="hljs-keyword">var</span> reqBackup;<br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">login</span>(<span class="hljs-params">url, param</span>) </span>&#123;<br>  <span class="hljs-keyword">var</span> data = http.fetch(url, param);<br>  <span class="hljs-keyword">if</span> (data.code === <span class="hljs-number">200</span> &amp;&amp; reqBackup.url) &#123;<br>    reqBackup = &#123;&#125;;<br>    fetchData(reqBackup.url, reqBackup.param, reqBackup.callback);<br>  &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fetchData</span>(<span class="hljs-params">url, param, callback</span>) </span>&#123;<br>  <span class="hljs-keyword">var</span> data = http.fetch(url, param);<br>  <span class="hljs-comment">// 606, token过期</span><br>  <span class="hljs-keyword">if</span> (data.code === <span class="hljs-number">606</span>) &#123;<br>    reqBackup.url = url;<br>    reqBackup.param = param;<br>    reqBackup.callback = callback;<br>    login();<br>    <span class="hljs-keyword">return</span>;<br>  &#125;<br><br>  <span class="hljs-keyword">if</span> (data.code === <span class="hljs-number">200</span>) &#123;<br>    callback(data);<br>    <span class="hljs-keyword">return</span>;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h4 id="方案"><a href="#方案" class="headerlink" title="方案"></a>方案</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 伪代码</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// reqBackup 可以也可以用 localStorage 来存储</span></span><br><span class="line"><span class="keyword">var</span> reqBackup;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">login</span>(<span class="params">url, param</span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> data = http.<span class="title function_">fetch</span>(url, param);</span><br><span class="line">  <span class="keyword">if</span> (data.<span class="property">code</span> === <span class="number">200</span> &amp;&amp; reqBackup.<span class="property">url</span>) &#123;</span><br><span class="line">    reqBackup = &#123;&#125;;</span><br><span class="line">    <span class="title function_">fetchData</span>(reqBackup.<span class="property">url</span>, reqBackup.<span class="property">param</span>, reqBackup.<span class="property">callback</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fetchData</span>(<span class="params">url, param, callback</span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> data = http.<span class="title function_">fetch</span>(url, param);</span><br><span class="line">  <span class="comment">// 606, token过期</span></span><br><span class="line">  <span class="keyword">if</span> (data.<span class="property">code</span> === <span class="number">606</span>) &#123;</span><br><span class="line">    reqBackup.<span class="property">url</span> = url;</span><br><span class="line">    reqBackup.<span class="property">param</span> = param;</span><br><span class="line">    reqBackup.<span class="property">callback</span> = callback;</span><br><span class="line">    <span class="title function_">login</span>();</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (data.<span class="property">code</span> === <span class="number">200</span>) &#123;</span><br><span class="line">    <span class="title function_">callback</span>(data);</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -508,46 +547,59 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://lyloou.com/business/%E6%9D%83%E9%99%90%E8%AE%BE%E8%AE%A1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lyloou">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/business/%E6%9D%83%E9%99%90%E8%AE%BE%E8%AE%A1/" class="post-title-link" itemprop="url">【Business】 权限设计</a>
+          <a href="/business/%E6%9D%83%E9%99%90%E8%AE%BE%E8%AE%A1/" class="post-title-link" itemprop="url">【Business】 权限设计</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-08-20 11:42:38" itemprop="dateCreated datePublished" datetime="2019-08-20T11:42:38+08:00">2019-08-20</time>
-            </span>
+      <time title="创建时间：2019-08-20 11:42:38" itemprop="dateCreated datePublished" datetime="2019-08-20T11:42:38+08:00">2019-08-20</time>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -556,8 +608,6 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
           <h2 id="后台权限设计"><a href="#后台权限设计" class="headerlink" title="后台权限设计"></a>后台权限设计</h2><p>账号： 登录系统的账号；</p>
 <p>角色： 运营、商家、财务、客服、管理员；</p>
 <p>权限： 页面权限，操作权限，数据权限；</p>
@@ -565,10 +615,10 @@
 <p>一个账号有多个角色；一个角色有多个权限；</p>
 <p><strong>参考</strong></p>
 <ul>
-<li><a href="https://blog.csdn.net/qq_40147863/article/details/85320371" target="_blank" rel="noopener">后台权限管理系统设计（图文教程） - 肖朋伟 - CSDN 博客</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_40147863/article/details/85320371">后台权限管理系统设计（图文教程） - 肖朋伟 - CSDN 博客</a></li>
 </ul>
 <p>ACL</p>
-<p>RBAC<br><a href="https://cloud.tencent.com/developer/article/1175271" target="_blank" rel="noopener">手撸 Java Web RBAC 权限管理 - 云+社区 - 腾讯云</a><br><a href="https://github.com/zhaojun1998/Premission-Study/blob/master/README.md" target="_blank" rel="noopener">Premission-Study/README.md at master · zhaojun1998/Premission-Study</a></p>
+<p>RBAC<br><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1175271">手撸 Java Web RBAC 权限管理 - 云+社区 - 腾讯云</a><br><a target="_blank" rel="noopener" href="https://github.com/zhaojun1998/Premission-Study/blob/master/README.md">Premission-Study/README.md at master · zhaojun1998/Premission-Study</a></p>
 
       
     </div>
@@ -576,46 +626,59 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://lyloou.com/devops/security/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lyloou">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/devops/security/" class="post-title-link" itemprop="url">安全</a>
+          <a href="/devops/security/" class="post-title-link" itemprop="url">安全</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-08-19 11:40:58" itemprop="dateCreated datePublished" datetime="2019-08-19T11:40:58+08:00">2019-08-19</time>
-            </span>
+      <time title="创建时间：2019-08-19 11:40:58" itemprop="dateCreated datePublished" datetime="2019-08-19T11:40:58+08:00">2019-08-19</time>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -624,10 +687,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
           <h2 id="PGP"><a href="#PGP" class="headerlink" title="PGP"></a>PGP</h2><h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><p>PGP（Pretty Good Privacy），用来提高安全性的软件，可以用来验证文件的合法性；例如常用来给邮件加密、解密及验证,以提高电子邮件交流的安全性；</p>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># 需要安装 rng-tools才能成功生成 gpg 密钥</span><br>apt install rng-tools<br><br><span class="hljs-comment"># 生成gpg密钥</span><br>gpg --gen-key<br><br><span class="hljs-comment"># 查看公钥</span><br>gpg --list-keys<br><br><span class="hljs-comment"># 查看私钥</span><br>gpg --list-secret-keys<br><br><span class="hljs-comment"># 上传公钥</span><br>gpg --keyserver hkp://pgp.mit.edu --send-keys FD9EF47E271531EC53C8F6B1EE2E9AE32588D3D8<br><span class="hljs-comment"># or</span><br>gpg --keyserver hkp://pgp.mit.edu --send-keys EE2E9AE32588D3D8<br><br><span class="hljs-comment"># 用户下载公钥</span><br>gpg --keyserver hkp://pgp.mit.edu --recv-keys EE2E9AE32588D3D8<br><br><span class="hljs-comment"># 对文件生成 asc 文件（会生成）以 .asc 的后缀文件</span><br><span class="hljs-comment"># 参数 -a 表示创建 ASCII 的输出；</span><br><span class="hljs-comment"># 参数 -b 表示创建一个独立的文件；</span><br>gpg -ab test.sh<br><br><span class="hljs-comment"># 对文件是否被修改进行验证</span><br>gpg --verify test.sh.asc<br></code></pre></td></tr></table></figure>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 需要安装 rng-tools才能成功生成 gpg 密钥</span></span><br><span class="line">apt install rng-tools</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成gpg密钥</span></span><br><span class="line">gpg --gen-key</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看公钥</span></span><br><span class="line">gpg --list-keys</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看私钥</span></span><br><span class="line">gpg --list-secret-keys</span><br><span class="line"></span><br><span class="line"><span class="comment"># 上传公钥</span></span><br><span class="line">gpg --keyserver hkp://pgp.mit.edu --send-keys FD9EF47E271531EC53C8F6B1EE2E9AE32588D3D8</span><br><span class="line"><span class="comment"># or</span></span><br><span class="line">gpg --keyserver hkp://pgp.mit.edu --send-keys EE2E9AE32588D3D8</span><br><span class="line"></span><br><span class="line"><span class="comment"># 用户下载公钥</span></span><br><span class="line">gpg --keyserver hkp://pgp.mit.edu --recv-keys EE2E9AE32588D3D8</span><br><span class="line"></span><br><span class="line"><span class="comment"># 对文件生成 asc 文件（会生成）以 .asc 的后缀文件</span></span><br><span class="line"><span class="comment"># 参数 -a 表示创建 ASCII 的输出；</span></span><br><span class="line"><span class="comment"># 参数 -b 表示创建一个独立的文件；</span></span><br><span class="line">gpg -ab test.sh</span><br><span class="line"></span><br><span class="line"><span class="comment"># 对文件是否被修改进行验证</span></span><br><span class="line">gpg --verify test.sh.asc</span><br></pre></td></tr></table></figure>
 
 <h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p>《Maven 实战》——版本管理(C13.6)</p>
 
@@ -637,46 +698,59 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://lyloou.com/go/%E4%B8%89%E6%96%B9%E5%BA%93/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lyloou">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/go/%E4%B8%89%E6%96%B9%E5%BA%93/" class="post-title-link" itemprop="url">【Go】三方库</a>
+          <a href="/go/%E4%B8%89%E6%96%B9%E5%BA%93/" class="post-title-link" itemprop="url">【Go】三方库</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-08-08 18:26:30" itemprop="dateCreated datePublished" datetime="2019-08-08T18:26:30+08:00">2019-08-08</time>
-            </span>
+      <time title="创建时间：2019-08-08 18:26:30" itemprop="dateCreated datePublished" datetime="2019-08-08T18:26:30+08:00">2019-08-08</time>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -685,10 +759,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
           <ul>
-<li><p><a href="https://gorm.io/" target="_blank" rel="noopener">GORM - The fantastic ORM library for Golang, aims to be developer friendly.</a></p>
+<li><p><a target="_blank" rel="noopener" href="https://gorm.io/">GORM - The fantastic ORM library for Golang, aims to be developer friendly.</a></p>
 </li>
 <li><p>beego</p>
 </li>
@@ -700,46 +772,59 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://lyloou.com/js/rn/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lyloou">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/js/rn/" class="post-title-link" itemprop="url">【RN】相关</a>
+          <a href="/js/rn/" class="post-title-link" itemprop="url">【RN】相关</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-08-02 14:10:53" itemprop="dateCreated datePublished" datetime="2019-08-02T14:10:53+08:00">2019-08-02</time>
-            </span>
+      <time title="创建时间：2019-08-02 14:10:53" itemprop="dateCreated datePublished" datetime="2019-08-02T14:10:53+08:00">2019-08-02</time>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -748,12 +833,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="run-from-android"><a href="#run-from-android" class="headerlink" title="run from android"></a>run from android</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs sh">C:\Users\Administrator\AppData\Roaming\npm<br><br>react-native bundle --platform android --dev <span class="hljs-literal">false</span> --entry-file App.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res<br><br>react-native run-android<br></code></pre></td></tr></table></figure>
+          <h2 id="run-from-android"><a href="#run-from-android" class="headerlink" title="run from android"></a>run from android</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\Administrator\AppData\Roaming\npm</span><br><span class="line"></span><br><span class="line">react-native bundle --platform android --dev <span class="literal">false</span> --entry-file App.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res</span><br><span class="line"></span><br><span class="line">react-native run-android</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li><a href="https://stackoverflow.com/questions/44446523/unable-to-load-script-from-assets-index-android-bundle-on-windows" target="_blank" rel="noopener">react native - Unable to load script from assets index.android.bundle on windows - Stack Overflow</a></li>
+<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/44446523/unable-to-load-script-from-assets-index-android-bundle-on-windows">react native - Unable to load script from assets index.android.bundle on windows - Stack Overflow</a></li>
 </ul>
 
       
@@ -762,46 +845,59 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://lyloou.com/ssm/%E5%8A%A0%E5%AF%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lyloou">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/ssm/%E5%8A%A0%E5%AF%86/" class="post-title-link" itemprop="url">【Spring】加密</a>
+          <a href="/ssm/%E5%8A%A0%E5%AF%86/" class="post-title-link" itemprop="url">【Spring】加密</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-07-31 10:52:29" itemprop="dateCreated datePublished" datetime="2019-07-31T10:52:29+08:00">2019-07-31</time>
-            </span>
+      <time title="创建时间：2019-07-31 10:52:29" itemprop="dateCreated datePublished" datetime="2019-07-31T10:52:29+08:00">2019-07-31</time>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -810,8 +906,6 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
           <p>shiro<br>sprint-security</p>
 
       
@@ -820,46 +914,59 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://lyloou.com/sql/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lyloou">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/sql/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">【Sql】常见问题列表</a>
+          <a href="/sql/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">【Sql】常见问题列表</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-07-26 13:59:33" itemprop="dateCreated datePublished" datetime="2019-07-26T13:59:33+08:00">2019-07-26</time>
-            </span>
+      <time title="创建时间：2019-07-26 13:59:33" itemprop="dateCreated datePublished" datetime="2019-07-26T13:59:33+08:00">2019-07-26</time>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -868,41 +975,39 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
           <h2 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h2><p>解决思路就是：避免同时操作数据；</p>
 <ul>
-<li><a href="https://www.cnblogs.com/zejin2008/p/5262751.html" target="_blank" rel="noopener">Mysql 并发时经典常见的死锁原因及解决方法 - 泽锦 - 博客园</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/zejin2008/p/5262751.html">Mysql 并发时经典常见的死锁原因及解决方法 - 泽锦 - 博客园</a></li>
 </ul>
-<p>首先我们执行<br><code>show engine innodb status\G;</code><br>查看死锁情况，也可以<br><code>mysql -u root -p --execute=&quot;show engine innodb status \G&quot;&gt; c:/mysql.log</code><br>把死锁信息输出到本地磁盘，查看起来比较方便<br><a href="https://blog.csdn.net/weixin_38250126/article/details/70053222" target="_blank" rel="noopener">mysql 死锁分析 - 那片天空！那片海！ - CSDN 博客</a></p>
+<p>首先我们执行<br><code>show engine innodb status\G;</code><br>查看死锁情况，也可以<br><code>mysql -u root -p --execute=&quot;show engine innodb status \G&quot;&gt; c:/mysql.log</code><br>把死锁信息输出到本地磁盘，查看起来比较方便<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_38250126/article/details/70053222">mysql 死锁分析 - 那片天空！那片海！ - CSDN 博客</a></p>
 <p><strong>例如：</strong></p>
 <p>通过定位死锁的数据库： <code>show engine \G</code>，发现一个统计任务、一个改价任务，同时修改同一个端口的内容，导致死锁。</p>
 <p>解决方法：将两个任务的时间错开，改价的为每分钟的 0 秒触发；统计的为每两分钟的 30 秒触发；</p>
 <h2 id="日志文件被删除后，无法正常启动"><a href="#日志文件被删除后，无法正常启动" class="headerlink" title="日志文件被删除后，无法正常启动"></a>日志文件被删除后，无法正常启动</h2><p>通过<code>systemctl status mariadb.service</code>来查看缺少什么文件，创建对应的即可，<br>如果是权限问题，把外层的文件夹修改下权限 <code>/var/log/mysql</code>。<br>然后重启： <code>systemctl restart mariadb.service</code></p>
-<h2 id="Authentication-plugin-‘caching-sha2-password’-cannot-be-loaded"><a href="#Authentication-plugin-‘caching-sha2-password’-cannot-be-loaded" class="headerlink" title="Authentication plugin ‘caching_sha2_password’ cannot be loaded"></a>Authentication plugin ‘caching_sha2_password’ cannot be loaded</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">use</span> mysql;<br><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">USER</span> <span class="hljs-string">'root'</span>@<span class="hljs-string">'%'</span> <span class="hljs-keyword">IDENTIFIED</span> <span class="hljs-keyword">WITH</span> mysql_native_password <span class="hljs-keyword">BY</span> <span class="hljs-string">'12345678'</span>;<br><span class="hljs-keyword">select</span> Host,<span class="hljs-keyword">user</span>,<span class="hljs-keyword">plugin</span>,Authentication_string <span class="hljs-keyword">from</span> <span class="hljs-keyword">user</span>;<br></code></pre></td></tr></table></figure>
+<h2 id="Authentication-plugin-‘caching-sha2-password’-cannot-be-loaded"><a href="#Authentication-plugin-‘caching-sha2-password’-cannot-be-loaded" class="headerlink" title="Authentication plugin ‘caching_sha2_password’ cannot be loaded"></a>Authentication plugin ‘caching_sha2_password’ cannot be loaded</h2><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">use mysql;</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">USER</span> <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;%&#x27;</span> IDENTIFIED <span class="keyword">WITH</span> mysql_native_password <span class="keyword">BY</span> <span class="string">&#x27;12345678&#x27;</span>;</span><br><span class="line"><span class="keyword">select</span> Host,<span class="keyword">user</span>,plugin,Authentication_string <span class="keyword">from</span> <span class="keyword">user</span>;</span><br></pre></td></tr></table></figure>
 
-<p><a href="https://blog.csdn.net/u010358168/article/details/81253744" target="_blank" rel="noopener">完美解决 ERROR2059(HY000):Authenticationplugincaching<em>sha2_passwordcannotbeloaded 问题</em>小洋人最 happy 的专栏-CSDN 博客_error2059</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u010358168/article/details/81253744">完美解决 ERROR2059(HY000):Authenticationplugincaching<em>sha2_passwordcannotbeloaded 问题</em>小洋人最 happy 的专栏-CSDN 博客_error2059</a></p>
 <h2 id="不可重复读和幻读的区别"><a href="#不可重复读和幻读的区别" class="headerlink" title="不可重复读和幻读的区别"></a>不可重复读和幻读的区别</h2><ul>
 <li>脏读：读取未提交的数据；</li>
 <li>不可重复读（update）：前后多次读取，数据内容不一致；</li>
 <li>幻读（insert、delete）：前后多次读取，数据总量不一致；</li>
 </ul>
 <ul>
-<li><a href="https://cloud.tencent.com/developer/article/1450773" target="_blank" rel="noopener">快速理解脏读、不可重复读、幻读和 MVCC - 云+社区 - 腾讯云</a><br>(1) 不可重复读是读取了其他事务更改的数据，针对 update 操作<br>解决：使用行级锁，锁定该行，事务 A 多次读取操作完成后才释放该锁，这个时候才允许其他事务更改刚才的数据。<br>(2) 幻读是读取了其他事务新增的数据，针对 insert 和 delete 操作<br>解决：使用表级锁，锁定整张表，事务 A 多次读取数据总量之后才释放该锁，这个时候才允许其他事务新增数据。</li>
+<li><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1450773">快速理解脏读、不可重复读、幻读和 MVCC - 云+社区 - 腾讯云</a><br>(1) 不可重复读是读取了其他事务更改的数据，针对 update 操作<br>解决：使用行级锁，锁定该行，事务 A 多次读取操作完成后才释放该锁，这个时候才允许其他事务更改刚才的数据。<br>(2) 幻读是读取了其他事务新增的数据，针对 insert 和 delete 操作<br>解决：使用表级锁，锁定整张表，事务 A 多次读取数据总量之后才释放该锁，这个时候才允许其他事务新增数据。</li>
 </ul>
-<h4 id="SELECT-IN-子查询-太慢问题"><a href="#SELECT-IN-子查询-太慢问题" class="headerlink" title="SELECT IN(子查询)太慢问题"></a>SELECT IN(子查询)太慢问题</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">explain</span> <span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> third_video_iqiyi <span class="hljs-keyword">WHERE</span>  v_id <span class="hljs-keyword">in</span> (<span class="hljs-keyword">SELECT</span> v_id <span class="hljs-keyword">FROM</span> third_video_iqiyi <span class="hljs-keyword">WHERE</span> v_id &lt; <span class="hljs-number">10</span>);<br></code></pre></td></tr></table></figure>
+<h4 id="SELECT-IN-子查询-太慢问题"><a href="#SELECT-IN-子查询-太慢问题" class="headerlink" title="SELECT IN(子查询)太慢问题"></a>SELECT IN(子查询)太慢问题</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">explain <span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> third_video_iqiyi <span class="keyword">WHERE</span>  v_id <span class="keyword">in</span> (<span class="keyword">SELECT</span> v_id <span class="keyword">FROM</span> third_video_iqiyi <span class="keyword">WHERE</span> v_id <span class="operator">&lt;</span> <span class="number">10</span>);</span><br></pre></td></tr></table></figure>
 
 <p><img src="https://raw.githubusercontent.com/lyloou/img/develop/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98_20220608185021_2022-06-08-18-50-22.png" alt="常见问题_20220608185021_2022-06-08-18-50-22"><br>在表的整体数据量大的情况下，上面的 sql 基本无法执行。</p>
 <ul>
-<li><p><a href="https://blog.csdn.net/youbl/article/details/113696590" target="_blank" rel="noopener">生产慢查询记录：MySQL IN 子查询导致的慢查询_北亮bl的博客-CSDN博客</a><br><img src="https://raw.githubusercontent.com/lyloou/img/develop/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98_20220608185524_2022-06-08-18-55-24.png" alt="常见问题_20220608185524_2022-06-08-18-55-24"></p>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/youbl/article/details/113696590">生产慢查询记录：MySQL IN 子查询导致的慢查询_北亮bl的博客-CSDN博客</a><br><img src="https://raw.githubusercontent.com/lyloou/img/develop/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98_20220608185524_2022-06-08-18-55-24.png" alt="常见问题_20220608185524_2022-06-08-18-55-24"></p>
 </li>
-<li><p><a href="https://www.cnblogs.com/wxw16/p/6105624.html" target="_blank" rel="noopener">深入理解MySql子查询IN的执行和优化 - wuxiwei - 博客园</a></p>
+<li><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/wxw16/p/6105624.html">深入理解MySql子查询IN的执行和优化 - wuxiwei - 博客园</a></p>
 </li>
-<li><p><a href="https://www.365seal.com/y/AZvgXQL3Va.html" target="_blank" rel="noopener">MySQL子查询慢现象的解决</a><br><img src="https://raw.githubusercontent.com/lyloou/img/develop/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98_20220608185226_2022-06-08-18-52-27.png" alt="常见问题_20220608185226_2022-06-08-18-52-27"></p>
+<li><p><a target="_blank" rel="noopener" href="https://www.365seal.com/y/AZvgXQL3Va.html">MySQL子查询慢现象的解决</a><br><img src="https://raw.githubusercontent.com/lyloou/img/develop/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98_20220608185226_2022-06-08-18-52-27.png" alt="常见问题_20220608185226_2022-06-08-18-52-27"></p>
 </li>
 </ul>
 <p>优化方案</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">explain</span> <span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> third_video_iqiyi a ,(<span class="hljs-keyword">SELECT</span> v_id <span class="hljs-keyword">FROM</span> third_video_iqiyi <span class="hljs-keyword">WHERE</span> v_id &lt; <span class="hljs-number">10</span>) b <span class="hljs-keyword">WHERE</span> a.v_id = b.v_id;<br></code></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">explain <span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> third_video_iqiyi a ,(<span class="keyword">SELECT</span> v_id <span class="keyword">FROM</span> third_video_iqiyi <span class="keyword">WHERE</span> v_id <span class="operator">&lt;</span> <span class="number">10</span>) b <span class="keyword">WHERE</span> a.v_id <span class="operator">=</span> b.v_id;</span><br></pre></td></tr></table></figure>
 
 <p><img src="https://raw.githubusercontent.com/lyloou/img/develop/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98_20220608184956_2022-06-08-18-49-57.png" alt="常见问题_20220608184956_2022-06-08-18-49-57"></p>
 
@@ -912,256 +1017,125 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
-  
-  
+</div>
 
 
-  
+
+
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/32/">32</a><a class="extend next" rel="next" href="/page/10/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/8/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/32/">32</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/10/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
-
-
-          </div>
-          
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
-
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="lyloou"
-      src="/assets/images/avatar.png">
-  <p class="site-author-name" itemprop="name">lyloou</p>
-  <div class="site-description" itemprop="description">/* Better than last best */</div>
 </div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">312</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
-        <span class="site-state-item-count">56</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
-</div>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-        <a href="https://github.com/lyloou" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;lyloou" rel="noopener" target="_blank">GitHub</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="mailto:lyloou6@gmail.com" title="E-Mail → mailto:lyloou6@gmail.com" rel="noopener" target="_blank">E-Mail</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://weibo.com/lyloou" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;lyloou" rel="noopener" target="_blank">Weibo</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://blog.csdn.net/ly1414725328" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;ly1414725328" rel="noopener" target="_blank">CSDN</a>
-      </span>
-  </div>
-  <div class="cc-license motion-element" itemprop="license">
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
-  </div>
+  </main>
 
+  <footer class="footer">
+    <div class="footer-inner">
 
-
-      </div>
-
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-        
   <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">粤ICP备18151128号 </a>
   </div>
 
 <div class="copyright">
-  
   &copy; 
   <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
-    <i class="user"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">lyloou</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
-  </div>
-
-        
 <div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
       <span class="post-meta-item-icon">
-        <i class="user"></i>
+        <i class="fa fa-user"></i>
       </span>
       <span class="site-uv" title="总访客量">
         <span id="busuanzi_value_site_uv"></span>
       </span>
     </span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
       <span class="post-meta-item-icon">
-        <i class="eye"></i>
+        <i class="fa fa-eye"></i>
       </span>
       <span class="site-pv" title="总访问量">
         <span id="busuanzi_value_site_pv"></span>
       </span>
     </span>
 </div>
-
-
-
-
-
-
-
-
-      </div>
-    </footer>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>
 
-  
-  <script src="/lib/anime.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-
-<script src="/js/schemes/muse.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
-
-
-
+    </div>
+  </footer>
 
   
-  <script>
-    (function(){
-      var canonicalURL, curProtocol;
-      //Get the <link> tag
-      var x=document.getElementsByTagName("link");
-		//Find the last canonical URL
-		if(x.length > 0){
-			for (i=0;i<x.length;i++){
-				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
-					canonicalURL=x[i].href;
-				}
-			}
-		}
-    //Get protocol
-	    if (!canonicalURL){
-	    	curProtocol = window.location.protocol.split(':')[0];
-	    }
-	    else{
-	    	curProtocol = canonicalURL.split(':')[0];
-	    }
-      //Get current URL if the canonical URL does not exist
-	    if (!canonicalURL) canonicalURL = window.location.href;
-	    //Assign script content. Replace current URL with the canonical URL
-      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
-  </script>
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
 
 
 
 
   
-<script src="/js/local-search.js"></script>
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 
 
-
-
-
-
-
-
+<script class="next-config" data-name="giscus" type="application/json">{"enable":true,"repo":"lyloou/lyloou.github.io","repo_id":"MDEwOlJlcG9zaXRvcnkxMDk1NzkyNzA=","category":"Announcements","category_id":"DIC_kwDOBogMBs4CWdfR","mapping":"pathname","reactions_enabled":1,"emit_metadata":1,"theme":"light","lang":"zh-CN","input_position":"bottom","loading":"lazy"}</script>
 
 <script>
-if (document.querySelectorAll('pre.mermaid').length) {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
-    mermaid.initialize({
-      theme    : 'forest',
-      logLevel : 3,
-      flowchart: { curve     : 'linear' },
-      gantt    : { axisFormat: '%m/%d/%Y' },
-      sequence : { actorMargin: 50 }
-    });
-  }, window.mermaid);
-}
+document.addEventListener('page:loaded', () => {
+  if (!CONFIG.page.comments) return;
+
+  NexT.utils.loadComments('.giscus-container')
+    .then(() => NexT.utils.getScript('https://giscus.app/client.js', {
+      attributes: {
+        async                   : true,
+        crossOrigin             : 'anonymous',
+        'data-repo'             : CONFIG.giscus.repo,
+        'data-repo-id'          : CONFIG.giscus.repo_id,
+        'data-category'         : CONFIG.giscus.category,
+        'data-category-id'      : CONFIG.giscus.category_id,
+        'data-mapping'          : CONFIG.giscus.mapping,
+        'data-reactions-enabled': CONFIG.giscus.reactions_enabled,
+        'data-emit-metadata'    : CONFIG.giscus.emit_metadata,
+        'data-theme'            : CONFIG.giscus.theme,
+        'data-lang'             : CONFIG.giscus.lang,
+        'data-input-position'   : CONFIG.giscus.input_position,
+        'data-loading'          : CONFIG.giscus.loading
+      },
+      parentNode: document.querySelector('.giscus-container')
+    }));
+});
 </script>
-
-
-  
-
-  
-
 
 </body>
 </html>

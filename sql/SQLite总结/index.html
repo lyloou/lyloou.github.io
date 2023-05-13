@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="zh-CN,zh-HK,zh-TW,en,default">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
@@ -13,19 +13,18 @@
 <link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"lyloou.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
-  </script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-  <meta name="description" content="C (Create)使用自带API： 12345678db &#x3D; dbHelper.getWritableDatabase();ContentValue values &#x3D; new ContentValue();values.put(&quot;name&quot;, &quot;第一行代码&quot;);values.put(&quot;author&quot;, &quot;郭霖&quot;);values.put(&quot;price&quot;, &quot;79.99&quot;);values.put(&quot;">
+<script class="next-config" data-name="main" type="application/json">{"hostname":"lyloou.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"default"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="C (Create)使用自带API： 12345678db &#x3D; dbHelper.getWritableDatabase();ContentValue values &#x3D; new ContentValue();values.put(&quot;name&quot;, &quot;第一行代码&quot;);values.put(&quot;author&quot;, &quot;郭霖&quot;);v">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于SQLite的总结">
 <meta property="og:url" content="https://lyloou.com/sql/SQLite%E6%80%BB%E7%BB%93/index.html">
 <meta property="og:site_name" content="lyloou">
-<meta property="og:description" content="C (Create)使用自带API： 12345678db &#x3D; dbHelper.getWritableDatabase();ContentValue values &#x3D; new ContentValue();values.put(&quot;name&quot;, &quot;第一行代码&quot;);values.put(&quot;author&quot;, &quot;郭霖&quot;);values.put(&quot;price&quot;, &quot;79.99&quot;);values.put(&quot;">
+<meta property="og:description" content="C (Create)使用自带API： 12345678db &#x3D; dbHelper.getWritableDatabase();ContentValue values &#x3D; new ContentValue();values.put(&quot;name&quot;, &quot;第一行代码&quot;);values.put(&quot;author&quot;, &quot;郭霖&quot;);v">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2016-07-13T01:17:54.000Z">
 <meta property="article:modified_time" content="2016-07-13T01:17:54.000Z">
@@ -34,37 +33,20 @@
 <meta property="article:tag" content="sql">
 <meta name="twitter:card" content="summary">
 
+
 <link rel="canonical" href="https://lyloou.com/sql/SQLite%E6%80%BB%E7%BB%93/">
 
 
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : false,
-    isPost : true,
-    lang   : 'zh-CN'
-  };
-</script>
 
-  <title>关于SQLite的总结 | lyloou</title>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://lyloou.com/sql/SQLite%E6%80%BB%E7%BB%93/","path":"sql/SQLite总结/","title":"关于SQLite的总结"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>关于SQLite的总结 | lyloou</title>
   
-    <script>
-      function sendPageView() {
-        if (CONFIG.hostname !== location.hostname) return;
-        var uid = localStorage.getItem('uid') || (Math.random() + '.' + Math.random());
-        localStorage.setItem('uid', uid);
-        navigator.sendBeacon('https://www.google-analytics.com/collect', new URLSearchParams({
-          v  : 1,
-          tid: 'UA-80542932-1',
-          cid: uid,
-          t  : 'pageview',
-          dp : encodeURIComponent(location.pathname)
-        }));
-      }
-      document.addEventListener('pjax:complete', sendPageView);
-      sendPageView();
-    </script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-80542932-1","only_pageview":true}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
 
 
 
@@ -72,55 +54,35 @@
 
 
   <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container">
-    <div class="headband"></div>
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
 
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
-  <div class="site-meta custom-logo">
+  <div class="site-meta">
 
     <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">lyloou</h1>
-      <span class="logo-line-after"><i></i></span>
+      <i class="logo-line"></i>
+      <p class="site-title">lyloou</p>
+      <i class="logo-line"></i>
     </a>
   </div>
 
   <div class="site-nav-right">
-    <div class="toggle popup-trigger">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
         <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
@@ -128,29 +90,8 @@
 
 
 
-
 <nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签</a>
-
-  </li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -161,223 +102,35 @@
 
 
   <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
+    <div class="popup search-popup"><div class="search-header">
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off"
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
            placeholder="搜索..." spellcheck="false"
            type="search" class="search-input">
   </div>
-  <span class="popup-btn-close">
+  <span class="popup-btn-close" role="button">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
-<div id="search-result">
-  <div id="no-result">
-    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
   </div>
 </div>
 
     </div>
   </div>
 
-</div>
-    </header>
-
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content post posts-expand">
-            
-
-    
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://lyloou.com/sql/SQLite%E6%80%BB%E7%BB%93/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/assets/images/avatar.png">
-      <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="lyloou">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          关于SQLite的总结<a href="https://github.com/lyloou/lyloou.github.io/edit/source/source/_posts/sql/SQLite%E6%80%BB%E7%BB%93.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil-alt"></i></a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-07-13 09:17:54" itemprop="dateCreated datePublished" datetime="2016-07-13T09:17:54+08:00">2016-07-13</time>
-            </span>
-
-          
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-        <h2 id="C-Create"><a href="#C-Create" class="headerlink" title="C (Create)"></a>C (Create)</h2><p>使用自带API：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java">db = dbHelper.getWritableDatabase();<br>ContentValue values = <span class="hljs-keyword">new</span> ContentValue();<br>values.put(<span class="hljs-string">"name"</span>, <span class="hljs-string">"第一行代码"</span>);<br>values.put(<span class="hljs-string">"author"</span>, <span class="hljs-string">"郭霖"</span>);<br>values.put(<span class="hljs-string">"price"</span>, <span class="hljs-string">"79.99"</span>);<br>values.put(<span class="hljs-string">"pages"</span>, <span class="hljs-string">"552"</span>);<br>db.insert(<span class="hljs-string">"Book"</span>, <span class="hljs-keyword">null</span>, values);<br>values.clear();<br></code></pre></td></tr></table></figure>
-
-<p>使用数据库语句：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java">db = dbHelper.getWritableDatabase();<br>db.execSQL(<span class="hljs-string">"insert into Book (name, author, pages, price) values (?, ?, ?, ?)"</span>, <span class="hljs-keyword">new</span> String[]&#123; <span class="hljs-string">"第一行代码"</span>, <span class="hljs-string">"郭霖"</span>, <span class="hljs-string">"552"</span>, <span class="hljs-string">"79.00"</span>&#125;);<br></code></pre></td></tr></table></figure>
-
-<h2 id="R-Retrieve"><a href="#R-Retrieve" class="headerlink" title="R (Retrieve)"></a>R (Retrieve)</h2><p>使用自带API：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">Cursor cursor = db.query(<span class="hljs-string">"Book"</span>, <span class="hljs-keyword">null</span>, <span class="hljs-keyword">null</span>, <span class="hljs-keyword">null</span>, <span class="hljs-keyword">null</span>, <span class="hljs-keyword">null</span>, <span class="hljs-keyword">null</span>);<br></code></pre></td></tr></table></figure>
-
-<p>使用数据库语句：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java">db = dbHelper.getReadableDatabase();<br>Cursor cursor = db.rawQuery(<span class="hljs-string">"SELECT id, name FROM people WHERE name = ? AND id = ?"</span>, <span class="hljs-keyword">new</span> String[] &#123;<span class="hljs-string">"David"</span>, <span class="hljs-string">"2"</span>&#125;);<br><span class="hljs-keyword">if</span>(cursor.moveToFirst())&#123;<br>  <span class="hljs-keyword">do</span>&#123;<br>    String name = cursor.getString(cursor.getColumnIndex(<span class="hljs-string">"name"</span>));<br>    String id = cursor.getString(cursor.getColumnIndex(<span class="hljs-string">"id"</span>));<br><br>    Log.e(<span class="hljs-string">"TAG"</span>, <span class="hljs-string">"name = "</span> + name);<br>    Log.e(<span class="hljs-string">"TAG"</span>, <span class="hljs-string">"id = "</span> + id);<br>  &#125; <span class="hljs-keyword">while</span> (cursor.moveToNext());<br>&#125;<br>cursor.close();<br></code></pre></td></tr></table></figure>
-
-
-<h2 id="U-Update"><a href="#U-Update" class="headerlink" title="U (Update)"></a>U (Update)</h2><p>使用自带API：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java">db = dbHelper.getWritableDatabase();<br>ContentValue values = <span class="hljs-keyword">new</span> ContentValue();<br>values.put(<span class="hljs-string">"price"</span>, <span class="hljs-number">79.99</span>);<br>db.update(<span class="hljs-string">"Book"</span>, values, <span class="hljs-string">"name = ?"</span>, <span class="hljs-keyword">new</span> String[]&#123; <span class="hljs-string">"第一行代码"</span> &#125;);<br></code></pre></td></tr></table></figure>
-
-<p>使用数据库语句：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java">db = dbHelper.getWritableDatabase();<br>db.execSQL(<span class="hljs-string">"update Book set price = ? where name = ?"</span>, <span class="hljs-keyword">new</span> String[]&#123; <span class="hljs-string">"79.99"</span>, <span class="hljs-string">"第一行代码"</span> &#125;)<br></code></pre></td></tr></table></figure>
-
-<h2 id="D-Delete"><a href="#D-Delete" class="headerlink" title="D (Delete)"></a>D (Delete)</h2><p>使用自带API：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java">db = dbHelper.getWritableDatabase();<br>db.delete(<span class="hljs-string">"Book"</span>, <span class="hljs-string">"page &gt; ?"</span>, <span class="hljs-keyword">new</span> String[]&#123; <span class="hljs-string">"500"</span> &#125;);<br></code></pre></td></tr></table></figure>
-
-<p>使用数据库语句：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java">db = dbHelper.getWritableDatabase();<br>db.execSQL(<span class="hljs-string">"delete from Book where pages &gt; ?"</span>, <span class="hljs-keyword">new</span> String[]&#123; <span class="hljs-string">"500"</span> &#125;)<br></code></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="使用事务（保证数据操作的原子性）"><a href="#使用事务（保证数据操作的原子性）" class="headerlink" title="使用事务（保证数据操作的原子性）"></a>使用事务（保证数据操作的原子性）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs java">SQLiteDatabase db = mDbHelper.getWritableDatabase();<br><span class="hljs-keyword">try</span> &#123;<br>   db.beginTransaction();<br><br>   String position = mode.getPosition().ordinal() + <span class="hljs-string">""</span>;<br>   String action = mode.getAction().ordinal() + <span class="hljs-string">""</span>;<br><br>   ContentValues values = <span class="hljs-keyword">new</span> ContentValues();<br>   values.put(<span class="hljs-string">"color"</span>, mode.getColor());<br>   values.put(<span class="hljs-string">"used"</span>, mode.isUsed() ? <span class="hljs-number">1</span> : <span class="hljs-number">0</span>);<br>   values.put(<span class="hljs-string">"level"</span>, mode.getLevel());<br>   values.put(<span class="hljs-string">"time"</span>, mode.getTime());<br><br>   db.update(TABLE_NAME, values, <span class="hljs-string">" position=? and action = ? "</span>, <span class="hljs-keyword">new</span> String[]&#123;position, action&#125;);<br>   values.clear();<br><br>   db.setTransactionSuccessful();<br>&#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;<br>  e.printStackTrace();<br>&#125; <span class="hljs-keyword">finally</span> &#123;<br>   db.endTransaction();<br>   db.close();<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="外部链接"><a href="#外部链接" class="headerlink" title="外部链接"></a>外部链接</h2><ul>
-<li><a href="http://stackoverflow.com/questions/10598137/rawqueryquery-selectionargs" target="_blank" rel="noopener">rawQuery(query, selectionArgs)</a></li>
-<li>《第一行代码》（第六章 数据存储全方案，详解持久化技术）</li>
-</ul>
-
-    </div>
-
-    
-    
-    
-      
-  <div class="popular-posts-header">相关文章</div>
-  <ul class="popular-posts">
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/android/SQLite封装/" rel="bookmark">SQLite封装</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/android/ApplicationContext中弹出对话框/" rel="bookmark">Android中app响应浏览器链接</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/android/Android和JavaScript交互/" rel="bookmark">Android和JavaScript交互</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/android/SharedPreference封装/" rel="bookmark">SharedPreference封装</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/android/app响应浏览器链接/" rel="bookmark">Android中app响应浏览器链接</a></div>
-    </li>
-  </ul>
-
-
-      <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/android/" rel="tag"># android</a>
-              <a href="/tags/sql/" rel="tag"># sql</a>
-          </div>
-
+</header>
         
-
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/android/SQLite%E5%B0%81%E8%A3%85/" rel="prev" title="SQLite封装">
-      <i class="fa fa-chevron-left"></i> SQLite封装
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/android/SharedPreference%E5%B0%81%E8%A3%85/" rel="next" title="SharedPreference封装">
-      SharedPreference封装 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
-    
-  </article>
   
-  
-  
-
-
-
-          </div>
-          
-    <div class="comments" id="gitalk-container"></div>
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
-
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
   <aside class="sidebar">
-    <div class="sidebar-inner">
 
-      <ul class="sidebar-nav motion-element">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
         </li>
@@ -386,212 +139,301 @@
         </li>
       </ul>
 
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#C-Create"><span class="nav-number">1.</span> <span class="nav-text">C (Create)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#R-Retrieve"><span class="nav-number">2.</span> <span class="nav-text">R (Retrieve)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#U-Update"><span class="nav-number">3.</span> <span class="nav-text">U (Update)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#D-Delete"><span class="nav-number">4.</span> <span class="nav-text">D (Delete)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用事务（保证数据操作的原子性）"><span class="nav-number">5.</span> <span class="nav-text">使用事务（保证数据操作的原子性）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#外部链接"><span class="nav-number">6.</span> <span class="nav-text">外部链接</span></a></li></ol></div>
-      </div>
-      <!--/noindex-->
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#C-Create"><span class="nav-number">1.</span> <span class="nav-text">C (Create)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#R-Retrieve"><span class="nav-number">2.</span> <span class="nav-text">R (Retrieve)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#U-Update"><span class="nav-number">3.</span> <span class="nav-text">U (Update)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#D-Delete"><span class="nav-number">4.</span> <span class="nav-text">D (Delete)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E4%BA%8B%E5%8A%A1%EF%BC%88%E4%BF%9D%E8%AF%81%E6%95%B0%E6%8D%AE%E6%93%8D%E4%BD%9C%E7%9A%84%E5%8E%9F%E5%AD%90%E6%80%A7%EF%BC%89"><span class="nav-number">5.</span> <span class="nav-text">使用事务（保证数据操作的原子性）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%96%E9%83%A8%E9%93%BE%E6%8E%A5"><span class="nav-number">6.</span> <span class="nav-text">外部链接</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
 
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="lyloou"
       src="/assets/images/avatar.png">
   <p class="site-author-name" itemprop="name">lyloou</p>
   <div class="site-description" itemprop="description">/* Better than last best */</div>
 </div>
-<div class="site-state-wrap motion-element">
+<div class="site-state-wrap animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
+        <a href="/archives/">
           <span class="site-state-item-count">312</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
+          <a href="/tags/">
         <span class="site-state-item-count">56</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
-  <div class="links-of-author motion-element">
+  <div class="links-of-author animated">
       <span class="links-of-author-item">
-        <a href="https://github.com/lyloou" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;lyloou" rel="noopener" target="_blank">GitHub</a>
+        <a href="https://github.com/lyloou" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;lyloou" rel="noopener me" target="_blank"><i class="github fa-fw"></i>GitHub</a>
       </span>
       <span class="links-of-author-item">
-        <a href="mailto:lyloou6@gmail.com" title="E-Mail → mailto:lyloou6@gmail.com" rel="noopener" target="_blank">E-Mail</a>
+        <a href="mailto:lyloou6@gmail.com" title="E-Mail → mailto:lyloou6@gmail.com" rel="noopener me" target="_blank"><i class="envelope fa-fw"></i>E-Mail</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://weibo.com/lyloou" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;lyloou" rel="noopener" target="_blank">Weibo</a>
+        <a href="https://weibo.com/lyloou" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;lyloou" rel="noopener me" target="_blank"><i class="weibo fa-fw"></i>Weibo</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://blog.csdn.net/ly1414725328" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;ly1414725328" rel="noopener" target="_blank">CSDN</a>
+        <a href="https://blog.csdn.net/ly1414725328" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;ly1414725328" rel="noopener me" target="_blank"><i class="csdn fa-fw"></i>CSDN</a>
       </span>
   </div>
-  <div class="cc-license motion-element" itemprop="license">
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
   </div>
 
-
-
+        </div>
       </div>
+    </div>
+
+    
+        <div class="pjax">
+        </div>
+  </aside>
+
 
     </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
+
+    <div class="main-inner post posts-expand">
 
 
-      </div>
-    </main>
+  
 
-    <footer class="footer">
-      <div class="footer-inner">
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.com/sql/SQLite%E6%80%BB%E7%BB%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/images/avatar.png">
+      <meta itemprop="name" content="lyloou">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="关于SQLite的总结 | lyloou">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          关于SQLite的总结
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2016-07-13 09:17:54" itemprop="dateCreated datePublished" datetime="2016-07-13T09:17:54+08:00">2016-07-13</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="C-Create"><a href="#C-Create" class="headerlink" title="C (Create)"></a>C (Create)</h2><p>使用自带API：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">db = dbHelper.getWritableDatabase();</span><br><span class="line"><span class="type">ContentValue</span> <span class="variable">values</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ContentValue</span>();</span><br><span class="line">values.put(<span class="string">&quot;name&quot;</span>, <span class="string">&quot;第一行代码&quot;</span>);</span><br><span class="line">values.put(<span class="string">&quot;author&quot;</span>, <span class="string">&quot;郭霖&quot;</span>);</span><br><span class="line">values.put(<span class="string">&quot;price&quot;</span>, <span class="string">&quot;79.99&quot;</span>);</span><br><span class="line">values.put(<span class="string">&quot;pages&quot;</span>, <span class="string">&quot;552&quot;</span>);</span><br><span class="line">db.insert(<span class="string">&quot;Book&quot;</span>, <span class="literal">null</span>, values);</span><br><span class="line">values.clear();</span><br></pre></td></tr></table></figure>
+
+<p>使用数据库语句：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">db = dbHelper.getWritableDatabase();</span><br><span class="line">db.execSQL(<span class="string">&quot;insert into Book (name, author, pages, price) values (?, ?, ?, ?)&quot;</span>, <span class="keyword">new</span> <span class="title class_">String</span>[]&#123; <span class="string">&quot;第一行代码&quot;</span>, <span class="string">&quot;郭霖&quot;</span>, <span class="string">&quot;552&quot;</span>, <span class="string">&quot;79.00&quot;</span>&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="R-Retrieve"><a href="#R-Retrieve" class="headerlink" title="R (Retrieve)"></a>R (Retrieve)</h2><p>使用自带API：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Cursor</span> <span class="variable">cursor</span> <span class="operator">=</span> db.query(<span class="string">&quot;Book&quot;</span>, <span class="literal">null</span>, <span class="literal">null</span>, <span class="literal">null</span>, <span class="literal">null</span>, <span class="literal">null</span>, <span class="literal">null</span>);</span><br></pre></td></tr></table></figure>
+
+<p>使用数据库语句：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">db = dbHelper.getReadableDatabase();</span><br><span class="line"><span class="type">Cursor</span> <span class="variable">cursor</span> <span class="operator">=</span> db.rawQuery(<span class="string">&quot;SELECT id, name FROM people WHERE name = ? AND id = ?&quot;</span>, <span class="keyword">new</span> <span class="title class_">String</span>[] &#123;<span class="string">&quot;David&quot;</span>, <span class="string">&quot;2&quot;</span>&#125;);</span><br><span class="line"><span class="keyword">if</span>(cursor.moveToFirst())&#123;</span><br><span class="line">  <span class="keyword">do</span>&#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">name</span> <span class="operator">=</span> cursor.getString(cursor.getColumnIndex(<span class="string">&quot;name&quot;</span>));</span><br><span class="line">    <span class="type">String</span> <span class="variable">id</span> <span class="operator">=</span> cursor.getString(cursor.getColumnIndex(<span class="string">&quot;id&quot;</span>));</span><br><span class="line"></span><br><span class="line">    Log.e(<span class="string">&quot;TAG&quot;</span>, <span class="string">&quot;name = &quot;</span> + name);</span><br><span class="line">    Log.e(<span class="string">&quot;TAG&quot;</span>, <span class="string">&quot;id = &quot;</span> + id);</span><br><span class="line">  &#125; <span class="keyword">while</span> (cursor.moveToNext());</span><br><span class="line">&#125;</span><br><span class="line">cursor.close();</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="U-Update"><a href="#U-Update" class="headerlink" title="U (Update)"></a>U (Update)</h2><p>使用自带API：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">db = dbHelper.getWritableDatabase();</span><br><span class="line"><span class="type">ContentValue</span> <span class="variable">values</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ContentValue</span>();</span><br><span class="line">values.put(<span class="string">&quot;price&quot;</span>, <span class="number">79.99</span>);</span><br><span class="line">db.update(<span class="string">&quot;Book&quot;</span>, values, <span class="string">&quot;name = ?&quot;</span>, <span class="keyword">new</span> <span class="title class_">String</span>[]&#123; <span class="string">&quot;第一行代码&quot;</span> &#125;);</span><br></pre></td></tr></table></figure>
+
+<p>使用数据库语句：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">db = dbHelper.getWritableDatabase();</span><br><span class="line">db.execSQL(<span class="string">&quot;update Book set price = ? where name = ?&quot;</span>, <span class="keyword">new</span> <span class="title class_">String</span>[]&#123; <span class="string">&quot;79.99&quot;</span>, <span class="string">&quot;第一行代码&quot;</span> &#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="D-Delete"><a href="#D-Delete" class="headerlink" title="D (Delete)"></a>D (Delete)</h2><p>使用自带API：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">db = dbHelper.getWritableDatabase();</span><br><span class="line">db.delete(<span class="string">&quot;Book&quot;</span>, <span class="string">&quot;page &gt; ?&quot;</span>, <span class="keyword">new</span> <span class="title class_">String</span>[]&#123; <span class="string">&quot;500&quot;</span> &#125;);</span><br></pre></td></tr></table></figure>
+
+<p>使用数据库语句：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">db = dbHelper.getWritableDatabase();</span><br><span class="line">db.execSQL(<span class="string">&quot;delete from Book where pages &gt; ?&quot;</span>, <span class="keyword">new</span> <span class="title class_">String</span>[]&#123; <span class="string">&quot;500&quot;</span> &#125;)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="使用事务（保证数据操作的原子性）"><a href="#使用事务（保证数据操作的原子性）" class="headerlink" title="使用事务（保证数据操作的原子性）"></a>使用事务（保证数据操作的原子性）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">SQLiteDatabase</span> <span class="variable">db</span> <span class="operator">=</span> mDbHelper.getWritableDatabase();</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">   db.beginTransaction();</span><br><span class="line"></span><br><span class="line">   <span class="type">String</span> <span class="variable">position</span> <span class="operator">=</span> mode.getPosition().ordinal() + <span class="string">&quot;&quot;</span>;</span><br><span class="line">   <span class="type">String</span> <span class="variable">action</span> <span class="operator">=</span> mode.getAction().ordinal() + <span class="string">&quot;&quot;</span>;</span><br><span class="line"></span><br><span class="line">   <span class="type">ContentValues</span> <span class="variable">values</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ContentValues</span>();</span><br><span class="line">   values.put(<span class="string">&quot;color&quot;</span>, mode.getColor());</span><br><span class="line">   values.put(<span class="string">&quot;used&quot;</span>, mode.isUsed() ? <span class="number">1</span> : <span class="number">0</span>);</span><br><span class="line">   values.put(<span class="string">&quot;level&quot;</span>, mode.getLevel());</span><br><span class="line">   values.put(<span class="string">&quot;time&quot;</span>, mode.getTime());</span><br><span class="line"></span><br><span class="line">   db.update(TABLE_NAME, values, <span class="string">&quot; position=? and action = ? &quot;</span>, <span class="keyword">new</span> <span class="title class_">String</span>[]&#123;position, action&#125;);</span><br><span class="line">   values.clear();</span><br><span class="line"></span><br><span class="line">   db.setTransactionSuccessful();</span><br><span class="line">&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">  e.printStackTrace();</span><br><span class="line">&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">   db.endTransaction();</span><br><span class="line">   db.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="外部链接"><a href="#外部链接" class="headerlink" title="外部链接"></a>外部链接</h2><ul>
+<li><a target="_blank" rel="noopener" href="http://stackoverflow.com/questions/10598137/rawqueryquery-selectionargs">rawQuery(query, selectionArgs)</a></li>
+<li>《第一行代码》（第六章 数据存储全方案，详解持久化技术）</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/android/" rel="tag"># android</a>
+              <a href="/tags/sql/" rel="tag"># sql</a>
+          </div>
+
         
 
-        
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/android/SQLite%E5%B0%81%E8%A3%85/" rel="prev" title="SQLite封装">
+                  <i class="fa fa-chevron-left"></i> SQLite封装
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/android/SharedPreference%E5%B0%81%E8%A3%85/" rel="next" title="SharedPreference封装">
+                  SharedPreference封装 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  
+  <div class="comments giscus-container">
+  </div>
+  
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
   <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">粤ICP备18151128号 </a>
   </div>
 
 <div class="copyright">
-  
   &copy; 
   <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
-    <i class="user"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">lyloou</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
-  </div>
-
-        
 <div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
       <span class="post-meta-item-icon">
-        <i class="user"></i>
+        <i class="fa fa-user"></i>
       </span>
       <span class="site-uv" title="总访客量">
         <span id="busuanzi_value_site_uv"></span>
       </span>
     </span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
       <span class="post-meta-item-icon">
-        <i class="eye"></i>
+        <i class="fa fa-eye"></i>
       </span>
       <span class="site-pv" title="总访问量">
         <span id="busuanzi_value_site_pv"></span>
       </span>
     </span>
 </div>
-
-
-
-
-
-
-
-
-      </div>
-    </footer>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>
 
-  
-  <script src="/lib/anime.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-
-<script src="/js/schemes/muse.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
-
-
-
+    </div>
+  </footer>
 
   
-  <script>
-    (function(){
-      var canonicalURL, curProtocol;
-      //Get the <link> tag
-      var x=document.getElementsByTagName("link");
-		//Find the last canonical URL
-		if(x.length > 0){
-			for (i=0;i<x.length;i++){
-				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
-					canonicalURL=x[i].href;
-				}
-			}
-		}
-    //Get protocol
-	    if (!canonicalURL){
-	    	curProtocol = window.location.protocol.split(':')[0];
-	    }
-	    else{
-	    	curProtocol = canonicalURL.split(':')[0];
-	    }
-      //Get current URL if the canonical URL does not exist
-	    if (!canonicalURL) canonicalURL = window.location.href;
-	    //Assign script content. Replace current URL with the canonical URL
-      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
-  </script>
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
 
 
 
 
   
-<script src="/js/local-search.js"></script>
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 
 
-
-
-
-
-
-
+<script class="next-config" data-name="giscus" type="application/json">{"enable":true,"repo":"lyloou/lyloou.github.io","repo_id":"MDEwOlJlcG9zaXRvcnkxMDk1NzkyNzA=","category":"Announcements","category_id":"DIC_kwDOBogMBs4CWdfR","mapping":"pathname","reactions_enabled":1,"emit_metadata":1,"theme":"light","lang":"zh-CN","input_position":"bottom","loading":"lazy"}</script>
 
 <script>
-if (document.querySelectorAll('pre.mermaid').length) {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
-    mermaid.initialize({
-      theme    : 'forest',
-      logLevel : 3,
-      flowchart: { curve     : 'linear' },
-      gantt    : { axisFormat: '%m/%d/%Y' },
-      sequence : { actorMargin: 50 }
-    });
-  }, window.mermaid);
-}
-</script>
+document.addEventListener('page:loaded', () => {
+  if (!CONFIG.page.comments) return;
 
-
-  
-
-  
-
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
-
-<script>
-NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
-    var gitalk = new Gitalk({
-      clientID    : '5776a56ec2a831d83dfc',
-      clientSecret: '28440989ccf00f0ce8dbd425dc5d1eaa1eb24c7b',
-      repo        : 'lyloou.github.io',
-      owner       : 'lyloou',
-      admin       : ['lyloou'],
-      id          : 'a76412774d60554398bfb3f810997645',
-        language: '',
-      distractionFreeMode: true
-    });
-    gitalk.render('gitalk-container');
-  }, window.Gitalk);
+  NexT.utils.loadComments('.giscus-container')
+    .then(() => NexT.utils.getScript('https://giscus.app/client.js', {
+      attributes: {
+        async                   : true,
+        crossOrigin             : 'anonymous',
+        'data-repo'             : CONFIG.giscus.repo,
+        'data-repo-id'          : CONFIG.giscus.repo_id,
+        'data-category'         : CONFIG.giscus.category,
+        'data-category-id'      : CONFIG.giscus.category_id,
+        'data-mapping'          : CONFIG.giscus.mapping,
+        'data-reactions-enabled': CONFIG.giscus.reactions_enabled,
+        'data-emit-metadata'    : CONFIG.giscus.emit_metadata,
+        'data-theme'            : CONFIG.giscus.theme,
+        'data-lang'             : CONFIG.giscus.lang,
+        'data-input-position'   : CONFIG.giscus.input_position,
+        'data-loading'          : CONFIG.giscus.loading
+      },
+      parentNode: document.querySelector('.giscus-container')
+    }));
 });
 </script>
 

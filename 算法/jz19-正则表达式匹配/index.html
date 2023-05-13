@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="zh-CN,zh-HK,zh-TW,en,default">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
@@ -13,14 +13,13 @@
 <link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"lyloou.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
-  </script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-  <meta name="description" content="剑指 Offer 第 19 题-正则表达式匹配请实现一个函数用来匹配包括’.’和’‘的正则表达式。模式中的字符’.’表示任意一个字符，而’‘表示它前面的字符可以出现任意次（包含 0 次）。 在本题中，匹配是指字符串的所有字符匹配整个模式。 例如，字符串”aaa”与模式”a.a”和”abaca”匹配，但是与”aa.a”和”ab*a”均不匹配 数据范围:  1.str 可能为空，且只包含从 a-z 的">
+<script class="next-config" data-name="main" type="application/json">{"hostname":"lyloou.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"default"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="剑指 Offer 第 19 题-正则表达式匹配请实现一个函数用来匹配包括’.’和’‘的正则表达式。模式中的字符’.’表示任意一个字符，而’‘表示它前面的字符可以出现任意次（包含 0 次）。 在本题中，匹配是指字符串的所有字符匹配整个模式。 例如，字符串”aaa”与模式”a.a”和”abaca”匹配，但是与”aa.a”和”ab*a”均不匹配 数据范围:  1.str 可能为空，且只包含从 a-z 的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【算法】正则表达式匹配">
 <meta property="og:url" content="https://lyloou.com/%E7%AE%97%E6%B3%95/jz19-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D/index.html">
@@ -33,37 +32,20 @@
 <meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
 
+
 <link rel="canonical" href="https://lyloou.com/%E7%AE%97%E6%B3%95/jz19-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D/">
 
 
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : false,
-    isPost : true,
-    lang   : 'zh-CN'
-  };
-</script>
 
-  <title>【算法】正则表达式匹配 | lyloou</title>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://lyloou.com/%E7%AE%97%E6%B3%95/jz19-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D/","path":"算法/jz19-正则表达式匹配/","title":"【算法】正则表达式匹配"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>【算法】正则表达式匹配 | lyloou</title>
   
-    <script>
-      function sendPageView() {
-        if (CONFIG.hostname !== location.hostname) return;
-        var uid = localStorage.getItem('uid') || (Math.random() + '.' + Math.random());
-        localStorage.setItem('uid', uid);
-        navigator.sendBeacon('https://www.google-analytics.com/collect', new URLSearchParams({
-          v  : 1,
-          tid: 'UA-80542932-1',
-          cid: uid,
-          t  : 'pageview',
-          dp : encodeURIComponent(location.pathname)
-        }));
-      }
-      document.addEventListener('pjax:complete', sendPageView);
-      sendPageView();
-    </script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-80542932-1","only_pageview":true}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
 
 
 
@@ -71,55 +53,35 @@
 
 
   <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container">
-    <div class="headband"></div>
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
 
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
-  <div class="site-meta custom-logo">
+  <div class="site-meta">
 
     <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">lyloou</h1>
-      <span class="logo-line-after"><i></i></span>
+      <i class="logo-line"></i>
+      <p class="site-title">lyloou</p>
+      <i class="logo-line"></i>
     </a>
   </div>
 
   <div class="site-nav-right">
-    <div class="toggle popup-trigger">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
         <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
@@ -127,29 +89,8 @@
 
 
 
-
 <nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签</a>
-
-  </li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -160,85 +101,154 @@
 
 
   <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
+    <div class="popup search-popup"><div class="search-header">
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off"
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
            placeholder="搜索..." spellcheck="false"
            type="search" class="search-input">
   </div>
-  <span class="popup-btn-close">
+  <span class="popup-btn-close" role="button">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
-<div id="search-result">
-  <div id="no-result">
-    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
   </div>
 </div>
 
     </div>
   </div>
 
-</div>
-    </header>
+</header>
+        
+  
+  <aside class="sidebar">
 
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%91%E6%8C%87-Offer-%E7%AC%AC-19-%E9%A2%98-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D"><span class="nav-number">1.</span> <span class="nav-text">剑指 Offer 第 19 题-正则表达式匹配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95-1"><span class="nav-number">2.</span> <span class="nav-text">方法 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95-2"><span class="nav-number">3.</span> <span class="nav-text">方法 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95-3"><span class="nav-number">4.</span> <span class="nav-text">方法 3</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="lyloou"
+      src="/assets/images/avatar.png">
+  <p class="site-author-name" itemprop="name">lyloou</p>
+  <div class="site-description" itemprop="description">/* Better than last best */</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">312</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">56</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/lyloou" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;lyloou" rel="noopener me" target="_blank"><i class="github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:lyloou6@gmail.com" title="E-Mail → mailto:lyloou6@gmail.com" rel="noopener me" target="_blank"><i class="envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/lyloou" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;lyloou" rel="noopener me" target="_blank"><i class="weibo fa-fw"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/ly1414725328" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;ly1414725328" rel="noopener me" target="_blank"><i class="csdn fa-fw"></i>CSDN</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
   </div>
 
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content post posts-expand">
-            
+        </div>
+      </div>
+    </div>
 
     
+        <div class="pjax">
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://lyloou.com/%E7%AE%97%E6%B3%95/jz19-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="【算法】正则表达式匹配 | lyloou">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          【算法】正则表达式匹配<a href="https://github.com/lyloou/lyloou.github.io/edit/source/source/_posts/%E7%AE%97%E6%B3%95/jz19-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil-alt"></i></a>
+          【算法】正则表达式匹配
         </h1>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2022-01-17 16:50:26" itemprop="dateCreated datePublished" datetime="2022-01-17T16:50:26+08:00">2022-01-17</time>
-            </span>
+      <time title="创建时间：2022-01-17 16:50:26" itemprop="dateCreated datePublished" datetime="2022-01-17T16:50:26+08:00">2022-01-17</time>
+    </span>
 
-          
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
 
         </div>
       </header>
@@ -246,10 +256,7 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
-
-      
-        <h2 id="剑指-Offer-第-19-题-正则表达式匹配"><a href="#剑指-Offer-第-19-题-正则表达式匹配" class="headerlink" title="剑指 Offer 第 19 题-正则表达式匹配"></a>剑指 Offer 第 19 题-正则表达式匹配</h2><p>请实现一个函数用来匹配包括’.’和’<em>‘的正则表达式。模式中的字符’.’表示任意一个字符，而’</em>‘表示它前面的字符可以出现任意次（包含 0 次）。 在本题中，匹配是指字符串的所有字符匹配整个模式。</p>
+    <div class="post-body" itemprop="articleBody"><h2 id="剑指-Offer-第-19-题-正则表达式匹配"><a href="#剑指-Offer-第-19-题-正则表达式匹配" class="headerlink" title="剑指 Offer 第 19 题-正则表达式匹配"></a>剑指 Offer 第 19 题-正则表达式匹配</h2><p>请实现一个函数用来匹配包括’.’和’<em>‘的正则表达式。模式中的字符’.’表示任意一个字符，而’</em>‘表示它前面的字符可以出现任意次（包含 0 次）。 在本题中，匹配是指字符串的所有字符匹配整个模式。</p>
 <p>例如，字符串”aaa”与模式”a.a”和”ab<em>ac</em>a”匹配，但是与”aa.a”和”ab*a”均不匹配</p>
 <p>数据范围:</p>
 <ul>
@@ -260,321 +267,156 @@
 </ul>
 <p>要求：空间复杂度 O(1)O(1)，时间复杂度 O(n)O(n)</p>
 <h2 id="方法-1"><a href="#方法-1" class="headerlink" title="方法 1"></a>方法 1</h2><p>在原数组上，移动下标，合并边界</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br></pre></td><td class="code"><pre><code class="hljs java"><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 描述</span><br><span class="hljs-comment"> * 请实现一个函数用来匹配包括'.'和'*'的正则表达式。模式中的字符'.'表示任意一个字符，而'*'表示它前面的字符可以出现任意次（包含0次）。 在本题中，匹配是指字符串的所有字符匹配整个模式。例如，字符串"aaa"与模式"a.a"和"ab*ac*a"匹配，但是与"aa.a"和"ab*a"均不匹配</span><br><span class="hljs-comment"> * &lt;p&gt;</span><br><span class="hljs-comment"> * 数据范围:</span><br><span class="hljs-comment"> * 1.str 可能为空，且只包含从 a-z 的小写字母。</span><br><span class="hljs-comment"> * 2.pattern 可能为空，且只包含从 a-z 的小写字母以及字符 . 和 *，无连续的 '*'。</span><br><span class="hljs-comment"> * 3.1 &lt;= str.length &lt;= 20</span><br><span class="hljs-comment"> * 4.1 &lt;= pattern.length &lt;= 30</span><br><span class="hljs-comment"> * 要求：空间复杂度 O(1)O(1)，时间复杂度 O(n)O(n)</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@author</span> lilou</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Jz19_1</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        <span class="hljs-keyword">final</span> Jz19_1 jz19 = <span class="hljs-keyword">new</span> Jz19_1();<br>        jz19.test(<span class="hljs-string">"Test22"</span>, <span class="hljs-string">"aaa"</span>, <span class="hljs-string">"ab*a"</span>, <span class="hljs-keyword">false</span>);<br><br>        jz19.test(<span class="hljs-string">"Test01"</span>, <span class="hljs-string">""</span>, <span class="hljs-string">""</span>, <span class="hljs-keyword">true</span>);<br>        jz19.test(<span class="hljs-string">"Test02"</span>, <span class="hljs-string">""</span>, <span class="hljs-string">".*"</span>, <span class="hljs-keyword">true</span>);<br>        jz19.test(<span class="hljs-string">"Test03"</span>, <span class="hljs-string">""</span>, <span class="hljs-string">"."</span>, <span class="hljs-keyword">false</span>);<br>        jz19.test(<span class="hljs-string">"Test04"</span>, <span class="hljs-string">""</span>, <span class="hljs-string">"c*"</span>, <span class="hljs-keyword">true</span>);<br>        jz19.test(<span class="hljs-string">"Test05"</span>, <span class="hljs-string">"a"</span>, <span class="hljs-string">".*"</span>, <span class="hljs-keyword">true</span>);<br>        jz19.test(<span class="hljs-string">"Test06"</span>, <span class="hljs-string">"a"</span>, <span class="hljs-string">"a."</span>, <span class="hljs-keyword">false</span>);<br>        jz19.test(<span class="hljs-string">"Test07"</span>, <span class="hljs-string">"a"</span>, <span class="hljs-string">""</span>, <span class="hljs-keyword">false</span>);<br>        jz19.test(<span class="hljs-string">"Test08"</span>, <span class="hljs-string">"a"</span>, <span class="hljs-string">"."</span>, <span class="hljs-keyword">true</span>);<br>        jz19.test(<span class="hljs-string">"Test09"</span>, <span class="hljs-string">"a"</span>, <span class="hljs-string">"ab*"</span>, <span class="hljs-keyword">true</span>);<br>        jz19.test(<span class="hljs-string">"Test10"</span>, <span class="hljs-string">"a"</span>, <span class="hljs-string">"ab*a"</span>, <span class="hljs-keyword">false</span>);<br>        jz19.test(<span class="hljs-string">"Test11"</span>, <span class="hljs-string">"aa"</span>, <span class="hljs-string">"aa"</span>, <span class="hljs-keyword">true</span>);<br>        jz19.test(<span class="hljs-string">"Test12"</span>, <span class="hljs-string">"aa"</span>, <span class="hljs-string">"a*"</span>, <span class="hljs-keyword">true</span>);<br>        jz19.test(<span class="hljs-string">"Test13"</span>, <span class="hljs-string">"aa"</span>, <span class="hljs-string">".*"</span>, <span class="hljs-keyword">true</span>);<br>        jz19.test(<span class="hljs-string">"Test14"</span>, <span class="hljs-string">"aa"</span>, <span class="hljs-string">"."</span>, <span class="hljs-keyword">false</span>);<br>        jz19.test(<span class="hljs-string">"Test15"</span>, <span class="hljs-string">"ab"</span>, <span class="hljs-string">".*"</span>, <span class="hljs-keyword">true</span>);<br>        jz19.test(<span class="hljs-string">"Test16"</span>, <span class="hljs-string">"ab"</span>, <span class="hljs-string">".*"</span>, <span class="hljs-keyword">true</span>);<br>        jz19.test(<span class="hljs-string">"Test17"</span>, <span class="hljs-string">"aaa"</span>, <span class="hljs-string">"aa*"</span>, <span class="hljs-keyword">true</span>);<br>        jz19.test(<span class="hljs-string">"Test18"</span>, <span class="hljs-string">"aaa"</span>, <span class="hljs-string">"aa.a"</span>, <span class="hljs-keyword">false</span>);<br>        jz19.test(<span class="hljs-string">"Test19"</span>, <span class="hljs-string">"aaa"</span>, <span class="hljs-string">"a.a"</span>, <span class="hljs-keyword">true</span>);<br>        jz19.test(<span class="hljs-string">"Test20"</span>, <span class="hljs-string">"aaa"</span>, <span class="hljs-string">".a"</span>, <span class="hljs-keyword">false</span>);<br>        jz19.test(<span class="hljs-string">"Test21"</span>, <span class="hljs-string">"aaa"</span>, <span class="hljs-string">"a*a"</span>, <span class="hljs-keyword">true</span>);<br>        jz19.test(<span class="hljs-string">"Test22"</span>, <span class="hljs-string">"aaa"</span>, <span class="hljs-string">"ab*a"</span>, <span class="hljs-keyword">false</span>);<br>        jz19.test(<span class="hljs-string">"Test23"</span>, <span class="hljs-string">"aaa"</span>, <span class="hljs-string">"ab*ac*a"</span>, <span class="hljs-keyword">true</span>);<br>        jz19.test(<span class="hljs-string">"Test24"</span>, <span class="hljs-string">"aaa"</span>, <span class="hljs-string">"ab*a*c*a"</span>, <span class="hljs-keyword">true</span>);<br>        jz19.test(<span class="hljs-string">"Test25"</span>, <span class="hljs-string">"aaa"</span>, <span class="hljs-string">".*"</span>, <span class="hljs-keyword">true</span>);<br>        jz19.test(<span class="hljs-string">"Test26"</span>, <span class="hljs-string">"aab"</span>, <span class="hljs-string">"c*a*b"</span>, <span class="hljs-keyword">true</span>);<br>        jz19.test(<span class="hljs-string">"Test27"</span>, <span class="hljs-string">"aaca"</span>, <span class="hljs-string">"ab*a*c*a"</span>, <span class="hljs-keyword">true</span>);<br>        jz19.test(<span class="hljs-string">"Test28"</span>, <span class="hljs-string">"aaba"</span>, <span class="hljs-string">"ab*a*c*a"</span>, <span class="hljs-keyword">false</span>);<br>        jz19.test(<span class="hljs-string">"Test29"</span>, <span class="hljs-string">"bbbba"</span>, <span class="hljs-string">".*a*a"</span>, <span class="hljs-keyword">true</span>);<br>        jz19.test(<span class="hljs-string">"Test30"</span>, <span class="hljs-string">"bcbbabab"</span>, <span class="hljs-string">".*a*a"</span>, <span class="hljs-keyword">false</span>);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test</span><span class="hljs-params">(String testName, String str, String pattern, <span class="hljs-keyword">boolean</span> expired)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (match(str, pattern) == expired) &#123;<br>            <span class="hljs-keyword">return</span>;<br>        &#125;<br>        System.out.printf(<span class="hljs-string">"%s 结果不对\n"</span>, testName);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">match</span><span class="hljs-params">(String str, String pattern)</span> </span>&#123;<br><br>        <span class="hljs-comment">// 串和模式为空的判断</span><br>        <span class="hljs-keyword">if</span> (str == <span class="hljs-keyword">null</span> &amp;&amp; pattern == <span class="hljs-keyword">null</span>) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;<br>        &#125;<br>        <span class="hljs-keyword">if</span> (str == <span class="hljs-keyword">null</span> || pattern == <span class="hljs-keyword">null</span>) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;<br>        &#125;<br><br>        <span class="hljs-comment">// 转换为char数组</span><br>        <span class="hljs-keyword">final</span> <span class="hljs-keyword">char</span>[] strArr = str.toCharArray();<br>        <span class="hljs-keyword">final</span> <span class="hljs-keyword">char</span>[] patternArr = pattern.toCharArray();<br>        <span class="hljs-keyword">int</span> strIndex = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">int</span> patternIndex = <span class="hljs-number">0</span>;<br>        <span class="hljs-comment">// 进入递归</span><br>        <span class="hljs-keyword">return</span> matchCore(strArr, strIndex, patternArr, patternIndex);<br>    &#125;<br><br><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">matchCore</span><span class="hljs-params">(<span class="hljs-keyword">char</span>[] strArr, <span class="hljs-keyword">int</span> strIndex, <span class="hljs-keyword">char</span>[] patternArr, <span class="hljs-keyword">int</span> patternIndex)</span> </span>&#123;<br><br>        <span class="hljs-comment">// 模式匹配到最后了，就可以决定串是否匹配</span><br>        <span class="hljs-keyword">if</span> (isEnd(patternArr, patternIndex)) &#123;<br>            <span class="hljs-keyword">return</span> isEnd(strArr, strIndex);<br>        &#125;<br><br>        <span class="hljs-comment">// 如果串的第一个字符不存在，</span><br>        <span class="hljs-comment">// 假如串是「aa」，模式是「aaa*」</span><br>        <span class="hljs-comment">// 可以向下进行，判断模式串是不是「.*」或「a*」</span><br><br>        <span class="hljs-comment">// 如果串的第一个字符存在</span><br>        <span class="hljs-comment">// 判断串的第一个字符是否和模式的第一个字符匹配</span><br>        <span class="hljs-keyword">boolean</span> firstMatch = !isEnd(strArr, strIndex) &amp;&amp; (<br>                patternArr[patternIndex] == <span class="hljs-string">'.'</span> || patternArr[patternIndex] == strArr[strIndex]);<br><br>        <span class="hljs-comment">// 判断模式的第二个字符是不是「*」</span><br>        <span class="hljs-keyword">if</span> ((patternIndex + <span class="hljs-number">1</span> &lt; patternArr.length) &amp;&amp; (patternArr[patternIndex + <span class="hljs-number">1</span>] == <span class="hljs-string">'*'</span>)) &#123;<br>            <span class="hljs-comment">// 模式串右移2位 或 字符串移动1</span><br>            <span class="hljs-keyword">return</span> matchCore(strArr, strIndex, patternArr, patternIndex + <span class="hljs-number">2</span>) ||<br>                    (firstMatch &amp;&amp; matchCore(strArr, strIndex + <span class="hljs-number">1</span>, patternArr, patternIndex));<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-keyword">return</span> firstMatch &amp;&amp; matchCore(strArr, strIndex + <span class="hljs-number">1</span>, patternArr, patternIndex + <span class="hljs-number">1</span>);<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">char</span> END = <span class="hljs-string">'\0'</span>;<br><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isEnd</span><span class="hljs-params">(<span class="hljs-keyword">char</span>[] arr, <span class="hljs-keyword">int</span> index)</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> END == indexArr(arr, index);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">char</span> <span class="hljs-title">indexArr</span><span class="hljs-params">(<span class="hljs-keyword">char</span>[] arr, <span class="hljs-keyword">int</span> index)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (index &lt; arr.length) &#123;<br>            <span class="hljs-keyword">return</span> arr[index];<br>        &#125;<br>        <span class="hljs-keyword">return</span> END;<br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 描述</span></span><br><span class="line"><span class="comment"> * 请实现一个函数用来匹配包括&#x27;.&#x27;和&#x27;*&#x27;的正则表达式。模式中的字符&#x27;.&#x27;表示任意一个字符，而&#x27;*&#x27;表示它前面的字符可以出现任意次（包含0次）。 在本题中，匹配是指字符串的所有字符匹配整个模式。例如，字符串&quot;aaa&quot;与模式&quot;a.a&quot;和&quot;ab*ac*a&quot;匹配，但是与&quot;aa.a&quot;和&quot;ab*a&quot;均不匹配</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;</span></span><br><span class="line"><span class="comment"> * 数据范围:</span></span><br><span class="line"><span class="comment"> * 1.str 可能为空，且只包含从 a-z 的小写字母。</span></span><br><span class="line"><span class="comment"> * 2.pattern 可能为空，且只包含从 a-z 的小写字母以及字符 . 和 *，无连续的 &#x27;*&#x27;。</span></span><br><span class="line"><span class="comment"> * 3.1 &lt;= str.length &lt;= 20</span></span><br><span class="line"><span class="comment"> * 4.1 &lt;= pattern.length &lt;= 30</span></span><br><span class="line"><span class="comment"> * 要求：空间复杂度 O(1)O(1)，时间复杂度 O(n)O(n)</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> lilou</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Jz19_1</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="keyword">final</span> <span class="type">Jz19_1</span> <span class="variable">jz19</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Jz19_1</span>();</span><br><span class="line">        jz19.test(<span class="string">&quot;Test22&quot;</span>, <span class="string">&quot;aaa&quot;</span>, <span class="string">&quot;ab*a&quot;</span>, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line">        jz19.test(<span class="string">&quot;Test01&quot;</span>, <span class="string">&quot;&quot;</span>, <span class="string">&quot;&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test02&quot;</span>, <span class="string">&quot;&quot;</span>, <span class="string">&quot;.*&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test03&quot;</span>, <span class="string">&quot;&quot;</span>, <span class="string">&quot;.&quot;</span>, <span class="literal">false</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test04&quot;</span>, <span class="string">&quot;&quot;</span>, <span class="string">&quot;c*&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test05&quot;</span>, <span class="string">&quot;a&quot;</span>, <span class="string">&quot;.*&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test06&quot;</span>, <span class="string">&quot;a&quot;</span>, <span class="string">&quot;a.&quot;</span>, <span class="literal">false</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test07&quot;</span>, <span class="string">&quot;a&quot;</span>, <span class="string">&quot;&quot;</span>, <span class="literal">false</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test08&quot;</span>, <span class="string">&quot;a&quot;</span>, <span class="string">&quot;.&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test09&quot;</span>, <span class="string">&quot;a&quot;</span>, <span class="string">&quot;ab*&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test10&quot;</span>, <span class="string">&quot;a&quot;</span>, <span class="string">&quot;ab*a&quot;</span>, <span class="literal">false</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test11&quot;</span>, <span class="string">&quot;aa&quot;</span>, <span class="string">&quot;aa&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test12&quot;</span>, <span class="string">&quot;aa&quot;</span>, <span class="string">&quot;a*&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test13&quot;</span>, <span class="string">&quot;aa&quot;</span>, <span class="string">&quot;.*&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test14&quot;</span>, <span class="string">&quot;aa&quot;</span>, <span class="string">&quot;.&quot;</span>, <span class="literal">false</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test15&quot;</span>, <span class="string">&quot;ab&quot;</span>, <span class="string">&quot;.*&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test16&quot;</span>, <span class="string">&quot;ab&quot;</span>, <span class="string">&quot;.*&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test17&quot;</span>, <span class="string">&quot;aaa&quot;</span>, <span class="string">&quot;aa*&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test18&quot;</span>, <span class="string">&quot;aaa&quot;</span>, <span class="string">&quot;aa.a&quot;</span>, <span class="literal">false</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test19&quot;</span>, <span class="string">&quot;aaa&quot;</span>, <span class="string">&quot;a.a&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test20&quot;</span>, <span class="string">&quot;aaa&quot;</span>, <span class="string">&quot;.a&quot;</span>, <span class="literal">false</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test21&quot;</span>, <span class="string">&quot;aaa&quot;</span>, <span class="string">&quot;a*a&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test22&quot;</span>, <span class="string">&quot;aaa&quot;</span>, <span class="string">&quot;ab*a&quot;</span>, <span class="literal">false</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test23&quot;</span>, <span class="string">&quot;aaa&quot;</span>, <span class="string">&quot;ab*ac*a&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test24&quot;</span>, <span class="string">&quot;aaa&quot;</span>, <span class="string">&quot;ab*a*c*a&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test25&quot;</span>, <span class="string">&quot;aaa&quot;</span>, <span class="string">&quot;.*&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test26&quot;</span>, <span class="string">&quot;aab&quot;</span>, <span class="string">&quot;c*a*b&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test27&quot;</span>, <span class="string">&quot;aaca&quot;</span>, <span class="string">&quot;ab*a*c*a&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test28&quot;</span>, <span class="string">&quot;aaba&quot;</span>, <span class="string">&quot;ab*a*c*a&quot;</span>, <span class="literal">false</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test29&quot;</span>, <span class="string">&quot;bbbba&quot;</span>, <span class="string">&quot;.*a*a&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test30&quot;</span>, <span class="string">&quot;bcbbabab&quot;</span>, <span class="string">&quot;.*a*a&quot;</span>, <span class="literal">false</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">test</span><span class="params">(String testName, String str, String pattern, <span class="type">boolean</span> expired)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (match(str, pattern) == expired) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.printf(<span class="string">&quot;%s 结果不对\n&quot;</span>, testName);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">match</span><span class="params">(String str, String pattern)</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 串和模式为空的判断</span></span><br><span class="line">        <span class="keyword">if</span> (str == <span class="literal">null</span> &amp;&amp; pattern == <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (str == <span class="literal">null</span> || pattern == <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 转换为char数组</span></span><br><span class="line">        <span class="keyword">final</span> <span class="type">char</span>[] strArr = str.toCharArray();</span><br><span class="line">        <span class="keyword">final</span> <span class="type">char</span>[] patternArr = pattern.toCharArray();</span><br><span class="line">        <span class="type">int</span> <span class="variable">strIndex</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">patternIndex</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="comment">// 进入递归</span></span><br><span class="line">        <span class="keyword">return</span> matchCore(strArr, strIndex, patternArr, patternIndex);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="type">boolean</span> <span class="title function_">matchCore</span><span class="params">(<span class="type">char</span>[] strArr, <span class="type">int</span> strIndex, <span class="type">char</span>[] patternArr, <span class="type">int</span> patternIndex)</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 模式匹配到最后了，就可以决定串是否匹配</span></span><br><span class="line">        <span class="keyword">if</span> (isEnd(patternArr, patternIndex)) &#123;</span><br><span class="line">            <span class="keyword">return</span> isEnd(strArr, strIndex);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 如果串的第一个字符不存在，</span></span><br><span class="line">        <span class="comment">// 假如串是「aa」，模式是「aaa*」</span></span><br><span class="line">        <span class="comment">// 可以向下进行，判断模式串是不是「.*」或「a*」</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 如果串的第一个字符存在</span></span><br><span class="line">        <span class="comment">// 判断串的第一个字符是否和模式的第一个字符匹配</span></span><br><span class="line">        <span class="type">boolean</span> <span class="variable">firstMatch</span> <span class="operator">=</span> !isEnd(strArr, strIndex) &amp;&amp; (</span><br><span class="line">                patternArr[patternIndex] == <span class="string">&#x27;.&#x27;</span> || patternArr[patternIndex] == strArr[strIndex]);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 判断模式的第二个字符是不是「*」</span></span><br><span class="line">        <span class="keyword">if</span> ((patternIndex + <span class="number">1</span> &lt; patternArr.length) &amp;&amp; (patternArr[patternIndex + <span class="number">1</span>] == <span class="string">&#x27;*&#x27;</span>)) &#123;</span><br><span class="line">            <span class="comment">// 模式串右移2位 或 字符串移动1</span></span><br><span class="line">            <span class="keyword">return</span> matchCore(strArr, strIndex, patternArr, patternIndex + <span class="number">2</span>) ||</span><br><span class="line">                    (firstMatch &amp;&amp; matchCore(strArr, strIndex + <span class="number">1</span>, patternArr, patternIndex));</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> firstMatch &amp;&amp; matchCore(strArr, strIndex + <span class="number">1</span>, patternArr, patternIndex + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="type">char</span> <span class="variable">END</span> <span class="operator">=</span> <span class="string">&#x27;\0&#x27;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="type">boolean</span> <span class="title function_">isEnd</span><span class="params">(<span class="type">char</span>[] arr, <span class="type">int</span> index)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> END == indexArr(arr, index);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="type">char</span> <span class="title function_">indexArr</span><span class="params">(<span class="type">char</span>[] arr, <span class="type">int</span> index)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (index &lt; arr.length) &#123;</span><br><span class="line">            <span class="keyword">return</span> arr[index];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> END;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <h2 id="方法-2"><a href="#方法-2" class="headerlink" title="方法 2"></a>方法 2</h2><p>在原数组上，移动下标，列出详细的边界</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Jz19_2</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        <span class="hljs-keyword">final</span> Jz19_2 jz19 = <span class="hljs-keyword">new</span> Jz19_2();<br>        jz19.test(<span class="hljs-string">"Test22"</span>, <span class="hljs-string">"aaa"</span>, <span class="hljs-string">"ab*a"</span>, <span class="hljs-keyword">false</span>);<br><br>        jz19.test(<span class="hljs-string">"Test01"</span>, <span class="hljs-string">""</span>, <span class="hljs-string">""</span>, <span class="hljs-keyword">true</span>);<br>        jz19.test(<span class="hljs-string">"Test02"</span>, <span class="hljs-string">""</span>, <span class="hljs-string">".*"</span>, <span class="hljs-keyword">true</span>);<br>        jz19.test(<span class="hljs-string">"Test03"</span>, <span class="hljs-string">""</span>, <span class="hljs-string">"."</span>, <span class="hljs-keyword">false</span>);<br>        jz19.test(<span class="hljs-string">"Test04"</span>, <span class="hljs-string">""</span>, <span class="hljs-string">"c*"</span>, <span class="hljs-keyword">true</span>);<br>        jz19.test(<span class="hljs-string">"Test05"</span>, <span class="hljs-string">"a"</span>, <span class="hljs-string">".*"</span>, <span class="hljs-keyword">true</span>);<br>        jz19.test(<span class="hljs-string">"Test06"</span>, <span class="hljs-string">"a"</span>, <span class="hljs-string">"a."</span>, <span class="hljs-keyword">false</span>);<br>        jz19.test(<span class="hljs-string">"Test07"</span>, <span class="hljs-string">"a"</span>, <span class="hljs-string">""</span>, <span class="hljs-keyword">false</span>);<br>        jz19.test(<span class="hljs-string">"Test08"</span>, <span class="hljs-string">"a"</span>, <span class="hljs-string">"."</span>, <span class="hljs-keyword">true</span>);<br>        jz19.test(<span class="hljs-string">"Test09"</span>, <span class="hljs-string">"a"</span>, <span class="hljs-string">"ab*"</span>, <span class="hljs-keyword">true</span>);<br>        jz19.test(<span class="hljs-string">"Test10"</span>, <span class="hljs-string">"a"</span>, <span class="hljs-string">"ab*a"</span>, <span class="hljs-keyword">false</span>);<br>        jz19.test(<span class="hljs-string">"Test11"</span>, <span class="hljs-string">"aa"</span>, <span class="hljs-string">"aa"</span>, <span class="hljs-keyword">true</span>);<br>        jz19.test(<span class="hljs-string">"Test12"</span>, <span class="hljs-string">"aa"</span>, <span class="hljs-string">"a*"</span>, <span class="hljs-keyword">true</span>);<br>        jz19.test(<span class="hljs-string">"Test13"</span>, <span class="hljs-string">"aa"</span>, <span class="hljs-string">".*"</span>, <span class="hljs-keyword">true</span>);<br>        jz19.test(<span class="hljs-string">"Test14"</span>, <span class="hljs-string">"aa"</span>, <span class="hljs-string">"."</span>, <span class="hljs-keyword">false</span>);<br>        jz19.test(<span class="hljs-string">"Test15"</span>, <span class="hljs-string">"ab"</span>, <span class="hljs-string">".*"</span>, <span class="hljs-keyword">true</span>);<br>        jz19.test(<span class="hljs-string">"Test16"</span>, <span class="hljs-string">"ab"</span>, <span class="hljs-string">".*"</span>, <span class="hljs-keyword">true</span>);<br>        jz19.test(<span class="hljs-string">"Test17"</span>, <span class="hljs-string">"aaa"</span>, <span class="hljs-string">"aa*"</span>, <span class="hljs-keyword">true</span>);<br>        jz19.test(<span class="hljs-string">"Test18"</span>, <span class="hljs-string">"aaa"</span>, <span class="hljs-string">"aa.a"</span>, <span class="hljs-keyword">false</span>);<br>        jz19.test(<span class="hljs-string">"Test19"</span>, <span class="hljs-string">"aaa"</span>, <span class="hljs-string">"a.a"</span>, <span class="hljs-keyword">true</span>);<br>        jz19.test(<span class="hljs-string">"Test20"</span>, <span class="hljs-string">"aaa"</span>, <span class="hljs-string">".a"</span>, <span class="hljs-keyword">false</span>);<br>        jz19.test(<span class="hljs-string">"Test21"</span>, <span class="hljs-string">"aaa"</span>, <span class="hljs-string">"a*a"</span>, <span class="hljs-keyword">true</span>);<br>        jz19.test(<span class="hljs-string">"Test22"</span>, <span class="hljs-string">"aaa"</span>, <span class="hljs-string">"ab*a"</span>, <span class="hljs-keyword">false</span>);<br>        jz19.test(<span class="hljs-string">"Test23"</span>, <span class="hljs-string">"aaa"</span>, <span class="hljs-string">"ab*ac*a"</span>, <span class="hljs-keyword">true</span>);<br>        jz19.test(<span class="hljs-string">"Test24"</span>, <span class="hljs-string">"aaa"</span>, <span class="hljs-string">"ab*a*c*a"</span>, <span class="hljs-keyword">true</span>);<br>        jz19.test(<span class="hljs-string">"Test25"</span>, <span class="hljs-string">"aaa"</span>, <span class="hljs-string">".*"</span>, <span class="hljs-keyword">true</span>);<br>        jz19.test(<span class="hljs-string">"Test26"</span>, <span class="hljs-string">"aab"</span>, <span class="hljs-string">"c*a*b"</span>, <span class="hljs-keyword">true</span>);<br>        jz19.test(<span class="hljs-string">"Test27"</span>, <span class="hljs-string">"aaca"</span>, <span class="hljs-string">"ab*a*c*a"</span>, <span class="hljs-keyword">true</span>);<br>        jz19.test(<span class="hljs-string">"Test28"</span>, <span class="hljs-string">"aaba"</span>, <span class="hljs-string">"ab*a*c*a"</span>, <span class="hljs-keyword">false</span>);<br>        jz19.test(<span class="hljs-string">"Test29"</span>, <span class="hljs-string">"bbbba"</span>, <span class="hljs-string">".*a*a"</span>, <span class="hljs-keyword">true</span>);<br>        jz19.test(<span class="hljs-string">"Test30"</span>, <span class="hljs-string">"bcbbabab"</span>, <span class="hljs-string">".*a*a"</span>, <span class="hljs-keyword">false</span>);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test</span><span class="hljs-params">(String testName, String str, String pattern, <span class="hljs-keyword">boolean</span> expired)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (match(str, pattern) == expired) &#123;<br>            <span class="hljs-keyword">return</span>;<br>        &#125;<br>        System.out.printf(<span class="hljs-string">"%s 结果不对\n"</span>, testName);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">match</span><span class="hljs-params">(String str, String pattern)</span> </span>&#123;<br><br>        <span class="hljs-comment">// 串和模式为空的判断</span><br>        <span class="hljs-keyword">if</span> (str == <span class="hljs-keyword">null</span> &amp;&amp; pattern == <span class="hljs-keyword">null</span>) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;<br>        &#125;<br>        <span class="hljs-keyword">if</span> (str == <span class="hljs-keyword">null</span> || pattern == <span class="hljs-keyword">null</span>) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;<br>        &#125;<br><br>        <span class="hljs-comment">// 转换为char数组</span><br>        <span class="hljs-keyword">final</span> <span class="hljs-keyword">char</span>[] strArr = str.toCharArray();<br>        <span class="hljs-keyword">final</span> <span class="hljs-keyword">char</span>[] patternArr = pattern.toCharArray();<br>        <span class="hljs-keyword">int</span> strIndex = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">int</span> patternIndex = <span class="hljs-number">0</span>;<br>        <span class="hljs-comment">// 进入递归</span><br>        <span class="hljs-keyword">return</span> matchCore(strArr, strIndex, patternArr, patternIndex);<br>    &#125;<br><br><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">matchCore</span><span class="hljs-params">(<span class="hljs-keyword">char</span>[] strArr, <span class="hljs-keyword">int</span> strIndex, <span class="hljs-keyword">char</span>[] patternArr, <span class="hljs-keyword">int</span> patternIndex)</span> </span>&#123;<br><br>        <span class="hljs-comment">// 1. 串或模式边界的判断</span><br>        <span class="hljs-comment">// 串和模式都匹配到最后了: ("", "")</span><br>        <span class="hljs-keyword">if</span> (isEnd(strArr, strIndex) &amp;&amp; isEnd(patternArr, patternIndex)) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;<br>        &#125;<br><br>        <span class="hljs-comment">// 2. 模式已经匹配到最后了，串还有: ("a", "")</span><br>        <span class="hljs-keyword">if</span> (!isEnd(strArr, strIndex) &amp;&amp; isEnd(patternArr, patternIndex)) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;<br>        &#125;<br><br>        <span class="hljs-comment">// 3. 串已经匹配到最后了，模式还有</span><br>        <span class="hljs-keyword">if</span> (isEnd(strArr, strIndex) &amp;&amp; !isEnd(patternArr, patternIndex)) &#123;<br>            <span class="hljs-comment">// 串已经匹配到最后了，模式还有情况1("", ".*")</span><br>            <span class="hljs-keyword">if</span> (!isEnd(patternArr, patternIndex + <span class="hljs-number">1</span>)) &#123;<br>                <span class="hljs-keyword">return</span> matchCore(strArr, strIndex, patternArr, patternIndex + <span class="hljs-number">2</span>);<br>            &#125;<br>            <span class="hljs-comment">// 串已经匹配到最后了，情况2 ("", ".")、("", "a")、("", "..")</span><br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;<br>        &#125;<br><br>        <span class="hljs-comment">// 4. 模式和串都还有</span><br><br>        <span class="hljs-comment">// 提前校验一下 patternIndex+1</span><br>        <span class="hljs-comment">// 4.1 下一个模式字符没有了（"a", "."）、（"a", "a"）、（"aa", "a"）</span><br>        <span class="hljs-keyword">if</span> (isEnd(patternArr, patternIndex + <span class="hljs-number">1</span>)) &#123;<br>            <span class="hljs-comment">// 下一个串字符是否还有</span><br>            <span class="hljs-keyword">if</span> (!isEnd(strArr, strIndex + <span class="hljs-number">1</span>)) &#123;<br>                <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;<br>            &#125;<br><br>            <span class="hljs-comment">// 比较当前的串和模式字符</span><br>            <span class="hljs-keyword">return</span> patternArr[patternIndex] == <span class="hljs-string">'.'</span> || patternArr[patternIndex] == strArr[strIndex];<br>        &#125;<br><br>        <span class="hljs-comment">// 4.2 pattern的第2个字符不为*</span><br>        <span class="hljs-keyword">final</span> <span class="hljs-keyword">char</span> secondPatternChar = patternArr[patternIndex + <span class="hljs-number">1</span>];<br>        <span class="hljs-keyword">if</span> ((secondPatternChar != <span class="hljs-string">'*'</span>)) &#123;<br>            <span class="hljs-comment">// 4.2.1 比较串和模式的第一个字符，第一个模式字符是「.」，或串和模式相等，则匹配下一个字符</span><br>            <span class="hljs-keyword">if</span> (patternArr[patternIndex] == <span class="hljs-string">'.'</span> || patternArr[patternIndex] == strArr[strIndex]) &#123;<br>                <span class="hljs-keyword">return</span> matchCore(strArr, strIndex + <span class="hljs-number">1</span>, patternArr, patternIndex + <span class="hljs-number">1</span>);<br>            &#125;<br>            <span class="hljs-comment">// 4.2.2 否则直接不匹配</span><br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;<br>        &#125;<br><br>        <span class="hljs-keyword">if</span> (patternArr[patternIndex] == <span class="hljs-string">'.'</span> || patternArr[patternIndex] == strArr[strIndex]) &#123;<br>            <span class="hljs-comment">// 4.3 pattern的第2个字符为「*」，如：(aa, a*)</span><br>            <span class="hljs-comment">// 模式串右移2位 或 字符串移动1</span><br>            <span class="hljs-keyword">return</span> matchCore(strArr, strIndex, patternArr, patternIndex + <span class="hljs-number">2</span>) ||<br>                    <span class="hljs-comment">// matchCore(strArr, strIndex + 1, patternArr, patternIndex + 2) ||</span><br>                    matchCore(strArr, strIndex + <span class="hljs-number">1</span>, patternArr, patternIndex);<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-keyword">return</span> matchCore(strArr, strIndex, patternArr, patternIndex + <span class="hljs-number">2</span>);<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">char</span> END = <span class="hljs-string">'\0'</span>;<br><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isEnd</span><span class="hljs-params">(<span class="hljs-keyword">char</span>[] arr, <span class="hljs-keyword">int</span> index)</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> END == indexArr(arr, index);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">char</span> <span class="hljs-title">indexArr</span><span class="hljs-params">(<span class="hljs-keyword">char</span>[] arr, <span class="hljs-keyword">int</span> index)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (index &lt; arr.length) &#123;<br>            <span class="hljs-keyword">return</span> arr[index];<br>        &#125;<br>        <span class="hljs-keyword">return</span> END;<br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Jz19_2</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="keyword">final</span> <span class="type">Jz19_2</span> <span class="variable">jz19</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Jz19_2</span>();</span><br><span class="line">        jz19.test(<span class="string">&quot;Test22&quot;</span>, <span class="string">&quot;aaa&quot;</span>, <span class="string">&quot;ab*a&quot;</span>, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line">        jz19.test(<span class="string">&quot;Test01&quot;</span>, <span class="string">&quot;&quot;</span>, <span class="string">&quot;&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test02&quot;</span>, <span class="string">&quot;&quot;</span>, <span class="string">&quot;.*&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test03&quot;</span>, <span class="string">&quot;&quot;</span>, <span class="string">&quot;.&quot;</span>, <span class="literal">false</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test04&quot;</span>, <span class="string">&quot;&quot;</span>, <span class="string">&quot;c*&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test05&quot;</span>, <span class="string">&quot;a&quot;</span>, <span class="string">&quot;.*&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test06&quot;</span>, <span class="string">&quot;a&quot;</span>, <span class="string">&quot;a.&quot;</span>, <span class="literal">false</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test07&quot;</span>, <span class="string">&quot;a&quot;</span>, <span class="string">&quot;&quot;</span>, <span class="literal">false</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test08&quot;</span>, <span class="string">&quot;a&quot;</span>, <span class="string">&quot;.&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test09&quot;</span>, <span class="string">&quot;a&quot;</span>, <span class="string">&quot;ab*&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test10&quot;</span>, <span class="string">&quot;a&quot;</span>, <span class="string">&quot;ab*a&quot;</span>, <span class="literal">false</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test11&quot;</span>, <span class="string">&quot;aa&quot;</span>, <span class="string">&quot;aa&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test12&quot;</span>, <span class="string">&quot;aa&quot;</span>, <span class="string">&quot;a*&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test13&quot;</span>, <span class="string">&quot;aa&quot;</span>, <span class="string">&quot;.*&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test14&quot;</span>, <span class="string">&quot;aa&quot;</span>, <span class="string">&quot;.&quot;</span>, <span class="literal">false</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test15&quot;</span>, <span class="string">&quot;ab&quot;</span>, <span class="string">&quot;.*&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test16&quot;</span>, <span class="string">&quot;ab&quot;</span>, <span class="string">&quot;.*&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test17&quot;</span>, <span class="string">&quot;aaa&quot;</span>, <span class="string">&quot;aa*&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test18&quot;</span>, <span class="string">&quot;aaa&quot;</span>, <span class="string">&quot;aa.a&quot;</span>, <span class="literal">false</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test19&quot;</span>, <span class="string">&quot;aaa&quot;</span>, <span class="string">&quot;a.a&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test20&quot;</span>, <span class="string">&quot;aaa&quot;</span>, <span class="string">&quot;.a&quot;</span>, <span class="literal">false</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test21&quot;</span>, <span class="string">&quot;aaa&quot;</span>, <span class="string">&quot;a*a&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test22&quot;</span>, <span class="string">&quot;aaa&quot;</span>, <span class="string">&quot;ab*a&quot;</span>, <span class="literal">false</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test23&quot;</span>, <span class="string">&quot;aaa&quot;</span>, <span class="string">&quot;ab*ac*a&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test24&quot;</span>, <span class="string">&quot;aaa&quot;</span>, <span class="string">&quot;ab*a*c*a&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test25&quot;</span>, <span class="string">&quot;aaa&quot;</span>, <span class="string">&quot;.*&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test26&quot;</span>, <span class="string">&quot;aab&quot;</span>, <span class="string">&quot;c*a*b&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test27&quot;</span>, <span class="string">&quot;aaca&quot;</span>, <span class="string">&quot;ab*a*c*a&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test28&quot;</span>, <span class="string">&quot;aaba&quot;</span>, <span class="string">&quot;ab*a*c*a&quot;</span>, <span class="literal">false</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test29&quot;</span>, <span class="string">&quot;bbbba&quot;</span>, <span class="string">&quot;.*a*a&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test30&quot;</span>, <span class="string">&quot;bcbbabab&quot;</span>, <span class="string">&quot;.*a*a&quot;</span>, <span class="literal">false</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">test</span><span class="params">(String testName, String str, String pattern, <span class="type">boolean</span> expired)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (match(str, pattern) == expired) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.printf(<span class="string">&quot;%s 结果不对\n&quot;</span>, testName);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">match</span><span class="params">(String str, String pattern)</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 串和模式为空的判断</span></span><br><span class="line">        <span class="keyword">if</span> (str == <span class="literal">null</span> &amp;&amp; pattern == <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (str == <span class="literal">null</span> || pattern == <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 转换为char数组</span></span><br><span class="line">        <span class="keyword">final</span> <span class="type">char</span>[] strArr = str.toCharArray();</span><br><span class="line">        <span class="keyword">final</span> <span class="type">char</span>[] patternArr = pattern.toCharArray();</span><br><span class="line">        <span class="type">int</span> <span class="variable">strIndex</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">patternIndex</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="comment">// 进入递归</span></span><br><span class="line">        <span class="keyword">return</span> matchCore(strArr, strIndex, patternArr, patternIndex);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="type">boolean</span> <span class="title function_">matchCore</span><span class="params">(<span class="type">char</span>[] strArr, <span class="type">int</span> strIndex, <span class="type">char</span>[] patternArr, <span class="type">int</span> patternIndex)</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 1. 串或模式边界的判断</span></span><br><span class="line">        <span class="comment">// 串和模式都匹配到最后了: (&quot;&quot;, &quot;&quot;)</span></span><br><span class="line">        <span class="keyword">if</span> (isEnd(strArr, strIndex) &amp;&amp; isEnd(patternArr, patternIndex)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 2. 模式已经匹配到最后了，串还有: (&quot;a&quot;, &quot;&quot;)</span></span><br><span class="line">        <span class="keyword">if</span> (!isEnd(strArr, strIndex) &amp;&amp; isEnd(patternArr, patternIndex)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 3. 串已经匹配到最后了，模式还有</span></span><br><span class="line">        <span class="keyword">if</span> (isEnd(strArr, strIndex) &amp;&amp; !isEnd(patternArr, patternIndex)) &#123;</span><br><span class="line">            <span class="comment">// 串已经匹配到最后了，模式还有情况1(&quot;&quot;, &quot;.*&quot;)</span></span><br><span class="line">            <span class="keyword">if</span> (!isEnd(patternArr, patternIndex + <span class="number">1</span>)) &#123;</span><br><span class="line">                <span class="keyword">return</span> matchCore(strArr, strIndex, patternArr, patternIndex + <span class="number">2</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 串已经匹配到最后了，情况2 (&quot;&quot;, &quot;.&quot;)、(&quot;&quot;, &quot;a&quot;)、(&quot;&quot;, &quot;..&quot;)</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 4. 模式和串都还有</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 提前校验一下 patternIndex+1</span></span><br><span class="line">        <span class="comment">// 4.1 下一个模式字符没有了（&quot;a&quot;, &quot;.&quot;）、（&quot;a&quot;, &quot;a&quot;）、（&quot;aa&quot;, &quot;a&quot;）</span></span><br><span class="line">        <span class="keyword">if</span> (isEnd(patternArr, patternIndex + <span class="number">1</span>)) &#123;</span><br><span class="line">            <span class="comment">// 下一个串字符是否还有</span></span><br><span class="line">            <span class="keyword">if</span> (!isEnd(strArr, strIndex + <span class="number">1</span>)) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 比较当前的串和模式字符</span></span><br><span class="line">            <span class="keyword">return</span> patternArr[patternIndex] == <span class="string">&#x27;.&#x27;</span> || patternArr[patternIndex] == strArr[strIndex];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 4.2 pattern的第2个字符不为*</span></span><br><span class="line">        <span class="keyword">final</span> <span class="type">char</span> <span class="variable">secondPatternChar</span> <span class="operator">=</span> patternArr[patternIndex + <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">if</span> ((secondPatternChar != <span class="string">&#x27;*&#x27;</span>)) &#123;</span><br><span class="line">            <span class="comment">// 4.2.1 比较串和模式的第一个字符，第一个模式字符是「.」，或串和模式相等，则匹配下一个字符</span></span><br><span class="line">            <span class="keyword">if</span> (patternArr[patternIndex] == <span class="string">&#x27;.&#x27;</span> || patternArr[patternIndex] == strArr[strIndex]) &#123;</span><br><span class="line">                <span class="keyword">return</span> matchCore(strArr, strIndex + <span class="number">1</span>, patternArr, patternIndex + <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 4.2.2 否则直接不匹配</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (patternArr[patternIndex] == <span class="string">&#x27;.&#x27;</span> || patternArr[patternIndex] == strArr[strIndex]) &#123;</span><br><span class="line">            <span class="comment">// 4.3 pattern的第2个字符为「*」，如：(aa, a*)</span></span><br><span class="line">            <span class="comment">// 模式串右移2位 或 字符串移动1</span></span><br><span class="line">            <span class="keyword">return</span> matchCore(strArr, strIndex, patternArr, patternIndex + <span class="number">2</span>) ||</span><br><span class="line">                    <span class="comment">// matchCore(strArr, strIndex + 1, patternArr, patternIndex + 2) ||</span></span><br><span class="line">                    matchCore(strArr, strIndex + <span class="number">1</span>, patternArr, patternIndex);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> matchCore(strArr, strIndex, patternArr, patternIndex + <span class="number">2</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="type">char</span> <span class="variable">END</span> <span class="operator">=</span> <span class="string">&#x27;\0&#x27;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="type">boolean</span> <span class="title function_">isEnd</span><span class="params">(<span class="type">char</span>[] arr, <span class="type">int</span> index)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> END == indexArr(arr, index);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="type">char</span> <span class="title function_">indexArr</span><span class="params">(<span class="type">char</span>[] arr, <span class="type">int</span> index)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (index &lt; arr.length) &#123;</span><br><span class="line">            <span class="keyword">return</span> arr[index];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> END;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <h2 id="方法-3"><a href="#方法-3" class="headerlink" title="方法 3"></a>方法 3</h2><p>拆出新数组，合并边界</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Jz19_3</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        <span class="hljs-keyword">final</span> Jz19_3 jz19 = <span class="hljs-keyword">new</span> Jz19_3();<br>        jz19.test(<span class="hljs-string">"Test22"</span>, <span class="hljs-string">"aaa"</span>, <span class="hljs-string">"ab*a"</span>, <span class="hljs-keyword">false</span>);<br><br>        jz19.test(<span class="hljs-string">"Test01"</span>, <span class="hljs-string">""</span>, <span class="hljs-string">""</span>, <span class="hljs-keyword">true</span>);<br>        jz19.test(<span class="hljs-string">"Test02"</span>, <span class="hljs-string">""</span>, <span class="hljs-string">".*"</span>, <span class="hljs-keyword">true</span>);<br>        jz19.test(<span class="hljs-string">"Test03"</span>, <span class="hljs-string">""</span>, <span class="hljs-string">"."</span>, <span class="hljs-keyword">false</span>);<br>        jz19.test(<span class="hljs-string">"Test04"</span>, <span class="hljs-string">""</span>, <span class="hljs-string">"c*"</span>, <span class="hljs-keyword">true</span>);<br>        jz19.test(<span class="hljs-string">"Test05"</span>, <span class="hljs-string">"a"</span>, <span class="hljs-string">".*"</span>, <span class="hljs-keyword">true</span>);<br>        jz19.test(<span class="hljs-string">"Test06"</span>, <span class="hljs-string">"a"</span>, <span class="hljs-string">"a."</span>, <span class="hljs-keyword">false</span>);<br>        jz19.test(<span class="hljs-string">"Test07"</span>, <span class="hljs-string">"a"</span>, <span class="hljs-string">""</span>, <span class="hljs-keyword">false</span>);<br>        jz19.test(<span class="hljs-string">"Test08"</span>, <span class="hljs-string">"a"</span>, <span class="hljs-string">"."</span>, <span class="hljs-keyword">true</span>);<br>        jz19.test(<span class="hljs-string">"Test09"</span>, <span class="hljs-string">"a"</span>, <span class="hljs-string">"ab*"</span>, <span class="hljs-keyword">true</span>);<br>        jz19.test(<span class="hljs-string">"Test10"</span>, <span class="hljs-string">"a"</span>, <span class="hljs-string">"ab*a"</span>, <span class="hljs-keyword">false</span>);<br>        jz19.test(<span class="hljs-string">"Test11"</span>, <span class="hljs-string">"aa"</span>, <span class="hljs-string">"aa"</span>, <span class="hljs-keyword">true</span>);<br>        jz19.test(<span class="hljs-string">"Test12"</span>, <span class="hljs-string">"aa"</span>, <span class="hljs-string">"a*"</span>, <span class="hljs-keyword">true</span>);<br>        jz19.test(<span class="hljs-string">"Test13"</span>, <span class="hljs-string">"aa"</span>, <span class="hljs-string">".*"</span>, <span class="hljs-keyword">true</span>);<br>        jz19.test(<span class="hljs-string">"Test14"</span>, <span class="hljs-string">"aa"</span>, <span class="hljs-string">"."</span>, <span class="hljs-keyword">false</span>);<br>        jz19.test(<span class="hljs-string">"Test15"</span>, <span class="hljs-string">"ab"</span>, <span class="hljs-string">".*"</span>, <span class="hljs-keyword">true</span>);<br>        jz19.test(<span class="hljs-string">"Test16"</span>, <span class="hljs-string">"ab"</span>, <span class="hljs-string">".*"</span>, <span class="hljs-keyword">true</span>);<br>        jz19.test(<span class="hljs-string">"Test17"</span>, <span class="hljs-string">"aaa"</span>, <span class="hljs-string">"aa*"</span>, <span class="hljs-keyword">true</span>);<br>        jz19.test(<span class="hljs-string">"Test18"</span>, <span class="hljs-string">"aaa"</span>, <span class="hljs-string">"aa.a"</span>, <span class="hljs-keyword">false</span>);<br>        jz19.test(<span class="hljs-string">"Test19"</span>, <span class="hljs-string">"aaa"</span>, <span class="hljs-string">"a.a"</span>, <span class="hljs-keyword">true</span>);<br>        jz19.test(<span class="hljs-string">"Test20"</span>, <span class="hljs-string">"aaa"</span>, <span class="hljs-string">".a"</span>, <span class="hljs-keyword">false</span>);<br>        jz19.test(<span class="hljs-string">"Test21"</span>, <span class="hljs-string">"aaa"</span>, <span class="hljs-string">"a*a"</span>, <span class="hljs-keyword">true</span>);<br>        jz19.test(<span class="hljs-string">"Test22"</span>, <span class="hljs-string">"aaa"</span>, <span class="hljs-string">"ab*a"</span>, <span class="hljs-keyword">false</span>);<br>        jz19.test(<span class="hljs-string">"Test23"</span>, <span class="hljs-string">"aaa"</span>, <span class="hljs-string">"ab*ac*a"</span>, <span class="hljs-keyword">true</span>);<br>        jz19.test(<span class="hljs-string">"Test24"</span>, <span class="hljs-string">"aaa"</span>, <span class="hljs-string">"ab*a*c*a"</span>, <span class="hljs-keyword">true</span>);<br>        jz19.test(<span class="hljs-string">"Test25"</span>, <span class="hljs-string">"aaa"</span>, <span class="hljs-string">".*"</span>, <span class="hljs-keyword">true</span>);<br>        jz19.test(<span class="hljs-string">"Test26"</span>, <span class="hljs-string">"aab"</span>, <span class="hljs-string">"c*a*b"</span>, <span class="hljs-keyword">true</span>);<br>        jz19.test(<span class="hljs-string">"Test27"</span>, <span class="hljs-string">"aaca"</span>, <span class="hljs-string">"ab*a*c*a"</span>, <span class="hljs-keyword">true</span>);<br>        jz19.test(<span class="hljs-string">"Test28"</span>, <span class="hljs-string">"aaba"</span>, <span class="hljs-string">"ab*a*c*a"</span>, <span class="hljs-keyword">false</span>);<br>        jz19.test(<span class="hljs-string">"Test29"</span>, <span class="hljs-string">"bbbba"</span>, <span class="hljs-string">".*a*a"</span>, <span class="hljs-keyword">true</span>);<br>        jz19.test(<span class="hljs-string">"Test30"</span>, <span class="hljs-string">"bcbbabab"</span>, <span class="hljs-string">".*a*a"</span>, <span class="hljs-keyword">false</span>);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">test</span><span class="hljs-params">(String testName, String str, String pattern, <span class="hljs-keyword">boolean</span> expired)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (match(str, pattern) == expired) &#123;<br>            <span class="hljs-keyword">return</span>;<br>        &#125;<br>        System.out.printf(<span class="hljs-string">"%s 结果不对\n"</span>, testName);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">match</span><span class="hljs-params">(String str, String pattern)</span> </span>&#123;<br><br>        <span class="hljs-comment">// 串和模式为空的判断</span><br>        <span class="hljs-keyword">if</span> (str == <span class="hljs-keyword">null</span> &amp;&amp; pattern == <span class="hljs-keyword">null</span>) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;<br>        &#125;<br>        <span class="hljs-keyword">if</span> (str == <span class="hljs-keyword">null</span> || pattern == <span class="hljs-keyword">null</span>) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;<br>        &#125;<br><br>        <span class="hljs-comment">// 转换为char数组</span><br>        <span class="hljs-keyword">final</span> <span class="hljs-keyword">char</span>[] strArr = str.toCharArray();<br>        <span class="hljs-keyword">final</span> <span class="hljs-keyword">char</span>[] patternArr = pattern.toCharArray();<br>        <span class="hljs-comment">// 进入递归</span><br>        <span class="hljs-keyword">return</span> matchCore(strArr, patternArr);<br>    &#125;<br><br><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">matchCore</span><span class="hljs-params">(<span class="hljs-keyword">char</span>[] strArr, <span class="hljs-keyword">char</span>[] patternArr)</span> </span>&#123;<br><br>        <span class="hljs-comment">// 模式到最后了，看串是否还有（没有则匹配，有则不匹配）</span><br>        <span class="hljs-keyword">if</span> (isEmptyArr(patternArr)) &#123;<br>            <span class="hljs-keyword">return</span> isEmptyArr(strArr);<br>        &#125;<br><br>        <span class="hljs-comment">// 串的第一个字符存在，且模式的第一个字符匹配串的第一个字符</span><br>        <span class="hljs-keyword">final</span> <span class="hljs-keyword">boolean</span> firstMatch = !isEmptyArr(strArr) &amp;&amp;<br>                (patternArr[<span class="hljs-number">0</span>] == <span class="hljs-string">'.'</span> || patternArr[<span class="hljs-number">0</span>] == strArr[<span class="hljs-number">0</span>]);<br><br>        <span class="hljs-comment">// 模式串第2位为*</span><br>        <span class="hljs-keyword">if</span> (patternArr.length &gt;= <span class="hljs-number">2</span> &amp;&amp; patternArr[<span class="hljs-number">1</span>] == <span class="hljs-string">'*'</span>) &#123;<br>            <span class="hljs-comment">// 不论第一个是否匹配，模式串后移2位</span><br>            <span class="hljs-keyword">return</span> matchCore(strArr, subArr(<span class="hljs-number">2</span>, patternArr)) ||<br>                    <span class="hljs-comment">// 或者，如果第一个匹配，串后移一位</span><br>                    (firstMatch &amp;&amp; matchCore(subArr(<span class="hljs-number">1</span>, strArr), patternArr));<br>        &#125;<br><br>        <span class="hljs-comment">// 其它情况，要求第一个匹配，且后面的也匹配</span><br>        <span class="hljs-keyword">return</span> firstMatch &amp;&amp; matchCore(subArr(<span class="hljs-number">1</span>, strArr), subArr(<span class="hljs-number">1</span>, patternArr));<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isEmptyArr</span><span class="hljs-params">(<span class="hljs-keyword">char</span>[] arr)</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> arr == <span class="hljs-keyword">null</span> || arr.length == <span class="hljs-number">0</span>;<br>    &#125;<br><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">char</span>[] subArr(<span class="hljs-keyword">int</span> start, <span class="hljs-keyword">char</span>[] arr) &#123;<br>        <span class="hljs-keyword">return</span> Arrays.copyOfRange(arr, start, arr.length);<br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Jz19_3</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="keyword">final</span> <span class="type">Jz19_3</span> <span class="variable">jz19</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Jz19_3</span>();</span><br><span class="line">        jz19.test(<span class="string">&quot;Test22&quot;</span>, <span class="string">&quot;aaa&quot;</span>, <span class="string">&quot;ab*a&quot;</span>, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line">        jz19.test(<span class="string">&quot;Test01&quot;</span>, <span class="string">&quot;&quot;</span>, <span class="string">&quot;&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test02&quot;</span>, <span class="string">&quot;&quot;</span>, <span class="string">&quot;.*&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test03&quot;</span>, <span class="string">&quot;&quot;</span>, <span class="string">&quot;.&quot;</span>, <span class="literal">false</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test04&quot;</span>, <span class="string">&quot;&quot;</span>, <span class="string">&quot;c*&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test05&quot;</span>, <span class="string">&quot;a&quot;</span>, <span class="string">&quot;.*&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test06&quot;</span>, <span class="string">&quot;a&quot;</span>, <span class="string">&quot;a.&quot;</span>, <span class="literal">false</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test07&quot;</span>, <span class="string">&quot;a&quot;</span>, <span class="string">&quot;&quot;</span>, <span class="literal">false</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test08&quot;</span>, <span class="string">&quot;a&quot;</span>, <span class="string">&quot;.&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test09&quot;</span>, <span class="string">&quot;a&quot;</span>, <span class="string">&quot;ab*&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test10&quot;</span>, <span class="string">&quot;a&quot;</span>, <span class="string">&quot;ab*a&quot;</span>, <span class="literal">false</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test11&quot;</span>, <span class="string">&quot;aa&quot;</span>, <span class="string">&quot;aa&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test12&quot;</span>, <span class="string">&quot;aa&quot;</span>, <span class="string">&quot;a*&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test13&quot;</span>, <span class="string">&quot;aa&quot;</span>, <span class="string">&quot;.*&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test14&quot;</span>, <span class="string">&quot;aa&quot;</span>, <span class="string">&quot;.&quot;</span>, <span class="literal">false</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test15&quot;</span>, <span class="string">&quot;ab&quot;</span>, <span class="string">&quot;.*&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test16&quot;</span>, <span class="string">&quot;ab&quot;</span>, <span class="string">&quot;.*&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test17&quot;</span>, <span class="string">&quot;aaa&quot;</span>, <span class="string">&quot;aa*&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test18&quot;</span>, <span class="string">&quot;aaa&quot;</span>, <span class="string">&quot;aa.a&quot;</span>, <span class="literal">false</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test19&quot;</span>, <span class="string">&quot;aaa&quot;</span>, <span class="string">&quot;a.a&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test20&quot;</span>, <span class="string">&quot;aaa&quot;</span>, <span class="string">&quot;.a&quot;</span>, <span class="literal">false</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test21&quot;</span>, <span class="string">&quot;aaa&quot;</span>, <span class="string">&quot;a*a&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test22&quot;</span>, <span class="string">&quot;aaa&quot;</span>, <span class="string">&quot;ab*a&quot;</span>, <span class="literal">false</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test23&quot;</span>, <span class="string">&quot;aaa&quot;</span>, <span class="string">&quot;ab*ac*a&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test24&quot;</span>, <span class="string">&quot;aaa&quot;</span>, <span class="string">&quot;ab*a*c*a&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test25&quot;</span>, <span class="string">&quot;aaa&quot;</span>, <span class="string">&quot;.*&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test26&quot;</span>, <span class="string">&quot;aab&quot;</span>, <span class="string">&quot;c*a*b&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test27&quot;</span>, <span class="string">&quot;aaca&quot;</span>, <span class="string">&quot;ab*a*c*a&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test28&quot;</span>, <span class="string">&quot;aaba&quot;</span>, <span class="string">&quot;ab*a*c*a&quot;</span>, <span class="literal">false</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test29&quot;</span>, <span class="string">&quot;bbbba&quot;</span>, <span class="string">&quot;.*a*a&quot;</span>, <span class="literal">true</span>);</span><br><span class="line">        jz19.test(<span class="string">&quot;Test30&quot;</span>, <span class="string">&quot;bcbbabab&quot;</span>, <span class="string">&quot;.*a*a&quot;</span>, <span class="literal">false</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">test</span><span class="params">(String testName, String str, String pattern, <span class="type">boolean</span> expired)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (match(str, pattern) == expired) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.printf(<span class="string">&quot;%s 结果不对\n&quot;</span>, testName);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">match</span><span class="params">(String str, String pattern)</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 串和模式为空的判断</span></span><br><span class="line">        <span class="keyword">if</span> (str == <span class="literal">null</span> &amp;&amp; pattern == <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (str == <span class="literal">null</span> || pattern == <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 转换为char数组</span></span><br><span class="line">        <span class="keyword">final</span> <span class="type">char</span>[] strArr = str.toCharArray();</span><br><span class="line">        <span class="keyword">final</span> <span class="type">char</span>[] patternArr = pattern.toCharArray();</span><br><span class="line">        <span class="comment">// 进入递归</span></span><br><span class="line">        <span class="keyword">return</span> matchCore(strArr, patternArr);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="type">boolean</span> <span class="title function_">matchCore</span><span class="params">(<span class="type">char</span>[] strArr, <span class="type">char</span>[] patternArr)</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 模式到最后了，看串是否还有（没有则匹配，有则不匹配）</span></span><br><span class="line">        <span class="keyword">if</span> (isEmptyArr(patternArr)) &#123;</span><br><span class="line">            <span class="keyword">return</span> isEmptyArr(strArr);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 串的第一个字符存在，且模式的第一个字符匹配串的第一个字符</span></span><br><span class="line">        <span class="keyword">final</span> <span class="type">boolean</span> <span class="variable">firstMatch</span> <span class="operator">=</span> !isEmptyArr(strArr) &amp;&amp;</span><br><span class="line">                (patternArr[<span class="number">0</span>] == <span class="string">&#x27;.&#x27;</span> || patternArr[<span class="number">0</span>] == strArr[<span class="number">0</span>]);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 模式串第2位为*</span></span><br><span class="line">        <span class="keyword">if</span> (patternArr.length &gt;= <span class="number">2</span> &amp;&amp; patternArr[<span class="number">1</span>] == <span class="string">&#x27;*&#x27;</span>) &#123;</span><br><span class="line">            <span class="comment">// 不论第一个是否匹配，模式串后移2位</span></span><br><span class="line">            <span class="keyword">return</span> matchCore(strArr, subArr(<span class="number">2</span>, patternArr)) ||</span><br><span class="line">                    <span class="comment">// 或者，如果第一个匹配，串后移一位</span></span><br><span class="line">                    (firstMatch &amp;&amp; matchCore(subArr(<span class="number">1</span>, strArr), patternArr));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 其它情况，要求第一个匹配，且后面的也匹配</span></span><br><span class="line">        <span class="keyword">return</span> firstMatch &amp;&amp; matchCore(subArr(<span class="number">1</span>, strArr), subArr(<span class="number">1</span>, patternArr));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="type">boolean</span> <span class="title function_">isEmptyArr</span><span class="params">(<span class="type">char</span>[] arr)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> arr == <span class="literal">null</span> || arr.length == <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="type">char</span>[] subArr(<span class="type">int</span> start, <span class="type">char</span>[] arr) &#123;</span><br><span class="line">        <span class="keyword">return</span> Arrays.copyOfRange(arr, start, arr.length);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
     
     
     
-      
-  <div class="popular-posts-header">相关文章</div>
-  <ul class="popular-posts">
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/算法/K选择问题/" rel="bookmark">【算法】K选择问题</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/算法/jz13-机器人运动范围/" rel="bookmark">【算法】机器人运动范围</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/算法/jz21-奇数位于偶数前面/" rel="bookmark">【算法】奇数位于偶数前面</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/算法/jz22-链表中倒数最后k个结点/" rel="bookmark">【算法】链表中倒数最后K个结点</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/算法/jz29-顺时针打印矩阵/" rel="bookmark">【算法】顺时针打印矩阵</a></div>
-    </li>
-  </ul>
 
-
-      <footer class="post-footer">
+    <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"># 算法</a>
           </div>
 
         
 
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/java/%E8%8E%B7%E5%8F%96%E5%B1%9E%E6%80%A7%E5%90%8D%E5%B7%A5%E5%85%B7/" rel="prev" title="【Java】获取属性名工具">
-      <i class="fa fa-chevron-left"></i> 【Java】获取属性名工具
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/%E7%AE%97%E6%B3%95/jz21-%E5%A5%87%E6%95%B0%E4%BD%8D%E4%BA%8E%E5%81%B6%E6%95%B0%E5%89%8D%E9%9D%A2/" rel="next" title="【算法】奇数位于偶数前面">
-      【算法】奇数位于偶数前面 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
-    
-  </article>
-  
-  
-  
-
-
-
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/java/%E8%8E%B7%E5%8F%96%E5%B1%9E%E6%80%A7%E5%90%8D%E5%B7%A5%E5%85%B7/" rel="prev" title="【Java】获取属性名工具">
+                  <i class="fa fa-chevron-left"></i> 【Java】获取属性名工具
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/%E7%AE%97%E6%B3%95/jz21-%E5%A5%87%E6%95%B0%E4%BD%8D%E4%BA%8E%E5%81%B6%E6%95%B0%E5%89%8D%E9%9D%A2/" rel="next" title="【算法】奇数位于偶数前面">
+                  【算法】奇数位于偶数前面 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
           </div>
-          
-    <div class="comments" id="gitalk-container"></div>
+    </footer>
+  </article>
+</div>
 
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
 
-        </div>
-          
+
+
+
+
+    
   
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
+  <div class="comments giscus-container">
   </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#剑指-Offer-第-19-题-正则表达式匹配"><span class="nav-number">1.</span> <span class="nav-text">剑指 Offer 第 19 题-正则表达式匹配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法-1"><span class="nav-number">2.</span> <span class="nav-text">方法 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法-2"><span class="nav-number">3.</span> <span class="nav-text">方法 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法-3"><span class="nav-number">4.</span> <span class="nav-text">方法 3</span></a></li></ol></div>
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="lyloou"
-      src="/assets/images/avatar.png">
-  <p class="site-author-name" itemprop="name">lyloou</p>
-  <div class="site-description" itemprop="description">/* Better than last best */</div>
+  
+  
 </div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">312</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
-        <span class="site-state-item-count">56</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
-</div>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-        <a href="https://github.com/lyloou" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;lyloou" rel="noopener" target="_blank">GitHub</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="mailto:lyloou6@gmail.com" title="E-Mail → mailto:lyloou6@gmail.com" rel="noopener" target="_blank">E-Mail</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://weibo.com/lyloou" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;lyloou" rel="noopener" target="_blank">Weibo</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://blog.csdn.net/ly1414725328" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;ly1414725328" rel="noopener" target="_blank">CSDN</a>
-      </span>
-  </div>
-  <div class="cc-license motion-element" itemprop="license">
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
-  </div>
+  </main>
 
+  <footer class="footer">
+    <div class="footer-inner">
 
-
-      </div>
-
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-        
   <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">粤ICP备18151128号 </a>
   </div>
 
 <div class="copyright">
-  
   &copy; 
   <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
-    <i class="user"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">lyloou</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
-  </div>
-
-        
 <div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
       <span class="post-meta-item-icon">
-        <i class="user"></i>
+        <i class="fa fa-user"></i>
       </span>
       <span class="site-uv" title="总访客量">
         <span id="busuanzi_value_site_uv"></span>
       </span>
     </span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
       <span class="post-meta-item-icon">
-        <i class="eye"></i>
+        <i class="fa fa-eye"></i>
       </span>
       <span class="site-pv" title="总访问量">
         <span id="busuanzi_value_site_pv"></span>
       </span>
     </span>
 </div>
-
-
-
-
-
-
-
-
-      </div>
-    </footer>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>
 
-  
-  <script src="/lib/anime.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-
-<script src="/js/schemes/muse.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
-
-
-
+    </div>
+  </footer>
 
   
-  <script>
-    (function(){
-      var canonicalURL, curProtocol;
-      //Get the <link> tag
-      var x=document.getElementsByTagName("link");
-		//Find the last canonical URL
-		if(x.length > 0){
-			for (i=0;i<x.length;i++){
-				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
-					canonicalURL=x[i].href;
-				}
-			}
-		}
-    //Get protocol
-	    if (!canonicalURL){
-	    	curProtocol = window.location.protocol.split(':')[0];
-	    }
-	    else{
-	    	curProtocol = canonicalURL.split(':')[0];
-	    }
-      //Get current URL if the canonical URL does not exist
-	    if (!canonicalURL) canonicalURL = window.location.href;
-	    //Assign script content. Replace current URL with the canonical URL
-      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
-  </script>
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
 
 
 
 
   
-<script src="/js/local-search.js"></script>
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 
 
-
-
-
-
-
-
+<script class="next-config" data-name="giscus" type="application/json">{"enable":true,"repo":"lyloou/lyloou.github.io","repo_id":"MDEwOlJlcG9zaXRvcnkxMDk1NzkyNzA=","category":"Announcements","category_id":"DIC_kwDOBogMBs4CWdfR","mapping":"pathname","reactions_enabled":1,"emit_metadata":1,"theme":"light","lang":"zh-CN","input_position":"bottom","loading":"lazy"}</script>
 
 <script>
-if (document.querySelectorAll('pre.mermaid').length) {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
-    mermaid.initialize({
-      theme    : 'forest',
-      logLevel : 3,
-      flowchart: { curve     : 'linear' },
-      gantt    : { axisFormat: '%m/%d/%Y' },
-      sequence : { actorMargin: 50 }
-    });
-  }, window.mermaid);
-}
-</script>
+document.addEventListener('page:loaded', () => {
+  if (!CONFIG.page.comments) return;
 
-
-  
-
-  
-
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
-
-<script>
-NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
-    var gitalk = new Gitalk({
-      clientID    : '5776a56ec2a831d83dfc',
-      clientSecret: '28440989ccf00f0ce8dbd425dc5d1eaa1eb24c7b',
-      repo        : 'lyloou.github.io',
-      owner       : 'lyloou',
-      admin       : ['lyloou'],
-      id          : 'ffe3e367c2d48f6bd8cdcadbfed3c9af',
-        language: '',
-      distractionFreeMode: true
-    });
-    gitalk.render('gitalk-container');
-  }, window.Gitalk);
+  NexT.utils.loadComments('.giscus-container')
+    .then(() => NexT.utils.getScript('https://giscus.app/client.js', {
+      attributes: {
+        async                   : true,
+        crossOrigin             : 'anonymous',
+        'data-repo'             : CONFIG.giscus.repo,
+        'data-repo-id'          : CONFIG.giscus.repo_id,
+        'data-category'         : CONFIG.giscus.category,
+        'data-category-id'      : CONFIG.giscus.category_id,
+        'data-mapping'          : CONFIG.giscus.mapping,
+        'data-reactions-enabled': CONFIG.giscus.reactions_enabled,
+        'data-emit-metadata'    : CONFIG.giscus.emit_metadata,
+        'data-theme'            : CONFIG.giscus.theme,
+        'data-lang'             : CONFIG.giscus.lang,
+        'data-input-position'   : CONFIG.giscus.input_position,
+        'data-loading'          : CONFIG.giscus.loading
+      },
+      parentNode: document.querySelector('.giscus-container')
+    }));
 });
 </script>
 

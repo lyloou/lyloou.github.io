@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="zh-CN,zh-HK,zh-TW,en,default">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
@@ -13,14 +13,13 @@
 <link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"lyloou.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
-  </script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-  <meta name="description" content="资料 mybatis-spring – MyBatis-Spring | SqlSessionFactoryBean  In normal MyBatis-Spring usage, you will not need to use SqlSessionFactoryBean or the corresponding SqlSessionFactory directly. Instead, the">
+<script class="next-config" data-name="main" type="application/json">{"hostname":"lyloou.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"default"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="资料 mybatis-spring – MyBatis-Spring | SqlSessionFactoryBean  In normal MyBatis-Spring usage, you will not need to use SqlSessionFactoryBean or the corresponding SqlSessionFactory directly. Instead, the">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mybatis">
 <meta property="og:url" content="https://lyloou.com/ssm/mybatis/index.html">
@@ -37,37 +36,20 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://segmentfault.com/img/bVtwuY">
 
+
 <link rel="canonical" href="https://lyloou.com/ssm/mybatis/">
 
 
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : false,
-    isPost : true,
-    lang   : 'zh-CN'
-  };
-</script>
 
-  <title>Mybatis | lyloou</title>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://lyloou.com/ssm/mybatis/","path":"ssm/mybatis/","title":"Mybatis"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Mybatis | lyloou</title>
   
-    <script>
-      function sendPageView() {
-        if (CONFIG.hostname !== location.hostname) return;
-        var uid = localStorage.getItem('uid') || (Math.random() + '.' + Math.random());
-        localStorage.setItem('uid', uid);
-        navigator.sendBeacon('https://www.google-analytics.com/collect', new URLSearchParams({
-          v  : 1,
-          tid: 'UA-80542932-1',
-          cid: uid,
-          t  : 'pageview',
-          dp : encodeURIComponent(location.pathname)
-        }));
-      }
-      document.addEventListener('pjax:complete', sendPageView);
-      sendPageView();
-    </script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-80542932-1","only_pageview":true}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
 
 
 
@@ -75,55 +57,35 @@
 
 
   <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container">
-    <div class="headband"></div>
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
 
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
-  <div class="site-meta custom-logo">
+  <div class="site-meta">
 
     <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">lyloou</h1>
-      <span class="logo-line-after"><i></i></span>
+      <i class="logo-line"></i>
+      <p class="site-title">lyloou</p>
+      <i class="logo-line"></i>
     </a>
   </div>
 
   <div class="site-nav-right">
-    <div class="toggle popup-trigger">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
         <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
@@ -131,29 +93,8 @@
 
 
 
-
 <nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签</a>
-
-  </li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -164,85 +105,154 @@
 
 
   <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
+    <div class="popup search-popup"><div class="search-header">
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off"
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
            placeholder="搜索..." spellcheck="false"
            type="search" class="search-input">
   </div>
-  <span class="popup-btn-close">
+  <span class="popup-btn-close" role="button">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
-<div id="search-result">
-  <div id="no-result">
-    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
   </div>
 </div>
 
     </div>
   </div>
 
-</div>
-    </header>
+</header>
+        
+  
+  <aside class="sidebar">
 
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B5%84%E6%96%99"><span class="nav-number">1.</span> <span class="nav-text">资料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nested-exception-is-org-apache-ibatis-reflection-ReflectionException-There-is-no-getter-for-property-named"><span class="nav-number">2.</span> <span class="nav-text">nested exception is org.apache.ibatis.reflection.ReflectionException: There is no getter for property named</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%89%E7%85%A7%E8%BE%93%E5%85%A5-id-%E9%A1%BA%E5%BA%8F%E6%9D%A5%E8%BF%94%E5%9B%9E%E6%95%B0%E6%8D%AE"><span class="nav-number">3.</span> <span class="nav-text">按照输入 id 顺序来返回数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E5%A1%AB%E5%85%85%E5%AD%97%E6%AE%B5"><span class="nav-number">4.</span> <span class="nav-text">自动填充字段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mybatis-%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3-%E4%B8%80-%E4%B9%8B-%E4%B8%8E-%E5%8C%BA%E5%88%AB%E4%BB%A5%E5%8F%8A-sql-%E9%A2%84%E7%BC%96%E8%AF%91-SegmentFault-%E6%80%9D%E5%90%A6"><span class="nav-number">5.</span> <span class="nav-text">mybatis 深入理解(一)之 # 与 $ 区别以及 sql 预编译 - SegmentFault 思否</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%80%98-%E2%80%99-%E4%B8%8E-%E2%80%98-%E2%80%99"><span class="nav-number">6.</span> <span class="nav-text">‘#’ 与 ‘$’</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8C%BA%E5%88%AB"><span class="nav-number">6.1.</span> <span class="nav-text">区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8%E6%B3%95-tips"><span class="nav-number">6.2.</span> <span class="nav-text">用法 tips</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sql-%E9%A2%84%E7%BC%96%E8%AF%91"><span class="nav-number">7.</span> <span class="nav-text">sql 预编译</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89"><span class="nav-number">7.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E9%A2%84%E7%BC%96%E8%AF%91"><span class="nav-number">7.2.</span> <span class="nav-text">为什么需要预编译</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mysql-%E9%A2%84%E7%BC%96%E8%AF%91%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90"><span class="nav-number">7.3.</span> <span class="nav-text">mysql 预编译源码解析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mybatis-%E4%B9%8B-sql-%E5%8A%A8%E6%80%81%E8%A7%A3%E6%9E%90%E4%BB%A5%E5%8F%8A%E9%A2%84%E7%BC%96%E8%AF%91%E6%BA%90%E7%A0%81"><span class="nav-number">8.</span> <span class="nav-text">mybatis 之 sql 动态解析以及预编译源码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#mybatis-sql-%E5%8A%A8%E6%80%81%E8%A7%A3%E6%9E%90"><span class="nav-number">8.1.</span> <span class="nav-text">mybatis sql 动态解析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%B9%E9%87%8F%E5%A4%84%E7%90%86%E7%A4%BA%E4%BE%8B%EF%BC%88%E4%BF%AE%E5%A4%8D%E6%AD%8C%E6%89%8B%E5%90%8D%E7%A7%B0%EF%BC%89"><span class="nav-number">9.</span> <span class="nav-text">批量处理示例（修复歌手名称）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">10.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mybatis-Mapper-xml-%E7%BB%A7%E6%89%BF%E6%9C%BA%E5%88%B6-SegmentFault-%E6%80%9D%E5%90%A6"><span class="nav-number">11.</span> <span class="nav-text">Mybatis Mapper.xml 继承机制 - SegmentFault 思否</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mybatis-%E4%B8%AD%E5%A4%A7%E4%BA%8E%E7%AD%89%E4%BA%8E%E5%B0%8F%E4%BA%8E%E7%AD%89%E4%BA%8E%E7%9A%84%E5%86%99%E6%B3%95"><span class="nav-number">12.</span> <span class="nav-text">mybatis 中大于等于小于等于的写法</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="lyloou"
+      src="/assets/images/avatar.png">
+  <p class="site-author-name" itemprop="name">lyloou</p>
+  <div class="site-description" itemprop="description">/* Better than last best */</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">312</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">56</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/lyloou" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;lyloou" rel="noopener me" target="_blank"><i class="github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:lyloou6@gmail.com" title="E-Mail → mailto:lyloou6@gmail.com" rel="noopener me" target="_blank"><i class="envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/lyloou" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;lyloou" rel="noopener me" target="_blank"><i class="weibo fa-fw"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/ly1414725328" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;ly1414725328" rel="noopener me" target="_blank"><i class="csdn fa-fw"></i>CSDN</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
   </div>
 
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content post posts-expand">
-            
+        </div>
+      </div>
+    </div>
 
     
+        <div class="pjax">
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://lyloou.com/ssm/mybatis/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Mybatis | lyloou">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Mybatis<a href="https://github.com/lyloou/lyloou.github.io/edit/source/source/_posts/ssm/mybatis.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil-alt"></i></a>
+          Mybatis
         </h1>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2018-09-12 19:47:02" itemprop="dateCreated datePublished" datetime="2018-09-12T19:47:02+08:00">2018-09-12</time>
-            </span>
+      <time title="创建时间：2018-09-12 19:47:02" itemprop="dateCreated datePublished" datetime="2018-09-12T19:47:02+08:00">2018-09-12</time>
+    </span>
 
-          
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
 
         </div>
       </header>
@@ -250,37 +260,34 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
-
-      
-        <h2 id="资料"><a href="#资料" class="headerlink" title="资料"></a>资料</h2><ul>
-<li><p><a href="http://www.mybatis.org/spring/factorybean.html" target="_blank" rel="noopener">mybatis-spring – MyBatis-Spring | SqlSessionFactoryBean</a></p>
+    <div class="post-body" itemprop="articleBody"><h2 id="资料"><a href="#资料" class="headerlink" title="资料"></a>资料</h2><ul>
+<li><p><a target="_blank" rel="noopener" href="http://www.mybatis.org/spring/factorybean.html">mybatis-spring – MyBatis-Spring | SqlSessionFactoryBean</a></p>
 <blockquote>
 <p>In normal MyBatis-Spring usage, you will not need to use SqlSessionFactoryBean or the corresponding SqlSessionFactory directly. Instead, the session factory will be injected into MapperFactoryBeans or other DAOs that extend SqlSessionDaoSupport .</p>
 </blockquote>
 </li>
-<li><p><a href="https://blog.csdn.net/techbirds_bao/article/details/9235547" target="_blank" rel="noopener">Myibatis 和 spring(mvc)的集成 - CSDN 博客</a></p>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/techbirds_bao/article/details/9235547">Myibatis 和 spring(mvc)的集成 - CSDN 博客</a></p>
 </li>
 </ul>
 <h2 id="nested-exception-is-org-apache-ibatis-reflection-ReflectionException-There-is-no-getter-for-property-named"><a href="#nested-exception-is-org-apache-ibatis-reflection-ReflectionException-There-is-no-getter-for-property-named" class="headerlink" title="nested exception is org.apache.ibatis.reflection.ReflectionException: There is no getter for property named"></a>nested exception is org.apache.ibatis.reflection.ReflectionException: There is no getter for property named</h2><p>2020-01-02 19:01:21 [WARN] ExceptionHandlerExceptionResolver:194 - Resolved [org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.reflection.ReflectionException: There is no getter for property named ‘is_disabled’ in ‘class com.lyloou.flow.model.flow.Flow’]</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 错误的</span><br><span class="hljs-meta">@Update</span>(<span class="hljs-string">"insert into flow (day,item,is_disabled,is_archived) values (#&#123;day&#125;,#&#123;item&#125;,#&#123;is_disabled&#125;,#&#123;is_archived&#125;) on duplicate key update"</span> +<br>            <span class="hljs-string">" item=values(item),is_disabled=values(is_disabled),is_archived=values(is_archived)"</span>)<br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">insertOrUpdateFlow</span><span class="hljs-params">(Flow flow)</span></span>;<br><br><span class="hljs-comment">// 正确的</span><br><span class="hljs-meta">@Update</span>(<span class="hljs-string">"insert into flow (day,item,is_disabled,is_archived) values (#&#123;day&#125;,#&#123;item&#125;,#&#123;isDisabled&#125;,#&#123;isArchived&#125;) on duplicate key update"</span> +<br>            <span class="hljs-string">" item=values(item),is_disabled=values(is_disabled),is_archived=values(is_archived)"</span>)<br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">insertOrUpdateFlow</span><span class="hljs-params">(Flow flow)</span></span>;<br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 错误的</span></span><br><span class="line"><span class="meta">@Update(&quot;insert into flow (day,item,is_disabled,is_archived) values (#&#123;day&#125;,#&#123;item&#125;,#&#123;is_disabled&#125;,#&#123;is_archived&#125;) on duplicate key update&quot; +</span></span><br><span class="line"><span class="meta">            &quot; item=values(item),is_disabled=values(is_disabled),is_archived=values(is_archived)&quot;)</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">insertOrUpdateFlow</span><span class="params">(Flow flow)</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 正确的</span></span><br><span class="line"><span class="meta">@Update(&quot;insert into flow (day,item,is_disabled,is_archived) values (#&#123;day&#125;,#&#123;item&#125;,#&#123;isDisabled&#125;,#&#123;isArchived&#125;) on duplicate key update&quot; +</span></span><br><span class="line"><span class="meta">            &quot; item=values(item),is_disabled=values(is_disabled),is_archived=values(is_archived)&quot;)</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">insertOrUpdateFlow</span><span class="params">(Flow flow)</span>;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Data</span><br><span class="hljs-meta">@Builder</span><br><span class="hljs-meta">@AllArgsConstructor</span><br><span class="hljs-meta">@NoArgsConstructor</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Flow</span> </span>&#123;<br>    <span class="hljs-keyword">private</span> Long id;<br><br>    <span class="hljs-keyword">private</span> Date gmtCreate;<br><br>    <span class="hljs-keyword">private</span> Date gmtModified;<br><br>    <span class="hljs-keyword">private</span> String day;<br><br>    <span class="hljs-keyword">private</span> String item;<br><br>    <span class="hljs-keyword">private</span> Boolean isArchived;<br><br>    <span class="hljs-keyword">private</span> Boolean isDisabled;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@Builder</span></span><br><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"><span class="meta">@NoArgsConstructor</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Flow</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> Long id;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Date gmtCreate;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Date gmtModified;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String day;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String item;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Boolean isArchived;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Boolean isDisabled;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs md">2020-01-02 19:01:21 [WARN] ExceptionHandlerExceptionResolver:194 - Resolved [org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.reflection.ReflectionException: There is no getter for property named 'is_disabled' in 'class com.lyloou.flow.model.flow.Flow']<br><br>答案：因为解决的时候用到的是 <span class="hljs-code">`flow.isDisabled`</span> 属性，因为传递的是 <span class="hljs-code">`flow.is_disabled`</span> 所以不行<br></code></pre></td></tr></table></figure>
+<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">2020-01-02 19:01:21 [WARN] ExceptionHandlerExceptionResolver:194 - Resolved [org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.reflection.ReflectionException: There is no getter for property named &#x27;is<span class="emphasis">_disabled&#x27; in &#x27;class com.lyloou.flow.model.flow.Flow&#x27;]</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis">答案：因为解决的时候用到的是 `flow.isDisabled` 属性，因为传递的是 `flow.is_</span>disabled` 所以不行</span><br></pre></td></tr></table></figure>
 
-<h2 id="按照输入-id-顺序来返回数据"><a href="#按照输入-id-顺序来返回数据" class="headerlink" title="按照输入 id 顺序来返回数据"></a>按照输入 id 顺序来返回数据</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"queryOrderedAuthorByauthorIds"</span> <span class="hljs-attr">resultMap</span>=<span class="hljs-string">"BaseResultMap"</span>&gt;</span><br>  select * from video_author a<br>  where a.user_id in<br>    <span class="hljs-tag">&lt;<span class="hljs-name">foreach</span> <span class="hljs-attr">collection</span>=<span class="hljs-string">"authorIds"</span> <span class="hljs-attr">item</span>=<span class="hljs-string">"item"</span> <span class="hljs-attr">index</span>=<span class="hljs-string">"index"</span> <span class="hljs-attr">separator</span>=<span class="hljs-string">","</span> <span class="hljs-attr">open</span>=<span class="hljs-string">"("</span> <span class="hljs-attr">close</span>=<span class="hljs-string">")"</span>&gt;</span><br>      #&#123;item&#125;<br>    <span class="hljs-tag">&lt;/<span class="hljs-name">foreach</span>&gt;</span><br>  and a.user_status=0<br>  -- 按照输入的顺序来返回排序<br>  order by field(a.user_id,<br>    <span class="hljs-tag">&lt;<span class="hljs-name">foreach</span> <span class="hljs-attr">collection</span>=<span class="hljs-string">"authorIds"</span> <span class="hljs-attr">item</span>=<span class="hljs-string">"item"</span> <span class="hljs-attr">index</span>=<span class="hljs-string">"index"</span> <span class="hljs-attr">separator</span>=<span class="hljs-string">","</span>&gt;</span><br>      #&#123;item&#125;<br>    <span class="hljs-tag">&lt;/<span class="hljs-name">foreach</span>&gt;</span><br>  )<br><span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<h2 id="按照输入-id-顺序来返回数据"><a href="#按照输入-id-顺序来返回数据" class="headerlink" title="按照输入 id 顺序来返回数据"></a>按照输入 id 顺序来返回数据</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;queryOrderedAuthorByauthorIds&quot;</span> <span class="attr">resultMap</span>=<span class="string">&quot;BaseResultMap&quot;</span>&gt;</span></span><br><span class="line">  select * from video_author a</span><br><span class="line">  where a.user_id in</span><br><span class="line">    <span class="tag">&lt;<span class="name">foreach</span> <span class="attr">collection</span>=<span class="string">&quot;authorIds&quot;</span> <span class="attr">item</span>=<span class="string">&quot;item&quot;</span> <span class="attr">index</span>=<span class="string">&quot;index&quot;</span> <span class="attr">separator</span>=<span class="string">&quot;,&quot;</span> <span class="attr">open</span>=<span class="string">&quot;(&quot;</span> <span class="attr">close</span>=<span class="string">&quot;)&quot;</span>&gt;</span></span><br><span class="line">      #&#123;item&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">foreach</span>&gt;</span></span><br><span class="line">  and a.user_status=0</span><br><span class="line">  -- 按照输入的顺序来返回排序</span><br><span class="line">  order by field(a.user_id,</span><br><span class="line">    <span class="tag">&lt;<span class="name">foreach</span> <span class="attr">collection</span>=<span class="string">&quot;authorIds&quot;</span> <span class="attr">item</span>=<span class="string">&quot;item&quot;</span> <span class="attr">index</span>=<span class="string">&quot;index&quot;</span> <span class="attr">separator</span>=<span class="string">&quot;,&quot;</span>&gt;</span></span><br><span class="line">      #&#123;item&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">foreach</span>&gt;</span></span><br><span class="line">  )</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="自动填充字段"><a href="#自动填充字段" class="headerlink" title="自动填充字段"></a>自动填充字段</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// Person.java</span><br><span class="hljs-meta">@Data</span><br><span class="hljs-meta">@Accessors</span>(chain = <span class="hljs-keyword">true</span>)<br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span>  <span class="hljs-keyword">implements</span> <span class="hljs-title">Serializable</span> </span>&#123;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">long</span> serialVersionUID = <span class="hljs-number">1L</span>;<br><br>    <span class="hljs-meta">@TableId</span>(type = IdType.AUTO)<br>    <span class="hljs-meta">@ApiModelProperty</span>(value = <span class="hljs-string">"实体ID"</span>)<br>    <span class="hljs-keyword">private</span> Integer id;<br><br>    <span class="hljs-meta">@ApiModelProperty</span>(value = <span class="hljs-string">"创建时间"</span>)<br>    <span class="hljs-meta">@TableField</span>(fill = FieldFill.INSERT)<br>    <span class="hljs-keyword">private</span> Date createdTime;<br><br>    <span class="hljs-meta">@ApiModelProperty</span>(value = <span class="hljs-string">"更新时间"</span>)<br>    <span class="hljs-meta">@TableField</span>(fill = FieldFill.INSERT_UPDATE)<br>    <span class="hljs-keyword">private</span> Date updatedTime;<br><br>    <span class="hljs-meta">@ApiModelProperty</span>(value = <span class="hljs-string">"创建人"</span>)<br>    <span class="hljs-meta">@TableField</span>(value = <span class="hljs-string">"creator"</span>, fill = FieldFill.INSERT)<br>    <span class="hljs-keyword">private</span> String creator;<br><br>    <span class="hljs-meta">@ApiModelProperty</span>(value = <span class="hljs-string">"修改人"</span>)<br>    <span class="hljs-meta">@TableField</span>(value = <span class="hljs-string">"modifier"</span>, fill = FieldFill.INSERT_UPDATE)<br>    <span class="hljs-keyword">private</span> String modifier;<br>&#125;<br><br><span class="hljs-comment">// MybatisObjectHandler.java</span><br><span class="hljs-comment">// [自动填充功能 | MyBatis-Plus](https://baomidou.com/guide/auto-fill-metainfo.html)</span><br><span class="hljs-meta">@Component</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MybatisObjectHandler</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">MetaObjectHandler</span> </span>&#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">insertFill</span><span class="hljs-params">(MetaObject metaObject)</span> </span>&#123;<br>        Integer userId = AuthenticationService.getUserId();<br>        <span class="hljs-keyword">if</span> (userId != <span class="hljs-keyword">null</span>) &#123;<br>            Stream.of(<span class="hljs-string">"createdBy"</span>, <span class="hljs-string">"updatedBy"</span>, <span class="hljs-string">"modifier"</span>, <span class="hljs-string">"creator"</span>)<br>                    .forEach(s -&gt; setFieldValIfNull(s, userId.toString(), metaObject));<br>        &#125;<br><br>        Stream.of(<span class="hljs-string">"createdTime"</span>, <span class="hljs-string">"updatedTime"</span>)<br>                .forEach(s -&gt; setFieldValIfNull(s, <span class="hljs-keyword">new</span> Date(), metaObject));<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setFieldValIfNull</span><span class="hljs-params">(String field, Object fieldVal, MetaObject metaObject)</span> </span>&#123;<br>        <span class="hljs-keyword">final</span> Object value = getFieldValByName(field, metaObject);<br>        <span class="hljs-keyword">if</span> (value != <span class="hljs-keyword">null</span>) &#123;<br>            setFieldValByName(field, fieldVal, metaObject);<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">updateFill</span><span class="hljs-params">(MetaObject metaObject)</span> </span>&#123;<br>        <span class="hljs-comment">//更新时 需要填充字段</span><br>        Stream.of(<span class="hljs-string">"updatedTime"</span>)<br>                .forEach(s -&gt; setFieldValIfNull(s, <span class="hljs-keyword">new</span> Date(), metaObject));<br>        setFieldValByName(<span class="hljs-string">"updatedTime"</span>, <span class="hljs-keyword">new</span> Date(), metaObject);<br>        Integer userId = AuthenticationService.getUserId();<br>        <span class="hljs-keyword">if</span> (userId != <span class="hljs-keyword">null</span>) &#123;<br>            <span class="hljs-comment">//更新时填充的字段</span><br>            Stream.of(<span class="hljs-string">"updatedBy"</span>, <span class="hljs-string">"modifier"</span>)<br>                    .forEach(s -&gt; setFieldValIfNull(s, userId.toString(), metaObject));<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="自动填充字段"><a href="#自动填充字段" class="headerlink" title="自动填充字段"></a>自动填充字段</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Person.java</span></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@Accessors(chain = true)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Person</span>  <span class="keyword">implements</span> <span class="title class_">Serializable</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">long</span> <span class="variable">serialVersionUID</span> <span class="operator">=</span> <span class="number">1L</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@TableId(type = IdType.AUTO)</span></span><br><span class="line">    <span class="meta">@ApiModelProperty(value = &quot;实体ID&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiModelProperty(value = &quot;创建时间&quot;)</span></span><br><span class="line">    <span class="meta">@TableField(fill = FieldFill.INSERT)</span></span><br><span class="line">    <span class="keyword">private</span> Date createdTime;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiModelProperty(value = &quot;更新时间&quot;)</span></span><br><span class="line">    <span class="meta">@TableField(fill = FieldFill.INSERT_UPDATE)</span></span><br><span class="line">    <span class="keyword">private</span> Date updatedTime;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiModelProperty(value = &quot;创建人&quot;)</span></span><br><span class="line">    <span class="meta">@TableField(value = &quot;creator&quot;, fill = FieldFill.INSERT)</span></span><br><span class="line">    <span class="keyword">private</span> String creator;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@ApiModelProperty(value = &quot;修改人&quot;)</span></span><br><span class="line">    <span class="meta">@TableField(value = &quot;modifier&quot;, fill = FieldFill.INSERT_UPDATE)</span></span><br><span class="line">    <span class="keyword">private</span> String modifier;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// MybatisObjectHandler.java</span></span><br><span class="line"><span class="comment">// [自动填充功能 | MyBatis-Plus](https://baomidou.com/guide/auto-fill-metainfo.html)</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MybatisObjectHandler</span> <span class="keyword">implements</span> <span class="title class_">MetaObjectHandler</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">insertFill</span><span class="params">(MetaObject metaObject)</span> &#123;</span><br><span class="line">        <span class="type">Integer</span> <span class="variable">userId</span> <span class="operator">=</span> AuthenticationService.getUserId();</span><br><span class="line">        <span class="keyword">if</span> (userId != <span class="literal">null</span>) &#123;</span><br><span class="line">            Stream.of(<span class="string">&quot;createdBy&quot;</span>, <span class="string">&quot;updatedBy&quot;</span>, <span class="string">&quot;modifier&quot;</span>, <span class="string">&quot;creator&quot;</span>)</span><br><span class="line">                    .forEach(s -&gt; setFieldValIfNull(s, userId.toString(), metaObject));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        Stream.of(<span class="string">&quot;createdTime&quot;</span>, <span class="string">&quot;updatedTime&quot;</span>)</span><br><span class="line">                .forEach(s -&gt; setFieldValIfNull(s, <span class="keyword">new</span> <span class="title class_">Date</span>(), metaObject));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">setFieldValIfNull</span><span class="params">(String field, Object fieldVal, MetaObject metaObject)</span> &#123;</span><br><span class="line">        <span class="keyword">final</span> <span class="type">Object</span> <span class="variable">value</span> <span class="operator">=</span> getFieldValByName(field, metaObject);</span><br><span class="line">        <span class="keyword">if</span> (value != <span class="literal">null</span>) &#123;</span><br><span class="line">            setFieldValByName(field, fieldVal, metaObject);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">updateFill</span><span class="params">(MetaObject metaObject)</span> &#123;</span><br><span class="line">        <span class="comment">//更新时 需要填充字段</span></span><br><span class="line">        Stream.of(<span class="string">&quot;updatedTime&quot;</span>)</span><br><span class="line">                .forEach(s -&gt; setFieldValIfNull(s, <span class="keyword">new</span> <span class="title class_">Date</span>(), metaObject));</span><br><span class="line">        setFieldValByName(<span class="string">&quot;updatedTime&quot;</span>, <span class="keyword">new</span> <span class="title class_">Date</span>(), metaObject);</span><br><span class="line">        <span class="type">Integer</span> <span class="variable">userId</span> <span class="operator">=</span> AuthenticationService.getUserId();</span><br><span class="line">        <span class="keyword">if</span> (userId != <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="comment">//更新时填充的字段</span></span><br><span class="line">            Stream.of(<span class="string">&quot;updatedBy&quot;</span>, <span class="string">&quot;modifier&quot;</span>)</span><br><span class="line">                    .forEach(s -&gt; setFieldValIfNull(s, userId.toString(), metaObject));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="mybatis-深入理解-一-之-与-区别以及-sql-预编译-SegmentFault-思否"><a href="#mybatis-深入理解-一-之-与-区别以及-sql-预编译-SegmentFault-思否" class="headerlink" title="mybatis 深入理解(一)之 # 与 $ 区别以及 sql 预编译 - SegmentFault 思否"></a><a href="https://segmentfault.com/a/1190000004617028" target="_blank" rel="noopener">mybatis 深入理解(一)之 # 与 $ 区别以及 sql 预编译 - SegmentFault 思否</a></h2><p>mybatis 中使用 sqlMap 进行 sql 查询时，经常需要动态传递参数，例如我们需要根据用户的姓名来筛选用户时，sql 如下：</p>
-<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> <span class="hljs-keyword">user</span> <span class="hljs-keyword">where</span> <span class="hljs-type">name</span> = "ruhua";<br></code></pre></td></tr></table></figure>
+<h2 id="mybatis-深入理解-一-之-与-区别以及-sql-预编译-SegmentFault-思否"><a href="#mybatis-深入理解-一-之-与-区别以及-sql-预编译-SegmentFault-思否" class="headerlink" title="mybatis 深入理解(一)之 # 与 $ 区别以及 sql 预编译 - SegmentFault 思否"></a><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000004617028">mybatis 深入理解(一)之 # 与 $ 区别以及 sql 预编译 - SegmentFault 思否</a></h2><p>mybatis 中使用 sqlMap 进行 sql 查询时，经常需要动态传递参数，例如我们需要根据用户的姓名来筛选用户时，sql 如下：</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> <span class="type">name</span> = &quot;ruhua&quot;;</span><br></pre></td></tr></table></figure>
 
 <p>上述 sql 中，我们希望 name 后的参数 “ruhua” 是动态可变的，即不同的时刻根据不同的姓名来查询用户。在 sqlMap 的 xml 文件中使用如下的 sql 可以实现动态传递参数 name：</p>
-<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> <span class="hljs-keyword">user</span> <span class="hljs-keyword">where</span> <span class="hljs-type">name</span> = #&#123;<span class="hljs-type">name</span>&#125;;<br></code></pre></td></tr></table></figure>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> <span class="type">name</span> = #&#123;<span class="type">name</span>&#125;;</span><br></pre></td></tr></table></figure>
 
 <p>或者</p>
-<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> <span class="hljs-keyword">user</span> <span class="hljs-keyword">where</span> <span class="hljs-type">name</span> = <span class="hljs-string">'$&#123;name&#125;'</span>;<br></code></pre></td></tr></table></figure>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> <span class="type">name</span> = <span class="string">&#x27;$&#123;name&#125;&#x27;</span>;</span><br></pre></td></tr></table></figure>
 
 <p>对于上述这种查询情况来说，使用 #{ } 和 ${ } 的结果是相同的，但是在某些情况下，我们只能使用二者其一。</p>
 <h2 id="‘-’-与-‘-’"><a href="#‘-’-与-‘-’" class="headerlink" title="‘#’ 与 ‘$’"></a>‘#’ 与 ‘$’</h2><h3 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h3><p><strong>动态 SQL</strong> 是 mybatis 的强大特性之一，也是它优于其他 ORM 框架的一个重要原因。mybatis 在对 sql 语句进行预编译之前，会对 sql 进行动态解析，解析为一个 BoundSql 对象，也是在此处对动态 SQL 进行处理的。</p>
@@ -289,10 +296,10 @@
 <p><strong>#{ } 解析为一个 JDBC 预编译语句（prepared statement）的参数标记符。</strong></p>
 </blockquote>
 <p>例如，sqlMap 中如下的 sql 语句</p>
-<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> <span class="hljs-keyword">user</span> <span class="hljs-keyword">where</span> <span class="hljs-type">name</span> = #&#123;<span class="hljs-type">name</span>&#125;;<br></code></pre></td></tr></table></figure>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> <span class="type">name</span> = #&#123;<span class="type">name</span>&#125;;</span><br></pre></td></tr></table></figure>
 
 <p>解析为：</p>
-<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> <span class="hljs-keyword">user</span> <span class="hljs-keyword">where</span> <span class="hljs-type">name</span> = ?;<br></code></pre></td></tr></table></figure>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> <span class="type">name</span> = ?;</span><br></pre></td></tr></table></figure>
 
 <p>一个 #{ } 被解析为一个参数占位符 <code>?</code> 。</p>
 <p>而，</p>
@@ -300,10 +307,10 @@
 <p><strong>${ } 仅仅为一个纯碎的 string 替换，在动态 SQL 解析阶段将会进行变量替换</strong></p>
 </blockquote>
 <p>例如，sqlMap 中如下的 sql</p>
-<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> <span class="hljs-keyword">user</span> <span class="hljs-keyword">where</span> <span class="hljs-type">name</span> = <span class="hljs-string">'$&#123;name&#125;'</span>;<br></code></pre></td></tr></table></figure>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> <span class="type">name</span> = <span class="string">&#x27;$&#123;name&#125;&#x27;</span>;</span><br></pre></td></tr></table></figure>
 
 <p>当我们传递的参数为 “ruhua” 时，上述 sql 的解析为：</p>
-<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> <span class="hljs-keyword">user</span> <span class="hljs-keyword">where</span> <span class="hljs-type">name</span> = "ruhua";<br></code></pre></td></tr></table></figure>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> <span class="type">name</span> = &quot;ruhua&quot;;</span><br></pre></td></tr></table></figure>
 
 <p>预编译之前的 SQL 语句已经不包含变量 name 了。</p>
 <p>综上所得， ${ } 的变量的替换阶段是在动态 SQL 解析阶段，而 #{ }的变量的替换是在 DBMS 中。</p>
@@ -311,24 +318,24 @@
 <p>1、能使用 #{ } 的地方就用 #{ }</p>
 </blockquote>
 <p>首先这是为了性能考虑的，相同的预编译 sql 可以重复利用。</p>
-<p>其次，<strong>${ } 在预编译之前已经被变量替换了，这会存在 sql 注入问题</strong>。例如，如下的 sql，</p>
-<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> $&#123;tableName&#125; <span class="hljs-keyword">where</span> <span class="hljs-type">name</span> = #&#123;<span class="hljs-type">name</span>&#125;<br></code></pre></td></tr></table></figure>
+<p>其次，**${ } 在预编译之前已经被变量替换了，这会存在 sql 注入问题**。例如，如下的 sql，</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> $&#123;tableName&#125; <span class="keyword">where</span> <span class="type">name</span> = #&#123;<span class="type">name</span>&#125;</span><br></pre></td></tr></table></figure>
 
 <p>假如，我们的参数 tableName 为 <code>user; delete user; --</code>，那么 SQL 动态解析阶段之后，预编译之前的 sql 将变为</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> <span class="hljs-keyword">user</span>; <span class="hljs-keyword">delete</span> <span class="hljs-keyword">user</span>; <span class="hljs-comment">-- where name = ?;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">user</span>; <span class="keyword">delete</span> <span class="keyword">user</span>; <span class="comment">-- where name = ?;</span></span><br></pre></td></tr></table></figure>
 
 <p><code>--</code> 之后的语句将作为注释，不起作用，因此本来的一条查询语句偷偷的包含了一个删除表数据的 SQL！</p>
 <blockquote>
 <p>2、表名作为变量时，必须使用 ${ }</p>
 </blockquote>
 <p>这是因为，表名是字符串，使用 sql 占位符替换字符串时会带上单引号 <code>&#39;&#39;</code>，这会导致 sql 语法错误，例如：</p>
-<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> #&#123;tableName&#125; <span class="hljs-keyword">where</span> <span class="hljs-type">name</span> = #&#123;<span class="hljs-type">name</span>&#125;;<br></code></pre></td></tr></table></figure>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> #&#123;tableName&#125; <span class="keyword">where</span> <span class="type">name</span> = #&#123;<span class="type">name</span>&#125;;</span><br></pre></td></tr></table></figure>
 
 <p>预编译之后的 sql 变为：</p>
-<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> ? <span class="hljs-keyword">where</span> <span class="hljs-type">name</span> = ?;<br></code></pre></td></tr></table></figure>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> ? <span class="keyword">where</span> <span class="type">name</span> = ?;</span><br></pre></td></tr></table></figure>
 
 <p>假设我们传入的参数为 tableName = “user” , name = “ruhua”，那么在占位符进行变量替换后，sql 语句变为</p>
-<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> <span class="hljs-string">'user'</span> <span class="hljs-keyword">where</span> <span class="hljs-type">name</span>=<span class="hljs-string">'ruhua'</span>;<br></code></pre></td></tr></table></figure>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="string">&#x27;user&#x27;</span> <span class="keyword">where</span> <span class="type">name</span>=<span class="string">&#x27;ruhua&#x27;</span>;</span><br></pre></td></tr></table></figure>
 
 <p>上述 sql 语句是存在语法错误的，表名不能加单引号 <code>&#39;&#39;</code>（注意，反引号 ``是可以的）。</p>
 <h2 id="sql-预编译"><a href="#sql-预编译" class="headerlink" title="sql 预编译"></a>sql 预编译</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><blockquote>
@@ -341,7 +348,7 @@
 </ol>
 <p>mybatis 默认情况下，将对所有的 sql 进行预编译。</p>
 <h3 id="mysql-预编译源码解析"><a href="#mysql-预编译源码解析" class="headerlink" title="mysql 预编译源码解析"></a>mysql 预编译源码解析</h3><p>mysql 的预编译源码在 <code>com.mysql.jdbc.ConnectionImpl</code> 类中，如下：</p>
-<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">public</span> synchronized java.sql.PreparedStatement prepareStatement(String sql,<br>            int resultSetType, int resultSetConcurrency) throws SQLException &#123;<br>        checkClosed();<br><br>        <span class="hljs-comment">//</span><br>        <span class="hljs-comment">// <span class="hljs-doctag">FIXME:</span> Create warnings if can't create results of the given</span><br>        <span class="hljs-comment">// type or concurrency</span><br>        <span class="hljs-comment">//</span><br>        PreparedStatement pStmt = <span class="hljs-literal">null</span>;<br><br>        boolean canServerPrepare = <span class="hljs-literal">true</span>;<br><br>        <span class="hljs-comment">// 不同的数据库系统对sql进行语法转换</span><br>        String nativeSql = getProcessEscapeCodesForPrepStmts() ? nativeSQL(sql): sql;<br><br>        <span class="hljs-comment">// 判断是否可以进行服务器端预编译</span><br>        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.useServerPreparedStmts &amp;&amp; getEmulateUnsupportedPstmts()) &#123;<br>            canServerPrepare = canHandleAsServerPreparedStatement(nativeSql);<br>        &#125;<br><br>        <span class="hljs-comment">// 如果可以进行服务器端预编译</span><br>        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.useServerPreparedStmts &amp;&amp; canServerPrepare) &#123;<br><br>            <span class="hljs-comment">// 是否缓存了PreparedStatement对象</span><br>            <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.getCachePreparedStatements()) &#123;<br>                synchronized (<span class="hljs-keyword">this</span>.serverSideStatementCache) &#123;<br><br>                    <span class="hljs-comment">// 从缓存中获取缓存的PreparedStatement对象</span><br>                    pStmt = (com.mysql.jdbc.ServerPreparedStatement)<span class="hljs-keyword">this</span>.serverSideStatementCache.remove(sql);<br><br>                    <span class="hljs-keyword">if</span> (pStmt != <span class="hljs-literal">null</span>) &#123;<br>                        <span class="hljs-comment">// 缓存中存在对象时对原 sqlStatement 进行参数清空等</span><br>                        ((com.mysql.jdbc.ServerPreparedStatement)pStmt).setClosed(<span class="hljs-literal">false</span>);<br>                        pStmt.clearParameters();<br>                    &#125;<br><br>                    <span class="hljs-keyword">if</span> (pStmt == <span class="hljs-literal">null</span>) &#123;<br>                        <span class="hljs-keyword">try</span> &#123;<br>                            <span class="hljs-comment">// 如果缓存中不存在，则调用服务器端(数据库)进行预编译</span><br>                            pStmt = ServerPreparedStatement.getInstance(getLoadBalanceSafeProxy(), nativeSql,<br>                                    <span class="hljs-keyword">this</span>.database, resultSetType, resultSetConcurrency);<br>                            <span class="hljs-keyword">if</span> (sql.length() &lt; getPreparedStatementCacheSqlLimit()) &#123;<br>                                ((com.mysql.jdbc.ServerPreparedStatement)pStmt).isCached = <span class="hljs-literal">true</span>;<br>                            &#125;<br><br>                            <span class="hljs-comment">// 设置返回类型以及并发类型</span><br>                            pStmt.setResultSetType(resultSetType);<br>                            pStmt.setResultSetConcurrency(resultSetConcurrency);<br>                        &#125; <span class="hljs-keyword">catch</span> (SQLException sqlEx) &#123;<br>                            <span class="hljs-comment">// Punt, if necessary</span><br>                            <span class="hljs-keyword">if</span> (getEmulateUnsupportedPstmts()) &#123;<br>                                pStmt = (PreparedStatement) clientPrepareStatement(nativeSql, resultSetType, resultSetConcurrency, <span class="hljs-literal">false</span>);<br><br>                                <span class="hljs-keyword">if</span> (sql.length() &lt; getPreparedStatementCacheSqlLimit()) &#123;<br>                                    <span class="hljs-keyword">this</span>.serverSideStatementCheckCache.put(sql, <span class="hljs-built_in">Boolean</span>.FALSE);<br>                                &#125;<br>                            &#125; <span class="hljs-keyword">else</span> &#123;<br>                                <span class="hljs-keyword">throw</span> sqlEx;<br>                            &#125;<br>                        &#125;<br>                    &#125;<br>                &#125;<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br><br>                <span class="hljs-comment">// 未启用缓存时，直接调用服务器端进行预编译</span><br>                <span class="hljs-keyword">try</span> &#123;<br>                    pStmt = ServerPreparedStatement.getInstance(getLoadBalanceSafeProxy(), nativeSql,<br>                            <span class="hljs-keyword">this</span>.database, resultSetType, resultSetConcurrency);<br><br>                    pStmt.setResultSetType(resultSetType);<br>                    pStmt.setResultSetConcurrency(resultSetConcurrency);<br>                &#125; <span class="hljs-keyword">catch</span> (SQLException sqlEx) &#123;<br>                    <span class="hljs-comment">// Punt, if necessary</span><br>                    <span class="hljs-keyword">if</span> (getEmulateUnsupportedPstmts()) &#123;<br>                        pStmt = (PreparedStatement) clientPrepareStatement(nativeSql, resultSetType, resultSetConcurrency, <span class="hljs-literal">false</span>);<br>                    &#125; <span class="hljs-keyword">else</span> &#123;<br>                        <span class="hljs-keyword">throw</span> sqlEx;<br>                    &#125;<br>                &#125;<br>            &#125;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-comment">// 不支持服务器端预编译时调用客户端预编译（不需要数据库 connection ）</span><br>            pStmt = (PreparedStatement) clientPrepareStatement(nativeSql, resultSetType, resultSetConcurrency, <span class="hljs-literal">false</span>);<br>        &#125;<br><br>        <span class="hljs-keyword">return</span> pStmt;<br>    &#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> synchronized java.sql.PreparedStatement prepareStatement(String sql,</span><br><span class="line">            int resultSetType, int resultSetConcurrency) throws SQLException &#123;</span><br><span class="line">        checkClosed();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">        <span class="comment">// <span class="doctag">FIXME:</span> Create warnings if can&#x27;t create results of the given</span></span><br><span class="line">        <span class="comment">// type or concurrency</span></span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">        PreparedStatement pStmt = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">        boolean canServerPrepare = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 不同的数据库系统对sql进行语法转换</span></span><br><span class="line">        String nativeSql = getProcessEscapeCodesForPrepStmts() ? nativeSQL(sql): sql;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 判断是否可以进行服务器端预编译</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.useServerPreparedStmts &amp;&amp; getEmulateUnsupportedPstmts()) &#123;</span><br><span class="line">            canServerPrepare = canHandleAsServerPreparedStatement(nativeSql);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 如果可以进行服务器端预编译</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.useServerPreparedStmts &amp;&amp; canServerPrepare) &#123;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 是否缓存了PreparedStatement对象</span></span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">this</span>.getCachePreparedStatements()) &#123;</span><br><span class="line">                synchronized (<span class="keyword">this</span>.serverSideStatementCache) &#123;</span><br><span class="line"></span><br><span class="line">                    <span class="comment">// 从缓存中获取缓存的PreparedStatement对象</span></span><br><span class="line">                    pStmt = (com.mysql.jdbc.ServerPreparedStatement)<span class="keyword">this</span>.serverSideStatementCache.remove(sql);</span><br><span class="line"></span><br><span class="line">                    <span class="keyword">if</span> (pStmt != <span class="literal">null</span>) &#123;</span><br><span class="line">                        <span class="comment">// 缓存中存在对象时对原 sqlStatement 进行参数清空等</span></span><br><span class="line">                        ((com.mysql.jdbc.ServerPreparedStatement)pStmt).setClosed(<span class="literal">false</span>);</span><br><span class="line">                        pStmt.clearParameters();</span><br><span class="line">                    &#125;</span><br><span class="line"></span><br><span class="line">                    <span class="keyword">if</span> (pStmt == <span class="literal">null</span>) &#123;</span><br><span class="line">                        <span class="keyword">try</span> &#123;</span><br><span class="line">                            <span class="comment">// 如果缓存中不存在，则调用服务器端(数据库)进行预编译</span></span><br><span class="line">                            pStmt = ServerPreparedStatement.getInstance(getLoadBalanceSafeProxy(), nativeSql,</span><br><span class="line">                                    <span class="keyword">this</span>.database, resultSetType, resultSetConcurrency);</span><br><span class="line">                            <span class="keyword">if</span> (sql.length() &lt; getPreparedStatementCacheSqlLimit()) &#123;</span><br><span class="line">                                ((com.mysql.jdbc.ServerPreparedStatement)pStmt).isCached = <span class="literal">true</span>;</span><br><span class="line">                            &#125;</span><br><span class="line"></span><br><span class="line">                            <span class="comment">// 设置返回类型以及并发类型</span></span><br><span class="line">                            pStmt.setResultSetType(resultSetType);</span><br><span class="line">                            pStmt.setResultSetConcurrency(resultSetConcurrency);</span><br><span class="line">                        &#125; <span class="keyword">catch</span> (SQLException sqlEx) &#123;</span><br><span class="line">                            <span class="comment">// Punt, if necessary</span></span><br><span class="line">                            <span class="keyword">if</span> (getEmulateUnsupportedPstmts()) &#123;</span><br><span class="line">                                pStmt = (PreparedStatement) clientPrepareStatement(nativeSql, resultSetType, resultSetConcurrency, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line">                                <span class="keyword">if</span> (sql.length() &lt; getPreparedStatementCacheSqlLimit()) &#123;</span><br><span class="line">                                    <span class="keyword">this</span>.serverSideStatementCheckCache.put(sql, <span class="built_in">Boolean</span>.FALSE);</span><br><span class="line">                                &#125;</span><br><span class="line">                            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                                <span class="keyword">throw</span> sqlEx;</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line"></span><br><span class="line">                <span class="comment">// 未启用缓存时，直接调用服务器端进行预编译</span></span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    pStmt = ServerPreparedStatement.getInstance(getLoadBalanceSafeProxy(), nativeSql,</span><br><span class="line">                            <span class="keyword">this</span>.database, resultSetType, resultSetConcurrency);</span><br><span class="line"></span><br><span class="line">                    pStmt.setResultSetType(resultSetType);</span><br><span class="line">                    pStmt.setResultSetConcurrency(resultSetConcurrency);</span><br><span class="line">                &#125; <span class="keyword">catch</span> (SQLException sqlEx) &#123;</span><br><span class="line">                    <span class="comment">// Punt, if necessary</span></span><br><span class="line">                    <span class="keyword">if</span> (getEmulateUnsupportedPstmts()) &#123;</span><br><span class="line">                        pStmt = (PreparedStatement) clientPrepareStatement(nativeSql, resultSetType, resultSetConcurrency, <span class="literal">false</span>);</span><br><span class="line">                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                        <span class="keyword">throw</span> sqlEx;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// 不支持服务器端预编译时调用客户端预编译（不需要数据库 connection ）</span></span><br><span class="line">            pStmt = (PreparedStatement) clientPrepareStatement(nativeSql, resultSetType, resultSetConcurrency, <span class="literal">false</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> pStmt;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
 <p>流程图如下所示：</p>
 <p><img src="https://segmentfault.com/img/bVtwuY" alt="图片描述"></p>
@@ -352,47 +359,27 @@
 <li>参数类型校验</li>
 </ul>
 <p>mybatis 强大的动态 SQL 功能的具体实现就在此。动态解析涉及的东西太多，以后再讨论。</p>
-<h2 id="批量处理示例（修复歌手名称）"><a href="#批量处理示例（修复歌手名称）" class="headerlink" title="批量处理示例（修复歌手名称）"></a>批量处理示例（修复歌手名称）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">fixSongSingleName</span><span class="hljs-params">()</span> </span>&#123;<br>     <span class="hljs-comment">// 从0开始</span><br>     <span class="hljs-keyword">int</span> id = <span class="hljs-number">0</span>;<br>     <span class="hljs-comment">// 每次查询100条</span><br>     <span class="hljs-keyword">int</span> limit = <span class="hljs-number">100</span>;<br>     List&lt;CcMusicInfoEntity&gt; list;<br>     <span class="hljs-keyword">do</span> &#123;<br>         list = ccMusicInfoMapper.queryListByLastIdWithLimit(id, limit);<br>         <span class="hljs-keyword">if</span> (CollUtil.isEmpty(list)) &#123;<br>             <span class="hljs-keyword">break</span>;<br>         &#125;<br><br>         <span class="hljs-comment">// 记录下一次的开始的id</span><br>         id = list.get(list.size() - <span class="hljs-number">1</span>).getId();<br><br>         <span class="hljs-comment">// 找到需要更新的实体</span><br>         <span class="hljs-keyword">final</span> List&lt;CcMusicInfoEntity&gt; needUpdateList = list.stream()<br>                 .filter(Objects::nonNull)<br>                 .filter(it -&gt; SingerNameUtil.isContainCombinedSeparator(it.getSingerName()))<br>                 .collect(Collectors.toList());<br><br>         <span class="hljs-comment">// 在db中更新实体</span><br>         <span class="hljs-keyword">if</span> (CollUtil.isNotEmpty(needUpdateList)) &#123;<br>             <span class="hljs-keyword">final</span> List&lt;String&gt; originSingerNameList = needUpdateList.stream().map(CcMusicInfoEntity::getSingerName).collect(Collectors.toList());<br>             updateSongSingerInfo(needUpdateList);<br><br>             Map&lt;Integer, String&gt; map = <span class="hljs-keyword">new</span> HashMap&lt;&gt;(needUpdateList.size());<br>             <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; needUpdateList.size(); i++) &#123;<br>                 <span class="hljs-keyword">final</span> CcMusicInfoEntity entity = needUpdateList.get(i);<br>                 <span class="hljs-keyword">final</span> String originSingerName = originSingerNameList.get(i);<br>                 map.put(entity.getId(), StrUtil.format(<span class="hljs-string">"更新前:&#123;&#125;，更新后:&#123;&#125;"</span>, originSingerName, entity.getSingerName()));<br>             &#125;<br>             logger.info(StrUtil.format(<span class="hljs-string">"fixSongSingleName 本次更新数量，&#123;&#125;，修改数据：&#123;&#125;"</span>, needUpdateList.size(), map));<br>         &#125;<br>         logger.info(<span class="hljs-string">"fixSongSingleName: 本次更新到ID，"</span> + id);<br>         <span class="hljs-comment">// break;</span><br>     &#125; <span class="hljs-keyword">while</span> (CollUtil.isNotEmpty(list));<br>     logger.info(<span class="hljs-string">"fixSongSingleName: 本次更新完成"</span>);<br> &#125;<br><br> <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">updateSongSingerInfo</span><span class="hljs-params">(List&lt;MusicInfoEntity&gt; needUpdateList)</span> </span>&#123;<br>     List&lt;MusicInfoEntity&gt; list = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;(needUpdateList.size());<br>     <span class="hljs-keyword">for</span> (MusicInfoEntity entity : needUpdateList) &#123;<br>         <span class="hljs-keyword">final</span> String originSingerName = entity.getSingerName();<br>         <span class="hljs-keyword">final</span> String calculateSingerName = SingerNameUtil.calculate(originSingerName);<br><br>         <span class="hljs-comment">// 一样的情况，不用处理</span><br>         <span class="hljs-keyword">if</span> (Objects.equals(originSingerName, calculateSingerName)) &#123;<br>             <span class="hljs-keyword">continue</span>;<br>         &#125;<br>         MusicInfoEntity newCcMusicInfoEntity = <span class="hljs-keyword">new</span> MusicInfoEntity();<br>         newCcMusicInfoEntity.setId(entity.getId());<br>         newCcMusicInfoEntity.setLastUpdateDate(<span class="hljs-keyword">new</span> Date());<br>         newCcMusicInfoEntity.setSingerName(calculateSingerName);<br>         list.add(newCcMusicInfoEntity);<br>     &#125;<br>     <span class="hljs-keyword">if</span> (CollUtil.isNotEmpty(list)) &#123;<br>         musicInfoMapper.updateByList(list);<br>     &#125;<br> &#125;<br></code></pre></td></tr></table></figure>
+<h2 id="批量处理示例（修复歌手名称）"><a href="#批量处理示例（修复歌手名称）" class="headerlink" title="批量处理示例（修复歌手名称）"></a>批量处理示例（修复歌手名称）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">fixSongSingleName</span><span class="params">()</span> &#123;</span><br><span class="line">     <span class="comment">// 从0开始</span></span><br><span class="line">     <span class="type">int</span> <span class="variable">id</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">     <span class="comment">// 每次查询100条</span></span><br><span class="line">     <span class="type">int</span> <span class="variable">limit</span> <span class="operator">=</span> <span class="number">100</span>;</span><br><span class="line">     List&lt;CcMusicInfoEntity&gt; list;</span><br><span class="line">     <span class="keyword">do</span> &#123;</span><br><span class="line">         list = ccMusicInfoMapper.queryListByLastIdWithLimit(id, limit);</span><br><span class="line">         <span class="keyword">if</span> (CollUtil.isEmpty(list)) &#123;</span><br><span class="line">             <span class="keyword">break</span>;</span><br><span class="line">         &#125;</span><br><span class="line"></span><br><span class="line">         <span class="comment">// 记录下一次的开始的id</span></span><br><span class="line">         id = list.get(list.size() - <span class="number">1</span>).getId();</span><br><span class="line"></span><br><span class="line">         <span class="comment">// 找到需要更新的实体</span></span><br><span class="line">         <span class="keyword">final</span> List&lt;CcMusicInfoEntity&gt; needUpdateList = list.stream()</span><br><span class="line">                 .filter(Objects::nonNull)</span><br><span class="line">                 .filter(it -&gt; SingerNameUtil.isContainCombinedSeparator(it.getSingerName()))</span><br><span class="line">                 .collect(Collectors.toList());</span><br><span class="line"></span><br><span class="line">         <span class="comment">// 在db中更新实体</span></span><br><span class="line">         <span class="keyword">if</span> (CollUtil.isNotEmpty(needUpdateList)) &#123;</span><br><span class="line">             <span class="keyword">final</span> List&lt;String&gt; originSingerNameList = needUpdateList.stream().map(CcMusicInfoEntity::getSingerName).collect(Collectors.toList());</span><br><span class="line">             updateSongSingerInfo(needUpdateList);</span><br><span class="line"></span><br><span class="line">             Map&lt;Integer, String&gt; map = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;(needUpdateList.size());</span><br><span class="line">             <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; needUpdateList.size(); i++) &#123;</span><br><span class="line">                 <span class="keyword">final</span> <span class="type">CcMusicInfoEntity</span> <span class="variable">entity</span> <span class="operator">=</span> needUpdateList.get(i);</span><br><span class="line">                 <span class="keyword">final</span> <span class="type">String</span> <span class="variable">originSingerName</span> <span class="operator">=</span> originSingerNameList.get(i);</span><br><span class="line">                 map.put(entity.getId(), StrUtil.format(<span class="string">&quot;更新前:&#123;&#125;，更新后:&#123;&#125;&quot;</span>, originSingerName, entity.getSingerName()));</span><br><span class="line">             &#125;</span><br><span class="line">             logger.info(StrUtil.format(<span class="string">&quot;fixSongSingleName 本次更新数量，&#123;&#125;，修改数据：&#123;&#125;&quot;</span>, needUpdateList.size(), map));</span><br><span class="line">         &#125;</span><br><span class="line">         logger.info(<span class="string">&quot;fixSongSingleName: 本次更新到ID，&quot;</span> + id);</span><br><span class="line">         <span class="comment">// break;</span></span><br><span class="line">     &#125; <span class="keyword">while</span> (CollUtil.isNotEmpty(list));</span><br><span class="line">     logger.info(<span class="string">&quot;fixSongSingleName: 本次更新完成&quot;</span>);</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">updateSongSingerInfo</span><span class="params">(List&lt;MusicInfoEntity&gt; needUpdateList)</span> &#123;</span><br><span class="line">     List&lt;MusicInfoEntity&gt; list = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;(needUpdateList.size());</span><br><span class="line">     <span class="keyword">for</span> (MusicInfoEntity entity : needUpdateList) &#123;</span><br><span class="line">         <span class="keyword">final</span> <span class="type">String</span> <span class="variable">originSingerName</span> <span class="operator">=</span> entity.getSingerName();</span><br><span class="line">         <span class="keyword">final</span> <span class="type">String</span> <span class="variable">calculateSingerName</span> <span class="operator">=</span> SingerNameUtil.calculate(originSingerName);</span><br><span class="line"></span><br><span class="line">         <span class="comment">// 一样的情况，不用处理</span></span><br><span class="line">         <span class="keyword">if</span> (Objects.equals(originSingerName, calculateSingerName)) &#123;</span><br><span class="line">             <span class="keyword">continue</span>;</span><br><span class="line">         &#125;</span><br><span class="line">         <span class="type">MusicInfoEntity</span> <span class="variable">newCcMusicInfoEntity</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MusicInfoEntity</span>();</span><br><span class="line">         newCcMusicInfoEntity.setId(entity.getId());</span><br><span class="line">         newCcMusicInfoEntity.setLastUpdateDate(<span class="keyword">new</span> <span class="title class_">Date</span>());</span><br><span class="line">         newCcMusicInfoEntity.setSingerName(calculateSingerName);</span><br><span class="line">         list.add(newCcMusicInfoEntity);</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">if</span> (CollUtil.isNotEmpty(list)) &#123;</span><br><span class="line">         musicInfoMapper.updateByList(list);</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
 
 <p><strong>批量查询：</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// MusicInfoMapper.java</span><br><span class="hljs-function">List&lt;MusicInfoEntity&gt; <span class="hljs-title">queryListByLastIdWithLimit</span><span class="hljs-params">(@Param(<span class="hljs-string">"id"</span>)</span> <span class="hljs-keyword">int</span> id, @<span class="hljs-title">Param</span><span class="hljs-params">(<span class="hljs-string">"limit"</span>)</span> <span class="hljs-keyword">int</span> limit)</span>;<br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">updateByList</span><span class="hljs-params">(List&lt;MusicInfoEntity&gt; list)</span></span>;<br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// MusicInfoMapper.java</span></span><br><span class="line">List&lt;MusicInfoEntity&gt; <span class="title function_">queryListByLastIdWithLimit</span><span class="params">(<span class="meta">@Param(&quot;id&quot;)</span> <span class="type">int</span> id, <span class="meta">@Param(&quot;limit&quot;)</span> <span class="type">int</span> limit)</span>;</span><br><span class="line"><span class="keyword">void</span> <span class="title function_">updateByList</span><span class="params">(List&lt;MusicInfoEntity&gt; list)</span>;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- MusicInfoMapper.xml --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"queryListByLastIdWithLimit"</span> <span class="hljs-attr">resultMap</span>=<span class="hljs-string">"BaseResultMap"</span>&gt;</span><br>    SELECT<br>    <span class="hljs-tag">&lt;<span class="hljs-name">include</span> <span class="hljs-attr">refid</span>=<span class="hljs-string">"Base_Column_List"</span> /&gt;</span><br>    FROM t_music_info a<br>    where a.id &gt; #&#123;id&#125; limit #&#123;limit&#125;<br><span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- MusicInfoMapper.xml --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;queryListByLastIdWithLimit&quot;</span> <span class="attr">resultMap</span>=<span class="string">&quot;BaseResultMap&quot;</span>&gt;</span></span><br><span class="line">    SELECT</span><br><span class="line">    <span class="tag">&lt;<span class="name">include</span> <span class="attr">refid</span>=<span class="string">&quot;Base_Column_List&quot;</span> /&gt;</span></span><br><span class="line">    FROM t_music_info a</span><br><span class="line">    where a.id &gt; #&#123;id&#125; limit #&#123;limit&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p><strong>批量插入：</strong></p>
-<p><a href="https://blog.csdn.net/chijiaodaxie/article/details/50210337" target="_blank" rel="noopener">mysql 一条语句 update 多条记录_chijiaodaxie 的博客-CSDN 博客_mysql update 多条数据</a></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--    原文链接：https://blog.csdn.net/u013506626/article/details/121229892 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">update</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"updateByList"</span> <span class="hljs-attr">parameterType</span>=<span class="hljs-string">"object"</span>&gt;</span><br>    update music_info<br>    <span class="hljs-tag">&lt;<span class="hljs-name">trim</span> <span class="hljs-attr">prefix</span>=<span class="hljs-string">"set"</span> <span class="hljs-attr">suffixOverrides</span>=<span class="hljs-string">","</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">trim</span> <span class="hljs-attr">prefix</span>=<span class="hljs-string">"singer_name=case"</span> <span class="hljs-attr">suffix</span>=<span class="hljs-string">"end,"</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">foreach</span> <span class="hljs-attr">collection</span>=<span class="hljs-string">"list"</span> <span class="hljs-attr">item</span>=<span class="hljs-string">"item"</span> <span class="hljs-attr">index</span>=<span class="hljs-string">"index"</span>&gt;</span><br>                WHEN id=#&#123;item.id&#125; THEN #&#123;item.singerName&#125;<br>            <span class="hljs-tag">&lt;/<span class="hljs-name">foreach</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">trim</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">trim</span> <span class="hljs-attr">prefix</span>=<span class="hljs-string">"last_update_date=case"</span> <span class="hljs-attr">suffix</span>=<span class="hljs-string">"end,"</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">foreach</span> <span class="hljs-attr">collection</span>=<span class="hljs-string">"list"</span> <span class="hljs-attr">item</span>=<span class="hljs-string">"item"</span> <span class="hljs-attr">index</span>=<span class="hljs-string">"index"</span>&gt;</span><br>                WHEN id=#&#123;item.id&#125; THEN #&#123;item.lastUpdateDate&#125;<br>            <span class="hljs-tag">&lt;/<span class="hljs-name">foreach</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">trim</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">trim</span>&gt;</span><br><br>    WHERE id IN<br>    <span class="hljs-tag">&lt;<span class="hljs-name">foreach</span> <span class="hljs-attr">collection</span>=<span class="hljs-string">"list"</span> <span class="hljs-attr">item</span>=<span class="hljs-string">"item"</span> <span class="hljs-attr">open</span>=<span class="hljs-string">"("</span> <span class="hljs-attr">close</span>=<span class="hljs-string">")"</span> <span class="hljs-attr">separator</span>=<span class="hljs-string">","</span>&gt;</span><br>        #&#123;item.id&#125;<br>    <span class="hljs-tag">&lt;/<span class="hljs-name">foreach</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">update</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/chijiaodaxie/article/details/50210337">mysql 一条语句 update 多条记录_chijiaodaxie 的博客-CSDN 博客_mysql update 多条数据</a></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--    原文链接：https://blog.csdn.net/u013506626/article/details/121229892 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">update</span> <span class="attr">id</span>=<span class="string">&quot;updateByList&quot;</span> <span class="attr">parameterType</span>=<span class="string">&quot;object&quot;</span>&gt;</span></span><br><span class="line">    update music_info</span><br><span class="line">    <span class="tag">&lt;<span class="name">trim</span> <span class="attr">prefix</span>=<span class="string">&quot;set&quot;</span> <span class="attr">suffixOverrides</span>=<span class="string">&quot;,&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">trim</span> <span class="attr">prefix</span>=<span class="string">&quot;singer_name=case&quot;</span> <span class="attr">suffix</span>=<span class="string">&quot;end,&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">foreach</span> <span class="attr">collection</span>=<span class="string">&quot;list&quot;</span> <span class="attr">item</span>=<span class="string">&quot;item&quot;</span> <span class="attr">index</span>=<span class="string">&quot;index&quot;</span>&gt;</span></span><br><span class="line">                WHEN id=#&#123;item.id&#125; THEN #&#123;item.singerName&#125;</span><br><span class="line">            <span class="tag">&lt;/<span class="name">foreach</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">trim</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">trim</span> <span class="attr">prefix</span>=<span class="string">&quot;last_update_date=case&quot;</span> <span class="attr">suffix</span>=<span class="string">&quot;end,&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">foreach</span> <span class="attr">collection</span>=<span class="string">&quot;list&quot;</span> <span class="attr">item</span>=<span class="string">&quot;item&quot;</span> <span class="attr">index</span>=<span class="string">&quot;index&quot;</span>&gt;</span></span><br><span class="line">                WHEN id=#&#123;item.id&#125; THEN #&#123;item.lastUpdateDate&#125;</span><br><span class="line">            <span class="tag">&lt;/<span class="name">foreach</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">trim</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">trim</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    WHERE id IN</span><br><span class="line">    <span class="tag">&lt;<span class="name">foreach</span> <span class="attr">collection</span>=<span class="string">&quot;list&quot;</span> <span class="attr">item</span>=<span class="string">&quot;item&quot;</span> <span class="attr">open</span>=<span class="string">&quot;(&quot;</span> <span class="attr">close</span>=<span class="string">&quot;)&quot;</span> <span class="attr">separator</span>=<span class="string">&quot;,&quot;</span>&gt;</span></span><br><span class="line">        #&#123;item.id&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">foreach</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">update</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>本文主要深入探究了 mybatis 对 #{ } 和 ${ }的不同处理方式，并了解了 sql 预编译。</p>
-<h2 id="Mybatis-Mapper-xml-继承机制-SegmentFault-思否"><a href="#Mybatis-Mapper-xml-继承机制-SegmentFault-思否" class="headerlink" title="Mybatis Mapper.xml 继承机制 - SegmentFault 思否"></a><a href="https://segmentfault.com/a/1190000012470056" target="_blank" rel="noopener">Mybatis Mapper.xml 继承机制 - SegmentFault 思否</a></h2><h2 id="mybatis-中大于等于小于等于的写法"><a href="#mybatis-中大于等于小于等于的写法" class="headerlink" title="mybatis 中大于等于小于等于的写法"></a><a href="https://blog.csdn.net/xuanzhangran/article/details/60329357" target="_blank" rel="noopener">mybatis 中大于等于小于等于的写法</a></h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs ini">第一种写法（1）：<br><br>原符号       &lt;        &lt;=      &gt;       &gt;=       &amp;        '        "<br>替换符号    &amp;lt;    &amp;lt;=   &amp;gt;    &amp;gt;=   &amp;amp;   &amp;apos;  &amp;quot;<br>例如：sql如下：<br>create_date_time &amp;gt;= #&#123;startTime&#125; and  create_date_time &amp;lt;= #&#123;endTime&#125;<br><br>第二种写法（2）：<br>大于等于<br>&lt;![CDATA[ &gt;= ]]&gt;<br>小于等于<br>&lt;![CDATA[ &lt;= ]]&gt;<br>例如：sql如下：<br>create_date_time &lt;![CDATA[ &gt;= ]]&gt; #&#123;startTime&#125; and  create_date_time &lt;![CDATA[ &lt;= ]]&gt; #&#123;endTime&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="Mybatis-Mapper-xml-继承机制-SegmentFault-思否"><a href="#Mybatis-Mapper-xml-继承机制-SegmentFault-思否" class="headerlink" title="Mybatis Mapper.xml 继承机制 - SegmentFault 思否"></a><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000012470056">Mybatis Mapper.xml 继承机制 - SegmentFault 思否</a></h2><h2 id="mybatis-中大于等于小于等于的写法"><a href="#mybatis-中大于等于小于等于的写法" class="headerlink" title="mybatis 中大于等于小于等于的写法"></a><a target="_blank" rel="noopener" href="https://blog.csdn.net/xuanzhangran/article/details/60329357">mybatis 中大于等于小于等于的写法</a></h2><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">第一种写法（1）：</span><br><span class="line"></span><br><span class="line">原符号       &lt;        &lt;=      &gt;       &gt;=       &amp;        &#x27;        &quot;</span><br><span class="line">替换符号    &amp;lt<span class="comment">;    &amp;lt;=   &amp;gt;    &amp;gt;=   &amp;amp;   &amp;apos;  &amp;quot;</span></span><br><span class="line">例如：sql如下：</span><br><span class="line">create_date_time &amp;gt<span class="comment">;= #&#123;startTime&#125; and  create_date_time &amp;lt;= #&#123;endTime&#125;</span></span><br><span class="line"></span><br><span class="line">第二种写法（2）：</span><br><span class="line">大于等于</span><br><span class="line">&lt;!<span class="section">[CDATA[ &gt;= ]]</span>&gt;</span><br><span class="line">小于等于</span><br><span class="line">&lt;!<span class="section">[CDATA[ &lt;= ]]</span>&gt;</span><br><span class="line">例如：sql如下：</span><br><span class="line">create_date_time &lt;!<span class="section">[CDATA[ &gt;= ]]</span>&gt; <span class="comment">#&#123;startTime&#125; and  create_date_time &lt;![CDATA[ &lt;= ]]&gt; #&#123;endTime&#125;</span></span><br></pre></td></tr></table></figure>
 
     </div>
 
     
     
     
-      
-  <div class="popular-posts-header">相关文章</div>
-  <ul class="popular-posts">
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/ssm/spring-mvc/" rel="bookmark">Spring-Mvc</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/ssm/加密/" rel="bookmark">【Spring】加密</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/ssm/spring/" rel="bookmark">Spring基础</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/ssm/Spring的生命周期/" rel="bookmark">Spring 的生命周期</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/ssm/异常/" rel="bookmark">Spring异常</a></div>
-    </li>
-  </ul>
 
-
-      <footer class="post-footer">
+    <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/sql/" rel="tag"># sql</a>
               <a href="/tags/java/" rel="tag"># java</a>
@@ -401,280 +388,135 @@
 
         
 
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/ssm/spring-mvc/" rel="prev" title="Spring-Mvc">
-      <i class="fa fa-chevron-left"></i> Spring-Mvc
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/java/%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A/" rel="next" title="Java名词解释">
-      Java名词解释 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
-    
-  </article>
-  
-  
-  
-
-
-
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/ssm/spring-mvc/" rel="prev" title="Spring-Mvc">
+                  <i class="fa fa-chevron-left"></i> Spring-Mvc
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/java/%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A/" rel="next" title="Java名词解释">
+                  Java名词解释 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
           </div>
-          
-    <div class="comments" id="gitalk-container"></div>
+    </footer>
+  </article>
+</div>
 
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
 
-        </div>
-          
+
+
+
+
+    
   
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
+  <div class="comments giscus-container">
   </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#资料"><span class="nav-number">1.</span> <span class="nav-text">资料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nested-exception-is-org-apache-ibatis-reflection-ReflectionException-There-is-no-getter-for-property-named"><span class="nav-number">2.</span> <span class="nav-text">nested exception is org.apache.ibatis.reflection.ReflectionException: There is no getter for property named</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#按照输入-id-顺序来返回数据"><span class="nav-number">3.</span> <span class="nav-text">按照输入 id 顺序来返回数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自动填充字段"><span class="nav-number">4.</span> <span class="nav-text">自动填充字段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mybatis-深入理解-一-之-与-区别以及-sql-预编译-SegmentFault-思否"><span class="nav-number">5.</span> <span class="nav-text">mybatis 深入理解(一)之 # 与 $ 区别以及 sql 预编译 - SegmentFault 思否</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#‘-’-与-‘-’"><span class="nav-number">6.</span> <span class="nav-text">‘#’ 与 ‘$’</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#区别"><span class="nav-number">6.1.</span> <span class="nav-text">区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用法-tips"><span class="nav-number">6.2.</span> <span class="nav-text">用法 tips</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sql-预编译"><span class="nav-number">7.</span> <span class="nav-text">sql 预编译</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义"><span class="nav-number">7.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么需要预编译"><span class="nav-number">7.2.</span> <span class="nav-text">为什么需要预编译</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mysql-预编译源码解析"><span class="nav-number">7.3.</span> <span class="nav-text">mysql 预编译源码解析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mybatis-之-sql-动态解析以及预编译源码"><span class="nav-number">8.</span> <span class="nav-text">mybatis 之 sql 动态解析以及预编译源码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#mybatis-sql-动态解析"><span class="nav-number">8.1.</span> <span class="nav-text">mybatis sql 动态解析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#批量处理示例（修复歌手名称）"><span class="nav-number">9.</span> <span class="nav-text">批量处理示例（修复歌手名称）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">10.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mybatis-Mapper-xml-继承机制-SegmentFault-思否"><span class="nav-number">11.</span> <span class="nav-text">Mybatis Mapper.xml 继承机制 - SegmentFault 思否</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mybatis-中大于等于小于等于的写法"><span class="nav-number">12.</span> <span class="nav-text">mybatis 中大于等于小于等于的写法</span></a></li></ol></div>
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="lyloou"
-      src="/assets/images/avatar.png">
-  <p class="site-author-name" itemprop="name">lyloou</p>
-  <div class="site-description" itemprop="description">/* Better than last best */</div>
+  
+  
 </div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">312</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
-        <span class="site-state-item-count">56</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
-</div>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-        <a href="https://github.com/lyloou" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;lyloou" rel="noopener" target="_blank">GitHub</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="mailto:lyloou6@gmail.com" title="E-Mail → mailto:lyloou6@gmail.com" rel="noopener" target="_blank">E-Mail</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://weibo.com/lyloou" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;lyloou" rel="noopener" target="_blank">Weibo</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://blog.csdn.net/ly1414725328" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;ly1414725328" rel="noopener" target="_blank">CSDN</a>
-      </span>
-  </div>
-  <div class="cc-license motion-element" itemprop="license">
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
-  </div>
+  </main>
 
+  <footer class="footer">
+    <div class="footer-inner">
 
-
-      </div>
-
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-        
   <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">粤ICP备18151128号 </a>
   </div>
 
 <div class="copyright">
-  
   &copy; 
   <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
-    <i class="user"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">lyloou</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
-  </div>
-
-        
 <div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
       <span class="post-meta-item-icon">
-        <i class="user"></i>
+        <i class="fa fa-user"></i>
       </span>
       <span class="site-uv" title="总访客量">
         <span id="busuanzi_value_site_uv"></span>
       </span>
     </span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
       <span class="post-meta-item-icon">
-        <i class="eye"></i>
+        <i class="fa fa-eye"></i>
       </span>
       <span class="site-pv" title="总访问量">
         <span id="busuanzi_value_site_pv"></span>
       </span>
     </span>
 </div>
-
-
-
-
-
-
-
-
-      </div>
-    </footer>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>
 
-  
-  <script src="/lib/anime.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-
-<script src="/js/schemes/muse.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
-
-
-
+    </div>
+  </footer>
 
   
-  <script>
-    (function(){
-      var canonicalURL, curProtocol;
-      //Get the <link> tag
-      var x=document.getElementsByTagName("link");
-		//Find the last canonical URL
-		if(x.length > 0){
-			for (i=0;i<x.length;i++){
-				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
-					canonicalURL=x[i].href;
-				}
-			}
-		}
-    //Get protocol
-	    if (!canonicalURL){
-	    	curProtocol = window.location.protocol.split(':')[0];
-	    }
-	    else{
-	    	curProtocol = canonicalURL.split(':')[0];
-	    }
-      //Get current URL if the canonical URL does not exist
-	    if (!canonicalURL) canonicalURL = window.location.href;
-	    //Assign script content. Replace current URL with the canonical URL
-      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
-  </script>
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
 
 
 
 
   
-<script src="/js/local-search.js"></script>
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 
 
-
-
-
-
-
-
+<script class="next-config" data-name="giscus" type="application/json">{"enable":true,"repo":"lyloou/lyloou.github.io","repo_id":"MDEwOlJlcG9zaXRvcnkxMDk1NzkyNzA=","category":"Announcements","category_id":"DIC_kwDOBogMBs4CWdfR","mapping":"pathname","reactions_enabled":1,"emit_metadata":1,"theme":"light","lang":"zh-CN","input_position":"bottom","loading":"lazy"}</script>
 
 <script>
-if (document.querySelectorAll('pre.mermaid').length) {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
-    mermaid.initialize({
-      theme    : 'forest',
-      logLevel : 3,
-      flowchart: { curve     : 'linear' },
-      gantt    : { axisFormat: '%m/%d/%Y' },
-      sequence : { actorMargin: 50 }
-    });
-  }, window.mermaid);
-}
-</script>
+document.addEventListener('page:loaded', () => {
+  if (!CONFIG.page.comments) return;
 
-
-  
-
-  
-
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
-
-<script>
-NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
-    var gitalk = new Gitalk({
-      clientID    : '5776a56ec2a831d83dfc',
-      clientSecret: '28440989ccf00f0ce8dbd425dc5d1eaa1eb24c7b',
-      repo        : 'lyloou.github.io',
-      owner       : 'lyloou',
-      admin       : ['lyloou'],
-      id          : 'a529d1c6dbf96817ab7068eb75bb9086',
-        language: '',
-      distractionFreeMode: true
-    });
-    gitalk.render('gitalk-container');
-  }, window.Gitalk);
+  NexT.utils.loadComments('.giscus-container')
+    .then(() => NexT.utils.getScript('https://giscus.app/client.js', {
+      attributes: {
+        async                   : true,
+        crossOrigin             : 'anonymous',
+        'data-repo'             : CONFIG.giscus.repo,
+        'data-repo-id'          : CONFIG.giscus.repo_id,
+        'data-category'         : CONFIG.giscus.category,
+        'data-category-id'      : CONFIG.giscus.category_id,
+        'data-mapping'          : CONFIG.giscus.mapping,
+        'data-reactions-enabled': CONFIG.giscus.reactions_enabled,
+        'data-emit-metadata'    : CONFIG.giscus.emit_metadata,
+        'data-theme'            : CONFIG.giscus.theme,
+        'data-lang'             : CONFIG.giscus.lang,
+        'data-input-position'   : CONFIG.giscus.input_position,
+        'data-loading'          : CONFIG.giscus.loading
+      },
+      parentNode: document.querySelector('.giscus-container')
+    }));
 });
 </script>
 

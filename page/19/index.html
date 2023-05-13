@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="zh-CN,zh-HK,zh-TW,en,default">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
@@ -13,14 +13,13 @@
 <link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"lyloou.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":{"gitalk":{"order":-2}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
-  </script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-  <meta name="description" content="&#x2F;* Better than last best *&#x2F;">
+<script class="next-config" data-name="main" type="application/json">{"hostname":"lyloou.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"default"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="&#x2F;* Better than last best *&#x2F;">
 <meta property="og:type" content="website">
 <meta property="og:title" content="lyloou">
 <meta property="og:url" content="https://lyloou.com/page/19/index.html">
@@ -30,37 +29,20 @@
 <meta property="article:author" content="lyloou">
 <meta name="twitter:card" content="summary">
 
+
 <link rel="canonical" href="https://lyloou.com/page/19/">
 
 
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : true,
-    isPost : false,
-    lang   : 'zh-CN'
-  };
-</script>
 
-  <title>lyloou</title>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"page/19/index.html","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>lyloou</title>
   
-    <script>
-      function sendPageView() {
-        if (CONFIG.hostname !== location.hostname) return;
-        var uid = localStorage.getItem('uid') || (Math.random() + '.' + Math.random());
-        localStorage.setItem('uid', uid);
-        navigator.sendBeacon('https://www.google-analytics.com/collect', new URLSearchParams({
-          v  : 1,
-          tid: 'UA-80542932-1',
-          cid: uid,
-          t  : 'pageview',
-          dp : encodeURIComponent(location.pathname)
-        }));
-      }
-      document.addEventListener('pjax:complete', sendPageView);
-      sendPageView();
-    </script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-80542932-1","only_pageview":true}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
 
 
 
@@ -68,55 +50,35 @@
 
 
   <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container">
-    <div class="headband"></div>
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
 
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
-  <div class="site-meta custom-logo">
+  <div class="site-meta">
 
     <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
+      <i class="logo-line"></i>
       <h1 class="site-title">lyloou</h1>
-      <span class="logo-line-after"><i></i></span>
+      <i class="logo-line"></i>
     </a>
   </div>
 
   <div class="site-nav-right">
-    <div class="toggle popup-trigger">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
         <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
@@ -124,29 +86,8 @@
 
 
 
-
 <nav class="site-nav">
-  <ul id="menu" class="main-menu menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="home fa-fw"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签</a>
-
-  </li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -157,78 +98,145 @@
 
 
   <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
+    <div class="popup search-popup"><div class="search-header">
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
   <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off"
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
            placeholder="搜索..." spellcheck="false"
            type="search" class="search-input">
   </div>
-  <span class="popup-btn-close">
+  <span class="popup-btn-close" role="button">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
-<div id="search-result">
-  <div id="no-result">
-    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
   </div>
 </div>
 
     </div>
   </div>
 
-</div>
-    </header>
+</header>
+        
+  
+  <aside class="sidebar">
 
-    
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="lyloou"
+      src="/assets/images/avatar.png">
+  <p class="site-author-name" itemprop="name">lyloou</p>
+  <div class="site-description" itemprop="description">/* Better than last best */</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">312</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">56</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/lyloou" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;lyloou" rel="noopener me" target="_blank"><i class="github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:lyloou6@gmail.com" title="E-Mail → mailto:lyloou6@gmail.com" rel="noopener me" target="_blank"><i class="envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/lyloou" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;lyloou" rel="noopener me" target="_blank"><i class="weibo fa-fw"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/ly1414725328" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;ly1414725328" rel="noopener me" target="_blank"><i class="csdn fa-fw"></i>CSDN</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
   </div>
 
+        </div>
+      </div>
+    </div>
 
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
+    
+        <div class="pjax">
+        </div>
+  </aside>
 
-          <div class="content index posts-expand">
-            
-      
+
+    </div>
+
+    <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://lyloou.com/linux/%E7%B3%BB%E7%BB%9F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lyloou">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/linux/%E7%B3%BB%E7%BB%9F/" class="post-title-link" itemprop="url">【Linux】系统</a>
+          <a href="/linux/%E7%B3%BB%E7%BB%9F/" class="post-title-link" itemprop="url">【Linux】系统</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2018-07-26 17:16:15" itemprop="dateCreated datePublished" datetime="2018-07-26T17:16:15+08:00">2018-07-26</time>
-            </span>
+      <time title="创建时间：2018-07-26 17:16:15" itemprop="dateCreated datePublished" datetime="2018-07-26T17:16:15+08:00">2018-07-26</time>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -237,20 +245,18 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
           <h2 id="制作-ubuntu-系统启动-u-盘"><a href="#制作-ubuntu-系统启动-u-盘" class="headerlink" title="制作 ubuntu 系统启动 u 盘"></a>制作 ubuntu 系统启动 u 盘</h2><h3 id="下载发行版镜像"><a href="#下载发行版镜像" class="headerlink" title="下载发行版镜像"></a>下载发行版镜像</h3><p>有这几个供参考：ubuntu、xbuntu、mate ubuntu</p>
 <h3 id="ubuntu"><a href="#ubuntu" class="headerlink" title="ubuntu"></a>ubuntu</h3><ul>
 <li>Startup Disk Creator(启动盘创建器)</li>
 </ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># install</span><br>sudo apt-get install usb-creator-gtk<br><span class="hljs-comment"># run</span><br>usb-creator-gtk<br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># install</span></span><br><span class="line">sudo apt-get install usb-creator-gtk</span><br><span class="line"><span class="comment"># run</span></span><br><span class="line">usb-creator-gtk</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li><a href="https://tutorials.ubuntu.com/tutorial/tutorial-create-a-usb-stick-on-ubuntu" target="_blank" rel="noopener">https://tutorials.ubuntu.com/tutorial/tutorial-create-a-usb-stick-on-ubuntu</a></li>
+<li><a target="_blank" rel="noopener" href="https://tutorials.ubuntu.com/tutorial/tutorial-create-a-usb-stick-on-ubuntu">https://tutorials.ubuntu.com/tutorial/tutorial-create-a-usb-stick-on-ubuntu</a></li>
 </ul>
 <h3 id="mac"><a href="#mac" class="headerlink" title="mac"></a>mac</h3><ul>
 <li>Disk Utility</li>
-<li><a href="https://tutorials.ubuntu.com/tutorial/tutorial-create-a-usb-stick-on-macos" target="_blank" rel="noopener">https://tutorials.ubuntu.com/tutorial/tutorial-create-a-usb-stick-on-macos</a></li>
+<li><a target="_blank" rel="noopener" href="https://tutorials.ubuntu.com/tutorial/tutorial-create-a-usb-stick-on-macos">https://tutorials.ubuntu.com/tutorial/tutorial-create-a-usb-stick-on-macos</a></li>
 </ul>
 <h3 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h3><ul>
 <li><p>下载 Pen Drive Linux’s USB 安装器 （或：rufus）</p>
@@ -261,19 +267,19 @@
 </li>
 <li><p>选择一个 USB 驱动器并点击‘创建’.</p>
 </li>
-<li><p><a href="http://www.ubuntu.org.cn/download/desktop/create-a-usb-stick-on-windows" target="_blank" rel="noopener">如何在 Windows 下创建一个可启动 USB 驱动器 | Ubuntu</a><br>注意：U 盘启动后，会出现提示<code>gfxboot.c32: not a com32r image</code>，这时按下 TAB，并输入<code>live</code>回车即可进入启动系统。</p>
+<li><p><a target="_blank" rel="noopener" href="http://www.ubuntu.org.cn/download/desktop/create-a-usb-stick-on-windows">如何在 Windows 下创建一个可启动 USB 驱动器 | Ubuntu</a><br>注意：U 盘启动后，会出现提示<code>gfxboot.c32: not a com32r image</code>，这时按下 TAB，并输入<code>live</code>回车即可进入启动系统。</p>
 </li>
-<li><p><a href="https://tutorials.ubuntu.com/tutorial/tutorial-create-a-usb-stick-on-windows" target="_blank" rel="noopener">https://tutorials.ubuntu.com/tutorial/tutorial-create-a-usb-stick-on-windows</a></p>
+<li><p><a target="_blank" rel="noopener" href="https://tutorials.ubuntu.com/tutorial/tutorial-create-a-usb-stick-on-windows">https://tutorials.ubuntu.com/tutorial/tutorial-create-a-usb-stick-on-windows</a></p>
 </li>
 </ul>
-<h2 id="如何找到-Linux-的版本号"><a href="#如何找到-Linux-的版本号" class="headerlink" title="如何找到 Linux 的版本号"></a><a href="https://linux.cn/article-9760-1.html" target="_blank" rel="noopener">如何找到 Linux 的版本号</a></h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">uname -srm<br><span class="hljs-comment"># uname --kernel-name --kernel-release --machine</span><br><span class="hljs-comment"># Linux 4.13.0-46-generic x86_64</span><br></code></pre></td></tr></table></figure>
+<h2 id="如何找到-Linux-的版本号"><a href="#如何找到-Linux-的版本号" class="headerlink" title="如何找到 Linux 的版本号"></a><a target="_blank" rel="noopener" href="https://linux.cn/article-9760-1.html">如何找到 Linux 的版本号</a></h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">uname</span> -srm</span><br><span class="line"><span class="comment"># uname --kernel-name --kernel-release --machine</span></span><br><span class="line"><span class="comment"># Linux 4.13.0-46-generic x86_64</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">cat /etc/os-release<br></code></pre></td></tr></table></figure>
-<h2 id="Checking-Your-Ubuntu-Version-From-the-Terminal"><a href="#Checking-Your-Ubuntu-Version-From-the-Terminal" class="headerlink" title="Checking Your Ubuntu Version From the Terminal"></a>Checking Your Ubuntu Version From the Terminal</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">lsb_release -a<br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> /etc/os-release</span><br></pre></td></tr></table></figure>
+<h2 id="Checking-Your-Ubuntu-Version-From-the-Terminal"><a href="#Checking-Your-Ubuntu-Version-From-the-Terminal" class="headerlink" title="Checking Your Ubuntu Version From the Terminal"></a>Checking Your Ubuntu Version From the Terminal</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsb_release -a</span><br></pre></td></tr></table></figure>
 
-<h2 id="How-do-you-run-Ubuntu-Server-with-a-GUI"><a href="#How-do-you-run-Ubuntu-Server-with-a-GUI" class="headerlink" title="How do you run Ubuntu Server with a GUI?"></a><a href="https://askubuntu.com/questions/53822/how-do-you-run-ubuntu-server-with-a-gui" target="_blank" rel="noopener">How do you run Ubuntu Server with a GUI?</a></h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># Minimal GUI:</span><br>sudo apt install xorg<br>sudo apt install --no-install-recommends openbox<br><br><span class="hljs-comment"># Minimal GUI with display manager:</span><br>sudo apt install xorg<br>sudo apt install --no-install-recommends lightdm-gtk-greeter<br>sudo apt install --no-install-recommends lightdm<br>sudo apt install --no-install-recommends openbox<br><br><span class="hljs-comment"># A more functional minimal desktop environment (the one I use):</span><br>sudo apt install xorg<br>sudo apt install --no-install-recommends lightdm-gtk-greeter<br>sudo apt install --no-install-recommends lightdm<br>sudo apt install --no-install-recommends lxde-icon-theme<br>sudo apt install --no-install-recommends lxde-core<br>sudo apt install --no-install-recommends lxde-common<br>sudo apt install --no-install-recommends policykit-1 lxpolkit<br>sudo apt install --no-install-recommends lxsession-logout<br>sudo apt install --no-install-recommends gvfs-backends<br><br><span class="hljs-comment"># A full lightweight desktop environment:</span><br>sudo apt install xorg<br>sudo apt install --no-install-recommends xubuntu-core<br><span class="hljs-comment"># or</span><br>sudo apt install --no-install-recommends ubuntu-mate-core<br></code></pre></td></tr></table></figure>
+<h2 id="How-do-you-run-Ubuntu-Server-with-a-GUI"><a href="#How-do-you-run-Ubuntu-Server-with-a-GUI" class="headerlink" title="How do you run Ubuntu Server with a GUI?"></a><a target="_blank" rel="noopener" href="https://askubuntu.com/questions/53822/how-do-you-run-ubuntu-server-with-a-gui">How do you run Ubuntu Server with a GUI?</a></h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Minimal GUI:</span></span><br><span class="line">sudo apt install xorg</span><br><span class="line">sudo apt install --no-install-recommends openbox</span><br><span class="line"></span><br><span class="line"><span class="comment"># Minimal GUI with display manager:</span></span><br><span class="line">sudo apt install xorg</span><br><span class="line">sudo apt install --no-install-recommends lightdm-gtk-greeter</span><br><span class="line">sudo apt install --no-install-recommends lightdm</span><br><span class="line">sudo apt install --no-install-recommends openbox</span><br><span class="line"></span><br><span class="line"><span class="comment"># A more functional minimal desktop environment (the one I use):</span></span><br><span class="line">sudo apt install xorg</span><br><span class="line">sudo apt install --no-install-recommends lightdm-gtk-greeter</span><br><span class="line">sudo apt install --no-install-recommends lightdm</span><br><span class="line">sudo apt install --no-install-recommends lxde-icon-theme</span><br><span class="line">sudo apt install --no-install-recommends lxde-core</span><br><span class="line">sudo apt install --no-install-recommends lxde-common</span><br><span class="line">sudo apt install --no-install-recommends policykit-1 lxpolkit</span><br><span class="line">sudo apt install --no-install-recommends lxsession-logout</span><br><span class="line">sudo apt install --no-install-recommends gvfs-backends</span><br><span class="line"></span><br><span class="line"><span class="comment"># A full lightweight desktop environment:</span></span><br><span class="line">sudo apt install xorg</span><br><span class="line">sudo apt install --no-install-recommends xubuntu-core</span><br><span class="line"><span class="comment"># or</span></span><br><span class="line">sudo apt install --no-install-recommends ubuntu-mate-core</span><br></pre></td></tr></table></figure>
 
-<h2 id="Can-I-access-Ubuntu-from-Windows-remotely"><a href="#Can-I-access-Ubuntu-from-Windows-remotely" class="headerlink" title="Can I access Ubuntu from Windows remotely?"></a><a href="https://askubuntu.com/questions/592537/can-i-access-ubuntu-from-windows-remotely" target="_blank" rel="noopener">Can I access Ubuntu from Windows remotely?</a></h2><p><a href="https://www.tweaking4all.com/software/linux-software/use-xrdp-remote-access-ubuntu-14-04/" target="_blank" rel="noopener">https://www.tweaking4all.com/software/linux-software/use-xrdp-remote-access-ubuntu-14-04/</a></p>
+<h2 id="Can-I-access-Ubuntu-from-Windows-remotely"><a href="#Can-I-access-Ubuntu-from-Windows-remotely" class="headerlink" title="Can I access Ubuntu from Windows remotely?"></a><a target="_blank" rel="noopener" href="https://askubuntu.com/questions/592537/can-i-access-ubuntu-from-windows-remotely">Can I access Ubuntu from Windows remotely?</a></h2><p><a target="_blank" rel="noopener" href="https://www.tweaking4all.com/software/linux-software/use-xrdp-remote-access-ubuntu-14-04/">https://www.tweaking4all.com/software/linux-software/use-xrdp-remote-access-ubuntu-14-04/</a></p>
 <h2 id="vmware-esxi"><a href="#vmware-esxi" class="headerlink" title="vmware esxi"></a>vmware esxi</h2>
       
     </div>
@@ -281,46 +287,59 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://lyloou.com/android/%E7%BC%96%E8%AF%91%E9%97%AE%E9%A2%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lyloou">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/android/%E7%BC%96%E8%AF%91%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">编译问题</a>
+          <a href="/android/%E7%BC%96%E8%AF%91%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">编译问题</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2018-07-25 11:58:08" itemprop="dateCreated datePublished" datetime="2018-07-25T11:58:08+08:00">2018-07-25</time>
-            </span>
+      <time title="创建时间：2018-07-25 11:58:08" itemprop="dateCreated datePublished" datetime="2018-07-25T11:58:08+08:00">2018-07-25</time>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -329,11 +348,9 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
           <p>  点击：Refresh all Gradle projects</p>
 <ul>
-<li><a href="https://blog.csdn.net/longlyboyhe/article/details/51768879" target="_blank" rel="noopener">The APK file does not exist on disk.Error while Installing APK</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/longlyboyhe/article/details/51768879">The APK file does not exist on disk.Error while Installing APK</a></li>
 </ul>
 
       
@@ -342,46 +359,59 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://lyloou.com/developer/become%20a%20better%20developer/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lyloou">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/developer/become%20a%20better%20developer/" class="post-title-link" itemprop="url">Become a Better Developer</a>
+          <a href="/developer/become%20a%20better%20developer/" class="post-title-link" itemprop="url">Become a Better Developer</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2018-07-23 14:33:15" itemprop="dateCreated datePublished" datetime="2018-07-23T14:33:15+08:00">2018-07-23</time>
-            </span>
+      <time title="创建时间：2018-07-23 14:33:15" itemprop="dateCreated datePublished" datetime="2018-07-23T14:33:15+08:00">2018-07-23</time>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -390,24 +420,22 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
           <h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><p>~ 自动化<br>~ 规模化<br>~ 低成本<br>~ 高效率</p>
-<h2 id="理论学科"><a href="#理论学科" class="headerlink" title="理论学科"></a>理论学科</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-quote">&gt; https://time.geekbang.org/column/article/8701</span><br><span class="hljs-quote">&gt; 理论学科。你需要学习像算法、数据结构、网络模型、计算机原理等计算机科学专业需要学习的知识。为什么要学好这些理论上的知识呢？</span><br><span class="hljs-quote">&gt; 其一，这些理论知识可以说是计算机科学这门学科最精华的知识了。说得大一点，这些是人类智慧的精华。你只要想成为高手，这些东西是你必需要掌握和学习的。</span><br><span class="hljs-quote">&gt; 其二，当你在解决一些很复杂或是很难的问题时，这些基础理论知识可以帮到你很多。我过去这 20 年从这些基础理论知识中受益匪浅。</span><br><span class="hljs-quote">&gt; 其三，这些理论知识的思维方式可以让你有触类旁通，一通百通的感觉。虽然知识比较难啃，但啃过以后，你将获益终生。</span><br><span class="hljs-quote">&gt; ———— 陈浩</span><br></code></pre></td></tr></table></figure>
+<h2 id="理论学科"><a href="#理论学科" class="headerlink" title="理论学科"></a>理论学科</h2><figure class="highlight node-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt;</span> <span class="language-javascript"><span class="attr">https</span>:<span class="comment">//time.geekbang.org/column/article/8701</span></span></span><br><span class="line"><span class="meta prompt_">&gt;</span> <span class="language-javascript">理论学科。你需要学习像算法、数据结构、网络模型、计算机原理等计算机科学专业需要学习的知识。为什么要学好这些理论上的知识呢？</span></span><br><span class="line"><span class="meta prompt_">&gt;</span> <span class="language-javascript">其一，这些理论知识可以说是计算机科学这门学科最精华的知识了。说得大一点，这些是人类智慧的精华。你只要想成为高手，这些东西是你必需要掌握和学习的。</span></span><br><span class="line"><span class="meta prompt_">&gt;</span> <span class="language-javascript">其二，当你在解决一些很复杂或是很难的问题时，这些基础理论知识可以帮到你很多。我过去这 <span class="number">20</span> 年从这些基础理论知识中受益匪浅。</span></span><br><span class="line"><span class="meta prompt_">&gt;</span> <span class="language-javascript">其三，这些理论知识的思维方式可以让你有触类旁通，一通百通的感觉。虽然知识比较难啃，但啃过以后，你将获益终生。</span></span><br><span class="line"><span class="meta prompt_">&gt;</span> <span class="language-javascript">———— 陈浩</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="become-a-better-developer"><a href="#become-a-better-developer" class="headerlink" title="become a better developer"></a>become a better developer</h2><hr>
 <ul>
-<li><a href="https://coolshell.cn/articles/4235.html" target="_blank" rel="noopener">程序员的谎谬之言还是至理名言？ | | 酷 壳 - CoolShell</a></li>
+<li><a target="_blank" rel="noopener" href="https://coolshell.cn/articles/4235.html">程序员的谎谬之言还是至理名言？ | | 酷 壳 - CoolShell</a></li>
 </ul>
 <hr>
 <ul>
-<li><p>All Developers Should Know How They Learn Best (this post)<br><a href="https://www.skorks.com/2009/08/all-developers-should-know-how-they-learn-best/" target="_blank" rel="noopener">https://www.skorks.com/2009/08/all-developers-should-know-how-they-learn-best/</a></p>
+<li><p>All Developers Should Know How They Learn Best (this post)<br><a target="_blank" rel="noopener" href="https://www.skorks.com/2009/08/all-developers-should-know-how-they-learn-best/">https://www.skorks.com/2009/08/all-developers-should-know-how-they-learn-best/</a></p>
 </li>
-<li><p>The Secret Of Being A Great Mentor<br><a href="https://www.skorks.com/2009/09/the-secret-of-being-a-great-mentor/" target="_blank" rel="noopener">https://www.skorks.com/2009/09/the-secret-of-being-a-great-mentor/</a><br><a href="https://www.skorks.com/2009/09/manufacturing-authority-and-trust/" target="_blank" rel="noopener">https://www.skorks.com/2009/09/manufacturing-authority-and-trust/</a></p>
+<li><p>The Secret Of Being A Great Mentor<br><a target="_blank" rel="noopener" href="https://www.skorks.com/2009/09/the-secret-of-being-a-great-mentor/">https://www.skorks.com/2009/09/the-secret-of-being-a-great-mentor/</a><br><a target="_blank" rel="noopener" href="https://www.skorks.com/2009/09/manufacturing-authority-and-trust/">https://www.skorks.com/2009/09/manufacturing-authority-and-trust/</a></p>
 </li>
 <li><p>The Secret Of Being A Great Apprentice</p>
 </li>
-<li><p>Become A Better Developer By Indexing Your Brain<br><a href="https://www.skorks.com/2009/09/become-a-better-developer-by-indexing-your-brain/" target="_blank" rel="noopener">https://www.skorks.com/2009/09/become-a-better-developer-by-indexing-your-brain/</a></p>
+<li><p>Become A Better Developer By Indexing Your Brain<br><a target="_blank" rel="noopener" href="https://www.skorks.com/2009/09/become-a-better-developer-by-indexing-your-brain/">https://www.skorks.com/2009/09/become-a-better-developer-by-indexing-your-brain/</a></p>
 </li>
 <li><p>Learn More – Faster By Using The World-Wide Community</p>
 </li>
@@ -416,16 +444,16 @@
 </ul>
 <hr>
 <ul>
-<li>Why Developers Never Use State Machines<br><a href="https://www.skorks.com/2011/09/why-developers-never-use-state-machines/" target="_blank" rel="noopener">https://www.skorks.com/2011/09/why-developers-never-use-state-machines/</a></li>
-<li>Manufacturing Authority And Trust<br><a href="https://www.skorks.com/2009/09/manufacturing-authority-and-trust/" target="_blank" rel="noopener">https://www.skorks.com/2009/09/manufacturing-authority-and-trust/</a></li>
+<li>Why Developers Never Use State Machines<br><a target="_blank" rel="noopener" href="https://www.skorks.com/2011/09/why-developers-never-use-state-machines/">https://www.skorks.com/2011/09/why-developers-never-use-state-machines/</a></li>
+<li>Manufacturing Authority And Trust<br><a target="_blank" rel="noopener" href="https://www.skorks.com/2009/09/manufacturing-authority-and-trust/">https://www.skorks.com/2009/09/manufacturing-authority-and-trust/</a></li>
 </ul>
-<h2 id="How-To-Ask-Questions-The-Smart-Way"><a href="#How-To-Ask-Questions-The-Smart-Way" class="headerlink" title="How To Ask Questions The Smart Way"></a><a href="http://www.catb.org/~esr/faqs/smart-questions.html" target="_blank" rel="noopener">How To Ask Questions The Smart Way</a></h2><h2 id="If-you-want-to-improve-your-self-confidence-improve-your-skills"><a href="#If-you-want-to-improve-your-self-confidence-improve-your-skills" class="headerlink" title="If you want to improve your self-confidence, improve your skills"></a>If you want to improve your self-confidence, improve your skills</h2><blockquote>
-<p><a href="https://medium.com/darius-foroux/i-have-15-ideas-to-change-your-life-do-you-have-5-minutes-f84c3f99b3c5" target="_blank" rel="noopener">https://medium.com/darius-foroux/i-have-15-ideas-to-change-your-life-do-you-have-5-minutes-f84c3f99b3c5</a><br>If you don’t believe in yourself, don’t try to search for it in motivational posts, talks, or books.</p>
+<h2 id="How-To-Ask-Questions-The-Smart-Way"><a href="#How-To-Ask-Questions-The-Smart-Way" class="headerlink" title="How To Ask Questions The Smart Way"></a><a target="_blank" rel="noopener" href="http://www.catb.org/~esr/faqs/smart-questions.html">How To Ask Questions The Smart Way</a></h2><h2 id="If-you-want-to-improve-your-self-confidence-improve-your-skills"><a href="#If-you-want-to-improve-your-self-confidence-improve-your-skills" class="headerlink" title="If you want to improve your self-confidence, improve your skills"></a>If you want to improve your self-confidence, improve your skills</h2><blockquote>
+<p><a target="_blank" rel="noopener" href="https://medium.com/darius-foroux/i-have-15-ideas-to-change-your-life-do-you-have-5-minutes-f84c3f99b3c5">https://medium.com/darius-foroux/i-have-15-ideas-to-change-your-life-do-you-have-5-minutes-f84c3f99b3c5</a><br>If you don’t believe in yourself, don’t try to search for it in motivational posts, talks, or books.</p>
 </blockquote>
-<p><a href="http://dariusforoux.com/build-self-confidence-need-win-life/" target="_blank" rel="noopener">You only improve your self-confidence by becoming good at something</a>. How do you get good? By learning, doing, seeing results, and repeating that process for years. Your confidence will grow slowly every day.</p>
-<h2 id="How-To-Build-The-Self-Confidence-You-Need-To-Win-At-Life"><a href="#How-To-Build-The-Self-Confidence-You-Need-To-Win-At-Life" class="headerlink" title="How To Build The Self-Confidence You Need To Win At Life"></a><a href="https://dariusforoux.com/build-self-confidence-need-win-life/" target="_blank" rel="noopener">How To Build The Self-Confidence You Need To Win At Life</a></h2><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs asciidoc"><span class="hljs-bullet">- </span>Improve your competencies<br><span class="hljs-bullet">- </span>Put them into practice<br><span class="hljs-bullet">- </span>See results<br><span class="hljs-bullet">- </span>Grow more confident<br><span class="hljs-bullet">- </span>Repeat<br></code></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="http://dariusforoux.com/build-self-confidence-need-win-life/">You only improve your self-confidence by becoming good at something</a>. How do you get good? By learning, doing, seeing results, and repeating that process for years. Your confidence will grow slowly every day.</p>
+<h2 id="How-To-Build-The-Self-Confidence-You-Need-To-Win-At-Life"><a href="#How-To-Build-The-Self-Confidence-You-Need-To-Win-At-Life" class="headerlink" title="How To Build The Self-Confidence You Need To Win At Life"></a><a target="_blank" rel="noopener" href="https://dariusforoux.com/build-self-confidence-need-win-life/">How To Build The Self-Confidence You Need To Win At Life</a></h2><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">- </span>Improve your competencies</span><br><span class="line"><span class="bullet">- </span>Put them into practice</span><br><span class="line"><span class="bullet">- </span>See results</span><br><span class="line"><span class="bullet">- </span>Grow more confident</span><br><span class="line"><span class="bullet">- </span>Repeat</span><br></pre></td></tr></table></figure>
 
-<h2 id="The-Most-Important-Skill-Nobody-Taught-You-–-Personal-Growth-–-Medium"><a href="#The-Most-Important-Skill-Nobody-Taught-You-–-Personal-Growth-–-Medium" class="headerlink" title="The Most Important Skill Nobody Taught You – Personal Growth – Medium"></a><a href="https://medium.com/personal-growth/the-most-important-skill-nobody-taught-you-9b162377ab77" target="_blank" rel="noopener">The Most Important Skill Nobody Taught You – Personal Growth – Medium</a></h2><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs applescript">Fortunately, there <span class="hljs-keyword">is</span> a solution. The only way <span class="hljs-keyword">to</span> avoid being ruined <span class="hljs-keyword">by</span> this fear — like any fear — <span class="hljs-keyword">is</span> <span class="hljs-keyword">to</span> face <span class="hljs-keyword">it</span>. It’s <span class="hljs-keyword">to</span> let <span class="hljs-keyword">the</span> boredom take you <span class="hljs-keyword">where</span> <span class="hljs-keyword">it</span> wants so you can deal <span class="hljs-keyword">with</span> whatever <span class="hljs-keyword">it</span> <span class="hljs-keyword">is</span> <span class="hljs-keyword">that</span> <span class="hljs-keyword">is</span> really going <span class="hljs-keyword">on</span> <span class="hljs-keyword">with</span> your sense <span class="hljs-keyword">of</span> self. That’s when you’ll hear yourself think, <span class="hljs-keyword">and</span> <span class="hljs-keyword">that</span>’s when you’ll learn <span class="hljs-keyword">to</span> engage <span class="hljs-keyword">the</span> parts <span class="hljs-keyword">of</span> you <span class="hljs-keyword">that</span> are masked <span class="hljs-keyword">by</span> distraction.<br><br>The beauty <span class="hljs-keyword">of</span> this <span class="hljs-keyword">is</span> <span class="hljs-keyword">that</span>, once you cross <span class="hljs-keyword">that</span> initial barrier, you realize <span class="hljs-keyword">that</span> being alone isn’t so bad. Boredom can provide <span class="hljs-keyword">its</span> own stimulation.<br><br>...<br><br>The oldest philosophical wisdom <span class="hljs-keyword">in</span> <span class="hljs-keyword">the</span> world has one piece <span class="hljs-keyword">of</span> advice <span class="hljs-keyword">for</span> us:<br>know yourself. And there <span class="hljs-keyword">is</span> a good reason why <span class="hljs-keyword">that</span> <span class="hljs-keyword">is</span>.<br><br>Without knowing ourselves, <span class="hljs-keyword">it</span>’s almost impossible <span class="hljs-keyword">to</span> find a healthy way <span class="hljs-keyword">to</span> interact <span class="hljs-keyword">with</span> <span class="hljs-keyword">the</span> world <span class="hljs-keyword">around</span> us.<br>Without taking <span class="hljs-built_in">time</span> <span class="hljs-keyword">to</span> figure <span class="hljs-keyword">it</span> out, we don’t have a foundation <span class="hljs-keyword">to</span> built <span class="hljs-keyword">the</span> <span class="hljs-built_in">rest</span> <span class="hljs-keyword">of</span> our lives <span class="hljs-keyword">on</span>.<br></code></pre></td></tr></table></figure>
+<h2 id="The-Most-Important-Skill-Nobody-Taught-You-–-Personal-Growth-–-Medium"><a href="#The-Most-Important-Skill-Nobody-Taught-You-–-Personal-Growth-–-Medium" class="headerlink" title="The Most Important Skill Nobody Taught You – Personal Growth – Medium"></a><a target="_blank" rel="noopener" href="https://medium.com/personal-growth/the-most-important-skill-nobody-taught-you-9b162377ab77">The Most Important Skill Nobody Taught You – Personal Growth – Medium</a></h2><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Fortunately, there <span class="keyword">is</span> a solution. The only way <span class="keyword">to</span> avoid being ruined <span class="keyword">by</span> this fear — like any fear — <span class="keyword">is</span> <span class="keyword">to</span> face <span class="keyword">it</span>. It’s <span class="keyword">to</span> let <span class="keyword">the</span> boredom take you <span class="keyword">where</span> <span class="keyword">it</span> wants so you can deal <span class="keyword">with</span> whatever <span class="keyword">it</span> <span class="keyword">is</span> <span class="keyword">that</span> <span class="keyword">is</span> really going <span class="keyword">on</span> <span class="keyword">with</span> your sense <span class="keyword">of</span> self. That’s when you’ll hear yourself think, <span class="keyword">and</span> <span class="keyword">that</span>’s when you’ll learn <span class="keyword">to</span> engage <span class="keyword">the</span> parts <span class="keyword">of</span> you <span class="keyword">that</span> are masked <span class="keyword">by</span> distraction.</span><br><span class="line"></span><br><span class="line">The beauty <span class="keyword">of</span> this <span class="keyword">is</span> <span class="keyword">that</span>, once you cross <span class="keyword">that</span> initial barrier, you realize <span class="keyword">that</span> being alone isn’t so bad. Boredom can provide <span class="keyword">its</span> own stimulation.</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">The oldest philosophical wisdom <span class="keyword">in</span> <span class="keyword">the</span> world has one piece <span class="keyword">of</span> advice <span class="keyword">for</span> us:</span><br><span class="line">know yourself. And there <span class="keyword">is</span> a good reason why <span class="keyword">that</span> <span class="keyword">is</span>.</span><br><span class="line"></span><br><span class="line">Without knowing ourselves, <span class="keyword">it</span>’s almost impossible <span class="keyword">to</span> find a healthy way <span class="keyword">to</span> interact <span class="keyword">with</span> <span class="keyword">the</span> world <span class="keyword">around</span> us.</span><br><span class="line">Without taking <span class="built_in">time</span> <span class="keyword">to</span> figure <span class="keyword">it</span> out, we don’t have a foundation <span class="keyword">to</span> built <span class="keyword">the</span> <span class="built_in">rest</span> <span class="keyword">of</span> our lives <span class="keyword">on</span>.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -433,46 +461,59 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://lyloou.com/js/emoji/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lyloou">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/js/emoji/" class="post-title-link" itemprop="url">Emoji</a>
+          <a href="/js/emoji/" class="post-title-link" itemprop="url">Emoji</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2018-07-18 17:12:00" itemprop="dateCreated datePublished" datetime="2018-07-18T17:12:00+08:00">2018-07-18</time>
-            </span>
+      <time title="创建时间：2018-07-18 17:12:00" itemprop="dateCreated datePublished" datetime="2018-07-18T17:12:00+08:00">2018-07-18</time>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -481,10 +522,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
-          <p>微信使用的是：Softbank的编码<br><a href="http://www.wxeditor.com/emoji" target="_blank" rel="noopener">http://www.wxeditor.com/emoji</a></p>
-<p><a href="https://github.com/iamcal/js-emoji" target="_blank" rel="noopener">https://github.com/iamcal/js-emoji</a></p>
+          <p>微信使用的是：Softbank的编码<br><a target="_blank" rel="noopener" href="http://www.wxeditor.com/emoji">http://www.wxeditor.com/emoji</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/iamcal/js-emoji">https://github.com/iamcal/js-emoji</a></p>
 
       
     </div>
@@ -492,46 +531,59 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://lyloou.com/js/js%E5%9D%91/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lyloou">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/js/js%E5%9D%91/" class="post-title-link" itemprop="url">Js坑</a>
+          <a href="/js/js%E5%9D%91/" class="post-title-link" itemprop="url">Js坑</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2018-07-18 17:12:00" itemprop="dateCreated datePublished" datetime="2018-07-18T17:12:00+08:00">2018-07-18</time>
-            </span>
+      <time title="创建时间：2018-07-18 17:12:00" itemprop="dateCreated datePublished" datetime="2018-07-18T17:12:00+08:00">2018-07-18</time>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -540,13 +592,11 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="使用for-in-循环Object会有个问题，会loop来自prototype的属性，使用的时候要小心；"><a href="#使用for-in-循环Object会有个问题，会loop来自prototype的属性，使用的时候要小心；" class="headerlink" title="使用for in 循环Object会有个问题，会loop来自prototype的属性，使用的时候要小心；"></a>使用for in 循环Object会有个问题，会loop来自prototype的属性，使用的时候要小心；</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> key <span class="hljs-keyword">in</span> validation_messages) &#123;<br>    <span class="hljs-comment">// skip loop if the property is from prototype</span><br>    <span class="hljs-keyword">if</span> (!validation_messages.hasOwnProperty(key)) <span class="hljs-keyword">continue</span>;<br><br>    <span class="hljs-keyword">var</span> obj = validation_messages[key];<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> prop <span class="hljs-keyword">in</span> obj) &#123;<br>        <span class="hljs-comment">// skip loop if the property is from prototype</span><br>        <span class="hljs-keyword">if</span>(!obj.hasOwnProperty(prop)) <span class="hljs-keyword">continue</span>;<br><br>        <span class="hljs-comment">// your code</span><br>        alert(prop + <span class="hljs-string">" = "</span> + obj[prop]);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+          <h2 id="使用for-in-循环Object会有个问题，会loop来自prototype的属性，使用的时候要小心；"><a href="#使用for-in-循环Object会有个问题，会loop来自prototype的属性，使用的时候要小心；" class="headerlink" title="使用for in 循环Object会有个问题，会loop来自prototype的属性，使用的时候要小心；"></a>使用for in 循环Object会有个问题，会loop来自prototype的属性，使用的时候要小心；</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> validation_messages) &#123;</span><br><span class="line">    <span class="comment">// skip loop if the property is from prototype</span></span><br><span class="line">    <span class="keyword">if</span> (!validation_messages.<span class="title function_">hasOwnProperty</span>(key)) <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> obj = validation_messages[key];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> prop <span class="keyword">in</span> obj) &#123;</span><br><span class="line">        <span class="comment">// skip loop if the property is from prototype</span></span><br><span class="line">        <span class="keyword">if</span>(!obj.<span class="title function_">hasOwnProperty</span>(prop)) <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// your code</span></span><br><span class="line">        <span class="title function_">alert</span>(prop + <span class="string">&quot; = &quot;</span> + obj[prop]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>或者：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><br><span class="hljs-keyword">var</span> obj = &#123;<br>  first: <span class="hljs-string">"John"</span>,<br>  last: <span class="hljs-string">"Doe"</span><br>&#125;;<br><br><span class="hljs-comment">//</span><br><span class="hljs-comment">//	Visit non-inherited enumerable keys</span><br><span class="hljs-comment">//</span><br><span class="hljs-built_in">Object</span>.keys(obj).forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">key</span>) </span>&#123;<br><br>  <span class="hljs-built_in">console</span>.log(key, obj[key]);<br><br>&#125;);<br></code></pre></td></tr></table></figure>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://stackoverflow.com/questions/921789/how-to-loop-through-a-plain-javascript-object-with-the-objects-as-members" target="_blank" rel="noopener">https://stackoverflow.com/questions/921789/how-to-loop-through-a-plain-javascript-object-with-the-objects-as-members</a></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  <span class="attr">first</span>: <span class="string">&quot;John&quot;</span>,</span><br><span class="line">  <span class="attr">last</span>: <span class="string">&quot;Doe&quot;</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//	Visit non-inherited enumerable keys</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">keys</span>(obj).<span class="title function_">forEach</span>(<span class="keyword">function</span>(<span class="params">key</span>) &#123;</span><br><span class="line"></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(key, obj[key]);</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/921789/how-to-loop-through-a-plain-javascript-object-with-the-objects-as-members">https://stackoverflow.com/questions/921789/how-to-loop-through-a-plain-javascript-object-with-the-objects-as-members</a></p>
 
       
     </div>
@@ -554,46 +604,59 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://lyloou.com/android/tbk/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lyloou">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/android/tbk/" class="post-title-link" itemprop="url">TBK</a>
+          <a href="/android/tbk/" class="post-title-link" itemprop="url">TBK</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2018-07-15 11:50:49" itemprop="dateCreated datePublished" datetime="2018-07-15T11:50:49+08:00">2018-07-15</time>
-            </span>
+      <time title="创建时间：2018-07-15 11:50:49" itemprop="dateCreated datePublished" datetime="2018-07-15T11:50:49+08:00">2018-07-15</time>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -602,63 +665,74 @@
     
     
     <div class="post-body" itemprop="articleBody">
+          <h2 id="集成依赖"><a href="#集成依赖" class="headerlink" title="集成依赖"></a>集成依赖</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">allprojects &#123;</span><br><span class="line">    repositories &#123;</span><br><span class="line">        mavenCentral();</span><br><span class="line">        jcenter()</span><br><span class="line">        maven &#123;</span><br><span class="line">            url <span class="string">&quot;http://repo.baichuan-android.taobao.com/content/groups/BaichuanRepositories/&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-      
-          <h2 id="集成依赖"><a href="#集成依赖" class="headerlink" title="集成依赖"></a>集成依赖</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java">allprojects &#123;<br>    repositories &#123;<br>        mavenCentral();<br>        jcenter()<br>        maven &#123;<br>            url <span class="hljs-string">"http://repo.baichuan-android.taobao.com/content/groups/BaichuanRepositories/"</span><br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">//!+Baichuan</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//fastjson</span></span><br><span class="line">compile <span class="string">&#x27;com.alibaba:fastjson:1.2.9&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//支付</span></span><br><span class="line">compile <span class="string">&#x27;com.alibaba.alipay:alipaySingle:20160825@jar&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//登陆</span></span><br><span class="line">compile <span class="string">&#x27;com.ali.auth.sdk:alibabauth_core:1.1.4@jar&#x27;</span></span><br><span class="line">compile <span class="string">&#x27;com.ali.auth.sdk:alibabauth_ui:1.1.4@aar&#x27;</span></span><br><span class="line">compile <span class="string">&#x27;com.ali.auth.sdk:alibabauth_ext:1.1.4@jar&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//【可选】仅供特殊合作伙伴使用</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//compile &#x27;com.ali.auth.sdk:alibabauth_accountlink:1.1.4@jar&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//安全基础</span></span><br><span class="line">compile <span class="string">&#x27;com.taobao.android:securityguardaar3:5.1.81@aar&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//【可选】安全高级，如使用了发放红包、优惠券高级功能，则必须引入</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//compile &#x27;com.taobao.android:securitybodyaar3:5.1.25@aar&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//Mtop网关</span></span><br><span class="line">compile <span class="string">&#x27;com.taobao.android:mtopsdk_allinone_open:1.2.2.4@jar&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//applink</span></span><br><span class="line">compile <span class="string">&#x27;com.taobao.android:alibc_applink:2.0.0.9@jar&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//UT</span></span><br><span class="line">compile <span class="string">&#x27;com.taobao.android:utdid4all:1.1.5.3_proguard@jar&#x27;</span></span><br><span class="line">compile <span class="string">&#x27;com.alibaba.mtl:app-monitor-sdk:2.5.1.3_for_bc_proguard@jar&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//电商SDK</span></span><br><span class="line">compile <span class="string">&#x27;com.alibaba.sdk.android:alibc_trade_sdk:3.1.1.11@aar&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//!-Baichuan</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs java"> <span class="hljs-comment">//!+Baichuan</span><br><br><span class="hljs-comment">//fastjson</span><br>compile <span class="hljs-string">'com.alibaba:fastjson:1.2.9'</span><br><br><span class="hljs-comment">//支付</span><br>compile <span class="hljs-string">'com.alibaba.alipay:alipaySingle:20160825@jar'</span><br><br><span class="hljs-comment">//登陆</span><br>compile <span class="hljs-string">'com.ali.auth.sdk:alibabauth_core:1.1.4@jar'</span><br>compile <span class="hljs-string">'com.ali.auth.sdk:alibabauth_ui:1.1.4@aar'</span><br>compile <span class="hljs-string">'com.ali.auth.sdk:alibabauth_ext:1.1.4@jar'</span><br><br><span class="hljs-comment">//【可选】仅供特殊合作伙伴使用</span><br><br><span class="hljs-comment">//compile 'com.ali.auth.sdk:alibabauth_accountlink:1.1.4@jar'</span><br><br><span class="hljs-comment">//安全基础</span><br>compile <span class="hljs-string">'com.taobao.android:securityguardaar3:5.1.81@aar'</span><br><br><span class="hljs-comment">//【可选】安全高级，如使用了发放红包、优惠券高级功能，则必须引入</span><br><br><span class="hljs-comment">//compile 'com.taobao.android:securitybodyaar3:5.1.25@aar'</span><br><br><span class="hljs-comment">//Mtop网关</span><br>compile <span class="hljs-string">'com.taobao.android:mtopsdk_allinone_open:1.2.2.4@jar'</span><br><br><span class="hljs-comment">//applink</span><br>compile <span class="hljs-string">'com.taobao.android:alibc_applink:2.0.0.9@jar'</span><br><br><span class="hljs-comment">//UT</span><br>compile <span class="hljs-string">'com.taobao.android:utdid4all:1.1.5.3_proguard@jar'</span><br>compile <span class="hljs-string">'com.alibaba.mtl:app-monitor-sdk:2.5.1.3_for_bc_proguard@jar'</span><br><br><span class="hljs-comment">//电商SDK</span><br>compile <span class="hljs-string">'com.alibaba.sdk.android:alibc_trade_sdk:3.1.1.11@aar'</span><br><br><span class="hljs-comment">//!-Baichuan</span><br></code></pre></td></tr></table></figure>
+<h2 id="工具类"><a href="#工具类" class="headerlink" title="工具类"></a>工具类</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//: Baichuan.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Baichuan</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">showDetailPage</span><span class="params">(Activity activity, String id, String pid, CallbackContext callbackContext)</span> &#123;</span><br><span class="line">        <span class="type">AlibcBasePage</span> <span class="variable">alibcBasePage</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">AlibcDetailPage</span>(id);</span><br><span class="line">        <span class="type">AlibcTaokeParams</span> <span class="variable">alibcTaokeParams</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">AlibcTaokeParams</span>(pid, <span class="string">&quot;&quot;</span>, <span class="string">&quot;&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span> (!alibcTaokeParams.isValidPid()) &#123;</span><br><span class="line">            callbackContext.error(<span class="string">&quot;pid无效&quot;</span>);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        showPage(activity, alibcBasePage, alibcTaokeParams, callbackContext);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">showDetailPageWithUrl</span><span class="params">(Activity activity, String url, CallbackContext callbackContext)</span> &#123;</span><br><span class="line">        <span class="type">AlibcBasePage</span> <span class="variable">alibcBasePage</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">AlibcPage</span>(url);</span><br><span class="line">        showPage(activity, alibcBasePage, <span class="literal">null</span>, callbackContext);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">showPage</span><span class="params">(Activity activity, AlibcBasePage alibcBasePage, AlibcTaokeParams alibcTaokeParams, <span class="keyword">final</span> CallbackContext callbackContext)</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="type">AlibcShowParams</span> <span class="variable">alibcShowParams</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">AlibcShowParams</span>(OpenType.Native, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line">        HashMap&lt;String, String&gt; exParams = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">        exParams.put(AlibcConstants.ISV_CODE, <span class="string">&quot;appisvcode&quot;</span>);</span><br><span class="line"></span><br><span class="line">        AlibcTrade.show(activity, alibcBasePage, alibcShowParams, alibcTaokeParams, exParams, <span class="keyword">new</span> <span class="title class_">AlibcTradeCallback</span>() &#123;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onFailure</span><span class="params">(<span class="type">int</span> i, String s)</span> &#123;</span><br><span class="line">                callbackContext.error(<span class="string">&quot;导航失败：&quot;</span> + s);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onTradeSuccess</span><span class="params">(TradeResult tradeResult)</span> &#123;</span><br><span class="line">                <span class="keyword">switch</span> (tradeResult.resultType) &#123;</span><br><span class="line">                    <span class="keyword">case</span> TYPEPAY:</span><br><span class="line">                        <span class="type">JSONObject</span> <span class="variable">jsonObject</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JSONObject</span>();</span><br><span class="line">                        <span class="keyword">try</span> &#123;</span><br><span class="line">                            jsonObject.put(<span class="string">&quot;successArr&quot;</span>, tradeResult.payResult.paySuccessOrders);</span><br><span class="line">                            jsonObject.put(<span class="string">&quot;failureArr&quot;</span>, tradeResult.payResult.payFailedOrders);</span><br><span class="line">                            callbackContext.success(jsonObject);</span><br><span class="line">                        &#125; <span class="keyword">catch</span> (JSONException e) &#123;</span><br><span class="line">                            e.printStackTrace();</span><br><span class="line">                            callbackContext.error(<span class="string">&quot;json转换异常:&quot;</span> + e.getMessage());</span><br><span class="line">                        &#125;</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    <span class="keyword">case</span> TYPECART:</span><br><span class="line">                        callbackContext.success(<span class="string">&quot;您已经将商品添加到购物车了，赶快去购买吧&quot;</span>);</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    <span class="keyword">default</span>:</span><br><span class="line">                        callbackContext.error(<span class="string">&quot;未知的结果类型&quot;</span>);</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">login</span><span class="params">(<span class="keyword">final</span> Activity context)</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">final</span> <span class="type">AlibcLogin</span> <span class="variable">alibcLogin</span> <span class="operator">=</span> AlibcLogin.getInstance();</span><br><span class="line"></span><br><span class="line">        alibcLogin.showLogin(context, <span class="keyword">new</span> <span class="title class_">AlibcLoginCallback</span>() &#123;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onSuccess</span><span class="params">()</span> &#123;</span><br><span class="line">                Toast.makeText(context, <span class="string">&quot;登录成功 &quot;</span>, Toast.LENGTH_LONG).show();</span><br><span class="line">                <span class="comment">//获取淘宝用户信息</span></span><br><span class="line">                Log.i(<span class="string">&quot;Baichuan&quot;</span>, <span class="string">&quot;获取淘宝用户信息: &quot;</span> + AlibcLogin.getInstance().getSession());</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onFailure</span><span class="params">(<span class="type">int</span> code, String msg)</span> &#123;</span><br><span class="line">                Toast.makeText(context, <span class="string">&quot;登录失败 &quot;</span>, Toast.LENGTH_LONG).show();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="工具类"><a href="#工具类" class="headerlink" title="工具类"></a>工具类</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//: Baichuan.java</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Baichuan</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">showDetailPage</span><span class="hljs-params">(Activity activity, String id, String pid, CallbackContext callbackContext)</span> </span>&#123;<br>        AlibcBasePage alibcBasePage = <span class="hljs-keyword">new</span> AlibcDetailPage(id);<br>        AlibcTaokeParams alibcTaokeParams = <span class="hljs-keyword">new</span> AlibcTaokeParams(pid, <span class="hljs-string">""</span>, <span class="hljs-string">""</span>);<br>        <span class="hljs-keyword">if</span> (!alibcTaokeParams.isValidPid()) &#123;<br>            callbackContext.error(<span class="hljs-string">"pid无效"</span>);<br>            <span class="hljs-keyword">return</span>;<br>        &#125;<br>        showPage(activity, alibcBasePage, alibcTaokeParams, callbackContext);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">showDetailPageWithUrl</span><span class="hljs-params">(Activity activity, String url, CallbackContext callbackContext)</span> </span>&#123;<br>        AlibcBasePage alibcBasePage = <span class="hljs-keyword">new</span> AlibcPage(url);<br>        showPage(activity, alibcBasePage, <span class="hljs-keyword">null</span>, callbackContext);<br>    &#125;<br><br><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">showPage</span><span class="hljs-params">(Activity activity, AlibcBasePage alibcBasePage, AlibcTaokeParams alibcTaokeParams, <span class="hljs-keyword">final</span> CallbackContext callbackContext)</span> </span>&#123;<br><br>        AlibcShowParams alibcShowParams = <span class="hljs-keyword">new</span> AlibcShowParams(OpenType.Native, <span class="hljs-keyword">false</span>);<br><br>        HashMap&lt;String, String&gt; exParams = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();<br>        exParams.put(AlibcConstants.ISV_CODE, <span class="hljs-string">"appisvcode"</span>);<br><br>        AlibcTrade.show(activity, alibcBasePage, alibcShowParams, alibcTaokeParams, exParams, <span class="hljs-keyword">new</span> AlibcTradeCallback() &#123;<br><br>            <span class="hljs-meta">@Override</span><br>            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onFailure</span><span class="hljs-params">(<span class="hljs-keyword">int</span> i, String s)</span> </span>&#123;<br>                callbackContext.error(<span class="hljs-string">"导航失败："</span> + s);<br>            &#125;<br><br>            <span class="hljs-meta">@Override</span><br>            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onTradeSuccess</span><span class="hljs-params">(TradeResult tradeResult)</span> </span>&#123;<br>                <span class="hljs-keyword">switch</span> (tradeResult.resultType) &#123;<br>                    <span class="hljs-keyword">case</span> TYPEPAY:<br>                        JSONObject jsonObject = <span class="hljs-keyword">new</span> JSONObject();<br>                        <span class="hljs-keyword">try</span> &#123;<br>                            jsonObject.put(<span class="hljs-string">"successArr"</span>, tradeResult.payResult.paySuccessOrders);<br>                            jsonObject.put(<span class="hljs-string">"failureArr"</span>, tradeResult.payResult.payFailedOrders);<br>                            callbackContext.success(jsonObject);<br>                        &#125; <span class="hljs-keyword">catch</span> (JSONException e) &#123;<br>                            e.printStackTrace();<br>                            callbackContext.error(<span class="hljs-string">"json转换异常:"</span> + e.getMessage());<br>                        &#125;<br>                        <span class="hljs-keyword">break</span>;<br>                    <span class="hljs-keyword">case</span> TYPECART:<br>                        callbackContext.success(<span class="hljs-string">"您已经将商品添加到购物车了，赶快去购买吧"</span>);<br>                        <span class="hljs-keyword">break</span>;<br>                    <span class="hljs-keyword">default</span>:<br>                        callbackContext.error(<span class="hljs-string">"未知的结果类型"</span>);<br>                        <span class="hljs-keyword">break</span>;<br>                &#125;<br>            &#125;<br>        &#125;);<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">login</span><span class="hljs-params">(<span class="hljs-keyword">final</span> Activity context)</span> </span>&#123;<br><br>        <span class="hljs-keyword">final</span> AlibcLogin alibcLogin = AlibcLogin.getInstance();<br><br>        alibcLogin.showLogin(context, <span class="hljs-keyword">new</span> AlibcLoginCallback() &#123;<br><br>            <span class="hljs-meta">@Override</span><br>            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">()</span> </span>&#123;<br>                Toast.makeText(context, <span class="hljs-string">"登录成功 "</span>, Toast.LENGTH_LONG).show();<br>                <span class="hljs-comment">//获取淘宝用户信息</span><br>                Log.i(<span class="hljs-string">"Baichuan"</span>, <span class="hljs-string">"获取淘宝用户信息: "</span> + AlibcLogin.getInstance().getSession());<br><br>            &#125;<br><br>            <span class="hljs-meta">@Override</span><br>            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onFailure</span><span class="hljs-params">(<span class="hljs-keyword">int</span> code, String msg)</span> </span>&#123;<br>                Toast.makeText(context, <span class="hljs-string">"登录失败 "</span>, Toast.LENGTH_LONG).show();<br>            &#125;<br>        &#125;);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="cordova调用"><a href="#cordova调用" class="headerlink" title="cordova调用"></a>cordova调用</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">名称: MyPlugin.toDetailPage</span><br><span class="line">描述: 跳转到淘宝商品详情页面</span><br><span class="line">参数: </span><br><span class="line">   JSONParam ——  pid和isCounpons必传，goodsId和couponsUrl对应isCounpons选其一</span><br><span class="line">    &#123;</span><br><span class="line">        pid: <span class="string">&#x27;mm_131641132_33126906_320380416&#x27;</span>, <span class="comment">// 用户对应pid，此参数必传！！！</span></span><br><span class="line">        isCoupons: <span class="number">0</span>, <span class="comment">// 是否有优惠券，传0（无）或者1（有）</span></span><br><span class="line">        goodsId: <span class="string">&#x27;550548242323&#x27;</span>, <span class="comment">// 商品id  </span></span><br><span class="line">        couponsUrl: <span class="string">&#x27;优惠券地址&#x27;</span> <span class="comment">// 优惠券地址</span></span><br><span class="line">     &#125;</span><br><span class="line">   onSuccess —— 成功时的回调，如用户进行购买，则返回&#123;<span class="string">&quot;successArr&quot;</span>:paySuccessOrders, <span class="string">&quot;failureArr&quot;</span>:payFailedOrders&#125;，Dictionary类型;如用户将商品加入购物车，则返回“您已经将商品添加到购物车了，赶快去购买吧”，String类型</span><br><span class="line">   onError —— 失败时的回调，返回失败原因，String类型</span><br><span class="line">使用方法：</span><br><span class="line">MyPlugin.toDetailPage(&#123;goodsId: <span class="string">&#x27;550548242323&#x27;</span>, pid: <span class="string">&#x27;mm_131641136_43126906_310380416&#x27;</span>, isCoupons: <span class="number">0</span>&#125;, function (success)&#123;&#125;,function (error)&#123;&#125;)</span><br></pre></td></tr></table></figure>
 
-<h2 id="cordova调用"><a href="#cordova调用" class="headerlink" title="cordova调用"></a>cordova调用</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java">名称: MyPlugin.toDetailPage<br>描述: 跳转到淘宝商品详情页面<br>参数: <br>   JSONParam ——  pid和isCounpons必传，goodsId和couponsUrl对应isCounpons选其一<br>    &#123;<br>        pid: <span class="hljs-string">'mm_131641132_33126906_320380416'</span>, <span class="hljs-comment">// 用户对应pid，此参数必传！！！</span><br>        isCoupons: <span class="hljs-number">0</span>, <span class="hljs-comment">// 是否有优惠券，传0（无）或者1（有）</span><br>        goodsId: <span class="hljs-string">'550548242323'</span>, <span class="hljs-comment">// 商品id  </span><br>        couponsUrl: <span class="hljs-string">'优惠券地址'</span> <span class="hljs-comment">// 优惠券地址</span><br>     &#125;<br>   onSuccess —— 成功时的回调，如用户进行购买，则返回&#123;<span class="hljs-string">"successArr"</span>:paySuccessOrders, <span class="hljs-string">"failureArr"</span>:payFailedOrders&#125;，Dictionary类型;如用户将商品加入购物车，则返回“您已经将商品添加到购物车了，赶快去购买吧”，String类型<br>   onError —— 失败时的回调，返回失败原因，String类型<br>使用方法：<br>MyPlugin.toDetailPage(&#123;goodsId: <span class="hljs-string">'550548242323'</span>, pid: <span class="hljs-string">'mm_131641136_43126906_310380416'</span>, isCoupons: <span class="hljs-number">0</span>&#125;, function (success)&#123;&#125;,function (error)&#123;&#125;)<br></code></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">toDetailPage</span><span class="hljs-params">(CordovaArgs args, CallbackContext callbackContext)</span> </span>&#123;<br>    <span class="hljs-keyword">try</span> &#123;<br>        JSONObject params = args.getJSONObject(<span class="hljs-number">0</span>);<br><br>        <span class="hljs-keyword">if</span> (params.has(<span class="hljs-string">"isCoupons"</span>) &amp;&amp; params.getInt(<span class="hljs-string">"isCoupons"</span>) == <span class="hljs-number">1</span>) &#123;<br>            String couponsUrl = params.has(<span class="hljs-string">"couponsUrl"</span>) ? params.getString(<span class="hljs-string">"couponsUrl"</span>) : <span class="hljs-string">""</span>;<br>            Baichuan.showDetailPageWithUrl(mContext, couponsUrl, callbackContext);<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;<br>        &#125;<br><br>        String pid = params.has(<span class="hljs-string">"pid"</span>) ? params.getString(<span class="hljs-string">"pid"</span>) : <span class="hljs-string">""</span>;<br>        <span class="hljs-keyword">if</span> (TextUtils.isEmpty(pid)) &#123;<br>            callbackContext.error(<span class="hljs-string">"获取PID参数失败"</span>);<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;<br>        &#125;<br><br>        <span class="hljs-comment">// use goodsId and pid</span><br>        String id = params.has(<span class="hljs-string">"goodsId"</span>) ? params.getString(<span class="hljs-string">"goodsId"</span>) : <span class="hljs-string">""</span>;<br>        Baichuan.showDetailPage(mContext, id, pid, callbackContext);<br><br>    &#125; <span class="hljs-keyword">catch</span> (JSONException e) &#123;<br>        e.printStackTrace();<br>        callbackContext.error(<span class="hljs-string">"获取参数失败："</span> + e.getMessage());<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="type">boolean</span> <span class="title function_">toDetailPage</span><span class="params">(CordovaArgs args, CallbackContext callbackContext)</span> &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="type">JSONObject</span> <span class="variable">params</span> <span class="operator">=</span> args.getJSONObject(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (params.has(<span class="string">&quot;isCoupons&quot;</span>) &amp;&amp; params.getInt(<span class="string">&quot;isCoupons&quot;</span>) == <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="type">String</span> <span class="variable">couponsUrl</span> <span class="operator">=</span> params.has(<span class="string">&quot;couponsUrl&quot;</span>) ? params.getString(<span class="string">&quot;couponsUrl&quot;</span>) : <span class="string">&quot;&quot;</span>;</span><br><span class="line">            Baichuan.showDetailPageWithUrl(mContext, couponsUrl, callbackContext);</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">String</span> <span class="variable">pid</span> <span class="operator">=</span> params.has(<span class="string">&quot;pid&quot;</span>) ? params.getString(<span class="string">&quot;pid&quot;</span>) : <span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="keyword">if</span> (TextUtils.isEmpty(pid)) &#123;</span><br><span class="line">            callbackContext.error(<span class="string">&quot;获取PID参数失败&quot;</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// use goodsId and pid</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">id</span> <span class="operator">=</span> params.has(<span class="string">&quot;goodsId&quot;</span>) ? params.getString(<span class="string">&quot;goodsId&quot;</span>) : <span class="string">&quot;&quot;</span>;</span><br><span class="line">        Baichuan.showDetailPage(mContext, id, pid, callbackContext);</span><br><span class="line"></span><br><span class="line">    &#125; <span class="keyword">catch</span> (JSONException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">        callbackContext.error(<span class="string">&quot;获取参数失败：&quot;</span> + e.getMessage());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://lyloou.com/devops/jenkins/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lyloou">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/devops/jenkins/" class="post-title-link" itemprop="url">Jenkins</a>
+          <a href="/devops/jenkins/" class="post-title-link" itemprop="url">Jenkins</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2018-07-14 17:16:15" itemprop="dateCreated datePublished" datetime="2018-07-14T17:16:15+08:00">2018-07-14</time>
-            </span>
+      <time title="创建时间：2018-07-14 17:16:15" itemprop="dateCreated datePublished" datetime="2018-07-14T17:16:15+08:00">2018-07-14</time>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -667,29 +741,27 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
           <h2 id="install"><a href="#install" class="headerlink" title="install"></a>install</h2><ul>
-<li><p><a href="https://jenkins.io/doc/book/installing/#debian-ubuntu" target="_blank" rel="noopener">Installing Jenkins</a></p>
+<li><p><a target="_blank" rel="noopener" href="https://jenkins.io/doc/book/installing/#debian-ubuntu">Installing Jenkins</a></p>
 </li>
-<li><p><a href="http://www.cnblogs.com/yjmyzz/p/jenkins-tutorial-part-1.html" target="_blank" rel="noopener">jenkins 入门教程(上) - 菩提树下的杨过 - 博客园</a></p>
+<li><p><a target="_blank" rel="noopener" href="http://www.cnblogs.com/yjmyzz/p/jenkins-tutorial-part-1.html">jenkins 入门教程(上) - 菩提树下的杨过 - 博客园</a></p>
 </li>
-<li><p><a href="http://www.cnblogs.com/yjmyzz/p/jenkins-tutorial-part-2.html" target="_blank" rel="noopener">jenkins 入门教程(中) - 菩提树下的杨过 - 博客园</a></p>
+<li><p><a target="_blank" rel="noopener" href="http://www.cnblogs.com/yjmyzz/p/jenkins-tutorial-part-2.html">jenkins 入门教程(中) - 菩提树下的杨过 - 博客园</a></p>
 </li>
-<li><p><a href="http://www.cnblogs.com/yjmyzz/p/jenkins-tutorial-part-3.html" target="_blank" rel="noopener">jenkins 入门教程(下) - 菩提树下的杨过 - 博客园</a></p>
+<li><p><a target="_blank" rel="noopener" href="http://www.cnblogs.com/yjmyzz/p/jenkins-tutorial-part-3.html">jenkins 入门教程(下) - 菩提树下的杨过 - 博客园</a></p>
 </li>
 </ul>
 <ul>
-<li><a href="https://blog.csdn.net/itfootball/article/details/44876517" target="_blank" rel="noopener">Jenkins 的关闭、重启 - CSDN 博客</a><ul>
-<li>关闭 jenkins 服务: <a href="http://localhost:8080/exit" target="_blank" rel="noopener">http://localhost:8080/exit</a></li>
-<li>重新启动 jenkins 服务器: <a href="http://localhost:8080/restart" target="_blank" rel="noopener">http://localhost:8080/restart</a></li>
-<li>重载 jenkins 服务器: <a href="http://localhost:8080/reload" target="_blank" rel="noopener">http://localhost:8080/reload</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/itfootball/article/details/44876517">Jenkins 的关闭、重启 - CSDN 博客</a><ul>
+<li>关闭 jenkins 服务: <a target="_blank" rel="noopener" href="http://localhost:8080/exit">http://localhost:8080/exit</a></li>
+<li>重新启动 jenkins 服务器: <a target="_blank" rel="noopener" href="http://localhost:8080/restart">http://localhost:8080/restart</a></li>
+<li>重载 jenkins 服务器: <a target="_blank" rel="noopener" href="http://localhost:8080/reload">http://localhost:8080/reload</a></li>
 </ul>
 </li>
 </ul>
 <p>个人觉得难点在于：密码、授权、密钥的配置。这一步走通了，后面的就好走了。</p>
 <h2 id="config"><a href="#config" class="headerlink" title="config"></a>config</h2><ul>
-<li><a href="https://stackoverflow.com/questions/31719756/how-to-stop-jenkins-log-from-becoming-huge" target="_blank" rel="noopener">How to stop Jenkins log from becoming huge? - Stack Overflow</a></li>
+<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/31719756/how-to-stop-jenkins-log-from-becoming-huge">How to stop Jenkins log from becoming huge? - Stack Overflow</a></li>
 </ul>
 <h2 id="remove"><a href="#remove" class="headerlink" title="remove"></a>remove</h2><p>/var/log/jenkins/jenkins.log</p>
 
@@ -699,46 +771,59 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://lyloou.com/git/gitlab/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lyloou">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/git/gitlab/" class="post-title-link" itemprop="url">Gitlab</a>
+          <a href="/git/gitlab/" class="post-title-link" itemprop="url">Gitlab</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2018-07-12 08:17:25" itemprop="dateCreated datePublished" datetime="2018-07-12T08:17:25+08:00">2018-07-12</time>
-            </span>
+      <time title="创建时间：2018-07-12 08:17:25" itemprop="dateCreated datePublished" datetime="2018-07-12T08:17:25+08:00">2018-07-12</time>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -747,25 +832,20 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
           <h2 id="CI-amp-CD"><a href="#CI-amp-CD" class="headerlink" title="CI &amp; CD"></a>CI &amp; CD</h2><h3 id="gitlab-ci-yml"><a href="#gitlab-ci-yml" class="headerlink" title=".gitlab-ci.yml"></a>.gitlab-ci.yml</h3><ul>
-<li><a href="http://gitlab.renrenyoupin.com/help/ci/quick_start/README" target="_blank" rel="noopener">Readme · Quick start · Ci · Help · GitLab</a></li>
-<li><a href="http://gitlab.renrenyoupin.com/help/ci/yaml/README.md" target="_blank" rel="noopener">Configuration of your jobs with .gitlab-ci.yml</a></li>
-<li><a href="https://segmentfault.com/a/1190000010442764" target="_blank" rel="noopener">Gitlab CI yaml官方配置文件翻译</a></li>
-<li><a href="https://scarletsky.github.io/2016/07/29/use-gitlab-ci-for-continuous-integration/" target="_blank" rel="noopener">用 GitLab CI 进行持续集成 | Scarletsky</a></li>
+<li><a target="_blank" rel="noopener" href="http://gitlab.renrenyoupin.com/help/ci/quick_start/README">Readme · Quick start · Ci · Help · GitLab</a></li>
+<li><a target="_blank" rel="noopener" href="http://gitlab.renrenyoupin.com/help/ci/yaml/README.md">Configuration of your jobs with .gitlab-ci.yml</a></li>
+<li><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000010442764">Gitlab CI yaml官方配置文件翻译</a></li>
+<li><a target="_blank" rel="noopener" href="https://scarletsky.github.io/2016/07/29/use-gitlab-ci-for-continuous-integration/">用 GitLab CI 进行持续集成 | Scarletsky</a></li>
 </ul>
 <h3 id="Runner"><a href="#Runner" class="headerlink" title="Runner"></a>Runner</h3><ul>
-<li><p><a href="https://docs.gitlab.com/runner/install/linux-repository.html" target="_blank" rel="noopener">Install GitLab Runner using the official GitLab repositories | GitLab</a></p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs vim">curl -L http<span class="hljs-variable">s:</span>//packages.gitlab.<span class="hljs-keyword">com</span>/install/repositories/runner/gitlab-runner/script.<span class="hljs-keyword">deb</span>.<span class="hljs-keyword">sh</span> | sudo bash<br><br>apt-cache madison gitlab-runner<br>sudo apt-<span class="hljs-built_in">get</span> install gitlab-runner=<span class="hljs-number">10.8</span>.<span class="hljs-number">0</span><br></code></pre></td></tr></table></figure>
-</li>
-<li><p><a href="https://docs.gitlab.com/runner/register/index.html" target="_blank" rel="noopener">Registering Runners | GitLab</a></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs sh">sudo gitlab-runner register \<br>  --non-interactive \<br>  --url <span class="hljs-string">"http://gitlab.lyloou.com/"</span> \<br>  --registration-token <span class="hljs-string">"xxxxxxxxxxxxx"</span> \<br>  --executor <span class="hljs-string">"shell"</span> \<br>  --description <span class="hljs-string">"shell-runner"</span> \<br>  --tag-list <span class="hljs-string">"shell"</span> \<br>  --run-untagged=<span class="hljs-string">"true"</span> \<br>  --locked=<span class="hljs-string">"false"</span><br></code></pre></td></tr></table></figure>
-
-</li>
+<li><p><a target="_blank" rel="noopener" href="https://docs.gitlab.com/runner/install/linux-repository.html">Install GitLab Runner using the official GitLab repositories | GitLab</a></p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">curl -L https:<span class="regexp">//</span>packages.gitlab.com<span class="regexp">/install/</span>repositories<span class="regexp">/runner/gi</span>tlab-runner/script.deb.sh | sudo bash</span><br><span class="line"></span><br><span class="line">apt-cache madison gitlab-runner</span><br><span class="line">sudo apt-get install gitlab-runner=<span class="number">10.8</span>.<span class="number">0</span></span><br></pre></td></tr></table></figure></li>
+<li><p><a target="_blank" rel="noopener" href="https://docs.gitlab.com/runner/register/index.html">Registering Runners | GitLab</a></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sudo gitlab-runner register \</span><br><span class="line">  --non-interactive \</span><br><span class="line">  --url <span class="string">&quot;http://gitlab.lyloou.com/&quot;</span> \</span><br><span class="line">  --registration-token <span class="string">&quot;xxxxxxxxxxxxx&quot;</span> \</span><br><span class="line">  --executor <span class="string">&quot;shell&quot;</span> \</span><br><span class="line">  --description <span class="string">&quot;shell-runner&quot;</span> \</span><br><span class="line">  --tag-list <span class="string">&quot;shell&quot;</span> \</span><br><span class="line">  --run-untagged=<span class="string">&quot;true&quot;</span> \</span><br><span class="line">  --locked=<span class="string">&quot;false&quot;</span> </span><br></pre></td></tr></table></figure></li>
 </ul>
-<p>-<a href="https://segmentfault.com/a/1190000013362589" target="_blank" rel="noopener">【GITLAB】 服务配置可持续集成部署的项目案例 - 安装篇 - 个人文章 - SegmentFault 思否</a></p>
-<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli">sudo gitlab-runner list<br>gitlab-runner unregister <span class="hljs-params">--url</span> http:<span class="hljs-string">//gitlab.example.com/</span> <span class="hljs-params">--token</span> t0k3n<br>gitlab-runner unregister <span class="hljs-params">--name</span> test-runner<br>gitlab-runner unregister <span class="hljs-params">--all-runners</span><br></code></pre></td></tr></table></figure>
+<p>-<a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000013362589">【GITLAB】 服务配置可持续集成部署的项目案例 - 安装篇 - 个人文章 - SegmentFault 思否</a></p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo gitlab-runner list</span><br><span class="line">gitlab-runner unregister <span class="params">--url</span> http:<span class="string">//gitlab.example.com/</span> <span class="params">--token</span> t0k3n</span><br><span class="line">gitlab-runner unregister <span class="params">--name</span> test-runner</span><br><span class="line">gitlab-runner unregister <span class="params">--all-runners</span></span><br></pre></td></tr></table></figure>
 <h1 id="ff0000"><a href="#ff0000" class="headerlink" title="!!#ff0000"></a>!!#ff0000</h1><p>Runner的大版本号要和gitlab的在版本号保持一致。<br>如：Runner 10.8.0 ~ gitlab 10.2.4</p>
 
       
@@ -774,46 +854,59 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://lyloou.com/android/Android%E5%92%8CJavaScript%E4%BA%A4%E4%BA%92/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lyloou">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/android/Android%E5%92%8CJavaScript%E4%BA%A4%E4%BA%92/" class="post-title-link" itemprop="url">Android和JavaScript交互</a>
+          <a href="/android/Android%E5%92%8CJavaScript%E4%BA%A4%E4%BA%92/" class="post-title-link" itemprop="url">Android和JavaScript交互</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2018-07-10 19:16:17" itemprop="dateCreated datePublished" datetime="2018-07-10T19:16:17+08:00">2018-07-10</time>
-            </span>
+      <time title="创建时间：2018-07-10 19:16:17" itemprop="dateCreated datePublished" datetime="2018-07-10T19:16:17+08:00">2018-07-10</time>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -822,63 +915,74 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
           <ul>
-<li><a href="https://www.jianshu.com/p/3c94ae673e2a" target="_blank" rel="noopener">Android：这是一份全面 &amp; 详细的Webview使用攻略 - 简书</a></li>
-<li><a href="https://www.jianshu.com/p/345f4d8a5cfa" target="_blank" rel="noopener">最全面总结 Android WebView与 JS 的交互方式 - 简书</a></li>
-<li><a href="https://github.com/marcuswestin/WebViewJavascriptBridge" target="_blank" rel="noopener">WebViewJavascriptBridge</a></li>
-<li><a href="https://github.com/wendux/WebViewJavascriptBridge" target="_blank" rel="noopener">wendux/WebViewJavascriptBridge</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/3c94ae673e2a">Android：这是一份全面 &amp; 详细的Webview使用攻略 - 简书</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/345f4d8a5cfa">最全面总结 Android WebView与 JS 的交互方式 - 简书</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/marcuswestin/WebViewJavascriptBridge">WebViewJavascriptBridge</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/wendux/WebViewJavascriptBridge">wendux/WebViewJavascriptBridge</a></li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//: MainActivity.java</span><br><span class="hljs-keyword">if</span> (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.KITKAT) &#123;<br>    WebView.setWebContentsDebuggingEnabled(BuildConfig.TEST_ENV);<br>&#125;<br>mWvContent = (WebView) findViewById(R.id.wv_content);<br>mWvContent.setScrollbarFadingEnabled(<span class="hljs-keyword">true</span>);<br>mWvContent.addJavascriptInterface(<span class="hljs-keyword">new</span> JavaScriptInterface(mWvContent), <span class="hljs-string">"android"</span>);<br>WebSettings settings = mWvContent.getSettings();<br>settings.setJavaScriptEnabled(<span class="hljs-keyword">true</span>);<br>settings.setBuiltInZoomControls(<span class="hljs-keyword">true</span>);<br>settings.setDisplayZoomControls(<span class="hljs-keyword">false</span>);<br>settings.setDatabaseEnabled(<span class="hljs-keyword">true</span>);<br>settings.setCacheMode(WebSettings.LOAD_NO_CACHE);<br>settings.setDomStorageEnabled(<span class="hljs-keyword">true</span>);<br>settings.setAllowFileAccess(<span class="hljs-keyword">true</span>);<br>settings.setAppCacheEnabled(<span class="hljs-keyword">true</span>);<br>settings.setAppCachePath(mWvContent.getContext().getCacheDir().getAbsolutePath());<br>settings.setJavaScriptCanOpenWindowsAutomatically(<span class="hljs-keyword">true</span>);<br>settings.setBlockNetworkImage(<span class="hljs-keyword">false</span>);<br><br>mWvContent.setWebViewClient(<span class="hljs-keyword">new</span> WebViewClient() &#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">shouldOverrideUrlLoading</span><span class="hljs-params">(WebView view, String url)</span> </span>&#123;<br>        view.loadUrl(url);<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;<br>    &#125;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onPageFinished</span><span class="hljs-params">(WebView view, String url)</span> </span>&#123;<br>        <span class="hljs-keyword">super</span>.onPageFinished(view, url);<br>    &#125;<br>&#125;);<br>mWvContent.setWebChromeClient(<span class="hljs-keyword">new</span> WebChromeClient() &#123;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onReceivedTitle</span><span class="hljs-params">(WebView view, String title)</span> </span>&#123;<br>        <span class="hljs-keyword">super</span>.onReceivedTitle(view, title);<br>        TextView tvTitle = toolbar.findViewById(R.id.tv_top_title);<br>        tvTitle.setTextColor(Color.WHITE);<br>        tvTitle.setText(title);<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onProgressChanged</span><span class="hljs-params">(WebView view, <span class="hljs-keyword">int</span> newProgress)</span> </span>&#123;<br>        <span class="hljs-keyword">super</span>.onProgressChanged(view, newProgress);<br>        <span class="hljs-keyword">if</span> (!isScrolled &amp;&amp; newProgress &gt; <span class="hljs-number">50</span>) &#123;<br>            <span class="hljs-keyword">int</span> lastPosition = Usp.getInstance().getInt(sKey + <span class="hljs-string">"position"</span>, <span class="hljs-number">0</span>);<br>            view.scrollTo(<span class="hljs-number">0</span>, lastPosition);<br>            isScrolled = <span class="hljs-keyword">true</span>;<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">onConsoleMessage</span><span class="hljs-params">(ConsoleMessage consoleMessage)</span> </span>&#123;<br>        <span class="hljs-keyword">boolean</span> b = <span class="hljs-keyword">super</span>.onConsoleMessage(consoleMessage);<br>        System.out.println(<span class="hljs-string">"|"</span>);<br>        System.out.println(<span class="hljs-string">"============console=========="</span>);<br>        System.out.println(consoleMessage.message());<br>        System.out.println(<span class="hljs-string">"===========console==========="</span>);<br>        <span class="hljs-keyword">return</span> b;<br><br>    &#125;<br>&#125;);<br><br>mWvContent.loadUrl(mUrl);<br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//: MainActivity.java</span></span><br><span class="line"><span class="keyword">if</span> (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.KITKAT) &#123;</span><br><span class="line">    WebView.setWebContentsDebuggingEnabled(BuildConfig.TEST_ENV);</span><br><span class="line">&#125;</span><br><span class="line">mWvContent = (WebView) findViewById(R.id.wv_content);</span><br><span class="line">mWvContent.setScrollbarFadingEnabled(<span class="literal">true</span>);</span><br><span class="line">mWvContent.addJavascriptInterface(<span class="keyword">new</span> <span class="title class_">JavaScriptInterface</span>(mWvContent), <span class="string">&quot;android&quot;</span>);</span><br><span class="line"><span class="type">WebSettings</span> <span class="variable">settings</span> <span class="operator">=</span> mWvContent.getSettings();</span><br><span class="line">settings.setJavaScriptEnabled(<span class="literal">true</span>);</span><br><span class="line">settings.setBuiltInZoomControls(<span class="literal">true</span>);</span><br><span class="line">settings.setDisplayZoomControls(<span class="literal">false</span>);</span><br><span class="line">settings.setDatabaseEnabled(<span class="literal">true</span>);</span><br><span class="line">settings.setCacheMode(WebSettings.LOAD_NO_CACHE);</span><br><span class="line">settings.setDomStorageEnabled(<span class="literal">true</span>);</span><br><span class="line">settings.setAllowFileAccess(<span class="literal">true</span>);</span><br><span class="line">settings.setAppCacheEnabled(<span class="literal">true</span>);</span><br><span class="line">settings.setAppCachePath(mWvContent.getContext().getCacheDir().getAbsolutePath());</span><br><span class="line">settings.setJavaScriptCanOpenWindowsAutomatically(<span class="literal">true</span>);</span><br><span class="line">settings.setBlockNetworkImage(<span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line">mWvContent.setWebViewClient(<span class="keyword">new</span> <span class="title class_">WebViewClient</span>() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">shouldOverrideUrlLoading</span><span class="params">(WebView view, String url)</span> &#123;</span><br><span class="line">        view.loadUrl(url);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onPageFinished</span><span class="params">(WebView view, String url)</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>.onPageFinished(view, url);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line">mWvContent.setWebChromeClient(<span class="keyword">new</span> <span class="title class_">WebChromeClient</span>() &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onReceivedTitle</span><span class="params">(WebView view, String title)</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>.onReceivedTitle(view, title);</span><br><span class="line">        <span class="type">TextView</span> <span class="variable">tvTitle</span> <span class="operator">=</span> toolbar.findViewById(R.id.tv_top_title);</span><br><span class="line">        tvTitle.setTextColor(Color.WHITE);</span><br><span class="line">        tvTitle.setText(title);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onProgressChanged</span><span class="params">(WebView view, <span class="type">int</span> newProgress)</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>.onProgressChanged(view, newProgress);</span><br><span class="line">        <span class="keyword">if</span> (!isScrolled &amp;&amp; newProgress &gt; <span class="number">50</span>) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">lastPosition</span> <span class="operator">=</span> Usp.getInstance().getInt(sKey + <span class="string">&quot;position&quot;</span>, <span class="number">0</span>);</span><br><span class="line">            view.scrollTo(<span class="number">0</span>, lastPosition);</span><br><span class="line">            isScrolled = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">onConsoleMessage</span><span class="params">(ConsoleMessage consoleMessage)</span> &#123;</span><br><span class="line">        <span class="type">boolean</span> <span class="variable">b</span> <span class="operator">=</span> <span class="built_in">super</span>.onConsoleMessage(consoleMessage);</span><br><span class="line">        System.out.println(<span class="string">&quot;|&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;============console==========&quot;</span>);</span><br><span class="line">        System.out.println(consoleMessage.message());</span><br><span class="line">        System.out.println(<span class="string">&quot;===========console===========&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> b;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">mWvContent.loadUrl(mUrl);</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//: JavaScriptInterface.java</span><br><span class="hljs-comment">// https://blog.csdn.net/FDoubleman/article/details/78189332</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">JavaScriptInterface</span> </span>&#123;<br>    <span class="hljs-keyword">private</span> Context mContext;<br>    <span class="hljs-keyword">private</span> WebView mWebView;<br><br>    JavaScriptInterface(WebView webView) &#123;<br>        mContext = webView.getContext();<br>        mWebView = webView;<br>    &#125;<br><br>    <span class="hljs-meta">@JavascriptInterface</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">showToast</span><span class="hljs-params">(String str)</span> </span>&#123;<br>        <span class="hljs-keyword">final</span> IWXAPI api = WXApiModule.getInstans().getWXApi();<br>        Toast.makeText(mContext, str, Toast.LENGTH_LONG).show();<br>        <span class="hljs-comment">//WebActivity.newInstance(mContext, "https://m3.renrenyoupin.com", "tag");</span><br>        <span class="hljs-keyword">return</span> Uresult.newInstance().status(<span class="hljs-number">0</span>).msg(String.valueOf(api.isWXAppInstalled())).toMap().toString();<br>    &#125;<br><br>    <span class="hljs-meta">@JavascriptInterface</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">executeJs</span><span class="hljs-params">(String str)</span> </span>&#123;<br>        mWebView.post(() -&gt; &#123;<br>            <span class="hljs-keyword">if</span> (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.KITKAT) &#123;<br>                mWebView.evaluateJavascript(str, value -&gt; &#123;<br>                    System.out.println(value);<br>                &#125;);<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                mWebView.loadUrl(str);<br>            &#125;<br>        &#125;);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//: JavaScriptInterface.java</span></span><br><span class="line"><span class="comment">// https://blog.csdn.net/FDoubleman/article/details/78189332</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">JavaScriptInterface</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> Context mContext;</span><br><span class="line">    <span class="keyword">private</span> WebView mWebView;</span><br><span class="line"></span><br><span class="line">    JavaScriptInterface(WebView webView) &#123;</span><br><span class="line">        mContext = webView.getContext();</span><br><span class="line">        mWebView = webView;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@JavascriptInterface</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">showToast</span><span class="params">(String str)</span> &#123;</span><br><span class="line">        <span class="keyword">final</span> <span class="type">IWXAPI</span> <span class="variable">api</span> <span class="operator">=</span> WXApiModule.getInstans().getWXApi();</span><br><span class="line">        Toast.makeText(mContext, str, Toast.LENGTH_LONG).show();</span><br><span class="line">        <span class="comment">//WebActivity.newInstance(mContext, &quot;https://m3.renrenyoupin.com&quot;, &quot;tag&quot;);</span></span><br><span class="line">        <span class="keyword">return</span> Uresult.newInstance().status(<span class="number">0</span>).msg(String.valueOf(api.isWXAppInstalled())).toMap().toString();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@JavascriptInterface</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">executeJs</span><span class="params">(String str)</span> &#123;</span><br><span class="line">        mWebView.post(() -&gt; &#123;</span><br><span class="line">            <span class="keyword">if</span> (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.KITKAT) &#123;</span><br><span class="line">                mWebView.evaluateJavascript(str, value -&gt; &#123;</span><br><span class="line">                    System.out.println(value);</span><br><span class="line">                &#125;);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                mWebView.loadUrl(str);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://lyloou.com/android/gradle/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/images/avatar.png">
       <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lyloou">
+      <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/android/gradle/" class="post-title-link" itemprop="url">Gradle</a>
+          <a href="/android/gradle/" class="post-title-link" itemprop="url">Gradle</a>
         </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2018-07-10 19:16:17" itemprop="dateCreated datePublished" datetime="2018-07-10T19:16:17+08:00">2018-07-10</time>
-            </span>
+      <time title="创建时间：2018-07-10 19:16:17" itemprop="dateCreated datePublished" datetime="2018-07-10T19:16:17+08:00">2018-07-10</time>
+    </span>
 
-          
+  
+</div>
 
         </div>
       </header>
@@ -887,61 +991,59 @@
     
     
     <div class="post-body" itemprop="articleBody">
-
-      
           <ul>
-<li><p><a href="https://medium.com/@prathanbomb/tips-auto-increment-versioncode-of-android-using-gradle-dba0425af97c" target="_blank" rel="noopener">[Tips] Auto-increment versionCode using Gradle – Supitsara Prathan – Medium</a></p>
+<li><p><a target="_blank" rel="noopener" href="https://medium.com/@prathanbomb/tips-auto-increment-versioncode-of-android-using-gradle-dba0425af97c">[Tips] Auto-increment versionCode using Gradle – Supitsara Prathan – Medium</a></p>
 </li>
-<li><p><a href="http://www.infoq.com/cn/articles/android-in-depth-gradle" target="_blank" rel="noopener">深入理解 Android（一）：Gradle 详解</a></p>
+<li><p><a target="_blank" rel="noopener" href="http://www.infoq.com/cn/articles/android-in-depth-gradle">深入理解 Android（一）：Gradle 详解</a></p>
 </li>
-<li><p><a href="https://zllbird.github.io/2016/01/14/android%E4%BD%BF%E7%94%A8gradle%E8%BF%9B%E8%A1%8C%E9%85%8D%E7%BD%AE/" target="_blank" rel="noopener">【Android】使用 Gradle 进行配置 · 诸隆隆</a></p>
+<li><p><a target="_blank" rel="noopener" href="https://zllbird.github.io/2016/01/14/android%E4%BD%BF%E7%94%A8gradle%E8%BF%9B%E8%A1%8C%E9%85%8D%E7%BD%AE/">【Android】使用 Gradle 进行配置 · 诸隆隆</a></p>
 </li>
-<li><p><a href="http://www.groovy-lang.org/api.html" target="_blank" rel="noopener">The Apache Groovy programming language - Groovy Development Kit</a></p>
+<li><p><a target="_blank" rel="noopener" href="http://www.groovy-lang.org/api.html">The Apache Groovy programming language - Groovy Development Kit</a></p>
 </li>
-<li><p><a href="https://docs.gradle.org/current/dsl/" target="_blank" rel="noopener">Gradle DSL Version 4.8</a></p>
+<li><p><a target="_blank" rel="noopener" href="https://docs.gradle.org/current/dsl/">Gradle DSL Version 4.8</a></p>
 </li>
-<li><p><a href="https://developer.android.com/studio/build/" target="_blank" rel="noopener">配置构建  |  Android Developers</a></p>
+<li><p><a target="_blank" rel="noopener" href="https://developer.android.com/studio/build/">配置构建  |  Android Developers</a></p>
 </li>
-<li><p><a href="https://developer.android.com/studio/build/building-cmdline" target="_blank" rel="noopener">从命令行构建您的应用  |  Android Developers</a></p>
+<li><p><a target="_blank" rel="noopener" href="https://developer.android.com/studio/build/building-cmdline">从命令行构建您的应用  |  Android Developers</a></p>
 </li>
 </ul>
-<h2 id="Plugin-version-VS-Required-Gradle-version"><a href="#Plugin-version-VS-Required-Gradle-version" class="headerlink" title="(Plugin version) VS (Required Gradle version)"></a>(Plugin version) VS (Required Gradle version)</h2><p><a href="https://developer.android.com/studio/releases/gradle-plugin" target="_blank" rel="noopener">Android Gradle plugin release notes | Android Developers</a></p>
+<h2 id="Plugin-version-VS-Required-Gradle-version"><a href="#Plugin-version-VS-Required-Gradle-version" class="headerlink" title="(Plugin version) VS (Required Gradle version)"></a>(Plugin version) VS (Required Gradle version)</h2><p><a target="_blank" rel="noopener" href="https://developer.android.com/studio/releases/gradle-plugin">Android Gradle plugin release notes | Android Developers</a></p>
 <h2 id="了解在构建生命周期的各个阶段所花费的时间"><a href="#了解在构建生命周期的各个阶段所花费的时间" class="headerlink" title="了解在构建生命周期的各个阶段所花费的时间"></a>了解在构建生命周期的各个阶段所花费的时间</h2><p>通过 <code>--profile</code> 来生成报告</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">./gradlew assembleDebug --profile<br></code></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./gradlew assembleDebug --profile</span><br></pre></td></tr></table></figure>
 
-<h2 id="android-studio-error-mixing-versions-can-lead-to-run-time-crashes"><a href="#android-studio-error-mixing-versions-can-lead-to-run-time-crashes" class="headerlink" title="android studio error- mixing versions can lead to run-time crashes"></a><a href="https://stackoverflow.com/questions/42960731/android-studio-error-mixing-versions-can-lead-to-run-time-crashes" target="_blank" rel="noopener">android studio error- mixing versions can lead to run-time crashes</a></h2><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs groovy"><span class="hljs-comment">// Add these lines of code in your build.gradle (Module:app) file at end:</span><br>configurations.all &#123;<br>    resolutionStrategy.eachDependency &#123; DependencyResolveDetails details -&gt;<br>        <span class="hljs-keyword">def</span> requested = details.requested<br>        <span class="hljs-keyword">if</span> (requested.group == <span class="hljs-string">'com.android.support'</span>) &#123;<br>            <span class="hljs-keyword">if</span> (!requested.name.startsWith(<span class="hljs-string">"multidex"</span>)) &#123;<br>                details.useVersion <span class="hljs-string">'27.1.1'</span><br>            &#125;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="android-studio-error-mixing-versions-can-lead-to-run-time-crashes"><a href="#android-studio-error-mixing-versions-can-lead-to-run-time-crashes" class="headerlink" title="android studio error- mixing versions can lead to run-time crashes"></a><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/42960731/android-studio-error-mixing-versions-can-lead-to-run-time-crashes">android studio error- mixing versions can lead to run-time crashes</a></h2><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Add these lines of code in your build.gradle (Module:app) file at end:</span></span><br><span class="line">configurations.all &#123;</span><br><span class="line">    resolutionStrategy.eachDependency &#123; DependencyResolveDetails details -&gt;</span><br><span class="line">        <span class="keyword">def</span> requested = details.requested</span><br><span class="line">        <span class="keyword">if</span> (requested.group == <span class="string">&#x27;com.android.support&#x27;</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!requested.name.startsWith(<span class="string">&quot;multidex&quot;</span>)) &#123;</span><br><span class="line">                details.useVersion <span class="string">&#x27;27.1.1&#x27;</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
 <h2 id="proxy"><a href="#proxy" class="headerlink" title="proxy"></a>proxy</h2><p>java -DsocksProxyHost=10.1.1.2 -DsocksProxyPort=8877 -Djava.net.socks.username=alibaba -Djava.net.socks.password=secret</p>
-<p><a href="https://blog.csdn.net/qq_29033193/article/details/84985536" target="_blank" rel="noopener">AndroidStudio 彻底关闭 http 网络代理方法 - Mr.Liu - CSDN 博客</a></p>
-<p><a href="https://blog.csdn.net/WittyCollegeStudent/article/details/78954200" target="_blank" rel="noopener">AndroidStudio 中 Gradle 的 Socks 代理设置 - WittyCollegeStudent 的博客 - CSDN 博客</a></p>
-<p><a href="https://blog.boileryao.com/2019/01/config-android-studio-proxy/" target="_blank" rel="noopener">Android Studio 代理配置指南 · 奔跑的锅炉</a></p>
-<h2 id="Android-Gradle-下载的依赖包位置"><a href="#Android-Gradle-下载的依赖包位置" class="headerlink" title="Android Gradle 下载的依赖包位置"></a>Android Gradle 下载的依赖包位置</h2><p><a href="https://www.jianshu.com/p/e8db626d768f" target="_blank" rel="noopener">Android Gradle 下载的依赖包位置 - 简书</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_29033193/article/details/84985536">AndroidStudio 彻底关闭 http 网络代理方法 - Mr.Liu - CSDN 博客</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/WittyCollegeStudent/article/details/78954200">AndroidStudio 中 Gradle 的 Socks 代理设置 - WittyCollegeStudent 的博客 - CSDN 博客</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.boileryao.com/2019/01/config-android-studio-proxy/">Android Studio 代理配置指南 · 奔跑的锅炉</a></p>
+<h2 id="Android-Gradle-下载的依赖包位置"><a href="#Android-Gradle-下载的依赖包位置" class="headerlink" title="Android Gradle 下载的依赖包位置"></a>Android Gradle 下载的依赖包位置</h2><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/e8db626d768f">Android Gradle 下载的依赖包位置 - 简书</a></p>
 <p>Mac 系统默认下载到：/Users/(用户名)/.gradle/caches/modules-2/files-2.1</p>
 <p>Windows 系统默认下载到：C:\Users(用户名).gradle\caches\modules-2\files-2.1</p>
-<p>举个例子：<br>错误如下： Download Failed ：<a href="https://jcenter.bintray.com/org/jetbrains/kotlin/kotlin-compiler-embeddable/1.2.31/kotlin-compiler-embeddable-1.2.31.jar" target="_blank" rel="noopener">https://jcenter.bintray.com/org/jetbrains/kotlin/kotlin-compiler-embeddable/1.2.31/kotlin-compiler-embeddable-1.2.31.jar</a><br>文件夹生成的规律是根据依赖中的组织名称，classpath”org.jetbrains.kotlin:kotlin-gradle-plugin<br>地址路径则查找位置是：<br>C:\Users\Administrator.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-compiler-embeddable\1.2.71\b394ac31590bff78aea6619b8dc0e2c0958aa599</p>
-<h1 id="还有一种方式：使用-everything-软件来搜索关键字，找到对应目录；"><a href="#还有一种方式：使用-everything-软件来搜索关键字，找到对应目录；" class="headerlink" title="还有一种方式：使用 everything 软件来搜索关键字，找到对应目录；"></a>还有一种方式：使用 <code>everything</code> 软件来搜索关键字，找到对应目录；</h1><h2 id="多渠道打包"><a href="#多渠道打包" class="headerlink" title="多渠道打包"></a>多渠道打包</h2><p><img src="https://github.com/lyloou/img/raw/develop/z/20190829145438.png" alt></p>
+<p>举个例子：<br>错误如下： Download Failed ：<a target="_blank" rel="noopener" href="https://jcenter.bintray.com/org/jetbrains/kotlin/kotlin-compiler-embeddable/1.2.31/kotlin-compiler-embeddable-1.2.31.jar">https://jcenter.bintray.com/org/jetbrains/kotlin/kotlin-compiler-embeddable/1.2.31/kotlin-compiler-embeddable-1.2.31.jar</a><br>文件夹生成的规律是根据依赖中的组织名称，classpath”org.jetbrains.kotlin:kotlin-gradle-plugin<br>地址路径则查找位置是：<br>C:\Users\Administrator.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-compiler-embeddable\1.2.71\b394ac31590bff78aea6619b8dc0e2c0958aa599</p>
+<h1 id="还有一种方式：使用-everything-软件来搜索关键字，找到对应目录；"><a href="#还有一种方式：使用-everything-软件来搜索关键字，找到对应目录；" class="headerlink" title="还有一种方式：使用 everything 软件来搜索关键字，找到对应目录；"></a>还有一种方式：使用 <code>everything</code> 软件来搜索关键字，找到对应目录；</h1><h2 id="多渠道打包"><a href="#多渠道打包" class="headerlink" title="多渠道打包"></a>多渠道打包</h2><p><img src="https://github.com/lyloou/img/raw/develop/z/20190829145438.png"></p>
 <ul>
-<li><a href="https://stackoverflow.com/questions/31538924/android-build-gradle-importing-flavors-from-another-file" target="_blank" rel="noopener">Android build.gradle importing flavors from another file - Stack Overflow</a><br>The build flavors could be defined in a separate file (<code>build_flavors.gradle</code>) like this:</li>
+<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/31538924/android-build-gradle-importing-flavors-from-another-file">Android build.gradle importing flavors from another file - Stack Overflow</a><br>The build flavors could be defined in a separate file (<code>build_flavors.gradle</code>) like this:</li>
 </ul>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs groovy">android &#123;<br>    productFlavors &#123;<br>        flavorA &#123;<br>            <span class="hljs-comment">// ...</span><br>        &#125;<br>        flavorB &#123;<br>            <span class="hljs-comment">// ...</span><br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">android &#123;</span><br><span class="line">    productFlavors &#123;</span><br><span class="line">        flavorA &#123;</span><br><span class="line">            <span class="comment">// ...</span></span><br><span class="line">        &#125;</span><br><span class="line">        flavorB &#123;</span><br><span class="line">            <span class="comment">// ...</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>and then imported into <code>build.gradle</code>:</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs groovy">apply <span class="hljs-string">plugin:</span> <span class="hljs-string">'com.android.application'</span><br>apply <span class="hljs-string">from:</span> <span class="hljs-string">'./build_flavors.gradle'</span><br><br>android &#123;<br>    <span class="hljs-comment">// the rest of your android configuration</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">apply <span class="attr">plugin:</span> <span class="string">&#x27;com.android.application&#x27;</span></span><br><span class="line">apply <span class="attr">from:</span> <span class="string">&#x27;./build_flavors.gradle&#x27;</span></span><br><span class="line"></span><br><span class="line">android &#123;</span><br><span class="line">    <span class="comment">// the rest of your android configuration</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li><a href="https://stackoverflow.com/questions/49815655/include-library-with-flavor-android" target="_blank" rel="noopener">gradle - Include library with flavor android - Stack Overflow</a></li>
+<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/49815655/include-library-with-flavor-android">gradle - Include library with flavor android - Stack Overflow</a></li>
 </ul>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs groovy">android &#123;<br>    ...<br>    <span class="hljs-comment">//flavorDimensions is mandatory with flavors. Use the same name on your 2 files to avoid other conflicts.</span><br>    flavorDimensions <span class="hljs-string">"dim"</span><br>    productFlavors &#123;<br>        nocustomer&#123;<br>            dimension <span class="hljs-string">"dim"</span><br><br>            <span class="hljs-comment">// App and library's flavor have the same name.</span><br>            <span class="hljs-comment">// MatchingFallbacks can be omitted</span><br>            matchingFallbacks = [<span class="hljs-string">"nocustomer"</span>]<br>        &#125;<br>        customerNb&#123;<br>            dimension <span class="hljs-string">"dim"</span><br><br>            <span class="hljs-comment">// Here the app and library's flavor are different</span><br>            <span class="hljs-comment">// Matching fallbacks will select the library's flavor 'customer001'</span><br>            matchingFallbacks = [<span class="hljs-string">"customer001"</span>]<br>        &#125;<br>    &#125;<br>    ...<br>&#125;<br>dependencies &#123;<br>    implementation project(<span class="hljs-string">':zblelib'</span>)<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">android &#123;</span><br><span class="line">    ...</span><br><span class="line">    <span class="comment">//flavorDimensions is mandatory with flavors. Use the same name on your 2 files to avoid other conflicts.</span></span><br><span class="line">    flavorDimensions <span class="string">&quot;dim&quot;</span></span><br><span class="line">    productFlavors &#123;</span><br><span class="line">        nocustomer&#123;</span><br><span class="line">            dimension <span class="string">&quot;dim&quot;</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">// App and library&#x27;s flavor have the same name.</span></span><br><span class="line">            <span class="comment">// MatchingFallbacks can be omitted</span></span><br><span class="line">            matchingFallbacks = [<span class="string">&quot;nocustomer&quot;</span>]</span><br><span class="line">        &#125;</span><br><span class="line">        customerNb&#123;</span><br><span class="line">            dimension <span class="string">&quot;dim&quot;</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">// Here the app and library&#x27;s flavor are different</span></span><br><span class="line">            <span class="comment">// Matching fallbacks will select the library&#x27;s flavor &#x27;customer001&#x27;</span></span><br><span class="line">            matchingFallbacks = [<span class="string">&quot;customer001&quot;</span>]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">dependencies &#123;</span><br><span class="line">    implementation project(<span class="string">&#x27;:zblelib&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>《Gradle 权威指南》 dimension</li>
 </ul>
-<p>多个 dimension 的前后关系是有优先级顺序的，越靠前的优先级越高：<br><img src="https://github.com/lyloou/img/raw/develop/z/20190830135419.png" alt><br><img src="https://github.com/lyloou/img/raw/develop/z/20190830135528.png" alt></p>
-<h2 id="查找冲突的版本号技巧"><a href="#查找冲突的版本号技巧" class="headerlink" title="查找冲突的版本号技巧"></a>查找冲突的版本号技巧</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">./gradlew lib1:dependencies | grep -C 3 com.android.support:appcompat-v7:27.1.1<br>./gradlew app:dependencies | grep -C 3 com.android.support:appcompat-v7:27.1.1<br></code></pre></td></tr></table></figure>
+<p>多个 dimension 的前后关系是有优先级顺序的，越靠前的优先级越高：<br><img src="https://github.com/lyloou/img/raw/develop/z/20190830135419.png"><br><img src="https://github.com/lyloou/img/raw/develop/z/20190830135528.png"></p>
+<h2 id="查找冲突的版本号技巧"><a href="#查找冲突的版本号技巧" class="headerlink" title="查找冲突的版本号技巧"></a>查找冲突的版本号技巧</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./gradlew lib1:dependencies | grep -C 3 com.android.support:appcompat-v7:27.1.1</span><br><span class="line">./gradlew app:dependencies | grep -C 3 com.android.support:appcompat-v7:27.1.1</span><br></pre></td></tr></table></figure>
 
 <p>通过上面的方式，可以看到哪个依赖使用了不同的版本号，接着就可以排除方法：</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs groovy">implementation (<span class="hljs-string">"org.kie.modules:com-google-code-gson:6.5.0.Final"</span>)&#123;<br>    exclude <span class="hljs-string">group:</span> <span class="hljs-string">'com.google.code.gson'</span>, <span class="hljs-string">module:</span> <span class="hljs-string">'gson'</span><br>&#125;<br><span class="hljs-comment">// 使用自己版本的,其中在 gradle.properties中声明 GSON_VERSION=2.8.5</span><br>implementation <span class="hljs-string">"com.google.code.gson:gson:$GSON_VERSION"</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">implementation (<span class="string">&quot;org.kie.modules:com-google-code-gson:6.5.0.Final&quot;</span>)&#123;</span><br><span class="line">    exclude <span class="attr">group:</span> <span class="string">&#x27;com.google.code.gson&#x27;</span>, <span class="attr">module:</span> <span class="string">&#x27;gson&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 使用自己版本的,其中在 gradle.properties中声明 GSON_VERSION=2.8.5</span></span><br><span class="line">implementation <span class="string">&quot;com.google.code.gson:gson:$GSON_VERSION&quot;</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <blockquote>
 <blockquote>
@@ -964,256 +1066,125 @@
     
     
     
-      <footer class="post-footer">
+
+    <footer class="post-footer">
         <div class="post-eof"></div>
-      </footer>
+      
+    </footer>
   </article>
-  
-  
-  
+</div>
 
 
-  
+
+
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/18/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><span class="page-number current">19</span><a class="page-number" href="/page/20/">20</a><span class="space">&hellip;</span><a class="page-number" href="/page/32/">32</a><a class="extend next" rel="next" href="/page/20/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/18/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><span class="page-number current">19</span><a class="page-number" href="/page/20/">20</a><span class="space">&hellip;</span><a class="page-number" href="/page/32/">32</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/20/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
-
-
-          </div>
-          
-
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
-
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
-  </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="lyloou"
-      src="/assets/images/avatar.png">
-  <p class="site-author-name" itemprop="name">lyloou</p>
-  <div class="site-description" itemprop="description">/* Better than last best */</div>
 </div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">312</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
-        <span class="site-state-item-count">56</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
-</div>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-        <a href="https://github.com/lyloou" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;lyloou" rel="noopener" target="_blank">GitHub</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="mailto:lyloou6@gmail.com" title="E-Mail → mailto:lyloou6@gmail.com" rel="noopener" target="_blank">E-Mail</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://weibo.com/lyloou" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;lyloou" rel="noopener" target="_blank">Weibo</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://blog.csdn.net/ly1414725328" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;ly1414725328" rel="noopener" target="_blank">CSDN</a>
-      </span>
-  </div>
-  <div class="cc-license motion-element" itemprop="license">
-    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
-  </div>
+  </main>
 
+  <footer class="footer">
+    <div class="footer-inner">
 
-
-      </div>
-
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-        
   <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">粤ICP备18151128号 </a>
   </div>
 
 <div class="copyright">
-  
   &copy; 
   <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
-    <i class="user"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">lyloou</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
-  </div>
-
-        
 <div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
       <span class="post-meta-item-icon">
-        <i class="user"></i>
+        <i class="fa fa-user"></i>
       </span>
       <span class="site-uv" title="总访客量">
         <span id="busuanzi_value_site_uv"></span>
       </span>
     </span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
       <span class="post-meta-item-icon">
-        <i class="eye"></i>
+        <i class="fa fa-eye"></i>
       </span>
       <span class="site-pv" title="总访问量">
         <span id="busuanzi_value_site_pv"></span>
       </span>
     </span>
 </div>
-
-
-
-
-
-
-
-
-      </div>
-    </footer>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
   </div>
 
-  
-  <script src="/lib/anime.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-
-<script src="/js/schemes/muse.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
-
-
-
+    </div>
+  </footer>
 
   
-  <script>
-    (function(){
-      var canonicalURL, curProtocol;
-      //Get the <link> tag
-      var x=document.getElementsByTagName("link");
-		//Find the last canonical URL
-		if(x.length > 0){
-			for (i=0;i<x.length;i++){
-				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
-					canonicalURL=x[i].href;
-				}
-			}
-		}
-    //Get protocol
-	    if (!canonicalURL){
-	    	curProtocol = window.location.protocol.split(':')[0];
-	    }
-	    else{
-	    	curProtocol = canonicalURL.split(':')[0];
-	    }
-      //Get current URL if the canonical URL does not exist
-	    if (!canonicalURL) canonicalURL = window.location.href;
-	    //Assign script content. Replace current URL with the canonical URL
-      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
-  </script>
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
 
 
 
 
   
-<script src="/js/local-search.js"></script>
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 
 
-
-
-
-
-
-
+<script class="next-config" data-name="giscus" type="application/json">{"enable":true,"repo":"lyloou/lyloou.github.io","repo_id":"MDEwOlJlcG9zaXRvcnkxMDk1NzkyNzA=","category":"Announcements","category_id":"DIC_kwDOBogMBs4CWdfR","mapping":"pathname","reactions_enabled":1,"emit_metadata":1,"theme":"light","lang":"zh-CN","input_position":"bottom","loading":"lazy"}</script>
 
 <script>
-if (document.querySelectorAll('pre.mermaid').length) {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
-    mermaid.initialize({
-      theme    : 'forest',
-      logLevel : 3,
-      flowchart: { curve     : 'linear' },
-      gantt    : { axisFormat: '%m/%d/%Y' },
-      sequence : { actorMargin: 50 }
-    });
-  }, window.mermaid);
-}
+document.addEventListener('page:loaded', () => {
+  if (!CONFIG.page.comments) return;
+
+  NexT.utils.loadComments('.giscus-container')
+    .then(() => NexT.utils.getScript('https://giscus.app/client.js', {
+      attributes: {
+        async                   : true,
+        crossOrigin             : 'anonymous',
+        'data-repo'             : CONFIG.giscus.repo,
+        'data-repo-id'          : CONFIG.giscus.repo_id,
+        'data-category'         : CONFIG.giscus.category,
+        'data-category-id'      : CONFIG.giscus.category_id,
+        'data-mapping'          : CONFIG.giscus.mapping,
+        'data-reactions-enabled': CONFIG.giscus.reactions_enabled,
+        'data-emit-metadata'    : CONFIG.giscus.emit_metadata,
+        'data-theme'            : CONFIG.giscus.theme,
+        'data-lang'             : CONFIG.giscus.lang,
+        'data-input-position'   : CONFIG.giscus.input_position,
+        'data-loading'          : CONFIG.giscus.loading
+      },
+      parentNode: document.querySelector('.giscus-container')
+    }));
+});
 </script>
-
-
-  
-
-  
-
 
 </body>
 </html>
