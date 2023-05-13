@@ -873,6 +873,80 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.com/git/git%20tutor/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/images/avatar.png">
+      <meta itemprop="name" content="lyloou">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lyloou">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/git/git%20tutor/" class="post-title-link" itemprop="url">Git Tutor</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-07-10 19:16:17" itemprop="dateCreated datePublished" datetime="2018-07-10T19:16:17+08:00">2018-07-10</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <ul>
+<li><p><a target="_blank" rel="noopener" href="https://marklodato.github.io/visual-git-guide/index-en.html?no-svg">A Visual Git Reference</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://backlog.com/git-tutorial/cn/">连猴子都懂的Git入门</a></p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://lyloou.com/android/Android%E5%92%8CJavaScript%E4%BA%A4%E4%BA%92/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -924,142 +998,6 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//: MainActivity.java</span></span><br><span class="line"><span class="keyword">if</span> (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.KITKAT) &#123;</span><br><span class="line">    WebView.setWebContentsDebuggingEnabled(BuildConfig.TEST_ENV);</span><br><span class="line">&#125;</span><br><span class="line">mWvContent = (WebView) findViewById(R.id.wv_content);</span><br><span class="line">mWvContent.setScrollbarFadingEnabled(<span class="literal">true</span>);</span><br><span class="line">mWvContent.addJavascriptInterface(<span class="keyword">new</span> <span class="title class_">JavaScriptInterface</span>(mWvContent), <span class="string">&quot;android&quot;</span>);</span><br><span class="line"><span class="type">WebSettings</span> <span class="variable">settings</span> <span class="operator">=</span> mWvContent.getSettings();</span><br><span class="line">settings.setJavaScriptEnabled(<span class="literal">true</span>);</span><br><span class="line">settings.setBuiltInZoomControls(<span class="literal">true</span>);</span><br><span class="line">settings.setDisplayZoomControls(<span class="literal">false</span>);</span><br><span class="line">settings.setDatabaseEnabled(<span class="literal">true</span>);</span><br><span class="line">settings.setCacheMode(WebSettings.LOAD_NO_CACHE);</span><br><span class="line">settings.setDomStorageEnabled(<span class="literal">true</span>);</span><br><span class="line">settings.setAllowFileAccess(<span class="literal">true</span>);</span><br><span class="line">settings.setAppCacheEnabled(<span class="literal">true</span>);</span><br><span class="line">settings.setAppCachePath(mWvContent.getContext().getCacheDir().getAbsolutePath());</span><br><span class="line">settings.setJavaScriptCanOpenWindowsAutomatically(<span class="literal">true</span>);</span><br><span class="line">settings.setBlockNetworkImage(<span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line">mWvContent.setWebViewClient(<span class="keyword">new</span> <span class="title class_">WebViewClient</span>() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">shouldOverrideUrlLoading</span><span class="params">(WebView view, String url)</span> &#123;</span><br><span class="line">        view.loadUrl(url);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onPageFinished</span><span class="params">(WebView view, String url)</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>.onPageFinished(view, url);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line">mWvContent.setWebChromeClient(<span class="keyword">new</span> <span class="title class_">WebChromeClient</span>() &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onReceivedTitle</span><span class="params">(WebView view, String title)</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>.onReceivedTitle(view, title);</span><br><span class="line">        <span class="type">TextView</span> <span class="variable">tvTitle</span> <span class="operator">=</span> toolbar.findViewById(R.id.tv_top_title);</span><br><span class="line">        tvTitle.setTextColor(Color.WHITE);</span><br><span class="line">        tvTitle.setText(title);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onProgressChanged</span><span class="params">(WebView view, <span class="type">int</span> newProgress)</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>.onProgressChanged(view, newProgress);</span><br><span class="line">        <span class="keyword">if</span> (!isScrolled &amp;&amp; newProgress &gt; <span class="number">50</span>) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">lastPosition</span> <span class="operator">=</span> Usp.getInstance().getInt(sKey + <span class="string">&quot;position&quot;</span>, <span class="number">0</span>);</span><br><span class="line">            view.scrollTo(<span class="number">0</span>, lastPosition);</span><br><span class="line">            isScrolled = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">onConsoleMessage</span><span class="params">(ConsoleMessage consoleMessage)</span> &#123;</span><br><span class="line">        <span class="type">boolean</span> <span class="variable">b</span> <span class="operator">=</span> <span class="built_in">super</span>.onConsoleMessage(consoleMessage);</span><br><span class="line">        System.out.println(<span class="string">&quot;|&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;============console==========&quot;</span>);</span><br><span class="line">        System.out.println(consoleMessage.message());</span><br><span class="line">        System.out.println(<span class="string">&quot;===========console===========&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> b;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">mWvContent.loadUrl(mUrl);</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//: JavaScriptInterface.java</span></span><br><span class="line"><span class="comment">// https://blog.csdn.net/FDoubleman/article/details/78189332</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">JavaScriptInterface</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> Context mContext;</span><br><span class="line">    <span class="keyword">private</span> WebView mWebView;</span><br><span class="line"></span><br><span class="line">    JavaScriptInterface(WebView webView) &#123;</span><br><span class="line">        mContext = webView.getContext();</span><br><span class="line">        mWebView = webView;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@JavascriptInterface</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">showToast</span><span class="params">(String str)</span> &#123;</span><br><span class="line">        <span class="keyword">final</span> <span class="type">IWXAPI</span> <span class="variable">api</span> <span class="operator">=</span> WXApiModule.getInstans().getWXApi();</span><br><span class="line">        Toast.makeText(mContext, str, Toast.LENGTH_LONG).show();</span><br><span class="line">        <span class="comment">//WebActivity.newInstance(mContext, &quot;https://m3.renrenyoupin.com&quot;, &quot;tag&quot;);</span></span><br><span class="line">        <span class="keyword">return</span> Uresult.newInstance().status(<span class="number">0</span>).msg(String.valueOf(api.isWXAppInstalled())).toMap().toString();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@JavascriptInterface</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">executeJs</span><span class="params">(String str)</span> &#123;</span><br><span class="line">        mWebView.post(() -&gt; &#123;</span><br><span class="line">            <span class="keyword">if</span> (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.KITKAT) &#123;</span><br><span class="line">                mWebView.evaluateJavascript(str, value -&gt; &#123;</span><br><span class="line">                    System.out.println(value);</span><br><span class="line">                &#125;);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                mWebView.loadUrl(str);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://lyloou.com/android/gradle/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/assets/images/avatar.png">
-      <meta itemprop="name" content="lyloou">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | lyloou">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/android/gradle/" class="post-title-link" itemprop="url">Gradle</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2018-07-10 19:16:17" itemprop="dateCreated datePublished" datetime="2018-07-10T19:16:17+08:00">2018-07-10</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <ul>
-<li><p><a target="_blank" rel="noopener" href="https://medium.com/@prathanbomb/tips-auto-increment-versioncode-of-android-using-gradle-dba0425af97c">[Tips] Auto-increment versionCode using Gradle – Supitsara Prathan – Medium</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="http://www.infoq.com/cn/articles/android-in-depth-gradle">深入理解 Android（一）：Gradle 详解</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://zllbird.github.io/2016/01/14/android%E4%BD%BF%E7%94%A8gradle%E8%BF%9B%E8%A1%8C%E9%85%8D%E7%BD%AE/">【Android】使用 Gradle 进行配置 · 诸隆隆</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="http://www.groovy-lang.org/api.html">The Apache Groovy programming language - Groovy Development Kit</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://docs.gradle.org/current/dsl/">Gradle DSL Version 4.8</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://developer.android.com/studio/build/">配置构建  |  Android Developers</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://developer.android.com/studio/build/building-cmdline">从命令行构建您的应用  |  Android Developers</a></p>
-</li>
-</ul>
-<h2 id="Plugin-version-VS-Required-Gradle-version"><a href="#Plugin-version-VS-Required-Gradle-version" class="headerlink" title="(Plugin version) VS (Required Gradle version)"></a>(Plugin version) VS (Required Gradle version)</h2><p><a target="_blank" rel="noopener" href="https://developer.android.com/studio/releases/gradle-plugin">Android Gradle plugin release notes | Android Developers</a></p>
-<h2 id="了解在构建生命周期的各个阶段所花费的时间"><a href="#了解在构建生命周期的各个阶段所花费的时间" class="headerlink" title="了解在构建生命周期的各个阶段所花费的时间"></a>了解在构建生命周期的各个阶段所花费的时间</h2><p>通过 <code>--profile</code> 来生成报告</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./gradlew assembleDebug --profile</span><br></pre></td></tr></table></figure>
-
-<h2 id="android-studio-error-mixing-versions-can-lead-to-run-time-crashes"><a href="#android-studio-error-mixing-versions-can-lead-to-run-time-crashes" class="headerlink" title="android studio error- mixing versions can lead to run-time crashes"></a><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/42960731/android-studio-error-mixing-versions-can-lead-to-run-time-crashes">android studio error- mixing versions can lead to run-time crashes</a></h2><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Add these lines of code in your build.gradle (Module:app) file at end:</span></span><br><span class="line">configurations.all &#123;</span><br><span class="line">    resolutionStrategy.eachDependency &#123; DependencyResolveDetails details -&gt;</span><br><span class="line">        <span class="keyword">def</span> requested = details.requested</span><br><span class="line">        <span class="keyword">if</span> (requested.group == <span class="string">&#x27;com.android.support&#x27;</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!requested.name.startsWith(<span class="string">&quot;multidex&quot;</span>)) &#123;</span><br><span class="line">                details.useVersion <span class="string">&#x27;27.1.1&#x27;</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
-<h2 id="proxy"><a href="#proxy" class="headerlink" title="proxy"></a>proxy</h2><p>java -DsocksProxyHost=10.1.1.2 -DsocksProxyPort=8877 -Djava.net.socks.username=alibaba -Djava.net.socks.password=secret</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_29033193/article/details/84985536">AndroidStudio 彻底关闭 http 网络代理方法 - Mr.Liu - CSDN 博客</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/WittyCollegeStudent/article/details/78954200">AndroidStudio 中 Gradle 的 Socks 代理设置 - WittyCollegeStudent 的博客 - CSDN 博客</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.boileryao.com/2019/01/config-android-studio-proxy/">Android Studio 代理配置指南 · 奔跑的锅炉</a></p>
-<h2 id="Android-Gradle-下载的依赖包位置"><a href="#Android-Gradle-下载的依赖包位置" class="headerlink" title="Android Gradle 下载的依赖包位置"></a>Android Gradle 下载的依赖包位置</h2><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/e8db626d768f">Android Gradle 下载的依赖包位置 - 简书</a></p>
-<p>Mac 系统默认下载到：/Users/(用户名)/.gradle/caches/modules-2/files-2.1</p>
-<p>Windows 系统默认下载到：C:\Users(用户名).gradle\caches\modules-2\files-2.1</p>
-<p>举个例子：<br>错误如下： Download Failed ：<a target="_blank" rel="noopener" href="https://jcenter.bintray.com/org/jetbrains/kotlin/kotlin-compiler-embeddable/1.2.31/kotlin-compiler-embeddable-1.2.31.jar">https://jcenter.bintray.com/org/jetbrains/kotlin/kotlin-compiler-embeddable/1.2.31/kotlin-compiler-embeddable-1.2.31.jar</a><br>文件夹生成的规律是根据依赖中的组织名称，classpath”org.jetbrains.kotlin:kotlin-gradle-plugin<br>地址路径则查找位置是：<br>C:\Users\Administrator.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-compiler-embeddable\1.2.71\b394ac31590bff78aea6619b8dc0e2c0958aa599</p>
-<h1 id="还有一种方式：使用-everything-软件来搜索关键字，找到对应目录；"><a href="#还有一种方式：使用-everything-软件来搜索关键字，找到对应目录；" class="headerlink" title="还有一种方式：使用 everything 软件来搜索关键字，找到对应目录；"></a>还有一种方式：使用 <code>everything</code> 软件来搜索关键字，找到对应目录；</h1><h2 id="多渠道打包"><a href="#多渠道打包" class="headerlink" title="多渠道打包"></a>多渠道打包</h2><p><img src="https://github.com/lyloou/img/raw/develop/z/20190829145438.png"></p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/31538924/android-build-gradle-importing-flavors-from-another-file">Android build.gradle importing flavors from another file - Stack Overflow</a><br>The build flavors could be defined in a separate file (<code>build_flavors.gradle</code>) like this:</li>
-</ul>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">android &#123;</span><br><span class="line">    productFlavors &#123;</span><br><span class="line">        flavorA &#123;</span><br><span class="line">            <span class="comment">// ...</span></span><br><span class="line">        &#125;</span><br><span class="line">        flavorB &#123;</span><br><span class="line">            <span class="comment">// ...</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>and then imported into <code>build.gradle</code>:</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">apply <span class="attr">plugin:</span> <span class="string">&#x27;com.android.application&#x27;</span></span><br><span class="line">apply <span class="attr">from:</span> <span class="string">&#x27;./build_flavors.gradle&#x27;</span></span><br><span class="line"></span><br><span class="line">android &#123;</span><br><span class="line">    <span class="comment">// the rest of your android configuration</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/49815655/include-library-with-flavor-android">gradle - Include library with flavor android - Stack Overflow</a></li>
-</ul>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">android &#123;</span><br><span class="line">    ...</span><br><span class="line">    <span class="comment">//flavorDimensions is mandatory with flavors. Use the same name on your 2 files to avoid other conflicts.</span></span><br><span class="line">    flavorDimensions <span class="string">&quot;dim&quot;</span></span><br><span class="line">    productFlavors &#123;</span><br><span class="line">        nocustomer&#123;</span><br><span class="line">            dimension <span class="string">&quot;dim&quot;</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">// App and library&#x27;s flavor have the same name.</span></span><br><span class="line">            <span class="comment">// MatchingFallbacks can be omitted</span></span><br><span class="line">            matchingFallbacks = [<span class="string">&quot;nocustomer&quot;</span>]</span><br><span class="line">        &#125;</span><br><span class="line">        customerNb&#123;</span><br><span class="line">            dimension <span class="string">&quot;dim&quot;</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">// Here the app and library&#x27;s flavor are different</span></span><br><span class="line">            <span class="comment">// Matching fallbacks will select the library&#x27;s flavor &#x27;customer001&#x27;</span></span><br><span class="line">            matchingFallbacks = [<span class="string">&quot;customer001&quot;</span>]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">dependencies &#123;</span><br><span class="line">    implementation project(<span class="string">&#x27;:zblelib&#x27;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>《Gradle 权威指南》 dimension</li>
-</ul>
-<p>多个 dimension 的前后关系是有优先级顺序的，越靠前的优先级越高：<br><img src="https://github.com/lyloou/img/raw/develop/z/20190830135419.png"><br><img src="https://github.com/lyloou/img/raw/develop/z/20190830135528.png"></p>
-<h2 id="查找冲突的版本号技巧"><a href="#查找冲突的版本号技巧" class="headerlink" title="查找冲突的版本号技巧"></a>查找冲突的版本号技巧</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./gradlew lib1:dependencies | grep -C 3 com.android.support:appcompat-v7:27.1.1</span><br><span class="line">./gradlew app:dependencies | grep -C 3 com.android.support:appcompat-v7:27.1.1</span><br></pre></td></tr></table></figure>
-
-<p>通过上面的方式，可以看到哪个依赖使用了不同的版本号，接着就可以排除方法：</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">implementation (<span class="string">&quot;org.kie.modules:com-google-code-gson:6.5.0.Final&quot;</span>)&#123;</span><br><span class="line">    exclude <span class="attr">group:</span> <span class="string">&#x27;com.google.code.gson&#x27;</span>, <span class="attr">module:</span> <span class="string">&#x27;gson&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 使用自己版本的,其中在 gradle.properties中声明 GSON_VERSION=2.8.5</span></span><br><span class="line">implementation <span class="string">&quot;com.google.code.gson:gson:$GSON_VERSION&quot;</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>75ce2b45ad080aeaf919f35ffb1afa47ad0b6cac</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-
       
     </div>
 

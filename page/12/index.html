@@ -663,84 +663,6 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://lyloou.com/java/%E9%9A%90%E8%97%8F%E7%89%B9%E6%80%A7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/assets/images/avatar.png">
-      <meta itemprop="name" content="lyloou">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | lyloou">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/java/%E9%9A%90%E8%97%8F%E7%89%B9%E6%80%A7/" class="post-title-link" itemprop="url">Java隐藏特性</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-01-26 12:30:13" itemprop="dateCreated datePublished" datetime="2019-01-26T12:30:13+08:00">2019-01-26</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="双花括号初始化语法（DoubleBraceInitialization）"><a href="#双花括号初始化语法（DoubleBraceInitialization）" class="headerlink" title="双花括号初始化语法（DoubleBraceInitialization）"></a>双花括号初始化语法（DoubleBraceInitialization）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这里解释下这两个括号：</span></span><br><span class="line"><span class="comment">// 第一个括号创建了一个新的匿名内部类，相信这个大家都知道；</span></span><br><span class="line"><span class="comment">// 第二个括号声明了匿名内部类实例化时运行的实例初始化块。</span></span><br><span class="line">removeProductsWithCodeIn(<span class="keyword">new</span> <span class="title class_">HashSet</span>&lt;String&gt;() &#123;&#123;</span><br><span class="line">    add(<span class="string">&quot;XZ13s&quot;</span>);</span><br><span class="line">    add(<span class="string">&quot;AB21/X&quot;</span>);</span><br><span class="line">    add(<span class="string">&quot;YYLEX&quot;</span>);</span><br><span class="line">    add(<span class="string">&quot;AR5E&quot;</span>);</span><br><span class="line"> &#125;&#125;);</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><a target="_blank" rel="noopener" href="http://www.cnblogs.com/lanxuezaipiao/p/3460373.html">Java 你不知道的那些事儿—Java 隐藏特性（上） - Alexia(minmin) - 博客园</a></li>
-</ul>
-<h3 id="注意：此特性可能存在的问题；"><a href="#注意：此特性可能存在的问题；" class="headerlink" title="注意：此特性可能存在的问题；"></a><strong>注意</strong>：此特性可能存在的问题；</h3><ol>
-<li> gson 不能正确解析双花括号语法(<a href="http://lyloou.com/java/%E5%9D%91/">【Java】那些踩过的坑 | 比特楼</a>)</li>
-<li><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000022717457">永远不要使用双花括号初始化实例，否则就会 OOM！ - SegmentFault 思否</a><br> （匿名内部类，可能会导致 OOM）</li>
-<li>Caused by: com.esotericsoftware.kryo.KryoException: Class cannot be created (missing no-arg constructor): com.lyloou.jetcache.UserServiceImpl$1<br> This is an anonymous class, which is not serializable by default in Kryo. Possible solutions: 1. Remove uses of anonymous classes, including double brace initialization, from the containing class. This is the safest solution, as anonymous classes don’t have predictable names for serialization.</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://lyloou.com/java-concurrent/readme/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -810,6 +732,84 @@
 
 <p>通过<code>Runtime.getRuntime().avaiableProcessors()</code>来获取 cpu 个数。</p>
 <h2 id="窃取线程池"><a href="#窃取线程池" class="headerlink" title="窃取线程池"></a>窃取线程池</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> cn.hutool.core.thread.ThreadUtil;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.ExecutorService;</span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.Executors;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ExecutorOfWorkStealingPoolTest</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="keyword">final</span> <span class="type">ExecutorService</span> <span class="variable">executorService</span> <span class="operator">=</span> Executors.newWorkStealingPool();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; Integer.MAX_VALUE; i++) &#123;</span><br><span class="line">            System.out.println(i);</span><br><span class="line">            <span class="type">int</span> <span class="variable">finalI</span> <span class="operator">=</span> i;</span><br><span class="line">            executorService.submit(() -&gt; &#123;</span><br><span class="line">                System.out.println(Thread.currentThread().getName() + <span class="string">&quot; - &quot;</span> + finalI);</span><br><span class="line">                ThreadUtil.sleep(<span class="number">1000</span>);</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        ThreadUtil.sleep(<span class="number">1000000</span>);</span><br><span class="line">        executorService.shutdown();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.com/java/%E9%9A%90%E8%97%8F%E7%89%B9%E6%80%A7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/images/avatar.png">
+      <meta itemprop="name" content="lyloou">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lyloou">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/java/%E9%9A%90%E8%97%8F%E7%89%B9%E6%80%A7/" class="post-title-link" itemprop="url">Java隐藏特性</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-01-26 12:30:13" itemprop="dateCreated datePublished" datetime="2019-01-26T12:30:13+08:00">2019-01-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="双花括号初始化语法（DoubleBraceInitialization）"><a href="#双花括号初始化语法（DoubleBraceInitialization）" class="headerlink" title="双花括号初始化语法（DoubleBraceInitialization）"></a>双花括号初始化语法（DoubleBraceInitialization）</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这里解释下这两个括号：</span></span><br><span class="line"><span class="comment">// 第一个括号创建了一个新的匿名内部类，相信这个大家都知道；</span></span><br><span class="line"><span class="comment">// 第二个括号声明了匿名内部类实例化时运行的实例初始化块。</span></span><br><span class="line">removeProductsWithCodeIn(<span class="keyword">new</span> <span class="title class_">HashSet</span>&lt;String&gt;() &#123;&#123;</span><br><span class="line">    add(<span class="string">&quot;XZ13s&quot;</span>);</span><br><span class="line">    add(<span class="string">&quot;AB21/X&quot;</span>);</span><br><span class="line">    add(<span class="string">&quot;YYLEX&quot;</span>);</span><br><span class="line">    add(<span class="string">&quot;AR5E&quot;</span>);</span><br><span class="line"> &#125;&#125;);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><a target="_blank" rel="noopener" href="http://www.cnblogs.com/lanxuezaipiao/p/3460373.html">Java 你不知道的那些事儿—Java 隐藏特性（上） - Alexia(minmin) - 博客园</a></li>
+</ul>
+<h3 id="注意：此特性可能存在的问题；"><a href="#注意：此特性可能存在的问题；" class="headerlink" title="注意：此特性可能存在的问题；"></a><strong>注意</strong>：此特性可能存在的问题；</h3><ol>
+<li> gson 不能正确解析双花括号语法(<a href="http://lyloou.com/java/%E5%9D%91/">【Java】那些踩过的坑 | 比特楼</a>)</li>
+<li><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000022717457">永远不要使用双花括号初始化实例，否则就会 OOM！ - SegmentFault 思否</a><br> （匿名内部类，可能会导致 OOM）</li>
+<li>Caused by: com.esotericsoftware.kryo.KryoException: Class cannot be created (missing no-arg constructor): com.lyloou.jetcache.UserServiceImpl$1<br> This is an anonymous class, which is not serializable by default in Kryo. Possible solutions: 1. Remove uses of anonymous classes, including double brace initialization, from the containing class. This is the safest solution, as anonymous classes don’t have predictable names for serialization.</li>
+</ol>
 
       
     </div>
