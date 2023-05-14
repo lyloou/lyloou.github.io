@@ -26,15 +26,15 @@
 <meta property="og:site_name" content="lyloou">
 <meta property="og:description" content="原理 基于 AOP 面向切面编程，在执行前后插入身份认证的逻辑。  原理细节：  登录过程：这个过程比较简单，将用户 id、用户名、过期时间等属性结合 jwt 工具生成 token，并将用户的信息存入到缓存中，以供后期使用。  验证过程：前端通过 Header 头信息的 Authorization 属性得到 Token，先进行 token 验证，再结合缓存验证，验证成功的话，将用户 id 和用户名">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/lyloou/img/develop/img/20210813155146.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/lyloou/img/develop/img/20210813155327.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lyloou/img/img/20210813155146.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lyloou/img/img/20210813155327.png">
 <meta property="article:published_time" content="2021-08-13T07:20:05.000Z">
 <meta property="article:modified_time" content="2021-08-13T07:20:05.000Z">
 <meta property="article:author" content="lyloou">
 <meta property="article:tag" content="business">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/lyloou/img/develop/img/20210813155146.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/lyloou/img/img/20210813155146.png">
 
 
 <link rel="canonical" href="https://lyloou.com/business/Token%E8%BA%AB%E4%BB%BD%E8%AE%A4%E8%AF%81%E8%AE%BE%E8%AE%A1/">
@@ -299,9 +299,9 @@
 
 <h2 id="客户端使用"><a href="#客户端使用" class="headerlink" title="客户端使用"></a>客户端使用</h2><p>在 Header 中配置身份认证 Token 的信息：<br>如：<code>Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2Mjg4MzQ3MjQsImV4cCI6MTYyOTQzOTUyNCwieC11c2VyLW5hbWUiOiJhYmNkZSIsIngtdXNlci1pZCI6IjEifQ.x0nIhSUPfxC5FlnzJ-MmJvLnJv7w5ZvFzGlNphdSByE</code></p>
 <h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>登录接口：</p>
-<p><img src="https://raw.githubusercontent.com/lyloou/img/develop/img/20210813155146.png" alt="image-20210813155138945"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/lyloou/img/img/20210813155146.png" alt="image-20210813155138945"></p>
 <p>获取用户信息接口：</p>
-<p><img src="https://raw.githubusercontent.com/lyloou/img/develop/img/20210813155327.png" alt="image-20210813155327715"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/lyloou/img/img/20210813155327.png" alt="image-20210813155327715"></p>
 <h2 id="源码实现"><a href="#源码实现" class="headerlink" title="源码实现"></a>源码实现</h2><p><a target="_blank" rel="noopener" href="https://github.com/lyloou/component/tree/master/component-security-loginvalidator-starter">component/component-security-loginvalidator-starter at master · lyloou/component</a></p>
 
     </div>

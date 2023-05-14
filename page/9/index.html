@@ -997,19 +997,19 @@
 </ul>
 <h4 id="SELECT-IN-子查询-太慢问题"><a href="#SELECT-IN-子查询-太慢问题" class="headerlink" title="SELECT IN(子查询)太慢问题"></a>SELECT IN(子查询)太慢问题</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">explain <span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> third_video_iqiyi <span class="keyword">WHERE</span>  v_id <span class="keyword">in</span> (<span class="keyword">SELECT</span> v_id <span class="keyword">FROM</span> third_video_iqiyi <span class="keyword">WHERE</span> v_id <span class="operator">&lt;</span> <span class="number">10</span>);</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://raw.githubusercontent.com/lyloou/img/develop/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98_20220608185021_2022-06-08-18-50-22.png" alt="常见问题_20220608185021_2022-06-08-18-50-22"><br>在表的整体数据量大的情况下，上面的 sql 基本无法执行。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/lyloou/img/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98_20220608185021_2022-06-08-18-50-22.png" alt="常见问题_20220608185021_2022-06-08-18-50-22"><br>在表的整体数据量大的情况下，上面的 sql 基本无法执行。</p>
 <ul>
-<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/youbl/article/details/113696590">生产慢查询记录：MySQL IN 子查询导致的慢查询_北亮bl的博客-CSDN博客</a><br><img src="https://raw.githubusercontent.com/lyloou/img/develop/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98_20220608185524_2022-06-08-18-55-24.png" alt="常见问题_20220608185524_2022-06-08-18-55-24"></p>
+<li><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/youbl/article/details/113696590">生产慢查询记录：MySQL IN 子查询导致的慢查询_北亮bl的博客-CSDN博客</a><br><img src="https://cdn.jsdelivr.net/gh/lyloou/img/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98_20220608185524_2022-06-08-18-55-24.png" alt="常见问题_20220608185524_2022-06-08-18-55-24"></p>
 </li>
 <li><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/wxw16/p/6105624.html">深入理解MySql子查询IN的执行和优化 - wuxiwei - 博客园</a></p>
 </li>
-<li><p><a target="_blank" rel="noopener" href="https://www.365seal.com/y/AZvgXQL3Va.html">MySQL子查询慢现象的解决</a><br><img src="https://raw.githubusercontent.com/lyloou/img/develop/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98_20220608185226_2022-06-08-18-52-27.png" alt="常见问题_20220608185226_2022-06-08-18-52-27"></p>
+<li><p><a target="_blank" rel="noopener" href="https://www.365seal.com/y/AZvgXQL3Va.html">MySQL子查询慢现象的解决</a><br><img src="https://cdn.jsdelivr.net/gh/lyloou/img/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98_20220608185226_2022-06-08-18-52-27.png" alt="常见问题_20220608185226_2022-06-08-18-52-27"></p>
 </li>
 </ul>
 <p>优化方案</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">explain <span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> third_video_iqiyi a ,(<span class="keyword">SELECT</span> v_id <span class="keyword">FROM</span> third_video_iqiyi <span class="keyword">WHERE</span> v_id <span class="operator">&lt;</span> <span class="number">10</span>) b <span class="keyword">WHERE</span> a.v_id <span class="operator">=</span> b.v_id;</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://raw.githubusercontent.com/lyloou/img/develop/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98_20220608184956_2022-06-08-18-49-57.png" alt="常见问题_20220608184956_2022-06-08-18-49-57"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/lyloou/img/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98_20220608184956_2022-06-08-18-49-57.png" alt="常见问题_20220608184956_2022-06-08-18-49-57"></p>
 
       
     </div>

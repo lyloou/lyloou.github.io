@@ -26,22 +26,22 @@
 <meta property="og:site_name" content="lyloou">
 <meta property="og:description" content="Kafka - 随笔分类 - 郭俊 Jason - 博客园 www.jasongj.com&#x2F;2015&#x2F;01&#x2F;02&#x2F;Kafka 深度解析&#x2F; 查看 kafka 消息队列的积压情况-12463494-51CTO 博客12kafka-consumer-groups.sh --bootstrap-server 172.20.154.101:9092 --describe --group  marketing">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/lyloou/img/develop/img/20210702092139.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/lyloou/img/develop/img/20210702092149.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/lyloou/img/develop/v3/202304131428849.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/lyloou/img/develop/v3/202304131429741.jpg">
-<meta property="og:image" content="https://raw.githubusercontent.com/lyloou/img/develop/v3/202304131430480.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/lyloou/img/develop/v3/202304131701372.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/lyloou/img/develop/v3/202304131659956.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/lyloou/img/develop/v3/202304131728246.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/lyloou/img/develop/v3/202304131736265.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/lyloou/img/develop/v3/202304131740462.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lyloou/img/img/20210702092139.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lyloou/img/img/20210702092149.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lyloou/img/v3/202304131428849.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lyloou/img/v3/202304131429741.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lyloou/img/v3/202304131430480.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lyloou/img/v3/202304131701372.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lyloou/img/v3/202304131659956.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lyloou/img/v3/202304131728246.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lyloou/img/v3/202304131736265.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lyloou/img/v3/202304131740462.png">
 <meta property="article:published_time" content="2020-07-30T03:10:04.000Z">
 <meta property="article:modified_time" content="2020-07-30T03:10:04.000Z">
 <meta property="article:author" content="lyloou">
 <meta property="article:tag" content="mq">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/lyloou/img/develop/img/20210702092139.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/lyloou/img/img/20210702092139.png">
 
 
 <link rel="canonical" href="https://lyloou.com/mq/kafka/">
@@ -272,10 +272,10 @@
 <h2 id="查看-kafka-消息队列的积压情况-12463494-51CTO-博客"><a href="#查看-kafka-消息队列的积压情况-12463494-51CTO-博客" class="headerlink" title="查看 kafka 消息队列的积压情况-12463494-51CTO 博客"></a><a target="_blank" rel="noopener" href="https://blog.51cto.com/12473494/2420105">查看 kafka 消息队列的积压情况-12463494-51CTO 博客</a></h2><figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">kafka</span><span class="literal">-</span><span class="comment">consumer</span><span class="literal">-</span><span class="comment">groups</span><span class="string">.</span><span class="comment">sh</span> <span class="literal">--</span><span class="comment">bootstrap</span><span class="literal">-</span><span class="comment">server 172</span><span class="string">.</span><span class="comment">20</span><span class="string">.</span><span class="comment">154</span><span class="string">.</span><span class="comment">101:9092</span> <span class="literal">--</span><span class="comment">describe</span> <span class="literal">--</span><span class="comment">group  marketing_group | grep task</span><span class="literal">-</span><span class="comment">prize</span><span class="literal">-</span><span class="comment">gift</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u013256816/article/details/79955578">Kafka 的 Lag 计算误区及正确实现_朱小厮的博客-CSDN 博客_kafka lag</a></p>
-<p>查看正在运行的消费组<br><img src="https://raw.githubusercontent.com/lyloou/img/develop/img/20210702092139.png" alt="kafka_2020-07-30-12-51-21"></p>
+<p>查看正在运行的消费组<br><img src="https://cdn.jsdelivr.net/gh/lyloou/img/img/20210702092139.png" alt="kafka_2020-07-30-12-51-21"></p>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kafka-consumer-groups <span class="attr">--bootstrap-server</span> master:<span class="number">9092</span> <span class="attr">--list</span> <span class="attr">--new-consumer</span></span><br><span class="line">kafka-consumer-groups<span class="selector-class">.sh</span> <span class="attr">--bootstrap-server</span> ce-kafka:<span class="number">9092</span> <span class="attr">--list</span></span><br></pre></td></tr></table></figure>
 
-<p>计算消息的消息堆积情况<br><img src="https://raw.githubusercontent.com/lyloou/img/develop/img/20210702092149.png" alt="kafka_2020-07-30-12-51-47"></p>
+<p>计算消息的消息堆积情况<br><img src="https://cdn.jsdelivr.net/gh/lyloou/img/img/20210702092149.png" alt="kafka_2020-07-30-12-51-47"></p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">kafka-consumer-groups --bootstrap-server master:9092 --describe --group  test_kafka_game_x_g1</span><br><span class="line">kafka-consumer-groups.sh --bootstrap-server ce-kafka:9092 --describe --group  default-group</span><br></pre></td></tr></table></figure>
 
 <p>说明：</p>
@@ -291,14 +291,14 @@
 
 <h2 id="kafka的concurrency-配置过大导致CPU占用率过大"><a href="#kafka的concurrency-配置过大导致CPU占用率过大" class="headerlink" title="kafka的concurrency 配置过大导致CPU占用率过大"></a>kafka的concurrency 配置过大导致CPU占用率过大</h2><p>问题：kafka的concurrency 配置过大导致CPU占用率过大。<br>说明和解决方案：3台机器，分区数量为10，concurrency修改前为30，修改后为3(<code>参考值：机器数量*concurrency&lt;=分区数</code>)</p>
 <blockquote>
-<p>修改前后趋势图<br><img src="https://raw.githubusercontent.com/lyloou/img/develop/v3/202304131428849.png" alt="image.png"></p>
+<p>修改前后趋势图<br><img src="https://cdn.jsdelivr.net/gh/lyloou/img/v3/202304131428849.png" alt="image.png"></p>
 </blockquote>
-<p>修改前：<img src="https://raw.githubusercontent.com/lyloou/img/develop/v3/202304131429741.jpg" alt="5dYCAwIUJ0.jpg"><br>修改后：<img src="https://raw.githubusercontent.com/lyloou/img/develop/v3/202304131430480.png" alt="image.png"></p>
-<p><strong>注意：</strong><code>concurrent</code> 的数量和 <code>@KafkaListener</code> 是相关的（也可以通过注解参数配置覆盖factory的concurrency <code>@KafkaListener(concurrency = 3)</code>），互相直接的线程是不干扰的。<br><img src="https://raw.githubusercontent.com/lyloou/img/develop/v3/202304131701372.png" alt="image.png"></p>
-<p><img src="https://raw.githubusercontent.com/lyloou/img/develop/v3/202304131659956.png" alt="image.png"></p>
-<p><strong>消耗资源分析</strong><br>每一个consumer都会添加到线程池中<br><img src="https://raw.githubusercontent.com/lyloou/img/develop/v3/202304131728246.png" alt="image.png"></p>
-<p>每个consumer都会再 while 循环中执行 isRunning()和 pollAndInvoke() 方法（空轮询消耗CPU）。<br><img src="https://raw.githubusercontent.com/lyloou/img/develop/v3/202304131736265.png" alt="image.png"></p>
-<p>空轮询消耗CPU示例<br><img src="https://raw.githubusercontent.com/lyloou/img/develop/v3/202304131740462.png" alt="image.png"></p>
+<p>修改前：<img src="https://cdn.jsdelivr.net/gh/lyloou/img/v3/202304131429741.jpg" alt="5dYCAwIUJ0.jpg"><br>修改后：<img src="https://cdn.jsdelivr.net/gh/lyloou/img/v3/202304131430480.png" alt="image.png"></p>
+<p><strong>注意：</strong><code>concurrent</code> 的数量和 <code>@KafkaListener</code> 是相关的（也可以通过注解参数配置覆盖factory的concurrency <code>@KafkaListener(concurrency = 3)</code>），互相直接的线程是不干扰的。<br><img src="https://cdn.jsdelivr.net/gh/lyloou/img/v3/202304131701372.png" alt="image.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/lyloou/img/v3/202304131659956.png" alt="image.png"></p>
+<p><strong>消耗资源分析</strong><br>每一个consumer都会添加到线程池中<br><img src="https://cdn.jsdelivr.net/gh/lyloou/img/v3/202304131728246.png" alt="image.png"></p>
+<p>每个consumer都会再 while 循环中执行 isRunning()和 pollAndInvoke() 方法（空轮询消耗CPU）。<br><img src="https://cdn.jsdelivr.net/gh/lyloou/img/v3/202304131736265.png" alt="image.png"></p>
+<p>空轮询消耗CPU示例<br><img src="https://cdn.jsdelivr.net/gh/lyloou/img/v3/202304131740462.png" alt="image.png"></p>
 <p>参考资料：<a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1846785">【spring-kafka】属性 concurrency 的作用及如何配置(RoundRobinAssignor 、RangeAssignor) - 云+社区 - 腾讯云</a></p>
 <h2 id="其他参考资料"><a href="#其他参考资料" class="headerlink" title="其他参考资料"></a>其他参考资料</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/wangzhuxing/p/10111831.html#_label1_14">kafka 系列七、kafka 核心配置 - 小人物的奋斗 - 博客园</a></p>
 <p><a target="_blank" rel="noopener" href="https://blog.51cto.com/u_15239532/2858254">Apache Kafka-通过 concurrency 实现并发消费_小小工匠的技术博客_51CTO 博客</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42331178/article/details/119936230">kafka 动态添加 topic，动态添加消费者_小小传奇的博客-CSDN 博客_kafka topic 动态</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_36380516/article/details/119524653?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_baidulandingword~default-1.pc_relevant_default&spm=1001.2101.3001.4242.2&utm_relevant_index=4">Kafka 中@KafkaListener 如何动态指定多个 topic<em>Java 知音</em>的博客-CSDN 博客</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/lishuangzhe7047/article/details/74530417">Kafka auto.offset.reset 值详解_lishuangzhe7047 的博客-CSDN 博客_auto.offset.reset</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_29976261/article/details/90229375">Kafka 获得 topicPartition 的最早，最新 offset 的时间，以及存储量_卞卞要运动的博客-CSDN 博客_topicpartitions</a><br><a target="_blank" rel="noopener" href="http://haoyuanliu.github.io/2020/07/24/Kafka%E6%B6%88%E8%B4%B9%E8%80%85%E9%87%8D%E5%A4%8D%E6%B6%88%E8%B4%B9%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">Kafka 消费者重复消费问题解决 | 贫贫贫贫僧</a></p>

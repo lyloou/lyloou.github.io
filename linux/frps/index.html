@@ -26,15 +26,15 @@
 <meta property="og:site_name" content="lyloou">
 <meta property="og:description" content="frps 是一个优秀的内网穿透软件。 frps 下载安装：https:&#x2F;&#x2F;github.com&#x2F;fatedier&#x2F;frp&#x2F;releases 服务端: .&#x2F;frps -c .&#x2F;frps.ini frps.ini 123456789101112[common]bind_addr &#x3D; 0.0.0.0bind_port &#x3D; 7000bind_udp_port &#x3D; 7001dashboard_port &#x3D;">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/lyloou/img/develop/img/202202082113352.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/lyloou/img/develop/img/202202082114908.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/lyloou/img/develop/img/202202082135628.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lyloou/img/img/202202082113352.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lyloou/img/img/202202082114908.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/lyloou/img/img/202202082135628.png">
 <meta property="article:published_time" content="2022-02-08T13:04:14.000Z">
 <meta property="article:modified_time" content="2022-02-08T13:04:14.000Z">
 <meta property="article:author" content="lyloou">
 <meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/lyloou/img/develop/img/202202082113352.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/lyloou/img/img/202202082113352.png">
 
 
 <link rel="canonical" href="https://lyloou.com/linux/frps/">
@@ -282,8 +282,8 @@
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 告诉 supervisor 新加了配置</span></span><br><span class="line">supervisorctl reread</span><br><span class="line"></span><br><span class="line"><span class="comment"># 让 supervisor 启动 frps</span></span><br><span class="line">supervisorctl update</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>输入 supervisorctl 查看 frps 是否已运行</p>
-<p><img src="https://raw.githubusercontent.com/lyloou/img/develop/img/202202082113352.png" alt="202202082113352"></p>
-<p>start 和 stop frps<br><img src="https://raw.githubusercontent.com/lyloou/img/develop/img/202202082114908.png" alt="202202082114908"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/lyloou/img/img/202202082113352.png" alt="202202082113352"></p>
+<p>start 和 stop frps<br><img src="https://cdn.jsdelivr.net/gh/lyloou/img/img/202202082114908.png" alt="202202082114908"></p>
 <p>设置 supervisor 开机启动</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> supervisor.service</span><br><span class="line">systemctl daemon-reload</span><br></pre></td></tr></table></figure>
 
@@ -291,7 +291,7 @@
 <p><code>vi /etc/supervisor/supervisord.conf</code> 添加下面代码</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[inet_http_server]</span><br><span class="line">port=*:9001</span><br><span class="line">username=admin</span><br><span class="line">password=admin</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://raw.githubusercontent.com/lyloou/img/develop/img/202202082135628.png" alt="202202082135628"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/lyloou/img/img/202202082135628.png" alt="202202082135628"></p>
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a target="_blank" rel="noopener" href="https://github.com/fatedier/frp">https://github.com/fatedier/frp</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/219553bfeca9">通过 frp 实现访问内网 ssh 与 http 简明教程 - 简书</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.atlantic.net/vps-hosting/how-to-install-and-configure-supervisor-on-ubuntu-20-04/">How to Install and Configure Supervisor on Ubuntu 20.04 | Atlantic.Net</a></p>

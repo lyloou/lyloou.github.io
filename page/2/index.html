@@ -734,7 +734,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="基础篇"><a href="#基础篇" class="headerlink" title="基础篇"></a>基础篇</h2><p><img src="https://raw.githubusercontent.com/lyloou/img/develop/img/ElasticSearch-basic_20211229152205725_8b645c.png" alt="ElasticSearch-basic"></p>
+          <h2 id="基础篇"><a href="#基础篇" class="headerlink" title="基础篇"></a>基础篇</h2><p><img src="https://cdn.jsdelivr.net/gh/lyloou/img/img/ElasticSearch-basic_20211229152205725_8b645c.png" alt="ElasticSearch-basic"></p>
 <h4 id="什么是-ES。ES-的功能、特点、使用场景"><a href="#什么是-ES。ES-的功能、特点、使用场景" class="headerlink" title="什么是 ES。ES 的功能、特点、使用场景"></a>什么是 ES。ES 的功能、特点、使用场景</h4><p>简介：<br>全称 Elasticsearch，是一个分布式、RESTful 风格的搜索和数据分析引擎。<br>通过 Elasticsearch，可以轻松地存储、搜索和分析大量数据。<br>速度快，近乎实时的存储和检索数据。扩展性好，可扩展到上百台服务器，处理 PB 级别的数据。<br>易使用，ES 使用 Lucene 作为核心实现索引和搜索功能，通过 ResutfulAPI 和 JavaAPI 来隐藏 Lucene 的复杂性。</p>
 <p>官网：<br><a target="_blank" rel="noopener" href="https://www.elastic.co/cn/elasticsearch/">https://www.elastic.co/cn/elasticsearch/</a></p>
 <p>起源：<br>2004 年，失业的工程师 Shay Banon，帮老婆写一个菜谱搜索引擎。<br>封装 Lucene 开源项目做成了 compass，找到工作后，又基于 compass 封装成了 elasticsearch。<br>现在是 Elastic 创始人兼 Elastic 首席执行官。</p>
@@ -777,7 +777,7 @@
 <p>协调节点，将集群请求转发到主节点，将数据请求转发到数据节点<br>（每个节点都是自带协调节点功能的，也可以只作为协调节点。设置协调节点有益于降低主节点和数据节点负担，但过多会增加集群负担，因为需要同步状态）。</p>
 <p>集群：ES 集群是一组连接在一起的 ES 节点实例。</p>
 <p>集群规划策略：当前数据规模+适量增长规模。（后续可按需添加）</p>
-<p>示例，三个节点和一个索引的集群（2 个主分片，4 个副本分片）<br><img src="https://raw.githubusercontent.com/lyloou/img/develop/Elasticsearch-1%E5%9F%BA%E7%A1%80_20211231161535_2021-12-31-16-15-35.png" alt="Elasticsearch-1基础_20211231161535_2021-12-31-16-15-35"><br>我们发出的请求，可以被任何一个节点接收处理（首个处理的节点被称为协调节点），每个节点都知道集群中任一文档的位置，<br>可以将请求转发到需要的节点上。</p>
+<p>示例，三个节点和一个索引的集群（2 个主分片，4 个副本分片）<br><img src="https://cdn.jsdelivr.net/gh/lyloou/img/Elasticsearch-1%E5%9F%BA%E7%A1%80_20211231161535_2021-12-31-16-15-35.png" alt="Elasticsearch-1基础_20211231161535_2021-12-31-16-15-35"><br>我们发出的请求，可以被任何一个节点接收处理（首个处理的节点被称为协调节点），每个节点都知道集群中任一文档的位置，<br>可以将请求转发到需要的节点上。</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://juejin.cn/post/7038828692671299620">ES集群中各节点角色功能简介 - 掘金</a></li>
 </ul>
@@ -811,7 +811,7 @@
 <h4 id="什么是-Mapping（映射）"><a href="#什么是-Mapping（映射）" class="headerlink" title="什么是 Mapping（映射）"></a>什么是 Mapping（映射）</h4><p>定义了每个字段的类型信息，相当于关系型数据库中的表结构(Schema)</p>
 <h4 id="什么是-Document（文档）"><a href="#什么是-Document（文档）" class="headerlink" title="什么是 Document（文档）"></a>什么是 Document（文档）</h4><p>存储 json 文档，相当于关系型数据库中的 Row(一行记录)</p>
 <h4 id="什么是-Field（字段）"><a href="#什么是-Field（字段）" class="headerlink" title="什么是 Field（字段）"></a>什么是 Field（字段）</h4><p>存储某一具体字段，相当于关系型数据库中的 Column(列)</p>
-<h4 id="与关系型数据库中的术语比较"><a href="#与关系型数据库中的术语比较" class="headerlink" title="与关系型数据库中的术语比较"></a>与关系型数据库中的术语比较</h4><p><img src="https://raw.githubusercontent.com/lyloou/img/develop/Elasticsearch_%3E_2021-12-29-14-46-52.png" alt="Elasticsearch_&gt;_2021-12-29-14-46-52"></p>
+<h4 id="与关系型数据库中的术语比较"><a href="#与关系型数据库中的术语比较" class="headerlink" title="与关系型数据库中的术语比较"></a>与关系型数据库中的术语比较</h4><p><img src="https://cdn.jsdelivr.net/gh/lyloou/img/Elasticsearch_%3E_2021-12-29-14-46-52.png" alt="Elasticsearch_&gt;_2021-12-29-14-46-52"></p>
 <h4 id="什么是-shard（分片）"><a href="#什么是-shard（分片）" class="headerlink" title="什么是 shard（分片）"></a>什么是 shard（分片）</h4><p>将索引数据分成若干小块的过程，称为分片。</p>
 <p>分片的作用是：当文档数据量太多，磁盘和处理能力不足，对客户端的请求响应变慢时，使用分片可以改善这些问题（吞吐量、性能）。</p>
 <p>单台服务器无法存储大量数据，es 通过分片将数据分散到多个服务器，（也就是说可以横向扩展）</p>
@@ -1084,7 +1084,7 @@
 <li>不可逆</li>
 <li>输入不室长，输出定长的128-bits（用32个16进制字符表示）</li>
 </ul>
-<h4 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h4><p><img src="https://raw.githubusercontent.com/lyloou/img/develop/img/cbbfed12-d2a2-42d2-a5ad-26e6c72612fa_20211220152522726_3266a3.png" alt="img"></p>
+<h4 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h4><p><img src="https://cdn.jsdelivr.net/gh/lyloou/img/img/cbbfed12-d2a2-42d2-a5ad-26e6c72612fa_20211220152522726_3266a3.png" alt="img"></p>
 <h4 id="使用场合"><a href="#使用场合" class="headerlink" title="使用场合"></a>使用场合</h4><p>用于各种程序语言中，以确保资料传递无误（摘要）。</p>
 <h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><ul>
 <li><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/MD5">MD5 - 维基百科，自由的百科全书</a></li>
@@ -1101,9 +1101,9 @@
 <li><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/SHA%E5%AE%B6%E6%97%8F">SHA家族 - 维基百科，自由的百科全书</a></li>
 <li><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/SHA-3">SHA-3 - 维基百科，自由的百科全书</a></li>
 </ul>
-<h2 id="Base64-基底64，一种编码方式，非算法"><a href="#Base64-基底64，一种编码方式，非算法" class="headerlink" title="Base64(基底64，一种编码方式，非算法)"></a>Base64(基底64，一种编码方式，非算法)</h2><h4 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h4><p>是一种基于64个可打印字符来表示二进制数据的表示方法。<br>字符有：[0-9、A-Z、a-z、+/]<br>还有类似其它的编码方式，如Base32。对比Base32，Base64有更多的字符用于编码，其编码后的长度要更短。还有Base58，用于比特币中，不使用易混淆的字符[不使用数字”0”，字母大写”O”，字母大写”I”，和字母小写”l”，以及”+”和”/“符号]<br>目的是：<br><img src="https://raw.githubusercontent.com/lyloou/img/develop/img/91d85977-78d4-4a52-a925-b016099f1568_20211220152908396_57b035.png" alt="img"></p>
+<h2 id="Base64-基底64，一种编码方式，非算法"><a href="#Base64-基底64，一种编码方式，非算法" class="headerlink" title="Base64(基底64，一种编码方式，非算法)"></a>Base64(基底64，一种编码方式，非算法)</h2><h4 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h4><p>是一种基于64个可打印字符来表示二进制数据的表示方法。<br>字符有：[0-9、A-Z、a-z、+/]<br>还有类似其它的编码方式，如Base32。对比Base32，Base64有更多的字符用于编码，其编码后的长度要更短。还有Base58，用于比特币中，不使用易混淆的字符[不使用数字”0”，字母大写”O”，字母大写”I”，和字母小写”l”，以及”+”和”/“符号]<br>目的是：<br><img src="https://cdn.jsdelivr.net/gh/lyloou/img/img/91d85977-78d4-4a52-a925-b016099f1568_20211220152908396_57b035.png" alt="img"></p>
 <p>可以编码，也可以解码。<br><strong>是一种编码方式，切记不要误用于加密、解密的场合（有DES、IDEA等对称加密算法）。</strong></p>
-<h4 id="使用场合-1"><a href="#使用场合-1" class="headerlink" title="使用场合"></a>使用场合</h4><p>常用于在处理文本数据的场合，表示、传输、存储一些二进制数据，包括MIME的电子邮件及XML的一些复杂数据。<br>如：Base64编码图片、MIME内容、URL（用于传递参数）。<br><img src="https://raw.githubusercontent.com/lyloou/img/develop/img/ddd8938c-0386-424d-b7b8-4c16b5889f7c_20211220152522708_ebc258.jpg" alt="img"><br><img src="https://raw.githubusercontent.com/lyloou/img/develop/img/0bd15490-2c01-4cfc-aa2f-b0d0f1a80560_20211220152522780_cbb058.jpg" alt="img"></p>
+<h4 id="使用场合-1"><a href="#使用场合-1" class="headerlink" title="使用场合"></a>使用场合</h4><p>常用于在处理文本数据的场合，表示、传输、存储一些二进制数据，包括MIME的电子邮件及XML的一些复杂数据。<br>如：Base64编码图片、MIME内容、URL（用于传递参数）。<br><img src="https://cdn.jsdelivr.net/gh/lyloou/img/img/ddd8938c-0386-424d-b7b8-4c16b5889f7c_20211220152522708_ebc258.jpg" alt="img"><br><img src="https://cdn.jsdelivr.net/gh/lyloou/img/img/0bd15490-2c01-4cfc-aa2f-b0d0f1a80560_20211220152522780_cbb058.jpg" alt="img"></p>
 <h4 id="参考资料-2"><a href="#参考资料-2" class="headerlink" title="参考资料"></a>参考资料</h4><ul>
 <li><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Base64">Base64 - 维基百科，自由的百科全书</a></li>
 <li><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Base58">Base58 - 维基百科，自由的百科全书</a></li>
@@ -1226,7 +1226,7 @@
 <h2 id="怎样完整地保留提交记录？"><a href="#怎样完整地保留提交记录？" class="headerlink" title="怎样完整地保留提交记录？"></a>怎样完整地保留提交记录？</h2><p>假设有三个项目</p>
 <figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">A：远程地址为：git@github.com:lyloou/merge_a.git ，分支为<span class="keyword">master</span></span><br><span class="line"><span class="title">B</span>：远程地址为：git@github.com:lyloou/merge_b.git ，分支为<span class="keyword">master</span></span><br><span class="line"><span class="title">C</span>：远程地址为：git@github.com:lyloou/merge_c.git ，分支为<span class="literal">master</span></span><br></pre></td></tr></table></figure>
 
-<p>合并结果为：<a href="mailto:&#103;&#x69;&#116;&#x40;&#x67;&#x69;&#116;&#x68;&#x75;&#98;&#x2e;&#x63;&#x6f;&#109;">&#103;&#x69;&#116;&#x40;&#x67;&#x69;&#116;&#x68;&#x75;&#98;&#x2e;&#x63;&#x6f;&#109;</a>:lyloou/merge_all.git ，分支为 master</p>
+<p>合并结果为：<a href="mailto:&#103;&#105;&#116;&#64;&#x67;&#105;&#x74;&#104;&#117;&#x62;&#46;&#x63;&#111;&#109;">&#103;&#105;&#116;&#64;&#x67;&#105;&#x74;&#104;&#117;&#x62;&#46;&#x63;&#111;&#109;</a>:lyloou/merge_all.git ，分支为 master</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">merge_all</span><br><span class="line">  -- merge_a</span><br><span class="line">  -- merge_b</span><br><span class="line">  -- merge_c</span><br></pre></td></tr></table></figure>
 
 <p><strong>操作步骤</strong></p>
