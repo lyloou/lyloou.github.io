@@ -827,7 +827,7 @@
 </ul>
 <h2 id="打包和解压"><a href="#打包和解压" class="headerlink" title="打包和解压"></a>打包和解压</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -zcvf ngrok_lyloou_com.tar.gz bin</span><br><span class="line">tar -zxvf ngrok_lyloou_com.tar.gz</span><br></pre></td></tr></table></figure>
 
-<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>realpath ngrok_lyloou_com.tar.gz # 获取文件路径<br>scp <a href="mailto:&#114;&#x6f;&#x6f;&#116;&#x40;&#49;&#x37;&#48;&#x2e;&#x31;&#48;&#x2e;&#x30;&#x2e;&#x31;&#48;&#48;">&#114;&#x6f;&#x6f;&#116;&#x40;&#49;&#x37;&#48;&#x2e;&#x31;&#48;&#x2e;&#x30;&#x2e;&#x31;&#48;&#48;</a>:/root/t/ngrok_lyloou_com.tar.gz ngrok_lyloou_com.tar.gz # 从服务器拉取文件</p>
+<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>realpath ngrok_lyloou_com.tar.gz # 获取文件路径<br>scp <a href="mailto:&#x72;&#111;&#111;&#116;&#64;&#49;&#x37;&#48;&#x2e;&#49;&#x30;&#x2e;&#x30;&#x2e;&#x31;&#x30;&#48;">&#x72;&#111;&#111;&#116;&#64;&#49;&#x37;&#48;&#x2e;&#49;&#x30;&#x2e;&#x30;&#x2e;&#x31;&#x30;&#48;</a>:/root/t/ngrok_lyloou_com.tar.gz ngrok_lyloou_com.tar.gz # 从服务器拉取文件</p>
 <h2 id="运行服务器（已经在上面的build-ngrok-sh中配置过了）"><a href="#运行服务器（已经在上面的build-ngrok-sh中配置过了）" class="headerlink" title="运行服务器（已经在上面的build_ngrok.sh中配置过了）"></a>运行服务器（已经在上面的<code>build_ngrok.sh</code>中配置过了）</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">./ngrokd -domain=<span class="string">&quot;ngrok.lyloou.com&quot;</span> -httpAddr=<span class="string">&quot;:80&quot;</span> -httpsAddr=<span class="string">&quot;:443&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 或者后台运行</span></span><br><span class="line"><span class="built_in">mkdir</span> out</span><br><span class="line"><span class="built_in">chmod</span> +x ngrokd</span><br><span class="line"><span class="built_in">nohup</span> ./ngrokd -domain=<span class="string">&quot;ngrok.lyloou.com&quot;</span> -httpAddr=<span class="string">&quot;:80&quot;</span> -httpsAddr=<span class="string">&quot;:443&quot;</span>  &gt; out/nohup_log.out 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
 
 <h2 id="运行客户端（在上面的build-ngrok-sh中配置并生成了一个案例ngrok-blog-sh）"><a href="#运行客户端（在上面的build-ngrok-sh中配置并生成了一个案例ngrok-blog-sh）" class="headerlink" title="运行客户端（在上面的build_ngrok.sh中配置并生成了一个案例ngrok_blog.sh）"></a>运行客户端（在上面的<code>build_ngrok.sh</code>中配置并生成了一个案例<code>ngrok_blog.sh</code>）</h2><p>添加配置 ngrok.cfg：</p>
@@ -868,91 +868,6 @@
 <h2 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h2><figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">#一、系统说明</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> Windows 使用<span class="code">`windows_amd64`</span>版本</span><br><span class="line"><span class="bullet">-</span> Mac 使用<span class="code">`darwin_amd64`</span>版本</span><br><span class="line"><span class="bullet">-</span> Linux 使用<span class="code">`linux`</span>版本</span><br><span class="line"></span><br><span class="line"><span class="section">#二、配置说明</span></span><br><span class="line">.\ngrok.exe -config=.\ngrok.cfg -subdomain=lou -proto=http 80</span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> subdomain 指向自定义的子域名</span><br><span class="line"><span class="bullet">-</span> proto 指向使用的协议</span><br><span class="line"><span class="bullet">-</span> 随后的数字表示：准备映射出去的端口号</span><br><span class="line"></span><br><span class="line"><span class="section"># 三、使用方法</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> Windows 系统执行 ngrok.bat</span><br><span class="line"><span class="bullet">-</span> Mac 和 Linux 系统执行 ngrok.sh</span><br><span class="line"></span><br><span class="line"><span class="section"># 四、访问方式</span></span><br><span class="line"></span><br><span class="line">浏览器中打开链接：</span><br><span class="line">[<span class="string">http://lou.ngrok.lyloou.com</span>](<span class="link">http://lou.ngrok.lyloou.com</span>)</span><br></pre></td></tr></table></figure>
 
 <h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p><a target="_blank" rel="noopener" href="https://github.com/lyloou/build_ngrok">https://github.com/lyloou/build_ngrok</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://lyloou.com/sql/redis-cluster/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/assets/images/avatar.png">
-      <meta itemprop="name" content="lyloou">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="lyloou">
-      <meta itemprop="description" content="/* Better than last best */">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | lyloou">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/sql/redis-cluster/" class="post-title-link" itemprop="url">Redis集群</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2018-11-10 17:29:00" itemprop="dateCreated datePublished" datetime="2018-11-10T17:29:00+08:00">2018-11-10</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="docker-搭建-redis-伪集群"><a href="#docker-搭建-redis-伪集群" class="headerlink" title="docker 搭建 redis 伪集群"></a>docker 搭建 redis 伪集群</h1><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://juejin.im/post/6844903809005649927">Docker Redis 5.0 集群（cluster）搭建 - 掘金</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/mafly/p/redis_cluster.html">Redis 集群搭建详细指南 - Mafly - 博客园</a></li>
-</ul>
-<h2 id="创建网段"><a href="#创建网段" class="headerlink" title="创建网段"></a>创建网段</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker network create redis-net</span><br><span class="line">docker network <span class="built_in">ls</span></span><br><span class="line">docker inspect redis-net</span><br></pre></td></tr></table></figure>
-
-<h2 id="模板配置-redis-cluster-tmpl"><a href="#模板配置-redis-cluster-tmpl" class="headerlink" title="模板配置 redis-cluster.tmpl"></a>模板配置 redis-cluster.tmpl</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">port <span class="variable">$&#123;PORT&#125;</span></span><br><span class="line">protected-mode no</span><br><span class="line">cluster-enabled <span class="built_in">yes</span></span><br><span class="line">cluster-config-file nodes.conf</span><br><span class="line">cluster-node-timeout 5000</span><br><span class="line">cluster-announce-ip 172.20.0.1</span><br><span class="line">cluster-announce-port <span class="variable">$&#123;PORT&#125;</span></span><br><span class="line">cluster-announce-bus-port 1<span class="variable">$&#123;PORT&#125;</span></span><br><span class="line">appendonly <span class="built_in">yes</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="根据模板批量创建配置文件"><a href="#根据模板批量创建配置文件" class="headerlink" title="根据模板批量创建配置文件"></a>根据模板批量创建配置文件</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> port <span class="keyword">in</span> `<span class="built_in">seq</span> 6000 6005`; <span class="keyword">do</span> \</span><br><span class="line">  <span class="built_in">mkdir</span> -p ./<span class="variable">$&#123;port&#125;</span>/conf \</span><br><span class="line">  &amp;&amp; PORT=<span class="variable">$&#123;port&#125;</span> envsubst &lt; ./redis-cluster.tmpl &gt; ./<span class="variable">$&#123;port&#125;</span>/conf/redis.conf \</span><br><span class="line">  &amp;&amp; <span class="built_in">mkdir</span> -p ./<span class="variable">$&#123;port&#125;</span>/data; \</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="批量运行-注意修改目录"><a href="#批量运行-注意修改目录" class="headerlink" title="批量运行(注意修改目录)"></a>批量运行(注意修改目录)</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> port <span class="keyword">in</span> `<span class="built_in">seq</span> 6000 6005`; <span class="keyword">do</span> \</span><br><span class="line">docker run -d -ti -p <span class="variable">$&#123;port&#125;</span>:<span class="variable">$&#123;port&#125;</span> -p 1<span class="variable">$&#123;port&#125;</span>:1<span class="variable">$&#123;port&#125;</span> \</span><br><span class="line">-v /root/w/cluster/redis-cluster/<span class="variable">$&#123;port&#125;</span>/conf/redis.conf:/usr/local/etc/redis/redis.conf \</span><br><span class="line">-v /root/w/cluster/redis-cluster/<span class="variable">$&#123;port&#125;</span>/data:/data \</span><br><span class="line">--restart always --name redis-<span class="variable">$&#123;port&#125;</span> --net redis-net \</span><br><span class="line">--sysctl net.core.somaxconn=1024 redis:5.0.3 redis-server /usr/local/etc/redis/redis.conf; \</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="运行和查看"><a href="#运行和查看" class="headerlink" title="运行和查看"></a>运行和查看</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it redis-6000 bash</span><br><span class="line">redis-cli --cluster create 172.20.0.1:6000 172.20.0.1:6001 172.20.0.1:6002 172.20.0.1:6003 172.20.0.1:6004 172.20.0.1:6005 --cluster-replicas 1</span><br><span class="line"></span><br><span class="line"><span class="comment"># 连接客户端，查看主从信息</span></span><br><span class="line">redis-cli -c -p 6000</span><br><span class="line">redis&gt; keys *</span><br><span class="line">redis&gt; info replication</span><br></pre></td></tr></table></figure>
-
-<h2 id="开放防火墙"><a href="#开放防火墙" class="headerlink" title="开放防火墙"></a>开放防火墙</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> port <span class="keyword">in</span> `<span class="built_in">seq</span> 7000 7005`; <span class="keyword">do</span> \</span><br><span class="line">  firewall-cmd --zone=public --add-port=<span class="variable">$&#123;port&#125;</span>/tcp --permanent</span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#重新载入</span></span><br><span class="line">firewall-cmd --reload</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="停止和移除"><a href="#停止和移除" class="headerlink" title="停止和移除"></a>停止和移除</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 暂停容器并删除容器</span></span><br><span class="line"><span class="keyword">for</span> port <span class="keyword">in</span> `<span class="built_in">seq</span> 6000 6005`; <span class="keyword">do</span> \</span><br><span class="line">  docker stop redis-<span class="variable">$&#123;port&#125;</span>;</span><br><span class="line">  docker <span class="built_in">rm</span> redis-<span class="variable">$&#123;port&#125;</span>;</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -1049,6 +964,91 @@
 <h2 id="redis-过期策略及定期策略配置-bobozai86-的博客-CSDN-博客-redis-过期策略-配置文件"><a href="#redis-过期策略及定期策略配置-bobozai86-的博客-CSDN-博客-redis-过期策略-配置文件" class="headerlink" title="redis 过期策略及定期策略配置_bobozai86 的博客-CSDN 博客_redis 过期策略 配置文件"></a><a target="_blank" rel="noopener" href="https://blog.csdn.net/bobozai86/article/details/112299322">redis 过期策略及定期策略配置_bobozai86 的博客-CSDN 博客_redis 过期策略 配置文件</a></h2><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">redis 过期策略</span><br><span class="line">redis 过期策略是：定期删除+惰性删除。</span><br><span class="line">所谓定期删除，指的是 redis 默认是每隔 100ms 就随机抽取一些设置了过期时间的 key，检查其是否过期，如果过期就删除。</span><br><span class="line">假设 redis 里放了 10w 个 key，都设置了过期时间，你每隔几百毫秒，就检查 10w 个 key，那 redis 基本上就死了，cpu 负载会很高的，消耗在你的检查过期 key 上了。注意，这里可不是每隔 100ms 就遍历所有的设置过期时间的 key，那样就是一场性能上的灾难。实际上 redis 是每隔 100ms 随机抽取一些 key 来检查和删除的。</span><br><span class="line"></span><br><span class="line">但是问题是，定期删除可能会导致很多过期 key 到了时间并没有被删除掉，那咋整呢？所以就是惰性删除了。这就是说，在你获取某个 key 的时候，redis 会检查一下 ，这个 key 如果设置了过期时间那么是否过期了？如果过期了此时就会删除，不会给你返回任何东西。</span><br><span class="line">获取 key 的时候，如果此时 key 已经过期，就删除，不会返回任何东西。</span><br><span class="line">但是实际上这还是有问题的，如果定期删除漏掉了很多过期 key，然后你也没及时去查，也就没走惰性删除，此时会怎么样？如果大量过期 key 堆积在内存里，导致 redis 内存块耗尽了，咋整？</span><br><span class="line">答案是：走内存淘汰机制。</span><br><span class="line"></span><br><span class="line">内存淘汰机制</span><br><span class="line">redis 内存淘汰机制有以下几个：</span><br><span class="line">• noeviction: 当内存不足以容纳新写入数据时，新写入操作会报错，这个一般没人用吧，实在是太恶心了。</span><br><span class="line">• allkeys-lru：当内存不足以容纳新写入数据时，在键空间中，移除最近最少使用的 key（这个是最常用的）。</span><br><span class="line">• allkeys-random：当内存不足以容纳新写入数据时，在键空间中，随机移除某个 key，这个一般没人用吧，为啥要随机，肯定是把最近最少使用的 key 给干掉啊。</span><br><span class="line">• volatile-lru：当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，移除最近最少使用的 key（这个一般不太合适）。</span><br><span class="line">• volatile-random：当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，随机移除某个 key。</span><br><span class="line">• volatile-ttl：当内存不足以容纳新写入数据时，在设置了过期时间的键空间中，有更早过期时间的 key 优先移除。</span><br></pre></td></tr></table></figure>
 
 <p><a target="_blank" rel="noopener" href="https://help.aliyun.com/document_detail/142171.html">调整 Redis 定期任务的执行频率</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://lyloou.com/sql/redis-cluster/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/images/avatar.png">
+      <meta itemprop="name" content="lyloou">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lyloou">
+      <meta itemprop="description" content="/* Better than last best */">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lyloou">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/sql/redis-cluster/" class="post-title-link" itemprop="url">Redis集群</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-11-10 17:29:00" itemprop="dateCreated datePublished" datetime="2018-11-10T17:29:00+08:00">2018-11-10</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="docker-搭建-redis-伪集群"><a href="#docker-搭建-redis-伪集群" class="headerlink" title="docker 搭建 redis 伪集群"></a>docker 搭建 redis 伪集群</h1><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://juejin.im/post/6844903809005649927">Docker Redis 5.0 集群（cluster）搭建 - 掘金</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/mafly/p/redis_cluster.html">Redis 集群搭建详细指南 - Mafly - 博客园</a></li>
+</ul>
+<h2 id="创建网段"><a href="#创建网段" class="headerlink" title="创建网段"></a>创建网段</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker network create redis-net</span><br><span class="line">docker network <span class="built_in">ls</span></span><br><span class="line">docker inspect redis-net</span><br></pre></td></tr></table></figure>
+
+<h2 id="模板配置-redis-cluster-tmpl"><a href="#模板配置-redis-cluster-tmpl" class="headerlink" title="模板配置 redis-cluster.tmpl"></a>模板配置 redis-cluster.tmpl</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">port <span class="variable">$&#123;PORT&#125;</span></span><br><span class="line">protected-mode no</span><br><span class="line">cluster-enabled <span class="built_in">yes</span></span><br><span class="line">cluster-config-file nodes.conf</span><br><span class="line">cluster-node-timeout 5000</span><br><span class="line">cluster-announce-ip 172.20.0.1</span><br><span class="line">cluster-announce-port <span class="variable">$&#123;PORT&#125;</span></span><br><span class="line">cluster-announce-bus-port 1<span class="variable">$&#123;PORT&#125;</span></span><br><span class="line">appendonly <span class="built_in">yes</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="根据模板批量创建配置文件"><a href="#根据模板批量创建配置文件" class="headerlink" title="根据模板批量创建配置文件"></a>根据模板批量创建配置文件</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> port <span class="keyword">in</span> `<span class="built_in">seq</span> 6000 6005`; <span class="keyword">do</span> \</span><br><span class="line">  <span class="built_in">mkdir</span> -p ./<span class="variable">$&#123;port&#125;</span>/conf \</span><br><span class="line">  &amp;&amp; PORT=<span class="variable">$&#123;port&#125;</span> envsubst &lt; ./redis-cluster.tmpl &gt; ./<span class="variable">$&#123;port&#125;</span>/conf/redis.conf \</span><br><span class="line">  &amp;&amp; <span class="built_in">mkdir</span> -p ./<span class="variable">$&#123;port&#125;</span>/data; \</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="批量运行-注意修改目录"><a href="#批量运行-注意修改目录" class="headerlink" title="批量运行(注意修改目录)"></a>批量运行(注意修改目录)</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> port <span class="keyword">in</span> `<span class="built_in">seq</span> 6000 6005`; <span class="keyword">do</span> \</span><br><span class="line">docker run -d -ti -p <span class="variable">$&#123;port&#125;</span>:<span class="variable">$&#123;port&#125;</span> -p 1<span class="variable">$&#123;port&#125;</span>:1<span class="variable">$&#123;port&#125;</span> \</span><br><span class="line">-v /root/w/cluster/redis-cluster/<span class="variable">$&#123;port&#125;</span>/conf/redis.conf:/usr/local/etc/redis/redis.conf \</span><br><span class="line">-v /root/w/cluster/redis-cluster/<span class="variable">$&#123;port&#125;</span>/data:/data \</span><br><span class="line">--restart always --name redis-<span class="variable">$&#123;port&#125;</span> --net redis-net \</span><br><span class="line">--sysctl net.core.somaxconn=1024 redis:5.0.3 redis-server /usr/local/etc/redis/redis.conf; \</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="运行和查看"><a href="#运行和查看" class="headerlink" title="运行和查看"></a>运行和查看</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it redis-6000 bash</span><br><span class="line">redis-cli --cluster create 172.20.0.1:6000 172.20.0.1:6001 172.20.0.1:6002 172.20.0.1:6003 172.20.0.1:6004 172.20.0.1:6005 --cluster-replicas 1</span><br><span class="line"></span><br><span class="line"><span class="comment"># 连接客户端，查看主从信息</span></span><br><span class="line">redis-cli -c -p 6000</span><br><span class="line">redis&gt; keys *</span><br><span class="line">redis&gt; info replication</span><br></pre></td></tr></table></figure>
+
+<h2 id="开放防火墙"><a href="#开放防火墙" class="headerlink" title="开放防火墙"></a>开放防火墙</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> port <span class="keyword">in</span> `<span class="built_in">seq</span> 7000 7005`; <span class="keyword">do</span> \</span><br><span class="line">  firewall-cmd --zone=public --add-port=<span class="variable">$&#123;port&#125;</span>/tcp --permanent</span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#重新载入</span></span><br><span class="line">firewall-cmd --reload</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="停止和移除"><a href="#停止和移除" class="headerlink" title="停止和移除"></a>停止和移除</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 暂停容器并删除容器</span></span><br><span class="line"><span class="keyword">for</span> port <span class="keyword">in</span> `<span class="built_in">seq</span> 6000 6005`; <span class="keyword">do</span> \</span><br><span class="line">  docker stop redis-<span class="variable">$&#123;port&#125;</span>;</span><br><span class="line">  docker <span class="built_in">rm</span> redis-<span class="variable">$&#123;port&#125;</span>;</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
